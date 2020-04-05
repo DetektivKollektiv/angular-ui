@@ -1,0 +1,14 @@
+<div style="align-items: center;">
+    <h3>Lieber Detektiv, löse bitte folgenden Fall.</h3>
+
+    <h5>Behauptung:</h5>
+    <p>{{itemToReview?.Text}}</p>
+
+    <h5>Aktuelles Rating:</h5>
+    <p>Gut: {{itemToReview?.ReviewGood}}</p>
+    <p>Schlecht: {{itemToReview?.ReviewBad}}</p>
+
+    <button (click)="reviewItem(true)">Vertrauenswürdig</button>
+    <button (click)="reviewItem(false)">Nicht vertrauenswürdig</button>    
+</div> 
+
