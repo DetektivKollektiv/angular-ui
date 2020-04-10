@@ -1,5 +1,12 @@
-<p>dashboard works!</p>
-
-<button (click)="checkItem()">Check</button>
-
-<button (click)="reviewItem()">Review</button>
+<div style="text-align: center;">
+  <h3>Willkommen beim DetektivKollektiv.</h3>
+  <p>Mächtest du einen neuen Fall einstellen oder lieber versuchen einen der Fälle in unserer Kartei aufzuklären?</p>
+  <button mat-raised-button color="primary" (click)="checkItem()">
+    <mat-icon>add</mat-icon>
+    Einen Fall einreichen
+  </button>
+  <button mat-raised-button color="primary" (click)="reviewItem()">
+    <mat-icon class="icon">find_in_page</mat-icon>
+    Einen Fall lösen
+  </button>
+</div>

@@ -1,4 +1,6 @@
+import { Item } from './item';
+
 export class CheckResult {
-    itemFound?: boolean;
-    credibilityScore?: number;
+  item?: Item;
+  created?: boolean;
 }

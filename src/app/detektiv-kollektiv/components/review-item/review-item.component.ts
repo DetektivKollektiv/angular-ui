@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../../model/item';
 import { ItemsService } from '../../services/items.service';
-import { tap, map } from 'rxjs/operators';
+import { Review } from '../../model/review';
+import { MatDialog } from '@angular/material/dialog';
+import { ReviewResultDialogComponent } from '../dialogs/review-result-dialog/review-result-dialog.component';
 
 @Component({
   selector: 'app-review-item',
@@ -11,20 +13,41 @@ import { tap, map } from 'rxjs/operators';
 export class ReviewItemComponent implements OnInit {
   public itemToReview: Item;
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(
+    private resultDialog: MatDialog,
+    private itemsService: ItemsService) { }
 
   ngOnInit(): void {
-    this.itemsService.getItem().subscribe((item: Item) => {
-      console.log(item);
-      this.itemToReview = item;
-    });
+    this.loadNewItem();
   }
 
   public reviewItem(review: boolean) {
     console.log(review);
-    
-    /*this.itemsService.reviewItem(review).subscribe(
-      (result: Item) => console.log(result)
-    );*/
+
+    const reviewRequest: Review = { itemId: this.itemToReview.ItemId, goodReview: review };
+
+    this.itemsService.reviewItem(reviewRequest).subscribe(
+      (result: Item) => {
+        this.openDialog(result);
+      }
+    );
+  }
+
+  openDialog(item: Item): void {
+
+    const dialogRef = this.resultDialog.open(ReviewResultDialogComponent, {
+      width: '500px',
+      data: item
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadNewItem();
+    });
+  }
+
+  private loadNewItem(): void {
+    this.itemsService.getItem().subscribe((item: Item) => {
+      this.itemToReview = {...item};
+    });
   }
 }

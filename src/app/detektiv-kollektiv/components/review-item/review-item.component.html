@@ -1,14 +1,19 @@
-<div style="align-items: center;">
+<div style="text-align: center;">
     <h3>Lieber Detektiv, löse bitte folgenden Fall.</h3>
 
     <h5>Behauptung:</h5>
     <p>{{itemToReview?.Text}}</p>
 
-    <h5>Aktuelles Rating:</h5>
-    <p>Gut: {{itemToReview?.ReviewGood}}</p>
-    <p>Schlecht: {{itemToReview?.ReviewBad}}</p>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Anmerkungen</mat-label>
+        <textarea matInput placeholder="Notiere hier wie du zu deiner Entscheidung kommst..."></textarea>
+      </mat-form-field>
+    </div>
 
-    <button (click)="reviewItem(true)">Vertrauenswürdig</button>
-    <button (click)="reviewItem(false)">Nicht vertrauenswürdig</button>    
-</div> 
+    <div>
+      <button mat-raised-button color="primary" (click)="reviewItem(true)">Vertrauenswürdig</button>
+      <button mat-raised-button color="secondary" (click)="reviewItem(false)">Nicht vertrauenswürdig</button>
+    </div>
+</div>
 
