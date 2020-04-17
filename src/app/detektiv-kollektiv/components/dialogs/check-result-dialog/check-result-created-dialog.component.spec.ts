@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CheckResultCreatedDialogComponent } from './check-result-dialog.component';
+import { CheckResultCreatedDialogComponent } from './check-result-created-dialog.component';
 
 describe('CheckResultDialogComponent', () => {
   let component: CheckResultCreatedDialogComponent;

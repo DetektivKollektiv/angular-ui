@@ -8,11 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { DetektivKollektivModule } from './detektiv-kollektiv/detektiv-kollektiv.module';
+import { LoaderComponent } from './shared/loader/component/loader.component';
+import {LoaderService} from './shared/loader/service/loader.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -20,10 +23,12 @@ import { DetektivKollektivModule } from './detektiv-kollektiv/detektiv-kollektiv
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule,
-    DetektivKollektivModule
+    MaterialModule
   ],
-  providers: [],
+  providers: [LoaderService],
+  exports: [
+    LoaderComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

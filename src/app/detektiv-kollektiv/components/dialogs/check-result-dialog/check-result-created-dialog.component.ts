@@ -3,8 +3,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-check-result-dialog',
-  templateUrl: './check-result-dialog.component.html',
-  styleUrls: ['./check-result-dialog.component.scss']
+  templateUrl: './check-result-created-dialog.component.html',
+  styleUrls: ['./check-result-created-dialog.component.scss']
 })
 export class CheckResultCreatedDialogComponent {
 

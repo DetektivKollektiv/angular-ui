@@ -4,8 +4,9 @@ import { ReviewItemComponent } from './components/review-item/review-item.compon
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MaterialModule } from '../material/material.module';
 import { ReviewResultDialogComponent } from './components/dialogs/review-result-dialog/review-result-dialog.component';
-import { CheckResultCreatedDialogComponent } from './components/dialogs/check-result-dialog/check-result-dialog.component';
+import { CheckResultCreatedDialogComponent } from './components/dialogs/check-result-dialog/check-result-created-dialog.component';
 import { CheckResultFoundDialogComponent } from './components/dialogs/check-result-found-dialog/check-result-found-dialog.component';
+import {AppModule} from '../app.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,9 @@ import { CheckResultFoundDialogComponent } from './components/dialogs/check-resu
     CheckResultCreatedDialogComponent,
     CheckResultFoundDialogComponent
   ],
-  imports: [
-    MaterialModule
-  ]
+    imports: [
+        MaterialModule,
+        AppModule
+    ]
 })
 export class DetektivKollektivModule { }

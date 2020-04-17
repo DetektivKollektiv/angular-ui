@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -18,7 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
-    ReactiveFormsModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    OverlayModule
   ],
   exports: [
     MatSidenavModule,
@@ -28,7 +32,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
-    ReactiveFormsModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
+    OverlayModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+}
