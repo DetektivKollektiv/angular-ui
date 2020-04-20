@@ -4,6 +4,8 @@ import { ItemsService } from '../../services/items.service';
 import { Review } from '../../model/review';
 import { MatDialog } from '@angular/material/dialog';
 import { ReviewResultDialogComponent } from '../dialogs/review-result-dialog/review-result-dialog.component';
+import {finalize} from 'rxjs/operators';
+import {LoaderService} from '../../../shared/loader/service/loader.service';
 
 @Component({
   selector: 'app-review-item',
@@ -13,20 +15,20 @@ import { ReviewResultDialogComponent } from '../dialogs/review-result-dialog/rev
 export class ReviewItemComponent implements OnInit {
   public itemToReview: Item;
 
-  constructor(
-    private resultDialog: MatDialog,
-    private itemsService: ItemsService) { }
+  constructor(private resultDialog: MatDialog,
+              private itemsService: ItemsService,
+              private loaderService: LoaderService) { }
 
   ngOnInit(): void {
     this.loadNewItem();
   }
 
   public reviewItem(review: boolean) {
-    console.log(review);
-
     const reviewRequest: Review = { itemId: this.itemToReview.ItemId, goodReview: review };
-
-    this.itemsService.reviewItem(reviewRequest).subscribe(
+    this.loaderService.show();
+    this.itemsService.reviewItem(reviewRequest).pipe(
+      finalize(() => this.loaderService.hide())
+    ).subscribe(
       (result: Item) => {
         this.openDialog(result);
       }
@@ -40,13 +42,17 @@ export class ReviewItemComponent implements OnInit {
       data: item
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.loadNewItem();
     });
   }
 
   private loadNewItem(): void {
-    this.itemsService.getItem().subscribe((item: Item) => {
+    this.loaderService.show();
+
+    this.itemsService.getItem().pipe(
+      finalize(() => this.loaderService.hide())
+    ).subscribe((item: Item) => {
       this.itemToReview = {...item};
     });
   }
