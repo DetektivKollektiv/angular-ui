@@ -5,14 +5,16 @@
     <p>{{itemToReview?.Text}}</p>
 
     <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>Anmerkungen</mat-label>
-        <textarea matInput placeholder="Notiere hier wie du zu deiner Entscheidung kommst..."></textarea>
-      </mat-form-field>
+      <form [formGroup]="reviewForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Anmerkungen</mat-label>
+          <textarea matInput formControlName="text" placeholder="Notiere hier wie du zu deiner Entscheidung kommst..."></textarea>
+        </mat-form-field>
+      </form>
     </div>
 
     <div>
-      <button mat-raised-button color="primary" (click)="reviewItem(true)">Vertrauenswürdig</button>
+      <button mat-raised-button color="accent" (click)="reviewItem(true)">Vertrauenswürdig</button>
       <button mat-raised-button color="secondary" (click)="reviewItem(false)">Nicht vertrauenswürdig</button>
     </div>
 </div>

@@ -1,11 +1,14 @@
 <div style="text-align: center;">
-  <h3>Willkommen beim DetektivKollektiv.</h3>
+  <div style="background: lightgray">
+    <img class="logo" src="../../../../assets/logo/Schrift.svg" height="50%" width="50%">
+  </div>
+  <h3>Willkommen beim DetectiveCollective{{loggedIn ? ', ' + username : ''}}!</h3>
   <p>Möchtest du einen neuen Fall einstellen oder lieber versuchen einen der Fälle in unserer Kartei aufzuklären?</p>
-  <button mat-raised-button color="primary" (click)="checkItem()">
+  <button mat-raised-button color="accent" (click)="checkItem()">
     <mat-icon>add</mat-icon>
     Einen Fall einreichen
   </button>
-  <button mat-raised-button color="primary" (click)="reviewItem()">
+  <button mat-raised-button color="accent" (click)="reviewItem()">
     <mat-icon class="icon">find_in_page</mat-icon>
     Einen Fall lösen
   </button>

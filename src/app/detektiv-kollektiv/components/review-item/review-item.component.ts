@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Item } from '../../model/item';
-import { ItemsService } from '../../services/items.service';
-import { Review } from '../../model/review';
-import { MatDialog } from '@angular/material/dialog';
-import { ReviewResultDialogComponent } from '../dialogs/review-result-dialog/review-result-dialog.component';
-import {finalize} from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Item} from '../../model/item';
+import {ItemsService} from '../../services/items/items.service';
+import {Review} from '../../model/review';
+import {MatDialog} from '@angular/material/dialog';
+import {ReviewResultDialogComponent} from '../dialogs/review-result-dialog/review-result-dialog.component';
+import {finalize, tap} from 'rxjs/operators';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {ReviewsService} from '../../services/reviews/reviews.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-review-item',
@@ -14,19 +17,27 @@ import {LoaderService} from '../../../shared/loader/service/loader.service';
 })
 export class ReviewItemComponent implements OnInit {
   public itemToReview: Item;
+  public reviewForm: FormGroup;
 
   constructor(private resultDialog: MatDialog,
+              private formBuilder: FormBuilder,
               private itemsService: ItemsService,
-              private loaderService: LoaderService) { }
+              private reviewsService: ReviewsService,
+              private authService: AuthService,
+              private loaderService: LoaderService) {
+    this.reviewForm = formBuilder.group({
+      text: ['', [Validators.required]]
+    });
+  }
 
   ngOnInit(): void {
     this.loadNewItem();
   }
 
   public reviewItem(review: boolean) {
-    const reviewRequest: Review = { itemId: this.itemToReview.ItemId, goodReview: review };
+    const reviewRequest: Review = {itemId: this.itemToReview.ItemId, text: this.reviewForm.value.text, source: '', goodReview: review};
     this.loaderService.show();
-    this.itemsService.reviewItem(reviewRequest).pipe(
+    this.reviewsService.reviewItem(reviewRequest).pipe(
       finalize(() => this.loaderService.hide())
     ).subscribe(
       (result: Item) => {
@@ -36,7 +47,6 @@ export class ReviewItemComponent implements OnInit {
   }
 
   openDialog(item: Item): void {
-
     const dialogRef = this.resultDialog.open(ReviewResultDialogComponent, {
       width: '500px',
       data: item
@@ -49,7 +59,7 @@ export class ReviewItemComponent implements OnInit {
 
   private loadNewItem(): void {
     this.loaderService.show();
-
+    this.reviewForm.reset();
     this.itemsService.getItem().pipe(
       finalize(() => this.loaderService.hide())
     ).subscribe((item: Item) => {

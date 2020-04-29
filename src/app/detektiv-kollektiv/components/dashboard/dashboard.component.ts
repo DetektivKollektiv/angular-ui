@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {LoaderService} from '../../../shared/loader/service/loader.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +8,16 @@ import {LoaderService} from '../../../shared/loader/service/loader.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public username: string;
+  public loggedIn: boolean;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.authService.isLoggedIn$.subscribe(loggedIn => this.loggedIn = loggedIn);
+    this.authService.auth$.subscribe(({username}) => this.username = username);
   }
 
   checkItem(): void {

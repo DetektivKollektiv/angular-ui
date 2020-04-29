@@ -7,9 +7,12 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
-import { DetektivKollektivModule } from './detektiv-kollektiv/detektiv-kollektiv.module';
 import { LoaderComponent } from './shared/loader/component/loader.component';
 import {LoaderService} from './shared/loader/service/loader.service';
+import {DetektivKollektivModule} from './detektiv-kollektiv/detektiv-kollektiv.module';
+import {AuthModule} from './shared/auth/auth.module';
+import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
+import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
 
 
 @NgModule({
@@ -23,9 +26,16 @@ import {LoaderService} from './shared/loader/service/loader.service';
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
+    DetektivKollektivModule,
+    AuthModule,
+    AmplifyAngularModule
   ],
-  providers: [LoaderService],
+  providers: [
+    LoaderService,
+    AmplifyService,
+    AuthGuard
+  ],
   exports: [
     LoaderComponent
   ],

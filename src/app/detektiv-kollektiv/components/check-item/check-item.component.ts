@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ItemsService} from '../../services/items.service';
+import {ItemsService} from '../../services/items/items.service';
 import {CheckResult} from '../../model/check-result';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {CheckResultCreatedDialogComponent} from '../dialogs/check-result-dialog/check-result-created-dialog.component';
@@ -19,7 +19,7 @@ export class CheckItemComponent {
 
   constructor(private resultDialog: MatDialog,
               private itemsService: ItemsService,
-              fb: FormBuilder,
+              private fb: FormBuilder,
               private router: Router,
               private loaderService: LoaderService) {
 

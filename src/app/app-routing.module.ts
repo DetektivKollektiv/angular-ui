@@ -1,23 +1,28 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { ReviewItemComponent } from './detektiv-kollektiv/components/review-item/review-item.component';
-import { CheckItemComponent } from './detektiv-kollektiv/components/check-item/check-item.component';
-import { DashboardComponent } from './detektiv-kollektiv/components/dashboard/dashboard.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {ReviewItemComponent} from './detektiv-kollektiv/components/review-item/review-item.component';
+import {CheckItemComponent} from './detektiv-kollektiv/components/check-item/check-item.component';
+import {DashboardComponent} from './detektiv-kollektiv/components/dashboard/dashboard.component';
+import {LoginComponent} from './detektiv-kollektiv/components/dialogs/login/login.component';
+import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
 
 
-const routes: Routes = [  
-  { path: 'review', component: ReviewItemComponent },
-  { path: 'check',      component: CheckItemComponent },
-  { path: 'dashboard',      component: DashboardComponent },
-  { path: '',
+const routes: Routes = [
+  {path: 'review', component: ReviewItemComponent, canActivate: [AuthGuard]},
+  {path: 'check', component: CheckItemComponent},
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'login', component: LoginComponent},
+  {
+    path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
-  // { path: '**', component: PageNotFoundComponent }  
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
