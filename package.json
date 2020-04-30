@@ -22,7 +22,6 @@
     "@angular/platform-browser": "~9.1.0",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
-    "@aws-amplify/ui-angular": "^0.2.3",
     "aws-amplify": "^3.0.9",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.5.4",
