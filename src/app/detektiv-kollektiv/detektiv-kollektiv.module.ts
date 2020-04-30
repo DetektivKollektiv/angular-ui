@@ -8,7 +8,6 @@ import {CheckResultCreatedDialogComponent} from './components/dialogs/check-resu
 import {CheckResultFoundDialogComponent} from './components/dialogs/check-result-found-dialog/check-result-found-dialog.component';
 import {LoginComponent} from './components/dialogs/login/login.component';
 import {AuthModule} from '../shared/auth/auth.module';
-import {AmplifyAngularModule} from 'aws-amplify-angular';
 import { NotLoggedInDialogComponent } from './components/dialogs/not-logged-in-dialog/not-logged-in-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -27,7 +26,6 @@ import {MatTabsModule} from '@angular/material/tabs';
   imports: [
     MaterialModule,
     AuthModule,
-    AmplifyAngularModule,
     FlexLayoutModule,
     MatTabsModule
   ]

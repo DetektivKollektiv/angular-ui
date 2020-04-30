@@ -11,7 +11,6 @@ import { LoaderComponent } from './shared/loader/component/loader.component';
 import {LoaderService} from './shared/loader/service/loader.service';
 import {DetektivKollektivModule} from './detektiv-kollektiv/detektiv-kollektiv.module';
 import {AuthModule} from './shared/auth/auth.module';
-import {AmplifyAngularModule, AmplifyService} from 'aws-amplify-angular';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
 
 
@@ -28,12 +27,10 @@ import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
     FlexLayoutModule,
     MaterialModule,
     DetektivKollektivModule,
-    AuthModule,
-    AmplifyAngularModule
+    AuthModule
   ],
   providers: [
     LoaderService,
-    AmplifyService,
     AuthGuard
   ],
   exports: [
