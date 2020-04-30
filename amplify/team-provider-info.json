@@ -1,25 +1,19 @@
 {
     "develop": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-angular-ui-develop-145807-authRole",
-            "UnauthRoleArn": "arn:aws:iam::891514678401:role/amplify-angular-ui-develop-145807-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::891514678401:role/amplify-angular-ui-develop-145807-authRole",
+            "AuthRoleName": "amplify-angular-ui-develop-153850-authRole",
+            "UnauthRoleArn": "arn:aws:iam::891514678401:role/amplify-angular-ui-develop-153850-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::891514678401:role/amplify-angular-ui-develop-153850-authRole",
             "Region": "eu-central-1",
-            "DeploymentBucketName": "amplify-angular-ui-develop-145807-deployment",
-            "UnauthRoleName": "amplify-angular-ui-develop-145807-unauthRole",
-            "StackName": "amplify-angular-ui-develop-145807",
-            "StackId": "arn:aws:cloudformation:eu-central-1:891514678401:stack/amplify-angular-ui-develop-145807/3d6a2570-8ae2-11ea-bfb5-02722d612c06",
-            "AmplifyAppId": "d2iho3pqp84cd0"
+            "DeploymentBucketName": "amplify-angular-ui-develop-153850-deployment",
+            "UnauthRoleName": "amplify-angular-ui-develop-153850-unauthRole",
+            "StackName": "amplify-angular-ui-develop-153850",
+            "StackId": "arn:aws:cloudformation:eu-central-1:891514678401:stack/amplify-angular-ui-develop-153850/ede863d0-8ae7-11ea-b45e-06bc90058f1a",
+            "AmplifyAppId": "d37gdd7nzqwiuz"
         },
         "categories": {
             "auth": {
-                "angularui56a47843": {}
-            },
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "d2iho3pqp84cd0",
-                    "type": "manual"
-                }
+                "angularui00e57545": {}
             }
         }
     }

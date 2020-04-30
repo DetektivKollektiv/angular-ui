@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "angularui56a47843_identitypool_56a47843",
+    "identityPoolName": "angularui00e57545_identitypool_00e57545",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "angula56a47843",
-    "userPoolName": "angularui56a47843_userpool_56a47843",
+    "resourceNameTruncated": "angula00e57545",
+    "userPoolName": "angularui00e57545_userpool_00e57545",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "angula56a47843_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "angula00e57545_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "angularui56a47843",
+    "resourceName": "angularui00e57545",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

@@ -7,7 +7,7 @@
         "config": {
             "SourceDir": "src",
             "DistributionDir": "dist/detektiv-kollektiv",
-            "BuildCommand": "npm run build",
+            "BuildCommand": "npm.cmd run-script build",
             "StartCommand": "ng serve"
         }
     },
