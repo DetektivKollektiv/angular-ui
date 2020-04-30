@@ -1,7 +1,4 @@
 {
-    "providers": [
-        "awscloudformation"
-    ],
     "projectName": "angular-ui",
     "version": "3.0",
     "frontend": "javascript",
@@ -10,8 +7,11 @@
         "config": {
             "SourceDir": "src",
             "DistributionDir": "dist/detektiv-kollektiv",
-            "BuildCommand": "npm.cmd run-script build",
+            "BuildCommand": "npm run build",
             "StartCommand": "ng serve"
         }
-    }
+    },
+    "providers": [
+        "awscloudformation"
+    ]
 }
