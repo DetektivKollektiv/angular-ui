@@ -12,12 +12,14 @@ import {LoaderService} from './shared/loader/service/loader.service';
 import {DetektivKollektivModule} from './detektiv-kollektiv/detektiv-kollektiv.module';
 import {AuthModule} from './shared/auth/auth.module';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
+import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/list-items.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
+    LoaderComponent,
+    ListItemsComponent
   ],
   imports: [
     BrowserModule,

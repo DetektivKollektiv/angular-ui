@@ -1,0 +1,20 @@
+<div style="text-align: center;">
+  <div style="background: lightgray">
+    <img class="logo" src="../../../../assets/logo/Schrift.svg" height="50%" width="50%">
+  </div>
+
+  <div style="text-align: left; padding-top: 15px; padding-left: 3em; padding-right: 3em;">
+
+    <mat-list>
+      <div mat-subheader>Alle Fälle</div>
+      <mat-list-item *ngFor="let item of itemsList">
+        <mat-icon mat-list-icon>chat</mat-icon>
+        <div mat-line>{{item.Text}}</div>
+      </mat-list-item>
+    </mat-list>
+    <button mat-icon-button color="basic" (click)="home()">
+      <mat-icon class="icon">arrow_back</mat-icon>
+    </button>
+    <br><br><br>
+
+</div>

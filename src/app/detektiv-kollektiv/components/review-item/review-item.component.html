@@ -10,8 +10,15 @@
           <mat-label>Anmerkungen</mat-label>
           <textarea matInput formControlName="text" placeholder="Notiere hier wie du zu deiner Entscheidung kommst..."></textarea>
         </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Quelle (optional)</mat-label>
+          <input matInput formControlName="source" placeholder="Gib hier optional URL als Quelle an.">
+        </mat-form-field>
       </form>
     </div>
+
+    <br>
 
     <div>
       <button mat-raised-button color="accent" (click)="reviewItem(true)">Vertrauenswürdig</button>
