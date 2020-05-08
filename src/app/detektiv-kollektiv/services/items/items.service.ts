@@ -24,6 +24,11 @@ export class ItemsService extends BaseService {
     return this.httpClient.get<Item>(this.randomItemUrl);
   }
 
+  // New method to get all items
+  public getAllItems(): Observable<Array<Item>> {
+    return this.httpClient.get<Array<Item>>(this.itemsUrl);
+  }
+
   public checkItem(text: string): Observable<CheckResult> {
     return this.httpClient.post(this.checkItemUrl, text, {observe: 'response'}).pipe(
       map(

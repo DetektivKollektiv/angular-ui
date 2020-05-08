@@ -26,7 +26,8 @@ export class ReviewItemComponent implements OnInit {
               private authService: AuthService,
               private loaderService: LoaderService) {
     this.reviewForm = formBuilder.group({
-      text: ['', [Validators.required]]
+      text: ['', [Validators.required]],
+      source: ['', [Validators.required]]
     });
   }
 
@@ -35,7 +36,7 @@ export class ReviewItemComponent implements OnInit {
   }
 
   public reviewItem(review: boolean) {
-    const reviewRequest: Review = {itemId: this.itemToReview.ItemId, text: this.reviewForm.value.text, source: '', goodReview: review};
+    const reviewRequest: Review = {itemId: this.itemToReview.ItemId, text: this.reviewForm.value.text, source: this.reviewForm.value.source, goodReview: review};
     this.loaderService.show();
     this.reviewsService.reviewItem(reviewRequest).pipe(
       finalize(() => this.loaderService.hide())
