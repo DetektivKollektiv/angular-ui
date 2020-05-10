@@ -11,6 +11,7 @@ import {MatDialogRef} from '@angular/material/dialog';
 export class LoginComponent implements OnInit {
   public signInForm: FormGroup = new FormGroup({});
   public registerForm: FormGroup = new FormGroup({});
+  private return: string;
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,

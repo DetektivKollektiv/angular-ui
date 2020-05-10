@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Item } from 'src/app/detektiv-kollektiv/model/item';
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Item} from 'src/app/detektiv-kollektiv/model/item';
 
 @Component({
   selector: 'app-check-result-found-dialog',
@@ -10,7 +10,8 @@ import { Item } from 'src/app/detektiv-kollektiv/model/item';
 export class CheckResultFoundDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<CheckResultFoundDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Item) {}
+              @Inject(MAT_DIALOG_DATA) public data: Item) {
+  }
 
   close(): void {
     this.dialogRef.close();

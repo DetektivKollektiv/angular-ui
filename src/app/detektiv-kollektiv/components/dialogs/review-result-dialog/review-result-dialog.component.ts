@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Item } from 'src/app/detektiv-kollektiv/model/item';
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Item} from 'src/app/detektiv-kollektiv/model/item';
 
 @Component({
   selector: 'app-review-result-dialog',
@@ -10,7 +10,8 @@ import { Item } from 'src/app/detektiv-kollektiv/model/item';
 export class ReviewResultDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<ReviewResultDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Item) {}
+              @Inject(MAT_DIALOG_DATA) public data: Item) {
+  }
 
   close(): void {
     this.dialogRef.close();

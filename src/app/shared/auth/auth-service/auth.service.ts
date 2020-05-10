@@ -31,6 +31,8 @@ export class AuthService {
       () => this.authState.next(initialAuthState)
     );
 
+    Hub.listen('auth', capsule => console.log(capsule));
+
     Hub.listen('auth', ({ payload: { event, data, message } }) => {
       if (event === 'signIn') {
         this.setUser(data);

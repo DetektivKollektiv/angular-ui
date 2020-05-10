@@ -1,10 +1,9 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Observable} from 'rxjs';
 import {isPlatformBrowser} from '@angular/common';
 import {Auth} from 'aws-amplify';
 import {MatDialog} from '@angular/material/dialog';
-import {NotLoggedInDialogComponent} from '../../../detektiv-kollektiv/components/dialogs/not-logged-in-dialog/not-logged-in-dialog.component';
 import {LoginComponent} from '../../../detektiv-kollektiv/components/dialogs/login/login.component';
 
 @Injectable({
@@ -25,10 +24,25 @@ export class AuthGuard implements CanActivate {
         })
         .catch(
           () => {
-            this.dialog.open(LoginComponent).afterClosed().subscribe(value => {
-              return value;
+            console.log('test');
+            return Auth.federatedSignIn().then(() => {
+              return true;
+            }).catch(() => {
+              return false;
             });
-            return false;
+            // this.dialog.open(LoginComponent).afterClosed().subscribe(() => {
+            //   return Auth.currentAuthenticatedUser()
+            //     .then(() => {
+            //       this.router.navigate([state.url])
+            //         .then(() => {
+            //           return true;
+            //         });
+            //     })
+            //     .catch(() => {
+            //       return false;
+            //     });
+            // });
+            // return false;
           });
     } else {
       return true;

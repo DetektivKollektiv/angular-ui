@@ -11,6 +11,7 @@ import {AuthModule} from '../shared/auth/auth.module';
 import { NotLoggedInDialogComponent } from './components/dialogs/not-logged-in-dialog/not-logged-in-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTabsModule} from '@angular/material/tabs';
+import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,13 @@ import {MatTabsModule} from '@angular/material/tabs';
     LoginComponent,
     NotLoggedInDialogComponent
   ],
-  imports: [
-    MaterialModule,
-    AuthModule,
-    FlexLayoutModule,
-    MatTabsModule
-  ]
+    imports: [
+        MaterialModule,
+        AuthModule,
+        FlexLayoutModule,
+        MatTabsModule,
+        AmplifyUIAngularModule
+    ]
 })
 export class DetektivKollektivModule {
 }
