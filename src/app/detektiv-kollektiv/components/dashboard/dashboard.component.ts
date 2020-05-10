@@ -27,4 +27,8 @@ export class DashboardComponent implements OnInit {
   reviewItem(): void {
     this.router.navigate(['/review']);
   }
+
+  listItems(): void {
+    this.router.navigate(['/items'])
+  }
 }

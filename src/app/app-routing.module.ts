@@ -5,6 +5,7 @@ import {CheckItemComponent} from './detektiv-kollektiv/components/check-item/che
 import {DashboardComponent} from './detektiv-kollektiv/components/dashboard/dashboard.component';
 import {LoginComponent} from './detektiv-kollektiv/components/dialogs/login/login.component';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
+import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/list-items.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'check', component: CheckItemComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'items', component: ListItemsComponent},
   {
     path: '',
     redirectTo: '/dashboard',
@@ -24,5 +26,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule {
 }
