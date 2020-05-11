@@ -1,0 +1,9 @@
+{
+	"dashboard.button.checkItem": "Submit a case",
+	"dashboard.button.listItems": "Show all cases",
+	"dashboard.button.reviewItem": "Solve a case",
+	"dashboard.question": "Would you like to post a new case or would you rather try to solve one of the cases in our file?",
+	"dashboard.title": "Welcome to the DetectiveCollective",
+	"login": "Log In",
+	"logout": "Sign Out"
+}

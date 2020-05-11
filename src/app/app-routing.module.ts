@@ -19,7 +19,7 @@ const routes: Routes = [
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', redirectTo: '/dashboard' }
 ];
 
 @NgModule({

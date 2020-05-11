@@ -1,9 +1,11 @@
 @import './theme';
 
 * {
-  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+  font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif,Symbola;
 }
 
-body {
+html, body {
+  height: 100%;
+  box-sizing: border-box;
   margin: 0;
 }

@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Symbola";
+  src: url("/fonts/Symbola-Emoji.woff") format("woff"),
+  url("/fonts/Symbola-Emoji.ttf") format("ttf");
+}
+
+.emoji {
+  font-family: "Symbola"
+}

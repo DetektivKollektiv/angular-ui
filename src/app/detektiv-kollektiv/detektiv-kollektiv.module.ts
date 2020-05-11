@@ -12,6 +12,7 @@ import { NotLoggedInDialogComponent } from './components/dialogs/not-logged-in-d
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
         AuthModule,
         FlexLayoutModule,
         MatTabsModule,
-        AmplifyUIAngularModule
+        AmplifyUIAngularModule,
+        TranslateModule
     ]
 })
 export class DetektivKollektivModule {

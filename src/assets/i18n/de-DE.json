@@ -1,0 +1,9 @@
+{
+	"dashboard.button.checkItem": "Einen Fall einreichen",
+	"dashboard.button.listItems": "Alle Fälle anzeigen",
+	"dashboard.button.reviewItem": "Einen Fall lösen",
+	"dashboard.question": "Möchtest du einen neuen Fall einstellen oder lieber versuchen einen der Fälle in unserer Kartei aufzuklären?",
+	"dashboard.title": "Willkommen beim DetectiveCollective",
+	"login": "Einloggen",
+	"logout": "Abmelden"
+}

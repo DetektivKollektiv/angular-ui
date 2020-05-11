@@ -6,15 +6,15 @@
   <p>Möchtest du einen neuen Fall einstellen oder lieber versuchen einen der Fälle in unserer Kartei aufzuklären?</p>
   <button mat-raised-button color="accent" (click)="checkItem()">
     <mat-icon>add</mat-icon>
-    Einen Fall einreichen
+    {{'dashboard.button.checkItem' | translate}}
   </button>
   <button mat-raised-button color="accent" (click)="reviewItem()">
     <mat-icon class="icon">find_in_page</mat-icon>
-    Einen Fall lösen
+    {{'dashboard.button.reviewItem' | translate}}
   </button>
   <br>
   <button mat-stroked-button color="primary" (click)="listItems()">
     <mat-icon class="icon">list</mat-icon>
-    Alle Fälle anzeigen
+    {{'dashboard.button.listItems' | translate}}
   </button>
 </div>
