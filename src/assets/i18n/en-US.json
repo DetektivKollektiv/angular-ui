@@ -1,9 +1,104 @@
 {
-	"dashboard.button.checkItem": "Submit a case",
-	"dashboard.button.listItems": "Show all cases",
-	"dashboard.button.reviewItem": "Solve a case",
-	"dashboard.question": "Would you like to post a new case or would you rather try to solve one of the cases in our file?",
-	"dashboard.title": "Welcome to the DetectiveCollective",
-	"login": "Log In",
-	"logout": "Sign Out"
+	"button": {
+		"startpage": {
+			"text": "Back to start"
+		}
+	},
+	"checkItem": {
+		"details": "Enter the details of your case in the form below. This can be either a statement or a link. After you submit your case, we are going to check, if we have already worked on that specific case. If yes, you will be presented the results of our investigation. If not, we are going to hand the case over to our team of detectives, who are then going to check it for you.",
+		"form": {
+			"details": {
+				"label": "Details",
+				"placeholder": "Enter the details of your case here ..."
+			},
+			"submit": "Submit"
+		},
+		"title": "A new case for the DetectiveCollective?"
+	},
+	"checkResultCreated": {
+		"details": {
+			"first": "Our detectives will now examine your case.",
+			"second": "We will notify you as soon as a result is available.",
+			"third": "Thank you for hiring the DetectiveCollective."
+		},
+		"title": "We have recorded your case!"
+	},
+	"checkResultFound": {
+		"details": {
+			"first": "Information about your case is already in our file.",
+			"second": "So far, {{good}} of {{total}} detectives have marked this statement as trustworthy."
+		},
+		"title": "That seems familiar to us ..."
+	},
+	"dashboard": {
+		"button": {
+			"checkItem": "Submit a case",
+			"listItems": "Show all cases",
+			"reviewItem": "Solve a case"
+		},
+		"question": "Would you like to post a new case or would you rather try to solve one of the cases in our file?",
+		"title": {
+			"auth": "Welcome to the DetectiveCollective, {{value}}!",
+			"noauth": "Welcome to the DetectiveCollective!"
+		}
+	},
+	"header": {
+		"login": {
+			"label": "Log In"
+		},
+		"logout": {
+			"label": "Sign Out"
+		}
+	},
+	"language": {
+		"english": "English",
+		"german": "German"
+	},
+	"listItems": {
+		"title": "All Cases"
+	},
+	"login": {
+		"confirmPassword": {
+			"label": "Confirm password"
+		},
+		"email": {
+			"label": "E-mail address"
+		},
+		"label": {
+			"login": "Log In",
+			"register": "Register"
+		},
+		"password": {
+			"label": "Password"
+		},
+		"username": {
+			"label": "User name"
+		}
+	},
+	"reviewItem": {
+		"form": {
+			"button": {
+				"false": "Untrustworthy",
+				"true": "Trustworthy"
+			},
+			"remarks": {
+				"details": "Write down how you come to your decision here ...",
+				"label": "Remarks"
+			},
+			"source": {
+				"details": "Optionally, enter a URL here as the source.",
+				"label": "Source"
+			}
+		},
+		"statement": "Claim:",
+		"title": "Dear detective, please solve the following case."
+	},
+	"reviewResult": {
+		"details": {
+			"first": "Our more experienced detectives will now review your results.",
+			"second": "As soon as the peer review process is completed, you will receive your experience points."
+		},
+		"nextCase": "Solve the next case",
+		"title": "Thanks for your work."
+	}
 }

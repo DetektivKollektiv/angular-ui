@@ -9,15 +9,25 @@
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="20px" class="navigation-items">
           <li>
+            <a mat-list-item (click)="setLanguage('de-DE')">
+              <span class="label">{{'language.german' | translate}}</span>
+            </a>
+          </li>
+          <li>
+            <a mat-list-item (click)="setLanguage('en-US')">
+              <span class="label">{{'language.english' | translate}}</span>
+            </a>
+          </li>
+          <li>
             <a mat-list-item (click)="login()">
               <mat-icon class="icon">account_circle</mat-icon>
-              <span class="label">{{user.username || 'login' | translate}}</span>
+              <span class="label">{{user.username || 'header.login.label' | translate}}</span>
             </a>
           </li>
           <li>
             <a mat-list-item (click)="logout()">
               <mat-icon class="icon">exit_to_app</mat-icon>
-              <span class="label">{{'logout' | translate}}</span>
+              <span class="label">{{'header.logout.label' | translate}}</span>
             </a>
           </li>
         </ul>

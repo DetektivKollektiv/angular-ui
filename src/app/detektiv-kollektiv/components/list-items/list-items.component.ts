@@ -1,10 +1,10 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Item} from '../../model/item';
 import {ItemsService} from '../../services/items/items.service';
-import {finalize, tap} from 'rxjs/operators';
+import {finalize} from 'rxjs/operators';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-items',
@@ -14,17 +14,22 @@ import { Router } from '@angular/router';
 
 export class ListItemsComponent implements OnInit {
 
+  itemsList: Array<Item> = [];
+
   constructor(
     private router: Router,
     private itemsService: ItemsService,
     private authService: AuthService,
     private loaderService: LoaderService,
-  ) { }
-
-  itemsList: Array<Item> = [];
+  ) {
+  }
 
   ngOnInit(): void {
     this.loadAllItems();
+  }
+
+  home(): void {
+    this.router.navigate(['/'])
   }
 
   private loadAllItems(): void {
@@ -39,10 +44,6 @@ export class ListItemsComponent implements OnInit {
       }
 
     });
-  }
-
-  home(): void {
-    this.router.navigate(['/'])
   }
 
 }

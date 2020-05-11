@@ -6,7 +6,7 @@
   <div style="text-align: left; padding-top: 15px; padding-left: 3em; padding-right: 3em;">
 
     <mat-list>
-      <div mat-subheader>Alle Fälle</div>
+      <div mat-subheader>{{ 'listItems.title' | translate }}</div>
       <mat-list-item *ngFor="let item of itemsList">
         <mat-icon mat-list-icon>chat</mat-icon>
         <div mat-line>{{item.Text}}</div>

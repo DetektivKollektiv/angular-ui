@@ -8,11 +8,11 @@ import {CheckResultCreatedDialogComponent} from './components/dialogs/check-resu
 import {CheckResultFoundDialogComponent} from './components/dialogs/check-result-found-dialog/check-result-found-dialog.component';
 import {LoginComponent} from './components/dialogs/login/login.component';
 import {AuthModule} from '../shared/auth/auth.module';
-import { NotLoggedInDialogComponent } from './components/dialogs/not-logged-in-dialog/not-logged-in-dialog.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
 import {TranslateModule} from "@ngx-translate/core";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -22,8 +22,7 @@ import {TranslateModule} from "@ngx-translate/core";
     ReviewResultDialogComponent,
     CheckResultCreatedDialogComponent,
     CheckResultFoundDialogComponent,
-    LoginComponent,
-    NotLoggedInDialogComponent
+    LoginComponent
   ],
     imports: [
         MaterialModule,
@@ -31,7 +30,8 @@ import {TranslateModule} from "@ngx-translate/core";
         FlexLayoutModule,
         MatTabsModule,
         AmplifyUIAngularModule,
-        TranslateModule
+        TranslateModule,
+        CommonModule
     ]
 })
 export class DetektivKollektivModule {
