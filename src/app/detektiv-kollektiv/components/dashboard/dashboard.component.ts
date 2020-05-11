@@ -29,6 +29,6 @@ export class DashboardComponent implements OnInit {
   }
 
   listItems(): void {
-    this.router.navigate(['/items'])
+    this.router.navigate(['/items']);
   }
 }

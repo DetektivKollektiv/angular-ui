@@ -4,7 +4,7 @@ import {ItemsService} from '../../services/items/items.service';
 import {Review} from '../../model/review';
 import {MatDialog} from '@angular/material/dialog';
 import {ReviewResultDialogComponent} from '../dialogs/review-result-dialog/review-result-dialog.component';
-import {finalize, tap} from 'rxjs/operators';
+import {finalize} from 'rxjs/operators';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {ReviewsService} from '../../services/reviews/reviews.service';
@@ -36,7 +36,12 @@ export class ReviewItemComponent implements OnInit {
   }
 
   public reviewItem(review: boolean) {
-    const reviewRequest: Review = {itemId: this.itemToReview.ItemId, text: this.reviewForm.value.text, source: this.reviewForm.value.source, goodReview: review};
+    const reviewRequest: Review = {
+      itemId: this.itemToReview.ItemId,
+      text: this.reviewForm.value.text,
+      source: this.reviewForm.value.source,
+      goodReview: review
+    };
     this.loaderService.show();
     this.reviewsService.reviewItem(reviewRequest).pipe(
       finalize(() => this.loaderService.hide())

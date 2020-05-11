@@ -29,7 +29,7 @@ export class ListItemsComponent implements OnInit {
   }
 
   home(): void {
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
   }
 
   private loadAllItems(): void {
@@ -39,7 +39,7 @@ export class ListItemsComponent implements OnInit {
       finalize(() => this.loaderService.hide())
     ).subscribe((items: Array<Item>) => {
 
-      for (var item of items) {
+      for (const item of items) {
         this.itemsList.push(item);
       }
 

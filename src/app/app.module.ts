@@ -13,8 +13,8 @@ import {DetektivKollektivModule} from './detektiv-kollektiv/detektiv-kollektiv.m
 import {AuthModule} from './shared/auth/auth.module';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
 import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/list-items.component';
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 

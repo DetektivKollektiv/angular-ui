@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {LoginComponent} from "../../detektiv-kollektiv/components/dialogs/login/login.component";
-import {Router} from "@angular/router";
-import {MatDialog} from "@angular/material/dialog";
-import {AuthService} from "../../shared/auth/auth-service/auth.service";
-import {TranslateService} from "@ngx-translate/core";
+import {LoginComponent} from '../../detektiv-kollektiv/components/dialogs/login/login.component';
+import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {AuthService} from '../../shared/auth/auth-service/auth.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',

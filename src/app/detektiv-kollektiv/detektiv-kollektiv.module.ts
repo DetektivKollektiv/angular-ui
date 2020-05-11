@@ -11,8 +11,8 @@ import {AuthModule} from '../shared/auth/auth.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatTabsModule} from '@angular/material/tabs';
 import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
-import {TranslateModule} from "@ngx-translate/core";
-import {CommonModule} from "@angular/common";
+import {TranslateModule} from '@ngx-translate/core';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
