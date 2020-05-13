@@ -1,10 +1,13 @@
 <div>
-  <h3>Das kommt uns bekannt vor...</h3>
+  <h3>{{ 'checkResultFound.title' | translate}}</h3>
 
-  <p>Zu deinem Fall liegen bereits Informationen in unserer Kartei.</p>
-  <p>Bisher haben {{data.ReviewGood}} von {{data.ReviewGood + data.ReviewBad}} Detektiv*innen dein Aussage als vertrauenswürdig markiert.</p>
+  <p>{{ 'checkResultFound.details.first' | translate}}</p>
+  <p>{{ 'checkResultFound.details.second' | translate:{
+    good: data.ReviewGood,
+    total: data.ReviewGood + data.ReviewBad
+  } }}</p>
 
   <div mat-dialog-actions align="end">
-    <button mat-raised-button color="primary" (click)="close()">Zurück zur Startseite</button>
+    <button mat-raised-button color="primary" (click)="close()">{{ 'button.startpage.text' | translate }}</button>
   </div>
 </div>

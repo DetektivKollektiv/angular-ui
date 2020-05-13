@@ -1,19 +1,15 @@
 <div style="width: 75%; margin: 0 auto;">
-  <h3>Ein neuer Fall fürs DetektivKollektiv?</h3>
+  <h3>{{ 'checkItem.title' | translate }}</h3>
 
-  <p>
-    Gib im Formular unten die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link.
-    Sobald du auf Absenden klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben. Dann erhälst du sofort ein Ergebnis.
-    Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich prüfen.
-  </p>
+  <p>{{ 'checkItem.details' | translate }}</p>
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <mat-form-field appearance="fill" style="width: 100%;">
-      <mat-label>Details</mat-label>
-      <textarea matInput placeholder="Gib hier die Details deines Falls ein..." formControlName="details"></textarea>
+      <mat-label>{{ 'checkItem.form.details.label' | translate }}</mat-label>
+      <textarea matInput placeholder="{{ 'checkItem.form.details.placeholder' | translate }}" formControlName="details"></textarea>
     </mat-form-field>
 
-    <button mat-raised-button color="accent">Absenden</button>
+    <button mat-raised-button color="accent">{{ 'checkItem.form.submit' | translate }}</button>
   </form>
 </div>
 

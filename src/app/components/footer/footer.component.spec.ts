@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotLoggedInDialogComponent } from './not-logged-in-dialog.component';
+import { FooterComponent } from './footer.component';
 
-describe('NotLoggedInDialogComponent', () => {
-  let component: NotLoggedInDialogComponent;
-  let fixture: ComponentFixture<NotLoggedInDialogComponent>;
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotLoggedInDialogComponent ]
+      declarations: [ FooterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotLoggedInDialogComponent);
+    fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

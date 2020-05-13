@@ -1,19 +1,19 @@
 <div style="text-align: center;">
-    <h3>Lieber Detektiv, löse bitte folgenden Fall.</h3>
+    <h3>{{ 'reviewItem.title' | translate }}</h3>
 
-    <h5>Behauptung:</h5>
+    <h5>{{ 'reviewItem.statement' | translate }}</h5>
     <p>{{itemToReview?.Text}}</p>
 
     <div>
       <form [formGroup]="reviewForm">
         <mat-form-field class="example-full-width">
-          <mat-label>Anmerkungen</mat-label>
-          <textarea matInput formControlName="text" placeholder="Notiere hier wie du zu deiner Entscheidung kommst..."></textarea>
+          <mat-label>{{ 'reviewItem.form.remarks.label' | translate }}</mat-label>
+          <textarea matInput formControlName="text" placeholder="{{ 'reviewItem.form.remarks.details' | translate }}"></textarea>
         </mat-form-field>
         <br>
         <mat-form-field class="example-full-width">
-          <mat-label>Quelle (optional)</mat-label>
-          <input matInput formControlName="source" placeholder="Gib hier optional URL als Quelle an.">
+          <mat-label>{{ 'reviewItem.form.source.label' | translate }}</mat-label>
+          <input matInput formControlName="source" placeholder="{{ 'reviewItem.form.source.details' | translate }}">
         </mat-form-field>
       </form>
     </div>
@@ -21,8 +21,8 @@
     <br>
 
     <div>
-      <button mat-raised-button color="accent" (click)="reviewItem(true)">Vertrauenswürdig</button>
-      <button mat-raised-button color="secondary" (click)="reviewItem(false)">Nicht vertrauenswürdig</button>
+      <button mat-raised-button color="accent" (click)="reviewItem(true)">{{ 'reviewItem.form.button.true' | translate}}</button>
+      <button mat-raised-button color="secondary" (click)="reviewItem(false)">{{ 'reviewItem.form.button.false' | translate}}</button>
     </div>
 </div>
 

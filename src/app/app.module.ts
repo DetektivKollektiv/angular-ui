@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,13 +13,22 @@ import {DetektivKollektivModule} from './detektiv-kollektiv/detektiv-kollektiv.m
 import {AuthModule} from './shared/auth/auth.module';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
 import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/list-items.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     LoaderComponent,
-    ListItemsComponent
+    ListItemsComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,14 @@ import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/l
     FlexLayoutModule,
     MaterialModule,
     DetektivKollektivModule,
-    AuthModule
+    AuthModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     LoaderService,

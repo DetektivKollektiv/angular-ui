@@ -2,19 +2,20 @@
   <div style="background: lightgray">
     <img class="logo" src="../../../../assets/logo/Schrift.svg" height="50%" width="50%">
   </div>
-  <h3>Willkommen beim DetectiveCollective{{loggedIn ? ', ' + username : ''}}!</h3>
-  <p>Möchtest du einen neuen Fall einstellen oder lieber versuchen einen der Fälle in unserer Kartei aufzuklären?</p>
+  <h3 *ngIf="loggedIn">{{ 'dashboard.title.auth' | translate:{value: username} }}</h3>
+  <h3 *ngIf="!loggedIn">{{ 'dashboard.title.noauth' | translate}}</h3>
+  <p>{{ 'dashboard.question' | translate }}</p>
   <button mat-raised-button color="accent" (click)="checkItem()">
     <mat-icon>add</mat-icon>
-    Einen Fall einreichen
+    {{'dashboard.button.checkItem' | translate}}
   </button>
   <button mat-raised-button color="accent" (click)="reviewItem()">
     <mat-icon class="icon">find_in_page</mat-icon>
-    Einen Fall lösen
+    {{'dashboard.button.reviewItem' | translate}}
   </button>
   <br>
   <button mat-stroked-button color="primary" (click)="listItems()">
     <mat-icon class="icon">list</mat-icon>
-    Alle Fälle anzeigen
+    {{'dashboard.button.listItems' | translate}}
   </button>
 </div>

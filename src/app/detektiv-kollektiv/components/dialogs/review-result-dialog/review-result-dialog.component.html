@@ -1,10 +1,10 @@
 <div>
-  <h3>Danke für deine Arbeit.</h3>
+  <h3>{{ 'reviewResult.title' | translate }}</h3>
 
-  <p>Unsere erfahreneren Detektive werden deine Ergebnisse nun überprüfen.</p>
-  <p>Sobald der Peer Review Prozess abgeschlossen ist erhälst du deine Erfahrungspunkte.</p>
+  <p>{{ 'reviewResult.details.second' | translate }}</p>
+  <p>{{ 'reviewResult.details.second' | translate }}</p>
 
   <div mat-dialog-actions align="end">
-    <button mat-raised-button color="primary" (click)="close()">Nächsten Fall lösen</button>
+    <button mat-raised-button color="primary" (click)="close()">{{ 'reviewResult.nextCase' | translate }}</button>
   </div>
 </div>

@@ -13,6 +13,10 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent);
   background: mat-color($custom-theme-primary);
 }
 
+.color-primary-light {
+  background: mat-color($custom-theme-primary, 0.4);
+}
+
 .color-accent {
   background: mat-color($custom-theme-accent);
 }
