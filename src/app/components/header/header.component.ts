@@ -37,6 +37,10 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.authService.signIn();
+    if(!this.user.isLoggedIn){
+      this.authService.signIn();
+    } else {
+      this.router.navigate(['/profile']);
+    }
   }
 }

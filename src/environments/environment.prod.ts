@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-    apiBase: 'https://qnjx6cvcge.execute-api.eu-central-1.amazonaws.com/Stage'
+    apiBase: 'https://api.detective-collective.org/prod',
+    redirectSignIn: 'https://www.detective-collective.org/',
+    redirectSignOut: 'https://www.detective-collective.org/'
 };

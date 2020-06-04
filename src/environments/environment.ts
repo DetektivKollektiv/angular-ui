@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiBase: 'https://qnjx6cvcge.execute-api.eu-central-1.amazonaws.com/Stage'
+  apiBase: 'https://api.detective-collective.org/stage',
+  redirectSignIn: 'http://localhost:4200/',
+  redirectSignOut: 'http://localhost:4200/'
 };
 
 /*
