@@ -3,49 +3,37 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 import {Observable} from 'rxjs';
 import {isPlatformBrowser} from '@angular/common';
 import {Auth} from 'aws-amplify';
-import {MatDialog} from '@angular/material/dialog';
-import {LoginComponent} from '../../../detektiv-kollektiv/components/dialogs/login/login.component';
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {AuthService} from "../auth-service/auth.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private router: Router,
-              private dialog: MatDialog,
+
+  constructor(private snackBar: MatSnackBar,
+              private authService: AuthService,
+              private router: Router,
+              private translateService: TranslateService,
               @Inject(PLATFORM_ID) private platformId) {
   }
 
   canActivate(next: ActivatedRouteSnapshot,
-              state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (isPlatformBrowser(this.platformId)) {
-      return Auth.currentAuthenticatedUser()
-        .then(() => {
-          return true;
-        })
-        .catch(
-          () => {
-            console.log('test');
-            return Auth.federatedSignIn().then(() => {
-              return true;
-            }).catch(() => {
-              return false;
-            });
-            // this.dialog.open(LoginComponent).afterClosed().subscribe(() => {
-            //   return Auth.currentAuthenticatedUser()
-            //     .then(() => {
-            //       this.router.navigate([state.url])
-            //         .then(() => {
-            //           return true;
-            //         });
-            //     })
-            //     .catch(() => {
-            //       return false;
-            //     });
-            // });
-            // return false;
-          });
-    } else {
-      return true;
-    }
+              state: RouterStateSnapshot): Promise<boolean> {
+    return Auth.currentAuthenticatedUser().then(
+      () => {
+        return true;
+      }
+    ).catch(() => {
+      this.snackBar.open(
+        this.translateService.instant('snack.login.message'),
+        this.translateService.instant('snack.login.action'),
+        {
+          duration: 2000
+        }).onAction().subscribe(() => this.authService.signIn());
+
+      return false;
+    });
   }
 }

@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'check', component: CheckItemComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'items', component: ListItemsComponent},
+  {path: 'items', component: ListItemsComponent, canActivate: [AuthGuard]},
   {
     path: '',
     redirectTo: '/dashboard',

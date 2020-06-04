@@ -31,21 +31,25 @@ export class AuthService {
       () => this.authState.next(initialAuthState)
     );
 
-    Hub.listen('auth', capsule => console.log(capsule));
-
     Hub.listen('auth', ({ payload: { event, data, message } }) => {
-      if (event === 'signIn') {
+      if (event === 'cognitoHostedUI') {
         this.setUser(data);
       } else {
-        this.authState.next(initialAuthState);
+        // this.authState.next(initialAuthState);
       }
     });
   }
 
-  public signIn(userName: string, password: string): Promise<boolean> {
-    return new Promise((resolve, reject) => {
-      Auth.signIn(userName, password).then(() => resolve(true), reject);
-    });
+  // public signIn(userName: string, password: string): Promise<boolean> {
+  //   return new Promise((resolve, reject) => {
+  //     Auth.signIn(userName, password).then(() => resolve(true), reject);
+  //   });
+  // }
+
+  public signIn(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      Auth.federatedSignIn().then(() => resolve(true), reject);
+    })
   }
 
   public signOut(): Promise<boolean> {
@@ -66,13 +70,9 @@ export class AuthService {
     }
 
     const {
-      attributes: {
-        sub: id,
-        email
-      },
       username
     } = user;
 
-    this.authState.next({ isLoggedIn: true, id, username, email });
+    this.authState.next({ isLoggedIn: true, id: "", username, email: "" });
   }
 }

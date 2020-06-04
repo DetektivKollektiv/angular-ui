@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,12 +13,16 @@ export class DashboardComponent implements OnInit {
   public loggedIn: boolean;
 
   constructor(private router: Router,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
     this.authService.isLoggedIn$.subscribe(loggedIn => this.loggedIn = loggedIn);
-    this.authService.auth$.subscribe(({username}) => this.username = username);
+    this.authService.auth$.subscribe(({username}) => {
+      this.username = username
+      this.changeDetectorRef.detectChanges();
+    });
   }
 
   checkItem(): void {
