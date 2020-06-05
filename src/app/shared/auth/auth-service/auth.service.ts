@@ -49,7 +49,7 @@ export class AuthService {
   public signIn(): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       Auth.federatedSignIn().then(() => resolve(true), reject);
-    })
+    });
   }
 
   public signOut(): Promise<boolean> {
@@ -73,6 +73,6 @@ export class AuthService {
       username
     } = user;
 
-    this.authState.next({ isLoggedIn: true, id: "", username, email: "" });
+    this.authState.next({ isLoggedIn: true, id: '', username, email: '' });
   }
 }

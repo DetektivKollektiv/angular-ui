@@ -13,7 +13,9 @@
         },
         "categories": {
             "auth": {
-                "angularuid32b8722": {}
+                "angularuid32b8722": {
+                    "hostedUIProviderCreds": "[]"
+                }
             }
         }
     }

@@ -6,7 +6,7 @@ import {DashboardComponent} from './detektiv-kollektiv/components/dashboard/dash
 import {LoginComponent} from './detektiv-kollektiv/components/dialogs/login/login.component';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
 import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/list-items.component';
-import {ProfileComponent} from "./profile/components/profile/profile.component";
+import {ProfileComponent} from './profile/components/profile/profile.component';
 
 
 const routes: Routes = [
