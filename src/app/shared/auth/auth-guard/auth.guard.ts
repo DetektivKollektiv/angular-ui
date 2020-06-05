@@ -1,11 +1,9 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
-import {Observable} from 'rxjs';
-import {isPlatformBrowser} from '@angular/common';
 import {Auth} from 'aws-amplify';
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {AuthService} from "../auth-service/auth.service";
-import {TranslateService} from "@ngx-translate/core";
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {AuthService} from '../auth-service/auth.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'

@@ -8,6 +8,9 @@ import amplify from './aws-exports';
 
 import Amplify from 'aws-amplify';
 
+amplify.oauth.redirectSignIn = environment.redirectSignIn;
+amplify.oauth.redirectSignOut = environment.redirectSignOut;
+
 Amplify.configure(amplify);
 
 if (environment.production) {
