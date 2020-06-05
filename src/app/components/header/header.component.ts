@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {LoginComponent} from '../../detektiv-kollektiv/components/dialogs/login/login.component';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthService} from '../../shared/auth/auth-service/auth.service';
 import {TranslateService} from '@ngx-translate/core';
+import {AuthState} from "../../shared/auth/model/auth-state";
 
 @Component({
   selector: 'app-header',
@@ -11,18 +12,19 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  user: { id: string; username: string; email: string };
+  user: AuthState;
 
   constructor(private router: Router,
               private dialog: MatDialog,
               private authService: AuthService,
-              private translateService: TranslateService) {
+              private translateService: TranslateService,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
-    this.authService.auth$.subscribe(({id, username, email}) => {
-      this.user = {id, username, email};
+    this.authService.auth$.subscribe((authState: AuthState) => {
+      this.user = authState;
+      this.changeDetectorRef.detectChanges();
     });
   }
 
@@ -35,6 +37,10 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    this.dialog.open(LoginComponent);
+    if(!this.user.isLoggedIn){
+      this.authService.signIn();
+    } else {
+      this.router.navigate(['/profile']);
+    }
   }
 }

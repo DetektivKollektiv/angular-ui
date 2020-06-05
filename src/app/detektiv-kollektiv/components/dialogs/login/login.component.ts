@@ -39,10 +39,7 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    this.authService.signIn(
-      this.signInForm.value.username,
-      this.signInForm.value.password
-    ).then(() => this.dialogRef.close(true));
+    this.authService.signIn().then(() => this.dialogRef.close(true));
   }
 
   register() {

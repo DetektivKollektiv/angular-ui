@@ -1,4 +1,10 @@
 {
+  "snack": {
+    "login": {
+      "message": "You have to login.",
+      "action": "Log In"
+    }
+  },
 	"button": {
 		"startpage": {
 			"text": "Back to start"
@@ -40,7 +46,11 @@
 		"title": {
 			"auth": "Welcome to the DetectiveCollective, {{value}}!",
 			"noauth": "Welcome to the DetectiveCollective!"
-		}
+		},
+    "hint": {
+      "title": "You can also post new cases through our WhatsApp chat bot.",
+      "steps": "Just send a message with the content '<b>join flame-environment</b>' to <b>+1 (415) 5238886</b>."
+    }
 	},
 	"header": {
 		"login": {

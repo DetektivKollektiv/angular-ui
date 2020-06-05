@@ -6,20 +6,21 @@ import {DashboardComponent} from './detektiv-kollektiv/components/dashboard/dash
 import {LoginComponent} from './detektiv-kollektiv/components/dialogs/login/login.component';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
 import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/list-items.component';
+import {ProfileComponent} from "./profile/components/profile/profile.component";
 
 
 const routes: Routes = [
-  {path: 'review', component: ReviewItemComponent, canActivate: [AuthGuard]},
-  {path: 'check', component: CheckItemComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'items', component: ListItemsComponent},
   {
     path: '',
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
-  { path: '**', redirectTo: '/dashboard' }
+  {path: 'dashboard', component: DashboardComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'check', component: CheckItemComponent},
+  {path: 'review', component: ReviewItemComponent, canActivate: [AuthGuard]},
+  {path: 'items', component: ListItemsComponent, canActivate: [AuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

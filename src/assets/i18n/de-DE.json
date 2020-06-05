@@ -1,4 +1,10 @@
 {
+  "snack": {
+    "login": {
+      "message": "Dazu musst du dich einloggen.",
+      "action": "Einloggen"
+    }
+  },
 	"button": {
 		"startpage": {
 			"text": "Zurück zur Startseite"
@@ -40,7 +46,11 @@
 		"title": {
 			"auth": "Willkommen beim DetectiveCollective, {{value}}!",
 			"noauth": "Willkommen beim DetectiveCollective!"
-		}
+		},
+    "hint": {
+      "title": "Du kannst uns auch Fälle über unseren WhatsApp Chat Bot einreichen.",
+      "steps": "Schicke hierzu eine Nachricht mit dem Inhalt '<b>join flame-environment</b>' an <b>+1 (415) 5238886</b>."
+    }
 	},
 	"header": {
 		"login": {
