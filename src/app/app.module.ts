@@ -12,7 +12,6 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {FooterComponent} from './components/footer/footer.component';
 import {HeaderComponent} from './components/header/header.component';
 import {LoaderModule} from './shared/loader/loader.module';
-import {RecaptchaModule} from 'ng-recaptcha';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -29,7 +28,6 @@ export function createTranslateLoader(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RecaptchaModule,
     MaterialModule,
     LoaderModule,
     DetektivKollektivModule,
