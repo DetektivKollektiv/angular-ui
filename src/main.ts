@@ -6,12 +6,20 @@ import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
 import amplify from './aws-exports';
 
-import Amplify from 'aws-amplify';
+import {Amplify, API} from 'aws-amplify';
 
 amplify.oauth.redirectSignIn = environment.redirectSignIn;
 amplify.oauth.redirectSignOut = environment.redirectSignOut;
 
 Amplify.configure(amplify);
+
+API.configure({endpoints: [
+    {
+      name: 'api',
+      endpoint: environment.apiBase,
+      region: 'eu-central-1'
+    },
+  ]});
 
 if (environment.production) {
   enableProdMode();

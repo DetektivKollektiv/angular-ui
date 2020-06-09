@@ -6,33 +6,31 @@ import {MaterialModule} from '../material/material.module';
 import {ReviewResultDialogComponent} from './components/dialogs/review-result-dialog/review-result-dialog.component';
 import {CheckResultCreatedDialogComponent} from './components/dialogs/check-result-dialog/check-result-created-dialog.component';
 import {CheckResultFoundDialogComponent} from './components/dialogs/check-result-found-dialog/check-result-found-dialog.component';
-import {LoginComponent} from './components/dialogs/login/login.component';
 import {AuthModule} from '../shared/auth/auth.module';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatTabsModule} from '@angular/material/tabs';
-import {AmplifyUIAngularModule} from '@aws-amplify/ui-angular';
 import {TranslateModule} from '@ngx-translate/core';
 import {CommonModule} from '@angular/common';
+import {ListItemsComponent} from './components/list-items/list-items.component';
+import {LoaderModule} from '../shared/loader/loader.module';
+import {RecaptchaModule} from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
     CheckItemComponent,
+    ListItemsComponent,
     ReviewItemComponent,
     DashboardComponent,
     ReviewResultDialogComponent,
     CheckResultCreatedDialogComponent,
-    CheckResultFoundDialogComponent,
-    LoginComponent
+    CheckResultFoundDialogComponent
   ],
-    imports: [
-        MaterialModule,
-        AuthModule,
-        FlexLayoutModule,
-        MatTabsModule,
-        AmplifyUIAngularModule,
-        TranslateModule,
-        CommonModule
-    ]
+  imports: [
+    MaterialModule,
+    AuthModule,
+    LoaderModule,
+    TranslateModule,
+    CommonModule,
+    RecaptchaModule
+  ]
 })
 export class DetektivKollektivModule {
 }

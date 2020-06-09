@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTabsModule} from '@angular/material/tabs';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
@@ -24,7 +26,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     OverlayModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    FlexLayoutModule
   ],
   exports: [
     MatSidenavModule,
@@ -37,7 +41,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     OverlayModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTabsModule,
+    FlexLayoutModule
   ]
 })
 export class MaterialModule {

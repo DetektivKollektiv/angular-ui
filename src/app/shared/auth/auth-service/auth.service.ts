@@ -4,11 +4,12 @@ import {BehaviorSubject} from 'rxjs';
 import {AuthState} from '../model/auth-state';
 import {map} from 'rxjs/operators';
 
-const initialAuthState = {
+const initialAuthState: AuthState = {
   isLoggedIn: false,
   username: null,
   id: null,
-  email: null
+  email: null,
+  idToken: null
 };
 
 @Injectable({
@@ -31,20 +32,12 @@ export class AuthService {
       () => this.authState.next(initialAuthState)
     );
 
-    Hub.listen('auth', ({ payload: { event, data, message } }) => {
+    Hub.listen('auth', ({ payload: { event, data } }) => {
       if (event === 'cognitoHostedUI') {
         this.setUser(data);
-      } else {
-        // this.authState.next(initialAuthState);
       }
     });
   }
-
-  // public signIn(userName: string, password: string): Promise<boolean> {
-  //   return new Promise((resolve, reject) => {
-  //     Auth.signIn(userName, password).then(() => resolve(true), reject);
-  //   });
-  // }
 
   public signIn(): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
@@ -58,13 +51,9 @@ export class AuthService {
     });
   }
 
-  public register(userName: string, password: string, email: string): Promise<boolean> {
-    return new Promise((resolve, reject) => {
-      Auth.signUp(userName, password, email).then(() => resolve(true), reject);
-    });
-  }
-
   private setUser(user: any) {
+    console.log(user);
+
     if (!user) {
       return;
     }
@@ -73,6 +62,6 @@ export class AuthService {
       username
     } = user;
 
-    this.authState.next({ isLoggedIn: true, id: '', username, email: '' });
+    this.authState.next({ isLoggedIn: true, id: '', username, email: '', idToken: '' });
   }
 }
