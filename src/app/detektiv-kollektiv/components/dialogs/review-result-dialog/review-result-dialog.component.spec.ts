@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ReviewResultDialogComponent } from './review-result-dialog.component';
+import {ReviewResultDialogComponent} from './review-result-dialog.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 describe('ReviewResultDialogComponent', () => {
   let component: ReviewResultDialogComponent;
@@ -8,9 +10,14 @@ describe('ReviewResultDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReviewResultDialogComponent ]
+      imports: [TranslateModule.forRoot()],
+      declarations: [ReviewResultDialogComponent],
+      providers: [
+        {provide: MatDialogRef, useValue: {}},
+        {provide: MAT_DIALOG_DATA, useValue: {}}
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

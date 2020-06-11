@@ -8,7 +8,7 @@ phases:
       - npm install -g @angular/cli
       - npm install
       - npm run lint
-      - npm run test
+      - npm run test:headless
   build:
     commands:
       - npm run build:$STAGE

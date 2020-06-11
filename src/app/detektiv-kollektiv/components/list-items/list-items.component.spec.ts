@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListItemsComponent } from './list-items.component';
+import {ListItemsComponent} from './list-items.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {MatDialogModule} from '@angular/material/dialog';
+import {LoaderModule} from '../../../shared/loader/loader.module';
+import {TranslateModule} from '@ngx-translate/core';
+import {ItemsService} from '../../services/items/items.service';
+import {FormBuilder} from '@angular/forms';
 
 describe('ListItemsComponent', () => {
   let component: ListItemsComponent;
@@ -8,9 +14,19 @@ describe('ListItemsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListItemsComponent ]
+      imports: [
+        RouterTestingModule,
+        MatDialogModule,
+        LoaderModule,
+        TranslateModule.forRoot()
+      ],
+      declarations: [ListItemsComponent],
+      providers: [
+        ItemsService,
+        FormBuilder
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

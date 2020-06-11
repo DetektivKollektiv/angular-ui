@@ -1,6 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import {DashboardComponent} from './dashboard.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AuthModule} from '../../../shared/auth/auth.module';
+import {ChangeDetectorRef} from '@angular/core';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,9 +12,15 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      imports: [
+        RouterTestingModule,
+        AuthModule,
+        TranslateModule.forRoot()
+      ],
+      declarations: [DashboardComponent],
+      providers: [ChangeDetectorRef]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

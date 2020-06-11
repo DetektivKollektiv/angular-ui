@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CheckItemComponent } from './check-item.component';
+import {CheckItemComponent} from './check-item.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {MatDialogModule} from '@angular/material/dialog';
+import {LoaderModule} from '../../../shared/loader/loader.module';
+import {ItemsService} from '../../services/items/items.service';
+import {FormBuilder} from '@angular/forms';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('CheckItemComponent', () => {
   let component: CheckItemComponent;
@@ -8,7 +14,17 @@ describe('CheckItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckItemComponent ]
+      imports: [
+        RouterTestingModule,
+        MatDialogModule,
+        LoaderModule,
+        TranslateModule.forRoot()
+      ],
+      declarations: [CheckItemComponent],
+      providers: [
+        ItemsService,
+        FormBuilder
+      ]
     })
     .compileComponents();
   }));

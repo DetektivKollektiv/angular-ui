@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CheckResultCreatedDialogComponent } from './check-result-created-dialog.component';
+import {CheckResultCreatedDialogComponent} from './check-result-created-dialog.component';
+import {MatDialogRef} from '@angular/material/dialog';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('CheckResultDialogComponent', () => {
   let component: CheckResultCreatedDialogComponent;
@@ -8,9 +10,11 @@ describe('CheckResultDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckResultCreatedDialogComponent ]
+      imports: [TranslateModule.forRoot()],
+      declarations: [CheckResultCreatedDialogComponent],
+      providers: [{provide: MatDialogRef, useValue: {}}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
