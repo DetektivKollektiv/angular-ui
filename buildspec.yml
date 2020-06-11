@@ -11,7 +11,7 @@ phases:
       - npm run test
   build:
     commands:
-      - npm run build
+      - npm run build:$STAGE
 artifacts:
   files:
     - '**/*'
