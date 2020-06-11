@@ -1,0 +1,27 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - npm install -g @angular/cli
+      - npm install
+      - npm run lint
+      - npm run test
+  build:
+    commands:
+      - npm run build
+artifacts:
+  files:
+    - '**/*'
+  name: artifact-name
+  base-directory: 'dist/detektiv-kollektiv'
+  discard-paths: yes
+  secondary-artifacts:
+    documentation:
+      files:
+        - '**/*'
+      name: documentation
+      discard-paths: yes
+      base-directory: 'dist/documentation'
