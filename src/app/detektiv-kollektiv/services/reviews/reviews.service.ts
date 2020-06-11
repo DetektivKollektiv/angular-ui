@@ -1,25 +1,20 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Review} from '../../model/review';
-import {Observable} from 'rxjs';
 import {Item} from '../../model/item';
-import {catchError} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
-import {BaseService} from '../base/base.service';
-import {environment} from '../../../../environments/environment';
+import {API} from 'aws-amplify';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReviewsService extends BaseService {
-  private reviewsUrl = `${environment.apiBase}/reviews`;
+export class ReviewsService {
+  private reviewsUrl = '/reviews';
 
-  constructor(httpClient: HttpClient) {
-    super(httpClient);
+  constructor() {
   }
 
-  public reviewItem(review: Review): Observable<Item> {
-    return this.httpClient.post(this.reviewsUrl, review).pipe(
-      catchError(err => this.handleError(err))
-    );
+  public reviewItem(review: Review): Promise<Item> {
+    return  API.post('api', this.reviewsUrl, {body: review}).then((value: Item) => {
+      return value;
+    });
   }
 }

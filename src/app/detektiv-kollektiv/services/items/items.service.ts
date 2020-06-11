@@ -1,46 +1,40 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
-import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Item} from '../../model/item';
 import {CheckResult} from '../../model/check-result';
-import {environment} from '../../../../environments/environment';
-import {BaseService} from '../base/base.service';
+import {API} from 'aws-amplify';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItemsService extends BaseService {
+export class ItemsService {
 
-  private itemsUrl = `${environment.apiBase}/items`;
+  private itemsUrl = `/items`;
   private checkItemUrl = `${this.itemsUrl}/check`;
   private randomItemUrl = `${this.itemsUrl}/random`;
 
-  constructor(httpClient: HttpClient) {
-    super(httpClient);
+  constructor() {
   }
 
-  public getItem(): Observable<Item> {
-    return this.httpClient.get<Item>(this.randomItemUrl);
+  public getItem(): Promise<Item> {
+    return API.get('api', this.randomItemUrl, {}).then((item: Item) => {
+      return item;
+    });
   }
 
-  // New method to get all items
-  public getAllItems(): Observable<Array<Item>> {
-    return this.httpClient.get<Array<Item>>(this.itemsUrl);
+  public getAllItems(): Promise<Item[]> {
+    return API.get('api', this.itemsUrl, {}).then((items: Item[]) => {
+      return items;
+    });
   }
 
-  public checkItem(text: string): Observable<CheckResult> {
-    return this.httpClient.post(this.checkItemUrl, text, {observe: 'response'}).pipe(
-      map(
-        (resp: HttpResponse<Item>) => {
-          if (resp.status === 200) {
-            return {created: false, item: resp.body};
-          } else if (resp.status === 201) {
-            return {created: true, item: resp.body};
-          }
-        }
-      ),
-      catchError(err => this.handleError(err))
-    );
+  public checkItem(text: string): Promise<CheckResult> {
+    return API.post('api', this.checkItemUrl, {body: text, response: true}).then(value => {
+      if (value.status === 200) {
+        return {created: false, item: value.data};
+      } else if (value.status === 201) {
+        console.log(value);
+        return {created: true, item: value.data};
+      }
+    });
   }
 }

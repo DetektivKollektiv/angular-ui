@@ -4,7 +4,6 @@ import {ItemsService} from '../../services/items/items.service';
 import {Review} from '../../model/review';
 import {MatDialog} from '@angular/material/dialog';
 import {ReviewResultDialogComponent} from '../dialogs/review-result-dialog/review-result-dialog.component';
-import {finalize} from 'rxjs/operators';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {ReviewsService} from '../../services/reviews/reviews.service';
@@ -43,16 +42,13 @@ export class ReviewItemComponent implements OnInit {
       goodReview: review
     };
     this.loaderService.show();
-    this.reviewsService.reviewItem(reviewRequest).pipe(
-      finalize(() => this.loaderService.hide())
-    ).subscribe(
-      (result: Item) => {
-        this.openDialog(result);
-      }
-    );
+    this.reviewsService.reviewItem(reviewRequest).then((result: Item) => {
+      this.loaderService.hide();
+      this.openDialog(result);
+    });
   }
 
-  openDialog(item: Item): void {
+  public openDialog(item: Item): void {
     const dialogRef = this.resultDialog.open(ReviewResultDialogComponent, {
       width: '500px',
       data: item
@@ -66,10 +62,10 @@ export class ReviewItemComponent implements OnInit {
   private loadNewItem(): void {
     this.loaderService.show();
     this.reviewForm.reset();
-    this.itemsService.getItem().pipe(
-      finalize(() => this.loaderService.hide())
-    ).subscribe((item: Item) => {
-      this.itemToReview = {...item};
+
+    this.itemsService.getItem().then(value => {
+      this.loaderService.hide();
+      this.itemToReview = {...value};
     });
   }
 }

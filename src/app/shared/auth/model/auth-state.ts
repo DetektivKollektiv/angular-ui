@@ -3,4 +3,5 @@ export interface AuthState {
   username: string | null;
   id: string | null;
   email: string | null;
+  idToken: string | null;
 }

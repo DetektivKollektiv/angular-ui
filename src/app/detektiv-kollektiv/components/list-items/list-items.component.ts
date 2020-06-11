@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Item} from '../../model/item';
 import {ItemsService} from '../../services/items/items.service';
-import {finalize} from 'rxjs/operators';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {Router} from '@angular/router';
@@ -21,8 +20,7 @@ export class ListItemsComponent implements OnInit {
     private itemsService: ItemsService,
     private authService: AuthService,
     private loaderService: LoaderService,
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.loadAllItems();
@@ -33,17 +31,12 @@ export class ListItemsComponent implements OnInit {
   }
 
   private loadAllItems(): void {
-
     this.loaderService.show();
-    this.itemsService.getAllItems().pipe(
-      finalize(() => this.loaderService.hide())
-    ).subscribe((items: Array<Item>) => {
-
+    this.itemsService.getAllItems().then((items: Item[]) => {
+      this.loaderService.hide();
       for (const item of items) {
         this.itemsList.push(item);
       }
-
     });
   }
-
 }

@@ -7,7 +7,6 @@ import {CheckResultCreatedDialogComponent} from '../dialogs/check-result-dialog/
 import {CheckResultFoundDialogComponent} from '../dialogs/check-result-found-dialog/check-result-found-dialog.component';
 import {Router} from '@angular/router';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
-import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-check-item',
@@ -30,28 +29,26 @@ export class CheckItemComponent {
 
   submit() {
     this.loaderService.show();
+    this.itemsService.checkItem(this.form.value.details).then((result: CheckResult) => {
+      console.log(result);
+      this.loaderService.hide();
+      let dialogRef: MatDialogRef<CheckResultCreatedDialogComponent> | MatDialogRef<CheckResultFoundDialogComponent>;
 
-    this.itemsService.checkItem(this.form.value.details).pipe(
-      finalize(() => this.loaderService.hide())
-    ).subscribe(
-      (result: CheckResult) => {
-
-        let dialogRef: MatDialogRef<CheckResultCreatedDialogComponent> | MatDialogRef<CheckResultFoundDialogComponent>;
-
-        if (result.created || false) {
-          dialogRef = this.resultDialog.open(CheckResultCreatedDialogComponent, {
-            width: '500px'
-          });
-        } else {
-          dialogRef = this.resultDialog.open(CheckResultFoundDialogComponent, {
-            width: '500px',
-            data: result.item
-          });
-        }
-
-        dialogRef.afterClosed().subscribe(() => {
-          this.router.navigate(['/dashboard']);
+      if (result.created) {
+        dialogRef = this.resultDialog.open(CheckResultCreatedDialogComponent, {
+          width: '500px'
         });
+      } else {
+        dialogRef = this.resultDialog.open(CheckResultFoundDialogComponent, {
+          width: '500px',
+          data: result.item
+        });
+      }
+
+      dialogRef.afterClosed().subscribe(() => {
+        this.router.navigate(['/dashboard']);
       });
+    });
+
   }
 }
