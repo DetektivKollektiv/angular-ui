@@ -1,12 +1,29 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { AuthGuard } from './auth.guard';
+import {AuthGuard} from './auth.guard';
+import {AuthService} from '../auth-service/auth.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {TranslateModule} from '@ngx-translate/core';
+import {PLATFORM_ID} from '@angular/core';
+import {RouterTestingModule} from '@angular/router/testing';
+
+// TODO: Fix test
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        MatSnackBarModule,
+        RouterTestingModule,
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        AuthService,
+        {provide: PLATFORM_ID, useValue: 'browser'}
+      ]
+    });
     guard = TestBed.inject(AuthGuard);
   });
 

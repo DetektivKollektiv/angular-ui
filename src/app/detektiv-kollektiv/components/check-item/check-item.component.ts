@@ -16,10 +16,10 @@ import {LoaderService} from '../../../shared/loader/service/loader.service';
 export class CheckItemComponent {
   form: FormGroup = new FormGroup({});
 
-  constructor(private resultDialog: MatDialog,
+  constructor(private router: Router,
+              private resultDialog: MatDialog,
               private itemsService: ItemsService,
               private fb: FormBuilder,
-              private router: Router,
               private loaderService: LoaderService) {
 
     this.form = fb.group({

@@ -9,6 +9,7 @@
     "build:qa": "ng build --configuration=qa",
     "build:prod": "ng build --configuration=production",
     "test": "ng test",
+    "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "npx compodoc -p tsconfig.json -d dist/documentation"
