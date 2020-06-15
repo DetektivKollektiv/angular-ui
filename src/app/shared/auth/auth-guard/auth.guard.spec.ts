@@ -6,6 +6,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {TranslateModule} from '@ngx-translate/core';
 import {PLATFORM_ID} from '@angular/core';
 import {RouterTestingModule} from '@angular/router/testing';
+import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
 
 // TODO: Fix test
 
@@ -20,7 +21,7 @@ describe('AuthGuard', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        AuthService,
+        {provide: AuthService, useClass: MockAuthService},
         {provide: PLATFORM_ID, useValue: 'browser'}
       ]
     });

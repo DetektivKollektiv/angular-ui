@@ -5,7 +5,6 @@ import {Review} from '../../model/review';
 import {MatDialog} from '@angular/material/dialog';
 import {ReviewResultDialogComponent} from '../dialogs/review-result-dialog/review-result-dialog.component';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
-import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {ReviewsService} from '../../services/reviews/reviews.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
@@ -22,7 +21,6 @@ export class ReviewItemComponent implements OnInit {
               private formBuilder: FormBuilder,
               private itemsService: ItemsService,
               private reviewsService: ReviewsService,
-              private authService: AuthService,
               private loaderService: LoaderService) {
     this.reviewForm = formBuilder.group({
       text: ['', [Validators.required]],

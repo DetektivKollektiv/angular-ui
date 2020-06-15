@@ -2,17 +2,35 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {LoaderModule} from './shared/loader/loader.module';
+import {FooterComponent} from './components/footer/footer.component';
+import {HeaderComponent} from './components/header/header.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {AuthService} from './shared/auth/auth-service/auth.service';
+import {MockAuthService} from '../test/mocks/mock-auth.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        LoaderModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
         RouterTestingModule,
         TranslateModule.forRoot()
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        FooterComponent,
+        HeaderComponent
       ],
+      providers: [
+        { provide: AuthService, useClass: MockAuthService }
+      ]
+
     }).compileComponents();
   }));
 

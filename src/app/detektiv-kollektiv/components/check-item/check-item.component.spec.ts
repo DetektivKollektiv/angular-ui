@@ -5,8 +5,11 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {MatDialogModule} from '@angular/material/dialog';
 import {LoaderModule} from '../../../shared/loader/loader.module';
 import {ItemsService} from '../../services/items/items.service';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('CheckItemComponent', () => {
   let component: CheckItemComponent;
@@ -15,7 +18,11 @@ describe('CheckItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        NoopAnimationsModule,
         RouterTestingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
         MatDialogModule,
         LoaderModule,
         TranslateModule.forRoot()
