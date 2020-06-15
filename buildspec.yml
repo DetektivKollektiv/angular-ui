@@ -17,11 +17,11 @@ artifacts:
     - '**/*'
   name: artifact-name
   base-directory: 'dist/detektiv-kollektiv'
-  discard-paths: yes
+  discard-paths: no
   secondary-artifacts:
     documentation:
       files:
         - '**/*'
       name: documentation
-      discard-paths: yes
+      discard-paths: no
       base-directory: 'dist/documentation'
