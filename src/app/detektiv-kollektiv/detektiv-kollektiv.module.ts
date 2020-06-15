@@ -11,7 +11,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {CommonModule} from '@angular/common';
 import {ListItemsComponent} from './components/list-items/list-items.component';
 import {LoaderModule} from '../shared/loader/loader.module';
-import {RecaptchaModule} from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,7 @@ import {RecaptchaModule} from 'ng-recaptcha';
     AuthModule,
     LoaderModule,
     TranslateModule,
-    CommonModule,
-    RecaptchaModule
+    CommonModule
   ]
 })
 export class DetektivKollektivModule {
