@@ -2,9 +2,11 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DashboardComponent} from './dashboard.component';
 import {RouterTestingModule} from '@angular/router/testing';
-import {AuthModule} from '../../../shared/auth/auth.module';
 import {ChangeDetectorRef} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
+import {MatIconModule} from '@angular/material/icon';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -13,12 +15,15 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        MatIconModule,
         RouterTestingModule,
-        AuthModule,
         TranslateModule.forRoot()
       ],
       declarations: [DashboardComponent],
-      providers: [ChangeDetectorRef]
+      providers: [
+        ChangeDetectorRef,
+        {provide: AuthService, useClass: MockAuthService}
+      ]
     })
       .compileComponents();
   }));

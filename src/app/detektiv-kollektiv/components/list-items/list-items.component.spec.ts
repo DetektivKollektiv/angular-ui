@@ -7,6 +7,9 @@ import {LoaderModule} from '../../../shared/loader/loader.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {ItemsService} from '../../services/items/items.service';
 import {FormBuilder} from '@angular/forms';
+import {MockItemsService} from '../../../../test/mocks/mock-items.service';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 describe('ListItemsComponent', () => {
   let component: ListItemsComponent;
@@ -15,6 +18,8 @@ describe('ListItemsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        MatListModule,
+        MatIconModule,
         RouterTestingModule,
         MatDialogModule,
         LoaderModule,
@@ -22,7 +27,7 @@ describe('ListItemsComponent', () => {
       ],
       declarations: [ListItemsComponent],
       providers: [
-        ItemsService,
+        {provide: ItemsService, useClass: MockItemsService},
         FormBuilder
       ]
     })

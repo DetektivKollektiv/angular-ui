@@ -1,14 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ReviewItemComponent } from './review-item.component';
+import {ReviewItemComponent} from './review-item.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ItemsService} from '../../services/items/items.service';
 import {ReviewsService} from '../../services/reviews/reviews.service';
-import {FormBuilder} from '@angular/forms';
-import {AuthModule} from '../../../shared/auth/auth.module';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {LoaderModule} from '../../../shared/loader/loader.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatListModule} from '@angular/material/list';
+import {MockItemsService} from '../../../../test/mocks/mock-items.service';
+import {MockReviewService} from '../../../../test/mocks/mock-review.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('ReviewItemComponent', () => {
   let component: ReviewItemComponent;
@@ -17,20 +21,23 @@ describe('ReviewItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
         MatDialogModule,
         MatListModule,
-        AuthModule,
         LoaderModule,
         TranslateModule.forRoot()
       ],
-      declarations: [ ReviewItemComponent ],
+      declarations: [ReviewItemComponent],
       providers: [
-        ItemsService,
-        ReviewsService,
+        {provide: ReviewsService, useClass: MockReviewService},
+        {provide: ItemsService, useClass: MockItemsService},
         FormBuilder
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

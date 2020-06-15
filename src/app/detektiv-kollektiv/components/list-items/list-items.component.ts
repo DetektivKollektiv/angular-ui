@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Item} from '../../model/item';
 import {ItemsService} from '../../services/items/items.service';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
-import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -18,7 +17,6 @@ export class ListItemsComponent implements OnInit {
   constructor(
     private router: Router,
     private itemsService: ItemsService,
-    private authService: AuthService,
     private loaderService: LoaderService,
   ) {}
 
