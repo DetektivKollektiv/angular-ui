@@ -4,9 +4,17 @@
 
 export const environment = {
   production: false,
-  apiBase: 'https://api.detective-collective.org/stage',
-  redirectSignIn: 'http://localhost:4200/',
-  redirectSignOut: 'http://localhost:4200/'
+  api: {
+    baseUrl: 'https://api.detective-collective.org/stage'
+  },
+  auth: {
+    identityPoolId: 'eu-central-1:69722fe9-a444-4aa5-8016-129a273b2fa5' ,
+    userPoolId: 'eu-central-1_edLkAIQVL',
+    clientId: '5duuursqtc32rqksh9d00ciplo',
+    authDomain: 'dev.auth.detective-collective.org',
+    redirectSignIn: 'http://localhost:4200/',
+    redirectSignOut: 'http://localhost:4200/'
+  }
 };
 
 /*
