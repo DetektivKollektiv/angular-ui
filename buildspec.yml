@@ -6,12 +6,16 @@ phases:
   pre_build:
     commands:
       - npm install -g @angular/cli
-      - npm install
-      - npm run lint
-      - npm run test:headless
+      - npm install -g yarn
+      - yarn install
+      - yarn run lint
+      - yarn run test:headless
   build:
     commands:
-      - npm run build:$STAGE
+      - yarn run build:$STAGE
+  post_build:
+    commands:
+      - aws s3 rm s3://${S3_BUCKET} --recursive
 artifacts:
   files:
     - '**/*'
