@@ -7,7 +7,7 @@ import {environment} from './environments/environment';
 
 import {Amplify, API} from 'aws-amplify';
 
-Amplify.configure({
+const auth = {
   aws_project_region: 'eu-central-1',
   aws_cognito_identity_pool_id: environment.auth.identityPoolId, // 'eu-central-1:75a6c653-26fd-48e1-9f17-274db2ca4ae8',
   aws_cognito_region: 'eu-central-1',
@@ -27,15 +27,23 @@ Amplify.configure({
     responseType: 'code'
   },
   federationTarget: 'COGNITO_USER_POOLS'
-});
+};
 
-API.configure({endpoints: [
+console.log(auth);
+
+Amplify.configure(auth);
+
+const api = {endpoints: [
     {
       name: 'api',
       endpoint: environment.api.baseUrl,
       region: 'eu-central-1'
     },
-  ]});
+  ]};
+
+console.log(api);
+
+API.configure(api);
 
 if (environment.production) {
   enableProdMode();
