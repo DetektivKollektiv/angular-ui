@@ -27,7 +27,6 @@
     "@angular/platform-browser": "^9.1.6",
     "@angular/platform-browser-dynamic": "^9.1.6",
     "@angular/router": "^9.1.6",
-    "@aws-amplify/ui-angular": "^0.2.4",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
     "aws-amplify": "^3.0.10 ",
