@@ -1,5 +1,7 @@
 # DetektivKollektiv
 
+https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiN1VjQnE0bmd6M0tlSFcrNi9xdkVSb2E2aUpJWXM3ZVV1MlFrTmRJYmYrdld2MzRKVVFJek5vK3ZZMW5WMy9lZG9xc0lsazNCL1lUbytyaWNoZ0F0UlpJPSIsIml2UGFyYW1ldGVyU3BlYyI6IitoY2JDbHZOL3pvOXVsOHMiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
 ## Development server
