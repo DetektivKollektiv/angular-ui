@@ -1,0 +1,104 @@
+<div class="page-container-column">
+  <div class="heading">
+    <h1>Ein neuer Fall für das DetektivKollektiv? <span class="alt">Reiche ihn hier ein.</span></h1>
+    <p>Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf
+      Fall absenden klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis.
+      Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für
+      dich prüfen.</p>
+  </div>
+  <div class="test">
+    <div class="file">
+      <div class="heading">
+        <h2>Fall einreichen</h2>
+        <p>Schritt {{stepper.selectedIndex + 1}} von 3</p>
+      </div>
+      <div class="content">
+        <form style="width: 100%" [formGroup]="formGroup">
+          <mat-horizontal-stepper formArrayName="formArray" #stepper linear style="width: 100%">
+            <mat-step style="width: 100%" formGroupName="0" [stepControl]="formArray?.get([0])">
+              <mat-form-field style="width: 100%">
+                <textarea matInput placeholder="Text oder Verlinkung eingeben" rows="20" formControlName="contentFormControl"
+                          style="width: 100%; height: 100%"></textarea>
+                <mat-error>Bitte gib einen Text oder eine Verlinkung ein</mat-error>
+              </mat-form-field>
+              <div class="button-group">
+                <button class="button-primary" matStepperNext>Weiter</button>
+              </div>
+            </mat-step>
+            <mat-step style="width: 100%" formGroupName="1" [stepControl]="formArray?.get([1])">
+              <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Wie hat dich die Information erreicht?
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <mat-radio-group formControlName="sourceFormControl">
+                    <mat-radio-button value="1">Auswahlmöglichkeit 1</mat-radio-button>
+                    <mat-radio-button value="2">Auswahlmöglichkeit 2</mat-radio-button>
+                    <mat-radio-button value="3">Auswahlmöglichkeit 3</mat-radio-button>
+                    <mat-radio-button value="4">Sonstiges:</mat-radio-button>
+                    <mat-form-field>
+                      <mat-label>Sonstiges</mat-label>
+                      <input matInput formControlName="sourceTextFormControl">
+                    </mat-form-field>
+                  </mat-radio-group>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Wie oft hat dich die Information erreicht?
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <mat-radio-group formControlName="frequencyFormControl">
+                    <mat-radio-button value="1">Auswahlmöglichkeit 1</mat-radio-button>
+                    <mat-radio-button value="2">Auswahlmöglichkeit 2</mat-radio-button>
+                    <mat-radio-button value="3">Auswahlmöglichkeit 3</mat-radio-button>
+                    <mat-radio-button value="4">Sonstiges:</mat-radio-button>
+                    <mat-form-field>
+                      <mat-label>Sonstiges</mat-label>
+                      <input matInput formControlName="frequencyTextFormControl">
+                    </mat-form-field>
+                  </mat-radio-group>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      Wann hat dich die Information zum ersten Mal erreicht?
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Wähle ein Datum</mat-label>
+                    <input matInput [matDatepicker]="picker" [max]="today" formControlName="receivedFormControl">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker disabled="false"></mat-datepicker>
+                  </mat-form-field>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <div class="button-group">
+                <button class="button-primary" matStepperNext>Fall einreichen</button>
+                <button class="button-flat" matStepperPrevious>Zurück</button>
+              </div>
+            </mat-step>
+            <mat-step style="width: 100%" formGroupName="2" [stepControl]="formArray?.get([2])">
+              <div style="display: flex; flex-direction: column; align-items: center">
+                <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
+                <mat-form-field>
+                  <input matInput placeholder="E-Mail" type="email" yarn add ng-recaptcha formControlName="emailFormControl">
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Handynummer" type="tel" formControlName="mobileFormControl">
+                </mat-form-field>
+                <re-captcha (resolved)="resolved($event)" siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
+              </div>
+              <div class="button-group">
+                <button (click)="submit()" [disabled]="!submitEnabled" class="button-primary">Fall absenden</button>
+                <button class="button-flat" matStepperPrevious>Zurück</button>
+              </div>
+            </mat-step>
+          </mat-horizontal-stepper>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

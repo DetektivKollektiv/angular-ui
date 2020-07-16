@@ -29,8 +29,6 @@ const auth = {
   federationTarget: 'COGNITO_USER_POOLS'
 };
 
-console.log(auth);
-
 Amplify.configure(auth);
 
 const api = {endpoints: [
@@ -40,8 +38,6 @@ const api = {endpoints: [
       region: 'eu-central-1'
     },
   ]};
-
-console.log(api);
 
 API.configure(api);
 

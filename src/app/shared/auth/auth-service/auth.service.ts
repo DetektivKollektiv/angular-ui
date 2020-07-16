@@ -52,8 +52,6 @@ export class AuthService {
   }
 
   private setUser(user: any) {
-    console.log(user);
-
     if (!user) {
       return;
     }

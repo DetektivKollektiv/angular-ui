@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {LoaderService} from './service/loader.service';
 import {LoaderComponent} from './component/loader.component';
-import {MaterialModule} from '../../material/material.module';
+import {MaterialModule} from '../material/material.module';
 
 
 

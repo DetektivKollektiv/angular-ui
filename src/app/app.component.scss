@@ -1,0 +1,35 @@
+app-header {
+  z-index: 10;
+  height: 15%;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+div.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.body > div {
+  flex: 1;
+}
+
+div.content {
+  background: #fbfbfb;
+  height: 100%;
+  width: 100%;
+  padding: 2em 5em;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+}
+
+app-footer {
+  z-index: 10;
+  height: 10%;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
