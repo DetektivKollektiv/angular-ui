@@ -5,11 +5,11 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {MatDialogModule} from '@angular/material/dialog';
 import {TranslateModule} from '@ngx-translate/core';
 import {ChangeDetectorRef} from '@angular/core';
-import {AuthService} from '../../shared/auth/auth-service/auth.service';
-import {MockAuthService} from '../../../test/mocks/mock-auth.service';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
