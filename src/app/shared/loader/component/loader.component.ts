@@ -8,7 +8,7 @@ import {LoaderService} from '../service/loader.service';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  color = 'primary';
+  color = 'accent';
   mode = 'indeterminate';
   value = 50;
   isLoading: Subject<boolean> = this.loaderService.isLoading;
