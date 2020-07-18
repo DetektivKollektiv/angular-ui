@@ -34,12 +34,12 @@ export class SubmitComponent implements OnInit {
   sourceFormControl = new FormControl();
   sourceTextFormControl = new FormControl();
   frequencyFormControl = new FormControl();
-  frequencyTextFormControl = new FormControl();
   receivedFormControl = new FormControl({ value: moment(), disabled: true });
   emailFormControl = new FormControl('', Validators.email);
   mobileFormControl = new FormControl();
   submitEnabled: boolean;
   today = moment();
+  submitted: boolean;
 
   get formArray(): AbstractControl | null {
     return this.formGroup.get('formArray');
@@ -53,6 +53,8 @@ export class SubmitComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.submitted = false;
+
     this.formGroup = this.formBuilder.group({
       formArray: this.formBuilder.array([
         this.formBuilder.group({
@@ -62,7 +64,6 @@ export class SubmitComponent implements OnInit {
           sourceFormControl: this.sourceFormControl,
           sourceTextFormControl: this.sourceTextFormControl,
           frequencyFormControl: this.frequencyFormControl,
-          frequencyTextFormControl: this.frequencyTextFormControl,
           receivedFormControl: this.receivedFormControl
         }),
         this.formBuilder.group({
@@ -79,7 +80,7 @@ export class SubmitComponent implements OnInit {
       mail: this.emailFormControl.value,
       received_date: this.receivedFormControl.value.format('YYYY-MM-DD HH:mm:ss'),
       phone: this.mobileFormControl.value,
-      frequency: this.frequencyFormControl.value === '4' ? this.frequencyTextFormControl.value : this.frequencyFormControl.value,
+      frequency: this.frequencyFormControl.value,
       source: this.sourceFormControl.value === '4' ? this.sourceTextFormControl.value : this.sourceFormControl.value
     } as Item;
 
@@ -87,7 +88,9 @@ export class SubmitComponent implements OnInit {
     this.loaderService.show();
     this.submitItemService.submitItem(item)
       .then(_ => {
-        this.router.navigate(['finish']).then(() => this.loaderService.hide());
+        this.submitted = true;
+        this.loaderService.hide();
+        // this.router.navigate(['finish']).then(() => this.loaderService.hide());
       })
       .catch(_ => {
         this.loaderService.hide();
@@ -100,5 +103,9 @@ export class SubmitComponent implements OnInit {
 
   resolved(response: string) {
     this.submitEnabled = true;
+  }
+
+  navigate(url: string) {
+    this.router.navigateByUrl(url).then();
   }
 }

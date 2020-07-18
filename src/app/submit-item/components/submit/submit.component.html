@@ -1,4 +1,4 @@
-<div class="page-container-column">
+<div *ngIf="!submitted; else finish" class="page-container-column">
   <div class="heading">
     <h1>Ein neuer Fall für das DetektivKollektiv? <span class="alt">Reiche ihn hier ein.</span></h1>
     <p>Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf
@@ -13,11 +13,12 @@
         <p>Schritt {{stepper.selectedIndex + 1}} von 3</p>
       </div>
       <div class="content">
-        <form style="width: 100%" [formGroup]="formGroup">
-          <mat-horizontal-stepper formArrayName="formArray" #stepper linear style="width: 100%">
-            <mat-step style="width: 100%" formGroupName="0" [stepControl]="formArray?.get([0])">
+        <form [formGroup]="formGroup" style="width: 100%">
+          <mat-horizontal-stepper #stepper formArrayName="formArray" linear style="width: 100%">
+            <mat-step [stepControl]="formArray?.get([0])" formGroupName="0" style="width: 100%">
               <mat-form-field style="width: 100%">
-                <textarea matInput placeholder="Text oder Verlinkung eingeben" rows="20" formControlName="contentFormControl"
+                <textarea formControlName="contentFormControl" matInput placeholder="Text oder Verlinkung eingeben"
+                          rows="20"
                           style="width: 100%; height: 100%"></textarea>
                 <mat-error>Bitte gib einen Text oder eine Verlinkung ein</mat-error>
               </mat-form-field>
@@ -25,7 +26,11 @@
                 <button class="button-primary" matStepperNext>Weiter</button>
               </div>
             </mat-step>
-            <mat-step style="width: 100%" formGroupName="1" [stepControl]="formArray?.get([1])">
+            <mat-step [stepControl]="formArray?.get([1])" formGroupName="1" style="width: 100%">
+              <p>
+                Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br/>
+                Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
+              </p>
               <mat-accordion>
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
@@ -33,14 +38,15 @@
                       Wie hat dich die Information erreicht?
                     </mat-panel-title>
                   </mat-expansion-panel-header>
+                  <mat-label>Wähle aus von wem du die Information erhalten hast.</mat-label>
                   <mat-radio-group formControlName="sourceFormControl">
-                    <mat-radio-button value="1">Auswahlmöglichkeit 1</mat-radio-button>
-                    <mat-radio-button value="2">Auswahlmöglichkeit 2</mat-radio-button>
-                    <mat-radio-button value="3">Auswahlmöglichkeit 3</mat-radio-button>
+                    <mat-radio-button value="1">Von engen Freunden oder Familienmitgliedern</mat-radio-button>
+                    <mat-radio-button value="2">Von Bekannten</mat-radio-button>
+                    <mat-radio-button value="3">Von Fremden</mat-radio-button>
                     <mat-radio-button value="4">Sonstiges:</mat-radio-button>
                     <mat-form-field>
                       <mat-label>Sonstiges</mat-label>
-                      <input matInput formControlName="sourceTextFormControl">
+                      <input formControlName="sourceTextFormControl" matInput>
                     </mat-form-field>
                   </mat-radio-group>
                 </mat-expansion-panel>
@@ -50,27 +56,26 @@
                       Wie oft hat dich die Information erreicht?
                     </mat-panel-title>
                   </mat-expansion-panel-header>
-                  <mat-radio-group formControlName="frequencyFormControl">
-                    <mat-radio-button value="1">Auswahlmöglichkeit 1</mat-radio-button>
-                    <mat-radio-button value="2">Auswahlmöglichkeit 2</mat-radio-button>
-                    <mat-radio-button value="3">Auswahlmöglichkeit 3</mat-radio-button>
-                    <mat-radio-button value="4">Sonstiges:</mat-radio-button>
-                    <mat-form-field>
-                      <mat-label>Sonstiges</mat-label>
-                      <input matInput formControlName="frequencyTextFormControl">
-                    </mat-form-field>
-                  </mat-radio-group>
+                  <mat-label>Gib hier ein, wie oft du die Information erhalten hast.</mat-label>
+                  <br/>
+                  <mat-form-field>
+                    <mat-label>Anzahl</mat-label>
+                    <input matInput type="number">
+                  </mat-form-field>
                 </mat-expansion-panel>
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
-                      Wann hat dich die Information zum ersten Mal erreicht?
+                      Wann hat dich die Information erreicht?
                     </mat-panel-title>
                   </mat-expansion-panel-header>
+                  <mat-label>Wähle hier das Datum aus, an dem du die Information zum ersten Mal erhalten hast.
+                  </mat-label>
+                  <br/>
                   <mat-form-field appearance="fill">
                     <mat-label>Wähle ein Datum</mat-label>
-                    <input matInput [matDatepicker]="picker" [max]="today" formControlName="receivedFormControl">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <input [matDatepicker]="picker" [max]="today" formControlName="receivedFormControl" matInput>
+                    <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
                     <mat-datepicker #picker disabled="false"></mat-datepicker>
                   </mat-form-field>
                 </mat-expansion-panel>
@@ -80,16 +85,18 @@
                 <button class="button-flat" matStepperPrevious>Zurück</button>
               </div>
             </mat-step>
-            <mat-step style="width: 100%" formGroupName="2" [stepControl]="formArray?.get([2])">
+            <mat-step [stepControl]="formArray?.get([2])" formGroupName="2" style="width: 100%">
               <div style="display: flex; flex-direction: column; align-items: center">
                 <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
                 <mat-form-field>
-                  <input matInput placeholder="E-Mail" type="email" yarn add ng-recaptcha formControlName="emailFormControl">
+                  <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail" type="email"
+                         yarn>
                 </mat-form-field>
                 <mat-form-field>
-                  <input matInput placeholder="Handynummer" type="tel" formControlName="mobileFormControl">
+                  <input formControlName="mobileFormControl" matInput placeholder="Handynummer" type="tel">
                 </mat-form-field>
-                <re-captcha (resolved)="resolved($event)" siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
+                <re-captcha (resolved)="resolved($event)"
+                            siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
               </div>
               <div class="button-group">
                 <button (click)="submit()" [disabled]="!submitEnabled" class="button-primary">Fall absenden</button>
@@ -102,3 +109,24 @@
     </div>
   </div>
 </div>
+
+<ng-template #finish>
+  <div class="page-container-column">
+    <h1>Danke, <span class="alt">dass du deinen Fall eingereicht hast!</span></h1>
+    <div style="display: flex; flex-direction: row; width: 100%; height: 100%">
+      <div>
+        <p>
+          Unser Team von Detektiven prüft nun deinen Fall.<br/>
+          Sobald dein Fall gelöst wurde, erhältst du eine Benachrichtigung via E-Mail oder Handynummer.<br/><br/>
+          Was möchtest du jetzt tun?
+        </p>
+        <div class="button-group">
+          <button (click)="ngOnInit()" class="button-primary">Fall einreichen</button>
+          <button (click)="navigate('review')" class="button-primary" disabled>Fall lösen</button>
+          <button (click)="navigate('archive')" class="button-primary" disabled>Zum Archiv</button>
+        </div>
+      </div>
+      <img src="assets/images/illustrations/undraw_with_love_ajy1.svg" height="380" width="380"/>
+    </div>
+  </div>
+</ng-template>
