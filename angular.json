@@ -25,11 +25,14 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
+              "src/dk.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+              "node_modules/lato-font/css/lato-font.css",
+              "node_modules/typeface-oswald/index.css"
             ],
             "scripts": []
           },
@@ -152,6 +155,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
+              "src/dk.ico",
               "src/assets"
             ],
             "styles": [

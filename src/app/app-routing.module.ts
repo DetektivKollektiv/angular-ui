@@ -1,24 +1,31 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ReviewItemComponent} from './detektiv-kollektiv/components/review-item/review-item.component';
-import {CheckItemComponent} from './detektiv-kollektiv/components/check-item/check-item.component';
-import {DashboardComponent} from './detektiv-kollektiv/components/dashboard/dashboard.component';
 import {AuthGuard} from './shared/auth/auth-guard/auth.guard';
-import { ListItemsComponent } from './detektiv-kollektiv/components/list-items/list-items.component';
 import {ProfileComponent} from './profile/components/profile/profile.component';
+import {HomeComponent} from './home/components/home/home.component';
+import {SubmitComponent} from './submit-item/components/submit/submit.component';
+import {ReviewComponent} from './review-item/components/review/review.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'check', component: CheckItemComponent},
-  {path: 'review', component: ReviewItemComponent, canActivate: [AuthGuard]},
-  {path: 'items', component: ListItemsComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]}
+  {path: 'home', component: HomeComponent},
+  // {path: 'info', component: InfoComponent},
+  // {path: 'community', component: CommunityGuidelinesComponent},
+  // {path: 'data-privacy', component: DataPrivacyComponent},
+  // {path: 'imprint', component: ImprintComponent},
+  {path: 'submit', component: SubmitComponent},
+  {path: 'review', component: ReviewComponent, canActivate: [AuthGuard]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

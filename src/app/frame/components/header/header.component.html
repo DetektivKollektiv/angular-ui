@@ -1,0 +1,31 @@
+<header class="main-header">
+  <div class="container">
+    <a class="mh-logo">
+      <a [routerLink]="['/home']">
+        <img height="35" src="assets/logo/Logo_Schriftzug@2x.png" width="293">
+      </a>
+    </a>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li *ngIf="!authState.isLoggedIn">
+          <button (click)="login()" class="button-flat">Detektiv werden</button>
+        </li>
+        <li *ngIf="!authState.isLoggedIn">
+          <button (click)="login()" class="button-outline">Einloggen</button>
+        </li>
+<!--        <li *ngIf="authState.isLoggedIn">-->
+<!--          <button class="button-flat">-->
+<!--            <mat-icon>account_circle</mat-icon>-->
+<!--            {{authState.username.toUpperCase()}}-->
+<!--          </button>-->
+<!--        </li>-->
+        <li *ngIf="authState.isLoggedIn">
+          <button (click)="logout()" class="button-flat">Abmelden</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+

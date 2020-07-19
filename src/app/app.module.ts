@@ -4,14 +4,13 @@ import {NgModule} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {MaterialModule} from './material/material.module';
-import {DetektivKollektivModule} from './detektiv-kollektiv/detektiv-kollektiv.module';
+import {MaterialModule} from './shared/material/material.module';
 import {AuthModule} from './shared/auth/auth.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {FooterComponent} from './components/footer/footer.component';
-import {HeaderComponent} from './components/header/header.component';
 import {LoaderModule} from './shared/loader/loader.module';
+import {SubmitItemModule} from './submit-item/submit-item.module';
+import {FrameModule} from './frame/frame.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -19,9 +18,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -30,8 +27,9 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     MaterialModule,
     LoaderModule,
-    DetektivKollektivModule,
+    FrameModule,
     AuthModule,
+    SubmitItemModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

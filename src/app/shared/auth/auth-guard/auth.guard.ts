@@ -24,13 +24,15 @@ export class AuthGuard implements CanActivate {
         return true;
       }
     ).catch(() => {
-      this.snackBar.open(
+      const snackBar = this.snackBar.open(
         this.translateService.instant('snack.login.message'),
         this.translateService.instant('snack.login.action'),
         {
           duration: 2000
-        }).onAction().subscribe(() => this.authService.signIn());
+        });
 
+      snackBar.onAction().subscribe(() => this.authService.signIn());
+      snackBar.afterDismissed().subscribe(() => this.router.navigate(['/home']));
       return false;
     });
   }
