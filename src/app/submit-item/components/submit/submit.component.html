@@ -7,9 +7,9 @@
       dich prüfen.</p>
   </div>
   <app-file [heading]="'Fall einreichen'" subheading="Schritt {{stepper.selectedIndex + 1}} von 3">
-    <form [formGroup]="formGroup" style="width: 100%">
-      <mat-horizontal-stepper #stepper formArrayName="formArray" linear style="width: 100%">
-        <mat-step [stepControl]="formArray?.get([0])" formGroupName="0" style="width: 100%">
+    <form [formGroup]="formGroup">
+      <mat-horizontal-stepper #stepper formArrayName="formArray" linear>
+        <mat-step [stepControl]="formArray?.get([0])" formGroupName="0">
           <mat-form-field style="width: 100%">
                     <textarea formControlName="contentFormControl" matInput placeholder="Text oder Verlinkung eingeben"
                               rows="20"
@@ -20,7 +20,7 @@
             <button class="button-primary" matStepperNext>Weiter</button>
           </div>
         </mat-step>
-        <mat-step [stepControl]="formArray?.get([1])" formGroupName="1" style="width: 100%">
+        <mat-step [stepControl]="formArray?.get([1])" formGroupName="1">
           <p>
             Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br/>
             Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
@@ -79,8 +79,8 @@
             <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
         </mat-step>
-        <mat-step [stepControl]="formArray?.get([2])" formGroupName="2" style="width: 100%">
-          <div style="display: flex; flex-direction: column; align-items: center">
+        <mat-step [stepControl]="formArray?.get([2])" formGroupName="2">
+          <div class="confirm">
             <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
             <mat-form-field>
               <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail"
@@ -115,8 +115,8 @@
         </p>
         <div class="button-group">
           <button (click)="ngOnInit()" class="button-primary">Fall einreichen</button>
-          <button (click)="navigate('review')" class="button-primary" disabled>Fall lösen</button>
-          <button (click)="navigate('archive')" class="button-primary" disabled>Zum Archiv</button>
+          <button (click)="navigate('review')" class="button-primary">Fall lösen</button>
+          <button (click)="navigate('archive')" class="button-primary">Zum Archiv</button>
         </div>
       </div>
       <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380"/>

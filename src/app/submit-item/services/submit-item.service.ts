@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Item} from '../../model/item';
+import {Item} from '../model/item';
 import {API} from 'aws-amplify';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubmitItemService {
-  private itemSubmissionUrl = '/item-submission';
+  private itemSubmissionUrl = '/item_submission';
 
   constructor() {
   }
