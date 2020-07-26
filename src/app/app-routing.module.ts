@@ -5,6 +5,7 @@ import {ProfileComponent} from './profile/components/profile/profile.component';
 import {HomeComponent} from './home/components/home/home.component';
 import {SubmitComponent} from './submit-item/components/submit/submit.component';
 import {ReviewComponent} from './review-item/components/review/review.component';
+import { ArchiveComponent } from './archive/components/archive/archive.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'submit', component: SubmitComponent},
   {path: 'review', component: ReviewComponent, canActivate: [AuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  {path: 'archive', component: ArchiveComponent, canActivate: [AuthGuard]},
   {
     path: '**',
     redirectTo: '/home',
