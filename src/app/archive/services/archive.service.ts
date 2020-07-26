@@ -20,9 +20,8 @@ export class ArchiveService {
   }
 
   public getClosedItems(): Promise<Array<Item>> {
-    return API.get(this.apiName, this.path, this.myInit).then((response: Array<Item>) => {
-      return response;
+    return API.get(this.apiName, this.path, this.myInit).then(response => {
+      return response.data;
     });
   }
-
 }
