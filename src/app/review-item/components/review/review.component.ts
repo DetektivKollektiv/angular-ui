@@ -61,7 +61,7 @@ export class ReviewComponent implements OnInit {
     this.caseService.acceptCase(this.caseToSolve)
       .then(() => {
         this.questionsService.getQuestions().then(questions => {
-          this.questions = questions.slice(0, 2);
+          this.questions = questions;
 
           this.form = new FormGroup({});
 

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Item} from '../model/item';
+import {Item} from '../../model/item';
 import {API} from 'aws-amplify';
 
 @Injectable({
