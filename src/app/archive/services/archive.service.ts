@@ -11,17 +11,13 @@ export class ArchiveService {
 
   private apiName = 'api';
   private path = '/items/closed';
-  private myInit = {
-    headers: {},
-    response: true,
-  };
 
   constructor() {
   }
 
-  public getClosedItems(): Promise<Array<Item>> {
-    return API.get(this.apiName, this.path, this.myInit).then(response => {
-      return response.data;
+  public getClosedItems(): Promise<Item[]> {
+    return API.get(this.apiName, this.path, {}).then((response: Item[]) => {
+      return response;
     });
   }
 }
