@@ -12,6 +12,7 @@ import {LoaderModule} from './shared/loader/loader.module';
 import {SubmitItemModule} from './submit-item/submit-item.module';
 import {CoreModule} from './core/core.module';
 import {ReviewItemModule} from './review-item/review-item.module';
+import {ArchiveModule} from './archive/archive.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +33,7 @@ export function createTranslateLoader(http: HttpClient) {
     AuthModule,
     SubmitItemModule,
     ReviewItemModule,
+    ArchiveModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
