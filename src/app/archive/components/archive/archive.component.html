@@ -1,0 +1,16 @@
+  <h1>Archiv</h1>
+
+  <mat-list>
+  <mat-list-item class="archive-items-list" *ngFor="let item of itemsList">
+      <div mat-line class="archive-item-content">{{item.content}}</div>
+      <div mat-line [ngSwitch]="item.result_score">
+        <button *ngSwitchCase="1" class="mat-stroked-button rating-1" disabled>Bewertung: nicht vertrauenswürdig</button>
+        <button *ngSwitchCase="2" class="mat-stroked-button rating-2" disabled>Bewertung: eher nicht vertrauenswürdig</button>
+        <button *ngSwitchCase="3" class="mat-stroked-button rating-3" disabled>Bewertung: eher vertrauenswürdig</button>
+        <button *ngSwitchCase="4" class="mat-stroked-button rating-4" disabled>Bewertung: vertrauenswürdig</button>
+      </div>
+  </mat-list-item>
+</mat-list>
+<button mat-icon-button color="basic" (click)="home()">
+  <mat-icon class="icon">arrow_back</mat-icon>
+</button>
