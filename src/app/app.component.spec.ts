@@ -8,8 +8,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {AuthService} from './shared/auth/auth-service/auth.service';
 import {MockAuthService} from '../test/mocks/mock-auth.service';
-import {HeaderComponent} from './frame/components/header/header.component';
-import {FooterComponent} from './frame/components/footer/footer.component';
+import {HeaderComponent} from './core/components/header/header.component';
+import {FooterComponent} from './core/components/footer/footer.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

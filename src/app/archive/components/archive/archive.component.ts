@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Item} from '../../../model/item';
 import {Router} from '@angular/router';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
 import {ArchiveService} from '../../services/archive.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {Item} from '../../../model/item';
 
 
 @Component({

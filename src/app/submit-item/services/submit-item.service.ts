@@ -6,7 +6,7 @@ import {API} from 'aws-amplify';
   providedIn: 'root'
 })
 export class SubmitItemService {
-  private itemSubmissionUrl = '/item-submission';
+  private itemSubmissionUrl = '/item_submission';
 
   constructor() {
   }

@@ -36,4 +36,4 @@ import {MaterialModule} from '../shared/material/material.module';
     MaterialModule
   ]
 })
-export class FrameModule { }
+export class CoreModule { }

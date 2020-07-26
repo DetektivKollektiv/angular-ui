@@ -10,7 +10,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {LoaderModule} from './shared/loader/loader.module';
 import {SubmitItemModule} from './submit-item/submit-item.module';
-import {FrameModule} from './frame/frame.module';
+import {CoreModule} from './core/core.module';
+import {ReviewItemModule} from './review-item/review-item.module';
 import {ArchiveModule} from './archive/archive.module';
 
 export function createTranslateLoader(http: HttpClient) {
@@ -28,9 +29,10 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     MaterialModule,
     LoaderModule,
-    FrameModule,
+    CoreModule,
     AuthModule,
     SubmitItemModule,
+    ReviewItemModule,
     ArchiveModule,
     TranslateModule.forRoot({
       loader: {

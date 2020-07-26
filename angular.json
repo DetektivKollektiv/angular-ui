@@ -196,6 +196,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "detektiv-kollektiv"
 }
