@@ -13,7 +13,7 @@ import {Item} from '../../../model/item';
 })
 export class ArchiveComponent implements OnInit {
 
-  itemsList: Array<Item> = [];
+  public itemsList: Item[] = [];
 
   constructor(
     private archiveService: ArchiveService,
@@ -23,15 +23,6 @@ export class ArchiveComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadAllItems();
-  }
-
-  home(): void {
-    this.router.navigate(['/']);
-  }
-
-  private loadAllItems(): void {
-
     this.loaderService.show();
 
     this.archiveService.getClosedItems()
@@ -45,7 +36,9 @@ export class ArchiveComponent implements OnInit {
           duration: 2000
         });
       });
-
   }
 
+  home(): void {
+    this.router.navigate(['/']);
+  }
 }
