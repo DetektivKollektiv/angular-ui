@@ -70,13 +70,14 @@ export class ReviewComponent implements OnInit {
           });
 
           this.caseAccepted = true;
+          this.loader.hide();
         });
       })
       .catch(reason => {
         this.matSnackBar.open('Leider konnte der Fall nicht angenommen werden. Versuche es später nochmal.', 'Ok', {duration: 2000});
         console.log(reason);
-      })
-      .finally(() => this.loader.hide());
+        this.loader.hide();
+      });
   }
 
   submit() {
