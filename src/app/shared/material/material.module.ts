@@ -19,6 +19,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
 
 
 const modules = [
@@ -41,7 +43,9 @@ const modules = [
   MatCheckboxModule,
   MatRadioModule,
   MatDatepickerModule,
-  MatMomentDateModule
+  MatMomentDateModule,
+  MatMenuModule,
+  MatCardModule
 ];
 
 

@@ -1,4 +1,7 @@
 <h4>{{question.content}}</h4>
+<div *ngIf="question.info">
+  <p>{{question.info}}</p>
+</div>
 <mat-radio-group required [(ngModel)]="question.score">
   <mat-radio-button value="1">Stimme nicht zu</mat-radio-button>
   <mat-radio-button value="2">Stimme eher nicht zu</mat-radio-button>

@@ -14,18 +14,29 @@
           <button (click)="login()" class="button-outline">Einloggen</button>
         </li>
 <!--        <li *ngIf="authState.isLoggedIn">-->
-<!--          <button class="button-flat">-->
-<!--            <mat-icon>account_circle</mat-icon>-->
-<!--            {{authState.username.toUpperCase()}}-->
-<!--          </button>-->
+<!--          <button (click)="logout()" class="button-flat">Abmelden</button>-->
 <!--        </li>-->
-        <li *ngIf="authState.isLoggedIn">
-          <button (click)="logout()" class="button-flat">Abmelden</button>
-        </li>
+<!--        <li *ngIf="authState.isLoggedIn">-->
+<!--          {{user?.levelString}}-->
+<!--        </li>-->
+        <div *ngIf="authState.isLoggedIn" class="user-icon" [matMenuTriggerFor]="menu">
+          {{user?.name.charAt(0)}}
+        </div>
       </ul>
     </nav>
   </div>
 </header>
 
+<mat-menu #menu="matMenu" xPosition="before">
+  <div style="width: 200px">
+    <p mat-menu-item [disabled]="true" [disableRipple]="true">Name <span class="alt">{{user?.name}}</span></p>
+    <p mat-menu-item [disabled]="true" [disableRipple]="true">Level <span class="alt">{{user?.levelString}}</span></p>
+    <p mat-menu-item [disabled]="true" [disableRipple]="true">Erfahrungspukte <span class="alt">{{user?.experience_points}}</span></p>
+  </div>
+  <mat-divider></mat-divider>
+  <button mat-menu-item (click)="logout()">
+    <span>Abmelden</span>
+  </button>
+</mat-menu>
 
 
