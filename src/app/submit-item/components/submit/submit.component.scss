@@ -1,0 +1,27 @@
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-radio-button {
+  margin: 5px;
+}
+
+mat-panel-title {
+  font-family: Oswald;
+  color: #4A4A4A;
+}
+
+mat-panel-title:hover {
+  color: #FFCC00;
+}
+
+mat-panel-title.mat-expanded {
+  color: #FFCC00;
+}
+
+div.confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

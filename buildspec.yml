@@ -1,0 +1,31 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - npm install -g @angular/cli
+      - npm install -g yarn
+      - yarn install
+      - yarn run lint
+      - yarn run test:headless
+  build:
+    commands:
+      - yarn run build:$STAGE
+  post_build:
+    commands:
+      - aws s3 rm $S3_BUCKET --recursive
+artifacts:
+  files:
+    - '**/*'
+  name: artifact-name
+  base-directory: 'dist/detektiv-kollektiv'
+  discard-paths: no
+  secondary-artifacts:
+    documentation:
+      files:
+        - '**/*'
+      name: documentation
+      discard-paths: no
+      base-directory: 'dist/documentation'

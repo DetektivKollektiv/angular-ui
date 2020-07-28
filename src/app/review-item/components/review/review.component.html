@@ -1,0 +1,60 @@
+<div class="page-container-column" *ngIf="!finished; else finish">
+  <div class="heading">
+    <h1>Du willst einen Fall lösen? <span class="alt">Versuche dich doch an diesem Fall.</span></h1>
+    <p *ngIf="!caseAccepted">
+      Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass du den Fall lösen kannst, klicke auf <i><b>Fall
+      annehmen</b></i>.
+      Falls du lieber einen anderen Fall lösen willst, klicke auf <i><b>Fall ablehnen</b></i>, dann erhälst du einen
+      neuen
+      Fall.
+    </p>
+  </div>
+  <app-file heading="Fall lösen">
+    <h3>Die Behauptung:</h3>
+    <p class="case-content">{{caseToSolve?.content}}</p>
+    <div *ngIf="!caseAccepted; else accepted" class="button-group">
+      <button (click)="accept()" [disabled]="caseToSolve === undefined" class="button-primary">Fall annehmen</button>
+      <button (click)="reject()" [disabled]="caseToSolve === undefined" class="button-flat">Fall ablehnen</button>
+    </div>
+  </app-file>
+</div>
+
+<ng-template #accepted>
+  <div ><h3>Deine Bewertung:</h3>
+  <p>Bewerte die folgenden Aussagen.</p>
+  <p>Aussage {{stepper.selectedIndex + 1}} von {{stepper.steps?.length || 0}}:</p>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-horizontal-stepper #stepper linear>
+      <mat-step [formGroupName]="question.id" *ngFor="let question of questions; let index = index; let last = last;">
+        <app-question [question]="question"></app-question>
+
+        <div class="button-group">
+          <button class="button-primary" *ngIf="!last" [disabled]="question.score === undefined" type="button" matStepperNext>Weiter</button>
+          <button class="button-primary" *ngIf="last" [disabled]="question.score === undefined" type="submit">Absenden</button>
+          <button class="button-flat" *ngIf="index > 0" type="button" matStepperPrevious>Zurück</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </form>
+  </div>
+</ng-template>
+
+<ng-template #finish>
+  <div class="page-container-column">
+    <h1>Danke, <span class="alt">dass du diesen Fall gelöst hast!</span></h1>
+    <div style="display: flex; flex-direction: row; width: 100%; height: 100%">
+      <div>
+        <p>
+          Du hast dafür <b>einen Erfahrungspunkt</b> erhalten.<br/><br/>
+          Was möchtest du jetzt tun?
+        </p>
+        <div class="button-group">
+          <button (click)="ngOnInit()" class="button-primary">Neuen Fall lösen</button>
+          <button (click)="navigate('archive')" class="button-primary">Zum Archiv</button>
+        </div>
+      </div>
+      <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380"/>
+    </div>
+  </div>
+</ng-template>

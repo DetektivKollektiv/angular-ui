@@ -1,0 +1,48 @@
+mat-card {
+  width: 400px;
+}
+
+mat-card+mat-card {
+  margin-left: 10px;
+}
+
+.rating-1 {
+  margin-top: 15px;
+  border-color: #c62828;
+  color: #c62828;
+}
+
+.rating-1:disabled {
+  color: #c62828;
+}
+
+.rating-2 {
+  margin-top: 15px;
+  border-color: #e57373;
+  color: #e57373;
+}
+
+.rating-2:disabled {
+  color: #e57373;
+}
+
+.rating-3 {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  border-color: #66bb6a;
+  color: #66bb6a;
+}
+
+.rating-3:disabled {
+  color: #66bb6a;
+}
+
+.rating-4 {
+  margin-top: 15px;
+  border-color: #1b5e20;
+  color: #1b5e20;
+}
+
+.rating-4:disabled {
+  color: #1b5e20;
+}
