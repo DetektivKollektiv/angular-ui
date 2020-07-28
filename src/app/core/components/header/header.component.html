@@ -13,12 +13,6 @@
         <li *ngIf="!authState.isLoggedIn">
           <button (click)="login()" class="button-outline">Einloggen</button>
         </li>
-<!--        <li *ngIf="authState.isLoggedIn">-->
-<!--          <button (click)="logout()" class="button-flat">Abmelden</button>-->
-<!--        </li>-->
-<!--        <li *ngIf="authState.isLoggedIn">-->
-<!--          {{user?.levelString}}-->
-<!--        </li>-->
         <div *ngIf="authState.isLoggedIn" class="user-icon" [matMenuTriggerFor]="menu">
           {{user?.name.charAt(0)}}
         </div>

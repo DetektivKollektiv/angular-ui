@@ -20,9 +20,9 @@
 </div>
 
 <ng-template #accepted>
-  <div ><h3>Die Fragen:</h3>
-  <p>Beantworte bitte die folgenden Fragen um zu bestimmen ob die Behauptung vertrauenswürdig ist oder nicht.</p>
-  <p>Frage {{stepper.selectedIndex + 1}} von {{stepper.steps?.length || 0}}:</p>
+  <div ><h3>Deine Bewertung:</h3>
+  <p>Bewerte die folgenden Aussagen.</p>
+  <p>Aussage {{stepper.selectedIndex + 1}} von {{stepper.steps?.length || 0}}:</p>
 
   <form [formGroup]="form" (ngSubmit)="submit()">
     <mat-horizontal-stepper #stepper linear>
