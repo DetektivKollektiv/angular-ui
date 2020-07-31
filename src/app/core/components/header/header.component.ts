@@ -15,6 +15,7 @@ import {User} from '../../model/user';
 export class HeaderComponent implements OnInit {
   public authState: AuthState;
   public user: User;
+  public userLoaded = true;
 
   constructor(private router: Router,
               private dialog: MatDialog,
@@ -33,7 +34,16 @@ export class HeaderComponent implements OnInit {
       }
     });
 
-    this.userService.user$.subscribe((user: User) => this.user = user);
+    this.userService.user$.subscribe((user: User) => {
+      if (user.name !== undefined) {
+        this.userLoaded = true;
+      } else {
+        this.userLoaded = false;
+      }
+
+      this.user = user;
+      this.changeDetectorRef.detectChanges();
+    });
   }
 
   public setLanguage(language: string) {

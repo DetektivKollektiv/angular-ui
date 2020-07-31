@@ -18,6 +18,8 @@ export class UserService {
     this.authService.isLoggedIn$.subscribe(value => {
       if (value){
         this.updateUser();
+      } else {
+        this.user.next({} as User);
       }
     });
   }
