@@ -25,18 +25,15 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO: Fix double call
-
     this.authService.auth$.subscribe((authState: AuthState) => {
       this.authState = authState;
 
       if (this.authState.isLoggedIn) {
-        this.userService.getCurrentUser().then(user => {
-          this.user = user;
-          this.changeDetectorRef.detectChanges();
-        });
+        this.changeDetectorRef.detectChanges();
       }
     });
+
+    this.userService.user$.subscribe((user: User) => this.user = user);
   }
 
   public setLanguage(language: string) {

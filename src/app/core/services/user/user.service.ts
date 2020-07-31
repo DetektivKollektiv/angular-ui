@@ -2,19 +2,30 @@ import {Injectable} from '@angular/core';
 import {API} from 'aws-amplify';
 import {User} from '../../model/user';
 import {LevelService} from '../level/level.service';
+import {BehaviorSubject} from 'rxjs';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private readonly user = new BehaviorSubject<User>({} as User);
 
-  constructor(private levelService: LevelService) {
+  readonly user$ = this.user.asObservable();
+
+  constructor(private levelService: LevelService,
+              private authService: AuthService) {
+    this.authService.isLoggedIn$.subscribe(value => {
+      if (value){
+        this.updateUser();
+      }
+    });
   }
 
-  public getCurrentUser(): Promise<User> {
-    return API.get('api', '/user', {}).then((user: User) => {
+  public updateUser(): void{
+    API.get('api', '/user', {}).then((user: User) => {
       user.levelString = this.levelService.getLevelNameById(user.level);
-      return user;
+      this.user.next(user);
     });
   }
 }

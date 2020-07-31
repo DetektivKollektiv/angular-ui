@@ -6,6 +6,7 @@ import {HomeComponent} from './home/components/home/home.component';
 import {SubmitComponent} from './submit-item/components/submit/submit.component';
 import {ReviewComponent} from './review-item/components/review/review.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
+import {DataPrivacyComponent} from './core/components/data-privacy/data-privacy.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   // {path: 'info', component: InfoComponent},
   // {path: 'community', component: CommunityGuidelinesComponent},
-  // {path: 'data-privacy', component: DataPrivacyComponent},
+  {path: 'data-privacy', component: DataPrivacyComponent},
   // {path: 'imprint', component: ImprintComponent},
   {path: 'submit', component: SubmitComponent},
   {path: 'review', component: ReviewComponent, canActivate: [AuthGuard]},
