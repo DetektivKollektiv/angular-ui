@@ -54,6 +54,15 @@ export class SubmitComponent implements OnInit {
 
   ngOnInit(): void {
     this.submitted = false;
+    this.submitEnabled = false;
+
+    this.contentFormControl = new FormControl('', Validators.required);
+    this.sourceFormControl = new FormControl();
+    this.sourceTextFormControl = new FormControl();
+    this.frequencyFormControl = new FormControl();
+    this.receivedFormControl = new FormControl({ value: moment(), disabled: true });
+    this.emailFormControl = new FormControl('', Validators.email);
+    this.mobileFormControl = new FormControl();
 
     this.formGroup = this.formBuilder.group({
       formArray: this.formBuilder.array([
