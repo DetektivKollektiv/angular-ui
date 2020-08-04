@@ -9,6 +9,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Review} from '../../model/review';
 import {ReviewsService} from '../../services/reviews/reviews.service';
 import {Router} from '@angular/router';
+import {UserService} from '../../../core/services/user/user.service';
 
 @Component({
   selector: 'app-review',
@@ -29,6 +30,7 @@ export class ReviewComponent implements OnInit {
   constructor(private caseService: CaseService,
               private reviewService: ReviewsService,
               private questionsService: QuestionsService,
+              private userService: UserService,
               private matSnackBar: MatSnackBar,
               private formBuilder: FormBuilder,
               private loader: LoaderService,
@@ -93,6 +95,7 @@ export class ReviewComponent implements OnInit {
 
     this.reviewService.submitReview(review)
       .then(() => {
+        this.userService.updateUser();
         this.finished = true;
       })
       .catch(() => {

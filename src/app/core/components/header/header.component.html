@@ -13,8 +13,8 @@
         <li *ngIf="!authState.isLoggedIn">
           <button (click)="login()" class="button-outline">Einloggen</button>
         </li>
-        <div *ngIf="authState.isLoggedIn" class="user-icon" [matMenuTriggerFor]="menu">
-          {{user?.name.charAt(0)}}
+        <div *ngIf="userLoaded" class="user-icon" [matMenuTriggerFor]="menu">
+          {{user?.name?.charAt(0)}}
         </div>
       </ul>
     </nav>
