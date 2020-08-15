@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {API} from 'aws-amplify';
+import {API, Auth} from 'aws-amplify';
 import {User} from '../../model/user';
 import {LevelService} from '../level/level.service';
 import {BehaviorSubject} from 'rxjs';
@@ -16,7 +16,7 @@ export class UserService {
   constructor(private levelService: LevelService,
               private authService: AuthService) {
     this.authService.isLoggedIn$.subscribe(value => {
-      if (value){
+      if (value) {
         this.updateUser();
       } else {
         this.user.next({} as User);
@@ -24,10 +24,16 @@ export class UserService {
     });
   }
 
-  public updateUser(): void{
+  public updateUser(): void {
     API.get('api', '/user', {}).then((user: User) => {
       user.levelString = this.levelService.getLevelNameById(user.level);
       this.user.next(user);
+    });
+  }
+
+  deleteUser(): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      API.del('api', '/user', {}).then(() => resolve(true), reject);
     });
   }
 }

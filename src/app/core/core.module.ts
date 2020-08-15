@@ -11,6 +11,8 @@ import {AuthModule} from '../shared/auth/auth.module';
 import {LoaderModule} from '../shared/loader/loader.module';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../shared/material/material.module';
+import { DeleteUserDialogComponent } from './dialogs/delete-user-dialog/delete-user-dialog.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -22,7 +24,8 @@ import {MaterialModule} from '../shared/material/material.module';
     CommunityGuidelinesComponent,
     ImprintComponent,
     DataPrivacyComponent,
-    MemberInfoComponent
+    MemberInfoComponent,
+    DeleteUserDialogComponent
   ],
   exports: [
     FooterComponent,
@@ -33,7 +36,8 @@ import {MaterialModule} from '../shared/material/material.module';
     AuthModule,
     LoaderModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class CoreModule { }
