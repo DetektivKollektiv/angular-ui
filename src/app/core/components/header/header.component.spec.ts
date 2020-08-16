@@ -10,6 +10,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MaterialModule} from '../../../shared/material/material.module';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -19,10 +22,7 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatDialogModule,
+        MaterialModule,
         TranslateModule.forRoot()
       ],
       declarations: [ HeaderComponent ],
