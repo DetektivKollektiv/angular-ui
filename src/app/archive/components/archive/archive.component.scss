@@ -2,6 +2,10 @@ mat-card {
   width: 400px;
 }
 
+mat-card-content>p {
+  word-break: break-word;
+}
+
 mat-card+mat-card {
   margin-left: 10px;
 }

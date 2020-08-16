@@ -16,7 +16,7 @@ export class UserService {
   constructor(private levelService: LevelService,
               private authService: AuthService) {
     this.authService.isLoggedIn$.subscribe(value => {
-      if (value){
+      if (value) {
         this.updateUser();
       } else {
         this.user.next({} as User);
@@ -24,10 +24,12 @@ export class UserService {
     });
   }
 
-  public updateUser(): void{
-    API.get('api', '/user', {}).then((user: User) => {
-      user.levelString = this.levelService.getLevelNameById(user.level);
-      this.user.next(user);
-    });
+  public updateUser(): void {
+    API.get('api', '/user', {})
+      .then((user: User) => {
+        user.levelString = this.levelService.getLevelNameById(user.level);
+        this.user.next(user);
+      })
+      .catch(reason => console.log(reason));
   }
 }

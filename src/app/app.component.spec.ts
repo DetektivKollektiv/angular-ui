@@ -10,15 +10,14 @@ import {AuthService} from './shared/auth/auth-service/auth.service';
 import {MockAuthService} from '../test/mocks/mock-auth.service';
 import {HeaderComponent} from './core/components/header/header.component';
 import {FooterComponent} from './core/components/footer/footer.component';
+import {MaterialModule} from './shared/material/material.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         LoaderModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatIconModule,
+        MaterialModule,
         RouterTestingModule,
         TranslateModule.forRoot()
       ],
@@ -39,17 +38,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  // it(`should have as title 'detektiv-kollektiv'`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.componentInstance;
-  //   expect(app.title).toEqual('detektiv-kollektiv');
-  // });
-
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.nativeElement;
-  //   expect(compiled.querySelector('.content span').textContent).toContain('detektiv-kollektiv app is running!');
-  // });
 });

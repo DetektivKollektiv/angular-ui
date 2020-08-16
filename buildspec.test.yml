@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  pre_build:
+    commands:
+      - npm install -g @angular/cli
+      - npm install -g yarn
+      - yarn install
+      - yarn run lint
+      - yarn run test:headless
+  build:
+    commands:
+      - node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build

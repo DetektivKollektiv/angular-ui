@@ -1,9 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ReviewComponent } from './review.component';
+import {ReviewComponent} from './review.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MaterialModule} from '../../../shared/material/material.module';
 import {LoaderModule} from '../../../shared/loader/loader.module';
+import {HelperModule} from '../../../shared/helper/helper.module';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
 
 describe('ReviewComponent', () => {
   let component: ReviewComponent;
@@ -11,14 +14,16 @@ describe('ReviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReviewComponent ],
+      declarations: [ReviewComponent],
       imports: [
         RouterTestingModule,
         MaterialModule,
-        LoaderModule
-      ]
+        LoaderModule,
+        HelperModule
+      ],
+      providers: [{provide: AuthService, useClass: MockAuthService}]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
