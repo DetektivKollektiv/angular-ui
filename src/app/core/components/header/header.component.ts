@@ -68,13 +68,7 @@ export class HeaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.authService.signOut().then(() => {
-          this.userService.deleteUser().then(value => {
-            if (value){
-              this.router.navigate(['/dashboard']);
-            }
-          });
-        });
+        this.router.navigate(['/home']);
       }
     });
   }

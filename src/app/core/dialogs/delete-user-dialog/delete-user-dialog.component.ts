@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {FormBuilder, FormControl} from '@angular/forms';
+import {FormControl} from '@angular/forms';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {UserService} from '../../services/user/user.service';
+import {UserDeleteReason} from '../../model/user-delete-reason';
 
 @Component({
   selector: 'app-delete-user-dialog',
@@ -8,13 +11,33 @@ import {FormBuilder, FormControl} from '@angular/forms';
   styleUrls: ['./delete-user-dialog.component.scss']
 })
 export class DeleteUserDialogComponent implements OnInit {
-  deleteReason: number;
+  deleteReasonFormControl: FormControl;
   otherFormControl: FormControl;
 
-  constructor(public dialogRef: MatDialogRef<DeleteUserDialogComponent>) {
+  constructor(public dialogRef: MatDialogRef<DeleteUserDialogComponent>,
+              private authService: AuthService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
-    this.otherFormControl = new FormControl({value: '', disabled: this.deleteReason !== 4});
+    this.deleteReasonFormControl = new FormControl();
+    this.otherFormControl = new FormControl({value: '', disabled: true});
+
+    this.deleteReasonFormControl.valueChanges.subscribe((value: string) => {
+      if (value === '4') {
+        this.otherFormControl.enable();
+      } else {
+        this.otherFormControl.disable();
+      }
+    });
+  }
+
+  delete(): void {
+    this.userService.deleteUser({
+      reason: this.deleteReasonFormControl.value,
+      reasonText: this.otherFormControl.value
+    } as UserDeleteReason).then(deleted => {
+      this.dialogRef.close(deleted);
+    });
   }
 }

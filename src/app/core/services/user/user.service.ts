@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {API, Auth} from 'aws-amplify';
 import {User} from '../../model/user';
 import {LevelService} from '../level/level.service';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, of} from 'rxjs';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {UserDeleteReason} from '../../model/user-delete-reason';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,9 @@ export class UserService {
     });
   }
 
-  deleteUser(): Promise<boolean> {
+  deleteUser(reason: UserDeleteReason): Promise<boolean> {
+    return of(true).toPromise();
+
     return new Promise((resolve, reject) => {
       API.del('api', '/user', {}).then(() => resolve(true), reject);
     });
