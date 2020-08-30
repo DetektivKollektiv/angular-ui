@@ -32,9 +32,7 @@ export class UserService {
     });
   }
 
-  deleteUser(reason: UserDeleteReason): Promise<boolean> {
-    return of(true).toPromise();
-
+  public deleteUser(reason: UserDeleteReason): Promise<boolean> {
     return new Promise((resolve, reject) => {
       API.del('api', '/user', {}).then(() => resolve(true), reject);
     });
