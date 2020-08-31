@@ -7,6 +7,8 @@ import {SubmitComponent} from './submit-item/components/submit/submit.component'
 import {ReviewComponent} from './review-item/components/review/review.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 import {DataPrivacyComponent} from './core/components/data-privacy/data-privacy.component';
+import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
+
 
 
 const routes: Routes = [
@@ -17,7 +19,7 @@ const routes: Routes = [
   },
   {path: 'home', component: HomeComponent},
   // {path: 'info', component: InfoComponent},
-  // {path: 'community', component: CommunityGuidelinesComponent},
+  {path: 'community', component: CommunityGuidelinesComponent},
   {path: 'data-privacy', component: DataPrivacyComponent},
   // {path: 'imprint', component: ImprintComponent},
   {path: 'submit', component: SubmitComponent},
@@ -32,7 +34,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { 
+    anchorScrolling : 'enabled',
+})],
   exports: [RouterModule]
 })
 

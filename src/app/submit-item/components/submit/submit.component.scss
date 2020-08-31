@@ -24,4 +24,11 @@ div.confirm {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
+
+
+::ng-deep .mat-checkbox-layout {
+  white-space: normal !important;
+}
+
