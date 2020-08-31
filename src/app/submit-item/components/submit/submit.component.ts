@@ -37,8 +37,8 @@ export class SubmitComponent implements OnInit {
   receivedFormControl = new FormControl({ value: moment(), disabled: true });
   emailFormControl = new FormControl('', Validators.email);
   mobileFormControl = new FormControl();
-  privacyBox = new FormControl(false,Validators.requiredTrue);
-  termBox =  new FormControl(false,Validators.requiredTrue);
+  privacyBox = new FormControl(false, Validators.requiredTrue);
+  termBox =  new FormControl(false, Validators.requiredTrue);
   submitEnabled: boolean;
   today = moment();
   submitted: boolean;
@@ -65,8 +65,8 @@ export class SubmitComponent implements OnInit {
     this.receivedFormControl = new FormControl({ value: moment(), disabled: true });
     this.emailFormControl = new FormControl('', Validators.email);
     this.mobileFormControl = new FormControl();
-    this.privacyBox = new FormControl(false,Validators.requiredTrue);
-    this.termBox =  new FormControl(false,Validators.requiredTrue);
+    this.privacyBox = new FormControl(false, Validators.requiredTrue);
+    this.termBox =  new FormControl(false, Validators.requiredTrue);
 
     this.formGroup = this.formBuilder.group({
       formArray: this.formBuilder.array([
@@ -121,8 +121,8 @@ export class SubmitComponent implements OnInit {
   }
 
   disabled(){
-    let result = !this.submitEnabled || !this.privacyBox.value || !this.termBox.value
-    return result
+    const result = !this.submitEnabled || !this.privacyBox.value || !this.termBox.value;
+    return result;
   }
 
   navigate(url: string) {
