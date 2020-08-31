@@ -8,11 +8,11 @@
         <h3>Details</h3>
         <p>{{item.content}}</p>
         <h3>Vertrauensindex</h3>
-        <div [ngSwitch]="item.result_score" mat-line>
-          <button *ngSwitchCase="1" mat-stroked-button class="rating-1" disabled><b>{{item.result_score}}</b> - nicht vertrauenswürdig</button>
-          <button *ngSwitchCase="2" mat-stroked-button class="rating-2" disabled><b>{{item.result_score}}</b> - eher nicht vertrauenswürdig</button>
-          <button *ngSwitchCase="3" mat-stroked-button class="rating-3" disabled><b>{{item.result_score}}</b> - eher vertrauenswürdig</button>
-          <button *ngSwitchCase="4" mat-stroked-button class="rating-4" disabled><b>{{item.result_score}}</b> - vertrauenswürdig</button>
+        <div [ngSwitch]="(item.result_score | number:'1.0-0')" mat-line>
+          <button *ngSwitchCase="1" mat-stroked-button class="rating-1" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - nicht vertrauenswürdig</button>
+          <button *ngSwitchCase="2" mat-stroked-button class="rating-2" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - eher nicht vertrauenswürdig</button>
+          <button *ngSwitchCase="3" mat-stroked-button class="rating-3" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - eher vertrauenswürdig</button>
+          <button *ngSwitchCase="4" mat-stroked-button class="rating-4" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - vertrauenswürdig</button>
         </div>
       </mat-card-content>
     </mat-card>

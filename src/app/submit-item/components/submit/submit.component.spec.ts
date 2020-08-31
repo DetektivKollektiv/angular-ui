@@ -6,6 +6,9 @@ import {FormBuilder} from '@angular/forms';
 import {SubmitItemService} from '../../services/submit-item.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {LoaderModule} from '../../../shared/loader/loader.module';
+import {MaterialModule} from '../../../shared/material/material.module';
+import {HelperModule} from '../../../shared/helper/helper.module';
+import {RecaptchaModule} from 'ng-recaptcha';
 
 describe('SubmitComponent', () => {
   let component: SubmitComponent;
@@ -15,8 +18,10 @@ describe('SubmitComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MatSnackBarModule,
-        LoaderModule
+        MaterialModule,
+        LoaderModule,
+        HelperModule,
+        RecaptchaModule
       ],
       declarations: [ SubmitComponent ],
       providers: [
