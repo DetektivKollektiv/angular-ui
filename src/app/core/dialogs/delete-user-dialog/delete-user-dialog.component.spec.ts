@@ -1,6 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DeleteUserDialogComponent } from './delete-user-dialog.component';
+import {DeleteUserDialogComponent} from './delete-user-dialog.component';
+import {MatDialogRef} from '@angular/material/dialog';
+import {MaterialModule} from '../../../shared/material/material.module';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
 
 describe('DeleteUserDialogComponent', () => {
   let component: DeleteUserDialogComponent;
@@ -8,9 +12,16 @@ describe('DeleteUserDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteUserDialogComponent ]
+      imports: [
+        MaterialModule
+      ],
+      declarations: [DeleteUserDialogComponent],
+      providers: [
+        {provide: AuthService, useClass: MockAuthService},
+        {provide: MatDialogRef, useValue: {}}
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
