@@ -121,8 +121,7 @@ export class SubmitComponent implements OnInit {
   }
 
   disabled(){
-    const result = !this.submitEnabled || !this.privacyBox.value || !this.termBox.value;
-    return result;
+    return !this.submitEnabled || !this.privacyBox.value || !this.termBox.value;
   }
 
   navigate(url: string) {
