@@ -91,10 +91,12 @@
             <h4>Bestätige uns, dass du kein Roboter bist.</h4>
             <re-captcha (resolved)="resolved($event)"
                         siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
+            <p>Mit dem absenden des Falles bestätigst du, dass du unsere <a [routerLink]="['/data-privacy']" target="_blank">Hinweise zum Datenschutz</a> gelesen hast und diese akzeptierst.</p>
+            <mat-checkbox formControlName="privacyBox" class="checkbox"> Ich stimme den Bedingungen der <a target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu</mat-checkbox> 
+            <mat-checkbox formControlName="termBox" class="checkbox"> Ich stimme den <a target="_blank" routerLink="../community">Community-Richtlinien</a> zu</mat-checkbox> 
           </div>
-          <p>Mit dem absenden des Falles bestätigst du, dass du unsere <a [routerLink]="['/data-privacy']" target="_blank">Hinweise zum Datenschutz</a> gelesen hast und diese akzeptierst.</p>
           <div class="button-group">
-            <button (click)="submit()" [disabled]="!submitEnabled" class="button-primary">Fall absenden</button>
+            <button (click)="submit()" [disabled]="disabled()" class="button-primary">Fall absenden</button>
             <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
         </mat-step>
