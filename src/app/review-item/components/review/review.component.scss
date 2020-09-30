@@ -1,3 +1,28 @@
 p.case-content {
   min-height: 5em;
 }
+
+.madCard-title{
+  font-size: 16px;
+}
+.flex-container{
+  display: flex;
+}
+.app-file-container{
+  display: inline-block;
+  width: 75%;
+}
+
+.matCard-container{
+  display: inline-block;
+  margin: 8px;
+  width: 25%;
+}
+.mat-card{
+  height: fit-content;
+}
+
+.mat-card-content{
+  border-top: 2px dashed #FFCC00;
+}
+
