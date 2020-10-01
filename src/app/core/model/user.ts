@@ -3,6 +3,6 @@ export interface User {
   name: string;
   score: number;
   level: number;
+  level_description: string;
   experience_points: number;
-  levelString: string;
 }
