@@ -68,7 +68,7 @@ export class HeaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.router.navigate(['/home']);
+        this.authService.signOut(true).then(() => this.router.navigate(['/home']));
       }
     });
   }
