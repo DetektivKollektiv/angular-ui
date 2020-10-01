@@ -28,7 +28,6 @@ export class UserService {
   public updateUser(): void {
     API.get('api', '/user', {})
       .then((user: User) => {
-        user.levelString = this.levelService.getLevelNameById(user.level);
         this.user.next(user);
       })
       .catch(reason => console.log(reason));
