@@ -22,6 +22,11 @@ p.case-content {
   height: fit-content;
 }
 
+.clickable:hover{
+  cursor: pointer;
+  box-shadow: 0 0 4px 4px #FFCC00 ;
+}
+
 .mat-card-content{
   border-top: 2px dashed #FFCC00;
 }

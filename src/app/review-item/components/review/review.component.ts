@@ -126,12 +126,12 @@ export class ReviewComponent implements OnInit {
   }
 
   private getFactCheck() {
-    if(this.caseToSolve){
-      /* this.factCheckService.getFactcheck('47bacd03-fe03-4703-a80f-d16d85c985a0') //funktionierende item ID */
+    if (this.caseToSolve){
+      /*this.factCheckService.getFactcheck('47bacd03-fe03-4703-a80f-d16d85c985a0') //funktionierende item ID */
       this.factCheckService.getFactcheck(this.caseToSolve.id)
       .then(factCheck => {
         this.factCheck = factCheck;
-        console.log("factCheck:"+ factCheck);
+        console.log('factCheck:' + factCheck);
       })
       .catch(reason => {
         console.log(reason);
@@ -141,4 +141,20 @@ export class ReviewComponent implements OnInit {
       });
     }
     }
-}
+
+     goToFactUrl(){
+     if (this.factCheck?.url){
+      window.open(
+        this.factCheck?.url,
+        '_blank'
+      );
+     }
+    }
+     isClickable(): boolean{
+       if (this.factCheck?.url){
+         return true;
+       } else {
+         return false;
+       }
+    }
+  }

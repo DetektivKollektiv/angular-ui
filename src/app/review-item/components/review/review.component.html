@@ -21,7 +21,7 @@
       </app-file> 
     </div>
     <div class="matCard-container">
-      <mat-card class="example-card">
+      <mat-card class="example-card" [ngClass]= "{'clickable' : isClickable()}" (click)=goToFactUrl()>
         <mat-card-header>
           <img mat-card-avatar class="header-avatar-image" src="/assets/images/avatar/ml-assistant-avatar.png"/>
           <mat-card-title class="madCard-title">Was sagen andere Fact-Checker dazu?</mat-card-title>
