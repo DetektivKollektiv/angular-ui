@@ -10,6 +10,8 @@ import {Review} from '../../model/review';
 import {ReviewsService} from '../../services/reviews/reviews.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../../core/services/user/user.service';
+import { Factcheck } from '../../model/factcheck';
+import { FactcheckService } from '../../services/factchecks/factcheck.service';
 
 @Component({
   selector: 'app-review',
@@ -22,12 +24,13 @@ export class ReviewComponent implements OnInit {
 
   public caseIndex = 0;
   public questions: Question[];
-
   public form: FormGroup;
+  public factCheck: Factcheck;
 
   private openCases: Case[];
 
   constructor(private caseService: CaseService,
+              private factCheckService: FactcheckService,
               private reviewService: ReviewsService,
               private questionsService: QuestionsService,
               private userService: UserService,
@@ -45,7 +48,6 @@ export class ReviewComponent implements OnInit {
     this.caseAccepted = false;
     this.finished = false;
     this.questions = [];
-
     this.getNewCase();
   }
 
@@ -59,7 +61,6 @@ export class ReviewComponent implements OnInit {
 
   accept() {
     this.loader.show();
-
     this.caseService.acceptCase(this.caseToSolve)
       .then(() => {
         this.questionsService.getQuestions().then(questions => {
@@ -113,6 +114,7 @@ export class ReviewComponent implements OnInit {
     this.caseService.getCase()
       .then(openCases => {
         this.openCases = openCases;
+        this.getFactCheck();
       })
       .catch(reason => {
         console.log(reason);
@@ -122,4 +124,37 @@ export class ReviewComponent implements OnInit {
         this.loader.hide();
       });
   }
-}
+
+  private getFactCheck() {
+    if (this.caseToSolve){
+      /*this.factCheckService.getFactcheck('47bacd03-fe03-4703-a80f-d16d85c985a0') //funktionierende item ID */
+      this.factCheckService.getFactcheck(this.caseToSolve.id)
+      .then(factCheck => {
+        this.factCheck = factCheck;
+        console.log('factCheck:' + factCheck);
+      })
+      .catch(reason => {
+        console.log(reason);
+      })
+      .finally(() => {
+        this.loader.hide();
+      });
+    }
+    }
+
+     goToFactUrl(){
+     if (this.factCheck?.url){
+      window.open(
+        this.factCheck?.url,
+        '_blank'
+      );
+     }
+    }
+     isClickable(): boolean{
+       if (this.factCheck?.url){
+         return true;
+       } else {
+         return false;
+       }
+    }
+  }

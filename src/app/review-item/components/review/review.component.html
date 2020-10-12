@@ -9,14 +9,34 @@
       Fall.
     </p>
   </div>
-  <app-file heading="Fall lösen">
-    <h3>Die Behauptung:</h3>
-    <p class="case-content">{{caseToSolve?.content}}</p>
-    <div *ngIf="!caseAccepted; else accepted" class="button-group">
-      <button (click)="accept()" [disabled]="caseToSolve === undefined" class="button-primary">Fall annehmen</button>
-      <button (click)="reject()" [disabled]="caseToSolve === undefined" class="button-flat">Fall ablehnen</button>
+  <div class="flex-container">
+    <div class="app-file-container">
+      <app-file heading="Fall lösen">
+        <h3>Die Behauptung:</h3>
+        <p class="case-content">{{caseToSolve?.content}}</p>
+        <div *ngIf="!caseAccepted; else accepted" class="button-group">
+          <button (click)="accept()" [disabled]="caseToSolve === undefined" class="button-primary">Fall annehmen</button>
+          <button (click)="reject()" [disabled]="caseToSolve === undefined" class="button-flat">Fall ablehnen</button>
+        </div>
+      </app-file> 
     </div>
-  </app-file>
+    <div class="matCard-container">
+      <mat-card class="example-card" [ngClass]= "{'clickable' : isClickable()}" (click)=goToFactUrl()>
+        <mat-card-header>
+          <img mat-card-avatar class="header-avatar-image" src="/assets/images/avatar/ml-assistant-avatar.png"/>
+          <mat-card-title class="madCard-title">Was sagen andere Fact-Checker dazu?</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p *ngIf="factCheck?.title">
+            {{factCheck?.title}}
+          </p>
+          <p *ngIf="!factCheck?.title">
+            Leider gibt es noch keine Informationen über diesen Fall
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
 
 <ng-template #accepted>
@@ -28,7 +48,6 @@
     <mat-horizontal-stepper #stepper linear>
       <mat-step [formGroupName]="question.id" *ngFor="let question of questions; let index = index; let last = last;">
         <app-question [question]="question"></app-question>
-
         <div class="button-group">
           <button class="button-primary" *ngIf="!last" [disabled]="question.score === undefined" type="button" matStepperNext>Weiter</button>
           <button class="button-primary" *ngIf="last" [disabled]="question.score === undefined" type="submit">Absenden</button>
