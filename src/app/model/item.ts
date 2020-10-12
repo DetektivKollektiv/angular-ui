@@ -14,4 +14,6 @@ export class Item {
   open_reviews: number;
   locked_by_user: string;
   lock_timestamp: string;
+  open_timestamp: string;
+  close_timestamp: string;
 }

@@ -24,12 +24,15 @@
 <mat-menu #menu xPosition="before">
   <div style="width: 200px">
     <p mat-menu-item [disabled]="true" [disableRipple]="true">Name <span class="alt">{{user?.name}}</span></p>
-    <p mat-menu-item [disabled]="true" [disableRipple]="true">Level <span class="alt">{{user?.levelString}}</span></p>
+    <p mat-menu-item [disabled]="true" [disableRipple]="true">Level <span class="alt">{{user?.level_description}}</span></p>
     <p mat-menu-item [disabled]="true" [disableRipple]="true">Erfahrungspukte <span class="alt">{{user?.experience_points}}</span></p>
   </div>
   <mat-divider></mat-divider>
   <button mat-menu-item (click)="logout()">
     <span>Abmelden</span>
+  </button>
+  <button mat-menu-item class="delete-user-button" (click)="deleteUser()">
+    <span>Account löschen</span>
   </button>
 </mat-menu>
 

@@ -6,6 +6,7 @@ import {AuthState} from '../../../shared/auth/model/auth-state';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {UserService} from '../../services/user/user.service';
 import {User} from '../../model/user';
+import {DeleteUserDialogComponent} from '../../dialogs/delete-user-dialog/delete-user-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -50,13 +51,25 @@ export class HeaderComponent implements OnInit {
     this.translateService.use(language);
   }
 
-  logout() {
+  logout(): void {
     this.authService.signOut().then(() => this.router.navigate(['/dashboard']));
   }
 
-  login() {
+  login(): void {
     if (!this.authState.isLoggedIn) {
       this.authService.signIn();
     }
+  }
+
+  deleteUser(): void {
+    const dialogRef = this.dialog.open(DeleteUserDialogComponent, {
+      width: '30%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.authService.signOut(true).then(() => this.router.navigate(['/home']));
+      }
+    });
   }
 }

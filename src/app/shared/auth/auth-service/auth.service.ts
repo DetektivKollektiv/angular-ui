@@ -45,9 +45,9 @@ export class AuthService {
     });
   }
 
-  public signOut(): Promise<boolean> {
+  public signOut(global: boolean = false): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      Auth.signOut({global: true}).then(() => resolve(true), reject);
+      Auth.signOut({global}).then(() => resolve(true), reject);
     });
   }
 
