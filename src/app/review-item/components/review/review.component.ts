@@ -57,6 +57,8 @@ export class ReviewComponent implements OnInit {
     } else {
       this.caseIndex++;
     }
+
+    this.getFactCheck();
   }
 
   accept() {
@@ -134,6 +136,7 @@ export class ReviewComponent implements OnInit {
         console.log('factCheck:' + factCheck);
       })
       .catch(reason => {
+        this.factCheck = null;
         console.log(reason);
       })
       .finally(() => {

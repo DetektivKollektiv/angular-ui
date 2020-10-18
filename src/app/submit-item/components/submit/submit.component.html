@@ -81,24 +81,23 @@
             </div>
           </mat-step>
           <mat-step [stepControl]="formArray?.get([2])" formGroupName="2">
-            <div class="confirm">
-              <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
-              <mat-form-field>
-                <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail"
-                       type="email"
-                       yarn>
-              </mat-form-field>
-              <mat-form-field>
-                <input formControlName="mobileFormControl" matInput placeholder="Handynummer" type="tel">
-              </mat-form-field>
-              <re-captcha (resolved)="resolved($event)"
-                          siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
-            </div>
-            <div class="button-group">
-              <button (click)="submit()" [disabled]="!submitEnabled" class="button-primary">Fall absenden</button>
-              <button class="button-flat" matStepperPrevious>Zurück</button>
-            </div>
-          </mat-step>
+          <div class="confirm">
+            <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
+            <mat-form-field>
+              <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail"
+                     type="email"
+                     yarn>
+            </mat-form-field>
+            <re-captcha (resolved)="resolved($event)"
+                        siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
+              <mat-checkbox formControlName="privacyBox" class="checkbox"> Ich stimme den Bedingungen der <a target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu</mat-checkbox>
+              <mat-checkbox formControlName="termBox" class="checkbox"> Ich stimme den <a target="_blank" routerLink="../community">Nutzungsbedingungen</a> zu</mat-checkbox>
+          </div>
+          <div class="button-group">
+            <button (click)="submit()" [disabled]="disabled()" class="button-primary">Fall absenden</button>
+            <button class="button-flat" matStepperPrevious>Zurück</button>
+          </div>
+        </mat-step>
         </mat-horizontal-stepper>
       </form>
     </app-file>
