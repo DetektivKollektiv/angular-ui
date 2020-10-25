@@ -33,6 +33,8 @@ export class SubmitComponent implements OnInit {
   contentFormControl = new FormControl('', Validators.required);
   sourceFormControl = new FormControl();
   sourceTextFormControl = new FormControl();
+  channelFormControl = new FormControl();
+  channelTextFormControl = new FormControl();
   frequencyFormControl = new FormControl();
   receivedFormControl = new FormControl({ value: moment(), disabled: true });
   emailFormControl = new FormControl('', Validators.email);
@@ -61,6 +63,8 @@ export class SubmitComponent implements OnInit {
     this.contentFormControl = new FormControl('', Validators.required);
     this.sourceFormControl = new FormControl();
     this.sourceTextFormControl = new FormControl();
+    this.channelFormControl = new FormControl();
+    this.channelTextFormControl = new FormControl();
     this.frequencyFormControl = new FormControl();
     this.receivedFormControl = new FormControl({ value: moment(), disabled: true });
     this.emailFormControl = new FormControl('', Validators.email);
@@ -76,6 +80,8 @@ export class SubmitComponent implements OnInit {
         this.formBuilder.group({
           sourceFormControl: this.sourceFormControl,
           sourceTextFormControl: this.sourceTextFormControl,
+          channelFormControl: this.channelFormControl,
+          channelTextFormControl: this.channelTextFormControl,
           frequencyFormControl: this.frequencyFormControl,
           receivedFormControl: this.receivedFormControl
         }),
@@ -96,7 +102,8 @@ export class SubmitComponent implements OnInit {
       received_date: this.receivedFormControl.value.format('YYYY-MM-DD HH:mm:ss'),
       phone: this.mobileFormControl.value,
       frequency: this.frequencyFormControl.value,
-      source: this.sourceFormControl.value === '4' ? this.sourceTextFormControl.value : this.sourceFormControl.value
+      source: this.sourceFormControl.value === '4' ? this.sourceTextFormControl.value : this.sourceFormControl.value,
+      channel: this.channelFormControl.value === 'other' ? this.channelTextFormControl.value : this.channelFormControl.value
     } as Item;
 
 
