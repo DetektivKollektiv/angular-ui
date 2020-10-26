@@ -5,6 +5,7 @@ export class Item {
   mail: string;
   phone: string;
   source: string;
+  channel: string;
   frequency: string;
   received_date: string;
   language: string;
