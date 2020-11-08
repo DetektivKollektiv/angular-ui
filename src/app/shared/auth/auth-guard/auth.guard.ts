@@ -4,6 +4,8 @@ import {Auth} from 'aws-amplify';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AuthService} from '../auth-service/auth.service';
 import {TranslateService} from '@ngx-translate/core';
+import {MatDialog} from '@angular/material/dialog';
+import {LoginComponent} from '../dialogs/login/login.component';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(private snackBar: MatSnackBar,
               private authService: AuthService,
+              private dialog: MatDialog,
               private router: Router,
               private translateService: TranslateService,
               @Inject(PLATFORM_ID) private platformId) {
@@ -31,8 +34,8 @@ export class AuthGuard implements CanActivate {
           duration: 2000
         });
 
-      snackBar.onAction().subscribe(() => this.authService.signIn());
-      snackBar.afterDismissed().subscribe(() => this.router.navigate(['/home']));
+      snackBar.onAction().subscribe(() => this.dialog.open(LoginComponent));
+      snackBar.afterDismissed().subscribe(() => this.router.navigate(['/']));
       return false;
     });
   }

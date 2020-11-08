@@ -1,14 +1,14 @@
 <header class="main-header">
   <div class="container">
     <a class="mh-logo">
-      <a [routerLink]="['/home']">
+      <a [routerLink]="['/']">
         <img height="35" src="assets/logo/Logo_Schriftzug@2x.png" width="293">
       </a>
     </a>
     <nav class="main-nav">
       <ul class="main-nav-list">
         <li *ngIf="!authState.isLoggedIn">
-          <button (click)="login()" class="button-flat">Detektiv werden</button>
+          <button (click)="signUp()" class="button-flat">Detektiv*in werden</button>
         </li>
         <li *ngIf="!authState.isLoggedIn">
           <button (click)="login()" class="button-outline">Einloggen</button>
