@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ForgotPasswordComponent } from './forgot-password.component';
+import {AuthService} from '../../auth-service/auth.service';
+import {MockAuthService} from '../../../../../test/mocks/mock-auth.service';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MaterialModule} from '../../../material/material.module';
 
 describe('ForgotPasswordComponent', () => {
   let component: ForgotPasswordComponent;
@@ -8,7 +12,15 @@ describe('ForgotPasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForgotPasswordComponent ]
+      imports: [
+        MaterialModule
+      ],
+      declarations: [ ForgotPasswordComponent ],
+      providers: [
+        {provide: AuthService, useClass: MockAuthService},
+        {provide: MatDialogRef, useValue: {}},
+        {provide: MAT_DIALOG_DATA, useValue: {}}
+      ]
     })
     .compileComponents();
   }));

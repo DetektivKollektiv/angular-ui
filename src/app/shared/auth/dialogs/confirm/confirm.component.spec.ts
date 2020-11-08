@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfirmComponent } from './confirm.component';
+import {AuthService} from '../../auth-service/auth.service';
+import {MockAuthService} from '../../../../../test/mocks/mock-auth.service';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MaterialModule} from '../../../material/material.module';
 
 describe('ConfirmComponent', () => {
   let component: ConfirmComponent;
@@ -8,7 +12,15 @@ describe('ConfirmComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfirmComponent ]
+      imports: [
+        MaterialModule
+      ],
+      declarations: [ ConfirmComponent ],
+      providers: [
+        {provide: AuthService, useClass: MockAuthService},
+        {provide: MatDialogRef, useValue: {}},
+        {provide: MAT_DIALOG_DATA, useValue: {}}
+      ]
     })
     .compileComponents();
   }));

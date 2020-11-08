@@ -72,15 +72,21 @@ export class LoginComponent implements OnInit {
   }
 
   forgotPassword() {
-    this.dialog.open(ForgotPasswordComponent, {...Globals.dialogData, ...{data: {username: this.formControls.username.value}}}).afterClosed()
+    this.dialog.open(
+      ForgotPasswordComponent,
+      {...Globals.dialogData, ...{data: {username: this.formControls.username.value}}}
+    )
+      .afterClosed()
       .subscribe((value: ForgotPasswordResult) => {
         if (value.success) {
-          this.dialog.open(ForgotPasswordSubmitComponent, {...Globals.dialogData, ...{
-            data: {
-              username: this.formControls.username.value,
-              details: value.deliveryDetails
+          this.dialog.open(ForgotPasswordSubmitComponent, {
+            ...Globals.dialogData, ...{
+              data: {
+                username: this.formControls.username.value,
+                details: value.deliveryDetails
+              }
             }
-          }});
+          });
         }
       });
   }

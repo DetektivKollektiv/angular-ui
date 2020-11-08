@@ -7,6 +7,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {PLATFORM_ID} from '@angular/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
+import {MaterialModule} from '../../material/material.module';
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;
@@ -16,6 +17,7 @@ describe('AuthGuard', () => {
       imports: [
         MatSnackBarModule,
         RouterTestingModule,
+        MaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [
