@@ -7,10 +7,26 @@
       dich prüfen.</p>
   </div>
   <div class="app-file-container">
-    <app-file [heading]="'Fall einreichen'" subheading="Schritt {{stepper.selectedIndex + 1}} von 3">
+    <app-file [heading]="'Fall einreichen'" subheading="Schritt {{stepper.selectedIndex + 1}} von 4">
       <form [formGroup]="formGroup">
         <mat-horizontal-stepper #stepper formArrayName="formArray" linear>
+
           <mat-step [stepControl]="formArray?.get([0])" formGroupName="0">
+            <p>
+              Erste Frage: Handelt es sich bei deinem Fall um eine reine Textnachricht bzw. Aussage oder um einen Link zu einem Artikel?
+            </p>
+            <br>
+            <mat-radio-group formControlName="typeFormControl">
+              <mat-label>Bitte wähle einen Typ aus.</mat-label>
+              <br>
+              <mat-radio-button value="claim">Textnachricht / Aussage</mat-radio-button>
+              <mat-radio-button value="article">Link zu Artikel</mat-radio-button>
+            </mat-radio-group>
+            <div class="button-group">
+              <button class="button-primary" matStepperNext>Weiter</button>
+            </div>
+          </mat-step>
+          <mat-step [stepControl]="formArray?.get([1])" formGroupName="1" selectedIndex="1">
             <mat-form-field style="width: 100%">
                       <textarea formControlName="contentFormControl" matInput placeholder="Text oder Verlinkung eingeben"
                                 rows="20"
@@ -19,9 +35,10 @@
             </mat-form-field>
             <div class="button-group">
               <button class="button-primary" matStepperNext>Weiter</button>
+              <button class="button-flat" matStepperPrevious>Zurück</button>
             </div>
           </mat-step>
-          <mat-step [stepControl]="formArray?.get([1])" formGroupName="1">
+          <mat-step [stepControl]="formArray?.get([2])" formGroupName="2">
             <p>
               Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br/>
               Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
@@ -80,7 +97,7 @@
               <button class="button-flat" matStepperPrevious>Zurück</button>
             </div>
           </mat-step>
-          <mat-step [stepControl]="formArray?.get([2])" formGroupName="2">
+          <mat-step [stepControl]="formArray?.get([3])" formGroupName="3">
           <div class="confirm">
             <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
             <mat-form-field>

@@ -29,7 +29,7 @@ export const MY_FORMATS = {
 })
 export class SubmitComponent implements OnInit {
   formGroup: FormGroup;
-
+  typeFormControl = new FormControl('claim');
   contentFormControl = new FormControl('', Validators.required);
   sourceFormControl = new FormControl();
   sourceTextFormControl = new FormControl();
@@ -57,7 +57,7 @@ export class SubmitComponent implements OnInit {
   ngOnInit(): void {
     this.submitted = false;
     this.submitEnabled = false;
-
+    this.typeFormControl = new FormControl('claim');
     this.contentFormControl = new FormControl('', Validators.required);
     this.sourceFormControl = new FormControl();
     this.sourceTextFormControl = new FormControl();
@@ -71,9 +71,14 @@ export class SubmitComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       formArray: this.formBuilder.array([
         this.formBuilder.group({
-          contentFormControl: this.contentFormControl
+          typeFormControl: this.typeFormControl
         }),
         this.formBuilder.group({
+          contentFormControl: this.contentFormControl
+        // }, {updateOn: 'change\'}),
+      }),
+        this.formBuilder.group({
+          typeFormControl: this.typeFormControl,
           sourceFormControl: this.sourceFormControl,
           sourceTextFormControl: this.sourceTextFormControl,
           frequencyFormControl: this.frequencyFormControl,
@@ -96,6 +101,7 @@ export class SubmitComponent implements OnInit {
       received_date: this.receivedFormControl.value.format('YYYY-MM-DD HH:mm:ss'),
       phone: this.mobileFormControl.value,
       frequency: this.frequencyFormControl.value,
+      type: this.typeFormControl.value,
       source: this.sourceFormControl.value === '4' ? this.sourceTextFormControl.value : this.sourceFormControl.value
     } as Item;
 
