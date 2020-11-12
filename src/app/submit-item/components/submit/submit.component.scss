@@ -9,7 +9,7 @@ mat-radio-button {
  .app-file-container{
   width: 75%;
   margin: auto;
-} 
+}
 
 mat-panel-title {
   font-family: Oswald;
@@ -24,13 +24,20 @@ mat-panel-title.mat-expanded {
   color: #FFCC00;
 }
 
-div.confirm {
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+form.form-centered {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
+mat-form-field {
+  width: 80%;
+}
 
 /* ::ng-deep .mat-checkbox-layout {
   white-space: normal !important;

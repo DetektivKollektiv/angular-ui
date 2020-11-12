@@ -8,14 +8,13 @@
   </div>
   <div class="app-file-container">
     <app-file [heading]="'Fall einreichen'" subheading="Schritt {{stepper.selectedIndex + 1}} von 4">
-      <form [formGroup]="formGroup">
-        <mat-horizontal-stepper #stepper formArrayName="formArray" linear>
-
-          <mat-step [stepControl]="formArray?.get([0])" formGroupName="0">
-            <p>
-              Erste Frage: Handelt es sich bei deinem Fall um eine reine Textnachricht bzw. Aussage oder um einen Link zu einem Artikel?
-            </p>
-            <br>
+      <mat-horizontal-stepper #stepper linear>
+        <mat-step>
+          <p>
+            Handelt es sich bei deinem Fall um eine reine Textnachricht bzw. Aussage oder um einen Link zu einem Artikel?
+          </p>
+          <br>
+          <form [formGroup]="typeFormGroup">
             <mat-radio-group formControlName="typeFormControl">
               <mat-label>Bitte wähle einen Typ aus.</mat-label>
               <br>
@@ -23,26 +22,30 @@
               <mat-radio-button value="article">Link zu Artikel</mat-radio-button>
             </mat-radio-group>
             <div class="button-group">
-              <button class="button-primary" matStepperNext>Weiter</button>
+              <button class="button-primary" matStepperNext [disabled]="!typeFormGroup.valid">Weiter</button>
             </div>
-          </mat-step>
-          <mat-step [stepControl]="formArray?.get([1])" formGroupName="1" selectedIndex="1">
-            <mat-form-field style="width: 100%">
-                      <textarea formControlName="contentFormControl" matInput placeholder="Text oder Verlinkung eingeben"
-                                rows="20"
-                                style="width: 100%; height: 100%"></textarea>
+          </form>
+        </mat-step>
+        <mat-step>
+          <form [formGroup]="contentFormGroup">
+            <mat-form-field>
+                      <textarea formControlName="contentFormControl"
+                                matInput placeholder="Text oder Verlinkung eingeben"
+                                rows="20"></textarea>
               <mat-error>Bitte gib einen Text oder eine Verlinkung ein</mat-error>
             </mat-form-field>
-            <div class="button-group">
-              <button class="button-primary" matStepperNext>Weiter</button>
-              <button class="button-flat" matStepperPrevious>Zurück</button>
-            </div>
-          </mat-step>
-          <mat-step [stepControl]="formArray?.get([2])" formGroupName="2">
-            <p>
-              Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br/>
-              Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
-            </p>
+          </form>
+          <div class="button-group">
+            <button class="button-primary" matStepperNext [disabled]="!contentFormGroup.valid">Weiter</button>
+            <button class="button-flat" matStepperPrevious>Zurück</button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <p>
+            Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br/>
+            Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
+          </p>
+          <form [formGroup]="additionalFormGroup">
             <mat-accordion>
               <mat-expansion-panel>
                 <mat-expansion-panel-header>
@@ -92,31 +95,40 @@
                 </mat-form-field>
               </mat-expansion-panel>
             </mat-accordion>
-            <div class="button-group">
-              <button class="button-primary" matStepperNext>Fall einreichen</button>
-              <button class="button-flat" matStepperPrevious>Zurück</button>
-            </div>
-          </mat-step>
-          <mat-step [stepControl]="formArray?.get([3])" formGroupName="3">
-          <div class="confirm">
-            <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
+          </form>
+
+          <div class="button-group">
+            <button class="button-primary" matStepperNext>Fall einreichen</button>
+            <button class="button-flat" matStepperPrevious>Zurück</button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
+          <form class="form-centered" [formGroup]="confirmationFormGroup">
             <mat-form-field>
               <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail"
                      type="email"
                      yarn>
+              <mat-error>Bitte gib eine gültige E-Mail Adresse ein.</mat-error>
             </mat-form-field>
-            <re-captcha (resolved)="resolved($event)"
+            <re-captcha (resolved)="resolved()"
                         siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
-              <mat-checkbox formControlName="privacyBox" class="checkbox"> Ich stimme den Bedingungen der <a target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu</mat-checkbox>
-              <mat-checkbox formControlName="termBox" class="checkbox"> Ich stimme den <a target="_blank" routerLink="../community">Nutzungsbedingungen</a> zu</mat-checkbox>
-          </div>
+            <mat-checkbox formControlName="privacyBox" class="checkbox"> Ich stimme den Bedingungen der <a
+              target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu
+            </mat-checkbox>
+            <mat-checkbox formControlName="termBox" class="checkbox"> Ich stimme den <a target="_blank"
+                                                                                        routerLink="../community">Nutzungsbedingungen</a>
+              zu
+            </mat-checkbox>
+          </form>
           <div class="button-group">
-            <button (click)="submit()" [disabled]="disabled()" class="button-primary">Fall absenden</button>
+            <button (click)="submit()" [disabled]="confirmationFormGroup.invalid || !submitEnabled"
+                    class="button-primary">Fall absenden
+            </button>
             <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
         </mat-step>
-        </mat-horizontal-stepper>
-      </form>
+      </mat-horizontal-stepper>
     </app-file>
   </div>
 </div>

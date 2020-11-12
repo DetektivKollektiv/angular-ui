@@ -5,7 +5,7 @@ import {Item} from '../../../model/item';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import * as moment from 'moment';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
 
@@ -28,24 +28,26 @@ export const MY_FORMATS = {
   ]
 })
 export class SubmitComponent implements OnInit {
+  typeFormGroup: FormGroup;
+  contentFormGroup: FormGroup;
+  additionalFormGroup: FormGroup;
+  confirmationFormGroup: FormGroup;
+
   formGroup: FormGroup;
-  typeFormControl = new FormControl('claim');
-  contentFormControl = new FormControl('', Validators.required);
-  sourceFormControl = new FormControl();
-  sourceTextFormControl = new FormControl();
-  frequencyFormControl = new FormControl();
-  receivedFormControl = new FormControl({ value: moment(), disabled: true });
-  emailFormControl = new FormControl('', Validators.email);
-  mobileFormControl = new FormControl();
-  privacyBox = new FormControl(false, Validators.requiredTrue);
-  termBox =  new FormControl(false, Validators.requiredTrue);
+  typeFormControl: FormControl;
+  contentFormControl: FormControl;
+  sourceFormControl: FormControl;
+  sourceTextFormControl: FormControl;
+  frequencyFormControl: FormControl;
+  receivedFormControl: FormControl;
+  emailFormControl: FormControl;
+  mobileFormControl: FormControl;
+  privacyBox: FormControl;
+  termBox: FormControl;
+
   submitEnabled: boolean;
   today = moment();
   submitted: boolean;
-
-  get formArray(): AbstractControl | null {
-    return this.formGroup.get('formArray');
-  }
 
   constructor(private formBuilder: FormBuilder,
               private submitItemService: SubmitItemService,
@@ -54,43 +56,44 @@ export class SubmitComponent implements OnInit {
               private loaderService: LoaderService) {
   }
 
+  get formArray(): AbstractControl | null {
+    return this.formGroup.get('formArray');
+  }
+
   ngOnInit(): void {
     this.submitted = false;
     this.submitEnabled = false;
-    this.typeFormControl = new FormControl('claim');
+
+    this.typeFormControl = new FormControl('', Validators.required);
     this.contentFormControl = new FormControl('', Validators.required);
     this.sourceFormControl = new FormControl();
     this.sourceTextFormControl = new FormControl();
     this.frequencyFormControl = new FormControl();
-    this.receivedFormControl = new FormControl({ value: moment(), disabled: true });
+    this.receivedFormControl = new FormControl({value: moment(), disabled: true});
     this.emailFormControl = new FormControl('', Validators.email);
     this.mobileFormControl = new FormControl();
     this.privacyBox = new FormControl(false, Validators.requiredTrue);
-    this.termBox =  new FormControl(false, Validators.requiredTrue);
+    this.termBox = new FormControl(false, Validators.requiredTrue);
 
-    this.formGroup = this.formBuilder.group({
-      formArray: this.formBuilder.array([
-        this.formBuilder.group({
-          typeFormControl: this.typeFormControl
-        }),
-        this.formBuilder.group({
-          contentFormControl: this.contentFormControl
-        // }, {updateOn: 'change\'}),
-      }),
-        this.formBuilder.group({
-          typeFormControl: this.typeFormControl,
-          sourceFormControl: this.sourceFormControl,
-          sourceTextFormControl: this.sourceTextFormControl,
-          frequencyFormControl: this.frequencyFormControl,
-          receivedFormControl: this.receivedFormControl
-        }),
-        this.formBuilder.group({
-          emailFormControl: this.emailFormControl,
-          mobileFormControl: this.mobileFormControl,
-          privacyBox : this.privacyBox,
-          termBox :  this.termBox,
-        })
-      ]),
+    this.typeFormGroup = this.formBuilder.group({
+      typeFormControl: this.typeFormControl
+    });
+
+    this.contentFormGroup = this.formBuilder.group({
+      contentFormControl: this.contentFormControl
+    });
+
+    this.additionalFormGroup = this.formBuilder.group({
+      sourceFormControl: this.sourceFormControl,
+      sourceTextFormControl: this.sourceTextFormControl,
+      frequencyFormControl: this.frequencyFormControl,
+      receivedFormControl: this.receivedFormControl
+    });
+
+    this.confirmationFormGroup = this.formBuilder.group({
+      emailFormControl: this.emailFormControl,
+      privacyBox: this.privacyBox,
+      termBox: this.termBox,
     });
   }
 
@@ -111,7 +114,6 @@ export class SubmitComponent implements OnInit {
       .then(_ => {
         this.submitted = true;
         this.loaderService.hide();
-        // this.router.navigate(['finish']).then(() => this.loaderService.hide());
       })
       .catch(_ => {
         this.loaderService.hide();
@@ -121,13 +123,8 @@ export class SubmitComponent implements OnInit {
       });
   }
 
-
-  resolved(response: string) {
+  resolved() {
     this.submitEnabled = true;
-  }
-
-  disabled(){
-    return !this.submitEnabled || !this.privacyBox.value || !this.termBox.value;
   }
 
   navigate(url: string) {
