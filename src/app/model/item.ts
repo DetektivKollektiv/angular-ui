@@ -4,6 +4,7 @@ export class Item {
   id: string;
   mail: string;
   phone: string;
+  type: string;
   source: string;
   channel: string;
   frequency: string;
