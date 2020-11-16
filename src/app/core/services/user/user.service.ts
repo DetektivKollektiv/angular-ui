@@ -17,6 +17,8 @@ export class UserService {
   constructor(private levelService: LevelService,
               private authService: AuthService) {
     this.authService.isLoggedIn$.subscribe(value => {
+      console.log(value);
+
       if (value) {
         this.updateUser();
       } else {

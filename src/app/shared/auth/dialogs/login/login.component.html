@@ -1,0 +1,31 @@
+<div class="dialog-container">
+  <div mat-dialog-title>
+    <h2>Einloggen</h2>
+    <button mat-icon-button [mat-dialog-close]="closeResult">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-dialog-content [formGroup]="loginForm">
+    <mat-error *ngIf="loginInvalid">
+      Dein Benutzername oder dein Passwort wurden nicht erkannt.
+    </mat-error>
+    <mat-form-field class="full-width-input">
+      <input matInput #username placeholder="Benutzername" formControlName="username" required>
+      <mat-error>
+        Bitte gib hier deinen Benutzernamen ein.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput type="password" placeholder="Passwort" formControlName="password" required>
+      <mat-error>
+        Bitte gib hier dein Passwort ein.
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button class="button-primary" (click)="onLoginSubmit()">Einloggen</button>
+    <button class="button-flat" type="button" (click)="forgotPassword()">Passwort vergessen</button>
+  </mat-dialog-actions>
+</div>

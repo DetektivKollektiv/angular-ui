@@ -12,12 +12,7 @@ import { CommunityGuidelinesComponent } from './core/components/community-guidel
 
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   // {path: 'info', component: InfoComponent},
   {path: 'community', component: CommunityGuidelinesComponent},
   {path: 'data-privacy', component: DataPrivacyComponent},
@@ -28,7 +23,7 @@ const routes: Routes = [
   {path: 'archive', component: ArchiveComponent, canActivate: [AuthGuard]},
   {
     path: '**',
-    redirectTo: '/home',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];

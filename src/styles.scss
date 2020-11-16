@@ -79,7 +79,7 @@ div.button-group {
   align-items: center;
 }
 
-.button-primary {
+button.button-primary {
   background: #FFCC00 0% 0% no-repeat padding-box;
   box-shadow: 0px 1px 3px #00000029;
   border: none;
@@ -95,26 +95,26 @@ div.button-group {
   margin-bottom: 16px;
 }
 
-.button-primary:hover {
+button.button-primary:hover {
   background: rgba(255, 204, 0, 0.50);
 }
 
-.button-primary:focus {
+button.button-primary:focus {
   background: rgba(255, 204, 0, 0.50);
   outline: none;
 }
 
-.button-primary:disabled {
+button.button-primary:disabled {
   background: lightgray;
   cursor: default;
 }
 
-.button-primary:disabled:hover {
+button.button-primary:disabled:hover {
   background: lightgray;
   cursor: default;
 }
 
-.button-outline {
+button.button-outline {
   background: transparent;
   border: 1px solid #FFCC00;
   border-radius: 5px;
@@ -125,15 +125,15 @@ div.button-group {
   cursor: pointer;
 }
 
-.button-outline:hover {
+button.button-outline:hover {
   background: rgba(255, 204, 0, 0.15);
 }
 
-.button-outline:focus {
+button.button-outline:focus {
   outline: none;
 }
 
-.button-flat {
+button.button-flat {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -147,15 +147,42 @@ div.button-group {
   cursor: pointer;
 }
 
-.button-flat:hover {
+button.button-flat:hover {
   color: #616161;
 }
 
-.button-flat:focus {
+button.button-flat:focus {
   border: none;
   outline: none;
 }
 
-.button-flat:disabled {
+button.button-flat:disabled {
   cursor: default;
+}
+
+
+div.dialog-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  div.mat-dialog-title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  mat-dialog-content {
+    align-self: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    margin: 0;
+    justify-content: space-evenly;
+    align-self: center;
+  }
 }
