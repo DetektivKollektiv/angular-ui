@@ -68,14 +68,11 @@ export class SubmitComponent implements OnInit {
     this.contentFormControl = new FormControl('', Validators.required);
     this.sourceFormControl = new FormControl();
     this.sourceTextFormControl = new FormControl();
-    this.channelFormControl = new FormControl();
-    this.channelTextFormControl = new FormControl();
     this.frequencyFormControl = new FormControl();
     this.receivedFormControl = new FormControl({value: moment(), disabled: true});
     this.emailFormControl = new FormControl('', Validators.email);
     this.mobileFormControl = new FormControl();
     this.privacyBox = new FormControl(false, Validators.requiredTrue);
-
     this.termBox = new FormControl(false, Validators.requiredTrue);
 
     this.typeFormGroup = this.formBuilder.group({
