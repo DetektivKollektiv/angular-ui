@@ -6,6 +6,7 @@ export class Item {
   phone: string;
   type: string;
   source: string;
+  channel: string;
   frequency: string;
   received_date: string;
   language: string;
