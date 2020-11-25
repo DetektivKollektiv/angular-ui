@@ -67,6 +67,6 @@ export class ConfirmComponent implements OnInit {
     this.authService.resendSignUp(this.formControls.username.value)
       .then(() => this.snackBar.open('Wir haben dir einen neuen Link zugesendet.', '', {duration: 3000}))
       .catch(() => this.snackBar.open('Leider ist etwas schiefgelaufen. Versuche es später nochmal.', '', {duration: 3000}))
-      .finally(() => this.loaderService.hide())
+      .finally(() => this.loaderService.hide());
   }
 }

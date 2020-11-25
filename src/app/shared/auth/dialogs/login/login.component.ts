@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
   }
 
   private confirm() {
-    this.dialog.open(ConfirmComponent,{...Globals.dialogData, ...{data: {username: this.formControls.username.value}}})
+    this.dialog.open(ConfirmComponent, {...Globals.dialogData, ...{data: {username: this.formControls.username.value}}})
       .afterClosed()
       .subscribe((result: ConfirmResult) => {
         if (result.success) {
