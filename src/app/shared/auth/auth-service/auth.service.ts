@@ -83,11 +83,24 @@ export class AuthService {
     });
   }
 
-  public resendSignUp(username: string) {
-    Auth.resendSignUp(username)
-      .then()
-      .catch()
-      .finally();
+  public resendSignUp(username: string): Promise<OperationResult> {
+    return new Promise<OperationResult>((resolve, reject) => {
+      Auth.resendSignUp(username)
+        .then(value => {
+          resolve({
+            success: true,
+            message: 'Successfully resent confirmation',
+            payload: value
+          });
+        })
+        .catch(reason => {
+          reject({
+            success: false,
+            message: 'Error sending confirmation',
+            payload: reason
+          });
+        });
+    });
   }
 
   public signIn(username: string, password: string): Promise<OperationResult> {

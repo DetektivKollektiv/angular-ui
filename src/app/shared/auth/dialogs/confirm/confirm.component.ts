@@ -4,6 +4,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {AuthService} from '../../auth-service/auth.service';
 import {LoaderService} from '../../../loader/service/loader.service';
 import {ConfirmResult} from '../../model/confirm-result';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-confirm',
@@ -11,6 +12,7 @@ import {ConfirmResult} from '../../model/confirm-result';
   styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
+  public title = 'Bei deiner Registrierung haben wir dir einen Code zugeschickt. Gib ihn hier ein um deine E-Mail Adresse zu verifizieren.';
 
   public confirmForm: FormGroup;
   public confirmationInvalid: boolean;
@@ -22,14 +24,9 @@ export class ConfirmComponent implements OnInit {
               public dialogRef: MatDialogRef<ConfirmComponent>,
               private authService: AuthService,
               private loaderService: LoaderService,
+              private snackBar: MatSnackBar,
               private formBuilder: FormBuilder) {
     this.dialogRef.disableClose = true;
-  }
-
-  get title() {
-    return this.data.initial
-      ? 'Gib hier den Code ein, den du gerade per E-Mail von uns erhalten hast um deine E-Mail Adresse zu verifizieren.'
-      : 'Bei deiner Registrierung haben wir dir einen Code zugeschickt. Gib ihn hier ein um deine E-Mail Adresse zu verifizieren.';
   }
 
   get formControls() {
@@ -38,7 +35,7 @@ export class ConfirmComponent implements OnInit {
 
   ngOnInit(): void {
     this.confirmForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      username: [this.data.username ?? '', Validators.required],
       code: ['', Validators.required]
     });
   }
@@ -61,6 +58,15 @@ export class ConfirmComponent implements OnInit {
   }
 
   resendCode() {
+    if (this.formControls.username.invalid) {
+      return;
+    }
 
+    this.loaderService.show();
+
+    this.authService.resendSignUp(this.formControls.username.value)
+      .then(() => this.snackBar.open('Wir haben dir einen neuen Link zugesendet.', '', {duration: 3000}))
+      .catch(() => this.snackBar.open('Leider ist etwas schiefgelaufen. Versuche es später nochmal.', '', {duration: 3000}))
+      .finally(() => this.loaderService.hide())
   }
 }
