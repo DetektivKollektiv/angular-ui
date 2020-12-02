@@ -18,7 +18,7 @@
           <button (click)="accept()" [disabled]="caseToSolve === undefined" class="button-primary">Fall annehmen</button>
           <button (click)="reject()" [disabled]="caseToSolve === undefined" class="button-flat">Fall ablehnen</button>
         </div>
-      </app-file> 
+      </app-file>
     </div>
     <div class="matCard-container">
       <mat-card class="example-card" [ngClass]= "{'clickable' : isClickable()}" (click)=goToFactUrl()>
@@ -42,27 +42,14 @@
 <ng-template #accepted>
   <div ><h3>Deine Bewertung:</h3>
   <p>Bewerte die folgenden Aussagen.</p>
-  <p>Aussage {{stepper.selectedIndex + 1}} von {{stepper.steps?.length || 0}}:</p>
-
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <mat-horizontal-stepper #stepper linear>
-      <mat-step [formGroupName]="question.id" *ngFor="let question of questions; let index = index; let last = last;">
-        <app-question [question]="question"></app-question>
-        <div class="button-group">
-          <button class="button-primary" *ngIf="!last" [disabled]="question.score === undefined" type="button" matStepperNext>Weiter</button>
-          <button class="button-primary" *ngIf="last" [disabled]="question.score === undefined" type="submit">Absenden</button>
-          <button class="button-flat" *ngIf="index > 0" type="button" matStepperPrevious>Zurück</button>
-        </div>
-      </mat-step>
-    </mat-horizontal-stepper>
-  </form>
+<app-question [review]="review" (finished)="reviewFinished()"></app-question>
   </div>
 </ng-template>
 
 <ng-template #finish>
   <div class="page-container-column">
     <h1>Danke, <span class="alt">dass du diesen Fall gelöst hast!</span></h1>
-    <div style="display: flex; flex-direction: row; width: 100%; height: 100%">
+    <div class="review-finished">
       <div>
         <p>
           Du hast dafür <b>einen Erfahrungspunkt</b> erhalten.<br/><br/>

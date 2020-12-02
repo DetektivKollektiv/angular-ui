@@ -1,4 +1,4 @@
-export interface Case {
+export interface Item {
   id: string;
   content: string;
   language: string;

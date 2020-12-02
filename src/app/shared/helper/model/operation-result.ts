@@ -1,5 +1,5 @@
-export class OperationResult {
+export class OperationResult<T> {
   success: boolean;
   message: string;
-  payload: any;
+  payload: T;
 }

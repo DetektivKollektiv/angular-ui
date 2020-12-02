@@ -34,7 +34,6 @@ export class ForgotPasswordSubmitComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
     switch (this.data.details.DeliveryMedium) {
       case 'SMS':
         this.title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per SMS an die Nummer ${this.data.details.Destination} geschickt.`;

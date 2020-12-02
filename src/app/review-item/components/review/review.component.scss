@@ -31,3 +31,9 @@ p.case-content {
   border-top: 2px dashed #FFCC00;
 }
 
+div.review-finished {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%
+}
