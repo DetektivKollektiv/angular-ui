@@ -64,7 +64,9 @@ export class HeaderComponent implements OnInit {
       return;
     }
 
-    this.authService.signOut().then(() => this.router.navigate(['/dashboard']));
+    this.authService.signOut()
+      .then(() => this.router.navigate(['/dashboard']))
+      .catch();
   }
 
   login(): void {
@@ -117,7 +119,9 @@ export class HeaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.authService.signOut(true).then(() => this.router.navigate(['/']));
+        this.authService.signOut(true)
+          .then(() => this.router.navigate(['/']))
+          .catch();
       }
     });
   }

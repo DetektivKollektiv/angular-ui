@@ -36,7 +36,9 @@ export class UserService {
 
   public deleteUser(reason: UserDeleteReason): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      API.del('api', '/user', {}).then(() => resolve(true), reject);
+      API.del('api', '/user', {})
+        .then(() => resolve(true), reject)
+        .catch();
     });
   }
 }

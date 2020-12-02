@@ -73,7 +73,9 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
   }
 
   navigate(url: string) {
-    this.router.navigateByUrl(url).then();
+    this.router.navigateByUrl(url)
+      .then()
+      .catch();
   }
 
   goToFactUrl() {
@@ -120,7 +122,6 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
       });
   }
 
-  // TODO: Move Factcheck logic to separate component
   private getFactCheck() {
     if (this.caseToSolve) {
       this.factCheckService.getFactCheck(this.caseToSolve.id)

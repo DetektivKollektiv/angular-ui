@@ -12,8 +12,10 @@ export class ItemsService {
   }
 
   public getOpenItems(): Promise<Item[]> {
-    return API.get('api', this.getCaseUrl, {}).then((value: Item[]) => {
-      return value;
-    });
+    return API.get('api', this.getCaseUrl, {})
+      .then((value: Item[]) => {
+        return value;
+      })
+      .catch();
   }
 }
