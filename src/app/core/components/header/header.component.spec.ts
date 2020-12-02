@@ -6,6 +6,8 @@ import {TranslateModule} from '@ngx-translate/core';
 import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {MaterialModule} from '../../../shared/material/material.module';
+import {UserService} from '../../services/user/user.service';
+import {MockUserService} from '../../../../test/mocks/mock-user.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -20,7 +22,8 @@ describe('HeaderComponent', () => {
       ],
       declarations: [HeaderComponent],
       providers: [
-        {provide: AuthService, useClass: MockAuthService}
+        {provide: AuthService, useClass: MockAuthService},
+        {provide: UserService, useClass: MockUserService}
       ]
     })
       .compileComponents();
