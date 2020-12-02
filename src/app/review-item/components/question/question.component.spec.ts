@@ -23,7 +23,7 @@ describe('QuestionComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(QuestionComponent);
     component = fixture.componentInstance;
-    component.question = { content: 'Test Question', id: '0', mandatory: true } as Question;
+    component.question = { content: 'Test Question', id: '0', mandatory: true, options: [], info: 'Test Info' } as Question;
     fixture.detectChanges();
   });
 

@@ -40,11 +40,10 @@ export class AuthService {
     // });
   }
 
-  public signUp(username: string, password: string, email: string): Promise<OperationResult> {
-    return new Promise<OperationResult>((resolve, reject) => {
+  public signUp(username: string, password: string, email: string): Promise<OperationResult<any>> {
+    return new Promise<OperationResult<any>>((resolve, reject) => {
       Auth.signUp({username, password, attributes: {email}})
         .then(value => {
-          console.log(value);
           resolve({
             success: true,
             message: '',
@@ -52,7 +51,6 @@ export class AuthService {
           });
         })
         .catch(reason => {
-          console.log(reason);
           reject({
             success: false,
             message: 'Error signing up',
@@ -62,8 +60,8 @@ export class AuthService {
     });
   }
 
-  public confirmSignUp(username: string, code: string): Promise<OperationResult> {
-    return new Promise<OperationResult>((resolve, reject) => {
+  public confirmSignUp(username: string, code: string): Promise<OperationResult<any>> {
+    return new Promise<OperationResult<any>>((resolve, reject) => {
       Auth.confirmSignUp(username, code)
         .then(value => {
           resolve({
@@ -83,8 +81,8 @@ export class AuthService {
     });
   }
 
-  public resendSignUp(username: string): Promise<OperationResult> {
-    return new Promise<OperationResult>((resolve, reject) => {
+  public resendSignUp(username: string): Promise<OperationResult<any>> {
+    return new Promise<OperationResult<any>>((resolve, reject) => {
       Auth.resendSignUp(username)
         .then(value => {
           resolve({
@@ -103,7 +101,7 @@ export class AuthService {
     });
   }
 
-  public signIn(username: string, password: string): Promise<OperationResult> {
+  public signIn(username: string, password: string): Promise<OperationResult<any>> {
     return new Promise((resolve, reject) => {
       Auth.signIn(username, password)
         .then(value => {
@@ -148,11 +146,10 @@ export class AuthService {
       .finally();
   }
 
-  public forgotPassword(username: string): Promise<OperationResult> {
-    return new Promise<OperationResult>((resolve, reject) => {
+  public forgotPassword(username: string): Promise<OperationResult<any>> {
+    return new Promise<OperationResult<any>>((resolve, reject) => {
       Auth.forgotPassword(username)
         .then(value => {
-            console.log(value);
             resolve({
               success: true,
               message: 'Sent reset code',
@@ -161,7 +158,6 @@ export class AuthService {
           }
         )
         .catch(reason => {
-            console.log(reason);
             reject({
               success: false,
               message: 'Error sending forgot password code',
@@ -172,8 +168,8 @@ export class AuthService {
     });
   }
 
-  public forgotPasswordSubmit(username: string, code: string, newPassword: string): Promise<OperationResult> {
-    return new Promise<OperationResult>((resolve, reject) => {
+  public forgotPasswordSubmit(username: string, code: string, newPassword: string): Promise<OperationResult<any>> {
+    return new Promise<OperationResult<any>>((resolve, reject) => {
       Auth.forgotPasswordSubmit(username, code, newPassword)
         .then(value => {
           resolve({

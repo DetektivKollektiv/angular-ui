@@ -8,6 +8,7 @@ import {ReviewComponent} from './review-item/components/review/review.component'
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 import {DataPrivacyComponent} from './core/components/data-privacy/data-privacy.component';
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
+import {UnsavedChangesGuard} from './shared/unsaved-changes/guard/unsaved-changes.guard';
 
 
 
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'data-privacy', component: DataPrivacyComponent},
   // {path: 'imprint', component: ImprintComponent},
   {path: 'submit', component: SubmitComponent},
-  {path: 'review', component: ReviewComponent, canActivate: [AuthGuard]},
+  {path: 'review', component: ReviewComponent, canActivate: [AuthGuard], canDeactivate: [UnsavedChangesGuard]},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'archive', component: ArchiveComponent, canActivate: [AuthGuard]},
   {

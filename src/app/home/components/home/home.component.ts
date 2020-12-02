@@ -14,6 +14,6 @@ export class HomeComponent implements OnInit {
   }
 
   navigate(url: string) {
-    this.router.navigateByUrl(url).then(r => console.log(r));
+    this.router.navigateByUrl(url).then();
   }
 }

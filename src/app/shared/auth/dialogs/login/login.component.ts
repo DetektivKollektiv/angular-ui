@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
           reason: LoginResultReason.LoginSuccessful
         } as LoginResult);
       })
-      .catch((reason: OperationResult) => {
+      .catch((reason: OperationResult<any>) => {
         if (reason.payload?.code === 'UserNotConfirmedException') {
           this.confirm();
         }

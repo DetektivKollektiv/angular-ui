@@ -1,3 +1,13 @@
-mat-radio-button {
-  margin-left: 16px;
+//mat-radio-button {
+//  margin-left: 16px;
+//}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-radio-button + mat-radio-button {
+  margin-top: 1em;
 }

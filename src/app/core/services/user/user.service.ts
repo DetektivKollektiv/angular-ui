@@ -17,7 +17,6 @@ export class UserService {
   constructor(private levelService: LevelService,
               private authService: AuthService) {
     this.authService.isLoggedIn$.subscribe(value => {
-      console.log(value);
 
       if (value) {
         this.updateUser();
@@ -32,7 +31,7 @@ export class UserService {
       .then((user: User) => {
         this.user.next(user);
       })
-      .catch(reason => console.log(reason));
+      .catch();
   }
 
   public deleteUser(reason: UserDeleteReason): Promise<boolean> {

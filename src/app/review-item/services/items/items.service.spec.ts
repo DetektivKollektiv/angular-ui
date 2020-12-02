@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FactCheckService } from './fact-check.service';
+import { ItemsService } from './items.service';
 
-describe('FactcheckService', () => {
-  let service: FactCheckService;
+describe('CaseService', () => {
+  let service: ItemsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FactCheckService);
+    service = TestBed.inject(ItemsService);
   });
 
   it('should be created', () => {

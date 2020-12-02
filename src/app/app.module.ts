@@ -13,6 +13,7 @@ import {SubmitItemModule} from './submit-item/submit-item.module';
 import {CoreModule} from './core/core.module';
 import {ReviewItemModule} from './review-item/review-item.module';
 import {ArchiveModule} from './archive/archive.module';
+import {UnsavedChangesModule} from './shared/unsaved-changes/unsaved-changes.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,6 +32,7 @@ export function createTranslateLoader(http: HttpClient) {
     LoaderModule,
     CoreModule,
     AuthModule,
+    UnsavedChangesModule,
     SubmitItemModule,
     ReviewItemModule,
     ArchiveModule,
