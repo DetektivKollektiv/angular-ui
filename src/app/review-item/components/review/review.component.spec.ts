@@ -7,6 +7,8 @@ import {LoaderModule} from '../../../shared/loader/loader.module';
 import {HelperModule} from '../../../shared/helper/helper.module';
 import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
+import {UserService} from '../../../core/services/user/user.service';
+import {MockUserService} from '../../../../test/mocks/mock-user.service';
 
 describe('ReviewComponent', () => {
   let component: ReviewComponent;
@@ -21,7 +23,10 @@ describe('ReviewComponent', () => {
         LoaderModule,
         HelperModule
       ],
-      providers: [{provide: AuthService, useClass: MockAuthService}]
+      providers: [
+        {provide: AuthService, useClass: MockAuthService},
+        {provide: UserService, useClass: MockUserService}
+      ]
     })
       .compileComponents();
   }));
