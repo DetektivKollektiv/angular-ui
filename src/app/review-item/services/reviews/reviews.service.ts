@@ -14,9 +14,11 @@ export class ReviewsService {
   }
 
   public submitReview(review: Review): Promise<boolean> {
-    return API.post('api', this.submitReviewUrl, {body: review, response: true}).then(() => {
-      return true;
-    });
+    return API.post('api', this.submitReviewUrl, {body: review, response: true})
+      .then(() => {
+        return true;
+      })
+      .catch();
   }
 
   public createReview(item: Item): Promise<Review> {
@@ -26,8 +28,10 @@ export class ReviewsService {
       queryStringParameters: {
         item_id: item.id
       }
-    }).then(review => {
-      return review.data;
-    });
+    })
+      .then(review => {
+        return review.data;
+      })
+      .catch();
   }
 }

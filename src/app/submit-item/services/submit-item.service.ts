@@ -12,8 +12,10 @@ export class SubmitItemService {
   }
 
   public submitItem(item: Item): Promise<Item> {
-    return API.post('api', this.itemSubmissionUrl, {body: item, response: true}).then((response: Item) => {
-      return response;
-    });
+    return API.post('api', this.itemSubmissionUrl, {body: item, response: true})
+      .then((response: Item) => {
+        return response;
+      })
+      .catch();
   }
 }

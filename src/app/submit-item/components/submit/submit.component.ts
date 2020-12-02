@@ -128,6 +128,8 @@ export class SubmitComponent implements OnInit {
   }
 
   navigate(url: string) {
-    this.router.navigateByUrl(url).then();
+    this.router.navigateByUrl(url)
+      .then()
+      .catch();
   }
 }

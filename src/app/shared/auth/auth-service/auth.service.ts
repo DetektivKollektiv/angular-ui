@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Auth, Hub} from 'aws-amplify';
+import {Auth} from 'aws-amplify';
 import {BehaviorSubject} from 'rxjs';
 import {AuthState} from '../model/auth-state';
 import {map} from 'rxjs/operators';
@@ -20,24 +20,16 @@ export class AuthService {
   private readonly authState = new BehaviorSubject<AuthState>(
     initialAuthState
   );
-
-  /** AuthState as an Observable */
   readonly auth$ = this.authState.asObservable();
-
-  /** Observe the isLoggedIn slice of the auth state */
   readonly isLoggedIn$ = this.auth$.pipe(map(state => state.isLoggedIn));
 
   constructor() {
-    Auth.currentAuthenticatedUser().then(
-      (user: any) => this.setUser(user),
-      () => this.authState.next(initialAuthState)
-    );
-
-    // Hub.listen('auth', ({payload: {event, data}}) => {
-    //   if (event === 'cognitoHostedUI') {
-    //     this.setUser(data);
-    //   }
-    // });
+    Auth.currentAuthenticatedUser()
+      .then(
+        (user: any) => this.setUser(user),
+        () => this.authState.next(initialAuthState)
+      )
+      .catch();
   }
 
   public signUp(username: string, password: string, email: string): Promise<OperationResult<any>> {

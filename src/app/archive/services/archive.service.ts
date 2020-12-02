@@ -16,8 +16,10 @@ export class ArchiveService {
   }
 
   public getClosedItems(): Promise<Item[]> {
-    return API.get(this.apiName, this.path, {}).then((response: Item[]) => {
-      return response;
-    });
+    return API.get(this.apiName, this.path, {})
+      .then((response: Item[]) => {
+        return response;
+      })
+      .catch();
   }
 }

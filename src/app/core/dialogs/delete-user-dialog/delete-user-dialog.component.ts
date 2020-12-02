@@ -36,8 +36,10 @@ export class DeleteUserDialogComponent implements OnInit {
     this.userService.deleteUser({
       reason: this.deleteReasonFormControl.value,
       reasonText: this.otherFormControl.value
-    } as UserDeleteReason).then(deleted => {
-      this.dialogRef.close(deleted);
-    });
+    } as UserDeleteReason)
+      .then(deleted => {
+        this.dialogRef.close(deleted);
+      })
+      .catch();
   }
 }

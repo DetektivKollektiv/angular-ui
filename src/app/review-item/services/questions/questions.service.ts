@@ -47,7 +47,8 @@ export class QuestionsService {
           } else {
             reject();
           }
-        });
+        })
+        .catch();
     });
   }
 }
