@@ -9,7 +9,7 @@ phases:
       - npm install -g yarn
       - yarn install
       - yarn run lint
-      - yarn run test:headless
+#      - yarn run test:headless
   build:
     commands:
       - yarn run build:$STAGE
