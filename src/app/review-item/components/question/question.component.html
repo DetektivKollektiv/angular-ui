@@ -4,7 +4,7 @@
 </div>
 <form *ngIf="form" [formGroup]="form">
   <mat-radio-group formControlName="option">
-    <mat-radio-button *ngFor="let option of question?.options" [value]="option.value" [checked]="false">{{option.text}}</mat-radio-button>
+    <mat-radio-button *ngFor="let option of question?.options" [value]="option" [checked]="false">{{option.text}}</mat-radio-button>
   </mat-radio-group>
 </form>
 <div class="button-group">
