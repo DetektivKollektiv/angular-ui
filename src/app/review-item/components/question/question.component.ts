@@ -44,7 +44,7 @@ export class QuestionComponent implements OnInit {
 
         this.question = value.payload;
         this.form = this.formBuilder.group({
-          option: [{}, Validators.required]
+          option: [null, Validators.required]
         });
 
       })
