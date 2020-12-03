@@ -19,7 +19,6 @@ export class QuestionComponent implements OnInit {
   @Output() finished = new EventEmitter();
 
   question: Question;
-  selectedOption: number;
   form: FormGroup;
 
   constructor(private questionsService: QuestionsService,
@@ -45,7 +44,7 @@ export class QuestionComponent implements OnInit {
 
         this.question = value.payload;
         this.form = this.formBuilder.group({
-          option: ['', Validators.required]
+          option: [null, Validators.required]
         });
 
       })
@@ -61,7 +60,7 @@ export class QuestionComponent implements OnInit {
     const answer = {
       review_id: this.review.id,
       review_question_id: this.question.id,
-      answer: this.form.controls.option.value
+      answer: this.form.controls.option.value.value
     } as ReviewAnswer;
 
     this.reviewAnswersService.createReviewAnswer(answer)
