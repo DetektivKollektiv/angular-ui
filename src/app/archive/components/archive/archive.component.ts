@@ -14,6 +14,7 @@ import {Item} from '../../../model/item';
 export class ArchiveComponent implements OnInit {
 
   public itemsList: Item[] = [];
+  public noItems: boolean;
 
   constructor(
     private archiveService: ArchiveService,
@@ -27,15 +28,18 @@ export class ArchiveComponent implements OnInit {
 
     this.archiveService.getClosedItems()
       .then(closedItems => {
-        this.loaderService.hide();
-        this.itemsList = closedItems;
+        if(closedItems === null){
+          this.noItems = true;
+        } else {
+          this.itemsList = closedItems;
+        }
       })
       .catch(_ => {
-        this.loaderService.hide();
         this.snackBar.open('Archiv kann nicht angezeigt werden.', 'Ok', {
           duration: 2000
         });
-      });
+      })
+      .finally(() => this.loaderService.hide());
   }
 
   home(): void {
