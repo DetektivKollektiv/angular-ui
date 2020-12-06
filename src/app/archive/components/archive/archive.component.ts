@@ -28,7 +28,7 @@ export class ArchiveComponent implements OnInit {
 
     this.archiveService.getClosedItems()
       .then(closedItems => {
-        if(closedItems === null){
+        if (closedItems === null){
           this.noItems = true;
         } else {
           this.itemsList = closedItems;
