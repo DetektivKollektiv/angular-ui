@@ -21,6 +21,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 const modules = [
@@ -45,7 +46,8 @@ const modules = [
   MatDatepickerModule,
   MatMomentDateModule,
   MatMenuModule,
-  MatCardModule
+  MatCardModule,
+  MatGridListModule
 ];
 
 

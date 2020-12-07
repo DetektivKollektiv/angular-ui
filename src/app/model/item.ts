@@ -4,7 +4,9 @@ export class Item {
   id: string;
   mail: string;
   phone: string;
+  type: string;
   source: string;
+  channel: string;
   frequency: string;
   received_date: string;
   language: string;
@@ -14,4 +16,6 @@ export class Item {
   open_reviews: number;
   locked_by_user: string;
   lock_timestamp: string;
+  open_timestamp: string;
+  close_timestamp: string;
 }

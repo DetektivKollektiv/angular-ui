@@ -1,11 +1,14 @@
 .main-header {
   top: 0px;
   left: 0px;
+  min-height: 85px;
   height: 100%;
   width: 100%;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 1px 3px #00000029;
   z-index: 10;
+  display: flex;
+  align-items: center;
 }
 
 .container {
@@ -50,4 +53,8 @@ div.user-icon:hover {
 span.alt {
   font-size: 16px;
   font-weight: bold;
+}
+
+.delete-user-button {
+  color: #c62828
 }

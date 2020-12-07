@@ -1,0 +1,46 @@
+<div class="dialog-container">
+  <div mat-dialog-title class="flex-container">
+    <h2>Detektiv*in werden</h2>
+    <button mat-icon-button [mat-dialog-close]="closeResult">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-dialog-content [formGroup]="signupForm">
+    <mat-error *ngIf="signupInvalid">
+      Leider ist bei der Registrierung etwas schief gelaufen.
+      Versuche es später erneut.
+    </mat-error>
+    <mat-form-field class="full-width-input">
+      <input matInput placeholder="Benutzername" formControlName="username" required>
+      <mat-error>
+        Bitte gib hier deinen gewünschten Benutzernamen ein.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput placeholder="E-Mail" formControlName="email" required>
+      <mat-error>
+        Bitte gib hier deine E-Mail Adresse ein.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput type="password" placeholder="Passwort" formControlName="password" required>
+      <mat-error>
+        Bitte gib hier dein gewünschtes Passwort ein.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput type="password" placeholder="Passwort bestätigen" formControlName="confirmPassword" required>
+      <mat-error *ngIf="formControls.confirmPassword.errors?.mustMatch">
+        Die eingegebenen Passwörter stimmen nicht überein.
+      </mat-error>
+      <mat-error *ngIf="formControls.confirmPassword.errors?.required">
+        Bitte bestätige hier dein Passwort.
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-raised-button color="accent" (click)="signUp()">Detektiv*in werden</button>
+  </mat-dialog-actions>
+</div>

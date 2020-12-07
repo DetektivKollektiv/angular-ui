@@ -1,33 +1,35 @@
-import {Component, OnInit} from '@angular/core';
-import {CaseService} from '../../services/cases/case.service';
-import {Case} from '../../model/case';
+import {Component, HostListener, OnInit} from '@angular/core';
+import {ItemsService} from '../../services/items/items.service';
+import {Item} from '../../model/item';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
 import {QuestionsService} from '../../services/questions/questions.service';
-import {Question} from '../../model/question';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {Review} from '../../model/review';
 import {ReviewsService} from '../../services/reviews/reviews.service';
 import {Router} from '@angular/router';
 import {UserService} from '../../../core/services/user/user.service';
+import {Factcheck} from '../../model/factcheck';
+import {FactCheckService} from '../../services/factchecks/fact-check.service';
+import {UnsavedChanges} from '../../../shared/unsaved-changes/interface/unsaved-changes';
 
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.scss']
 })
-export class ReviewComponent implements OnInit {
+export class ReviewComponent implements OnInit, UnsavedChanges {
   public caseAccepted: boolean;
   public finished: boolean;
 
   public caseIndex = 0;
-  public questions: Question[];
-
   public form: FormGroup;
+  public factCheck: Factcheck;
+  public review: Review;
+  private openCases: Item[];
 
-  private openCases: Case[];
-
-  constructor(private caseService: CaseService,
+  constructor(private itemsService: ItemsService,
+              private factCheckService: FactCheckService,
               private reviewService: ReviewsService,
               private questionsService: QuestionsService,
               private userService: UserService,
@@ -37,15 +39,13 @@ export class ReviewComponent implements OnInit {
               private router: Router) {
   }
 
-  get caseToSolve(): Case {
+  get caseToSolve(): Item {
     return this.openCases?.[this.caseIndex];
   }
 
   ngOnInit(): void {
     this.caseAccepted = false;
     this.finished = false;
-    this.questions = [];
-
     this.getNewCase();
   }
 
@@ -55,71 +55,85 @@ export class ReviewComponent implements OnInit {
     } else {
       this.caseIndex++;
     }
+
+    this.getFactCheck();
   }
 
   accept() {
     this.loader.show();
-
-    this.caseService.acceptCase(this.caseToSolve)
-      .then(() => {
-        this.questionsService.getQuestions().then(questions => {
-          this.questions = questions;
-
-          this.form = new FormGroup({});
-
-          this.questions.forEach(question => {
-            this.form.addControl(String(question.id), new FormControl('', Validators.required));
-          });
-
-          this.caseAccepted = true;
-          this.loader.hide();
-        });
+    this.reviewService.createReview(this.caseToSolve)
+      .then(review => {
+        this.review = review;
+        this.caseAccepted = true;
       })
       .catch(reason => {
         this.matSnackBar.open('Leider konnte der Fall nicht angenommen werden. Versuche es später nochmal.', 'Ok', {duration: 2000});
-        console.log(reason);
-        this.loader.hide();
-      });
-  }
-
-  submit() {
-    this.loader.show();
-
-    const review = {
-      item_id: this.caseToSolve.id,
-      is_peer_review: this.caseToSolve.status === 'needs_senior',
-      review_answers: []
-    } as Review;
-
-    this.questions.forEach(value => review.review_answers.push({review_question_id: value.id, answer: value.score}));
-
-    this.reviewService.submitReview(review)
-      .then(() => {
-        this.userService.updateUser();
-        this.finished = true;
-      })
-      .catch(() => {
-        this.matSnackBar.open('Der Fall konnte leider nicht abgesendet werden, versuche es später nochmal.', 'Ok', {duration: 2000});
       })
       .finally(() => this.loader.hide());
   }
 
   navigate(url: string) {
-    this.router.navigateByUrl(url).then(r => console.log(r));
+    this.router.navigateByUrl(url)
+      .then()
+      .catch();
+  }
+
+  goToFactUrl() {
+    if (this.factCheck?.url) {
+      window.open(
+        this.factCheck?.url,
+        '_blank'
+      );
+    }
+  }
+
+  isClickable(): boolean {
+    return !!this.factCheck?.url;
+  }
+
+  reviewFinished() {
+    this.userService.updateUser();
+    this.finished = true;
+  }
+
+  hasChanges() {
+    return this.caseAccepted && !this.finished;
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  public onPageUnload($event: BeforeUnloadEvent) {
+    if (this.hasChanges()) {
+      $event.returnValue = 'Deine Änderungen gehen verloren, wenn du die Seite neu lädst.';
+    }
   }
 
   private getNewCase(): void {
     this.loader.show();
-    this.caseService.getCase()
+    this.itemsService.getOpenItems()
       .then(openCases => {
         this.openCases = openCases;
+        this.getFactCheck();
       })
       .catch(reason => {
-        console.log(reason);
         this.matSnackBar.open('Es konnte leider kein neuer Fall geladen werden. Versuche es später nochmal.', 'Ok', {duration: 2000});
       })
       .finally(() => {
         this.loader.hide();
       });
+  }
+
+  private getFactCheck() {
+    if (this.caseToSolve) {
+      this.factCheckService.getFactCheck(this.caseToSolve.id)
+        .then(factCheck => {
+          this.factCheck = factCheck;
+        })
+        .catch(() => {
+          this.factCheck = null;
+        })
+        .finally(() => {
+          this.loader.hide();
+        });
+    }
   }
 }
