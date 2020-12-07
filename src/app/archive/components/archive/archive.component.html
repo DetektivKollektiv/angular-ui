@@ -2,23 +2,33 @@
   <h1>Archiv</h1>
 
   <div class="mat-card-container">
-    <mat-card *ngFor="let item of itemsList">
-      <mat-card-title>Fall {{itemsList?.indexOf(item) + 1}} von {{itemsList?.length}}</mat-card-title>
-      <mat-card-content>
-        <h3>Details</h3>
-        <p>{{item.content}}</p>
-        <h3>Vertrauensindex</h3>
-        <p [ngSwitch]="(item.result_score | number:'1.0-0')" mat-line>
-          <button *ngSwitchCase="1" mat-stroked-button class="rating-1" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - nicht vertrauenswürdig</button>
-          <button *ngSwitchCase="2" mat-stroked-button class="rating-2" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - eher nicht vertrauenswürdig</button>
-          <button *ngSwitchCase="3" mat-stroked-button class="rating-3" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - eher vertrauenswürdig</button>
-          <button *ngSwitchCase="4" mat-stroked-button class="rating-4" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - vertrauenswürdig</button>
-        </p>
-        <h3>Eingereicht am:</h3>
-        <p>{{item.open_timestamp | date:'dd.MM.yyyy'}}</p>
-        <h3>Gelöst am:</h3>
-        <p>{{item.close_timestamp | date:'dd.MM.yyyy'}}</p>
-      </mat-card-content>
-    </mat-card>
+    <div *ngIf="noItems; else archive">
+      <h4>
+        Unser Archiv ist aktuell noch leer.
+        Hilf es zu füllen indem du Fälle löst.
+      </h4>
+      <button [routerLink]="'/review'" class="button-primary">Fall lösen</button>
+    </div>
+
+    <ng-template #archive>
+      <mat-card *ngFor="let item of itemsList">
+        <mat-card-title>Fall {{itemsList?.indexOf(item) + 1}} von {{itemsList?.length}}</mat-card-title>
+        <mat-card-content>
+          <h3>Details</h3>
+          <p>{{item.content}}</p>
+          <h3>Vertrauensindex</h3>
+          <p [ngSwitch]="(item.result_score | number:'1.0-0')" mat-line>
+            <button *ngSwitchCase="1" mat-stroked-button class="rating-1" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - nicht vertrauenswürdig</button>
+            <button *ngSwitchCase="2" mat-stroked-button class="rating-2" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - eher nicht vertrauenswürdig</button>
+            <button *ngSwitchCase="3" mat-stroked-button class="rating-3" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - eher vertrauenswürdig</button>
+            <button *ngSwitchCase="4" mat-stroked-button class="rating-4" disabled><b>{{item.result_score | number:'1.0-2'}}</b> - vertrauenswürdig</button>
+          </p>
+          <h3>Eingereicht am:</h3>
+          <p>{{item.open_timestamp | date:'dd.MM.yyyy'}}</p>
+          <h3>Gelöst am:</h3>
+          <p>{{item.close_timestamp | date:'dd.MM.yyyy'}}</p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
   </div>
 </div>
