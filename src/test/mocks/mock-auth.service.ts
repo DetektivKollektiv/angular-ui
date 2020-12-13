@@ -14,7 +14,7 @@ export class MockAuthService {
     idToken: null
   });
 
-  readonly isLoggedIn$ = of(true);
+  readonly isLoggedIn$ = of(false);
 
   constructor() {
   }
