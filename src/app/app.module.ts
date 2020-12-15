@@ -14,6 +14,8 @@ import {CoreModule} from './core/core.module';
 import {ReviewItemModule} from './review-item/review-item.module';
 import {ArchiveModule} from './archive/archive.module';
 import {UnsavedChangesModule} from './shared/unsaved-changes/unsaved-changes.module';
+import {ProfileModule} from './profile/profile.module';
+import {HighscoresModule} from './highscores/highscores.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -42,7 +44,9 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    ProfileModule,
+    HighscoresModule
   ],
   bootstrap: [AppComponent]
 })

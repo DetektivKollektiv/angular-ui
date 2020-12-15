@@ -5,9 +5,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent],
-  imports: [
-    CommonModule
-  ]
+    declarations: [ProfileComponent],
+    exports: [
+        ProfileComponent
+    ],
+    imports: [
+        CommonModule
+    ]
 })
 export class ProfileModule { }
