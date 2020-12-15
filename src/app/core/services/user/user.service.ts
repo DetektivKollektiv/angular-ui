@@ -21,7 +21,7 @@ export class UserService {
       if (value) {
         this.updateUser();
       } else {
-        this.user.next({} as User);
+        this.user.next(null);
       }
     });
   }

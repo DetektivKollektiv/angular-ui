@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu {
+  height: 250px;
+  width: 50px;
+  background: #c62828;
+}
+
+.content {
+  height: 250px;
+  width: 500px;
+  background: #1b5e20;
+}
