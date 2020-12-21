@@ -12,7 +12,7 @@ export class FactCheckService {
   }
 
   public getFactCheck(caseId): Promise<Factcheck> {
-    return API.get('api', this.factchecksUrl + '/' + caseId, {})
+    return API.get('ml_service', this.factchecksUrl + '/' + caseId, {})
       .then((value: Factcheck) => {
         return value;
       })

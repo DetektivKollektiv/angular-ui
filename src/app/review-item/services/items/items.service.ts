@@ -6,13 +6,16 @@ import {API} from 'aws-amplify';
   providedIn: 'root'
 })
 export class ItemsService {
-  private getCaseUrl = '/open_items_for_user/5';
 
   constructor() {
   }
 
   public getOpenItems(): Promise<Item[]> {
-    return API.get('api', this.getCaseUrl, {})
+    return API.get('review_service', '/items', {
+      queryStringParameters: {
+        num_items: 5
+      }
+    })
       .then((value: Item[]) => {
         return value;
       })
