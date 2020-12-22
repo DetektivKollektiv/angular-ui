@@ -33,8 +33,28 @@ Amplify.configure(auth);
 
 const api = {endpoints: [
     {
-      name: 'api',
-      endpoint: environment.api.baseUrl,
+      name: 'archive_service',
+      endpoint: `${environment.api.baseUrl}/archive_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'ml_service',
+      endpoint: `${environment.api.baseUrl}/ml_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'review_service',
+      endpoint: `${environment.api.baseUrl}/review_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'submission_service',
+      endpoint: `${environment.api.baseUrl}/submission_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'user_service',
+      endpoint: `${environment.api.baseUrl}/user_service`,
       region: 'eu-central-1'
     },
   ]};
