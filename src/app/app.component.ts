@@ -9,7 +9,7 @@ import {User} from './core/model/user';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  private user: User;
+  public user: User;
 
   constructor(private translateService: TranslateService,
               private userService: UserService) {
