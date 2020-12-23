@@ -1,8 +1,23 @@
 <div class="wrapper">
-  <div class="menu">
-
+  <div class="menu" (click)="expand()">
+    <button mat-icon-button aria-label="Button to display X" (click)="index=0">
+      <mat-icon>emoji_events</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Button to display Y" (click)="index=1">
+      <mat-icon>military_tech</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Button to display Z" (click)="index=2">
+      <mat-icon>turned_in</mat-icon>
+    </button>
   </div>
-  <div class="content">
-
+  <div *ngIf="expanded" class="content">
+    <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-tab-group class="header-less-tabs" [selectedIndex]="index">
+      <mat-tab label="Tab 1">Content 1</mat-tab>
+      <mat-tab label="Tab 2">Content 2</mat-tab>
+      <mat-tab label="Tab 3">Content 3</mat-tab>
+    </mat-tab-group>
   </div>
 </div>

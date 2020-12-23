@@ -8,8 +8,8 @@
     <div class="content">
       <router-outlet></router-outlet>
     </div>
-    <div *ngIf="user">
-      <app-high-score-sidebar></app-high-score-sidebar>
+    <div class="sidebar-wrapper">
+      <app-high-score-sidebar *ngIf="user"></app-high-score-sidebar>
     </div>
   </div>
   <app-footer></app-footer>

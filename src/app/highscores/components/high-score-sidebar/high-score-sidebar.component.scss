@@ -4,6 +4,10 @@
 }
 
 .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   height: 250px;
   width: 50px;
   background: #c62828;
@@ -13,4 +17,6 @@
   height: 250px;
   width: 500px;
   background: #1b5e20;
+  display: flex;
+  flex-direction: column;
 }
