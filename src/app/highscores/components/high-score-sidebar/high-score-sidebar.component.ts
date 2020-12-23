@@ -9,6 +9,8 @@ export class HighScoreSidebarComponent implements OnInit {
   public expanded: boolean;
   public index: number;
 
+
+  // TODO: Add service to query high scores
   constructor() {
   }
 
