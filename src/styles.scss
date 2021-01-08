@@ -19,7 +19,7 @@ html, body {
 h1 {
   font-family: Oswald, sans-serif;
   line-height: 70px;
-  font-size: 40px;
+  font-size: max(2vw,14px);
   color: mat-color($custom-theme-accent);
 
   span.alt {
@@ -42,8 +42,8 @@ h3 {
 
 p {
   font-family: Lato, sans-serif;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: max(0.7vw,14px);
+  line-height: max(1vw,22px);;
   color: #4A4A4A;
 }
 
@@ -84,11 +84,11 @@ button.button-primary {
   box-shadow: 0 1px 3px #00000029;
   border: none;
   border-radius: 5px;
-  width: 12em;
-  height: 3em;
+  width: max(8vw,80px);
+  height: max(3.5vh,40px);
   color: #4A4A4A;
   cursor: pointer;
-  font-size: 13px;
+  font-size: max(0.7vw,14px);  
   line-height: 26px;
   font-family: Lato, sans-serif;
   margin-top: 16px;
@@ -186,3 +186,8 @@ div.dialog-container {
     align-self: center;
   }
 }
+
+mat-icon{
+  color: #4A4A4A;
+}
+
