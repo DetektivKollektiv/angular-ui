@@ -10,14 +10,12 @@ import { User } from '../../../core/model/user';
 export class ProfileComponent implements OnInit, OnDestroy {
   public user: User;
 
-
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.user$.subscribe(value => {
       if (value) {
         this.user = value;
-        // this.user.progress = 20;
       }
     });
   }
