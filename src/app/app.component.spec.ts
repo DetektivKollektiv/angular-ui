@@ -12,6 +12,7 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { MaterialModule } from './shared/material/material.module';
 import { ProfileModule } from './profile/profile.module';
+import { HighscoresModule } from './highscores/highscores.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -21,7 +22,8 @@ describe('AppComponent', () => {
         MaterialModule,
         RouterTestingModule,
         TranslateModule.forRoot(),
-        ProfileModule
+        ProfileModule,
+        HighscoresModule
       ],
       declarations: [
         AppComponent,
