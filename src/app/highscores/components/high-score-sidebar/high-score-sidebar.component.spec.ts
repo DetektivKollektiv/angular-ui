@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HighScoreSidebarComponent } from './high-score-sidebar.component';
-import { MaterialModule } from '../../../shared/material/material.module'
+import { MaterialModule } from '../../../shared/material/material.module';
 
 describe('HighscoresSidebarComponent', () => {
   let component: HighScoreSidebarComponent;
