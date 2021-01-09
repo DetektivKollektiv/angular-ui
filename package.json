@@ -33,7 +33,6 @@
     "@angular/platform-browser-dynamic": "^9.1.6",
     "@angular/router": "^9.1.6",
     "@briebug/jest-schematic": "^3.1.0",
-    "@material/linear-progress": "^9.0.0",
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
     "aws-amplify": "^3.0.10 ",

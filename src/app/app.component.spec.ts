@@ -1,16 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import {TranslateModule} from '@ngx-translate/core';
-import {LoaderModule} from './shared/loader/loader.module';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {AuthService} from './shared/auth/auth-service/auth.service';
-import {MockAuthService} from '../test/mocks/mock-auth.service';
-import {HeaderComponent} from './core/components/header/header.component';
-import {FooterComponent} from './core/components/footer/footer.component';
-import {MaterialModule} from './shared/material/material.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { LoaderModule } from './shared/loader/loader.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { AuthService } from './shared/auth/auth-service/auth.service';
+import { MockAuthService } from '../test/mocks/mock-auth.service';
+import { HeaderComponent } from './core/components/header/header.component';
+import { FooterComponent } from './core/components/footer/footer.component';
+import { MaterialModule } from './shared/material/material.module';
+import { ProfileModule } from './profile/profile.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
         LoaderModule,
         MaterialModule,
         RouterTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        ProfileModule
       ],
       declarations: [
         AppComponent,
