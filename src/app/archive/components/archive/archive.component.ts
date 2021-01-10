@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { ArchiveService } from '../../services/archive.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Item } from '../../../model/item';
-import { AnyAaaaRecord } from 'dns';
+import { MatChip } from '@angular/material/chips';
 
 @Component({
   selector: 'app-archive',

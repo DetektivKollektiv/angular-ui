@@ -40,10 +40,13 @@
         </table>
         <br />
         <h3>Tags:</h3>
+
         <div class="tags">
-          <button *ngFor="let tag of item.tags" mat-flat-button class="tag">
-            {{ tag }}
-          </button>
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of item.tags">
+              {{ tag }}
+            </mat-chip>
+          </mat-chip-list>
         </div>
       </mat-card-content>
     </mat-card>
