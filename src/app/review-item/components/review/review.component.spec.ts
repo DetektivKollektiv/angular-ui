@@ -9,6 +9,7 @@ import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
 import {UserService} from '../../../core/services/user/user.service';
 import {MockUserService} from '../../../../test/mocks/mock-user.service';
+import {QuestionComponent} from '../question/question.component';
 
 describe('ReviewComponent', () => {
   let component: ReviewComponent;
@@ -16,7 +17,10 @@ describe('ReviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ReviewComponent],
+      declarations: [
+        ReviewComponent,
+        QuestionComponent
+      ],
       imports: [
         RouterTestingModule,
         MaterialModule,

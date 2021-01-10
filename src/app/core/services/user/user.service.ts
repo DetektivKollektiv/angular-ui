@@ -27,7 +27,7 @@ export class UserService {
   }
 
   public updateUser(): void {
-    API.get('api', '/user', {})
+    API.get('user_service', '', {})
       .then((user: User) => {
         this.user.next(user);
       })
@@ -36,7 +36,7 @@ export class UserService {
 
   public deleteUser(reason: UserDeleteReason): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      API.del('api', '/user', {})
+      API.del('user_service', '', {})
         .then(() => resolve(true), reject)
         .catch();
     });

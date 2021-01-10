@@ -9,8 +9,8 @@ import {Item} from '../../model/item';
 
 export class ArchiveService {
 
-  private apiName = 'api';
-  private path = '/items/closed';
+  private apiName = 'archive_service';
+  private path = '/items';
 
   constructor() {
   }
