@@ -1,1 +1,61 @@
-<p>profile works!</p>
+<div class="container">
+  <div class="top-elements">
+    <div class="user-icon-large">
+      <span class="material-icons profile-icon-background">
+        bookmark
+      </span>
+      <span class="profile-icon-level">{{user?.level}}</span>
+      <img mat-card-avatar class="profile-picture" src="/assets/images/avatar/ml-assistant-avatar.png" />
+    </div>
+    <hr class="separator">
+    <table class="user-info-table">
+      <tr>
+        <td class="user-info-categories">
+          Name
+        </td>
+        <td class="user-info-values">
+          {{user?.name}}
+        </td>
+      </tr>
+      <tr>
+        <td class="user-info-categories">Level</td>
+        <td class="user-info-values">{{user?.level_description}}</td>
+      </tr>
+      <tr>
+        <td class="user-info-categories">Exp</td>
+        <td class="user-info-values">
+          <mat-progress-bar mode="determinate" [value]="user.progress" color="accent"></mat-progress-bar>
+        </td>
+      </tr>
+    </table>
+    <div class="profile-button-container">
+      <button class="button-flat-profile">
+        <p>Meine Nachrichten</p>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" matBadge="2" matBadgeColor="warn">mail_outline
+        </mat-icon>
+      </button>
+      <button class="button-flat-profile">
+        <p>
+          Meine Akte
+        </p>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" matBadge="2" matBadgeColor="warn">folder_open
+        </mat-icon>
+      </button>
+      <button class="button-flat-profile">
+        <p>
+          Problem melden
+        </p>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">report
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="profile-button-container">
+    <button class="button-flat-profile">
+      <p>
+        Abmelden
+      </p>
+      <mat-icon aria-hidden="false" aria-label="Example home icon" class="profile-button-icons">input</mat-icon>
+    </button>
+  </div>
+</div>

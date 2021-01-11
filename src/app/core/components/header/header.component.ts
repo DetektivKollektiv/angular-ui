@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
     });
 
     this.userService.user$.subscribe((user: User) => {
-      if (user.name !== undefined) {
+      if (user) {
         this.userLoaded = true;
       } else {
         this.userLoaded = false;

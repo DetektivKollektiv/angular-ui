@@ -5,4 +5,5 @@ export interface User {
   level: number;
   level_description: string;
   experience_points: number;
+  progress: number;
 }
