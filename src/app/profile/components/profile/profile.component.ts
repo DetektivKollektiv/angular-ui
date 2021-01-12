@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../../../core/services/user/user.service';
 import { User } from '../../../core/model/user';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +12,10 @@ import { User } from '../../../core/model/user';
 export class ProfileComponent implements OnInit, OnDestroy {
   public user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
     this.userService.user$.subscribe(value => {
@@ -23,4 +28,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
   }
 
+  navigate(url: string) {
+    this.router.navigateByUrl(url)
+      .then()
+      .catch();
+  }
 }
