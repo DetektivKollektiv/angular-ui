@@ -4,6 +4,8 @@ import { ProfileComponent } from './profile.component';
 import { MaterialModule } from '../../../shared/material/material.module';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -12,7 +14,7 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProfileComponent],
-      imports: [MaterialModule],
+      imports: [MaterialModule, RouterTestingModule],
       providers: [
         { provide: UserService, useClass: MockUserService }
       ]
