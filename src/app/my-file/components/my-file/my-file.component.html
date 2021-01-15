@@ -10,7 +10,7 @@
         <table class="user-info-table2">
             <tr>
                 <td class="user-info-categories">Name</td>
-                <td class="user-info-values">Davide Maiolo</td>
+                <td class="user-info-values">{{user?.name}}</td>
             </tr>
             <tr>
                 <td class="user-info-categories">Abteilung</td>
@@ -18,27 +18,27 @@
             </tr>
             <tr>
                 <td class="user-info-categories">Tätigkeit</td>
-                <td class="user-info-values">Spürnase</td>
+                <td class="user-info-values">{{user?.level_description}}</td>
             </tr>
             <tr>
                 <td class="user-info-categories">Bisher gelöste Fälle</td>
-                <td class="user-info-values">7</td>
+                <td class="user-info-values">{{user?.solved_cases_total}}</td>
             </tr>
             <tr>
                 <td class="user-info-categories">Heute gelöste Fälle</td>
-                <td class="user-info-values">2</td>
+                <td class="user-info-values">{{user?.solved_cases_today}}</td>
             </tr>
             <tr>
-                <td class="user-info-categories">Notwendige Fälle zur Beförderung</td>
-                <td class="user-info-values">2</td>
+                <td class="user-info-categories">Notwendige Erfahrungspunkte zur nächsten Beförderung</td>
+                <td class="user-info-values">{{user?.exp_needed}}</td>
             </tr>
             <tr>
-                <td class="user-info-categories">Wöchentliches Ranking als Spürnase</td>
-                <td class="user-info-values">124.</td>
+                <td class="user-info-categories">Ranking unter allen Detektiv*innen des selben Levels</td>
+                <td class="user-info-values">{{user?.level_rank}}.</td>
             </tr>
             <tr>
-                <td class="user-info-categories">Wöchentliches Ranking als Top Detektiv*in</td>
-                <td class="user-info-values">345.</td>
+                <td class="user-info-categories">Ranking unter allen Detektiv*innen</td>
+                <td class="user-info-values">{{user?.total_rank}}.</td>
             </tr>
         </table>
     </app-file>

@@ -6,7 +6,6 @@
   margin: auto;
 }
 
-
 .user-info-table1 {
   width: 100%;
   height: 15%;
@@ -23,16 +22,13 @@
   table-layout: fixed;
 }
 
-.user-info-table2 tr{
-  height: 12%;
-}
-
 .user-info-categories{
   font-weight: bold;
   font-family: Oswald, sans-serif;
   font-size: max(0.8vw,12px);
   vertical-align: middle;
-  width: 20%;
+  width: 25%;
+  padding-bottom: 2%;
 }
 
 .user-info-values{
@@ -41,7 +37,8 @@
   font-family: Lato, sans-serif;
   font-size: max(0.8vw,12px);
   vertical-align: middle;
-  padding-left: 1%;
+  padding-left: 2%;
+  padding-bottom: 2%;
 }
 
 app-file{
@@ -53,6 +50,10 @@ app-file{
 .separator{
   border-top: 3px dashed #000;
   width: 100%;
+  padding-bottom: 2%;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
 }
 
 .second-table{
