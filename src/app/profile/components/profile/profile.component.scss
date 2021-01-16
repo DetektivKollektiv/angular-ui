@@ -80,11 +80,13 @@ button.button-flat-profile:disabled {
 }
 
 .separator{
-  border-top: 5px dashed #ffcc00;
+  border-top: 3px dashed #ffcc00;
   width: 90%;
 }
 .profile-picture{
-  width: 8vw
+  width: 8vw;
+  height: 8vw;
+  cursor: pointer;
 }
 .profile-icon-background{
   position: absolute;
@@ -94,6 +96,7 @@ button.button-flat-profile:disabled {
   top: 9.5%;
   right: 2.2vw;
   z-index: 1;
+  cursor: pointer;
 }
 
 .profile-icon-level{
@@ -105,4 +108,5 @@ button.button-flat-profile:disabled {
   top: 11.5%;
   right: 3.7vw;
   z-index: 1;
+  cursor: pointer;
 }
