@@ -6,7 +6,6 @@ import {Factcheck} from '../../model/factcheck';
   providedIn: 'root'
 })
 export class FactCheckService {
-  private factchecksUrl = '/items';
 
   constructor() {
   }
