@@ -8,6 +8,10 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import {MomentDateAdapter} from '@angular/material-moment-adapter';
 import * as moment from 'moment';
 import {LoaderService} from '../../../shared/loader/service/loader.service';
+import { ItemTypesService } from '../../services/item-types/item-types.service';
+import { ItemType } from '../../model/item-type';
+import { TranslatePipe } from '@ngx-translate/core';
+
 
 export const MY_FORMATS = {
   display: {
@@ -48,9 +52,11 @@ export class SubmitComponent implements OnInit {
   submitEnabled: boolean;
   today = moment();
   submitted: boolean;
+  itemTypes: ItemType[];
 
   constructor(private formBuilder: FormBuilder,
               private submitItemService: SubmitItemService,
+              private itemTypesService: ItemTypesService,
               private router: Router,
               private snackBar: MatSnackBar,
               private loaderService: LoaderService) {
@@ -63,6 +69,10 @@ export class SubmitComponent implements OnInit {
   ngOnInit(): void {
     this.submitted = false;
     this.submitEnabled = false;
+
+    this.itemTypesService.getItemTypes()
+    .then(itemTypes => this.itemTypes = itemTypes)
+    .catch();
 
     this.typeFormControl = new FormControl('', Validators.required);
     this.contentFormControl = new FormControl('', Validators.required);
@@ -104,7 +114,7 @@ export class SubmitComponent implements OnInit {
       received_date: this.receivedFormControl.value.format('YYYY-MM-DD HH:mm:ss'),
       phone: this.mobileFormControl.value,
       frequency: this.frequencyFormControl.value,
-      type: this.typeFormControl.value,
+      item_type_id: this.typeFormControl.value,
       source: this.sourceFormControl.value === '4' ? this.sourceTextFormControl.value : this.sourceFormControl.value
     } as Item;
 

@@ -24,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -52,7 +53,8 @@ const modules = [
   MatCardModule,
   MatGridListModule,
   MatProgressBarModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatTooltipModule
 ];
 
 

@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ReviewAnswersService} from '../../services/review-answers/review-answers.service';
 import {ReviewAnswer} from '../../model/review-answer';
+import {Option} from '../../model/option';
 
 @Component({
   selector: 'app-question',
@@ -20,6 +21,7 @@ export class QuestionComponent implements OnInit {
 
   question: Question;
   form: FormGroup;
+  options: Option[];
 
   constructor(private questionsService: QuestionsService,
               private reviewAnswersService: ReviewAnswersService,
@@ -40,9 +42,12 @@ export class QuestionComponent implements OnInit {
 
         if (value.success && !value.payload) {
           this.finishReview();
+          return;
         }
 
         this.question = value.payload;
+
+        this.options = this.question.options.sort((a, b) => a.value > b.value ? -1 : 1);
         this.form = this.formBuilder.group({
           option: [null, Validators.required]
         });
