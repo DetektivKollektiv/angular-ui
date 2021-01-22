@@ -2,6 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../../../core/services/user/user.service';
 import { User } from '../../../core/model/user';
 import { Router } from '@angular/router';
+import { AuthState } from '../../../shared/auth/model/auth-state';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+
 
 
 @Component({
@@ -11,10 +14,14 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit, OnDestroy {
   public user: User;
+  public authState: AuthState;
+
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService,
+
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +29,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
       if (value) {
         this.user = value;
       }
+    });
+    this.authService.auth$.subscribe((authState: AuthState) => {
+      this.authState = authState;
     });
   }
 
@@ -31,6 +41,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
   navigate(url: string) {
     this.router.navigateByUrl(url)
       .then()
+      .catch();
+  }
+
+  logout(): void {
+    if (!this.authState.isLoggedIn) {
+      return;
+    }
+
+    this.authService.signOut()
+      .then(() => this.router.navigate(['/dashboard']))
       .catch();
   }
 }
