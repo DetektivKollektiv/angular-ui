@@ -11,7 +11,7 @@ mat-card {
   margin-right: 40px;
 }
 
-mat-card-content>p {
+mat-card-content > p {
   word-break: break-word;
 }
 
@@ -35,7 +35,8 @@ mat-card-content>p {
   background-color: #1b5e20;
 }
 
-th, td {
+th,
+td {
   width: 40%;
   text-align: left;
 }
@@ -44,7 +45,7 @@ td {
   font-family: Lato;
   font-size: 16px;
   line-height: 26px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 }
 
 .tags {

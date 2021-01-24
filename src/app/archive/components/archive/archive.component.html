@@ -1,11 +1,36 @@
-<div class="page-container-column">
+<div class="archive">
   <h1>Archiv</h1>
-
+  <form
+    [formGroup]="searchFormGroup"
+    (keydown.enter)="$event.preventDefault()"
+    (keydown.shift.enter)="$event.preventDefault()"
+  >
+    <mat-form-field class="search-form-field">
+      <mat-label>Schlüsslwort-Suche</mat-label>
+      <input
+        matInput
+        formControlName="tagFormControl"
+        type="search"
+        (keyup.enter)="searchByTag()"
+      />
+      <button
+        mat-button
+        *ngIf="searchTag"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clearSearchTag()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+  <br />
   <div class="mat-card-container">
-    <mat-card *ngFor="let item of itemsList">
+    <mat-card *ngFor="let item of itemsDisplayed">
       <mat-card-title
-        >Fall {{ itemsList?.indexOf(item) + 1 }} von
-        {{ itemsList?.length }}</mat-card-title
+        >Fall {{ itemsDisplayed?.indexOf(item) + 1 }} von
+        {{ itemsDisplayed?.length }}</mat-card-title
       >
       <mat-card-content>
         <h3>Inhalt</h3>
