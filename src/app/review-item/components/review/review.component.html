@@ -86,6 +86,7 @@
   </p>
   <app-tags-question
     [review]="review"
+    [itemId]="caseToSolve?.id"
     (finished)="reviewFinished()"
   ></app-tags-question>
 </ng-template>

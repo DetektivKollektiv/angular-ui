@@ -7,6 +7,8 @@ import { QuestionsService } from '../../services/questions/questions.service';
 import { ReviewAnswersService } from '../../services/review-answers/review-answers.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { ItemsService } from '../../services/items/items.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-tags-question',
@@ -15,25 +17,33 @@ import { MatChipInputEvent } from '@angular/material/chips';
 })
 export class TagsQuestionComponent implements OnInit {
   @Input() review: Review;
+  @Input() itemId: string;
   @Output() finished = new EventEmitter();
 
   chipInputKeyCodes = [ENTER, COMMA];
 
   // TODO: Get from Lambda
-  public tagsCurrent: string[] = ['Corona', 'Virus', 'Pandemie'];
+  public tagsCurrent: string[];
 
   // Initially contains all current tags
-  public tagsUser: string[] = this.tagsCurrent;
+  public tagsUser: string[];
 
   constructor(
     private questionsService: QuestionsService,
     private reviewAnswersService: ReviewAnswersService,
+    private itemsService: ItemsService,
     private loader: LoaderService,
     private matSnackBar: MatSnackBar,
     private formBuilder: FormBuilder
   ) {}
 
-  ngOnInit(): void {}
+  async ngOnInit(): Promise<void> {
+    // TODO: Change to itemId
+    this.tagsCurrent = await this.itemsService.getItemTags(
+      'fa9ca6a0-174f-48a6-8b43-32be841293ad'
+    );
+    this.tagsUser = this.tagsCurrent;
+  }
 
   add(event: MatChipInputEvent): void {
     const input = event.input;
