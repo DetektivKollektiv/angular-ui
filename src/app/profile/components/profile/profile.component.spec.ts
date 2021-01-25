@@ -5,6 +5,9 @@ import { MaterialModule } from '../../../shared/material/material.module';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+
 
 
 describe('ProfileComponent', () => {
@@ -16,6 +19,7 @@ describe('ProfileComponent', () => {
       declarations: [ProfileComponent],
       imports: [MaterialModule, RouterTestingModule],
       providers: [
+        { provide: AuthService, useClass: MockAuthService },
         { provide: UserService, useClass: MockUserService }
       ]
     })
