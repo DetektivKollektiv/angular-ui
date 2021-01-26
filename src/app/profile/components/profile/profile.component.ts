@@ -16,6 +16,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public user: User;
   public authState: AuthState;
 
+  public hideMessageBadge: boolean;
+  public hideFileBadge: boolean;
 
   constructor(
     private router: Router,
@@ -28,6 +30,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.userService.user$.subscribe(value => {
       if (value) {
         this.user = value;
+        this.hideMessageBadge = true;
+        this.hideFileBadge = true;
       }
     });
     this.authService.auth$.subscribe((authState: AuthState) => {
