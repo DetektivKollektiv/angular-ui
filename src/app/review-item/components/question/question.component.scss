@@ -8,6 +8,14 @@ mat-radio-group {
   justify-content: space-between;
 }
 
+mat-radio-button {
+  width: 15px;
+}
+
 mat-radio-button + mat-radio-button {
   margin-top: 1em;
+}
+
+mat-icon {
+  cursor: pointer;
 }
