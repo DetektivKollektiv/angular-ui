@@ -1,6 +1,6 @@
 app-header {
   z-index: 10;
-  height: 5vh;
+  height: 85px;
   top: 0;
   left: 0;
   width: 100%;
@@ -18,16 +18,16 @@ app-footer {
 
 app-profile {
   background: #efefef;
-  height: 100%;
+  height: calc(100% - calc(5vh + 85px));
   width: 15vw;
   position: fixed;
   z-index: 1;
   top: 85px;
   left: 0;
   overflow-x: hidden;
-  padding-top: 20px;
+  overflow-y: auto;
   box-shadow: 1px 0 3px #00000029;
-  padding-bottom: 15vh;
+  padding-bottom: 1%;
 }
 
 .sidebar-wrapper {

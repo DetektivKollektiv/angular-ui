@@ -32,27 +32,27 @@
     <div class="profile-button-container">
       <button class="button-flat-profile">
         <p>Meine Nachrichten</p>
-        <mat-icon matBadge="2" matBadgeColor="warn">mail_outline
+        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideMessageBadge">mail_outline
         </mat-icon>
       </button>
       <button class="button-flat-profile" (click)="navigate('my-file')">
         <p>
           Meine Akte
         </p>
-        <mat-icon matBadge="2" matBadgeColor="warn">folder_open
+        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideFileBadge">folder_open
         </mat-icon>
       </button>
       <button class="button-flat-profile">
         <p>
-          Problem melden
+          Kontakt
         </p>
-        <mat-icon>report
+        <mat-icon>contact_support
         </mat-icon>
       </button>
     </div>
   </div>
   <div class="profile-button-container">
-    <button class="button-flat-profile">
+    <button class="button-flat-profile" (click)="logout()">
       <p>
         Abmelden
       </p>
