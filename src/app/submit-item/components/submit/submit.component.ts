@@ -66,6 +66,7 @@ export class SubmitComponent implements OnInit {
   today = moment();
   submitted: boolean;
   itemTypes: ItemType[];
+  mailGiven: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -74,7 +75,7 @@ export class SubmitComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private loaderService: LoaderService
-  ) {}
+  ) { }
 
   get formArray(): AbstractControl | null {
     return this.formGroup.get('formArray');
@@ -120,6 +121,7 @@ export class SubmitComponent implements OnInit {
     });
 
     this.getItemTypes();
+    this.mailGiven = false;
   }
 
   getItemTypes(): void {
@@ -147,6 +149,10 @@ export class SubmitComponent implements OnInit {
           ? this.sourceTextFormControl.value
           : this.sourceFormControl.value,
     } as Item;
+
+    if (item.mail) {
+      this.mailGiven = true;
+    }
 
     this.loaderService.show();
     this.submitItemService

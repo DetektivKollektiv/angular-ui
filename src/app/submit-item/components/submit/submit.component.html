@@ -11,14 +11,16 @@
       <mat-horizontal-stepper #stepper linear>
         <mat-step>
           <p>
-            Handelt es sich bei deinem Fall um eine reine Textnachricht bzw. Aussage oder um einen Link zu einem Artikel?
+            Handelt es sich bei deinem Fall um eine reine Textnachricht bzw. Aussage oder um einen Link zu einem
+            Artikel?
           </p>
           <br>
           <form [formGroup]="typeFormGroup">
             <mat-radio-group formControlName="typeFormControl">
               <mat-label>Bitte wähle einen Typ aus.</mat-label>
               <br>
-              <mat-radio-button *ngFor="let itemType of itemTypes" [value]="itemType.id">{{itemType.name | translate}}</mat-radio-button>
+              <mat-radio-button *ngFor="let itemType of itemTypes" [value]="itemType.id">{{itemType.name | translate}}
+              </mat-radio-button>
             </mat-radio-group>
             <div class="button-group">
               <button class="button-primary" matStepperNext [disabled]="!typeFormGroup.valid">Weiter</button>
@@ -28,9 +30,8 @@
         <mat-step>
           <form [formGroup]="contentFormGroup">
             <mat-form-field>
-                      <textarea formControlName="contentFormControl"
-                                matInput placeholder="Text oder Verlinkung eingeben"
-                                rows="20"></textarea>
+              <textarea formControlName="contentFormControl" matInput placeholder="Text oder Verlinkung eingeben"
+                rows="20"></textarea>
               <mat-error>Bitte gib einen Text oder eine Verlinkung ein</mat-error>
             </mat-form-field>
           </form>
@@ -41,7 +42,7 @@
         </mat-step>
         <mat-step>
           <p>
-            Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br/>
+            Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br />
             Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
           </p>
           <form [formGroup]="additionalFormGroup">
@@ -71,7 +72,7 @@
                   </mat-panel-title>
                 </mat-expansion-panel-header>
                 <mat-label>Gib hier ein, wie oft du die Information erhalten hast.</mat-label>
-                <br/>
+                <br />
                 <mat-form-field>
                   <mat-label>Anzahl</mat-label>
                   <input matInput type="number" formControlName="frequencyFormControl">
@@ -85,7 +86,7 @@
                 </mat-expansion-panel-header>
                 <mat-label>Wähle hier das Datum aus, an dem du die Information zum ersten Mal erhalten hast.
                 </mat-label>
-                <br/>
+                <br />
                 <mat-form-field appearance="fill">
                   <mat-label>Wähle ein Datum</mat-label>
                   <input [matDatepicker]="picker" [max]="today" formControlName="receivedFormControl" matInput>
@@ -105,24 +106,22 @@
           <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
           <form class="form-centered" [formGroup]="confirmationFormGroup">
             <mat-form-field>
-              <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail"
-                     type="email"
-                     yarn>
+              <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail" type="email"
+                yarn>
               <mat-error>Bitte gib eine gültige E-Mail Adresse ein.</mat-error>
             </mat-form-field>
-            <re-captcha (resolved)="resolved()"
-                        siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
+            <re-captcha (resolved)="resolved()" siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
             <mat-checkbox formControlName="privacyBox" class="checkbox"> Ich stimme den Bedingungen der <a
-              target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu
+                target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu
             </mat-checkbox>
             <mat-checkbox formControlName="termBox" class="checkbox"> Ich stimme den <a target="_blank"
-                                                                                        routerLink="../community">Nutzungsbedingungen</a>
+                routerLink="../community">Nutzungsbedingungen</a>
               zu
             </mat-checkbox>
           </form>
           <div class="button-group">
             <button (click)="submit()" [disabled]="confirmationFormGroup.invalid || !submitEnabled"
-                    class="button-primary">Fall absenden
+              class="button-primary">Fall absenden
             </button>
             <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
@@ -134,12 +133,22 @@
 
 <ng-template #finish>
   <div class="page-container-column">
-    <h1>Danke, <span class="alt">dass du deinen Fall eingereicht hast!</span></h1>
+    <h1 *ngIf="!mailGiven">Danke, <span class="alt">dass du deinen Fall eingereicht hast!</span></h1>
+    <h1 *ngIf="mailGiven">Nur noch ein Schritt - <span class="alt"> Mailadresse bestätigen</span></h1>
     <div style="display: flex; flex-direction: row; width: 100%; height: 100%">
-      <div>
-        <p>
-          Unser Team von Detektiven prüft nun deinen Fall.<br/>
-          Sobald dein Fall gelöst wurde, erhältst du eine Benachrichtigung via E-Mail oder Handynummer.<br/><br/>
+      <div style="width: 60%; margin-right: 5%">
+        <p *ngIf="!mailGiven">
+          Unser Team von Detektiven prüft nun deinen Fall.<br />
+          Sobald dieser gelöst wurde, findest du ihn in unserem Archiv!<br /><br />
+          Was möchtest du jetzt tun?
+        </p>
+        <p *ngIf="mailGiven">
+          Danke, dass du deinen Fall eingereicht hast!<br />
+          Damit wir dich über das Ergebnis der Prüfung informieren können, musst du nur noch deine <b>E-Mail Adresse
+            bestätigen!</b><br />
+          Schaue hierzu einfach in dein Mail-Postfach und klicke auf den Link in der Mail, die wir dir geschickt haben!
+          <br />
+          Nach dieser Bestätigung benachrichtigen wir dich per Mail, sobald dein Fall gelöst wurde!<br /><br />
           Was möchtest du jetzt tun?
         </p>
         <div class="button-group">
@@ -148,7 +157,7 @@
           <button (click)="navigate('archive')" class="button-primary">Zum Archiv</button>
         </div>
       </div>
-      <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380"/>
+      <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380" />
     </div>
   </div>
 </ng-template>
