@@ -135,8 +135,8 @@
   <div class="page-container-column">
     <h1 *ngIf="!mailGiven">Danke, <span class="alt">dass du deinen Fall eingereicht hast!</span></h1>
     <h1 *ngIf="mailGiven">Nur noch ein Schritt - <span class="alt"> Mailadresse bestätigen</span></h1>
-    <div style="display: flex; flex-direction: row; width: 100%; height: 100%">
-      <div style="width: 60%; margin-right: 5%">
+    <div class="page-container-row">
+      <div class="info-text">
         <p *ngIf="!mailGiven">
           Unser Team von Detektiven prüft nun deinen Fall.<br />
           Sobald dieser gelöst wurde, findest du ihn in unserem Archiv!<br /><br />
