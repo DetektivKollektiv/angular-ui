@@ -72,6 +72,13 @@ div.page-container-column {
   flex-direction: column;
 }
 
+div.page-container-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+}
+
 div.button-group {
   width: 100%;
   display: flex;
