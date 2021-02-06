@@ -17,7 +17,7 @@ export class ArchiveComponent implements OnInit {
   public itemsList: Item[] = [];
   public itemsDisplayed: Item[] = [];
 
-  public searchTag: string = '';
+  public searchTag = '';
   searchFormGroup: FormGroup;
   tagFormControl: FormControl;
 

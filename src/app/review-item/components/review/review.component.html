@@ -3,7 +3,7 @@
     <h1>
       Du willst einen Fall lösen?
       <span class="alt">Versuche dich doch an diesem Fall.</span>
-      <span class="alt">{{ part1_finished }}</span>
+      <span class="alt">{{ part1Finished }}</span>
     </h1>
     <p *ngIf="!caseAccepted">
       Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass du den Fall lösen kannst, klicke auf
@@ -67,12 +67,12 @@
 </div>
 
 <ng-template #accepted>
-  <div *ngIf="!part1_finished; else ask_tags">
+  <div *ngIf="!part1Finished; else ask_tags">
     <h3>Deine Bewertung:</h3>
     <p>Bewerte die folgenden Aussagen.</p>
     <app-question
       [review]="review"
-      (part1_finished)="part1Finished()"
+      (part1Finished)="setPart1Finished()"
     ></app-question>
   </div>
 </ng-template>

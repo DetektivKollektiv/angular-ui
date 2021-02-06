@@ -23,7 +23,8 @@ export class ItemsService {
   public getItemTags(itemId: string): Promise<string[]> {
     return API.get('ml_service', `/items/${itemId}/tags`, {})
       .then((response: string[]) => {
-        return response['Tags'];
+        const tagsKey = 'Tags';
+        return response[tagsKey];
       })
       .catch((err) => {
         throw new Error(`Could not find item tags: ${err}`);
@@ -31,7 +32,7 @@ export class ItemsService {
   }
 
   public setItemTags(itemId: string, tags: string[]): Promise<string> {
-    return API.post('ml_service', `/items/${itemId}/tags`, {body: {"tags": tags}})
+    return API.post('ml_service', `/items/${itemId}/tags`, {body: {tags: tags}})
       .then((response: string) => {
         return response;
       })

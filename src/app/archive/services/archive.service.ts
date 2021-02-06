@@ -15,7 +15,7 @@ export class ArchiveService {
     return API.get(this.apiName, this.path, { response: true })
       .then((response) => {
         if (response.status === 200) {
-          let items = response.data;
+          const items = response.data;
           // TODO: Remove (just for demonstration if closed items have no tags)
           // items[0].tags = ['Corona', 'Trump'];
           // items[1].tags = ['Pandemie'];

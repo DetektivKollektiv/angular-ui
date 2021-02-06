@@ -22,7 +22,7 @@ import { MatChip } from '@angular/material/chips';
 export class ReviewComponent implements OnInit, UnsavedChanges {
   public caseAccepted: boolean;
   public finished: boolean;
-  public part1_finished: boolean;
+  public part1Finished: boolean;
 
   public caseIndex = 0;
   public form: FormGroup;
@@ -49,7 +49,7 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
   ngOnInit(): void {
     this.caseAccepted = false;
     this.finished = false;
-    this.part1_finished = false;
+    this.part1Finished = false;
     this.getNewCase();
   }
 
@@ -95,8 +95,8 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
     return !!this.factCheck?.url;
   }
 
-  part1Finished() {
-    this.part1_finished = true;
+  setPart1Finished() {
+    this.part1Finished = true;
   }
 
   reviewFinished() {

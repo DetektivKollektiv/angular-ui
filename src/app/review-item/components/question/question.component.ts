@@ -16,7 +16,7 @@ import { Option } from '../../model/option';
 })
 export class QuestionComponent implements OnInit {
   @Input() review: Review;
-  @Output() part1_finished = new EventEmitter();
+  @Output() part1Finished = new EventEmitter();
 
   question: Question;
   form: FormGroup;
@@ -84,6 +84,6 @@ export class QuestionComponent implements OnInit {
   }
 
   private finishPart1() {
-    this.part1_finished.emit();
+    this.part1Finished.emit();
   }
 }
