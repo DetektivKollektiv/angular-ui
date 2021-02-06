@@ -38,9 +38,8 @@ export class TagsQuestionComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    // TODO: Change to itemId
     this.tagsCurrent = await this.itemsService.getItemTags(
-      'fa9ca6a0-174f-48a6-8b43-32be841293ad'
+      this.itemId
     );
     this.tagsUser = this.tagsCurrent;
   }
@@ -71,6 +70,7 @@ export class TagsQuestionComponent implements OnInit {
   submitTags() {
     this.loader.show();
     console.log(`User submitted tags: ${this.tagsUser}`);
+    this.itemsService.setItemTags(this.itemId, this.tagsUser);
     this.loader.hide();
     this.finished.emit();
   }
