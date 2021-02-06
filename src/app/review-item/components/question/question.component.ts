@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReviewAnswersService } from '../../services/review-answers/review-answers.service';
 import { ReviewAnswer } from '../../model/review-answer';
+import { Option } from '../../model/option';
 
 @Component({
   selector: 'app-question',
