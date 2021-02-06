@@ -11,4 +11,5 @@ export interface User {
   solved_cases_total: number;
   solved_cases_today: number;
   exp_needed: number;
+  sign_up_timestamp: string;
 }

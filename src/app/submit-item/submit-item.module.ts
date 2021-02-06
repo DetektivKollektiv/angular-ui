@@ -6,6 +6,7 @@ import {RecaptchaFormsModule, RecaptchaModule} from 'ng-recaptcha';
 import {HelperModule} from '../shared/helper/helper.module';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from '../app-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [SubmitComponent],
@@ -16,7 +17,8 @@ import {AppRoutingModule} from '../app-routing.module';
     RecaptchaFormsModule,
     AppRoutingModule,
     HelperModule,
-    RouterModule
+    RouterModule,
+    TranslateModule.forChild()
   ]
 })
 export class SubmitItemModule {

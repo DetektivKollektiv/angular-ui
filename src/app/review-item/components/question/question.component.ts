@@ -19,6 +19,7 @@ export class QuestionComponent implements OnInit {
 
   question: Question;
   form: FormGroup;
+  options: Option[];
 
   constructor(
     private questionsService: QuestionsService,
@@ -43,6 +44,8 @@ export class QuestionComponent implements OnInit {
         }
 
         this.question = value.payload;
+
+        this.options = this.question.options.sort((a, b) => a.value > b.value ? -1 : 1);
         this.form = this.formBuilder.group({
           option: [null, Validators.required],
         });

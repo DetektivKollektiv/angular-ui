@@ -8,7 +8,7 @@ mat-radio-button {
 }
  .app-file-container{
   width: 75%;
-  margin: auto;
+  margin-top: 3vh;
 }
 
 mat-panel-title {
@@ -37,6 +37,11 @@ form.form-centered {
 
 mat-form-field {
   width: 80%;
+}
+
+.info-text {
+  width: 60%;
+  margin-right: 5%;
 }
 
 /* ::ng-deep .mat-checkbox-layout {

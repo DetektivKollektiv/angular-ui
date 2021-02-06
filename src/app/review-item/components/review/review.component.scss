@@ -7,10 +7,13 @@ p.case-content {
 }
 .flex-container{
   display: flex;
+  height: 100%;
+  margin-top: 3vh;
 }
 .app-file-container{
   display: inline-block;
   width: 75%;
+  height: 100%;
 }
 
 .matCard-container{

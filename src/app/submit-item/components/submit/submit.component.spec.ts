@@ -9,6 +9,7 @@ import {LoaderModule} from '../../../shared/loader/loader.module';
 import {MaterialModule} from '../../../shared/material/material.module';
 import {HelperModule} from '../../../shared/helper/helper.module';
 import {RecaptchaModule} from 'ng-recaptcha';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('SubmitComponent', () => {
   let component: SubmitComponent;
@@ -21,7 +22,8 @@ describe('SubmitComponent', () => {
         MaterialModule,
         LoaderModule,
         HelperModule,
-        RecaptchaModule
+        RecaptchaModule,
+        TranslateModule
       ],
       declarations: [ SubmitComponent ],
       providers: [
