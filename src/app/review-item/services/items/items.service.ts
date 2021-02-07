@@ -32,8 +32,8 @@ export class ItemsService {
   }
 
   public setItemTags(itemId: string, tags: string[]): Promise<string> {
-    const tagsBody = {tags: tags};
-    return API.post('ml_service', `/items/${itemId}/tags`, {body: tagsBody, response: true})
+    // const tagsBody = {tags: tags};
+    return API.post('ml_service', `/items/${itemId}/tags`, {body: tags, response: true})
       .then((response: string) => {
         return response;
       })
