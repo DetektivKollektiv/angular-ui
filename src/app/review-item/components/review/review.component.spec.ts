@@ -1,15 +1,21 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {ReviewComponent} from './review.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {MaterialModule} from '../../../shared/material/material.module';
-import {LoaderModule} from '../../../shared/loader/loader.module';
-import {HelperModule} from '../../../shared/helper/helper.module';
-import {AuthService} from '../../../shared/auth/auth-service/auth.service';
-import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
-import {UserService} from '../../../core/services/user/user.service';
-import {MockUserService} from '../../../../test/mocks/mock-user.service';
-import {QuestionComponent} from '../question/question.component';
+import { ReviewComponent } from './review.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from '../../../shared/material/material.module';
+import { LoaderModule } from '../../../shared/loader/loader.module';
+import { HelperModule } from '../../../shared/helper/helper.module';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
+import { UserService } from '../../../core/services/user/user.service';
+import { MockUserService } from '../../../../test/mocks/mock-user.service';
+import { QuestionComponent } from '../question/question.component';
+import { CommonModule } from '@angular/common';
+import { UnsavedChangesModule } from 'src/app/shared/unsaved-changes/unsaved-changes.module';
+import { FormsModule } from '@angular/forms';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatInputModule } from '@angular/material/input';
+import { TagsQuestionComponent } from '../tags-question/tags-question.component';
 
 describe('ReviewComponent', () => {
   let component: ReviewComponent;
@@ -17,22 +23,26 @@ describe('ReviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ReviewComponent,
-        QuestionComponent
-      ],
+      declarations: [ReviewComponent, QuestionComponent, TagsQuestionComponent],
       imports: [
         RouterTestingModule,
         MaterialModule,
         LoaderModule,
-        HelperModule
+        HelperModule,
+        CommonModule,
+        HelperModule,
+        MaterialModule,
+        LoaderModule,
+        UnsavedChangesModule,
+        FormsModule,
+        MatChipsModule,
+        MatInputModule,
       ],
       providers: [
-        {provide: AuthService, useClass: MockAuthService},
-        {provide: UserService, useClass: MockUserService}
-      ]
-    })
-      .compileComponents();
+        { provide: AuthService, useClass: MockAuthService },
+        { provide: UserService, useClass: MockUserService },
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
