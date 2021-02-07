@@ -67,7 +67,6 @@ export class TagsQuestionComponent implements OnInit {
 
   submitTags() {
     this.loader.show();
-    console.info(`User submitted tags: ${this.tagsUser}`);
     this.itemsService.setItemTags(this.itemId, this.tagsUser);
     this.loader.hide();
     this.finished.emit();
