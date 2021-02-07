@@ -31,9 +31,9 @@ export class ItemsService {
       });
   }
 
-  public setItemTags(itemId: string, tags_list: string[]): Promise<string> {
+  public setItemTags(itemId: string, tagsList: string[]): Promise<string> {
     return API.post('ml_service', `/items/${itemId}/tags`, {
-      body: { tags: tags_list },
+      body: { tags: tagsList },
       response: true,
     })
       .then((response: string) => {
