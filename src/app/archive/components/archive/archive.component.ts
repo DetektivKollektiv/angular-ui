@@ -50,10 +50,6 @@ export class ArchiveComponent implements OnInit {
       });
   }
 
-  home(): void {
-    this.router.navigate(['/']);
-  }
-
   async searchByTag(): Promise<void> {
     const searchResult: Item[] = [];
     this.searchTag = this.tagFormControl.value;
@@ -61,7 +57,7 @@ export class ArchiveComponent implements OnInit {
       this.clearSearchTag();
       return;
     }
-    console.log(`Search for ${this.searchTag}`);
+    // Search for items that have search term as tag
     this.itemsList.forEach((item: Item) => {
       if (!item.tags) {
         // Continue with next item
@@ -69,6 +65,15 @@ export class ArchiveComponent implements OnInit {
       }
       if (
         item.tags.some((x) => x.toUpperCase() === this.searchTag.toUpperCase())
+      ) {
+        searchResult.push(item);
+      }
+    });
+    // Search for items that have search term in item content (will be below exact tag matches)
+    this.itemsList.forEach((item: Item) => {
+      if (
+        item.content.toUpperCase().includes(this.searchTag.toUpperCase()) &&
+        !searchResult.includes(item)
       ) {
         searchResult.push(item);
       }
