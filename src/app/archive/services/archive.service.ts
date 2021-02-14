@@ -16,10 +16,6 @@ export class ArchiveService {
       .then((response) => {
         if (response.status === 200) {
           const items = response.data;
-          // TODO: Remove (just for demonstration if closed items have no tags)
-          // items[0].tags = ['Corona', 'Trump'];
-          // items[1].tags = ['Pandemie'];
-          // items[2].tags = ['Trump'];
           return items;
         } else if (response.status === 204) {
           return null;

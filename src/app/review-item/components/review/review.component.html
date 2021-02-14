@@ -5,12 +5,12 @@
       <span class="alt">Versuche dich doch an diesem Fall.</span>
     </h1>
     <p *ngIf="!caseAccepted">
-      Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass du den Fall lösen kannst, klicke auf
-      <i><b>Fall
-          annehmen</b></i>.
-      Falls du lieber einen anderen Fall lösen willst, klicke auf <i><b>Fall ablehnen</b></i>, dann erhälst du einen
-      neuen
-      Fall.
+      Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass
+      du den Fall lösen kannst, klicke auf
+      <i><b>Fall annehmen</b></i
+      >. Falls du lieber einen anderen Fall lösen willst, klicke auf
+      <i><b>Fall ablehnen</b></i
+      >, dann erhälst du einen neuen Fall.
     </p>
   </div>
   <div class="flex-container">
@@ -36,7 +36,7 @@
         </div>
       </app-file>
     </div>
-    <div class="matCard-container">
+    <div *ngIf="!loadingFactCheck" class="matCard-container">
       <mat-card
         class="example-card"
         [ngClass]="{ clickable: isClickable() }"
@@ -53,10 +53,10 @@
           >
         </mat-card-header>
         <mat-card-content>
-          <p *ngIf="factCheck?.title">
+          <p>
             {{ factCheck?.title }}
           </p>
-          <p *ngIf="!factCheck?.title">
+          <p *ngIf="!factCheck">
             Leider gibt es noch keine Informationen über diesen Fall
           </p>
         </mat-card-content>
@@ -80,7 +80,7 @@
   <h3>Letzte Frage!</h3>
   <p>
     Mit welchen Schlüsselwörtern würdest du diesen Fall kategorisieren? Bitte
-    lösche ggfs. Tags, die nicht zum Fall passen. Du kannst zudem auch neue Tags
+    lösche Tags, die nicht zum Fall passen. Du kannst zudem auch neue Tags
     hinzufügen, indem du einen Begriff eingibst und Enter drückst.
   </p>
   <app-tags-question

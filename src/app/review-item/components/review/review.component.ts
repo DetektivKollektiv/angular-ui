@@ -4,7 +4,7 @@ import { Item } from '../../model/item';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { QuestionsService } from '../../services/questions/questions.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { UserService } from '../../../core/services/user/user.service';
 import { Factcheck } from '../../model/factcheck';
 import { FactCheckService } from '../../services/factchecks/fact-check.service';
 import { UnsavedChanges } from '../../../shared/unsaved-changes/interface/unsaved-changes';
-import { MatChip } from '@angular/material/chips';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 @Component({
   selector: 'app-review',
@@ -23,6 +23,7 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
   public caseAccepted: boolean;
   public finished: boolean;
   public part1Finished: boolean;
+  public loadingFactCheck = true;
 
   public caseIndex = 0;
   public form: FormGroup;
@@ -37,7 +38,6 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
     private questionsService: QuestionsService,
     private userService: UserService,
     private matSnackBar: MatSnackBar,
-    private formBuilder: FormBuilder,
     private loader: LoaderService,
     private router: Router
   ) {}
@@ -138,6 +138,7 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
 
   private getFactCheck() {
     if (this.caseToSolve) {
+      this.loadingFactCheck = true;
       this.factCheckService
         .getFactCheck(this.caseToSolve.id)
         .then((factCheck) => {
@@ -148,6 +149,7 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
         })
         .finally(() => {
           this.loader.hide();
+          this.loadingFactCheck = false;
         });
     }
   }

@@ -1,14 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 import { LoaderService } from 'src/app/shared/loader/service/loader.service';
 import { Review } from '../../model/review';
-import { QuestionsService } from '../../services/questions/questions.service';
-import { ReviewAnswersService } from '../../services/review-answers/review-answers.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ItemsService } from '../../services/items/items.service';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-tags-question',
@@ -29,12 +26,9 @@ export class TagsQuestionComponent implements OnInit {
   public tagsUser: string[];
 
   constructor(
-    private questionsService: QuestionsService,
-    private reviewAnswersService: ReviewAnswersService,
     private itemsService: ItemsService,
     private loader: LoaderService,
-    private matSnackBar: MatSnackBar,
-    private formBuilder: FormBuilder
+    private matSnackBar: MatSnackBar
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -67,8 +61,18 @@ export class TagsQuestionComponent implements OnInit {
 
   submitTags() {
     this.loader.show();
-    this.itemsService.setItemTags(this.itemId, this.tagsUser);
-    this.loader.hide();
-    this.finished.emit();
+    this.itemsService
+      .setItemTags(this.itemId, this.tagsUser)
+      .then(() => {
+        this.finished.emit();
+      })
+      .catch((reason) => {
+        this.matSnackBar.open(
+          'Leider konnten die Tags nicht vergeben werden. Versuche es später nochmal.',
+          'Ok',
+          { duration: 2000 }
+        );
+      })
+      .finally(() => this.loader.hide());
   }
 }

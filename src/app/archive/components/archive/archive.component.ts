@@ -5,6 +5,7 @@ import { ArchiveService } from '../../services/archive.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Item } from 'src/app/model/item';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 @Component({
   selector: 'app-archive',

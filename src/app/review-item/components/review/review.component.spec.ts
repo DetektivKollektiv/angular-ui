@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ReviewComponent } from './review.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from '../../../shared/material/material.module';
@@ -13,8 +12,6 @@ import { QuestionComponent } from '../question/question.component';
 import { CommonModule } from '@angular/common';
 import { UnsavedChangesModule } from 'src/app/shared/unsaved-changes/unsaved-changes.module';
 import { FormsModule } from '@angular/forms';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatInputModule } from '@angular/material/input';
 import { TagsQuestionComponent } from '../tags-question/tags-question.component';
 
 describe('ReviewComponent', () => {
@@ -30,13 +27,8 @@ describe('ReviewComponent', () => {
         LoaderModule,
         HelperModule,
         CommonModule,
-        HelperModule,
-        MaterialModule,
-        LoaderModule,
         UnsavedChangesModule,
         FormsModule,
-        MatChipsModule,
-        MatInputModule,
       ],
       providers: [
         { provide: AuthService, useClass: MockAuthService },

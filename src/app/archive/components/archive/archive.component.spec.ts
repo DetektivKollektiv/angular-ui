@@ -4,11 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { LoaderModule } from '../../../shared/loader/loader.module';
 import { MaterialModule } from '../../../shared/material/material.module';
 import { CommonModule } from '@angular/common';
-import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
-import { HelperModule } from 'src/app/shared/helper/helper.module';
-import { RouterModule } from '@angular/router';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatInputModule } from '@angular/material/input';
 
 describe('ArchiveComponent', () => {
   let component: ArchiveComponent;
@@ -22,13 +17,6 @@ describe('ArchiveComponent', () => {
         LoaderModule,
         MaterialModule,
         CommonModule,
-        MaterialModule,
-        RecaptchaModule,
-        RecaptchaFormsModule,
-        HelperModule,
-        RouterModule,
-        MatChipsModule,
-        MatInputModule,
       ],
     }).compileComponents();
   }));

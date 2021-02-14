@@ -42,11 +42,14 @@ export class QuestionComponent implements OnInit {
       .then((value) => {
         if (value.success && !value.payload) {
           this.finishPart1();
+          return;
         }
 
         this.question = value.payload;
 
-        this.options = this.question.options.sort((a, b) => a.value > b.value ? -1 : 1);
+        this.options = this.question.options.sort((a, b) =>
+          a.value > b.value ? -1 : 1
+        );
         this.form = this.formBuilder.group({
           option: [null, Validators.required],
         });

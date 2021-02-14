@@ -24,9 +24,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBadgeModule } from '@angular/material/badge';
-import {MatTooltipModule} from '@angular/material/tooltip';
-
-
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatChipsModule } from '@angular/material/chips';
 
 const modules = [
   MatSidenavModule,
@@ -54,14 +53,13 @@ const modules = [
   MatGridListModule,
   MatProgressBarModule,
   MatBadgeModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatChipsModule,
 ];
-
 
 @NgModule({
   declarations: [],
   imports: [...modules],
-  exports: [...modules]
+  exports: [...modules],
 })
-export class MaterialModule {
-}
+export class MaterialModule {}
