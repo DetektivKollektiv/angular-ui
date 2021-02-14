@@ -19,6 +19,7 @@ export class ArchiveComponent implements OnInit {
   public searchTag = '';
   searchFormGroup: FormGroup;
   tagFormControl: FormControl;
+  minIndexFormControl: FormControl;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -32,6 +33,7 @@ export class ArchiveComponent implements OnInit {
     this.tagFormControl = new FormControl();
     this.searchFormGroup = this.formBuilder.group({
       tagFormControl: this.tagFormControl,
+      minIndexFormControl: this.minIndexFormControl,
     });
 
     this.loaderService.show();

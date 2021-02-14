@@ -24,8 +24,21 @@
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
+    <br />
+    <mat-label>Vertrauensindex mindestens:&nbsp;&nbsp;&nbsp;1</mat-label>
+    <mat-slider
+      formControlName="minIndexFormControl"
+      [max]="4"
+      [min]="1"
+      [step]="0.5"
+      [thumbLabel]="true"
+      [tickInterval]="10"
+    >
+    </mat-slider>
+    <mat-label>4</mat-label>
   </form>
-  <br />
+
+  <br /><br />
   <div class="mat-card-container">
     <mat-card *ngFor="let item of itemsDisplayed">
       <mat-card-title
