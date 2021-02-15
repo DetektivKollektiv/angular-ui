@@ -37,7 +37,6 @@
           </form>
           <div class="button-group">
             <button class="button-primary" matStepperNext [disabled]="!contentFormGroup.valid">Weiter</button>
-            <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
         </mat-step>
         <mat-step>
@@ -103,14 +102,12 @@
           </div>
         </mat-step>
         <mat-step>
-          <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
+          <h4>Abschluss der Einreichung:</h4>
           <form class="form-centered" [formGroup]="confirmationFormGroup">
-            <mat-form-field>
-              <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail" type="email"
-                yarn>
+            <mat-form-field class="mail-field">
+              <input add formControlName="emailFormControl" matInput placeholder="E-Mail" type="email" yarn>
               <mat-error>Bitte gib eine gültige E-Mail Adresse ein.</mat-error>
             </mat-form-field>
-            <re-captcha (resolved)="resolved()" siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
             <mat-checkbox formControlName="privacyBox" class="checkbox"> Ich stimme den Bedingungen der <a
                 target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu
             </mat-checkbox>
@@ -151,7 +148,7 @@
           Nach dieser Bestätigung benachrichtigen wir dich per Mail, sobald dein Fall gelöst wurde!<br /><br />
           Was möchtest du jetzt tun?
         </p>
-        <div class="button-group">
+        <div class="file-button-group">
           <button (click)="ngOnInit()" class="button-primary">Fall einreichen</button>
           <button (click)="navigate('review')" class="button-primary">Fall lösen</button>
           <button (click)="navigate('archive')" class="button-primary">Zum Archiv</button>

@@ -32,11 +32,15 @@ textarea {
 form.form-centered {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 mat-form-field {
-  width: 80%;
+  width:100%;
+}
+
+.mail-field{
+  width:50%
 }
 
 .info-text {
