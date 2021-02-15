@@ -10,6 +10,8 @@ import {UserDeleteReason} from '../../model/user-delete-reason';
   providedIn: 'root'
 })
 export class UserService {
+  private serviceBasePath = 'user_service';
+
   private readonly user = new BehaviorSubject<User>({} as User);
 
   readonly user$ = this.user.asObservable();
@@ -27,7 +29,7 @@ export class UserService {
   }
 
   public updateUser(): void {
-    API.get('user_service', '', {})
+    API.get(this.serviceBasePath, '', {})
       .then((user: User) => {
         this.user.next(user);
       })
@@ -36,8 +38,18 @@ export class UserService {
 
   public deleteUser(reason: UserDeleteReason): Promise<boolean> {
     return new Promise((resolve, reject) => {
-      API.del('user_service', '', {})
+      API.del(this.serviceBasePath, '', {})
         .then(() => resolve(true), reject)
+        .catch();
+    });
+  }
+
+  public getTopUsers(): Promise<User[]> {
+    return new Promise((resolve, reject) => {
+      API.get(this.serviceBasePath, '/top_users', {})
+        .then((users: User[]) => {
+          return resolve(users)
+        })
         .catch();
     });
   }
