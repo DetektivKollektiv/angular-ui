@@ -22,10 +22,12 @@
                     <mat-label>Erkläre uns möglichst genau, worum es dir geht.
                     </mat-label>
                     <textarea formControlName="messageFormControl" matInput rows="20"></textarea>
-                    <mat-error>Bitte gib einen Text oder eine Verlinkung ein</mat-error>
+                    <mat-error>Bitte gib eine Nachricht ein</mat-error>
                 </mat-form-field>
+                <mat-checkbox class="checkbox" formControlName="checkboxFormControl" tabindex="-1" autocomplete="off">
+                </mat-checkbox>
             </form>
-            <button (click)="submit()" class="button-primary">Absenden
+            <button (click)="submit()" class="button-primary" [disabled]="issueFormGroup.invalid">Absenden
             </button>
         </div>
     </app-file>
