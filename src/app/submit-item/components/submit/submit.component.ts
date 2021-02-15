@@ -21,6 +21,7 @@ import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { ItemType } from '../../model/item-type';
 import { TranslatePipe } from '@ngx-translate/core';
+import { throwIfEmpty } from 'rxjs/operators';
 
 export const MY_FORMATS = {
   display: {
@@ -58,9 +59,9 @@ export class SubmitComponent implements OnInit {
   frequencyFormControl: FormControl;
   receivedFormControl: FormControl;
   emailFormControl: FormControl;
-  mobileFormControl: FormControl;
   privacyBox: FormControl;
   termBox: FormControl;
+  checkboxFormControl: FormControl;
 
   submitEnabled: boolean;
   today = moment();
@@ -95,9 +96,9 @@ export class SubmitComponent implements OnInit {
       disabled: true,
     });
     this.emailFormControl = new FormControl('', Validators.email);
-    this.mobileFormControl = new FormControl();
     this.privacyBox = new FormControl(false, Validators.requiredTrue);
     this.termBox = new FormControl(false, Validators.requiredTrue);
+    this.checkboxFormControl = new FormControl(false);
 
     this.typeFormGroup = this.formBuilder.group({
       typeFormControl: this.typeFormControl,
@@ -118,6 +119,7 @@ export class SubmitComponent implements OnInit {
       emailFormControl: this.emailFormControl,
       privacyBox: this.privacyBox,
       termBox: this.termBox,
+      checkboxFormControl: this.checkboxFormControl
     });
 
     this.getItemTypes();
@@ -135,13 +137,16 @@ export class SubmitComponent implements OnInit {
   }
 
   submit() {
+    if (this.checkboxFormControl.value) {
+      this.submitted = true;
+      return;
+    }
     const item = {
       content: this.contentFormControl.value,
       mail: this.emailFormControl.value,
       received_date: this.receivedFormControl.value.format(
         'YYYY-MM-DD HH:mm:ss'
       ),
-      phone: this.mobileFormControl.value,
       frequency: this.frequencyFormControl.value,
       item_type_id: this.typeFormControl.value,
       source:
@@ -171,10 +176,6 @@ export class SubmitComponent implements OnInit {
           }
         );
       });
-  }
-
-  resolved() {
-    this.submitEnabled = true;
   }
 
   navigate(url: string) {

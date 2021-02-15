@@ -115,10 +115,12 @@
                 routerLink="../community">Nutzungsbedingungen</a>
               zu
             </mat-checkbox>
+            <mat-checkbox class="secret-checkbox" formControlName="checkboxFormControl" tabindex="-1"
+              autocomplete="off">
+            </mat-checkbox>
           </form>
           <div class="button-group">
-            <button (click)="submit()" [disabled]="confirmationFormGroup.invalid || !submitEnabled"
-              class="button-primary">Fall absenden
+            <button (click)="submit()" [disabled]="confirmationFormGroup.invalid" class="button-primary">Fall absenden
             </button>
             <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
@@ -148,7 +150,7 @@
           Nach dieser Bestätigung benachrichtigen wir dich per Mail, sobald dein Fall gelöst wurde!<br /><br />
           Was möchtest du jetzt tun?
         </p>
-        <div class="file-button-group">
+        <div class="button-group">
           <button (click)="ngOnInit()" class="button-primary">Fall einreichen</button>
           <button (click)="navigate('review')" class="button-primary">Fall lösen</button>
           <button (click)="navigate('archive')" class="button-primary">Zum Archiv</button>
