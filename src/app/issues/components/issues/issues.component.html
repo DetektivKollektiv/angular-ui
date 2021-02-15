@@ -1,0 +1,32 @@
+<div class="app-file-container">
+    <app-file [heading]="'Kontakt'" [headingSize]="'2vw'">
+        <div class="form-container">
+            <p>
+                Anregung? Kritik? Lob? Schreib uns Dein Anliegen und wir werden es schnellstmöglich bearbeiten.
+                <br>
+                Wünschst Du dir eine
+                persönliche Antwort, dann kontaktiere uns unter info@detektivkollektiv.org.
+            </p>
+            <br>
+            <form [formGroup]="issueFormGroup">
+                <mat-form-field appearance="fill">
+                    <mat-label>Wie können wir Dir weiterhelfen?</mat-label>
+                    <mat-select formControlName="categoryFormControl" disableRipple>
+                        <mat-option value="Feedback">Feedback</mat-option>
+                        <mat-option value="Complaint">Einwand zu bestimmtem Fall</mat-option>
+                        <mat-option value="Bug">Fehlermeldung</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Erkläre uns möglichst genau, worum es dir geht.
+                    </mat-label>
+                    <textarea formControlName="messageFormControl" matInput rows="20"></textarea>
+                    <mat-error>Bitte gib einen Text oder eine Verlinkung ein</mat-error>
+                </mat-form-field>
+            </form>
+            <button (click)="submit()" class="button-primary">Absenden
+            </button>
+        </div>
+    </app-file>
+</div>
