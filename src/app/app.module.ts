@@ -17,6 +17,7 @@ import { UnsavedChangesModule } from './shared/unsaved-changes/unsaved-changes.m
 import { ProfileModule } from './profile/profile.module';
 import { HighscoresModule } from './highscores/highscores.module';
 import { MyFileModule } from './my-file/my-file.module';
+import { IssuesModule } from './issues/issues.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -40,6 +41,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReviewItemModule,
     ArchiveModule,
     MyFileModule,
+    IssuesModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
