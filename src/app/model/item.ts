@@ -19,4 +19,5 @@ export class Item {
   lock_timestamp: string;
   open_timestamp: string;
   close_timestamp: string;
+  tags: string[] = [];
 }
