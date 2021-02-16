@@ -66,18 +66,16 @@ export class IssuesComponent implements OnInit {
       .submitIssue(issue)
       .then((_) => {
         this.submitted = true;
-        this.loaderService.hide();
         this.navigate('/');
         this.snackBar.open(
           'Deine Nachricht wurde versendet. Wir kümmern uns schnellstmöglich um dein Anliegen!',
           'Ok',
           {
-            duration: 2000,
+            duration: 3000,
           }
         );
       })
       .catch((_) => {
-        this.loaderService.hide();
         this.snackBar.open(
           'Deine Nachricht konnte nicht versendet werden. Versuch es später nochmal.',
           'Ok',
@@ -85,7 +83,8 @@ export class IssuesComponent implements OnInit {
             duration: 3000,
           }
         );
-      });
+      })
+      .finally(() => this.loaderService.hide());
   }
   navigate(url: string) {
     this.router.navigateByUrl(url).then().catch();
