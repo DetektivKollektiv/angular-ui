@@ -26,6 +26,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSelectModule } from '@angular/material/select';
 
 const modules = [
   MatSidenavModule,
@@ -55,6 +56,7 @@ const modules = [
   MatBadgeModule,
   MatTooltipModule,
   MatChipsModule,
+  MatSelectModule
 ];
 
 @NgModule({

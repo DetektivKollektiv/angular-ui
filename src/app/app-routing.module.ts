@@ -10,6 +10,7 @@ import { DataPrivacyComponent } from './core/components/data-privacy/data-privac
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
 import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-changes.guard';
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
+import { IssuesComponent } from './issues/components/issues/issues.component';
 
 
 
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'archive', component: ArchiveComponent, canActivate: [AuthGuard] },
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },
+  { path: 'issues', component: IssuesComponent },
   {
     path: '**',
     redirectTo: '',
