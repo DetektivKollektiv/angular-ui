@@ -1,4 +1,3 @@
-
 <!-- TODO: styling -->
 
 <div class="wrapper">
@@ -19,11 +18,34 @@
       <mat-icon>close</mat-icon>
     </button>
 
-    <!-- TODO: hide headers -->
-    <mat-tab-group class="header-less-tabs" [selectedIndex]="index">
-      <mat-tab label="Tab 1">Content 1</mat-tab>
-      <mat-tab label="Tab 2">Content 2</mat-tab>
-      <mat-tab label="Tab 3">Content 3</mat-tab>
+    <mat-tab-group class="headerless-tabs" [selectedIndex]="index">
+      <mat-tab>
+        <h3 class="highscore-title">Top Detektive!</h3>
+        <table class="highscore-content-table">
+          <thead>
+            <tr>
+              <th>Platz</th>
+              <th>Username</th>
+              <th>Level</th>
+              <th>Erfahrungspunkte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userList;let index=index;">
+              <td>{{index + 1}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.level}}</td>
+              <td>{{user.experience_points}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-tab>
+      <mat-tab>
+        <h3 class="highscore-title">Hier kommt bald mehr Content! :)</h3>
+      </mat-tab>
+      <mat-tab>
+        <h3 class="highscore-title">Hier kommt bald noch mehr Content! :)</h3>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </div>
