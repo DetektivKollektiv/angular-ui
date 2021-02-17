@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {API, Auth} from 'aws-amplify';
-import {User} from '../../model/user';
-import {LevelService} from '../level/level.service';
-import {BehaviorSubject, of} from 'rxjs';
-import {AuthService} from '../../../shared/auth/auth-service/auth.service';
-import {UserDeleteReason} from '../../model/user-delete-reason';
+import { Injectable } from '@angular/core';
+import { API, Auth } from 'aws-amplify';
+import { User } from '../../model/user';
+import { LevelService } from '../level/level.service';
+import { BehaviorSubject, of } from 'rxjs';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { UserDeleteReason } from '../../model/user-delete-reason';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,9 @@ export class UserService {
 
   readonly user$ = this.user.asObservable();
 
-  constructor(private levelService: LevelService,
-              private authService: AuthService) {
+  constructor(
+    private levelService: LevelService,
+    private authService: AuthService) {
     this.authService.isLoggedIn$.subscribe(value => {
 
       if (value) {
@@ -48,7 +49,7 @@ export class UserService {
     return new Promise((resolve, reject) => {
       API.get(this.serviceBasePath, '/top_users', {})
         .then((users: User[]) => {
-          return resolve(users)
+          return resolve(users);
         })
         .catch();
     });

@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../../core/services/user/user.service';
-import {User} from '../../../core/model/user';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../core/services/user/user.service';
+import { User } from '../../../core/model/user';
 
-type UserWithPosition = User & { position: number};
 
 @Component({
   selector: 'app-high-score-sidebar',
@@ -14,7 +13,7 @@ type UserWithPosition = User & { position: number};
 export class HighScoreSidebarComponent implements OnInit {
   public expanded: boolean;
   public index: number;
-  public usersList: UserWithPosition[] =  [];
+  public userList: User[] = [];
   private noUsers: boolean;
 
   constructor(private userService: UserService) {
@@ -25,21 +24,16 @@ export class HighScoreSidebarComponent implements OnInit {
 
     this.userService.getTopUsers()
       .then((users: User[]) => {
-        const usersWithPosition: UserWithPosition[] = users.map((user: User, i: number) => ({
-          ...user,
-          position: i + 1
-        }));
-
-        if (users === null){
+        if (users === null) {
           this.noUsers = true;
         } else {
           this.noUsers = false;
-          this.usersList = usersWithPosition;
+          this.userList = users;
         }
       })
       .catch(err => {
-        console.error(err)
-      })
+        console.error(err);
+      });
   }
 
   expand() {
