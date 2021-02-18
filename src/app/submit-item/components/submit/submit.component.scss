@@ -8,7 +8,7 @@ mat-radio-button {
 }
  .app-file-container{
   width: 75%;
-  margin: auto;
+  margin-top: 3vh;
 }
 
 mat-panel-title {
@@ -29,16 +29,28 @@ textarea {
   height: 100%;
 }
 
-form.form-centered {
+form.form-left-aligned {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 mat-form-field {
-  width: 80%;
+  width:100%;
 }
 
+.mail-field{
+  width:50%
+}
+
+.info-text {
+  width: 60%;
+  margin-right: 5%;
+}
+
+.secret-checkbox{
+  display: none;
+}
 /* ::ng-deep .mat-checkbox-layout {
   white-space: normal !important;
 } */

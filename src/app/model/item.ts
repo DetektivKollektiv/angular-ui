@@ -5,6 +5,7 @@ export class Item {
   mail: string;
   phone: string;
   type: string;
+  item_type_id: string;
   source: string;
   channel: string;
   frequency: string;
@@ -18,4 +19,5 @@ export class Item {
   lock_timestamp: string;
   open_timestamp: string;
   close_timestamp: string;
+  tags: string[] = [];
 }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api: {
-    baseUrl: 'https://api.dev.detective-collective.org'
+    baseUrl: 'https://api.dev.detektivkollektiv.org'
   },
   auth: {
     identityPoolId: 'eu-central-1:69722fe9-a444-4aa5-8016-129a273b2fa5' ,

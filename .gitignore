@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+package-lock.json
 
 # profiling files
 chrome-profiler-events*.json
@@ -22,6 +23,8 @@ speed-measure-plugin*.json
 *.launch
 .settings/
 *.sublime-workspace
+debug.log
+*.code-workspace
 
 # IDE - VSCode
 .vscode/*
@@ -60,3 +63,8 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifyxc.config
+
+#cypress
+
+/cypress/videos/*
+/cypress/screenshots/*

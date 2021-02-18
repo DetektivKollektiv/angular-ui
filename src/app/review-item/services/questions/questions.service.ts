@@ -30,7 +30,7 @@ export class QuestionsService {
       };
 
     return new Promise<OperationResult<Question>>((resolve, reject) => {
-      API.get('api', this.questionsUrl, init).then(
+      API.get('review_service', this.questionsUrl, init).then(
         value => {
           if (value.status === 200) {
             resolve({

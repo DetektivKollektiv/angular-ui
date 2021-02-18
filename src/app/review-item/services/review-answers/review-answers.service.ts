@@ -18,7 +18,7 @@ export class ReviewAnswersService {
       response: true
     };
 
-    return API.post('api', this.reviewAnswersUrl, init)
+    return API.post('review_service', this.reviewAnswersUrl, init)
       .then(value => {
         return value.data;
       })

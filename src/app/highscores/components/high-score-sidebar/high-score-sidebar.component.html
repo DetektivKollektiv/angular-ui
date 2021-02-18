@@ -1,0 +1,51 @@
+<!-- TODO: styling -->
+
+<div class="wrapper">
+  <!-- TODO: add correct icons and aria labels -->
+  <div class="menu" (click)="expand()">
+    <button mat-icon-button aria-label="Button to display X" (click)="index=0">
+      <mat-icon>emoji_events</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Button to display Y" (click)="index=1">
+      <mat-icon>military_tech</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Button to display Z" (click)="index=2">
+      <mat-icon>turned_in</mat-icon>
+    </button>
+  </div>
+  <div *ngIf="expanded" class="content">
+    <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <mat-tab-group class="headerless-tabs" [selectedIndex]="index">
+      <mat-tab>
+        <h3 class="highscore-title">Top Detektive!</h3>
+        <table class="highscore-content-table">
+          <thead>
+            <tr>
+              <th>Platz</th>
+              <th>Username</th>
+              <th>Level</th>
+              <th>Erfahrungspunkte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of userList;let index=index;">
+              <td>{{index + 1}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.level}}</td>
+              <td>{{user.experience_points}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-tab>
+      <mat-tab>
+        <h3 class="highscore-title">Hier kommt bald mehr Content! :)</h3>
+      </mat-tab>
+      <mat-tab>
+        <h3 class="highscore-title">Hier kommt bald noch mehr Content! :)</h3>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

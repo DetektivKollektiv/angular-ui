@@ -6,13 +6,12 @@ import {Factcheck} from '../../model/factcheck';
   providedIn: 'root'
 })
 export class FactCheckService {
-  private factchecksUrl = '/factchecks';
 
   constructor() {
   }
 
-  public getFactCheck(caseId): Promise<Factcheck> {
-    return API.get('api', this.factchecksUrl + '/' + caseId, {})
+  public getFactCheck(caseId: string): Promise<Factcheck> {
+    return API.get('ml_service', `/items/${caseId}/factcheck`, {})
       .then((value: Factcheck) => {
         return value;
       })

@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ArchiveComponent } from './archive.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {LoaderModule} from '../../../shared/loader/loader.module';
-import {MaterialModule} from '../../../shared/material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LoaderModule } from '../../../shared/loader/loader.module';
+import { MaterialModule } from '../../../shared/material/material.module';
+import { CommonModule } from '@angular/common';
 
 describe('ArchiveComponent', () => {
   let component: ArchiveComponent;
@@ -11,14 +11,14 @@ describe('ArchiveComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArchiveComponent ],
+      declarations: [ArchiveComponent],
       imports: [
         RouterTestingModule,
         LoaderModule,
-        MaterialModule
-      ]
-    })
-    .compileComponents();
+        MaterialModule,
+        CommonModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

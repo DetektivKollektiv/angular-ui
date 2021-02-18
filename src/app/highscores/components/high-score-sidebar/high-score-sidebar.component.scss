@@ -1,0 +1,54 @@
+@import '../../../../theme.scss';
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 400px;
+  width: 50px;
+  background: mat-color($custom-theme-accent);
+}
+
+.content {
+  height: 400px;
+  width: 500px;
+  background:mat-color($custom-theme-accent);
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .headerless-tabs > .mat-tab-header {
+  display: none;
+}
+
+.highscore-title {
+  color: #4A4A4A;
+  font-size: 40px;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.highscore-content-table {
+  width: 100%;
+}
+
+.highscore-content-table thead tr th {
+  border-bottom: 2px solid #4A4A4A;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.highscore-content-table tbody tr td {
+  border-left: 2px solid #4A4A4A;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.highscore-content-table tbody tr td:nth-child(1) {
+  border-left: none;
+}

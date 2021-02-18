@@ -1,16 +1,16 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {ReviewComponent} from './components/review/review.component';
-import {HelperModule} from '../shared/helper/helper.module';
-import {QuestionComponent} from './components/question/question.component';
-import {MaterialModule} from '../shared/material/material.module';
-import {LoaderModule} from '../shared/loader/loader.module';
-import {FormsModule} from '@angular/forms';
-import {UnsavedChangesModule} from '../shared/unsaved-changes/unsaved-changes.module';
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReviewComponent } from './components/review/review.component';
+import { HelperModule } from '../shared/helper/helper.module';
+import { QuestionComponent } from './components/question/question.component';
+import { MaterialModule } from '../shared/material/material.module';
+import { LoaderModule } from '../shared/loader/loader.module';
+import { FormsModule } from '@angular/forms';
+import { UnsavedChangesModule } from '../shared/unsaved-changes/unsaved-changes.module';
+import { TagsQuestionComponent } from './components/tags-question/tags-question.component';
 
 @NgModule({
-  declarations: [ReviewComponent, QuestionComponent],
+  declarations: [ReviewComponent, QuestionComponent, TagsQuestionComponent],
   exports: [ReviewComponent],
   imports: [
     CommonModule,
@@ -18,8 +18,7 @@ import {UnsavedChangesModule} from '../shared/unsaved-changes/unsaved-changes.mo
     MaterialModule,
     LoaderModule,
     UnsavedChangesModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class ReviewItemModule {
-}
+export class ReviewItemModule {}

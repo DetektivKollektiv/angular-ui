@@ -1,11 +1,11 @@
-import {enableProdMode} from '@angular/core';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import 'hammerjs';
 
-import {AppModule} from './app/app.module';
-import {environment} from './environments/environment';
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
 
-import {Amplify, API} from 'aws-amplify';
+import { Amplify, API } from 'aws-amplify';
 
 const auth = {
   aws_project_region: 'eu-central-1',
@@ -31,13 +31,40 @@ const auth = {
 
 Amplify.configure(auth);
 
-const api = {endpoints: [
+const api = {
+  endpoints: [
     {
-      name: 'api',
-      endpoint: environment.api.baseUrl,
+      name: 'archive_service',
+      endpoint: `${environment.api.baseUrl}/archive_service`,
       region: 'eu-central-1'
     },
-  ]};
+    {
+      name: 'ml_service',
+      endpoint: `${environment.api.baseUrl}/ml_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'review_service',
+      endpoint: `${environment.api.baseUrl}/review_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'submission_service',
+      endpoint: `${environment.api.baseUrl}/submission_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'user_service',
+      endpoint: `${environment.api.baseUrl}/user_service`,
+      region: 'eu-central-1'
+    },
+    {
+      name: 'issue_service',
+      endpoint: `${environment.api.baseUrl}/issue_service`,
+      region: 'eu-central-1'
+    }
+  ]
+};
 
 API.configure(api);
 

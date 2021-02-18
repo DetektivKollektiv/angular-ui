@@ -6,13 +6,13 @@ import {API} from 'aws-amplify';
   providedIn: 'root'
 })
 export class SubmitItemService {
-  private itemSubmissionUrl = '/item_submission';
+  private itemSubmissionUrl = '/items';
 
   constructor() {
   }
 
   public submitItem(item: Item): Promise<Item> {
-    return API.post('api', this.itemSubmissionUrl, {body: item, response: true})
+    return API.post('submission_service', this.itemSubmissionUrl, {body: item, response: true})
       .then((response: Item) => {
         return response;
       })

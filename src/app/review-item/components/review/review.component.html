@@ -1,36 +1,62 @@
 <div class="page-container-column" *ngIf="!finished; else finish">
   <div class="heading">
-    <h1>Du willst einen Fall lösen? <span class="alt">Versuche dich doch an diesem Fall.</span></h1>
+    <h1>
+      Du willst einen Fall lösen?
+      <span class="alt">Versuche dich doch an diesem Fall.</span>
+    </h1>
     <p *ngIf="!caseAccepted">
-      Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass du den Fall lösen kannst, klicke auf <i><b>Fall
-      annehmen</b></i>.
-      Falls du lieber einen anderen Fall lösen willst, klicke auf <i><b>Fall ablehnen</b></i>, dann erhälst du einen
-      neuen
-      Fall.
+      Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass
+      du den Fall lösen kannst, klicke auf
+      <i><b>Fall annehmen</b></i
+      >. Falls du lieber einen anderen Fall lösen willst, klicke auf
+      <i><b>Fall ablehnen</b></i
+      >, dann erhälst du einen neuen Fall.
     </p>
   </div>
   <div class="flex-container">
     <div class="app-file-container">
       <app-file heading="Fall lösen">
         <h3>Die Behauptung:</h3>
-        <p class="case-content">{{caseToSolve?.content}}</p>
+        <p class="case-content">{{ caseToSolve?.content }}</p>
         <div *ngIf="!caseAccepted; else accepted" class="button-group">
-          <button (click)="accept()" [disabled]="caseToSolve === undefined" class="button-primary">Fall annehmen</button>
-          <button (click)="reject()" [disabled]="caseToSolve === undefined" class="button-flat">Fall ablehnen</button>
+          <button
+            (click)="accept()"
+            [disabled]="caseToSolve === undefined"
+            class="button-primary"
+          >
+            Fall annehmen
+          </button>
+          <button
+            (click)="reject()"
+            [disabled]="caseToSolve === undefined"
+            class="button-flat"
+          >
+            Fall ablehnen
+          </button>
         </div>
       </app-file>
     </div>
-    <div class="matCard-container">
-      <mat-card class="example-card" [ngClass]= "{'clickable' : isClickable()}" (click)=goToFactUrl()>
+    <div *ngIf="!loadingFactCheck" class="matCard-container">
+      <mat-card
+        class="example-card"
+        [ngClass]="{ clickable: isClickable() }"
+        (click)="goToFactUrl()"
+      >
         <mat-card-header>
-          <img mat-card-avatar class="header-avatar-image" src="/assets/images/avatar/ml-assistant-avatar.png"/>
-          <mat-card-title class="madCard-title">Was sagen andere Fact-Checker dazu?</mat-card-title>
+          <img
+            mat-card-avatar
+            class="header-avatar-image"
+            src="/assets/images/avatar/ml-assistant-avatar.png"
+          />
+          <mat-card-title class="madCard-title"
+            >Was sagen andere Fact-Checker dazu?</mat-card-title
+          >
         </mat-card-header>
         <mat-card-content>
-          <p *ngIf="factCheck?.title">
-            {{factCheck?.title}}
+          <p>
+            {{ factCheck?.title }}
           </p>
-          <p *ngIf="!factCheck?.title">
+          <p *ngIf="!factCheck">
             Leider gibt es noch keine Informationen über diesen Fall
           </p>
         </mat-card-content>
@@ -40,10 +66,28 @@
 </div>
 
 <ng-template #accepted>
-  <div ><h3>Deine Bewertung:</h3>
-  <p>Bewerte die folgenden Aussagen.</p>
-<app-question [review]="review" (finished)="reviewFinished()"></app-question>
+  <div *ngIf="!part1Finished; else ask_tags">
+    <h3>Deine Bewertung:</h3>
+    <p>Bewerte die folgenden Aussagen.</p>
+    <app-question
+      [review]="review"
+      (part1Finished)="setPart1Finished()"
+    ></app-question>
   </div>
+</ng-template>
+
+<ng-template #ask_tags>
+  <h3>Letzte Frage!</h3>
+  <p>
+    Mit welchen Schlüsselwörtern würdest du diesen Fall kategorisieren? Bitte
+    lösche Tags, die nicht zum Fall passen. Du kannst zudem auch neue Tags
+    hinzufügen, indem du einen Begriff eingibst und Enter drückst.
+  </p>
+  <app-tags-question
+    [review]="review"
+    [itemId]="caseToSolve?.id"
+    (finished)="reviewFinished()"
+  ></app-tags-question>
 </ng-template>
 
 <ng-template #finish>
@@ -52,15 +96,23 @@
     <div class="review-finished">
       <div>
         <p>
-          Du hast dafür <b>einen Erfahrungspunkt</b> erhalten.<br/><br/>
+          Du hast dafür <b>einen Erfahrungspunkt</b> erhalten.<br /><br />
           Was möchtest du jetzt tun?
         </p>
         <div class="button-group">
-          <button (click)="ngOnInit()" class="button-primary">Neuen Fall lösen</button>
-          <button (click)="navigate('archive')" class="button-primary">Zum Archiv</button>
+          <button (click)="ngOnInit()" class="button-primary">
+            Neuen Fall lösen
+          </button>
+          <button (click)="navigate('archive')" class="button-primary">
+            Zum Archiv
+          </button>
         </div>
       </div>
-      <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380"/>
+      <img
+        height="380"
+        src="assets/images/illustrations/undraw_with_love_ajy1.svg"
+        width="380"
+      />
     </div>
   </div>
 </ng-template>
