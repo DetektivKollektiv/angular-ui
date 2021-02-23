@@ -7,50 +7,32 @@
     <p *ngIf="!caseAccepted">
       Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass
       du den Fall lösen kannst, klicke auf
-      <i><b>Fall annehmen</b></i
-      >. Falls du lieber einen anderen Fall lösen willst, klicke auf
-      <i><b>Fall ablehnen</b></i
-      >, dann erhälst du einen neuen Fall.
+      <i><b>Fall annehmen</b></i>. Falls du lieber einen anderen Fall lösen willst, klicke auf
+      <i><b>Fall ablehnen</b></i>, dann erhälst du einen neuen Fall.
     </p>
   </div>
   <div class="flex-container">
     <div class="app-file-container">
-      <app-file heading="Fall lösen">
-        <h3>Die Behauptung:</h3>
-        <p class="case-content">{{ caseToSolve?.content }}</p>
+      <app-file>
+        <div class="case-container">
+          <h3>Der Tatbestand:</h3>
+          <p class="case-content">{{ caseToSolve?.content }}</p>
+        </div>
         <div *ngIf="!caseAccepted; else accepted" class="button-group">
-          <button
-            (click)="accept()"
-            [disabled]="caseToSolve === undefined"
-            class="button-primary"
-          >
+          <button (click)="accept()" [disabled]="caseToSolve === undefined" class="button-primary">
             Fall annehmen
           </button>
-          <button
-            (click)="reject()"
-            [disabled]="caseToSolve === undefined"
-            class="button-flat"
-          >
+          <button (click)="reject()" [disabled]="caseToSolve === undefined" class="button-flat">
             Fall ablehnen
           </button>
         </div>
       </app-file>
     </div>
     <div *ngIf="!loadingFactCheck" class="matCard-container">
-      <mat-card
-        class="example-card"
-        [ngClass]="{ clickable: isClickable() }"
-        (click)="goToFactUrl()"
-      >
+      <mat-card class="example-card" [ngClass]="{ clickable: isClickable() }" (click)="goToFactUrl()">
         <mat-card-header>
-          <img
-            mat-card-avatar
-            class="header-avatar-image"
-            src="/assets/images/avatar/ml-assistant-avatar.png"
-          />
-          <mat-card-title class="madCard-title"
-            >Was sagen andere Fact-Checker dazu?</mat-card-title
-          >
+          <img mat-card-avatar class="header-avatar-image" src="/assets/images/avatar/ml-assistant-avatar.png" />
+          <mat-card-title class="madCard-title">Was sagen andere Fact-Checker dazu?</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <p>
@@ -68,11 +50,7 @@
 <ng-template #accepted>
   <div *ngIf="!part1Finished; else ask_tags">
     <h3>Deine Bewertung:</h3>
-    <p>Bewerte die folgenden Aussagen.</p>
-    <app-question
-      [review]="review"
-      (part1Finished)="setPart1Finished()"
-    ></app-question>
+    <app-question [review]="review" (part1Finished)="setPart1Finished()"></app-question>
   </div>
 </ng-template>
 
@@ -83,11 +61,7 @@
     lösche Tags, die nicht zum Fall passen. Du kannst zudem auch neue Tags
     hinzufügen, indem du einen Begriff eingibst und Enter drückst.
   </p>
-  <app-tags-question
-    [review]="review"
-    [itemId]="caseToSolve?.id"
-    (finished)="reviewFinished()"
-  ></app-tags-question>
+  <app-tags-question [review]="review" [itemId]="caseToSolve?.id" (finished)="reviewFinished()"></app-tags-question>
 </ng-template>
 
 <ng-template #finish>
@@ -108,11 +82,7 @@
           </button>
         </div>
       </div>
-      <img
-        height="380"
-        src="assets/images/illustrations/undraw_with_love_ajy1.svg"
-        width="380"
-      />
+      <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380" />
     </div>
   </div>
 </ng-template>

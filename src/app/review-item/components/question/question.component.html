@@ -1,10 +1,14 @@
-<h4>{{question?.content}}<span *ngIf="question?.hint"><mat-icon [matTooltip]="question?.hint">help_outline</mat-icon></span></h4>
-<div *ngIf="question?.info">
-  <p [innerHTML]="question?.info"></p>
-</div>
+<h4>{{question?.content}}<span *ngIf="question?.hint">
+    <mat-icon [matTooltip]="question?.hint" matTooltipPosition="above"> help
+    </mat-icon>
+    <mat-icon [matTooltip]="question?.info" matTooltipPosition="above">info
+    </mat-icon>
+  </span></h4>
+
 <form *ngIf="form" [formGroup]="form">
   <mat-radio-group formControlName="option">
-    <mat-radio-button *ngFor="let option of this.options" [value]="option" [checked]="false" [matTooltip]="option.tooltip">
+    <mat-radio-button *ngFor="let option of this.options" [value]="option" [checked]="false"
+      [matTooltip]="option.tooltip">
       {{option.text}}
     </mat-radio-button>
   </mat-radio-group>
