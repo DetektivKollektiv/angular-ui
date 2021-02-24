@@ -57,9 +57,9 @@
 <ng-template #ask_tags>
   <h3>Letzte Frage!</h3>
   <p>
-    Mit welchen Schlüsselwörtern würdest du diesen Fall kategorisieren? Bitte
-    lösche Tags, die nicht zum Fall passen. Du kannst zudem auch neue Tags
-    hinzufügen, indem du einen Begriff eingibst und Enter drückst.
+    Mit welchen Schlüsselwörtern würdest du diesen Fall kategorisieren? Füge neue Tags hinzu, indem du einen Begriff
+    eingibst und Enter drückst.
+    Falls Tags vorhanden sind, die nicht zum Fall passen, kannst du diese auch löschen.
   </p>
   <app-tags-question [review]="review" [itemId]="caseToSolve?.id" (finished)="reviewFinished()"></app-tags-question>
 </ng-template>
