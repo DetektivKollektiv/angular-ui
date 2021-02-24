@@ -15,6 +15,7 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
 export class ArchiveComponent implements OnInit {
   public itemsList: Item[] = [];
   public itemsDisplayed: Item[] = [];
+  public noItems: boolean;
 
   public searchTag = '';
   searchFormGroup: FormGroup;
@@ -26,7 +27,7 @@ export class ArchiveComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private loaderService: LoaderService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.tagFormControl = new FormControl();
@@ -38,16 +39,20 @@ export class ArchiveComponent implements OnInit {
     this.archiveService
       .getClosedItems()
       .then((closedItems) => {
-        this.loaderService.hide();
+        if (closedItems === null) {
+          this.noItems = true;
+        } else {
+          this.itemsList = closedItems;
+        }
         this.itemsList = closedItems;
         this.itemsDisplayed = this.itemsList;
       })
       .catch((_) => {
-        this.loaderService.hide();
         this.snackBar.open('Archiv kann nicht angezeigt werden.', 'Ok', {
           duration: 2000,
         });
-      });
+      })
+      .finally(() => this.loaderService.hide());
   }
 
   async searchByTag(): Promise<void> {
