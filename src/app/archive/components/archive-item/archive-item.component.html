@@ -6,7 +6,8 @@
     <p>{{ item.content }}</p>
     <h3>Vertrauensindex</h3>
     <p matLine>
-      <app-archive-score [score]="item.result_score"></app-archive-score>
+      <app-result-score [score]="item.result_score">
+      </app-result-score>
     </p>
     <table>
       <tr>

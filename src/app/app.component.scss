@@ -10,7 +10,7 @@
   height: 100%;
   overflow: auto;
   display: grid;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 250px 1fr 250px;
   position: relative;
 }
 
@@ -32,13 +32,25 @@
   position: relative;
 }
 
-.sidebar-wrapper {
+.profile-wrapper2 {
+  background: #efefef;
+  height: 100%;
+  z-index: 90;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: -1px 0 3px #00000029;
+  position: relative;
+}
+
+app-high-score-sidebar {
   position: fixed;
   right: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  z-index: 100;
 }
 
 // app-header {

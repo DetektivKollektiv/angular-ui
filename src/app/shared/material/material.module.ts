@@ -28,6 +28,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSliderModule } from '@angular/material/slider';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const modules = [
   MatSidenavModule,
@@ -59,6 +62,9 @@ const modules = [
   MatChipsModule,
   MatSliderModule,
   ClipboardModule,
+  MatSelectModule,
+  MatTableModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({

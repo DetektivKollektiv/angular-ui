@@ -21,6 +21,9 @@ import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { ItemType } from '../../model/item-type';
 import { TranslatePipe } from '@ngx-translate/core';
+import { throwIfEmpty } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/shared/helper/components/confirm-dialog/confirm-dialog.component';
 
 export const MY_FORMATS = {
   display: {
@@ -58,15 +61,18 @@ export class SubmitComponent implements OnInit {
   frequencyFormControl: FormControl;
   receivedFormControl: FormControl;
   emailFormControl: FormControl;
-  mobileFormControl: FormControl;
   privacyBox: FormControl;
   termBox: FormControl;
+  checkboxFormControl: FormControl;
 
   submitEnabled: boolean;
   today = moment();
-  submitted: boolean;
   itemTypes: ItemType[];
+
+  submitted: boolean;
+  itemClosed: boolean;
   mailGiven: boolean;
+  item: Item;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -74,8 +80,9 @@ export class SubmitComponent implements OnInit {
     private itemTypesService: ItemTypesService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private loaderService: LoaderService
-  ) { }
+    private loaderService: LoaderService,
+    private dialog: MatDialog
+  ) {}
 
   get formArray(): AbstractControl | null {
     return this.formGroup.get('formArray');
@@ -95,9 +102,9 @@ export class SubmitComponent implements OnInit {
       disabled: true,
     });
     this.emailFormControl = new FormControl('', Validators.email);
-    this.mobileFormControl = new FormControl();
     this.privacyBox = new FormControl(false, Validators.requiredTrue);
     this.termBox = new FormControl(false, Validators.requiredTrue);
+    this.checkboxFormControl = new FormControl(false);
 
     this.typeFormGroup = this.formBuilder.group({
       typeFormControl: this.typeFormControl,
@@ -118,6 +125,7 @@ export class SubmitComponent implements OnInit {
       emailFormControl: this.emailFormControl,
       privacyBox: this.privacyBox,
       termBox: this.termBox,
+      checkboxFormControl: this.checkboxFormControl,
     });
 
     this.getItemTypes();
@@ -135,13 +143,16 @@ export class SubmitComponent implements OnInit {
   }
 
   submit() {
+    if (this.checkboxFormControl.value) {
+      this.submitted = true;
+      return;
+    }
     const item = {
       content: this.contentFormControl.value,
       mail: this.emailFormControl.value,
       received_date: this.receivedFormControl.value.format(
         'YYYY-MM-DD HH:mm:ss'
       ),
-      phone: this.mobileFormControl.value,
       frequency: this.frequencyFormControl.value,
       item_type_id: this.typeFormControl.value,
       source:
@@ -157,12 +168,30 @@ export class SubmitComponent implements OnInit {
     this.loaderService.show();
     this.submitItemService
       .submitItem(item)
-      .then((_) => {
+      .then((result) => {
+        if (result.status === 'closed') {
+          // this.dialog
+          //   .open(ConfirmDialogComponent, {
+          //     data: {
+          //       title: 'Wir haben ein Ergebnis :)',
+          //       content:
+          //         'Zu diesem Fall liegt bereits ein Ergebnis in unserem Archiv vor. Willst du es dir anschauen?',
+          //     },
+          //   })
+          //   .afterClosed()
+          //   .subscribe((showArchive: boolean) => {
+          //     if (showArchive) {
+          //       this.router.navigate(['archive', result.id]);
+          //     }
+          //   });
+
+          this.item = result;
+          this.itemClosed = true;
+        }
+
         this.submitted = true;
-        this.loaderService.hide();
       })
       .catch((_) => {
-        this.loaderService.hide();
         this.snackBar.open(
           'Dein Fall konnte nicht eingereicht werden. Versuch es später nochmal.',
           'Ok',
@@ -170,11 +199,8 @@ export class SubmitComponent implements OnInit {
             duration: 2000,
           }
         );
-      });
-  }
-
-  resolved() {
-    this.submitEnabled = true;
+      })
+      .finally(() => this.loaderService.hide());
   }
 
   navigate(url: string) {

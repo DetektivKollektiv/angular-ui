@@ -13,3 +13,28 @@ app-archive-item {
   min-width: 450px;
   cursor: pointer;
 }
+
+table {
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.item-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.item-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.item-row td {
+  border-bottom-width: 0;
+}
+
+.item-detail {
+  overflow: hidden;
+  display: flex;
+}

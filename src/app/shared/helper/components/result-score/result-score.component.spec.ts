@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ArchiveScoreComponent } from './archive-score.component';
+import { ResultScoreComponent } from './result-score.component';
 
-describe('ArchiveScoreComponent', () => {
-  let component: ArchiveScoreComponent;
-  let fixture: ComponentFixture<ArchiveScoreComponent>;
+describe('ResultScoreComponent', () => {
+  let component: ResultScoreComponent;
+  let fixture: ComponentFixture<ResultScoreComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArchiveScoreComponent ]
+      declarations: [ ResultScoreComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ArchiveScoreComponent);
+    fixture = TestBed.createComponent(ResultScoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

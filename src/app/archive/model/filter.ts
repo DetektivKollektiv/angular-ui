@@ -1,5 +1,6 @@
-export class Filter {
-  text = '';
-  minValue = 1;
-  maxValue = 4;
+export interface Filter {
+  id?: string;
+  text?: string;
+  minValue?: number;
+  maxValue?: number;
 }

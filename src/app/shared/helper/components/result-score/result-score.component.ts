@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-archive-score',
-  templateUrl: './archive-score.component.html',
-  styleUrls: ['./archive-score.component.scss'],
+  selector: 'app-result-score',
+  templateUrl: './result-score.component.html',
+  styleUrls: ['./result-score.component.scss'],
 })
-export class ArchiveScoreComponent implements OnInit {
+export class ResultScoreComponent implements OnInit {
   @Input() public score: number;
 
   constructor() {}

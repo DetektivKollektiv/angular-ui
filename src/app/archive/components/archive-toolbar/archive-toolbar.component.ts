@@ -11,9 +11,8 @@ import { Filter } from '../../model/filter';
 export class ArchiveToolbarComponent implements OnInit {
   @Output() public filterChanged = new EventEmitter<Filter>();
 
+  public filter: Filter = { text: '', minValue: 1, maxValue: 4 };
   private searchUpdated: Subject<string> = new Subject();
-
-  public filter = new Filter();
 
   constructor() {}
 

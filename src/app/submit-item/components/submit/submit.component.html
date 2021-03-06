@@ -11,7 +11,7 @@
       <mat-horizontal-stepper #stepper linear>
         <mat-step>
           <p>
-            Handelt es sich bei deinem Fall um eine reine Textnachricht bzw. Aussage oder um einen Link zu einem
+            Handelt es sich bei deinem Fall um eine Textnachricht (SMS, Post, Tweet etc.) oder um einen Link zu einem
             Artikel?
           </p>
           <br>
@@ -37,7 +37,6 @@
           </form>
           <div class="button-group">
             <button class="button-primary" matStepperNext [disabled]="!contentFormGroup.valid">Weiter</button>
-            <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
         </mat-step>
         <mat-step>
@@ -103,25 +102,25 @@
           </div>
         </mat-step>
         <mat-step>
-          <h4>Wie möchtest du dein Ergebnis erhalten?</h4>
-          <form class="form-centered" [formGroup]="confirmationFormGroup">
-            <mat-form-field>
-              <input add formControlName="emailFormControl" matInput ng-recaptcha placeholder="E-Mail" type="email"
-                yarn>
+          <h4>Abschluss der Einreichung:</h4>
+          <form class="form-left-aligned" [formGroup]="confirmationFormGroup">
+            <mat-form-field class="mail-field">
+              <input add formControlName="emailFormControl" matInput placeholder="E-Mail" type="email" yarn>
               <mat-error>Bitte gib eine gültige E-Mail Adresse ein.</mat-error>
             </mat-form-field>
-            <re-captcha (resolved)="resolved()" siteKey="6LfPfQEVAAAAAKwGNarkjs4jMG_o_ufk3f3DQ1Go"></re-captcha>
             <mat-checkbox formControlName="privacyBox" class="checkbox"> Ich stimme den Bedingungen der <a
                 target="_blank" routerLink="../data-privacy">Datenschutzerklärung</a> zu
             </mat-checkbox>
             <mat-checkbox formControlName="termBox" class="checkbox"> Ich stimme den <a target="_blank"
-                routerLink="../community">Nutzungsbedingungen</a>
+                routerLink="../terms">Nutzungsbedingungen</a>
               zu
+            </mat-checkbox>
+            <mat-checkbox class="secret-checkbox" formControlName="checkboxFormControl" tabindex="-1"
+              autocomplete="off">
             </mat-checkbox>
           </form>
           <div class="button-group">
-            <button (click)="submit()" [disabled]="confirmationFormGroup.invalid || !submitEnabled"
-              class="button-primary">Fall absenden
+            <button (click)="submit()" [disabled]="confirmationFormGroup.invalid" class="button-primary">Fall absenden
             </button>
             <button class="button-flat" matStepperPrevious>Zurück</button>
           </div>
@@ -132,7 +131,7 @@
 </div>
 
 <ng-template #finish>
-  <div class="page-container-column">
+  <div class="page-container-column" *ngIf="!itemClosed; else solved">
     <h1 *ngIf="!mailGiven">Danke, <span class="alt">dass du deinen Fall eingereicht hast!</span></h1>
     <h1 *ngIf="mailGiven">Nur noch ein Schritt - <span class="alt"> Mailadresse bestätigen</span></h1>
     <div class="page-container-row">
@@ -160,4 +159,16 @@
       <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380" />
     </div>
   </div>
+</ng-template>
+
+<ng-template #solved>
+  <div class="page-container-column">
+    <h1>Das kommt uns doch bekannt vor...</h1>
+    <p>Diesen Fall haben unsere Detektive schon bearbeitet und mit folgendem Vertrauensindex bewertet:</p>
+    <app-result-score [score]="item.result_score"></app-result-score>
+    <p>Weitere Details zu diesem Fall kannst du dir im Archiv ansehen.</p>
+    <button mat-raised-button color="accent" [routerLink]="['/archive', item.id]">Zum Archiv</button>
+  </div>
+
+
 </ng-template>
