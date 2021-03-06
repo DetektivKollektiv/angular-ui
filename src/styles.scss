@@ -1,4 +1,4 @@
-@import './theme';
+@import "./theme";
 
 * {
   font-family: Lato, Oswald, sans-serif;
@@ -10,7 +10,28 @@
   border: none;
 }
 
-html, body {
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html,
+body {
   height: 100%;
   min-height: 100%;
   margin: 0;
@@ -19,14 +40,14 @@ html, body {
 h1 {
   font-family: Oswald, sans-serif;
   line-height: 70px;
-  font-size: max(2vw,14px);
+  font-size: max(2vw, 14px);
   color: mat-color($custom-theme-accent);
 
   span.alt {
     font-family: Oswald, sans-serif;
     line-height: 70px;
     font-size: 40px;
-    color: #4A4A4A;
+    color: #4a4a4a;
   }
 }
 
@@ -42,9 +63,9 @@ h3 {
 
 p {
   font-family: Lato, sans-serif;
-  font-size: max(0.7vw,14px);
-  line-height: max(1vw,22px);;
-  color: #4A4A4A;
+  font-size: max(0.7vw, 14px);
+  line-height: max(1vw, 22px);
+  color: #4a4a4a;
 }
 
 div.page-content {
@@ -92,11 +113,11 @@ button.button-primary {
   box-shadow: 0 1px 3px #00000029;
   border: none;
   border-radius: 5px;
-  width: max(8vw,80px);
-  height: max(3.5vh,40px);
-  color: #4A4A4A;
+  width: max(8vw, 80px);
+  height: max(3.5vh, 40px);
+  color: #4a4a4a;
   cursor: pointer;
-  font-size: max(0.7vw,14px);  
+  font-size: max(0.7vw, 14px);
   line-height: 26px;
   font-family: Lato, sans-serif;
   margin-top: 16px;
@@ -104,11 +125,11 @@ button.button-primary {
 }
 
 button.button-primary:hover {
-  background: rgba(255, 204, 0, 0.50);
+  background: rgba(255, 204, 0, 0.5);
 }
 
 button.button-primary:focus {
-  background: rgba(255, 204, 0, 0.50);
+  background: rgba(255, 204, 0, 0.5);
   outline: none;
 }
 
@@ -151,7 +172,7 @@ button.button-flat {
   opacity: 1;
   width: 150px;
   height: 48px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   cursor: pointer;
 }
 
@@ -167,7 +188,6 @@ button.button-flat:focus {
 button.button-flat:disabled {
   cursor: default;
 }
-
 
 div.dialog-container {
   display: flex;
@@ -195,7 +215,6 @@ div.dialog-container {
   }
 }
 
-mat-icon{
-  color: #4A4A4A;
+mat-icon {
+  color: #4a4a4a;
 }
-

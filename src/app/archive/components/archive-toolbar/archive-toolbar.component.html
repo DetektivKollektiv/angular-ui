@@ -1,0 +1,21 @@
+<div class="container mat-elevation-z8">
+  <mat-form-field class="search-form-field" appearance="fill">
+    <mat-label>Schlüsselwort-Suche</mat-label>
+    <input matInput [(value)]="filter.text" (keyup)="onSearchType($event.target.value)" />
+    <button mat-button *ngIf="filter.text" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearchTag()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-hint>Durchsuche Inhalte und Tags</mat-hint>
+  </mat-form-field>
+  <button mat-raised-button [matMenuTriggerFor]="minMenu">Mindestens: {{filter.minValue}}</button>
+  <button mat-raised-button [matMenuTriggerFor]="maxMenu">Höchstens: {{filter.maxValue}}</button>
+</div>
+
+<mat-menu class="slider-menu" #minMenu="matMenu">
+  <mat-slider class="score-slider" [max]="4" [min]="1" [step]="1" [thumbLabel]="true" [(value)]="filter.minValue"
+    (change)="onSliderChanged()"></mat-slider>
+</mat-menu>
+<mat-menu class="slider-menu" #maxMenu="matMenu">
+  <mat-slider class="score-slider" [max]="4" [min]="1" [step]="1" [thumbLabel]="true" [(value)]="filter.maxValue"
+    (change)="onSliderChanged()"></mat-slider>
+</mat-menu>

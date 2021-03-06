@@ -1,0 +1,14 @@
+<div class="details-container">
+  <div class="action">
+    <button mat-icon-button matDialogClose [routerLink]="['archive']" class="close-button" tabindex="-1">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <p>{{data.content}}</p>
+
+  <div class="share">
+    <button mat-fab color="accent" [cdkCopyToClipboard]="shareLink">
+      <mat-icon>share</mat-icon>
+    </button>
+  </div>
+</div>

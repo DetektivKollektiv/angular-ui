@@ -1,92 +1,14 @@
 <div class="archive">
   <h1>Archiv</h1>
-  <form
-    [formGroup]="searchFormGroup"
-    (keydown.enter)="$event.preventDefault()"
-    (keydown.shift.enter)="$event.preventDefault()"
-  >
-    <mat-form-field class="search-form-field">
-      <mat-label>Schlüsselwort-Suche</mat-label>
-      <input
-        matInput
-        formControlName="tagFormControl"
-        type="search"
-        (keyup.enter)="searchByTag()"
-      />
-      <button
-        mat-button
-        *ngIf="searchTag"
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="clearSearchTag()"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    <br />
-    <mat-label>Vertrauensindex mindestens:&nbsp;&nbsp;&nbsp;1</mat-label>
-    <mat-slider
-      formControlName="minIndexFormControl"
-      [max]="4"
-      [min]="1"
-      [step]="0.5"
-      [thumbLabel]="true"
-      [tickInterval]="10"
-    >
-    </mat-slider>
-    <mat-label>4</mat-label>
-  </form>
-
-  <br /><br />
-  <div class="mat-card-container">
-    <mat-card *ngFor="let item of itemsDisplayed">
-      <mat-card-title
-        >Fall {{ itemsDisplayed?.indexOf(item) + 1 }} von
-        {{ itemsDisplayed?.length }}</mat-card-title
-      >
-      <mat-card-content>
-        <h3>Inhalt</h3>
-        <p>{{ item.content }}</p>
-        <h3>Vertrauensindex</h3>
-        <p [ngSwitch]="item.result_score | number: '1.0-0'" mat-line>
-          <button *ngSwitchCase="1" mat-flat-button class="rating-1" disabled>
-            <b>{{ item.result_score | number: "1.0-2" }}</b> - nicht
-            vertrauenswürdig
-          </button>
-          <button *ngSwitchCase="2" mat-flat-button class="rating-2" disabled>
-            <b>{{ item.result_score | number: "1.0-2" }}</b> - eher nicht
-            vertrauenswürdig
-          </button>
-          <button *ngSwitchCase="3" mat-flat-button class="rating-3" disabled>
-            <b>{{ item.result_score | number: "1.0-2" }}</b> - eher
-            vertrauenswürdig
-          </button>
-          <button *ngSwitchCase="4" mat-flat-button class="rating-4" disabled>
-            <b>{{ item.result_score | number: "1.0-2" }}</b> - vertrauenswürdig
-          </button>
-        </p>
-        <table>
-          <tr>
-            <th><h3>Eingereicht am:</h3></th>
-            <th><h3>Gelöst am:</h3></th>
-          </tr>
-          <tr>
-            <td>{{ item.open_timestamp | date: "dd.MM.yyyy" }}</td>
-            <td>{{ item.close_timestamp | date: "dd.MM.yyyy" }}</td>
-          </tr>
-        </table>
-        <br />
-        <h3>Tags:</h3>
-
-        <div class="tags">
-          <mat-chip-list>
-            <mat-chip *ngFor="let tag of item.tags">
-              {{ tag }}
-            </mat-chip>
-          </mat-chip-list>
-        </div>
-      </mat-card-content>
-    </mat-card>
+  <app-archive-toolbar (filterChanged)="test($event)">
+  </app-archive-toolbar>
+  <div class="mat-card-container" *ngIf="!loaded || itemsDisplayed.length > 0; else noItems">
+    <app-archive-item *ngFor="let item of itemsDisplayed; index as index" [item]="item" [length]="itemsDisplayed.length"
+      [index]="index + 1" [routerLink]="['/archive', item.id]">
+    </app-archive-item>
   </div>
 </div>
+
+<ng-template #noItems>
+  <h4>NO ITEMS</h4>
+</ng-template>

@@ -27,6 +27,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSliderModule } from '@angular/material/slider';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 const modules = [
   MatSidenavModule,
@@ -57,6 +58,7 @@ const modules = [
   MatTooltipModule,
   MatChipsModule,
   MatSliderModule,
+  ClipboardModule,
 ];
 
 @NgModule({

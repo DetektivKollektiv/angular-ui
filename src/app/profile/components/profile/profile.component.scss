@@ -5,9 +5,11 @@
   align-items: center;
   justify-content: space-between;
   overflow: auto;
+  background: #efefef;
+  padding: 10px;
 }
 
-.top-elements{
+.top-elements {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,40 +26,40 @@
 .user-info-table {
   width: 100%;
   justify-content: left;
-  align-items: baseline; 
+  align-items: baseline;
   padding: 15% 10% 20%;
   table-layout: fixed;
 }
 
-.user-info-categories{
+.user-info-categories {
   font-weight: bold;
   font-family: Oswald, sans-serif;
-  font-size: max(0.8vw,12px);
-  
+  font-size: max(0.8vw, 12px);
+
   width: 35%;
   padding: 5% 0;
 }
 
-.user-info-values{
+.user-info-values {
   width: 65%;
   overflow-wrap: break-word;
   font-family: Lato, sans-serif;
-  font-size: max(0.8vw,12px);
+  font-size: max(0.8vw, 12px);
 }
 
-mat-progress-bar{
+mat-progress-bar {
   height: 15px;
 }
 
-.profile-button-container{
+.profile-button-container {
   position: relative;
   width: 100%;
   padding: 0 5%;
-  display:block;
+  display: block;
   align-items: center;
 }
 
-button.button-flat-profile{
+button.button-flat-profile {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -80,16 +82,16 @@ button.button-flat-profile:disabled {
   cursor: default;
 }
 
-.separator{
+.separator {
   border-top: 3px dashed #ffcc00;
   width: 90%;
 }
-.profile-picture{
+.profile-picture {
   width: 8vw;
   height: 8vw;
   cursor: pointer;
 }
-.profile-icon-background{
+.profile-icon-background {
   position: absolute;
   color: #ffcc00;
   opacity: 0.85;
@@ -100,9 +102,9 @@ button.button-flat-profile:disabled {
   cursor: pointer;
 }
 
-.profile-icon-level{
+.profile-icon-level {
   position: absolute;
-  color: #4A4A4A;
+  color: #4a4a4a;
   opacity: 0.85;
   font-family: Oswald, sans-serif;
   font-size: 2vw;
