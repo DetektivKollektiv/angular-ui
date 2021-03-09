@@ -52,13 +52,23 @@
                     Wie hat dich die Information erreicht?
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-                <mat-label>Wähle aus, von wem du die Information erhalten hast.</mat-label>
+                <mat-label>Wie hat dich die Information erreicht?</mat-label>
                 <mat-radio-group formControlName="sourceFormControl">
-                  <mat-radio-button value="1">Von engen Freunden oder Familienmitgliedern</mat-radio-button>
-                  <mat-radio-button value="2">Von Bekannten</mat-radio-button>
-                  <mat-radio-button value="3">Von Fremden</mat-radio-button>
-                  <mat-radio-button value="4">Sonstiges:</mat-radio-button>
-                  <mat-form-field>
+                  <mat-radio-button value="messenger" (change)="otherSourceNotSelected()">Per Messenger (z.B. Whatsapp,
+                    Telegram oder SMS)</mat-radio-button>
+                  <mat-radio-button value="social_media" (change)="otherSourceNotSelected()">Über soziale Medien (z.B.
+                    Facebook, Twitter, Instagram)
+                  </mat-radio-button>
+                  <mat-radio-button value="web_surfing" (change)="otherSourceNotSelected()">Beim Surfen im Internet
+                  </mat-radio-button>
+                  <mat-radio-button value="other_media" (change)="otherSourceNotSelected()">Über andere Medien (z.B.
+                    Fernsehen, Radio, Zeitung)
+                  </mat-radio-button>
+                  <mat-radio-button value="orally" (change)="otherSourceNotSelected()">Aus Gesprächen (z.B. mit Freunden
+                    oder Familienmitgliedern)
+                  </mat-radio-button>
+                  <mat-radio-button value="other" (change)="otherSourceSelected()">Sonstiges</mat-radio-button>
+                  <mat-form-field *ngIf="otherSource">
                     <mat-label>Sonstiges</mat-label>
                     <input formControlName="sourceTextFormControl" matInput>
                   </mat-form-field>

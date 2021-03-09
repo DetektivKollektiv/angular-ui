@@ -68,6 +68,7 @@ export class SubmitComponent implements OnInit {
   submitted: boolean;
   itemTypes: ItemType[];
   mailGiven: boolean;
+  otherSource: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -124,6 +125,7 @@ export class SubmitComponent implements OnInit {
 
     this.getItemTypes();
     this.mailGiven = false;
+    this.otherSource = false;
   }
 
   getItemTypes(): void {
@@ -150,7 +152,7 @@ export class SubmitComponent implements OnInit {
       frequency: this.frequencyFormControl.value,
       item_type_id: this.typeFormControl.value,
       source:
-        this.sourceFormControl.value === '4'
+        (this.sourceFormControl.value === 'other' && this.sourceTextFormControl.value && this.sourceTextFormControl.value !== '')
           ? this.sourceTextFormControl.value
           : this.sourceFormControl.value,
     } as Item;
@@ -176,6 +178,14 @@ export class SubmitComponent implements OnInit {
           }
         );
       });
+  }
+
+  otherSourceSelected() {
+    this.otherSource = true;
+  }
+
+  otherSourceNotSelected() {
+    this.otherSource = false;
   }
 
   navigate(url: string) {
