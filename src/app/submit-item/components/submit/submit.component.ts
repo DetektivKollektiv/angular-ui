@@ -145,7 +145,6 @@ export class SubmitComponent implements OnInit {
     }
     const item = {
       content: this.contentFormControl.value,
-      mail: this.emailFormControl.value,
       received_date: this.receivedFormControl.value.format(
         'YYYY-MM-DD HH:mm:ss'
       ),
@@ -156,8 +155,8 @@ export class SubmitComponent implements OnInit {
           ? this.sourceTextFormControl.value
           : this.sourceFormControl.value,
     } as Item;
-
-    if (item.mail) {
+    if (this.emailFormControl.value && this.emailFormControl.value !== '') {
+      item.mail = this.emailFormControl.value;
       this.mailGiven = true;
     }
 
