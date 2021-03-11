@@ -68,7 +68,6 @@ export class SubmitComponent implements OnInit {
   submitted: boolean;
   itemTypes: ItemType[];
   mailGiven: boolean;
-  otherSource: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -125,7 +124,6 @@ export class SubmitComponent implements OnInit {
 
     this.getItemTypes();
     this.mailGiven = false;
-    this.otherSource = false;
   }
 
   getItemTypes(): void {
