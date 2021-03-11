@@ -179,14 +179,6 @@ export class SubmitComponent implements OnInit {
       });
   }
 
-  otherSourceSelected() {
-    this.otherSource = true;
-  }
-
-  otherSourceNotSelected() {
-    this.otherSource = false;
-  }
-
   navigate(url: string) {
     this.router.navigateByUrl(url).then().catch();
   }
