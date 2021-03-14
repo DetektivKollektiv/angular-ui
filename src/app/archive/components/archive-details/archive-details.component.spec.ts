@@ -20,7 +20,7 @@ describe('ArchiveDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ArchiveDetailsComponent);
     component = fixture.componentInstance;
-    component.item = { id: 'test' } as Item;
+    component.item = { id: 'test', tags: [] } as Item;
     fixture.detectChanges();
   });
 
