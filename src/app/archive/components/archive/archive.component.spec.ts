@@ -19,7 +19,11 @@ describe('ArchiveComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [ArchiveComponent, ArchiveToolbarComponent],
+        declarations: [
+          ArchiveComponent,
+          ArchiveToolbarComponent,
+          ArchiveDetailsComponent,
+        ],
         imports: [
           RouterTestingModule,
           LoaderModule,
