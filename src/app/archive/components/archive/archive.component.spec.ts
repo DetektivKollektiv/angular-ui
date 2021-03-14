@@ -6,6 +6,9 @@ import { MaterialModule } from '../../../shared/material/material.module';
 import { CommonModule } from '@angular/common';
 import { NgxsModule } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
+import { ArchiveToolbarComponent } from '../archive-toolbar/archive-toolbar.component';
+import { ArchiveService } from '../../services/archive.service';
+import { MockArchiveService } from 'src/test/mocks/mock-archive.service';
 
 describe('ArchiveComponent', () => {
   let component: ArchiveComponent;
@@ -14,7 +17,7 @@ describe('ArchiveComponent', () => {
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
-        declarations: [ArchiveComponent],
+        declarations: [ArchiveComponent, ArchiveToolbarComponent],
         imports: [
           RouterTestingModule,
           LoaderModule,
@@ -22,6 +25,7 @@ describe('ArchiveComponent', () => {
           CommonModule,
           NgxsModule.forRoot([ArchiveState]),
         ],
+        providers: [{ provide: ArchiveService, useClass: MockArchiveService }],
       }).compileComponents();
     })
   );
