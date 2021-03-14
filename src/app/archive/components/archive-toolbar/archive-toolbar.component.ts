@@ -1,7 +1,21 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import { Component, OnInit } from '@angular/core';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatDateRangePickerInput } from '@angular/material/datepicker/date-range-picker';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { Filter } from '../../model/filter';
+import {
+  AddFilterKeyword,
+  RemoveFilterId,
+  RemoveFilterKeyword,
+  SetEndDateFilter,
+  SetMaxFilter,
+  SetMinFilter,
+  SetStartDateFilter,
+} from '../../state/archive.actions';
+import { ArchiveState } from '../../state/archive.state';
 
 @Component({
   selector: 'app-archive-toolbar',
@@ -9,35 +23,56 @@ import { Filter } from '../../model/filter';
   styleUrls: ['./archive-toolbar.component.scss'],
 })
 export class ArchiveToolbarComponent implements OnInit {
-  @Output() public filterChanged = new EventEmitter<Filter>();
+  @Select(ArchiveState.filter) filter$: Observable<Filter>;
 
-  public filter: Filter = { text: '', minValue: 1, maxValue: 4 };
-  private searchUpdated: Subject<string> = new Subject();
+  public filter: Filter;
 
-  constructor() {}
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.searchUpdated
-      .asObservable()
-      .pipe(
-        tap((value) => (this.filter.text = value)),
-        debounceTime(500),
-        distinctUntilChanged()
-      )
-      .subscribe(() => {
-        this.filterChanged.emit(this.filter);
-      });
+    this.filter$.subscribe((filter) => (this.filter = filter));
   }
 
-  public onSearchType(value: string): void {
-    this.searchUpdated.next(value);
+  public onMinSliderChanged(value: number): void {
+    this.store.dispatch(new SetMinFilter(value));
   }
 
-  public onSliderChanged(): void {
-    this.filterChanged.emit(this.filter);
+  public onMaxSliderChanged(value: number): void {
+    this.store.dispatch(new SetMaxFilter(value));
   }
 
-  public clearSearchTag(): void {
-    this.searchUpdated.next('');
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    if ((value || '').trim()) {
+      this.store.dispatch(new AddFilterKeyword(value));
+    }
+
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  remove(keyword: string): void {
+    this.store.dispatch(new RemoveFilterKeyword(keyword));
+  }
+
+  removeId(): void {
+    this.store.dispatch(new RemoveFilterId());
+  }
+
+  onStartDateChanged(event: { value: Date }): void {
+    if (event.value) {
+      this.store.dispatch(new SetStartDateFilter(event.value));
+    }
+  }
+
+  onEndDateChanged(event: { value: Date }): void {
+    if (event.value) {
+      this.store.dispatch(new SetEndDateFilter(event.value));
+    }
   }
 }

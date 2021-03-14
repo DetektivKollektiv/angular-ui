@@ -1,5 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { Item } from 'src/app/model/item';
 
 @Component({
@@ -8,14 +7,13 @@ import { Item } from 'src/app/model/item';
   styleUrls: ['./archive-details.component.scss'],
 })
 export class ArchiveDetailsComponent implements OnInit {
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Item,
-    public dialogRef: MatDialogRef<ArchiveDetailsComponent>
-  ) {}
+  @Input() public item: Item;
 
-  ngOnInit(): void {}
+  public link: string;
 
-  get shareLink() {
-    return `${window.location.host}/archive/${this.data.id}`;
+  constructor() {}
+
+  ngOnInit(): void {
+    this.link = `${window.location.origin}/archive?id=${this.item.id}`;
   }
 }

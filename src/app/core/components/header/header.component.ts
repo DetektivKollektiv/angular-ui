@@ -10,10 +10,8 @@ import { DeleteUserDialogComponent } from '../../dialogs/delete-user-dialog/dele
 import { LoginComponent } from '../../../shared/auth/dialogs/login/login.component';
 import { SignupComponent } from '../../../shared/auth/dialogs/signup/signup.component';
 import { ConfirmComponent } from '../../../shared/auth/dialogs/confirm/confirm.component';
-import {
-  LoginResult,
-  LoginResultReason,
-} from '../../../shared/auth/model/login-result';
+import { LoginResult } from '../../../shared/auth/model/login-result';
+import { LoginResultReason } from '../../../shared/auth/model/LoginResultReason';
 import { SignupResult } from '../../../shared/auth/model/signup-result';
 import { Globals } from '../../../shared/helper/globals/globals';
 import { MatSnackBar } from '@angular/material/snack-bar';

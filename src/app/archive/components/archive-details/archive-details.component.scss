@@ -1,15 +1,27 @@
 .details-container {
-  width: 500px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px;
 }
 
-.action {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+.tag-label {
+  margin-bottom: 14px;
 }
 
 .share {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.share-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+share-button {
+  width: 100%;
 }

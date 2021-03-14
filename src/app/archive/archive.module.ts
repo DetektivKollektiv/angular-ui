@@ -7,6 +7,10 @@ import { RouterModule } from '@angular/router';
 import { ArchiveToolbarComponent } from './components/archive-toolbar/archive-toolbar.component';
 import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveDetailsComponent } from './components/archive-details/archive-details.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { NgxsModule } from '@ngxs/store';
+import { ArchiveState } from './state/archive.state';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,14 @@ import { ArchiveDetailsComponent } from './components/archive-details/archive-de
     ArchiveItemComponent,
     ArchiveDetailsComponent,
   ],
-  imports: [CommonModule, MaterialModule, HelperModule, RouterModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    HelperModule,
+    RouterModule,
+    ShareButtonsModule,
+    ShareIconsModule,
+    NgxsModule.forFeature([ArchiveState]),
+  ],
 })
 export class ArchiveModule {}

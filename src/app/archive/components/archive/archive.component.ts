@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
-import { ArchiveService } from '../../services/archive.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from 'src/app/model/item';
 import { Filter } from '../../model/filter';
-import { MatDialog } from '@angular/material/dialog';
-import { ArchiveDetailsComponent } from '../archive-details/archive-details.component';
 import { MatTableDataSource } from '@angular/material/table';
 import {
   animate,
@@ -15,6 +10,11 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { Select, Store } from '@ngxs/store';
+import { ArchiveState } from '../../state/archive.state';
+import { Observable } from 'rxjs';
+import { AddFilterKeyword, SetFilter } from '../../state/archive.actions';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-archive',
@@ -32,6 +32,10 @@ import {
   ],
 })
 export class ArchiveComponent implements OnInit {
+  @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
+  @Select(ArchiveState.filter) filter$: Observable<Filter>;
+  @Select(ArchiveState.itemById) itemById$: Observable<Item>;
+
   public items = new MatTableDataSource<Item>();
   public displayedColumns = [
     'content',
@@ -41,72 +45,60 @@ export class ArchiveComponent implements OnInit {
   ];
   expandedItem: Item | null;
 
-  public itemsList: Item[] = [];
-  public itemsDisplayed: Item[] = [];
-
-  public filter: Filter = { text: '', minValue: 1, maxValue: 4 };
-
   constructor(
-    private archiveService: ArchiveService,
     private route: ActivatedRoute,
-    private snackBar: MatSnackBar,
-    private loaderService: LoaderService,
-    private dialog: MatDialog
+    private router: Router,
+    private store: Store,
+    private viewportScroller: ViewportScroller
   ) {}
 
   ngOnInit(): void {
-    this.loaderService.show();
-    this.archiveService
-      .getClosedItems()
-      .then((closedItems) => {
-        this.itemsList = closedItems;
-        this.items.data = closedItems;
-        this.items.filterPredicate = this.itemFilterPredicate;
-        this.items.filter = JSON.stringify(this.filter);
+    this.items$.subscribe((items) => (this.items.data = items));
 
-        this.route.params.subscribe((params) => {
-          if (params?.id) {
-            // this.items.filter = JSON.stringify({ id: params.id } as Filter);
-            this.expandedItem = this.items.data.find((i) => i.id === params.id);
-          }
-        });
-      })
-      .catch((_) => {
-        this.snackBar.open('Archiv kann nicht angezeigt werden.', 'Ok', {
-          duration: 2000,
-        });
-      })
-      .finally(() => {
-        this.loaderService.hide();
-      });
-  }
+    this.itemById$.subscribe((item) => {
+      this.expandedItem = item;
 
-  showDialog(id: string) {
-    const item = this.itemsList.find((i) => i.id === id);
+      if (item) {
+        this.viewportScroller.scrollToAnchor(item.id);
+      }
+    });
 
-    if (item) {
-      this.dialog.open(ArchiveDetailsComponent, { data: item });
-    } else {
-      this.snackBar.open('Nope');
-    }
-  }
+    this.route.queryParams.subscribe((params) => {
+      if (params.id) {
+        this.store.dispatch(new AddFilterKeyword(params.id));
+      }
+      // const filter = {
+      //   ...(params.id && { id: params.id }),
+      //   ...{ maxValue: params.maxValue ?? 4 },
+      //   ...{ minValue: params.minValue ?? 1 },
+      //   ...(params.keyword && {
+      //     keywords:
+      //       typeof params.keyword === 'string'
+      //         ? [params.keyword]
+      //         : [...params.keyword],
+      //   }),
+      //   ...(params.startDate && { startDate: params.startDate }),
+      //   ...(params.endDate && { endDate: params.endDate }),
+      // };
+      // this.store.dispatch(new SetFilter(filter));
+    });
 
-  applyFilter(event: Filter): void {
-    this.items.filter = JSON.stringify(event);
-  }
-
-  itemFilterPredicate(item: Item, filterString: string): boolean {
-    const filter = JSON.parse(filterString) as Filter;
-
-    return (
-      (filter.text === undefined ||
-        item.tags
-          .map((t) => t.toLowerCase())
-          .indexOf(filter.text.toLowerCase()) >= 0 ||
-        item.content.toLowerCase().includes(filter.text.toLowerCase())) &&
-      (filter.minValue === undefined || item.result_score >= filter.minValue) &&
-      (filter.maxValue === undefined || item.result_score <= filter.maxValue) &&
-      (filter.id === undefined || item.id === filter.id)
-    );
+    this.filter$.subscribe((filter) => {
+      // this.router.navigate([], {
+      //   relativeTo: this.route,
+      //   queryParams: {
+      //     ...(filter.id && { id: filter.id }),
+      //     ...(filter.keywords &&
+      //       filter.keywords.length > 0 && {
+      //         keyword: filter.keywords,
+      //       }),
+      //     ...(filter.minValue && { minValue: filter.minValue }),
+      //     ...(filter.maxValue && { maxValue: filter.maxValue }),
+      //     ...(filter.startDate && { startDate: filter.startDate }),
+      //     ...(filter.endDate && { endDate: filter.endDate }),
+      //   },
+      //   queryParamsHandling: '',
+      // });
+    });
   }
 }

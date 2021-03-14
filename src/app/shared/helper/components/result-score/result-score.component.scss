@@ -3,10 +3,16 @@
   font-weight: bold;
   padding: 10px;
   border-radius: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: auto;
 }
 
 .title {
   font-weight: normal;
+  overflow: inherit;
+  text-overflow: inherit;
 }
 
 .rating-1 {

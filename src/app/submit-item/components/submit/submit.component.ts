@@ -20,10 +20,6 @@ import * as moment from 'moment';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { ItemType } from '../../model/item-type';
-import { TranslatePipe } from '@ngx-translate/core';
-import { throwIfEmpty } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent } from 'src/app/shared/helper/components/confirm-dialog/confirm-dialog.component';
 
 export const MY_FORMATS = {
   display: {
@@ -80,8 +76,7 @@ export class SubmitComponent implements OnInit {
     private itemTypesService: ItemTypesService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private loaderService: LoaderService,
-    private dialog: MatDialog
+    private loaderService: LoaderService
   ) {}
 
   get formArray(): AbstractControl | null {
@@ -170,21 +165,6 @@ export class SubmitComponent implements OnInit {
       .submitItem(item)
       .then((result) => {
         if (result.status === 'closed') {
-          // this.dialog
-          //   .open(ConfirmDialogComponent, {
-          //     data: {
-          //       title: 'Wir haben ein Ergebnis :)',
-          //       content:
-          //         'Zu diesem Fall liegt bereits ein Ergebnis in unserem Archiv vor. Willst du es dir anschauen?',
-          //     },
-          //   })
-          //   .afterClosed()
-          //   .subscribe((showArchive: boolean) => {
-          //     if (showArchive) {
-          //       this.router.navigate(['archive', result.id]);
-          //     }
-          //   });
-
           this.item = result;
           this.itemClosed = true;
         }

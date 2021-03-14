@@ -14,9 +14,7 @@ export class SubmitItemService {
     return API.post('submission_service', this.itemSubmissionUrl, {
       body: item,
     })
-      .then((response: Item) => {
-        return response;
-      })
+      .then((response: Item) => response)
       .catch();
   }
 }

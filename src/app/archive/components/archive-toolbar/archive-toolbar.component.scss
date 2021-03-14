@@ -6,15 +6,22 @@
   padding: 15px 20px;
 }
 
+.container > * {
+  margin: 0px 10px;
+}
+
 .search-form-field {
   width: 250px;
 }
 
-.score-slider {
-  width: 150px;
+.menu-content {
   padding: 10px;
-  margin: 20px;
 }
 
-.slider-menu {
+.score-slider {
+  width: 150px;
+}
+
+.keywords {
+  flex-grow: 1;
 }

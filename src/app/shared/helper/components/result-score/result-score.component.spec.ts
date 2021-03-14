@@ -8,14 +8,14 @@ describe('ResultScoreComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResultScoreComponent ]
-    })
-    .compileComponents();
+      declarations: [ResultScoreComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultScoreComponent);
     component = fixture.componentInstance;
+    component.score = 1;
     fixture.detectChanges();
   });
 

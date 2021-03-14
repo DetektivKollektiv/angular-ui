@@ -1,6 +1,8 @@
 export interface Filter {
+  keywords?: string[];
   id?: string;
-  text?: string;
   minValue?: number;
   maxValue?: number;
+  startDate?: Date;
+  endDate?: Date;
 }
