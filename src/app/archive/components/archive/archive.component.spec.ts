@@ -9,6 +9,8 @@ import { ArchiveState } from '../../state/archive.state';
 import { ArchiveToolbarComponent } from '../archive-toolbar/archive-toolbar.component';
 import { ArchiveService } from '../../services/archive.service';
 import { MockArchiveService } from 'src/test/mocks/mock-archive.service';
+import { ArchiveDetailsComponent } from '../archive-details/archive-details.component';
+import { HelperModule } from 'src/app/shared/helper/helper.module';
 
 describe('ArchiveComponent', () => {
   let component: ArchiveComponent;
@@ -23,6 +25,7 @@ describe('ArchiveComponent', () => {
           LoaderModule,
           MaterialModule,
           CommonModule,
+          HelperModule,
           NgxsModule.forRoot([ArchiveState]),
         ],
         providers: [{ provide: ArchiveService, useClass: MockArchiveService }],
