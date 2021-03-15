@@ -49,9 +49,9 @@
   },
   "devDependencies": {
     "@angular-builders/jest": "10.0.1",
-    "@angular-devkit/build-angular": "^0.901.7",
+    "@angular-devkit/build-angular": "^0.1102.4",
     "@angular-devkit/build-ng-packagr": "~0.901.7",
-    "@angular/cli": "^9.1.5",
+    "@angular/cli": "^11.2.4",
     "@angular/compiler-cli": "^9.1.6",
     "@angular/language-service": "^9.1.6",
     "@briebug/cypress-schematic": "^4.4.0",
