@@ -44,14 +44,4 @@ export class UserService {
         .catch();
     });
   }
-
-  public getTopUsers(): Promise<User[]> {
-    return new Promise((resolve, reject) => {
-      API.get(this.serviceBasePath, '/top_users', {})
-        .then((users: User[]) => {
-          return resolve(users);
-        })
-        .catch();
-    });
-  }
 }
