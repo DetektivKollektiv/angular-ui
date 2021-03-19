@@ -1,3 +1,5 @@
+@import '../../../../theme.scss';
+
 .container {
   height: 100%;
   display: flex;
@@ -31,7 +33,7 @@
 
 .user-info-categories{
   font-weight: bold;
-  font-family: Oswald, sans-serif;
+  font-family: Effra medium, sans-serif;
   font-size: max(0.8vw,12px);
   
   width: 35%;
@@ -41,7 +43,7 @@
 .user-info-values{
   width: 65%;
   overflow-wrap: break-word;
-  font-family: Lato, sans-serif;
+  font-family: Effra regular, sans-serif;
   font-size: max(0.8vw,12px);
 }
 
@@ -81,7 +83,7 @@ button.button-flat-profile:disabled {
 }
 
 .separator{
-  border-top: 3px dashed #ffcc00;
+  border-top: 3px dashed mat-color($custom-theme-accent);
   width: 90%;
 }
 .profile-picture{
@@ -91,7 +93,7 @@ button.button-flat-profile:disabled {
 }
 .profile-icon-background{
   position: absolute;
-  color: #ffcc00;
+  color: mat-color($custom-theme-accent);
   opacity: 0.85;
   font-size: 4vw;
   top: 9.5%;
@@ -104,9 +106,9 @@ button.button-flat-profile:disabled {
   position: absolute;
   color: #4A4A4A;
   opacity: 0.85;
-  font-family: Oswald, sans-serif;
+  font-family: Effra medium, sans-serif;
   font-size: 2vw;
-  top: 11.5%;
+  top: 15%;
   right: 3.7vw;
   z-index: 1;
   cursor: pointer;

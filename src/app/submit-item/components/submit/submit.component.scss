@@ -1,3 +1,5 @@
+@import '../../../../theme.scss';
+
 mat-radio-group {
   display: flex;
   flex-direction: column;
@@ -12,16 +14,16 @@ mat-radio-button {
 }
 
 mat-panel-title {
-  font-family: Oswald;
+  font-family: Effra medium, sans-serif;
   color: #4A4A4A;
 }
 
 mat-panel-title:hover {
-  color: #FFCC00;
+  color: mat-color($custom-theme-accent);
 }
 
 mat-panel-title.mat-expanded {
-  color: #FFCC00;
+  color: mat-color($custom-theme-accent);
 }
 
 textarea {
