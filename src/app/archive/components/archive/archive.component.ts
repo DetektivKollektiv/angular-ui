@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Item } from 'src/app/model/item';
 import { Filter } from '../../model/filter';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,7 +13,7 @@ import {
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
-import { AddFilterKeyword, SetFilter } from '../../state/archive.actions';
+import { AddFilterKeyword } from '../../state/archive.actions';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
@@ -43,17 +43,20 @@ export class ArchiveComponent implements OnInit {
     'close_timestamp',
     'result_score',
   ];
-  expandedItem: Item | null;
+  public expandedItem: Item | null;
+  public loaded = false;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private store: Store,
     private viewportScroller: ViewportScroller
   ) {}
 
   ngOnInit(): void {
-    this.items$.subscribe((items) => (this.items.data = items));
+    this.items$.subscribe((items) => {
+      this.items.data = items;
+      this.loaded = true;
+    });
 
     this.itemById$.subscribe((item) => {
       this.expandedItem = item;
@@ -67,38 +70,6 @@ export class ArchiveComponent implements OnInit {
       if (params.id) {
         this.store.dispatch(new AddFilterKeyword(params.id));
       }
-      // const filter = {
-      //   ...(params.id && { id: params.id }),
-      //   ...{ maxValue: params.maxValue ?? 4 },
-      //   ...{ minValue: params.minValue ?? 1 },
-      //   ...(params.keyword && {
-      //     keywords:
-      //       typeof params.keyword === 'string'
-      //         ? [params.keyword]
-      //         : [...params.keyword],
-      //   }),
-      //   ...(params.startDate && { startDate: params.startDate }),
-      //   ...(params.endDate && { endDate: params.endDate }),
-      // };
-      // this.store.dispatch(new SetFilter(filter));
-    });
-
-    this.filter$.subscribe((filter) => {
-      // this.router.navigate([], {
-      //   relativeTo: this.route,
-      //   queryParams: {
-      //     ...(filter.id && { id: filter.id }),
-      //     ...(filter.keywords &&
-      //       filter.keywords.length > 0 && {
-      //         keyword: filter.keywords,
-      //       }),
-      //     ...(filter.minValue && { minValue: filter.minValue }),
-      //     ...(filter.maxValue && { maxValue: filter.maxValue }),
-      //     ...(filter.startDate && { startDate: filter.startDate }),
-      //     ...(filter.endDate && { endDate: filter.endDate }),
-      //   },
-      //   queryParamsHandling: '',
-      // });
     });
   }
 }

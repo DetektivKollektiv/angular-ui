@@ -75,4 +75,9 @@ export class ArchiveToolbarComponent implements OnInit {
       this.store.dispatch(new SetEndDateFilter(event.value));
     }
   }
+
+  clear(): void {
+    this.store.dispatch(new SetStartDateFilter(null));
+    this.store.dispatch(new SetEndDateFilter(null));
+  }
 }

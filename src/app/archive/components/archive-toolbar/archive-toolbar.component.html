@@ -1,30 +1,17 @@
 <div class="container mat-elevation-z8">
   <mat-form-field class="keywords" appearance="fill">
     <mat-label>Schlüsselwort-Suche</mat-label>
-    <mat-chip-list #chipList aria-label="Fruit selection">
+    <mat-chip-list #chipList>
       <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true"
         (removed)="remove(keyword)">
         {{keyword}}
         <mat-icon matChipRemove>cancel</mat-icon>
       </mat-chip>
-      <input placeholder="..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event)">
     </mat-chip-list>
     <mat-icon matSuffix>search</mat-icon>
     <mat-hint>Durchsuche Inhalte und Tags</mat-hint>
-  </mat-form-field>
-  <!-- <button mat-raised-button [matMenuTriggerFor]="minMenu">Mindestens: {{filter.minValue}}</button>
-  <button mat-raised-button [matMenuTriggerFor]="maxMenu">Höchstens: {{filter.maxValue}}</button> -->
-  <mat-form-field appearance="fill">
-    <mat-label>Einreichungsdatum</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Start date" [value]="filter.startDate" (dateChange)="onStartDateChanged($event)"
-        readonly>
-      <input matEndDate placeholder="End date" [value]="filter.endDate" (dateChange)="onEndDateChanged($event)"
-        readonly>
-    </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
   </mat-form-field>
   <button mat-icon-button [matMenuTriggerFor]="scoreMenu">
     <mat-icon>tune</mat-icon>
@@ -33,6 +20,23 @@
 
 <mat-menu class="slider-menu" #scoreMenu="matMenu" xPosition="before">
   <div class="menu-content">
+    <h4>Einreichungsdatum</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Wähle einen Zeitraum...</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date" [value]="filter.startDate"
+          (dateChange)="onStartDateChanged($event)" readonly>
+        <input matEndDate placeholder="End date" [value]="filter.endDate" (dateChange)="onEndDateChanged($event)"
+          readonly>
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+
+    </mat-form-field>
+    <button mat-button *ngIf="filter.startDate || filter.endDate" matSuffix mat-icon-button aria-label="Clear"
+      (click)="clear()">
+      <mat-icon>close</mat-icon>
+    </button>
     <h4>Vertrauensindex</h4>
     <mat-label>Mindestens:</mat-label>
     <mat-slider class="score-slider" [max]="4" [min]="1" [step]="0.1" [thumbLabel]="true" [value]="filter.minValue"
@@ -41,13 +45,4 @@
     <mat-slider class="score-slider" [max]="4" [min]="1" [step]="0.1" [thumbLabel]="true" [value]="filter.maxValue"
       (change)="onMaxSliderChanged($event.value)"></mat-slider>
   </div>
-</mat-menu>
-
-<mat-menu class="slider-menu" #minMenu="matMenu">
-  <mat-slider class="score-slider" [max]="4" [min]="1" [step]="0.1" [thumbLabel]="true" [value]="filter.minValue"
-    (change)="onMinSliderChanged($event.value)"></mat-slider>
-</mat-menu>
-<mat-menu class="slider-menu" #maxMenu="matMenu">
-  <mat-slider class="score-slider" [max]="4" [min]="1" [step]="0.1" [thumbLabel]="true" [value]="filter.maxValue"
-    (change)="onMaxSliderChanged($event.value)"></mat-slider>
 </mat-menu>

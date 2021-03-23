@@ -13,21 +13,16 @@ export class ResultScoreComponent implements OnInit {
   ngOnInit(): void {}
 
   get title(): string {
-    switch (this.score.toPrecision(1)) {
-      case '1': {
-        return 'nicht vertrauenswürdig';
-      }
-      case '2': {
-        return 'eher nicht vertrauenswürdig';
-      }
-      case '3': {
-        return 'eher vertrauenswürdig';
-      }
-      case '4': {
-        return 'vertrauenswürdig';
-      }
-      default: {
-      }
+    if (this.score < 2) {
+      return 'nicht vertrauenswürdig';
+    } else if (this.score < 3) {
+      return 'eher nicht vertrauenswürdig';
+    } else if (this.score < 3.5) {
+      return 'eher vertrauenswürdig';
+    } else if (this.score >= 3.5) {
+      return 'vertrauenswürdig';
+    } else {
+      throw new Error('');
     }
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
-import { tap } from 'rxjs/operators';
+import { finalize, tap } from 'rxjs/operators';
 import { ArchiveService } from '../services/archive.service';
 import {
   AddFilterKeyword,
@@ -15,16 +15,13 @@ import {
 } from './archive.actions';
 import { ArchiveStateModel } from './archive.state.model';
 import { patch, append, removeItem } from '@ngxs/store/operators';
-import { stat } from 'node:fs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { relative } from 'node:path';
+import { LoaderService } from 'src/app/shared/loader/service/loader.service';
 
 @State<ArchiveStateModel>({
   name: 'archive',
   defaults: {
     items: [],
     filter: {
-      //id: '23318ce5-5bd2-45ef-8d65-711834e996ef',
       keywords: [],
       maxValue: 4,
       minValue: 1,
@@ -35,8 +32,7 @@ import { relative } from 'node:path';
 export class ArchiveState implements NgxsOnInit {
   constructor(
     private archiveService: ArchiveService,
-    private router: Router,
-    private route: ActivatedRoute
+    private loaderService: LoaderService
   ) {}
 
   @Selector()
@@ -53,7 +49,6 @@ export class ArchiveState implements NgxsOnInit {
   static filteredItems(state: ArchiveStateModel) {
     return state.items.filter(
       (i) =>
-        //(!state.filter.id || i.id === state.filter.id) &&
         (!state.filter.keywords ||
           state.filter.keywords
             .map((k) => k.toLowerCase())
@@ -79,7 +74,10 @@ export class ArchiveState implements NgxsOnInit {
 
   @Action(FetchAllItems)
   fetchAllItems(ctx: StateContext<ArchiveStateModel>) {
+    this.loaderService.show();
+
     return this.archiveService.getClosedItems().pipe(
+      finalize(() => this.loaderService.hide()),
       tap((items) => {
         ctx.patchState({ items });
       })

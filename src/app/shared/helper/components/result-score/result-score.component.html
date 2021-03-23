@@ -1,4 +1,4 @@
-<div class="score" [class.rating-1]="score.toPrecision(1) === '1'" [class.rating-2]="score.toPrecision(1) === '2'"
-  [class.rating-3]="score.toPrecision(1) === '3'" [class.rating-4]="score.toPrecision(1) === '4'">
-  {{score | number: "1.0-2"}} <span class="title"> - {{title}} </span>
+<div class="score" [class.rating-1]="score < 2" [class.rating-2]="score >= 2 && score < 3"
+  [class.rating-3]="score >= 3 && score <3.5" [class.rating-4]="score >= 3.5 && score <= 4">
+  {{score | number: "1.0-1"}} <span class="title"> - {{title}} </span>
 </div>
