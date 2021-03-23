@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 import { ProfilePictureComponent } from './profile-picture.component';
 
@@ -8,9 +10,9 @@ describe('ProfilePictureComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfilePictureComponent ]
-    })
-    .compileComponents();
+      declarations: [ProfilePictureComponent],
+      imports: [MaterialModule, RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
