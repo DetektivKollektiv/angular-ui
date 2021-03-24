@@ -8,6 +8,7 @@ app-archive-details {
 
 table {
   width: 100%;
+  table-layout: fixed;
 }
 
 tr.detail-row {
@@ -35,4 +36,19 @@ tr.item-row:not(.expanded-row):active {
 
 .no-data-cell {
   text-align: center;
+}
+
+.mat-column-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60%;
+  padding: 0 10px 0 0;
+}
+
+.mat-column-open_timestamp {
+  width: 10%;
+}
+.mat-column-close_timestamp {
+  width: 10%;
 }

@@ -19,7 +19,7 @@
 </div>
 
 <mat-menu class="slider-menu" #scoreMenu="matMenu" xPosition="before">
-  <div class="menu-content">
+  <div class="menu-content" (click)="$event.stopPropagation();">
     <h4>Einreichungsdatum</h4>
     <mat-form-field appearance="fill">
       <mat-label>Wähle einen Zeitraum...</mat-label>
