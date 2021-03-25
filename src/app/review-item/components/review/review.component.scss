@@ -1,3 +1,5 @@
+@import '../../../../theme.scss';
+
 p.case-content {
   min-height: 5em;
 }
@@ -27,11 +29,11 @@ p.case-content {
 
 .clickable:hover{
   cursor: pointer;
-  box-shadow: 0 0 4px 4px #FFCC00 ;
+  box-shadow: 0 0 4px 4px mat-color($custom-theme-accent);
 }
 
 .mat-card-content{
-  border-top: 2px dashed #FFCC00;
+  border-top: 2px dashed mat-color($custom-theme-accent);
 }
 
 div.review-finished {

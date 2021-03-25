@@ -1,3 +1,5 @@
+@import '../../../../theme.scss';
+
 .container {
   height: 100%;
   display: flex;
@@ -28,9 +30,8 @@ app-profile-picture {
 
 .user-info-categories {
   font-weight: bold;
-  font-family: Oswald, sans-serif;
-  font-size: max(0.8vw, 12px);
-
+  font-family: Effra medium, sans-serif;
+  font-size: max(0.8vw,12px);
   width: 35%;
   padding: 5% 0;
 }
@@ -38,8 +39,8 @@ app-profile-picture {
 .user-info-values {
   width: 65%;
   overflow-wrap: break-word;
-  font-family: Lato, sans-serif;
-  font-size: max(0.8vw, 12px);
+  font-family: Effra regular, sans-serif;
+  font-size: max(0.8vw,12px);
 }
 
 mat-progress-bar {
@@ -77,7 +78,7 @@ button.button-flat-profile:disabled {
   cursor: default;
 }
 
-.separator {
-  border-top: 3px dashed #ffcc00;
+.separator{
+  border-top: 3px dashed mat-color($custom-theme-accent);
   width: 90%;
 }

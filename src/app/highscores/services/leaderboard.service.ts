@@ -15,9 +15,7 @@ export class LeaderboardService {
   public getTopUsers(): Promise<Leaderboard> {
     return new Promise((resolve, reject) => {
       API.get(this.serviceBasePath, '/ranking', {})
-        .then((leaderboard: Leaderboard) => {
-          return resolve(leaderboard);
-        })
+        .then((leaderboard: Leaderboard) => resolve(leaderboard))
         .catch();
     });
   }
