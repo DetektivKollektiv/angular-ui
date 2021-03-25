@@ -19,11 +19,7 @@ export class ReviewAnswersService {
     };
 
     return API.post('review_service', this.reviewAnswersUrl, init)
-      .then(value => {
-        return value.data;
-      })
-      .catch(reason => {
-        return null;
-      });
+      .then(value => value.data)
+      .catch(reason => null);
   }
 }

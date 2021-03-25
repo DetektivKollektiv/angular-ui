@@ -1,96 +1,75 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
-import { ArchiveService } from '../../services/archive.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { Item } from 'src/app/model/item';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MaterialModule } from 'src/app/shared/material/material.module';
+import { Filter } from '../../model/filter';
+import { MatTableDataSource } from '@angular/material/table';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { Select, Store } from '@ngxs/store';
+import { ArchiveState } from '../../state/archive.state';
+import { Observable } from 'rxjs';
+import { AddFilterKeyword } from '../../state/archive.actions';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-archive',
   templateUrl: './archive.component.html',
   styleUrls: ['./archive.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition(
+        'expanded <=> collapsed',
+        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ),
+    ]),
+  ],
 })
 export class ArchiveComponent implements OnInit {
-  public itemsList: Item[] = [];
-  public itemsDisplayed: Item[] = [];
-  public noItems: boolean;
+  @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
+  @Select(ArchiveState.filter) filter$: Observable<Filter>;
+  @Select(ArchiveState.itemById) itemById$: Observable<Item>;
 
-  public searchTag = '';
-  searchFormGroup: FormGroup;
-  tagFormControl: FormControl;
+  public items = new MatTableDataSource<Item>();
+  public displayedColumns = [
+    'content',
+    'open_timestamp',
+    'close_timestamp',
+    'result_score',
+  ];
+  public expandedItem: Item | null;
+  public loaded = false;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private archiveService: ArchiveService,
-    private router: Router,
-    private snackBar: MatSnackBar,
-    private loaderService: LoaderService
-  ) { }
+    private route: ActivatedRoute,
+    private store: Store,
+    private viewportScroller: ViewportScroller
+  ) {}
 
   ngOnInit(): void {
-    this.tagFormControl = new FormControl();
-    this.searchFormGroup = this.formBuilder.group({
-      tagFormControl: this.tagFormControl,
+    this.items$.subscribe((items) => {
+      this.items.data = items;
+      this.loaded = true;
     });
 
-    this.loaderService.show();
-    this.archiveService
-      .getClosedItems()
-      .then((closedItems) => {
-        if (closedItems === null) {
-          this.noItems = true;
-        } else {
-          this.itemsList = closedItems;
-        }
-        this.itemsList = closedItems;
-        this.itemsDisplayed = this.itemsList;
-      })
-      .catch((_) => {
-        this.snackBar.open('Archiv kann nicht angezeigt werden.', 'Ok', {
-          duration: 2000,
-        });
-      })
-      .finally(() => this.loaderService.hide());
-  }
+    this.itemById$.subscribe((item) => {
+      this.expandedItem = item;
 
-  async searchByTag(): Promise<void> {
-    const searchResult: Item[] = [];
-    this.searchTag = this.tagFormControl.value;
-    if (!this.searchTag) {
-      this.clearSearchTag();
-      return;
-    }
-    // Search for items that have search term as tag
-    this.itemsList.forEach((item: Item) => {
-      if (!item.tags) {
-        // Continue with next item
-        return;
-      }
-      if (
-        item.tags.some((x) => x.toUpperCase() === this.searchTag.toUpperCase())
-      ) {
-        searchResult.push(item);
+      if (item) {
+        this.viewportScroller.scrollToAnchor(item.id);
       }
     });
-    // Search for items that have search term in item content (will be below exact tag matches)
-    this.itemsList.forEach((item: Item) => {
-      if (
-        item.content.toUpperCase().includes(this.searchTag.toUpperCase()) &&
-        !searchResult.includes(item)
-      ) {
-        searchResult.push(item);
-      }
-    });
-    this.itemsDisplayed = searchResult;
-    console.log(this.itemsDisplayed);
-  }
 
-  clearSearchTag(): void {
-    this.searchFormGroup.patchValue({
-      tagFormControl: '',
+    this.route.queryParams.subscribe((params) => {
+      if (params.id) {
+        this.store.dispatch(new AddFilterKeyword(params.id));
+      }
     });
-    this.itemsDisplayed = this.itemsList;
   }
 }

@@ -12,9 +12,7 @@ export class ItemTypesService {
 
   public getItemTypes(): Promise<ItemType[]> {
     return API.get('submission_service', this.itemTypesUrl, {})
-      .then((response: ItemType[]) => {
-        return response;
-      })
+      .then((response: ItemType[]) => response)
       .catch();
   }
 }

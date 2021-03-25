@@ -12,8 +12,6 @@ import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-chan
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
 import { IssuesComponent } from './issues/components/issues/issues.component';
 
-
-
 const routes: Routes = [
   { path: '', component: HomeComponent },
   // {path: 'info', component: InfoComponent},
@@ -21,24 +19,39 @@ const routes: Routes = [
   { path: 'data-privacy', component: DataPrivacyComponent },
   // {path: 'imprint', component: ImprintComponent},
   { path: 'submit', component: SubmitComponent },
-  { path: 'review', component: ReviewComponent, canActivate: [AuthGuard], canDeactivate: [UnsavedChangesGuard] },
+  {
+    path: 'review',
+    component: ReviewComponent,
+    canActivate: [AuthGuard],
+    canDeactivate: [UnsavedChangesGuard],
+  },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'archive', component: ArchiveComponent, canActivate: [AuthGuard] },
+  {
+    path: 'archive',
+    component: ArchiveComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'archive/:id',
+    component: ArchiveComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },
   { path: 'issues', component: IssuesComponent },
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
+  imports: [
+    RouterModule.forRoot(routes, {
     anchorScrolling: 'enabled',
-  })],
-  exports: [RouterModule]
+    relativeLinkResolution: 'legacy'
+}),
+  ],
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

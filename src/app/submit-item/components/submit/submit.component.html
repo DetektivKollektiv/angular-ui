@@ -141,7 +141,7 @@
 </div>
 
 <ng-template #finish>
-  <div class="page-container-column">
+  <div class="page-container-column" *ngIf="!itemClosed; else solved">
     <h1 *ngIf="!mailGiven">Danke, <span class="alt">dass du deinen Fall eingereicht hast!</span></h1>
     <h1 *ngIf="mailGiven">Nur noch ein Schritt - <span class="alt"> Mailadresse bestätigen</span></h1>
     <div class="page-container-row">
@@ -169,4 +169,19 @@
       <img height="380" src="assets/images/illustrations/undraw_with_love_ajy1.svg" width="380" />
     </div>
   </div>
+</ng-template>
+
+<ng-template #solved>
+  <div class="page-container-column">
+    <h1>Das kommt uns doch bekannt vor...</h1>
+    <p>Diesen Fall haben unsere Detektive schon bearbeitet und mit folgendem Vertrauensindex bewertet:</p>
+    <app-result-score [score]="item.result_score"></app-result-score>
+    <p>Weitere Details zu diesem Fall kannst du dir im Archiv ansehen.</p>
+    <div class="actions">
+      <button mat-raised-button color="accent" [routerLink]="['/archive']" [queryParams]="{id: item.id}">Zum
+        Archiv</button>
+    </div>
+  </div>
+
+
 </ng-template>

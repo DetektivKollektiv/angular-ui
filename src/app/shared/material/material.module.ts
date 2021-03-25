@@ -26,7 +26,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSliderModule } from '@angular/material/slider';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const modules = [
   MatSidenavModule,
@@ -56,7 +60,11 @@ const modules = [
   MatBadgeModule,
   MatTooltipModule,
   MatChipsModule,
-  MatSelectModule
+  MatSliderModule,
+  ClipboardModule,
+  MatSelectModule,
+  MatTableModule,
+  MatNativeDateModule,
 ];
 
 @NgModule({

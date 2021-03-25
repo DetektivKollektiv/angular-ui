@@ -18,15 +18,18 @@ import { ProfileModule } from './profile/profile.module';
 import { HighscoresModule } from './highscores/highscores.module';
 import { MyFileModule } from './my-file/my-file.module';
 import { IssuesModule } from './issues/issues.module';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { environment } from 'src/environments/environment';
+import { ArchiveState } from './archive/state/archive.state';
 
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -39,20 +42,25 @@ export function createTranslateLoader(http: HttpClient) {
     UnsavedChangesModule,
     SubmitItemModule,
     ReviewItemModule,
-    ArchiveModule,
     MyFileModule,
     IssuesModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
     }),
     ProfileModule,
-    HighscoresModule
+    HighscoresModule,
+    NgxsModule.forRoot([], {
+      developmentMode: !environment.production,
+    }),
+    NgxsLoggerPluginModule.forRoot({
+      disabled: environment.production,
+    }),
+    ArchiveModule,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

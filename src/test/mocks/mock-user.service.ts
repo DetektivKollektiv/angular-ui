@@ -1,16 +1,16 @@
-import {Injectable} from '@angular/core';
-import {of} from 'rxjs';
-import {User} from '../../app/core/model/user';
+import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
+import { User } from '../../app/core/model/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MockUserService {
+  readonly user$ = of({} as User);
 
-  readonly user$ = of({
+  constructor() {}
 
-  } as User);
-
-  constructor() {
+  public getTopUsers(): Promise<User[]> {
+    return new Promise((resolve, reject) => resolve([]));
   }
 }
