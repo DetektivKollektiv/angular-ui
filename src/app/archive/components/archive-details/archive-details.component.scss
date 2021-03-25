@@ -1,0 +1,27 @@
+.details-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.tag-label {
+  margin-bottom: 14px;
+}
+
+.share {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.share-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+share-button {
+  width: 100%;
+}

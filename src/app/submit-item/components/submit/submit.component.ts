@@ -20,8 +20,6 @@ import * as moment from 'moment';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { ItemType } from '../../model/item-type';
-import { TranslatePipe } from '@ngx-translate/core';
-import { throwIfEmpty } from 'rxjs/operators';
 
 export const MY_FORMATS = {
   display: {
@@ -65,9 +63,12 @@ export class SubmitComponent implements OnInit {
 
   submitEnabled: boolean;
   today = moment();
-  submitted: boolean;
   itemTypes: ItemType[];
+
+  submitted: boolean;
+  itemClosed: boolean;
   mailGiven: boolean;
+  item: Item;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -76,7 +77,7 @@ export class SubmitComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private loaderService: LoaderService
-  ) { }
+  ) {}
 
   get formArray(): AbstractControl | null {
     return this.formGroup.get('formArray');
@@ -119,7 +120,7 @@ export class SubmitComponent implements OnInit {
       emailFormControl: this.emailFormControl,
       privacyBox: this.privacyBox,
       termBox: this.termBox,
-      checkboxFormControl: this.checkboxFormControl
+      checkboxFormControl: this.checkboxFormControl,
     });
 
     this.getItemTypes();
@@ -161,12 +162,15 @@ export class SubmitComponent implements OnInit {
     this.loaderService.show();
     this.submitItemService
       .submitItem(item)
-      .then((_) => {
+      .then((result) => {
+        if (result.status === 'closed') {
+          this.item = result;
+          this.itemClosed = true;
+        }
+
         this.submitted = true;
-        this.loaderService.hide();
       })
       .catch((_) => {
-        this.loaderService.hide();
         this.snackBar.open(
           'Dein Fall konnte nicht eingereicht werden. Versuch es später nochmal.',
           'Ok',
@@ -174,7 +178,8 @@ export class SubmitComponent implements OnInit {
             duration: 2000,
           }
         );
-      });
+      })
+      .finally(() => this.loaderService.hide());
   }
 
   navigate(url: string) {

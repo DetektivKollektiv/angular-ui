@@ -1,0 +1,26 @@
+<div class="details-container">
+  <h3>Inhalt</h3>
+  <p>{{item.content}}</p>
+  <div *ngIf="item.tags.length > 0">
+    <h3 class="tag-label">Tags</h3>
+    <mat-chip-list>
+      <mat-chip *ngFor="let tag of item.tags">
+        {{ tag }}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="share">
+    <button mat-stroked-button class="report-button" [routerLink]="['/issues']" color="warn">Fall Melden</button>
+    <button mat-fab color="accent" [matMenuTriggerFor]="shareMenu">
+      <mat-icon>share</mat-icon>
+    </button>
+  </div>
+</div>
+
+<mat-menu #shareMenu="matMenu">
+  <div class="share-menu">
+    <share-buttons [theme]="'default'"
+      [include]="['facebook','twitter','linkedin','telegram','whatsapp','xing','email','copy']" [url]="link"
+      [autoSetMeta]="true"></share-buttons>
+  </div>
+</mat-menu>

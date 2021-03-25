@@ -8,8 +8,8 @@ mat-radio-group {
 mat-radio-button {
   margin: 5px;
 }
- .app-file-container{
-  width: 75%;
+.app-file-container {
+  width: 100%;
   margin-top: 3vh;
 }
 
@@ -38,11 +38,11 @@ form.form-left-aligned {
 }
 
 mat-form-field {
-  width:100%;
+  width: 100%;
 }
 
-.mail-field{
-  width:50%
+.mail-field {
+  width: 50%;
 }
 
 .info-text {
@@ -50,10 +50,15 @@ mat-form-field {
   margin-right: 5%;
 }
 
-.secret-checkbox{
+.secret-checkbox {
   display: none;
 }
-/* ::ng-deep .mat-checkbox-layout {
-  white-space: normal !important;
-} */
 
+app-result-score {
+  width: max-content;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}

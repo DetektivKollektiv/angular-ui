@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.container > * {
+  margin: 0px 10px;
+}
+
+.search-form-field {
+  width: 250px;
+}
+
+.menu-content {
+  padding: 10px;
+}
+
+.score-slider {
+  width: 150px;
+}
+
+.keywords {
+  flex-grow: 1;
+}

@@ -14,9 +14,7 @@ export class ItemsService {
         num_items: 5,
       },
     })
-      .then((value: Item[]) => {
-        return value;
-      })
+      .then((value: Item[]) => value)
       .catch();
   }
 
@@ -36,9 +34,7 @@ export class ItemsService {
       body: { tags: tagsList },
       response: true,
     })
-      .then((response: string) => {
-        return response;
-      })
+      .then((response: string) => response)
       .catch((err) => {
         throw new Error(`Could not find item tags: ${err}`);
       });

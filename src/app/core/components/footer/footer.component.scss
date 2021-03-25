@@ -3,11 +3,12 @@
   bottom: 0px;
   height: 100%;
   width: 100%;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px -1px 3px #00000029;
   opacity: 1;
+  z-index: 100;
+  position: relative;
 }
-
 
 .container {
   width: 100%;
@@ -22,7 +23,7 @@
 
 p {
   letter-spacing: 0px;
-  color: #4A4A4A;
+  color: #4a4a4a;
   font-size: 13px;
 }
 
@@ -36,10 +37,10 @@ li {
   padding-right: 1em;
   padding-left: 1em;
   font-size: 13px;
-  color: #4A4A4A;
+  color: #4a4a4a;
 
   a {
-    color: #4A4A4A;
+    color: #4a4a4a;
     text-decoration: none;
     cursor: pointer;
   }
