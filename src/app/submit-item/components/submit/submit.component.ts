@@ -143,19 +143,18 @@ export class SubmitComponent implements OnInit {
     }
     const item = {
       content: this.contentFormControl.value,
-      mail: this.emailFormControl.value,
       received_date: this.receivedFormControl.value.format(
         'YYYY-MM-DD HH:mm:ss'
       ),
       frequency: this.frequencyFormControl.value,
       item_type_id: this.typeFormControl.value,
       source:
-        this.sourceFormControl.value === '4'
+        (this.sourceFormControl.value === 'other' && this.sourceTextFormControl.value && this.sourceTextFormControl.value !== '')
           ? this.sourceTextFormControl.value
           : this.sourceFormControl.value,
     } as Item;
-
-    if (item.mail) {
+    if (this.emailFormControl.value && this.emailFormControl.value !== '') {
+      item.mail = this.emailFormControl.value;
       this.mailGiven = true;
     }
 
