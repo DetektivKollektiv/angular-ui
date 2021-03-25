@@ -46,6 +46,14 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
     return this.openCases?.[this.caseIndex];
   }
 
+  @HostListener('window:beforeunload', ['$event'])
+  public onPageUnload($event: BeforeUnloadEvent) {
+    if (this.hasChanges()) {
+      $event.returnValue =
+        'Deine Änderungen gehen verloren, wenn du die Seite neu lädst.';
+    }
+  }
+
   ngOnInit(): void {
     this.caseAccepted = false;
     this.finished = false;
@@ -106,14 +114,6 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
 
   hasChanges() {
     return this.caseAccepted && !this.finished;
-  }
-
-  @HostListener('window:beforeunload', ['$event'])
-  public onPageUnload($event: BeforeUnloadEvent) {
-    if (this.hasChanges()) {
-      $event.returnValue =
-        'Deine Änderungen gehen verloren, wenn du die Seite neu lädst.';
-    }
   }
 
   private getNewCase(): void {

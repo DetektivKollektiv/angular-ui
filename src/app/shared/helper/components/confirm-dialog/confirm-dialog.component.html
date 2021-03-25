@@ -1,0 +1,14 @@
+<div class="details-container">
+  <div class="close">
+    <button mat-icon-button matDialogClose tabindex="-1">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <h1>{{data.title}}</h1>
+  <p>{{data.content}}</p>
+
+  <div class="actions">
+    <button mat-raised-button color="accent" [mat-dialog-close]="true">Ja</button>
+    <button mat-stroked-button color="accent" [mat-dialog-close]="false">Nein</button>
+  </div>
+</div>
