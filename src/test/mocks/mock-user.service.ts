@@ -6,7 +6,7 @@ import { User } from '../../app/core/model/user';
   providedIn: 'root',
 })
 export class MockUserService {
-  readonly user$ = of({} as User);
+  readonly user$ = of({level: 3, name:'testuser'} as User);
 
   constructor() {}
 

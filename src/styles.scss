@@ -219,3 +219,37 @@ div.dialog-container {
 mat-icon {
   color: #4a4a4a;
 }
+/* TODO: Use colors from theme instead of manually configuring */
+
+.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color:  #FAC800
+}
+
+.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle{
+  border-color:  #FAC800
+}
+.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element{
+  background-color: #FAC800
+}
+
+.purple-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #5F38FA
+}
+
+.purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle{
+  border-color: #5F38FA
+}
+.purple-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element{
+  background-color:#5F38FA
+}
+
+.coral-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #FF7268
+}
+
+.coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle{
+  border-color: #FF7268
+}
+.coral-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element{
+  background-color:#FF7268
+}
