@@ -1,8 +1,15 @@
 <div class="user-icon-large" [routerLink]="['/my-file']">
-  <mat-icon class="profile-icon-background">bookmark</mat-icon>
-  <span class="profile-icon-level">{{level}}</span>
-  <div class="profileCircle">
-    <div class="user_initials">{{ user.name.substring(0,2)}}</div>
+  <mat-icon class="profile-icon-background"
+    [class.purpleIcon]="profileColor == 'yellow'"
+    [class.coralIcon]="profileColor == 'purple'"
+    [class.yellowIcon]="profileColor == 'coral'"
+  >bookmark</mat-icon>
+  <span class="profile-icon-level">{{ user.level }}</span>
+  <div class="profileCircle" 
+    [class.yellowCircle]="profileColor == 'yellow'"
+    [class.purpleCircle]="profileColor == 'purple'"
+    [class.coralCircle]="profileColor == 'coral'">
+    <div class="user_initials">{{ user.name.substring(0,2) }}</div>
   </div>
 </div>
 <div class="profile-color-selection-container">
