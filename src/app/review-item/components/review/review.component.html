@@ -1,10 +1,10 @@
 <div class="page-container-column" *ngIf="!finished; else finish">
-  <div class="heading">
+  <div *ngIf="!caseAccepted" class="heading">
     <h1>
       Du willst einen Fall lösen?
       <span class="alt">Versuche dich doch an diesem Fall.</span>
     </h1>
-    <p *ngIf="!caseAccepted">
+    <p>
       Lies dir die Details zu diesem Fall gründlich durch. Wenn du denkst, dass
       du den Fall lösen kannst, klicke auf
       <i><b>Fall annehmen</b></i>. Falls du lieber einen anderen Fall lösen willst, klicke auf
