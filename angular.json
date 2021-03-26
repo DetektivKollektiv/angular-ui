@@ -25,7 +25,7 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/dk.ico",
+              "src/logo_16x16.ico",
               "src/assets"
             ],
             "styles": [
@@ -153,7 +153,7 @@
             "tsconfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/dk.ico",
+              "src/logo_16x16.ico",
               "src/assets"
             ],
             "styles": [

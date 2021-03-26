@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let user of userList;let index=index;">
+            <tr *ngFor="let user of leaderboard.top_users;let index=index;">
               <td>{{index + 1}}</td>
               <td>{{user.name}}</td>
               <td>{{user.level}}</td>
@@ -41,10 +41,46 @@
         </table>
       </mat-tab>
       <mat-tab>
-        <h3 class="highscore-title">Hier kommt bald mehr Content! :)</h3>
+        <h3 class="highscore-title">Top Detektive auf deinem Level!</h3>
+        <table class="highscore-content-table">
+          <thead>
+            <tr>
+              <th>Platz</th>
+              <th>Username</th>
+              <th>Level</th>
+              <th>Erfahrungspunkte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of leaderboard.top_users_by_level;let index=index;">
+              <td>{{index + 1}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.level}}</td>
+              <td>{{user.experience_points}}</td>
+            </tr>
+          </tbody>
+        </table>
       </mat-tab>
       <mat-tab>
-        <h3 class="highscore-title">Hier kommt bald noch mehr Content! :)</h3>
+        <h3 class="highscore-title">Top Newcomer Detektive!</h3>
+        <table class="highscore-content-table">
+          <thead>
+            <tr>
+              <th>Platz</th>
+              <th>Username</th>
+              <th>Level</th>
+              <th>Erfahrungspunkte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of leaderboard.top_users_by_period;let index=index;">
+              <td>{{index + 1}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.level}}</td>
+              <td>{{user.experience_points}}</td>
+            </tr>
+          </tbody>
+        </table>
       </mat-tab>
     </mat-tab-group>
   </div>

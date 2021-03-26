@@ -34,6 +34,13 @@ tr.item-row:not(.expanded-row):active {
   width: 100%;
 }
 
+td {
+  font-family: Effra regular, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: #4a4a4a;
+}
+
 .no-data-cell {
   text-align: center;
 }
