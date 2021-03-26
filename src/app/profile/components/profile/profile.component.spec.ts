@@ -8,6 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { ProfilePictureComponent } from '../profile-picture/profile-picture.component';
+import { FormsModule } from '@angular/forms';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -16,7 +17,7 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProfileComponent, ProfilePictureComponent],
-      imports: [MaterialModule, RouterTestingModule],
+      imports: [MaterialModule, RouterTestingModule, FormsModule],
       providers: [
         { provide: AuthService, useClass: MockAuthService },
         { provide: UserService, useClass: MockUserService },

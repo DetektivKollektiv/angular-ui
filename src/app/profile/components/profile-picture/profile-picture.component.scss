@@ -1,9 +1,10 @@
 
+@import "../../../../theme.scss";
 
 .user-icon-large {
-  height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -15,24 +16,48 @@
 }
 .profile-icon-background {
   position: absolute;
-  color: #ffcc00;
+  color: #FAC800;
   opacity: 0.85;
   font-size: 75px;
   top: 0;
-  right: 50px;
+  right: 75px;
+  top: 15px;
   z-index: 1;
   cursor: pointer;
 }
 
 .profile-icon-level {
   position: absolute;
-  top: 10px;
-  right: 30px;
+  top: 20px;
+  right: 55px;
   font-size: 30px;
-  color: #4a4a4a;
+  color: #fff;
   opacity: 0.85;
   font-family: Oswald, sans-serif;
   z-index: 2;
   cursor: pointer;
 }
 
+.profileCircle{
+    background:#FAC800;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius:50%;
+    font-size:50px;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_initials{
+  margin-top: 100%;
+}
+.profile-color-selection-container{
+  padding-top: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

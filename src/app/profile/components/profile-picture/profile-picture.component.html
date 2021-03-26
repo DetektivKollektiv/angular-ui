@@ -1,5 +1,18 @@
 <div class="user-icon-large" [routerLink]="['/my-file']">
   <mat-icon class="profile-icon-background">bookmark</mat-icon>
   <span class="profile-icon-level">{{level}}</span>
-  <img class="profile-picture" src="/assets/images/avatar/ml-assistant-avatar.png" />
+  <div class="profileCircle">
+    <div class="user_initials">{{ user.name.substring(0,2)}}</div>
+  </div>
+</div>
+<div class="profile-color-selection-container">
+  <mat-radio-group 
+    aria-label="Bitte wähle eine Farbe für dein Profilbild" 
+    class="profile-color-radio-group"
+    [(ngModel)]="profileColor"
+    (change)="profileColorChanged()">
+    <mat-radio-button value="yellow" class="yellow-radio-button"></mat-radio-button>
+    <mat-radio-button value="purple" class="purple-radio-button"></mat-radio-button>
+    <mat-radio-button value="coral" class="coral-radio-button"></mat-radio-button>
+  </mat-radio-group>
 </div>

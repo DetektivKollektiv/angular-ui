@@ -4,7 +4,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { RouterModule } from '@angular/router';
 import { ProfilePictureComponent } from './components/profile-picture/profile-picture.component';
-
+import { FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { ProfilePictureComponent } from './components/profile-picture/profile-pi
     imports: [
         CommonModule,
         RouterModule,
-        MaterialModule
+        MaterialModule,
+        FormsModule
     ]
 })
 export class ProfileModule { }
