@@ -3,6 +3,7 @@
 //}
 
 mat-radio-group {
+  margin-top: 40px !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,4 +19,17 @@ mat-radio-button + mat-radio-button {
 
 mat-icon {
   cursor: pointer;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+}
+
+.not-last-item {
+  font-weight: bold;
+}
+
+.last-item {
+  margin-top: 40px !important;
 }

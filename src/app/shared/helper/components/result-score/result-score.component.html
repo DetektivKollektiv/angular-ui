@@ -1,4 +1,15 @@
-<div class="score" [class.rating-1]="score < 2" [class.rating-2]="score >= 2 && score < 3"
-  [class.rating-3]="score >= 3 && score <3.5" [class.rating-4]="score >= 3.5 && score <= 4">
-  {{score | number: "1.0-1"}} <span class="title"> - {{title}} </span>
+<div [ngSwitch]="mode">
+  <div *ngSwitchCase="resultScoreMode.text" class="score" [class.rating-1]="score < 2"
+    [class.rating-2]="score >= 2 && score < 3" [class.rating-3]="score >= 3 && score <3.5"
+    [class.rating-4]="score >= 3.5 && score <= 4">
+    {{score | number: "1.0-1"}} <span class="title"> - {{title}} </span>
+  </div>
+
+
+  <div *ngSwitchCase="resultScoreMode.bar" class="background" [matTooltip]="title" [matTooltipPosition]="'after'"
+    [matTooltipClass]="'test'">
+    <div class="fill" [class.rating-1]="score < 2" [class.rating-2]="score >= 2 && score < 3"
+      [class.rating-3]="score >= 3 && score <3.5" [class.rating-4]="score >= 3.5 && score <= 4"
+      [style.width]="fillPercentage">{{score | number: "1.0-1"}}</div>
+  </div>
 </div>

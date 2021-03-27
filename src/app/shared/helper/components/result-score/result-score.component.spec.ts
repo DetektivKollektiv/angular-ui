@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResultScoreComponent } from './result-score.component';
 import { expect, test } from '@jest/globals';
+import { MaterialModule } from 'src/app/shared/material/material.module';
+import { ResultScoreMode } from './result-score-mode';
 
 describe('ResultScoreComponent', () => {
   let component: ResultScoreComponent;
@@ -11,6 +13,7 @@ describe('ResultScoreComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ResultScoreComponent],
+      imports: [MaterialModule],
     }).compileComponents();
   });
 
@@ -43,15 +46,14 @@ describe('ResultScoreComponent', () => {
     '%#: %d should have text %s and class %s',
     (score: number, title: string, cssClass: string) => {
       component.score = score;
+      component.mode = ResultScoreMode.bar;
       fixture.detectChanges();
 
-      expect(element.querySelector('.score').classList.contains(cssClass)).toBe(
+      expect(element.querySelector('.fill').classList.contains(cssClass)).toBe(
         true
       );
 
       expect(component.title).toEqual(title);
-
-      expect(element.querySelector('.title').textContent).toContain(title);
     }
   );
 });

@@ -64,9 +64,9 @@ h3 {
 
 p {
   font-family: Effra regular, sans-serif;
-  font-size: max(0.7vw,14px);
-  line-height: max(1vw,22px);;
-  color: #4A4A4A;
+  font-size: max(0.7vw, 14px);
+  line-height: max(1vw, 22px);
+  color: #4a4a4a;
 }
 
 div.page-content {
@@ -222,34 +222,44 @@ mat-icon {
 /* TODO: Use colors from theme instead of manually configuring */
 
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color:  #FAC800
+  background-color: #fac800;
 }
 
-.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle{
-  border-color:  #FAC800
+.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: #fac800;
 }
-.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element{
-  background-color: #FAC800
+.yellow-radio-button.mat-radio-button.mat-accent
+  .mat-radio-ripple
+  .mat-ripple-element {
+  background-color: #fac800;
 }
 
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: #5F38FA
+  background-color: #5f38fa;
 }
 
-.purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle{
-  border-color: #5F38FA
+.purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: #5f38fa;
 }
-.purple-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element{
-  background-color:#5F38FA
+.purple-radio-button.mat-radio-button.mat-accent
+  .mat-radio-ripple
+  .mat-ripple-element {
+  background-color: #5f38fa;
 }
 
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: #FF7268
+  background-color: #ff7268;
 }
 
-.coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle{
-  border-color: #FF7268
+.coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: #ff7268;
 }
-.coral-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element{
-  background-color:#FF7268
+.coral-radio-button.mat-radio-button.mat-accent
+  .mat-radio-ripple
+  .mat-ripple-element {
+  background-color: #ff7268;
+}
+
+.mat-tooltip {
+  font-size: 15px !important;
 }

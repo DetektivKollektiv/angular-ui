@@ -9,6 +9,7 @@ app-archive-details {
 table {
   width: 100%;
   table-layout: fixed;
+  white-space: nowrap;
 }
 
 tr.detail-row {
@@ -49,13 +50,23 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 60%;
   padding: 0 10px 0 0;
+  width: 50%;
 }
 
 .mat-column-open_timestamp {
   width: 10%;
 }
+
 .mat-column-close_timestamp {
   width: 10%;
+}
+
+.mat-column-result_score {
+  min-width: min-content;
+  max-width: max-content;
+}
+
+th {
+  align-items: center;
 }

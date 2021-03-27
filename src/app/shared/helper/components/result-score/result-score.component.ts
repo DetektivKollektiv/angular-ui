@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ResultScoreMode } from './result-score-mode';
 
 @Component({
   selector: 'app-result-score',
@@ -8,9 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ResultScoreComponent implements OnInit {
   @Input() public score: number;
 
+  @Input() public mode: ResultScoreMode;
+
+  public resultScoreMode = ResultScoreMode;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  get fillPercentage(): string {
+    return `${(100 / 4) * this.score}%`;
+  }
 
   get title(): string {
     if (this.score < 2) {

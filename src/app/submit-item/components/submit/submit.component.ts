@@ -20,6 +20,7 @@ import * as moment from 'moment';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { ItemType } from '../../model/item-type';
+import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
 
 export const MY_FORMATS = {
   display: {
@@ -69,6 +70,8 @@ export class SubmitComponent implements OnInit {
   itemClosed: boolean;
   mailGiven: boolean;
   item: Item;
+
+  public resultScoreMode = ResultScoreMode.text;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -150,7 +153,9 @@ export class SubmitComponent implements OnInit {
       frequency: this.frequencyFormControl.value,
       item_type_id: this.typeFormControl.value,
       source:
-        (this.sourceFormControl.value === 'other' && this.sourceTextFormControl.value && this.sourceTextFormControl.value !== '')
+        this.sourceFormControl.value === 'other' &&
+        this.sourceTextFormControl.value &&
+        this.sourceTextFormControl.value !== ''
           ? this.sourceTextFormControl.value
           : this.sourceFormControl.value,
     } as Item;
