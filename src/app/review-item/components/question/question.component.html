@@ -7,9 +7,14 @@
 
 <form *ngIf="form" [formGroup]="form">
   <mat-radio-group formControlName="option">
-    <mat-radio-button *ngFor="let option of this.options" [value]="option" [checked]="false"
-      [matTooltip]="option.tooltip">
-      {{option.text}}
+    <mat-radio-button *ngFor="let option of this.options; let last = last" [value]="option" [checked]="false"
+      [class.not-last-item]="!last" [class.last-item]="last">
+      <div class="option">
+        <span>{{option.text}}</span>
+        <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above">
+          help
+        </mat-icon>
+      </div>
     </mat-radio-button>
   </mat-radio-group>
 </form>

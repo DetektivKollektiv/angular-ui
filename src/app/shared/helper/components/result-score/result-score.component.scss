@@ -1,3 +1,18 @@
+.background {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.fill {
+  color: white;
+  font-weight: bold;
+  height: 35px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 5px;
+}
+
 .score {
   color: white;
   font-weight: bold;
@@ -6,7 +21,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: max-content;
 }
 
 .title {

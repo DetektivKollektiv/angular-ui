@@ -175,7 +175,7 @@
   <div class="page-container-column">
     <h1>Das kommt uns doch bekannt vor...</h1>
     <p>Diesen Fall haben unsere Detektive schon bearbeitet und mit folgendem Vertrauensindex bewertet:</p>
-    <app-result-score [score]="item.result_score"></app-result-score>
+    <app-result-score [score]="item.result_score" [mode]="resultScoreMode"></app-result-score>
     <p>Weitere Details zu diesem Fall kannst du dir im Archiv ansehen.</p>
     <div class="actions">
       <button mat-raised-button color="accent" [routerLink]="['/archive']" [queryParams]="{id: item.id}">Zum

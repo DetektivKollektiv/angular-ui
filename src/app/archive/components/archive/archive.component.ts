@@ -15,6 +15,7 @@ import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
 import { AddFilterKeyword } from '../../state/archive.actions';
 import { ViewportScroller } from '@angular/common';
+import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
 
 @Component({
   selector: 'app-archive',
@@ -45,6 +46,7 @@ export class ArchiveComponent implements OnInit {
   ];
   public expandedItem: Item | null;
   public loaded = false;
+  public resultScoreMode = ResultScoreMode.bar;
 
   constructor(
     private route: ActivatedRoute,
