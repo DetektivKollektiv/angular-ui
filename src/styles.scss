@@ -48,6 +48,7 @@ h1 {
     font-family: Effra medium, sans-serif;
     line-height: 70px;
     font-size: 40px;
+    font-size: max(1.8vw, 12px);
     color: #4a4a4a;
   }
 }
