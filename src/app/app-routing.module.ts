@@ -14,10 +14,8 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  // {path: 'info', component: InfoComponent},
   { path: 'terms', component: CommunityGuidelinesComponent },
   { path: 'data-privacy', component: DataPrivacyComponent },
-  // {path: 'imprint', component: ImprintComponent},
   { path: 'submit', component: SubmitComponent },
   {
     path: 'review',
@@ -48,9 +46,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-    anchorScrolling: 'enabled',
-    relativeLinkResolution: 'legacy'
-}),
+      anchorScrolling: 'enabled',
+      relativeLinkResolution: 'legacy',
+    }),
   ],
   exports: [RouterModule],
 })

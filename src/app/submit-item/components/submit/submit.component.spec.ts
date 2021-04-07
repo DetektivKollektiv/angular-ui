@@ -21,15 +21,11 @@ describe('SubmitComponent', () => {
         MaterialModule,
         LoaderModule,
         HelperModule,
-        TranslateModule
+        TranslateModule,
       ],
       declarations: [SubmitComponent],
-      providers: [
-        FormBuilder,
-        SubmitItemService
-      ]
-    })
-      .compileComponents();
+      providers: [FormBuilder, SubmitItemService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

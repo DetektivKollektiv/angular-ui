@@ -1,0 +1,28 @@
+<div class="container">
+  <!-- <mat-card class="example-card" [ngClass]="{ clickable: isClickable() }" (click)="goToFactUrl()"> -->
+  <mat-card [class.clickable-container]="this.factCheck?.url">
+    <mat-card-header>
+      <img mat-card-avatar src="/assets/images/avatar/ml-assistant-avatar.png" />
+      <mat-card-title class="title">Was sagen andere Fact-Checker dazu?</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <hr class="separator">
+      <div *ngIf="!loading; else loader">
+        <p *ngIf="factCheck; else noFactcheck" class="factcheck" (click)="openFactcheck()">
+          {{ factCheck.title }}
+        </p>
+        <p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #loader>
+  <mat-spinner [color]="color" [diameter]="50"></mat-spinner>
+</ng-template>
+
+<ng-template #noFactcheck>
+  <p>
+    Leider gibt es noch keine Informationen über diesen Fall
+  </p>
+</ng-template>

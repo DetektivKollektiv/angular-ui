@@ -1,0 +1,13 @@
+<app-question [question]="question" (valueChange)="parentValueChanged()"></app-question>
+
+<div *ngFor="let child_question of childQuestions">
+  <app-question
+    *ngIf="question.answer_value && question.answer_value >= child_question.lower_bound && question.answer_value <= child_question.upper_bound"
+    [question]="child_question"></app-question>
+</div>
+
+<div class="step-actions">
+  <button class="button-primary" [disabled]="!valid" (click)="answerQuestion()">Nächste
+    Frage</button>
+  <button class="button-flat" matStepperPrevious *ngIf="index > 0">Zurück</button>
+</div>

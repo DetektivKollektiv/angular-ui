@@ -8,7 +8,7 @@
   </div>
   <div class="app-file-container">
     <app-file [heading]="'Fall einreichen'" subheading="Schritt {{stepper.selectedIndex + 1}} von 4">
-      <mat-horizontal-stepper #stepper linear>
+      <mat-horizontal-stepper #stepper linear labelPosition="bottom" color="accent">
         <mat-step>
           <p>
             Handelt es sich bei deinem Fall um eine Textnachricht (SMS, Post, Tweet etc.) oder um einen Link zu einem

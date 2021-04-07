@@ -1,0 +1,26 @@
+<mat-horizontal-stepper labelPosition="bottom" linear #stepper>
+  <mat-step *ngFor="let question of parentQuestions; let index = index" label="Frage {{index + 1}}" [color]="'accent'"
+    [completed]="question.answer_value !== null">
+    <app-review-question [question]="question" [childQuestions]="getChildQuestions(question.question_id)"
+      [index]="index" (questionAnswered)="updateReview()">
+    </app-review-question>
+  </mat-step>
+  <mat-step label="Schlüsselwörter" [color]="'accent'">
+    <h3>Letzte Frage!</h3>
+    <p>
+      Mit welchen Schlüsselwörtern würdest du diesen Fall kategorisieren? Füge neue Tags hinzu, indem du einen
+      Begriff
+      eingibst und Enter drückst.
+      Falls Tags vorhanden sind, die nicht zum Fall passen, kannst du diese auch löschen.
+    </p>
+    <app-tags-question [review]="review" [itemId]="itemId">
+    </app-tags-question>
+
+    <div class="step-actions">
+      <button class="button-primary" type="button" (click)="finishReview()">
+        Fall abschließen
+      </button>
+      <button class="button-flat" matStepperPrevious>Zurück</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
