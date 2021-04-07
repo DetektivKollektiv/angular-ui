@@ -1,27 +1,25 @@
 div.wrapper {
-/*   display: flex;
+  /*   display: flex;
   justify-content: center; */
   filter: drop-shadow(0px 0px 3px #00000029);
   width: 100%;
-  ::ng-deep .mat-horizontal-stepper-header-container {
+  .mat-horizontal-stepper-header-container {
     display: none !important;
   }
 }
 
-
 div.file {
   display: inline-block;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
+  background: #ffffff 0% 0% no-repeat padding-box;
   width: 100%;
   height: 100%;
-  clip-path: polygon(0 0, 35% 0, 40% 12%, 100% 12%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 35% 0, 40% 50px, 100% 50px, 100% 100%, 0 100%);
 }
 
 div.file div.heading {
-  height: 12%;
+  height: 50px;
   width: 50%;
   padding-left: 5%;
-
 }
 
 div.file div.heading p {
@@ -33,5 +31,3 @@ div.file div.content {
   width: 100%;
   height: 88%;
 }
-
-

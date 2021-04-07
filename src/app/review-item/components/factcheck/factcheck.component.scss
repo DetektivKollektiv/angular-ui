@@ -1,0 +1,31 @@
+@import '../../../../theme.scss';
+
+.container {
+  display: inline-block;
+  margin: 8px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  height: 10px;
+}
+
+.separator {
+  border-top: 3px dashed mat-color($custom-theme-accent);
+  width: 100%;
+}
+
+.clickable-container:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px mat-color($custom-theme-accent);
+}

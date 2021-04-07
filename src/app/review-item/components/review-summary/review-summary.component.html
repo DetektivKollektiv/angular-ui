@@ -1,0 +1,6 @@
+<div *ngFor="let question of review.questions">
+  <ng-container *ngIf="question.answer_value !== null">
+    <h4>{{question.content}}</h4>
+    <p>{{question.answer_value}}</p>
+  </ng-container>
+</div>

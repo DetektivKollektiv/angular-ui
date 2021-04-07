@@ -1,23 +1,22 @@
-<h4>{{question?.content}}<span *ngIf="question?.hint">
-    <mat-icon [matTooltip]="question?.hint" matTooltipPosition="above"> help
+<h4>{{question.content}}
+  <span *ngIf="question.hint">
+    <mat-icon [matTooltip]="question.hint" matTooltipPosition="above"> help
     </mat-icon>
-    <mat-icon [matTooltip]="question?.info" matTooltipPosition="above">info
+  </span>
+  <span *ngIf="question.info">
+    <mat-icon [matTooltip]="question.info" matTooltipPosition="above"> info
     </mat-icon>
-  </span></h4>
+  </span>
+</h4>
 
-<form *ngIf="form" [formGroup]="form">
-  <mat-radio-group formControlName="option">
-    <mat-radio-button *ngFor="let option of this.options; let last = last" [value]="option" [checked]="false"
-      [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
-      <div class="option">
-        <span>{{option.text}}</span>
-        <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above">
-          help
-        </mat-icon>
-      </div>
-    </mat-radio-button>
-  </mat-radio-group>
-</form>
-<div class="button-group">
-  <button class="button-primary" type="button" (click)="answer()" [disabled]="form?.invalid">Weiter</button>
-</div>
+<mat-radio-group [(ngModel)]="question.answer_value" (change)="change()">
+  <mat-radio-button *ngFor="let option of question.options" [value]="option.value" [checked]="false"
+    [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
+    <div class="option">
+      <span>{{option.text}}</span>
+      <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above">
+        help
+      </mat-icon>
+    </div>
+  </mat-radio-button>
+</mat-radio-group>
