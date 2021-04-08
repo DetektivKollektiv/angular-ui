@@ -1,8 +1,8 @@
- .app-file-container{
-    padding-top: 10%;
-    padding-bottom: 20%;
-    width: 100%;
-    height:100%;
+.app-file-container {
+  padding-top: 10%;
+  padding-bottom: 20%;
+  width: 100%;
+  height: 100%;
   margin: auto;
 }
 
@@ -10,7 +10,7 @@
   width: 100%;
   height: 15%;
   justify-content: left;
-  align-items: baseline; 
+  align-items: baseline;
   table-layout: fixed;
 }
 
@@ -18,36 +18,35 @@
   width: 100%;
   height: 85%;
   justify-content: left;
-  align-items: baseline; 
+  align-items: baseline;
   table-layout: fixed;
 }
 
-.user-info-categories{
+.user-info-categories {
   font-weight: bold;
-  font-family: Oswald, sans-serif;
-  font-size: max(0.8vw,12px);
+  font-family: Effra medium, sans-serif;
+  font-size: max(0.8vw, 12px);
   vertical-align: middle;
   width: 25%;
   padding-bottom: 2%;
 }
 
-.user-info-values{
+.user-info-values {
   width: 80%;
   overflow-wrap: break-word;
-  font-family: Lato, sans-serif;
-  font-size: max(0.8vw,12px);
+  font-family: Effra regular, sans-serif;
+  font-size: max(0.8vw, 12px);
   vertical-align: middle;
   padding-left: 2%;
   padding-bottom: 2%;
 }
 
-app-file{
-    height: 100%;
-    width: 100%
+app-file {
+  height: 100%;
+  width: 100%;
 }
 
-
-.separator{
+.separator {
   border-top: 3px dashed #000;
   width: 100%;
   padding-bottom: 2%;
@@ -56,18 +55,19 @@ app-file{
   border-bottom: none;
 }
 
-.second-table{
-    padding-bottom: 5%;
+.second-table {
+  padding-bottom: 5%;
 }
 
-.stamp-wrapper{
+.stamp-wrapper {
   position: absolute;
   height: 17vw;
   width: 17vw;
-  top: 15%; left: 67%;
+  top: 15%;
+  left: 67%;
 }
 
-.stamp-image{
+.stamp-image {
   width: 100%;
   height: 100%;
   opacity: 0.6;

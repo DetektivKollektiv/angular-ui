@@ -20,8 +20,7 @@ import * as moment from 'moment';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { ItemType } from '../../model/item-type';
-import { TranslatePipe } from '@ngx-translate/core';
-import { throwIfEmpty } from 'rxjs/operators';
+import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
 
 export const MY_FORMATS = {
   display: {
@@ -65,9 +64,14 @@ export class SubmitComponent implements OnInit {
 
   submitEnabled: boolean;
   today = moment();
-  submitted: boolean;
   itemTypes: ItemType[];
+
+  submitted: boolean;
+  itemClosed: boolean;
   mailGiven: boolean;
+  item: Item;
+
+  public resultScoreMode = ResultScoreMode.text;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -76,7 +80,7 @@ export class SubmitComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private loaderService: LoaderService
-  ) { }
+  ) {}
 
   get formArray(): AbstractControl | null {
     return this.formGroup.get('formArray');
@@ -119,7 +123,7 @@ export class SubmitComponent implements OnInit {
       emailFormControl: this.emailFormControl,
       privacyBox: this.privacyBox,
       termBox: this.termBox,
-      checkboxFormControl: this.checkboxFormControl
+      checkboxFormControl: this.checkboxFormControl,
     });
 
     this.getItemTypes();
@@ -143,31 +147,35 @@ export class SubmitComponent implements OnInit {
     }
     const item = {
       content: this.contentFormControl.value,
-      mail: this.emailFormControl.value,
       received_date: this.receivedFormControl.value.format(
         'YYYY-MM-DD HH:mm:ss'
       ),
       frequency: this.frequencyFormControl.value,
       item_type_id: this.typeFormControl.value,
       source:
-        this.sourceFormControl.value === '4'
+        this.sourceFormControl.value === 'other' &&
+        this.sourceTextFormControl.value &&
+        this.sourceTextFormControl.value !== ''
           ? this.sourceTextFormControl.value
           : this.sourceFormControl.value,
     } as Item;
-
-    if (item.mail) {
+    if (this.emailFormControl.value && this.emailFormControl.value !== '') {
+      item.mail = this.emailFormControl.value;
       this.mailGiven = true;
     }
 
     this.loaderService.show();
     this.submitItemService
       .submitItem(item)
-      .then((_) => {
+      .then((result) => {
+        if (result.status === 'closed') {
+          this.item = result;
+          this.itemClosed = true;
+        }
+
         this.submitted = true;
-        this.loaderService.hide();
       })
       .catch((_) => {
-        this.loaderService.hide();
         this.snackBar.open(
           'Dein Fall konnte nicht eingereicht werden. Versuch es später nochmal.',
           'Ok',
@@ -175,7 +183,8 @@ export class SubmitComponent implements OnInit {
             duration: 2000,
           }
         );
-      });
+      })
+      .finally(() => this.loaderService.hide());
   }
 
   navigate(url: string) {

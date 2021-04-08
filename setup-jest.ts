@@ -1,4 +1,4 @@
-import 'jest-preset-angular';
+import 'jest-preset-angular/setup-jest';
 
 /* global mocks for jsdom */
 const mock = () => {
@@ -12,8 +12,8 @@ const mock = () => {
 };
 
 // @ts-ignore
-window.BeforeUnloadEvent = function () {
-}
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions, space-before-function-paren
+window.BeforeUnloadEvent = function () {};
 
 Object.defineProperty(window, 'localStorage', { value: mock() });
 Object.defineProperty(window, 'sessionStorage', { value: mock() });

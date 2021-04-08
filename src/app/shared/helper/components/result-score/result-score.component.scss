@@ -1,0 +1,46 @@
+.background {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.fill {
+  color: white;
+  font-weight: bold;
+  height: 35px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 5px;
+}
+
+.score {
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  font-weight: normal;
+  overflow: inherit;
+  text-overflow: inherit;
+}
+
+.rating-1 {
+  background-color: #c62828;
+}
+
+.rating-2 {
+  background-color: #e57373;
+}
+
+.rating-3 {
+  background-color: #66bb6a;
+}
+
+.rating-4 {
+  background-color: #1b5e20;
+}

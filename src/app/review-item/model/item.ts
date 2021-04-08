@@ -11,3 +11,8 @@ export interface Item {
   locked_by_user: string;
   lock_timestamp: string;
 }
+
+export interface GetItemResponse {
+  is_open_review: boolean;
+  items: Item[];
+}

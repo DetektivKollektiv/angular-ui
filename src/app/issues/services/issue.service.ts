@@ -12,9 +12,7 @@ export class IssueService {
 
   public submitIssue(issue: Issue): Promise<Issue> {
     return API.post('issue_service', this.issueUrl, { body: issue, response: true })
-      .then((response: Issue) => {
-        return response;
-      })
+      .then((response: Issue) => response)
       .catch();
   }
 }

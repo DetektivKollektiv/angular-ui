@@ -1,3 +1,5 @@
+@import '../../../../theme.scss';
+
 mat-radio-group {
   display: flex;
   flex-direction: column;
@@ -6,22 +8,22 @@ mat-radio-group {
 mat-radio-button {
   margin: 5px;
 }
- .app-file-container{
-  width: 75%;
+.app-file-container {
+  width: 100%;
   margin-top: 3vh;
 }
 
 mat-panel-title {
-  font-family: Oswald;
+  font-family: Effra medium, sans-serif;
   color: #4A4A4A;
 }
 
 mat-panel-title:hover {
-  color: #FFCC00;
+  color: mat-color($custom-theme-accent);
 }
 
 mat-panel-title.mat-expanded {
-  color: #FFCC00;
+  color: mat-color($custom-theme-accent);
 }
 
 textarea {
@@ -36,11 +38,11 @@ form.form-left-aligned {
 }
 
 mat-form-field {
-  width:100%;
+  width: 100%;
 }
 
-.mail-field{
-  width:50%
+.mail-field {
+  width: 50%;
 }
 
 .info-text {
@@ -48,10 +50,15 @@ mat-form-field {
   margin-right: 5%;
 }
 
-.secret-checkbox{
+.secret-checkbox {
   display: none;
 }
-/* ::ng-deep .mat-checkbox-layout {
-  white-space: normal !important;
-} */
 
+app-result-score {
+  width: max-content;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}

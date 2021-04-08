@@ -1,46 +1,40 @@
+@import '../../../../theme.scss';
+
 p.case-content {
   min-height: 5em;
 }
 
-.madCard-title{
-  font-size: 16px;
-}
-.flex-container{
+.flex-container {
   display: flex;
   height: 100%;
   margin-top: 3vh;
 }
-.app-file-container{
+.app-file-container {
   display: inline-block;
   width: 75%;
   height: 100%;
 }
 
-.matCard-container{
-  display: inline-block;
-  margin: 8px;
-  width: 25%;
-}
-.mat-card{
+.mat-card {
   height: fit-content;
 }
 
-.clickable:hover{
+.clickable:hover {
   cursor: pointer;
-  box-shadow: 0 0 4px 4px #FFCC00 ;
-}
-
-.mat-card-content{
-  border-top: 2px dashed #FFCC00;
+  box-shadow: 0 0 4px 4px mat-color($custom-theme-accent);
 }
 
 div.review-finished {
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 
-.case-container{
+.case-container {
   padding-top: 5%;
+}
+
+app-factcheck {
+  width: 25%;
 }

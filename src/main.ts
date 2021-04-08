@@ -1,6 +1,5 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import 'hammerjs';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
@@ -20,13 +19,13 @@ const auth = {
       'email',
       'openid',
       'profile',
-      'aws.cognito.signin.user.admin'
+      'aws.cognito.signin.user.admin',
     ],
     redirectSignIn: environment.auth.redirectSignIn,
     redirectSignOut: environment.auth.redirectSignOut,
-    responseType: 'code'
+    responseType: 'code',
   },
-  federationTarget: 'COGNITO_USER_POOLS'
+  federationTarget: 'COGNITO_USER_POOLS',
 };
 
 Amplify.configure(auth);
@@ -36,34 +35,34 @@ const api = {
     {
       name: 'archive_service',
       endpoint: `${environment.api.baseUrl}/archive_service`,
-      region: 'eu-central-1'
+      region: 'eu-central-1',
     },
     {
       name: 'ml_service',
       endpoint: `${environment.api.baseUrl}/ml_service`,
-      region: 'eu-central-1'
+      region: 'eu-central-1',
     },
     {
       name: 'review_service',
       endpoint: `${environment.api.baseUrl}/review_service`,
-      region: 'eu-central-1'
+      region: 'eu-central-1',
     },
     {
       name: 'submission_service',
       endpoint: `${environment.api.baseUrl}/submission_service`,
-      region: 'eu-central-1'
+      region: 'eu-central-1',
     },
     {
       name: 'user_service',
       endpoint: `${environment.api.baseUrl}/user_service`,
-      region: 'eu-central-1'
+      region: 'eu-central-1',
     },
     {
       name: 'issue_service',
       endpoint: `${environment.api.baseUrl}/issue_service`,
-      region: 'eu-central-1'
-    }
-  ]
+      region: 'eu-central-1',
+    },
+  ],
 };
 
 API.configure(api);
@@ -72,5 +71,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));

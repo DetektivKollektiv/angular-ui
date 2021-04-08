@@ -1,5 +1,4 @@
-import {FormGroup, ValidationErrors, ValidatorFn} from '@angular/forms';
-
+import { FormGroup } from '@angular/forms';
 
 export class CustomValidators {
   public static mustMatch(controlName: string, matchingControlName: string) {
@@ -12,7 +11,7 @@ export class CustomValidators {
       }
 
       if (control.value !== matchingControl.value) {
-        matchingControl.setErrors({mustMatch: true});
+        matchingControl.setErrors({ mustMatch: true });
       } else {
         matchingControl.setErrors(null);
       }

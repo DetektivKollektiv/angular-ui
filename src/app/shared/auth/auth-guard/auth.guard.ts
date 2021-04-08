@@ -23,9 +23,7 @@ export class AuthGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): Promise<boolean> {
     return Auth.currentAuthenticatedUser().then(
-      () => {
-        return true;
-      }
+      () => true
     ).catch(() => {
       const snackBar = this.snackBar.open(
         this.translateService.instant('snack.login.message'),

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Item } from '../../model/item';
+import { GetItemResponse, Item } from '../../model/item';
 import { API } from 'aws-amplify';
 
 @Injectable({
@@ -8,16 +8,24 @@ import { API } from 'aws-amplify';
 export class ItemsService {
   constructor() {}
 
-  public getOpenItems(): Promise<Item[]> {
-    return API.get('review_service', '/items', {
-      queryStringParameters: {
-        num_items: 5,
-      },
-    })
-      .then((value: Item[]) => {
-        return value;
-      })
-      .catch();
+  public async getOpenItems(): Promise<GetItemResponse> {
+    try {
+      const response = await API.get('review_service', '/items', {
+        queryStringParameters: {
+          num_items: 5,
+        },
+        response: true,
+      });
+
+      switch (response.status) {
+        case 200:
+          return response.data;
+        default:
+          break;
+      }
+
+      return response;
+    } catch (e) {}
   }
 
   public getItemTags(itemId: string): Promise<string[]> {
@@ -36,9 +44,7 @@ export class ItemsService {
       body: { tags: tagsList },
       response: true,
     })
-      .then((response: string) => {
-        return response;
-      })
+      .then((response: string) => response)
       .catch((err) => {
         throw new Error(`Could not find item tags: ${err}`);
       });

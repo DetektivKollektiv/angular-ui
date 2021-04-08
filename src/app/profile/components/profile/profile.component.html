@@ -1,13 +1,6 @@
 <div class="container">
   <div class="top-elements">
-    <div class="user-icon-large">
-      <span class="material-icons profile-icon-background" (click)="navigate('my-file')">
-        bookmark
-      </span>
-      <span class="profile-icon-level" (click)="navigate('my-file')">{{user?.level}}</span>
-      <img mat-card-avatar class="profile-picture" src="/assets/images/avatar/ml-assistant-avatar.png"
-        (click)="navigate('my-file')" />
-    </div>
+    <app-profile-picture [user]="user"></app-profile-picture>
     <hr class="separator">
     <table class="user-info-table">
       <tr>

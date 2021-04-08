@@ -1,0 +1,20 @@
+<div class="dialog-container">
+  <div mat-dialog-title>
+    <h2>Angefangener Fall gefunden</h2>
+    <button mat-icon-button [mat-dialog-close]="false" tabindex="-1">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-dialog-content>
+    <p>
+      Wir haben noch einen offenen Fall von dir gefunden.
+      Bitte schließe diesen erst ab, bevor du einen neuen Fall annimmst.
+    </p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button class="button-primary" [mat-dialog-close]="true">Fortsetzen</button>
+    <button class="button-flat" [mat-dialog-close]="false">Abbrechen</button>
+  </mat-dialog-actions>
+</div>

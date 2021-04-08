@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MaterialModule } from 'src/app/shared/material/material.module';
 import { LoaderService } from 'src/app/shared/loader/service/loader.service';
 import { Review } from '../../model/review';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';

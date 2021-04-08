@@ -1,0 +1,81 @@
+
+@import "../../../../theme.scss";
+
+.user-icon-large {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.profile-icon-background {
+  position: absolute;
+  opacity: 0.85;
+  font-size: 75px;
+  top: 0;
+  right: 75px;
+  top: 15px;
+  z-index: 1;
+  cursor: pointer;
+}
+.yellowCircle{
+  background: #FAC800;
+}
+.purpleCircle{
+  background: #5F38FA;
+}
+
+.coralCircle{
+ background: #FF7268;
+}
+
+.purpleIcon{
+  color: #5F38FA;
+}
+.coralIcon{
+  color: #FF7268;
+}
+.yellowIcon{
+  color: #FAC800;
+}
+
+
+.profile-icon-level {
+  position: absolute;
+  top: 25px;
+  right: 51px;
+  font-size: 37px;
+  color: #fff;
+  opacity: 0.85;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.profileCircle{
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius:50%;
+    font-size:50px;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user_initials{
+  margin-top: 100%;
+}
+.profile-color-selection-container{
+  padding-top: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
