@@ -13,7 +13,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
@@ -31,8 +30,10 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const modules = [
+  BrowserAnimationsModule,
   MatSidenavModule,
   MatToolbarModule,
   MatIconModule,
@@ -47,7 +48,6 @@ const modules = [
   MatTabsModule,
   FlexLayoutModule,
   MatExpansionModule,
-  BrowserAnimationsModule,
   MatStepperModule,
   MatCheckboxModule,
   MatRadioModule,
