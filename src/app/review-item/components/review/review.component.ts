@@ -7,10 +7,9 @@ import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { UnsavedChanges } from '../../../shared/unsaved-changes/interface/unsaved-changes';
-import { ReviewState } from '../../model/review-state';
 import { MatDialog } from '@angular/material/dialog';
 import { OpenReviewDialogComponent } from '../open-review-dialog/open-review-dialog.component';
-import { ThisReceiver, ThrowStmt } from '@angular/compiler';
+import { ReviewState } from '../../model/review-state';
 
 @Component({
   selector: 'app-review',

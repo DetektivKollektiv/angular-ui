@@ -16,6 +16,7 @@ import {
 import { ArchiveStateModel } from './archive.state.model';
 import { patch, append, removeItem } from '@ngxs/store/operators';
 import { LoaderService } from 'src/app/shared/loader/service/loader.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @State<ArchiveStateModel>({
   name: 'archive',
@@ -32,7 +33,8 @@ import { LoaderService } from 'src/app/shared/loader/service/loader.service';
 export class ArchiveState implements NgxsOnInit {
   constructor(
     private archiveService: ArchiveService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private userService: UserService
   ) {}
 
   @Selector()
@@ -74,10 +76,7 @@ export class ArchiveState implements NgxsOnInit {
 
   @Action(FetchAllItems)
   fetchAllItems(ctx: StateContext<ArchiveStateModel>) {
-    this.loaderService.show();
-
     return this.archiveService.getClosedItems().pipe(
-      finalize(() => this.loaderService.hide()),
       tap((items) => {
         ctx.patchState({ items });
       })
@@ -181,6 +180,10 @@ export class ArchiveState implements NgxsOnInit {
   }
 
   ngxsOnInit(ctx?: StateContext<any>) {
-    ctx.dispatch(new FetchAllItems());
+    this.userService.user$.subscribe((user) => {
+      if (user) {
+        ctx.dispatch(new FetchAllItems());
+      }
+    });
   }
 }
