@@ -14,13 +14,19 @@
     </button>
   </div>
   <div *ngIf="expanded" class="content">
-    <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
-      <mat-icon>close</mat-icon>
-    </button>
-
+    <!-- <div class="close-button-wrapper">
+      <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div> -->
     <mat-tab-group class="headerless-tabs" [selectedIndex]="index">
       <mat-tab>
-        <h3 class="highscore-title">Top Detektive!</h3>
+        <div class="title-wrapper">
+          <h3 class="highscore-title">Top Detektive</h3>
+          <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <table class="highscore-content-table">
           <thead>
             <tr>
@@ -41,7 +47,12 @@
         </table>
       </mat-tab>
       <mat-tab>
-        <h3 class="highscore-title">Top Detektive auf deinem Level!</h3>
+        <div class="title-wrapper">
+          <h3 class="highscore-title">Top Detektive auf deinem Level</h3>
+          <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <table class="highscore-content-table">
           <thead>
             <tr>
@@ -62,7 +73,12 @@
         </table>
       </mat-tab>
       <mat-tab>
-        <h3 class="highscore-title">Top Newcomer Detektive!</h3>
+        <div class="title-wrapper">
+          <h3 class="highscore-title">Top Newcomer Detektive</h3>
+          <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <table class="highscore-content-table">
           <thead>
             <tr>

@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import { Leaderboard } from '../model/leaderboard';
 import { API } from 'aws-amplify';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LeaderboardService {
   private serviceBasePath = 'user_service';
 
-  constructor() { }
+  constructor() {}
 
   public getTopUsers(): Promise<Leaderboard> {
     return new Promise((resolve, reject) => {
