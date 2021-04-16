@@ -32,7 +32,7 @@ import { LoaderService } from 'src/app/shared/loader/service/loader.service';
 export class ArchiveState implements NgxsOnInit {
   constructor(
     private archiveService: ArchiveService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
   ) {}
 
   @Selector()
@@ -74,10 +74,7 @@ export class ArchiveState implements NgxsOnInit {
 
   @Action(FetchAllItems)
   fetchAllItems(ctx: StateContext<ArchiveStateModel>) {
-    this.loaderService.show();
-
     return this.archiveService.getClosedItems().pipe(
-      finalize(() => this.loaderService.hide()),
       tap((items) => {
         ctx.patchState({ items });
       })
@@ -181,6 +178,6 @@ export class ArchiveState implements NgxsOnInit {
   }
 
   ngxsOnInit(ctx?: StateContext<any>) {
-    ctx.dispatch(new FetchAllItems());
+        ctx.dispatch(new FetchAllItems());
   }
 }

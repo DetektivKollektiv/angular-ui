@@ -1,4 +1,5 @@
-@import "../../../../theme.scss";
+@import '../../../../theme.scss';
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -21,6 +22,14 @@
   background: mat-color($custom-theme-accent);
   display: flex;
   flex-direction: column;
+
+  .title-wrapper {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
 }
 
 ::ng-deep .headerless-tabs > .mat-tab-header {
@@ -28,10 +37,10 @@
 }
 
 .highscore-title {
+  width: 100%;
   color: #4a4a4a;
   font-size: 40px;
   text-align: center;
-  padding-bottom: 5%;
 }
 
 .highscore-content-table {

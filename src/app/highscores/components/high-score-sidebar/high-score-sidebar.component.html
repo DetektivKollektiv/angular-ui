@@ -3,24 +3,25 @@
 <div class="wrapper">
   <!-- TODO: add correct icons and aria labels -->
   <div class="menu" (click)="expand()">
-    <button mat-icon-button aria-label="Button to display X" (click)="index=0">
+    <button mat-icon-button aria-label="Button to display top users overall" (click)="index=0">
       <mat-icon>emoji_events</mat-icon>
     </button>
-    <button mat-icon-button aria-label="Button to display Y" (click)="index=1">
+    <button mat-icon-button aria-label="Button to display top users on same level" (click)="index=1">
       <mat-icon>military_tech</mat-icon>
     </button>
-    <button mat-icon-button aria-label="Button to display Z" (click)="index=2">
+    <button mat-icon-button aria-label="Button to display top newcomer users" (click)="index=2">
       <mat-icon>turned_in</mat-icon>
     </button>
   </div>
   <div *ngIf="expanded" class="content">
-    <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="collapse()">
-      <mat-icon>close</mat-icon>
-    </button>
-
     <mat-tab-group class="headerless-tabs" [selectedIndex]="index">
       <mat-tab>
-        <h3 class="highscore-title">Top Detektive!</h3>
+        <div class="title-wrapper">
+          <h3 class="highscore-title">Top Detektive</h3>
+          <button mat-icon-button aria-label="Button to close highscore overlay" (click)="collapse()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <table class="highscore-content-table">
           <thead>
             <tr>
@@ -41,7 +42,12 @@
         </table>
       </mat-tab>
       <mat-tab>
-        <h3 class="highscore-title">Top Detektive auf deinem Level!</h3>
+        <div class="title-wrapper">
+          <h3 class="highscore-title">Top Detektive auf deinem Level</h3>
+          <button mat-icon-button aria-label="Button to close highscore overlay" (click)="collapse()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <table class="highscore-content-table">
           <thead>
             <tr>
@@ -62,7 +68,12 @@
         </table>
       </mat-tab>
       <mat-tab>
-        <h3 class="highscore-title">Top Newcomer Detektive!</h3>
+        <div class="title-wrapper">
+          <h3 class="highscore-title">Top Newcomer Detektive</h3>
+          <button mat-icon-button aria-label="Button to close highscore overlay" (click)="collapse()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <table class="highscore-content-table">
           <thead>
             <tr>

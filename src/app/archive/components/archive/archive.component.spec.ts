@@ -12,6 +12,8 @@ import { MockArchiveService } from 'src/test/mocks/mock-archive.service';
 import { ArchiveDetailsComponent } from '../archive-details/archive-details.component';
 import { HelperModule } from 'src/app/shared/helper/helper.module';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
+import { MockAuthService } from 'src/test/mocks/mock-auth.service';
 
 describe('ArchiveComponent', () => {
   let component: ArchiveComponent;
@@ -34,7 +36,10 @@ describe('ArchiveComponent', () => {
           ShareButtonsModule,
           NgxsModule.forRoot([ArchiveState]),
         ],
-        providers: [{ provide: ArchiveService, useClass: MockArchiveService }],
+        providers: [
+          { provide: ArchiveService, useClass: MockArchiveService },
+          { provide: AuthService, useClass: MockAuthService },
+        ],
       }).compileComponents();
     })
   );
