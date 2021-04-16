@@ -5,16 +5,16 @@
 export const environment = {
   production: false,
   api: {
-    baseUrl: 'https://api.dev.detektivkollektiv.org'
+    baseUrl: 'https://api.dev.codetekt.org',
   },
   auth: {
-    identityPoolId: 'eu-central-1:69722fe9-a444-4aa5-8016-129a273b2fa5' ,
+    identityPoolId: 'eu-central-1:69722fe9-a444-4aa5-8016-129a273b2fa5',
     userPoolId: 'eu-central-1_edLkAIQVL',
     clientId: '5duuursqtc32rqksh9d00ciplo',
-    authDomain: 'auth.dev.detective-collective.org',
+    authDomain: 'auth.dev.codetekt.org',
     redirectSignIn: 'http://localhost:4200/',
-    redirectSignOut: 'http://localhost:4200/'
-  }
+    redirectSignOut: 'http://localhost:4200/',
+  },
 };
 
 /*
