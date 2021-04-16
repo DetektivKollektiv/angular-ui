@@ -8,12 +8,12 @@ import { Amplify, API } from 'aws-amplify';
 
 const auth = {
   aws_project_region: 'eu-central-1',
-  aws_cognito_identity_pool_id: environment.auth.identityPoolId, // 'eu-central-1:75a6c653-26fd-48e1-9f17-274db2ca4ae8',
+  aws_cognito_identity_pool_id: environment.auth.identityPoolId,
   aws_cognito_region: 'eu-central-1',
-  aws_user_pools_id: environment.auth.userPoolId, // 'eu-central-1_Gr9WPsz3i',
-  aws_user_pools_web_client_id: environment.auth.clientId, // '4qddbhldc4os0sn5t7p4liv2b3',
+  aws_user_pools_id: environment.auth.userPoolId,
+  aws_user_pools_web_client_id: environment.auth.clientId,
   oauth: {
-    domain: environment.auth.authDomain, // 'detective-collective-develop.auth.eu-central-1.amazoncognito.com',
+    domain: environment.auth.authDomain,
     scope: [
       'phone',
       'email',
