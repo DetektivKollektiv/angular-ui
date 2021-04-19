@@ -22,6 +22,7 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { environment } from 'src/environments/environment';
 
 import 'hammerjs';
+import { HelperModule } from './shared/helper/helper.module';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -59,6 +60,7 @@ export function createTranslateLoader(http: HttpClient) {
       disabled: environment.production,
     }),
     ArchiveModule,
+    HelperModule
   ],
   bootstrap: [AppComponent],
 })
