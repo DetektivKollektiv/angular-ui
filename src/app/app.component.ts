@@ -29,10 +29,10 @@ export class AppComponent {
     if(window.innerWidth <= 1000){
       this.dialog.open(MobileDialogComponent, {
         position: {
-          top: '50px'
+          top: '50px',
+          left: '50px'
         },
-        minWidth: '150vw',
-        maxWidth: '175vw'
+        width: '300px',
       });
     }
   }
