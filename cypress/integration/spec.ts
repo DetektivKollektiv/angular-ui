@@ -1,5 +1,6 @@
 describe('When Angular starting page is loaded', () => {
   beforeEach(() => {
+    cy.viewport(1920,1080);
     cy.visit('/');
   });
 
