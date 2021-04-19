@@ -14,7 +14,6 @@ import { ItemsService } from '../../services/items/items.service';
 export class TagsQuestionComponent implements OnInit {
   @Input() review: Review;
   @Input() itemId: string;
-  @Output() finished = new EventEmitter();
 
   chipInputKeyCodes = [ENTER, COMMA];
 
@@ -35,9 +34,7 @@ export class TagsQuestionComponent implements OnInit {
     this.tagsUser = this.tagsCurrent;
   }
 
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
+  add({ input, value }: MatChipInputEvent): void {
 
     // Add tag
     if ((value || '').trim()) {
@@ -58,20 +55,7 @@ export class TagsQuestionComponent implements OnInit {
     }
   }
 
-  submitTags() {
-    this.loader.show();
-    this.itemsService
-      .setItemTags(this.itemId, this.tagsUser)
-      .then(() => {
-        this.finished.emit();
-      })
-      .catch((reason) => {
-        this.matSnackBar.open(
-          'Leider konnten die Tags nicht vergeben werden. Versuche es später nochmal.',
-          'Ok',
-          { duration: 2000 }
-        );
-      })
-      .finally(() => this.loader.hide());
+  async submitTags() {
+    await this.itemsService.setItemTags(this.itemId, this.tagsUser);
   }
 }
