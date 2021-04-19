@@ -9,12 +9,8 @@ phases:
       - npm install -g yarn
       - yarn install
       # insert the new value into the system config
-      - echo fs.inotify.max_user_watches=524288 | tee -a /etc/sysctl.conf && sudo sysctl -p
-
-      # check that the new value was applied
-      - cat /proc/sys/fs/inotify/max_user_watches
-      # config variable name (not runnable)
-      - fs.inotify.max_user_watches=524288
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
 
       - yarn run lint
       - yarn run test:headless
