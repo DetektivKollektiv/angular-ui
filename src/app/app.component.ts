@@ -1,8 +1,8 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from './core/services/user/user.service';
 import { User } from './core/model/user';
-import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { MobileDialogComponent } from './shared/helper/components/mobile-dialog/mobile-dialog.component';
 
 
@@ -14,8 +14,6 @@ import { MobileDialogComponent } from './shared/helper/components/mobile-dialog/
 })
 export class AppComponent {
   public user: User;
-  scrHeight: any;
-  scrWidth: any;
 
   constructor(
     private translateService: TranslateService,
@@ -31,17 +29,12 @@ export class AppComponent {
     if(window.innerWidth <= 1000){
       this.dialog.open(MobileDialogComponent, {
         position: {
-          left: '0px',
-          top: '0px'
+          // left: '5px',
+          top: '50px'
         },
-        height: '400px',
-        width: '300px'
-      }
-
-      );
-
+        // minHeight: 800,
+        minWidth: 400
+      });
     }
-
   }
-
 }
