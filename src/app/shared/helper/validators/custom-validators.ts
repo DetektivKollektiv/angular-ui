@@ -1,4 +1,9 @@
-import { FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
 
 export class CustomValidators {
   public static mustMatch(controlName: string, matchingControlName: string) {
@@ -15,6 +20,16 @@ export class CustomValidators {
       } else {
         matchingControl.setErrors(null);
       }
+    };
+  }
+
+  static patternValidator(regex: RegExp, error: ValidationErrors): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } => {
+      if (!control.value) {
+        return null;
+      }
+
+      return regex.test(control.value) ? null : error;
     };
   }
 }

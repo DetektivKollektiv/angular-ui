@@ -24,8 +24,8 @@
     </mat-form-field>
     <mat-form-field class="full-width-input">
       <input matInput type="password" placeholder="Passwort" formControlName="password" required>
-      <mat-error>
-        Bitte gib hier dein gewünschtes Passwort ein.
+      <mat-error *ngIf="formControls.password.invalid">
+        {{getErrorMessage()}}
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width-input">

@@ -72,3 +72,9 @@ app-file {
   height: 100%;
   opacity: 0.6;
 }
+
+.action-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
