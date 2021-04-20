@@ -38,10 +38,22 @@ export class SignupComponent implements OnInit {
         username: ['', Validators.required],
         password: [
           '',
-          Validators.compose([Validators.minLength(8), Validators.required]),
+          Validators.compose([
+            Validators.minLength(8),
+            Validators.required,
+            CustomValidators.patternValidator(/\d/, { digit: true }),
+            CustomValidators.patternValidator(/[A-Z]/, {
+              upperCase: true,
+            }),
+            CustomValidators.patternValidator(/[a-z]/, { lowerCase: true }),
+            CustomValidators.patternValidator(/\W/, { specialChar: true }),
+          ]),
         ],
         confirmPassword: ['', Validators.required],
-        email: ['', Validators.required, Validators.email],
+        email: [
+          '',
+          Validators.compose([Validators.required, Validators.email]),
+        ],
       },
       {
         validators: CustomValidators.mustMatch('password', 'confirmPassword'),
@@ -84,5 +96,31 @@ export class SignupComponent implements OnInit {
         this.signupInvalid = true;
       })
       .finally(() => this.loaderService.hide());
+  }
+
+  getErrorMessage() {
+    if (this.formControls.password.hasError('required')) {
+      return 'Bitte gib hier dein gewünschtes Passwort ein.';
+    }
+
+    if (this.formControls.password.hasError('minlength')) {
+      return 'Dein Passwort muss mindestens 8 Zeichen enthalten';
+    }
+
+    if (this.formControls.password.hasError('digit')) {
+      return 'Dein Passwort muss mindestens eine Ziffer enthalten';
+    }
+
+    if (this.formControls.password.hasError('upperCase')) {
+      return 'Dein Passwort muss mindestens einen Großbuchstaben enthalten';
+    }
+
+    if (this.formControls.password.hasError('lowerCase')) {
+      return 'Dein Passwort muss mindestens einen Kleinbuchstaben enthalten';
+    }
+
+    return this.formControls.password.hasError('specialChar')
+      ? 'Dein Passwort muss mindestens ein Sonderzeichen enthalten'
+      : '';
   }
 }
