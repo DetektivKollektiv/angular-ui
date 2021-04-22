@@ -41,6 +41,9 @@
         <td class="user-info-values">{{user?.total_rank}}.</td>
       </tr>
     </table>
+    <div class="action-button">
+      <button mat-stroked-button color="warn" (click)="deleteUser()">Mein Profil löschen</button>
+    </div>
   </app-file>
   <div class="stamp-wrapper">
     <img mat-card-avatar class="stamp-image" src="/assets/images/illustrations/dk_stamp_gray.png" />

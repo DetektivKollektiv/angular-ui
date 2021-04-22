@@ -122,20 +122,4 @@ export class HeaderComponent implements OnInit {
         }
       });
   }
-
-  deleteUser(): void {
-    const dialogRef = this.dialog.open(
-      DeleteUserDialogComponent,
-      Globals.dialogData
-    );
-
-    dialogRef.afterClosed().subscribe((result) => {
-      if (result) {
-        this.authService
-          .signOut(true)
-          .then(() => this.router.navigate(['/']))
-          .catch();
-      }
-    });
-  }
 }

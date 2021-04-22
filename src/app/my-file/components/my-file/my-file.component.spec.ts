@@ -5,7 +5,10 @@ import { MaterialModule } from '../../../shared/material/material.module';
 import { HelperModule } from '../../../shared/helper/helper.module';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';
-
+import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
+import { MockAuthService } from 'src/test/mocks/mock-auth.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatDialog } from '@angular/material/dialog';
 
 describe('MyFileComponent', () => {
   let component: MyFileComponent;
@@ -14,12 +17,13 @@ describe('MyFileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MyFileComponent],
-      imports: [MaterialModule, HelperModule],
+      imports: [MaterialModule, HelperModule, RouterTestingModule],
       providers: [
-        { provide: UserService, useClass: MockUserService }
-      ]
-    })
-      .compileComponents();
+        { provide: UserService, useClass: MockUserService },
+        { provide: AuthService, useClass: MockAuthService },
+        { provide: MatDialog, useValue: {} },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {

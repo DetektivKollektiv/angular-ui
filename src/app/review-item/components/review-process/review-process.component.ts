@@ -9,6 +9,7 @@ import { MatStepper } from '@angular/material/stepper';
 import { Question } from '../../model/question';
 import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
+import { TagsQuestionComponent } from '../tags-question/tags-question.component';
 
 @Component({
   selector: 'app-review-process',
@@ -22,6 +23,7 @@ export class ReviewProcessComponent {
   @Output() public reviewFinish = new EventEmitter();
 
   @ViewChild('stepper') stepper: MatStepper;
+  @ViewChild('tags') tagsComponent: TagsQuestionComponent;
 
   constructor(private reviewService: ReviewsService) {}
 
@@ -42,6 +44,7 @@ export class ReviewProcessComponent {
   }
 
   public finishReview() {
+    this.tagsComponent.submitTags();
     this.reviewFinish.emit();
   }
 }
