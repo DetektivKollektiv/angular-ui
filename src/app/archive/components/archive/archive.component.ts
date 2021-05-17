@@ -56,11 +56,22 @@ export class ArchiveComponent implements OnInit {
 
   ngOnInit(): void {
     this.items$.subscribe((items) => {
-      this.items.data = items;
+
+      // Safari timestamp fix
+      // TODO: Remove when format is adapted in API
+      const itemsSafariSafe = [];
+      items.forEach(val => itemsSafariSafe.push(Object.assign({}, val)));
+      itemsSafariSafe.forEach((item) => {
+        item.open_timestamp = item.open_timestamp.replace(/\s/g, 'T');
+        item.close_timestamp = item.close_timestamp.replace(/\s/g, 'T');
+      });
+
+      this.items.data = itemsSafariSafe;
       this.loaded = true;
     });
 
     this.itemById$.subscribe((item) => {
+
       this.expandedItem = item;
 
       if (item) {
@@ -73,5 +84,6 @@ export class ArchiveComponent implements OnInit {
         this.store.dispatch(new AddFilterKeyword(params.id));
       }
     });
+
   }
 }

@@ -10,7 +10,7 @@
   height: 100%;
   overflow: auto;
   display: grid;
-  grid-template-columns: 250px 1fr 250px;
+  grid-template-columns: 250px 1fr 50px;
   position: relative;
 }
 
@@ -49,6 +49,6 @@ app-high-score-sidebar {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  height: 80%;
   z-index: 100;
 }

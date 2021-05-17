@@ -11,7 +11,6 @@ import { Leaderboard } from '../../model/leaderboard';
 
 
 export class HighScoreSidebarComponent implements OnInit {
-  public expanded: boolean;
   public index: number;
   public leaderboard: Leaderboard;
 
@@ -19,7 +18,6 @@ export class HighScoreSidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.expanded = false;
 
     this.leaderboardService.getTopUsers()
       .then((leaderboard: Leaderboard) => {
@@ -30,15 +28,4 @@ export class HighScoreSidebarComponent implements OnInit {
       });
   }
 
-  expand() {
-    if (!this.expanded) {
-      this.expanded = true;
-    }
-  }
-
-  collapse() {
-    if (this.expanded) {
-      this.expanded = false;
-    }
-  }
 }
