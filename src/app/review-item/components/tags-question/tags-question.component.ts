@@ -26,13 +26,13 @@ export class TagsQuestionComponent implements OnInit {
     private matSnackBar: MatSnackBar
   ) { }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.tagsUser = new Array(0);
   }
 
   add({ input, value }: MatChipInputEvent): void {
 
-    // Users maximum ammount of tags to add is 3
+    // Users maximum amount of tags to add is 3
     if (this.tagsUser.length < 3) {
 
       // Add tag
