@@ -1,10 +1,10 @@
 <mat-form-field class="tags-list">
   <mat-label></mat-label>
   <mat-chip-list #tagsList>
-    <mat-chip *ngFor="let tag of tagsCurrent" [removable]="true" (removed)="remove(tag)">{{ tag }}<mat-icon
-        matChipRemove>cancel</mat-icon>
+    <mat-chip *ngFor="let tag of tagsUser" [removable]="true" (removed)="remove(tag)">{{ tag }}<mat-icon matChipRemove>
+        cancel</mat-icon>
     </mat-chip>
-    <input placeholder="Neuen Tag eingeben..." [matChipInputFor]="tagsList"
+    <input ngIf="tagsUser.length >= 3" placeholder="Neuen Tag eingeben..." [matChipInputFor]="tagsList"
       [matChipInputSeparatorKeyCodes]="chipInputKeyCodes" [matChipInputAddOnBlur]="true"
       (matChipInputTokenEnd)="add($event)" />
   </mat-chip-list>
