@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {CommunityGuidelinesComponent} from './components/community-guidelines/community-guidelines.component';
-import {DataPrivacyComponent} from './components/data-privacy/data-privacy.component';
 import {ImprintComponent} from './components/imprint/imprint.component';
 import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
@@ -20,7 +19,6 @@ import {FormsModule} from '@angular/forms';
     HeaderComponent,
     CommunityGuidelinesComponent,
     ImprintComponent,
-    DataPrivacyComponent,
     DeleteUserDialogComponent
   ],
   exports: [

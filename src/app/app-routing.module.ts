@@ -6,7 +6,6 @@ import { HomeComponent } from './home/components/home/home.component';
 import { SubmitComponent } from './submit-item/components/submit/submit.component';
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
-import { DataPrivacyComponent } from './core/components/data-privacy/data-privacy.component';
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
 import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-changes.guard';
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
@@ -15,7 +14,6 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'terms', component: CommunityGuidelinesComponent },
-  { path: 'data-privacy', component: DataPrivacyComponent },
   { path: 'submit', component: SubmitComponent },
   {
     path: 'review',
