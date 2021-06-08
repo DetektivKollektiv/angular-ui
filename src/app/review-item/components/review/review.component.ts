@@ -93,6 +93,10 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
     return this.caseAccepted && !this.finished;
   }
 
+  openSignal(): void{
+    window.open('https://signal.group/#CjQKIM3ulwlm8OT0_dlVj3GRuZNypumHPahTkJxBCQHtoJSmEhDBzZwFxv4lARp7rG-2vF_p','_blank');
+  }
+
   private getNewCase(): void {
     this.loader.show();
 
@@ -133,4 +137,6 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
         this.loader.hide();
       });
   }
+
+
 }

@@ -57,4 +57,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .then(() => this.router.navigate(['/dashboard']))
       .catch();
   }
+  openSignal(): void{
+    window.open('https://signal.group/#CjQKIM3ulwlm8OT0_dlVj3GRuZNypumHPahTkJxBCQHtoJSmEhDBzZwFxv4lARp7rG-2vF_p','_blank');
+  }
 }
