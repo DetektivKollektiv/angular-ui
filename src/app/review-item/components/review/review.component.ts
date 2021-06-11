@@ -10,7 +10,8 @@ import { UnsavedChanges } from '../../../shared/unsaved-changes/interface/unsave
 import { MatDialog } from '@angular/material/dialog';
 import { OpenReviewDialogComponent } from '../open-review-dialog/open-review-dialog.component';
 import { ReviewState } from '../../model/review-state';
-import { environment } from 'src/environments/environment';
+import { globals } from 'src/environments/globals';
+
 
 @Component({
   selector: 'app-review',
@@ -95,7 +96,7 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
   }
 
   openSignal(): void{
-    window.open(environment.signalLink,'_blank');
+    window.open(globals.signalLink,'_blank');
   }
 
   private getNewCase(): void {
@@ -138,6 +139,4 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
         this.loader.hide();
       });
   }
-
-
 }

@@ -4,7 +4,7 @@ import { User } from '../../../core/model/user';
 import { Router } from '@angular/router';
 import { AuthState } from '../../../shared/auth/model/auth-state';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
-import { environment } from 'src/environments/environment';
+import { globals } from 'src/environments/globals';
 
 @Component({
   selector: 'app-profile',
@@ -57,6 +57,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .catch();
   }
   openSignal(): void{
-    window.open(environment.signalLink,'_blank');
+    window.open(globals.signalLink,'_blank');
   }
 }
