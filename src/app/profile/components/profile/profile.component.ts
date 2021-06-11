@@ -4,8 +4,7 @@ import { User } from '../../../core/model/user';
 import { Router } from '@angular/router';
 import { AuthState } from '../../../shared/auth/model/auth-state';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
-
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -58,6 +57,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .catch();
   }
   openSignal(): void{
-    window.open('https://signal.group/#CjQKIM3ulwlm8OT0_dlVj3GRuZNypumHPahTkJxBCQHtoJSmEhDBzZwFxv4lARp7rG-2vF_p','_blank');
+    window.open(environment.signalLink,'_blank');
   }
 }
