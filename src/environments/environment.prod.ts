@@ -11,4 +11,6 @@ export const environment = {
     redirectSignIn: 'https://www.codetekt.org/',
     redirectSignOut: 'https://www.codetekt.org/',
   },
+  signalLink: 'https://signal.group/#CjQKIM3ulwlm8OT0_dlVj3GRuZNypumHPahTkJxBCQHtoJSmEhDBzZwFxv4lARp7rG-2vF_p'
+
 };
