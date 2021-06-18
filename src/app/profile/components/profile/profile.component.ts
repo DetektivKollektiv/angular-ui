@@ -4,8 +4,7 @@ import { User } from '../../../core/model/user';
 import { Router } from '@angular/router';
 import { AuthState } from '../../../shared/auth/model/auth-state';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
-
-
+import { globals } from 'src/environments/globals';
 
 @Component({
   selector: 'app-profile',
@@ -56,5 +55,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.authService.signOut()
       .then(() => this.router.navigate(['/dashboard']))
       .catch();
+  }
+  openSignal(): void{
+    window.open(globals.signalLink,'_blank');
   }
 }

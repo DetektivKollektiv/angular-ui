@@ -17,34 +17,36 @@ export class TagsQuestionComponent implements OnInit {
 
   chipInputKeyCodes = [ENTER, COMMA];
 
-  // TODO: Get from Lambda
-  public tagsCurrent: string[];
-
-  // Initially contains all current tags
+  // Initially contains no tags
   public tagsUser: string[];
 
   constructor(
     private itemsService: ItemsService,
     private loader: LoaderService,
     private matSnackBar: MatSnackBar
-  ) {}
+  ) { }
 
-  async ngOnInit(): Promise<void> {
-    this.tagsCurrent = await this.itemsService.getItemTags(this.itemId);
-    this.tagsUser = this.tagsCurrent;
+  ngOnInit(): void {
+    this.tagsUser = new Array(0);
   }
 
   add({ input, value }: MatChipInputEvent): void {
 
-    // Add tag
-    if ((value || '').trim()) {
-      this.tagsUser.push(value.trim());
+    // Users maximum amount of tags to add is 3
+    if (this.tagsUser.length < 3) {
+
+      // Add tag
+      if ((value || '').trim()) {
+        this.tagsUser.push(value.trim());
+      }
+
+      // Reset the input value
+      if (input) {
+        input.value = '';
+      }
+
     }
 
-    // Reset the input value
-    if (input) {
-      input.value = '';
-    }
   }
 
   remove(tag: string): void {

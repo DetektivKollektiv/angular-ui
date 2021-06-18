@@ -44,6 +44,7 @@
         <p>
           Du hast dafür <b>einen Erfahrungspunkt</b> erhalten.<br /><br />
           Was möchtest du jetzt tun?
+          Du kannst noch einen Fall lösen, gelöste Fälle im Archiv ansehen oder dich in unserer Signal-Gruppe mit anderen Detektiv*innen austauschen. 
         </p>
         <div class="button-group">
           <button (click)="ngOnInit()" class="button-primary">
@@ -51,6 +52,9 @@
           </button>
           <button [routerLink]="['/archive']" class="button-primary">
             Zum Archiv
+          </button>
+          <button (click)='openSignal()' class="button-primary">
+            Community Chat
           </button>
         </div>
       </div>
