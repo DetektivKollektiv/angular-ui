@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+@mixin font__pt-mono {
+	font-family: "pt-mono", monospace;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin font__pt-mono--regular {
+	@include font__pt-mono;
+}
+
+@mixin font__pt-mono--bold {
+	@include font__pt-mono;
+	font-weight: 700;
+}
+
+@mixin font__effra {
+	font-family: effra, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin font__effra--regular {
+	@include font__effra;
+}
+
+@mixin font__effra--italic {
+	@include font__effra;
+	font-style: italic;
+}
+
+@mixin font__effra--medium {
+	@include font__effra;
+	font-weight: 500;
+}
+
+@mixin font__effra--bold {
+	@include font__effra;
+	font-weight: 700;
+}
+
+@mixin font__fontawesome {
+	font-family: "FontAwesome";
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin font__fontawesome--regular {
+	@include font__fontawesome;
+}
+
+@mixin font__fontawesome--solid {
+	@include font__fontawesome;
+	font-weight: 900;
+}

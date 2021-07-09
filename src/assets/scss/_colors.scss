@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+$color__bittersweet: #ff7268;
+$color__neon-blue: #5f38fa;
+$color__supernova: #fac800;
+$color__mysterious-blue: #160637;
+
+$color__white: #ffffff;
+$color__purple: #722ed1;
+
+$color__tile-background: #f8f8f8;
+$color__tag-background: #efefef;
+$color__spacer: #cecece;
+$color__old-paragraph: #8989a2;
+$color__accordion-border: #f4f7f6;
+
+$color__rating-red: #d10e00;
+$color__rating-orange: #ffa700;
+$color__rating-light-green: #a9d100;
+$color__rating-green: #0daf00;
+$color__rating-yellow: #e8d600; //inactive
+$color__rating-active: #2682ff;
+
+$color__shadow: rgba(22, 6, 55, 0.15);
+$color__link: $color__bittersweet;
+
+$color__header-background: $color__white;
+
+$color__footer-background: $color__mysterious-blue;
+$color__footer-chapter: $color__white;
+
+$color__navigation-main-link: $color__mysterious-blue;
+
+$color__navigation-footer-link: $color__white;
+
+$color__navigation-flyout-background: $color__tag-background;
+$color__navigation-flyout-link: $color__mysterious-blue;
+
+$color__navigation-breadcrumb-link: $color__old-paragraph;
+
+$color__navigation-mobile-call: $color__mysterious-blue;
+
+$color__userprofile-award-gold: $color__supernova;
+$color__userprofile-award-silver: #bbbbbb;
+$color__userprofile-award-bronze: #b26262;
+
+$color__help-flag: $color__bittersweet;
+$color__help-life-ring: $color__neon-blue;
+$color__help-icon: $color__white;
+
+$color__accordion-title: $color__mysterious-blue;
+$color__accordion-action-description: $color__old-paragraph;
+$color__accordion-handle: $color__mysterious-blue;
+
+$color__tile-color: $color__mysterious-blue;
+
+$color__case-quote: $color__mysterious-blue;
+$color__case-quote-sign: $color__bittersweet;
+$color__case-link: $color__bittersweet;
+
+$color__case-question-border: $color__spacer;
+$color__case-question-sub-question-background: $color__tile-background;
+$color__case-question-description: $color__mysterious-blue;
+$color__case-question-hint: $color__old-paragraph;
+$color__case-question-hint-icon: $color__neon-blue;
+
+$color__case-processing-meta-border: $color__case-question-border;
+$color__case-processing-meta-description: $color__case-question-description;
+
+$color__input-label: $color__mysterious-blue;
+$color__input-highlight: $color__bittersweet;
+$color__input-description: $color__old-paragraph;
+
+$color__tag-color: $color__mysterious-blue;
+$color__tag-hallow-border: $color__mysterious-blue;
+
+$color__discovered-links-item: $color__bittersweet;
+$color__discovered-links-item-disabled: $color__old-paragraph;
+
+$color__background-information-color: $color__mysterious-blue;
+
+$color__watson-background: #30475e;
+$color__watson-beard: $color__white;
+$color__watson-beard-background: $color__bittersweet;
+$color__watson-font: $color__white;
+$color__watson-button-background: $color__white;
+$color__watson-button-font: $color__mysterious-blue;
+
+$color__badge-detective-amount: $color__neon-blue;
+$color__badge-experience: $color__mysterious-blue;
+$color__badge-experience-color: $color__supernova;
+$color__badge: $color__mysterious-blue;
+$color__badge-icon: $color__white;
+$color__badge-headline: $color__white;
+$color__badge-description: $color__white;
