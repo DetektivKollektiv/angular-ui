@@ -1,0 +1,13 @@
+.login-page {
+	width: 100vw;
+	background-image: linear-gradient(120deg, #3e79b4 6%, #160637 93%);
+	height: 1201px;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+}
+
+.login-components-container {
+	display: flex;
+	flex-direction: column;	
+}
