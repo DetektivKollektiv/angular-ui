@@ -1,74 +1,377 @@
-@import '../../../../theme.scss';
+@charset "utf-8";
 
-.main-header {
-  top: 0px;
-  left: 0px;
-  min-height: 85px;
-  height: 100%;
-  width: 100%;
-  background: #ffffff 0% 0% no-repeat padding-box;
-  box-shadow: 0px 1px 3px #00000029;
-  position: relative;
+@import "../../../../assets/scss/_initializer.scss";
+
+.header {
+  $parent: &;
+
+  position: sticky;
+  top: 0;
+  background-color: $color__header-background;
   z-index: 100;
-  display: flex;
-  align-items: center;
+
+  &__wrapper {
+    padding: 0 _b__rem(16px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: _b__rem(1240px);
+    margin: 0 auto;
+    min-height: _b__rem(70px);
+  }
+
+  &__navigation-main {
+    display: none;
+
+    @include _b__respond-to("min-large") {
+      display: flex;
+    }
+  }
+
+  &__navigation-mobile {
+    display: flex;
+
+    @include _b__respond-to("min-large") {
+      display: none;
+    }
+  }
 }
 
-.container {
-  width: 100%;
-  height: 100%;
-  padding-left: 5em;
-  padding-right: 5em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: initial;
+// does this navigation-main stuff get used somewhere else?
+// is it worth putting in another file somewhere
+.navigation-main {
+  $parent: &;
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__item {
+    list-style-type: none;
+    margin: 0 _b__rem(30px) 0 0;
+    position: relative;
+
+    &--no-spacing {
+      margin: 0;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    @include font__effra--bold;
+    @include _b__font-size-rem(18px);
+
+    color: $color__navigation-main-link;
+    padding: _b__rem(6px) 0;
+    display: inline-block;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  &__button {
+    &--detective {
+      @include fontawesome("f8ea");
+    }
+
+    &--typewriter {
+      @include fontawesome("f8e7");
+    }
+  }
 }
 
-.main-nav ul {
-  text-align: center;
-  display: flex;
-  align-items: center;
-}
 
-.main-nav li {
-  display: inline;
-}
 
-div.user-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 30px;
-  font-family: Effra medium, sans-serif;
-  color: #FFFFFF;
-  line-height: 50px;
-  text-align: center;
-  background: mat-color($custom-theme-accent);
-  cursor: pointer;
-}
+// todo this button stuff should be moved somewhere smarter.
 
-div.user-icon:hover {
-  background: rgba(255, 204, 0, 0.5);
-}
 
-span.alt {
-  font-size: 16px;
-  font-weight: bold;
-}
+.button {
+  $parent: &;
 
-.delete-user-button {
-  color: #c62828;
-}
+  @include font__effra--bold;
+  @include border-radius;
+  @include _b__font-size-rem(16px);
 
-.button-wrapper {
-  height: 100%;
-  width: 100%;
+  border: _b__rem(2px) solid $color__mysterious-blue;
+  padding: _b__rem(12px) _b__rem(24px);
+  border-color: $color__mysterious-blue;
+  color: $color__mysterious-blue;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  cursor: pointer;
+
+  &::before {
+    margin: 0 _b__rem(6px) 0 0;
+  }
+
+  @at-root a#{$parent} {
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  &--bittersweet {
+    background-color: $color__bittersweet;
+    border-color: $color__bittersweet;
+    color: $color__white;
+  }
+
+  &--neon-blue {
+    background-color: $color__neon-blue;
+    border-color: $color__neon-blue;
+    color: $color__white;
+  }
+
+  &--mysterious-blue {
+    background-color: $color__mysterious-blue;
+    border-color: $color__mysterious-blue;
+    color: $color__white;
+  }
+
+  &--supernova {
+    background-color: $color__supernova;
+    border-color: $color__supernova;
+    color: $color__mysterious-blue;
+  }
+
+  &--white {
+    background-color: $color__white;
+    border-color: $color__white;
+    color: $color__mysterious-blue;
+  }
+
+  &--hallow {
+    background-color: transparent;
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+    }
+
+    &#{$parent}--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
+  &--gentle {
+    @include font__effra--bold;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+    }
+
+    &#{$parent}--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
+  &--subtle {
+    @include font__effra--medium;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+    }
+
+    &#{$parent}--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
+  &--disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &--medium {
+    padding: _b__rem(9px) _b__rem(18px);
+  }
+
+  &--small {
+    @include _b__font-size-rem(14px);
+
+    padding: _b__rem(5px) _b__rem(14px);
+
+    &::before {
+      margin: 0 _b__rem(4px) 0 0;
+    }
+  }
 }
-.button-wrapper p {
-  padding-right: 5%;
+
+// todo: move this somewhere more appropriate
+//_userprofile.scss
+.userprofile {
+  $parent: &;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+
+  &__content {
+    margin: 0 _b__rem(10px) 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__name-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &__award {
+    @include fontawesome("f5a2");
+    @include _b__font-size-rem(16px);
+
+    margin: 0 _b__rem(4px) 0 0;
+
+    &--gold {
+      color: $color__userprofile-award-gold;
+    }
+
+    &--silver {
+      color: $color__userprofile-award-silver;
+    }
+
+    &--bronze {
+      color: $color__userprofile-award-bronze;
+    }
+  }
+
+  &__name {
+    @include font__effra--bold;
+    @include _b__font-size-rem(18px);
+
+    color: $color__mysterious-blue;
+  }
+
+  &__title {
+    @include font__effra--regular;
+    @include _b__font-size-rem(12px);
+
+    color: $color__old-paragraph;
+  }
+
+  &__bubble {
+    border-radius: 50%;
+    width: _b__rem(32px);
+    height: _b__rem(32px);
+    color: $color__white;
+    margin: 0 _b__rem(6px) 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__flyout-call {
+    @include fontawesome("f078");
+    @include _b__font-size-rem(12px);
+  }
+}
+
+
+
+//_navigation-flyout.scss
+
+.navigation-flyout {
+  $parent: &;
+
+  position: absolute;
+  width: 100%;
+  padding: _b__rem(10px) 0 0 0;
+  z-index: 100;
+  display: none;
+
+  &__list {
+    background-color: $color__navigation-flyout-background;
+    padding: _b__rem(10px) _b__rem(16px);
+    border-radius: _b__rem(10px);
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+
+  &__link {
+    @include font__effra;
+    @include _b__font-size-rem(15px);
+
+    color: $color__navigation-flyout-link;
+    padding: _b__rem(4px) 0;
+    display: inline-block;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+//TODO DEV
+.navigation-main__item {
+  &:hover {
+    .navigation-flyout {
+      display: block;
+    }
+  }
+  &:active {
+    .navigation-flyout {
+      display: block;
+    }
+  }
 }
