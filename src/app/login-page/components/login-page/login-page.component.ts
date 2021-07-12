@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'login-page',
-  templateUrl: './loginPage.component.html',
-  styleUrls: ['./loginPage.component.scss'],
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.scss'],
 })
 
 export class LoginPageComponent implements OnInit {

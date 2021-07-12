@@ -5,9 +5,16 @@
 	display: flex;
 	justify-content:center;
 	align-items: center;
+
+	.logo-section {
+		margin-bottom: 50px;
+	}
+
+	.login-components-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
 
-.login-components-container {
-	display: flex;
-	flex-direction: column;	
-}
+

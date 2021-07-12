@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material/material.module';
 import { AuthModule } from './shared/auth/auth.module';
+import { LoginPageModule } from './login-page/login-page.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoaderModule } from './shared/loader/loader.module';
@@ -40,6 +41,7 @@ export function createTranslateLoader(http: HttpClient) {
     LoaderModule,
     CoreModule,
     AuthModule,
+    LoginPageModule,
     UnsavedChangesModule,
     SubmitItemModule,
     ReviewItemModule,

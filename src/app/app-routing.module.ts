@@ -6,7 +6,7 @@ import { HomeComponent } from './home/components/home/home.component';
 import { SubmitComponent } from './submit-item/components/submit/submit.component';
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
-import { LoginPageComponent } from './login/components/loginPage.component';
+import { LoginPageComponent } from './login-page/components/login-page/login-page.component';
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
 import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-changes.guard';
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
