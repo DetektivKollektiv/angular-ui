@@ -12,8 +12,17 @@ import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-chan
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
 import { IssuesComponent } from './issues/components/issues/issues.component';
 
+
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: HomeComponent }
+    ]
+  },
   { path: 'terms', component: CommunityGuidelinesComponent },
   { path: 'submit', component: SubmitComponent },
   {
