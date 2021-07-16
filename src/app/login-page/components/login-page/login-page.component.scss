@@ -1,20 +1,352 @@
-.login-page {
-	width: 100vw;
-	background-image: linear-gradient(120deg, #3e79b4 6%, #160637 93%);
-	height: 1201px;
-	display: flex;
-	justify-content:center;
-	align-items: center;
+.body .content {
+    padding: 0 !important;
+}
+.container-fluid{
+    background: linear-gradient(to right, #336699 0%, #000066 100%);
+    /*height: 750px;*/
+}
+.section_1{
+    width: 30%;
+    margin: 0 auto;
+    padding-top: 100px;
+    height: 740px;
+}
+.logo{
+    text-align:center;
+    margin-bottom: 40px
+}
+.login_form{
+    padding: 30px 30px 31px 31px;
+    border-radius: 30px;
+    background-color: #f8f8f8;
+}
+.input_label{
+    width: 288px;
+    margin: 12px 0px 0px 0;
+    font-weight: bold;
+}
+.cust_inout{
+    width: 350px;
+    margin: 5px 0 0 0;
+    padding: 10px 9px 10px 20px;
+    border-radius: 10px;
+    border: solid 1px #cecece;
+    background-color: #ffffff !important;
+}
+.submit_button button{
+    width: 149px;
+    margin: 20px 100px 17px 101px;
+    padding: 16px 19px 14px 24px;
+    border-radius: 30px;
+    background-color: #5f38fa;
+    color: #ffffff;
+    border: solid 2px #ffffff;
+}
+.passwort_vergessen {
+    margin: 0 0px 0 110px;
+}
+.line {
+    height: 1px;
+    margin: 40px 70px 20px 70px;
+    background-color: #fff;
+}
+.login_form_buttom_text{
+    text-align: center;
+    color: #ffffff;
+    padding: 0 0 25px 0;
+    width: 64%;
+    margin: 0 auto;
+}
+span.tm {
+    font-size: 8px;
+    padding: 0 10px 0px 0;
+    vertical-align: text-top;
+}
+.detektiv_werden_btn{
+    color: #fff;
+    font-weight: bold;
+    width: 42%;
+    margin: 0 auto;
+    padding: 12px 0px 12px 20px;
+    border-radius: 30px;
+    border: solid 2px #ffffff;
+    background: transparent;
+}
+.detektiv_werden_btn button{
+    background: transparent;
+    border: unset;
+    color: #fff;
+}
+ 
+.second_warpper {
+    padding-top: 80px;
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+.die_letzten_section {
+    width: 50%;
+    float: left;
+    position: relative;
+    left: 22%;
+}
+.unsere_partner_section {
+    width: 40%;
+    float: left;
+    padding-left: 60px;
+}
+.second_warpper:after {content: '';clear: both;display: block;}
+.die_letzten_section h3 {
+    padding-left: 20px;
+}
 
-	.logo-section {
-		margin-bottom: 50px;
-	}
+ul.records {
+    padding-left: unset;
+}
+.records .first_record{
+    list-style: none;
+    display: flex;
+}
+.records .first_record p {
+    margin: unset;
+}
+.records .first_record p.fd {
+    font-size: 25px;
+    font-weight: bold;
+    color: #0daf00;
+    padding: 10px 38px 10px 0;
+}
+.records .first_record p.phone {
+    font-weight: bold;
+}
+.records .first_record .phone .f_ip {
+    font-weight: normal;
+}
+.records .first_record p.s_ip {
+    padding-top: 22px;
+}
+.records .first_record p.ld {
+    padding: 22px;
+}
 
-	.login-components-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+.records .second_record{
+    list-style: none;
+    display: flex;
+}
+.records .second_record p {
+    margin: unset;
+}
+.records .second_record p.fd {
+    font-size: 25px;
+    font-weight: bold;
+    color: #d10e00;
+    padding: 10px 38px 10px 0;
+}
+.records .second_record p.phone {
+    font-weight: bold;
+}
+.records .second_record .phone .f_ip {
+    font-weight: normal;
+}
+.records .second_record p.s_ip {
+    padding-top: 22px;
+    padding-left: 15px;
+}
+.records .second_record p.ld {
+    padding: 22px;
 }
 
 
+.records .third_record{
+    list-style: none;
+    display: flex;
+}
+.records .third_record p {
+    margin: unset;
+}
+.records .third_record p.fd {
+    font-size: 25px;
+    font-weight: bold;
+    color: #d10e00;
+    padding: 10px 38px 10px 0;
+}
+.records .third_record p.phone {
+    font-weight: bold;
+}
+.records .third_record .phone .f_ip {
+    font-weight: normal;
+}
+.records .third_record p.s_ip {
+    padding-top: 22px;
+    position: relative;
+    right: 7px;
+}
+.records .third_record p.ld {
+    padding: 22px;
+    padding-left: 14px;
+}
+
+
+.records .fourth_record{
+    list-style: none;
+    display: flex;
+}
+.records .fourth_record p {
+    margin: unset;
+}
+.records .fourth_record p.fd {
+    font-size: 25px;
+    font-weight: bold;
+    color: #0daf00;
+    padding: 10px 38px 10px 0;
+}
+.records .fourth_record p.phone {
+    font-weight: bold;
+}
+.records .fourth_record .phone .f_ip {
+    font-weight: normal;
+}
+.records .fourth_record p.s_ip {
+    padding-top: 22px;
+    position: relative;
+    left: 29px;
+}
+.records .fourth_record p.ld {
+    padding: 22px;
+    padding-left: 50px;
+}
+
+.records .fifth_record{
+    list-style: none;
+    display: flex;
+}
+.records .fifth_record p {
+    margin: unset;
+}
+.records .fifth_record p.fd {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffa700;
+    padding: 10px 38px 10px 0;
+}
+.records .fifth_record p.phone {
+    font-weight: bold;
+}
+.records .fifth_record .phone .f_ip {
+    font-weight: normal;
+}
+.records .fifth_record p.s_ip {
+    padding-top: 22px;
+    position: relative;
+    left: 29px;
+}
+.records .fifth_record p.ld {
+    padding: 22px;
+    padding-left: 50px;
+}
+
+
+
+.social_image {
+    margin-top: 15px;
+}
+.unsere_partner_section .paragraph {
+    margin-top: 70px;
+}
+.orange{
+    color:orange;
+}
+.weitere_button button{
+    padding: 16px 19px 14px 24px;
+    border-radius: 30px;
+    background-color: #5f38fa;
+    color: #ffffff;
+    border: solid 2px #ffffff;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 767px)  {
+    .container {
+        overflow: hidden;
+    }
+    .section_1{
+        width: 85%;
+        margin: 0 auto;
+        padding-top: 50px;
+        height: 740px;
+    }
+    .input_label{
+        width: 100%;
+        margin: 12px 0px 0px 0;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    .cust_inout{
+        width: 100% !important; 
+        padding: 10px 9px 10px 20px;
+        border-radius: 10px;
+        border: solid 1px #cecece;
+        background-color: #ffffff !important;
+    }
+    .submit_button {
+        width: 59%;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+    .submit_button button{
+        padding: 16px 19px 14px 24px;
+        border-radius: 30px;
+        background-color: #5f38fa;
+        color: #ffffff;
+        border: solid 2px #ffffff;
+        margin: 0;
+    }
+    .passwort_vergessen{
+        text-align: center;
+        margin: 0;
+        padding-top: 10px;
+    }
+    .detektiv_werden_btn{
+        color: #fff;
+        font-weight: bold;
+        width: 50%;
+        margin: 0 auto;
+        padding: 12px 0px 12px 14px;
+        border-radius: 30px;
+        border: solid 2px #ffffff;
+        background: transparent;
+    }
+    .section_2 {
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 300px;
+    }
+    .second_warpper{
+        padding-top: 65px;
+        width: 100% !important;
+        padding-bottom: 30px;
+    }
+    .die_letzten_section{
+        width: 100%;
+        float: left;
+        position: relative;
+        left: 15%;
+    }
+    .weitere_button {
+        width: 93%;
+        margin: 0 auto;
+    }
+    .unsere_partner_section{
+        width: 80%;
+        float: left;
+        padding-left: 60px;
+        margin-top: 25px;
+    }
+    .unsere_partner_section{
+        margin-top: 50px;
+    }
+    .paragraph p {
+        text-align: justify;
+    }
+}
