@@ -23,7 +23,7 @@
 .input_label{
     width: 288px;
     margin: 12px 0px 0px 0;
-    font-weight: bold;
+    font-weight: botrap_third_serial_number;
 }
 .cust_inout{
     width: 350px;
@@ -64,7 +64,7 @@ span.tm {
 }
 .detektiv_werden_btn{
     color: #fff;
-    font-weight: bold;
+    font-weight: botrap_third_serial_number;
     width: 42%;
     margin: 0 auto;
     padding: 12px 0px 12px 20px;
@@ -77,8 +77,14 @@ span.tm {
     border: unset;
     color: #fff;
 }
- 
-.second_warpper {
+.section_2 {
+    background-image: url('http://localhost:4200/assets/logo/white_bg_image.png');
+    background-size: cover; 
+    background-repeat: no-repet;
+    width: 100%;
+    height: 300px;
+}
+.second_wrapper {
     padding-top: 80px;
     width: 75%;
     margin: 0 auto;
@@ -95,7 +101,7 @@ span.tm {
     float: left;
     padding-left: 60px;
 }
-.second_warpper:after {content: '';clear: both;display: block;}
+.second_wrapper:after {content: '';clear: both;display: block;}
 .die_letzten_section h3 {
     padding-left: 20px;
 }
@@ -110,22 +116,22 @@ ul.records {
 .records .first_record p {
     margin: unset;
 }
-.records .first_record p.fd {
+.records .first_record p.trap_first_serial_number {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: botrap_third_serial_number;
     color: #0daf00;
     padding: 10px 38px 10px 0;
 }
-.records .first_record p.phone {
-    font-weight: bold;
+.records .first_record p.trap_second_serial_number {
+    font-weight: botrap_third_serial_number;
 }
-.records .first_record .phone .f_ip {
+.records .first_record .trap_second_serial_number .trap_first_ip {
     font-weight: normal;
 }
-.records .first_record p.s_ip {
+.records .first_record p.trap_second_ip {
     padding-top: 22px;
 }
-.records .first_record p.ld {
+.records .first_record p.trap_third_serial_number {
     padding: 22px;
 }
 
@@ -136,23 +142,23 @@ ul.records {
 .records .second_record p {
     margin: unset;
 }
-.records .second_record p.fd {
+.records .second_record p.trap_first_serial_number {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: botrap_third_serial_number;
     color: #d10e00;
     padding: 10px 38px 10px 0;
 }
-.records .second_record p.phone {
-    font-weight: bold;
+.records .second_record p.trap_second_serial_number {
+    font-weight: botrap_third_serial_number;
 }
-.records .second_record .phone .f_ip {
+.records .second_record .trap_second_serial_number .trap_first_ip {
     font-weight: normal;
 }
-.records .second_record p.s_ip {
+.records .second_record p.trap_second_ip {
     padding-top: 22px;
     padding-left: 15px;
 }
-.records .second_record p.ld {
+.records .second_record p.trap_third_serial_number {
     padding: 22px;
 }
 
@@ -164,24 +170,24 @@ ul.records {
 .records .third_record p {
     margin: unset;
 }
-.records .third_record p.fd {
+.records .third_record p.trap_first_serial_number {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: botrap_third_serial_number;
     color: #d10e00;
     padding: 10px 38px 10px 0;
 }
-.records .third_record p.phone {
-    font-weight: bold;
+.records .third_record p.trap_second_serial_number {
+    font-weight: botrap_third_serial_number;
 }
-.records .third_record .phone .f_ip {
+.records .third_record .trap_second_serial_number .trap_first_ip {
     font-weight: normal;
 }
-.records .third_record p.s_ip {
+.records .third_record p.trap_second_ip {
     padding-top: 22px;
     position: relative;
     right: 7px;
 }
-.records .third_record p.ld {
+.records .third_record p.trap_third_serial_number {
     padding: 22px;
     padding-left: 14px;
 }
@@ -194,24 +200,24 @@ ul.records {
 .records .fourth_record p {
     margin: unset;
 }
-.records .fourth_record p.fd {
+.records .fourth_record p.trap_first_serial_number {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: botrap_third_serial_number;
     color: #0daf00;
     padding: 10px 38px 10px 0;
 }
-.records .fourth_record p.phone {
-    font-weight: bold;
+.records .fourth_record p.trap_second_serial_number {
+    font-weight: botrap_third_serial_number;
 }
-.records .fourth_record .phone .f_ip {
+.records .fourth_record .trap_second_serial_number .trap_first_ip {
     font-weight: normal;
 }
-.records .fourth_record p.s_ip {
+.records .fourth_record p.trap_second_ip {
     padding-top: 22px;
     position: relative;
     left: 29px;
 }
-.records .fourth_record p.ld {
+.records .fourth_record p.trap_third_serial_number {
     padding: 22px;
     padding-left: 50px;
 }
@@ -223,24 +229,24 @@ ul.records {
 .records .fifth_record p {
     margin: unset;
 }
-.records .fifth_record p.fd {
+.records .fifth_record p.trap_first_serial_number {
     font-size: 25px;
-    font-weight: bold;
+    font-weight: botrap_third_serial_number;
     color: #ffa700;
     padding: 10px 38px 10px 0;
 }
-.records .fifth_record p.phone {
-    font-weight: bold;
+.records .fifth_record p.trap_second_serial_number {
+    font-weight: botrap_third_serial_number;
 }
-.records .fifth_record .phone .f_ip {
+.records .fifth_record .trap_second_serial_number .trap_first_ip {
     font-weight: normal;
 }
-.records .fifth_record p.s_ip {
+.records .fifth_record p.trap_second_ip {
     padding-top: 22px;
     position: relative;
     left: 29px;
 }
-.records .fifth_record p.ld {
+.records .fifth_record p.trap_third_serial_number {
     padding: 22px;
     padding-left: 50px;
 }
@@ -278,7 +284,7 @@ ul.records {
     .input_label{
         width: 100%;
         margin: 12px 0px 0px 0;
-        font-weight: bold;
+        font-weight: botrap_third_serial_number;
         font-size: 13px;
     }
     .cust_inout{
@@ -308,7 +314,7 @@ ul.records {
     }
     .detektiv_werden_btn{
         color: #fff;
-        font-weight: bold;
+        font-weight: botrap_third_serial_number;
         width: 50%;
         margin: 0 auto;
         padding: 12px 0px 12px 14px;
@@ -317,12 +323,13 @@ ul.records {
         background: transparent;
     }
     .section_2 {
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
+        background-image: url('http://localhost:4200/assets/logo/white_bg_image.png');
+        background-size: cover; 
+        background-repeat: round;
         width: 100%;
         height: 300px;
     }
-    .second_warpper{
+    .second_wrapper{
         padding-top: 65px;
         width: 100% !important;
         padding-bottom: 30px;

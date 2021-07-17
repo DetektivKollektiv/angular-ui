@@ -1,106 +1,62 @@
 <div class="container">
     <div class="container-fluid">
         <div class="section_1">
-          <div class="logo">
-            <img src="assets/logo/codetekt_white_logo.png" width="200">
-          </div>
-          <div class="login_form">
-            <form class="form">
-              <div class="input_label">
-                <label>E-Mail-Address order Nutzername</label>
-              </div>
-              <div class="email_input_text">
-                <input type="text" name="email" class="cust_inout"><i class="fa fa-question-circle"></i>
-              </div>
-
-              <div class="input_label">
-                <label>Password</label>
-              </div>
-              <div class="email_input_text">
-                <input type="password" name="password" class="cust_inout">
-              </div>
-
-              <div class="submit_button">
-                <button type="submit">Anmelden</button>
-              </div>
-            </form>
-            <p class="passwort_vergessen">Passwort vergessen?</p>
-          </div>
-          <div class="line"></div>
-          <p class="login_form_buttom_text">
-            Du hast keinen Account und möchtest die Welt zu einem besseren Ort machen?
-          </p>
-          <div class="detektiv_werden_btn">
-            <button type="submit"><span class="tm">TM</span>Detektiv werden</button>
-          </div>
-          
+            <div class="logo">
+                <img src="assets/logo/codetekt_white_logo.png" width="200">
+            </div>
+            <div class="login_form">
+                <form class="form">
+                    <div class="input_label">
+                        <label>E-Mail-Address order Nutzername</label>
+                    </div>
+                    <div class="email_input_text">
+                        <input type="text" name="email" class="cust_inout"><i class="fa fa-question-circle"></i>
+                    </div>
+                    <div class="input_label">
+                        <label>Password</label>
+                    </div>
+                    <div class="email_input_text">
+                        <input type="password" name="password" class="cust_inout">
+                    </div>
+                    <div class="submit_button">
+                        <button type="submit">Anmelden</button>
+                    </div>
+                </form>
+                <p class="passwort_vergessen">Passwort vergessen?</p>
+            </div>
+            <div class="line"></div>
+            <p class="login_form_buttom_text">
+                Du hast keinen Account und möchtest die Welt zu einem besseren Ort machen?
+            </p>
+            <div class="detektiv_werden_btn">
+                <button type="submit"><span class="tm">TM</span>Detektiv werden</button>
+            </div>
         </div>
-        <div class="section_2" style="background-image: url(assets/logo/white_bg_image.png); background-size: cover; background-repeat: round;">
-          <div class="second_warpper">
-            <div class="die_letzten_section">
-              <h3>Die letzten gelosten Falle</h3>
-              <ul class="records">
-                <li class="first_record">
-                  <p class="fd">87</p>
-                  <p class="phone">#9817421123<br>
-                    <small class="f_ip">01.01.0001</small>
-                  </p>
-                  <p class="s_ip"><small>02.01.0001</small></p>
-                  <p class="ld"><small>34</small></p>
-                </li>
-                <li class="second_record">
-                  <p class="fd">01</p>
-                  <p class="phone">#98489456<br>
-                    <small class="f_ip">01.01.0001</small>
-                  </p>
-                  <p class="s_ip"><small>02.01.0001</small></p>
-                  <p class="ld"><small>34</small></p>
-                </li>
-                <li class="third_record">
-                  <p class="fd">13</p>
-                  <p class="phone">#98374598743<br>
-                    <small class="f_ip">01.01.0001</small>
-                  </p>
-                  <p class="s_ip"><small>02.01.0001</small></p>
-                  <p class="ld"><small>34</small></p>
-                </li>
-                <li class="fourth_record">
-                  <p class="fd">99</p>
-                  <p class="phone">#825163<br>
-                    <small class="f_ip">01.01.0001</small>
-                  </p>
-                  <p class="s_ip"><small>02.01.0001</small></p>
-                  <p class="ld"><small>34</small></p>
-                </li>
-                <li class="fifth_record">
-                  <p class="fd">53</p>
-                  <p class="phone">#0984356<br>
-                    <small class="f_ip">01.01.0001</small>
-                  </p>
-                  <p class="s_ip"><small>02.01.0001</small></p>
-                  <p class="ld"><small>34</small></p>
-                </li>
-              </ul>
-              <div class="weitere_button">
-                <button type="submit" class="">Weitere gelöste Fälle ansehen</button>
-              </div>
+        <div class="section_2">
+            <div class="second_wrapper">
+                <div class="die_letzten_section">
+                    <h3>Die letzten gelosten Falle</h3>
+                    <app-case-list [cases]=cases></app-case-list>
+                    <div class="weitere_button">
+                        <button type="submit" class="">Weitere gelöste Fälle ansehen</button>
+                    </div>
+                </div>
+                <div class="unsere_partner_section">
+                    <h3>Unsere Partner</h3>
+                    <div class="social_image">
+                        <img src="assets/logo/social_image.png" width="100%">
+                    </div>
+                    <div class="paragraph">
+                        <h3>Rechtliches</h3>
+                        <p>
+                            Durch die Anmetrap_third_serial_numberung oder Registrierung stimmust du unseren <span class="orange">Nutzungsbedingungen</span> zu. In unserer <span class="orange">Datenrichtlinie</span> erfahrst du, wie wir deine Daten erfassen, verwenden und teilen. Unsere <span class="orange">Cookie-Richtlinie</span> erklart, wie wir Cookies und ahnliche Technologien verwenden.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="unsere_partner_section">
-              <h3>Unsere Partner</h3>
-              <div class="social_image">
-                <img src="assets/logo/social_image.png" width="100%">
-              </div>
-              <div class="paragraph">
-                <h3>Rechtliches</h3>
-                <p>
-                  Durch die Anmeldung oder Registrierung stimmust du unseren <span class="orange">Nutzungsbedingungen</span> zu. In unserer <span class="orange">Datenrichtlinie</span> erfahrst du, wie wir deine Daten erfassen, verwenden und teilen. Unsere <span class="orange">Cookie-Richtlinie</span> erklart, wie wir Cookies und ahnliche Technologien verwenden.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-              </div>
-            </div>
-          </div>
-      </div>
+        </div>
     </div>
 </div>
