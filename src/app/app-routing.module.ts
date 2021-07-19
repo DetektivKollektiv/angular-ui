@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth-guard/auth.guard';
@@ -14,13 +15,22 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import {FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 
 const routes: Routes = [
+  
   {
     path: '',
     component: MainLayoutComponent,
     children: [
       { path: '', component: HomeComponent }
+    ]
+  },
+  {
+    path: 'login',
+    component: FooterOnlyLayoutComponent,
+    children: [
+      { path: '', component: LoginPageComponent }
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
@@ -35,10 +45,6 @@ const routes: Routes = [
   {
     path: 'archive',
     component: ArchiveComponent,
-  },
-  {
-    path: 'login',
-    component: LoginPageComponent,
   },
   {
     path: 'archive/:id',

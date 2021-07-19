@@ -25,6 +25,7 @@ import { environment } from 'src/environments/environment';
 import 'hammerjs';
 import { HelperModule } from './shared/helper/helper.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -32,7 +33,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent],
+  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
