@@ -89,11 +89,13 @@
 
 
       <nav class="navigation-mobile">
-      
+
         <!-- <div class="navigation-mobile__call"></div> -->
-        <mat-icon>menu</mat-icon>
+        <button mat-icon-button aria-label="hamburger-menu-button" (click)="openMenuDialog()" >
+          <mat-icon>menu</mat-icon>
+        </button>
         <!-- Here be Overlay Stuff -->
-    
+
       </nav>
     </div>
   </div>

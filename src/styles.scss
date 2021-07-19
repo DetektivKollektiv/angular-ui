@@ -264,3 +264,9 @@ mat-icon {
 .mat-tooltip {
   font-size: 15px !important;
 }
+
+.cdk-overlay-pane {
+  max-width: none !important;
+  width: 100vw;
+  height: 100vh;
+}

@@ -1,0 +1,23 @@
+@charset "utf-8";
+@import "../../../../../assets/scss/_initializer.scss";
+
+.menu-dialog-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation-main__link {
+  @include font__effra--bold;
+    @include _b__font-size-rem(18px);
+
+    color: $color__navigation-main-link;
+    padding: _b__rem(6px) 0;
+    display: inline-block;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+}
