@@ -216,3 +216,20 @@
     }
   }
 }
+
+.navigation-mobile {
+  $parent: &;
+
+  &__call {
+    @include fontawesome("f0c9");
+    @include _b__font-size-rem(24px);
+
+    cursor: pointer;
+    color: $color__navigation-mobile-call;
+    padding: _b__rem(8px) _b__rem(10px);
+  }
+
+  //TODO DEV
+  //Here be Overlay Stuff
+}
+
