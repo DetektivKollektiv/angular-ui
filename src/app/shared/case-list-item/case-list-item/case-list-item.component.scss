@@ -5,18 +5,25 @@
         margin: unset;
     }
     .content{
-        font-size: 25px;
+        font-size: 22px;
         font-weight: bold;
         color: #0daf00;
         padding: 10px 38px 10px 0;
     }
     .received{
-        font-weight: normal;
-
+        font-weight: bold;
+        font-size: 14px;        
         .received-txt {
             font-weight: normal;
         }
     }
+    .item-left {
+        min-width: 18%;
+    }
+    .item-col span {
+            width: 33%;
+            display: inline-block;
+        }
     .closed {
         padding-top: 22px;
     }

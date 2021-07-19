@@ -1,8 +1,13 @@
 <li class="item">
-    <h2 class="content">{{ case.counter }}</h2>
-    <p class="received"><strong>{{ case.serial_numer }}</strong><br>
-        <small class="received-txt">{{ case.date1 }}</small>
-    </p>
-    <p class="closed"><small>{{ case.date2 }}</small></p>
-    <p class="confidence-index"><small>{{ case.number }}</small></p>
+    <div class="item-left">
+        <h2 class="content">{{ case.result_score }}</h2>
+    </div>
+    <div class="item-right">
+        <h2 class="received">{{ case.content }}</h2>
+        <div class="item-col">
+            <span class="received-txt"><small>{{ case.open_timestamp | date }}</small></span>
+            <span class="closed"><small>{{ case.close_timestamp | date }}</small></span>
+            <!-- <span class="confidence-index"><small>{{ case.result_score }}</small></span> -->
+        </div>
+    </div>    
 </li>
