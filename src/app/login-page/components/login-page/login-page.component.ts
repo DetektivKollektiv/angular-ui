@@ -46,6 +46,13 @@ export class LoginPageComponent implements OnInit {
         date1:'01.01.0001',
         date2:'02.01.0001',
         number:53
+      },
+      {
+        counter: '54',
+        serial_numer: '#9817421432',
+        date1:'01.01.0001',
+        date2:'02.01.0001',
+        number:53
       }
     ];
 

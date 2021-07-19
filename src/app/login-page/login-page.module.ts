@@ -16,7 +16,6 @@ import { CaseListModule } from '../shared/case-list/case-list.module';
     imports: [
         MaterialModule,
         CaseListModule,
-        // CommonModule,
         AuthModule
     ],
 })

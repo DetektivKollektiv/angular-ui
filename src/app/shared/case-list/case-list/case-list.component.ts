@@ -13,8 +13,6 @@ export class CaseListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log('hi',this.cases);
-
   }
 
 }

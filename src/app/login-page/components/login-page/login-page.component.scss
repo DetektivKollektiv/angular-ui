@@ -9,39 +9,13 @@
     width: 30%;
     margin: 0 auto;
     padding-top: 100px;
-    height: 740px;
+    height: 800px;
 }
 .logo{
     text-align:center;
     margin-bottom: 40px
 }
-.login_form{
-    padding: 30px 30px 31px 31px;
-    border-radius: 30px;
-    background-color: #f8f8f8;
-}
-.input_label{
-    width: 288px;
-    margin: 12px 0px 0px 0;
-    font-weight: botrap_third_serial_number;
-}
-.cust_inout{
-    width: 350px;
-    margin: 5px 0 0 0;
-    padding: 10px 9px 10px 20px;
-    border-radius: 10px;
-    border: solid 1px #cecece;
-    background-color: #ffffff !important;
-}
-.submit_button button{
-    width: 149px;
-    margin: 20px 100px 17px 101px;
-    padding: 16px 19px 14px 24px;
-    border-radius: 30px;
-    background-color: #5f38fa;
-    color: #ffffff;
-    border: solid 2px #ffffff;
-}
+
 .passwort_vergessen {
     margin: 0 0px 0 110px;
 }
@@ -67,10 +41,11 @@ span.tm {
     font-weight: botrap_third_serial_number;
     width: 42%;
     margin: 0 auto;
-    padding: 12px 0px 12px 20px;
+    padding: 10px 15px;
     border-radius: 30px;
     border: solid 2px #ffffff;
     background: transparent;
+    text-align: center;
 }
 .detektiv_werden_btn button{
     background: transparent;
@@ -105,153 +80,6 @@ span.tm {
 .die_letzten_section h3 {
     padding-left: 20px;
 }
-
-ul.records {
-    padding-left: unset;
-}
-.records .first_record{
-    list-style: none;
-    display: flex;
-}
-.records .first_record p {
-    margin: unset;
-}
-.records .first_record p.trap_first_serial_number {
-    font-size: 25px;
-    font-weight: botrap_third_serial_number;
-    color: #0daf00;
-    padding: 10px 38px 10px 0;
-}
-.records .first_record p.trap_second_serial_number {
-    font-weight: botrap_third_serial_number;
-}
-.records .first_record .trap_second_serial_number .trap_first_ip {
-    font-weight: normal;
-}
-.records .first_record p.trap_second_ip {
-    padding-top: 22px;
-}
-.records .first_record p.trap_third_serial_number {
-    padding: 22px;
-}
-
-.records .second_record{
-    list-style: none;
-    display: flex;
-}
-.records .second_record p {
-    margin: unset;
-}
-.records .second_record p.trap_first_serial_number {
-    font-size: 25px;
-    font-weight: botrap_third_serial_number;
-    color: #d10e00;
-    padding: 10px 38px 10px 0;
-}
-.records .second_record p.trap_second_serial_number {
-    font-weight: botrap_third_serial_number;
-}
-.records .second_record .trap_second_serial_number .trap_first_ip {
-    font-weight: normal;
-}
-.records .second_record p.trap_second_ip {
-    padding-top: 22px;
-    padding-left: 15px;
-}
-.records .second_record p.trap_third_serial_number {
-    padding: 22px;
-}
-
-
-.records .third_record{
-    list-style: none;
-    display: flex;
-}
-.records .third_record p {
-    margin: unset;
-}
-.records .third_record p.trap_first_serial_number {
-    font-size: 25px;
-    font-weight: botrap_third_serial_number;
-    color: #d10e00;
-    padding: 10px 38px 10px 0;
-}
-.records .third_record p.trap_second_serial_number {
-    font-weight: botrap_third_serial_number;
-}
-.records .third_record .trap_second_serial_number .trap_first_ip {
-    font-weight: normal;
-}
-.records .third_record p.trap_second_ip {
-    padding-top: 22px;
-    position: relative;
-    right: 7px;
-}
-.records .third_record p.trap_third_serial_number {
-    padding: 22px;
-    padding-left: 14px;
-}
-
-
-.records .fourth_record{
-    list-style: none;
-    display: flex;
-}
-.records .fourth_record p {
-    margin: unset;
-}
-.records .fourth_record p.trap_first_serial_number {
-    font-size: 25px;
-    font-weight: botrap_third_serial_number;
-    color: #0daf00;
-    padding: 10px 38px 10px 0;
-}
-.records .fourth_record p.trap_second_serial_number {
-    font-weight: botrap_third_serial_number;
-}
-.records .fourth_record .trap_second_serial_number .trap_first_ip {
-    font-weight: normal;
-}
-.records .fourth_record p.trap_second_ip {
-    padding-top: 22px;
-    position: relative;
-    left: 29px;
-}
-.records .fourth_record p.trap_third_serial_number {
-    padding: 22px;
-    padding-left: 50px;
-}
-
-.records .fifth_record{
-    list-style: none;
-    display: flex;
-}
-.records .fifth_record p {
-    margin: unset;
-}
-.records .fifth_record p.trap_first_serial_number {
-    font-size: 25px;
-    font-weight: botrap_third_serial_number;
-    color: #ffa700;
-    padding: 10px 38px 10px 0;
-}
-.records .fifth_record p.trap_second_serial_number {
-    font-weight: botrap_third_serial_number;
-}
-.records .fifth_record .trap_second_serial_number .trap_first_ip {
-    font-weight: normal;
-}
-.records .fifth_record p.trap_second_ip {
-    padding-top: 22px;
-    position: relative;
-    left: 29px;
-}
-.records .fifth_record p.trap_third_serial_number {
-    padding: 22px;
-    padding-left: 50px;
-}
-
-
 
 .social_image {
     margin-top: 15px;
@@ -352,7 +180,7 @@ ul.records {
     }
     .unsere_partner_section{
         margin-top: 50px;
-    }
+    } 
     .paragraph p {
         text-align: justify;
     }

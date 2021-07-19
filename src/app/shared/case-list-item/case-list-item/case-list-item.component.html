@@ -1,8 +1,8 @@
 <li class="item">
-    <p class="counter">{{ case.counter }}</p>
-    <p class="serial_number">{{ case.serial_numer }}<br>
-        <small class="trap_first_ip">{{ case.date1 }}</small>
+    <h2 class="content">{{ case.counter }}</h2>
+    <p class="received"><strong>{{ case.serial_numer }}</strong><br>
+        <small class="received-txt">{{ case.date1 }}</small>
     </p>
-    <p class="trap_second_ip"><small>{{ case.date2 }}</small></p>
-    <p class="number"><small>{{ case.number }}</small></p>
+    <p class="closed"><small>{{ case.date2 }}</small></p>
+    <p class="confidence-index"><small>{{ case.number }}</small></p>
 </li>

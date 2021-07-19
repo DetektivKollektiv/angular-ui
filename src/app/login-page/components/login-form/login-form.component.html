@@ -1,4 +1,28 @@
-<mat-card class="login-form-card">
+<div class="login-form-card">
+  <div class="login-form-card--contents">
+    <form class="login-form">
+        <div *ngIf="loginInvalid">
+          Dein Benutzername oder dein Passwort wurden nicht erkannt.
+        </div>
+        <div class="full-width-input form-group">
+            <label for="email">Email Address order Nutzername</label>      
+            <input type="text" name="email" class="cust_inout" placeholder="Email Addresse oder Nutzername" class="form-control" id="email" required>
+        </div> 
+
+        <div class="full-width-input form-group">  
+            <label for="password">Password</label>          
+            <input type="password" name="password" class="form-control" placeholder="Email Addresse oder Nutzername" id="password" placeholder="Password" required>
+        </div>
+
+        <div class="submit-button">
+            <button class="button button--neon-blue" (click)="onLoginSubmit()">Einloggen</button>
+        </div>
+    </form>
+
+    <button class="button-flat" type="button" (click)="forgotPassword()">Passwort vergessen</button>
+  </div>
+</div>
+<!-- <mat-card class="login-form-card">
   
   <mat-card-content class="login-form-card--contents">
     <div class="login-form" [formGroup]="loginForm">
@@ -25,4 +49,4 @@
     </div>
 
   </mat-card-content>
-</mat-card>
+</mat-card> -->

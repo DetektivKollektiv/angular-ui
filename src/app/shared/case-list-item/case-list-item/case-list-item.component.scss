@@ -1,28 +1,26 @@
 .item{
     list-style: none;
     display: flex;
-}
-.item p {
-    margin: unset;
-}
-.item p.counter {
-    font-size: 25px;
-    font-weight: number;
-    color: #0daf00;
-    padding: 10px 38px 10px 0;
-}
-.item p.serial_number {
-    font-weight: number;
-}
-.item .serial_number .trap_first_ip {
-    font-weight: normal;
-}
-.item p.trap_second_ip {
-    padding-top: 22px;
-}
-.item p.number {
-    padding: 22px;
-}
-.item .counter:nth-child(3n+0) {
-  background: red;
+    p {
+        margin: unset;
+    }
+    .content{
+        font-size: 25px;
+        font-weight: bold;
+        color: #0daf00;
+        padding: 10px 38px 10px 0;
+    }
+    .received{
+        font-weight: normal;
+
+        .received-txt {
+            font-weight: normal;
+        }
+    }
+    .closed {
+        padding-top: 22px;
+    }
+    .confidence-index{
+        padding: 22px;
+    }
 }
