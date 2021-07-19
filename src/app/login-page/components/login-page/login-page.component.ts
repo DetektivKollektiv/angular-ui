@@ -22,7 +22,6 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     this.items$.subscribe((items) => {
       this.cases = items;
-      console.log('hi',this.cases);
     });
   }
 }
