@@ -1,5 +1,4 @@
-<mat-card class="login-form-card">
-  
+  <mat-card class="login-form-card">
   <mat-card-content class="login-form-card--contents">
     <div class="login-form" [formGroup]="loginForm">
       <mat-error *ngIf="loginInvalid">
@@ -18,11 +17,9 @@
         </mat-error>
       </mat-form-field>
     </div>
-
     <div>
       <button class="button button--neon-blue" (click)="onLoginSubmit()">Einloggen</button>
       <button class="button-flat" type="button" (click)="forgotPassword()">Passwort vergessen</button>
     </div>
-
   </mat-card-content>
 </mat-card>
