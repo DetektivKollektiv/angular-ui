@@ -22,7 +22,7 @@
       <mat-list-item><a href="javascript:;" title=""
         class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
         werden</a></mat-list-item>
-      <mat-list-item><a class="navigation-main__link" title="Login">Login</a></mat-list-item>
+      <mat-list-item><a class="navigation-main__link" title="Login" (click)="login()">Login</a></mat-list-item>
     </mat-list>
     <!-- Logged in -->
     <mat-list *ngIf="userLoaded" >
