@@ -14,14 +14,65 @@
     </div>
   </div>
   <div mat-dialog-content>
-      <mat-list>
-        <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Über uns">Über uns</a></mat-list-item>
-        <mat-list-item><a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a></mat-list-item>
-        <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a></mat-list-item>
-        <mat-list-item><a href="javascript:;" title=""
-          class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
-          werden</a></mat-list-item>
-        <mat-list-item><a class="navigation-main__link" title="Login">Login</a></mat-list-item>
-      </mat-list>
+    <!--Not logged in-->
+    <mat-list *ngIf="!authState.isLoggedIn">
+      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Über uns">Über uns</a></mat-list-item>
+      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a></mat-list-item>
+      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a></mat-list-item>
+      <mat-list-item><a href="javascript:;" title=""
+        class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
+        werden</a></mat-list-item>
+      <mat-list-item><a class="navigation-main__link" title="Login">Login</a></mat-list-item>
+    </mat-list>
+    <!-- Logged in -->
+    <mat-list *ngIf="userLoaded" >
+      <mat-list-item class="navigation-main__item">
+        <a href="javascript:;" title=""
+        class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter">Fall
+        einreichen</a>
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item">
+        <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item">
+        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item">
+        <div class="profile">
+          <div class="userprofile">
+            <div class="userprofile__content">
+              <div class="userprofile__name-wrapper">
+                <div class="userprofile__award userprofile__award--gold"></div>
+                <div class="userprofile__name">
+                  John Doe
+                </div>
+              </div>
+              <div class="userprofile__title">
+                Detective Superintendent
+              </div>
+            </div>
+
+            <div class="userprofile__bubble" style="background-color: #722ED1;">
+              J
+            </div>
+
+            <div class="userprofile__flyout-call"></div>
+          </div>
+          <div class="navigation-flyout">
+            <ul class="navigation-flyout__list">
+              <li class="navigation-flyout__item">
+                <a href="javascript:;" class="navigation-flyout__link" title="Profil">Profil</a>
+              </li>
+              <li class="navigation-flyout__item">
+                <a href="javascript:;" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div>
+
   </div>
 </div>

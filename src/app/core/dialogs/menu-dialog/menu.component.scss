@@ -21,3 +21,146 @@
       text-decoration: none;
     }
 }
+
+// todo: move this somewhere more appropriate
+//_userprofile.scss
+.userprofile {
+  $parent: &;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  cursor: pointer;
+
+  &__content {
+    margin: 0 _b__rem(10px) 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__name-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &__award {
+    @include fontawesome("f5a2");
+    @include _b__font-size-rem(16px);
+
+    margin: 0 _b__rem(4px) 0 0;
+
+    &--gold {
+      color: $color__userprofile-award-gold;
+    }
+
+    &--silver {
+      color: $color__userprofile-award-silver;
+    }
+
+    &--bronze {
+      color: $color__userprofile-award-bronze;
+    }
+  }
+
+  &__name {
+    @include font__effra--bold;
+    @include _b__font-size-rem(18px);
+
+    color: $color__mysterious-blue;
+  }
+
+  &__title {
+    @include font__effra--regular;
+    @include _b__font-size-rem(12px);
+
+    color: $color__old-paragraph;
+  }
+
+  &__bubble {
+    border-radius: 50%;
+    width: _b__rem(32px);
+    height: _b__rem(32px);
+    color: $color__white;
+    margin: 0 _b__rem(6px) 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__flyout-call {
+    @include fontawesome("f078");
+    @include _b__font-size-rem(12px);
+  }
+}
+
+
+
+//_navigation-flyout.scss
+
+.navigation-flyout {
+  $parent: &;
+
+  position: absolute;
+  width: 100%;
+  padding: _b__rem(10px) 0 0 0;
+  z-index: 100;
+  display: none;
+
+  &__list {
+    background-color: $color__navigation-flyout-background;
+    padding: _b__rem(10px) _b__rem(16px);
+    border-radius: _b__rem(10px);
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+
+  &__link {
+    @include font__effra;
+    @include _b__font-size-rem(15px);
+
+    color: $color__navigation-flyout-link;
+    padding: _b__rem(4px) 0;
+    display: inline-block;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+//TODO DEV
+.navigation-main__item {
+  &:hover {
+    .navigation-flyout {
+      display: block;
+    }
+  }
+  &:active {
+    .navigation-flyout {
+      display: block;
+    }
+  }
+}
+
+.mat-dialog-content {
+  overflow: unset;
+}
+
+.navigation-mobile {
+  $parent: &;
+
+  &__call {
+    @include fontawesome("f0c9");
+    @include _b__font-size-rem(24px);
+
+    cursor: pointer;
+    color: $color__navigation-mobile-call;
+    padding: _b__rem(8px) _b__rem(10px);
+  }
+}
