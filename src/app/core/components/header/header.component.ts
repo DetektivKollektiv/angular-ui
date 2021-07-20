@@ -125,10 +125,6 @@ export class HeaderComponent implements OnInit {
   }
 
   openMenuDialog(): void {
-    if (this.authState.isLoggedIn) {
-      return;
-    }
-
     this.dialog
       .open(MenuDialogComponent)
   }

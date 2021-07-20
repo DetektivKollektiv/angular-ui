@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
+import { Router } from '@angular/router';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
@@ -28,6 +29,7 @@ export class LoginFormComponent implements OnInit {
   } as LoginResult;
 
   constructor(
+    private router: Router,
     // public dialogRef: MatDialogRef<LoginComponent>,
     private authService: AuthService,
     private loaderService: LoaderService,
@@ -38,6 +40,10 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
   get formControls() {
@@ -64,6 +70,9 @@ export class LoginFormComponent implements OnInit {
       //     reason: LoginResultReason.LoginSuccessful,
       //   } as LoginResult);
       // })
+      .then(() => {
+        this.router.navigate(['/archive'])
+      })
       .catch((reason: OperationResult<any>) => {
         if (reason.payload?.code === 'UserNotConfirmedException') {
           // this.confirm();
@@ -75,7 +84,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   forgotPassword() {
-    
+
   }
 
 
