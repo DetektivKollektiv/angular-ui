@@ -130,6 +130,7 @@
     &:focus,
     &:active {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 }

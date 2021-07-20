@@ -1,4 +1,5 @@
 import {Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { AuthState } from '../../../shared/auth/model/auth-state';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
@@ -22,6 +23,7 @@ export class MenuDialogComponent implements OnInit {
   public userLoaded = true;
 
   constructor(
+    private router: Router,
     public dialogRef: MatDialogRef<MenuDialogComponent>,
     private authService: AuthService,
     private userService: UserService,
@@ -47,4 +49,13 @@ export class MenuDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  logOut(): void {
+    if (!this.authState.isLoggedIn) {
+      return;
+    }
+
+    this.authService.signOut()
+      .then(() => this.router.navigate(['/dashboard']))
+      .catch();
+  }
 }
