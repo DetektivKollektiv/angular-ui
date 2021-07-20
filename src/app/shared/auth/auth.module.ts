@@ -8,11 +8,10 @@ import { LoginComponent } from './dialogs/login/login.component';
 import { ConfirmComponent } from './dialogs/confirm/confirm.component';
 import { ForgotPasswordComponent } from './dialogs/forgot-password/forgot-password.component';
 import { ForgotPasswordSubmitComponent } from './dialogs/forgot-password-submit/forgot-password-submit.component';
-import { MenuDialogComponent } from './dialogs/menu/menu.component';
 
 
 @NgModule({
-  declarations: [SignupComponent, LoginComponent, ConfirmComponent, ForgotPasswordComponent, ForgotPasswordSubmitComponent, MenuDialogComponent],
+  declarations: [SignupComponent, LoginComponent, ConfirmComponent, ForgotPasswordComponent, ForgotPasswordSubmitComponent],
   imports: [
     CommonModule,
     MaterialModule

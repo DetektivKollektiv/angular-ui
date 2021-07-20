@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuDialogComponent } from './menu.component';
 import {MatDialogRef} from '@angular/material/dialog';
-import {MaterialModule} from '../../../material/material.module';
+import {MaterialModule} from '../../../shared/material/material.module';
 
 describe('MenuDialogComponent', () => {
   let component: MenuDialogComponent;
