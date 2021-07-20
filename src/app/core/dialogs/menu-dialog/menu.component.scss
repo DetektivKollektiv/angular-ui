@@ -1,70 +1,13 @@
 @charset "utf-8";
-
 @import "../../../../assets/scss/_initializer.scss";
 
-.header {
-  $parent: &;
-
-  position: sticky;
-  top: 0;
-  background-color: $color__header-background;
-  z-index: 100;
-
-  &__wrapper {
-    padding: 0 _b__rem(16px);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    max-width: _b__rem(1240px);
-    margin: 0 auto;
-    min-height: _b__rem(70px);
-  }
-
-  &__navigation-main {
-    display: none;
-
-    @include _b__respond-to("min-large") {
-      display: flex;
-    }
-  }
-
-  &__navigation-mobile {
-    display: flex;
-
-    @include _b__respond-to("min-large") {
-      display: none;
-    }
-  }
+.menu-dialog-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-// does this navigation-main stuff get used somewhere else?
-// is it worth putting in another file somewhere
-.navigation-main {
-  $parent: &;
-
-  &__list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  &__item {
-    list-style-type: none;
-    margin: 0 _b__rem(30px) 0 0;
-    position: relative;
-
-    &--no-spacing {
-      margin: 0;
-    }
-
-    &:last-child {
-      margin: 0;
-    }
-  }
-
-  &__link {
-    @include font__effra--bold;
+.navigation-main__link {
+  @include font__effra--bold;
     @include _b__font-size-rem(18px);
 
     color: $color__navigation-main-link;
@@ -76,20 +19,9 @@
     &:focus,
     &:active {
       text-decoration: none;
+      cursor: pointer;
     }
-  }
-
-  &__button {
-    &--detective {
-      @include fontawesome("f8ea");
-    }
-
-    &--typewriter {
-      @include fontawesome("f8e7");
-    }
-  }
 }
-
 
 // todo: move this somewhere more appropriate
 //_userprofile.scss
@@ -218,6 +150,10 @@
   }
 }
 
+.mat-dialog-content {
+  overflow: unset;
+}
+
 .navigation-mobile {
   $parent: &;
 
@@ -229,8 +165,4 @@
     color: $color__navigation-mobile-call;
     padding: _b__rem(8px) _b__rem(10px);
   }
-
-  //TODO DEV
-  //Here be Overlay Stuff
 }
-

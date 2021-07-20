@@ -8,6 +8,7 @@ import { UserService } from '../../services/user/user.service';
 import { User } from '../../model/user';
 import { DeleteUserDialogComponent } from '../../dialogs/delete-user-dialog/delete-user-dialog.component';
 import { LoginComponent } from '../../../shared/auth/dialogs/login/login.component';
+import { MenuDialogComponent } from '../../dialogs/menu-dialog/menu.component';
 import { SignupComponent } from '../../../shared/auth/dialogs/signup/signup.component';
 import { ConfirmComponent } from '../../../shared/auth/dialogs/confirm/confirm.component';
 import { LoginResult } from '../../../shared/auth/model/login-result';
@@ -121,5 +122,10 @@ export class HeaderComponent implements OnInit {
             });
         }
       });
+  }
+
+  openMenuDialog(): void {
+    this.dialog
+      .open(MenuDialogComponent)
   }
 }
