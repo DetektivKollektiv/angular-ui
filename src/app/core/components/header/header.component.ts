@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
       this.authState = authState;
     });
 
-    this.userService.user$.subscribe((user: User) => { console.log(user);
+    this.userService.user$.subscribe((user: User) => {
       if (user) {
         this.userLoaded = true;
       } else {
