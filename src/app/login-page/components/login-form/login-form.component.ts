@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
@@ -31,13 +30,16 @@ export class LoginFormComponent implements OnInit {
     // public dialogRef: MatDialogRef<LoginComponent>,
     private authService: AuthService,
     private loaderService: LoaderService,
-    // private dialog: MatDialog,
     private formBuilder: FormBuilder
   ) {
-    // this.dialogRef.disableClose = true;
+
   }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
   get formControls() {
@@ -49,7 +51,7 @@ export class LoginFormComponent implements OnInit {
       return;
     }
 
-    // this.loaderService.show();
+    this.loaderService.show();
 
     this.loginInvalid = false;
 
@@ -71,7 +73,7 @@ export class LoginFormComponent implements OnInit {
 
         this.loginInvalid = true;
       })
-      // .finally(() => this.loaderService.hide());
+      .finally(() => this.loaderService.hide());
   }
 
   forgotPassword() {
