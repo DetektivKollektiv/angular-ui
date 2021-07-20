@@ -1,27 +1,25 @@
-<div class="login-form-card">
-  <div class="login-form-card--contents">
-    <form class="login-form" [formGroup]="loginForm">
-        <mat-error *ngIf="loginInvalid">
-          Dein Benutzername oder dein Passwort wurden nicht erkannt.
+  <mat-card class="login-form-card">
+  <mat-card-content class="login-form-card--contents">
+    <div class="login-form" [formGroup]="loginForm">
+      <mat-error *ngIf="loginInvalid">
+        Dein Benutzername oder dein Passwort wurden nicht erkannt.
+      </mat-error>
+      <mat-form-field class="full-width-input">
+        <input matInput #username placeholder="Email Addresse oder Nutzername" formControlName="username" required>
+        <mat-error>
+          Bitte gib hier deinen Benutzernamen ein.
         </mat-error>
-        <div class="full-width-input">
-            <mat-form-field class="full-width-input">
-              <input matInput #username placeholder="Email Address order Nutzername" formControlName="username" required>
-              <mat-error>
-                Bitte gib hier deinen Benutzernamen ein.
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-              <input matInput type="password" placeholder="Passwort" formControlName="password" required>
-              <mat-error>
-                Bitte gib hier dein Passwort ein.
-              </mat-error>
-            </mat-form-field>            
-        </div> 
-        <div class="submit-button">
-            <button class="button button--neon-blue" (click)="onLoginSubmit()">Einloggen</button>
-        </div>
-    </form>
-    <button class="button-flat" type="button" (click)="forgotPassword()">Passwort vergessen</button>
-  </div>
-</div>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Passwort" formControlName="password" required>
+        <mat-error>
+          Bitte gib hier dein Passwort ein.
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button class="button button--neon-blue" (click)="onLoginSubmit()">Einloggen</button>
+      <button class="button-flat" type="button" (click)="forgotPassword()">Passwort vergessen</button>
+    </div>
+  </mat-card-content>
+</mat-card>
