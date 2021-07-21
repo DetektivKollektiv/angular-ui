@@ -8,19 +8,20 @@
 }
 .navigation-main__link {
   @include font__effra--bold;
-    @include _b__font-size-rem(18px);
+  @include _b__font-size-rem(18px);
 
-    color: $color__navigation-main-link;
-    padding: _b__rem(6px) 0;
-    display: inline-block;
+  color: $color__navigation-main-link;
+  padding: _b__rem(6px) 0;
+  margin: 0;
+  display: inline-block;
 
-    &,
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: none;
-      cursor: pointer;
-    }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
 
 // todo: move this somewhere more appropriate
@@ -165,4 +166,30 @@
     color: $color__navigation-mobile-call;
     padding: _b__rem(8px) _b__rem(10px);
   }
+}
+
+.mat-list-base .mat-list-item {
+  height: unset;
+}
+
+.active-link:hover {
+  background-color: #e1e1e1;
+}
+
+.child-link {
+  margin: 5px 0;
+  font-weight: bold;
+  padding: 5px !important;
+}
+
+.first-field {
+  height: 100px !important;
+  background-color: #e1e1e1;
+  margin-bottom: 10px;
+  display: flex !important;
+  justify-content: center;
+}
+
+.login-detective {
+  margin: 0 10px;
 }

@@ -16,13 +16,34 @@
   <div mat-dialog-content>
     <!--Not logged in-->
     <mat-list *ngIf="!authState.isLoggedIn">
-      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Über uns">Über uns</a></mat-list-item>
-      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a></mat-list-item>
-      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a></mat-list-item>
-      <mat-list-item><a href="javascript:;" title=""
-        class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
-        werden</a></mat-list-item>
-      <mat-list-item><a class="navigation-main__link" title="Login" (click)="login()">Login</a></mat-list-item>
+      <mat-list-item class="first-field">
+        <a href="javascript:;" title="" class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective login-detective">
+          Detektiv werden
+        </a>
+        <a class="navigation-main__link login-detective" title="Login" (click)="login()">Login</a>
+      </mat-list-item>
+      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a></mat-list-item>
+      <mat-list-item>
+        <div>
+          <p class="navigation-main__link">Navigationspunkt</p>
+          <mat-list>
+            <mat-list-item class="child-link active-link">Eintrag</mat-list-item>
+            <mat-list-item class="child-link active-link">Navigationspunkt</mat-list-item>
+            <mat-list-item class="child-link active-link">HauptNavigationspunkt</mat-list-item>
+            <mat-list-item class="child-link active-link">Ein Eintrag, der auch etwas langer sain kann so dass dieser umbricht</mat-list-item>
+          </mat-list>
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <div>
+          <p class="navigation-main__link" >Über uns</p>
+          <mat-list>
+            <mat-list-item class="child-link active-link">Navigationspunkt</mat-list-item>
+            <mat-list-item class="child-link active-link">HauptNavigationspunkt</mat-list-item>
+          </mat-list>
+        </div>
+      </mat-list-item>
+      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a></mat-list-item>
     </mat-list>
     <!-- Logged in -->
     <mat-list *ngIf="userLoaded" >
