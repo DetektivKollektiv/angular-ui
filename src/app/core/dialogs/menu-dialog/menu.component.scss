@@ -22,13 +22,20 @@
     text-decoration: none;
     cursor: pointer;
   }
+  &.red-color {
+    color: orangered;
+  }
 }
 
 // todo: move this somewhere more appropriate
 //_userprofile.scss
+.profile {
+  width: 100%;
+}
+
 .userprofile {
   $parent: &;
-
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -103,15 +110,14 @@
 
 .navigation-flyout {
   $parent: &;
-
-  position: absolute;
-  width: 100%;
-  padding: _b__rem(10px) 0 0 0;
-  z-index: 100;
-  display: none;
+  padding-left: 2rem;
+  // position: absolute;
+  // width: 100%;
+  // padding: _b__rem(10px) 0 0 0;
+  // // z-index: 100;
+  // // display: none;
 
   &__list {
-    background-color: $color__navigation-flyout-background;
     padding: _b__rem(10px) _b__rem(16px);
     border-radius: _b__rem(10px);
   }
@@ -125,31 +131,33 @@
     @include _b__font-size-rem(15px);
 
     color: $color__navigation-flyout-link;
-    padding: _b__rem(4px) 0;
+    padding: _b__rem(4px);
     display: inline-block;
+    width: 100%;
 
     &:hover,
     &:focus,
     &:active {
-      text-decoration: underline;
+      text-decoration: none;
+      background-color: #c0c0c0;
       cursor: pointer;
     }
   }
 }
 
 //TODO DEV
-.navigation-main__item {
-  &:hover {
-    .navigation-flyout {
-      display: block;
-    }
-  }
-  &:active {
-    .navigation-flyout {
-      display: block;
-    }
-  }
-}
+// .navigation-main__item {
+//   &:hover {
+//     .navigation-flyout {
+//       display: block;
+//     }
+//   }
+//   &:active {
+//     .navigation-flyout {
+//       display: block;
+//     }
+//   }
+// }
 
 .mat-dialog-content {
   overflow: unset;
@@ -170,6 +178,7 @@
 
 .mat-list-base .mat-list-item {
   height: unset;
+  min-height: 30px;
 }
 
 .active-link:hover {
@@ -183,11 +192,16 @@
 }
 
 .first-field {
-  height: 100px !important;
+  height: 150px !important;
   background-color: #e1e1e1;
   margin-bottom: 10px;
-  display: flex !important;
-  justify-content: center;
+  &.logged {
+
+  }
+  &.unlogged {
+    display: flex !important;
+    justify-content: center;
+  }
 }
 
 .login-detective {

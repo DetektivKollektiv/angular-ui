@@ -16,7 +16,7 @@
   <div mat-dialog-content>
     <!--Not logged in-->
     <mat-list *ngIf="!authState.isLoggedIn">
-      <mat-list-item class="first-field">
+      <mat-list-item class="first-field unlogged">
         <a href="javascript:;" title="" class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective login-detective">
           Detektiv werden
         </a>
@@ -24,7 +24,7 @@
       </mat-list-item>
       <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a></mat-list-item>
       <mat-list-item>
-        <div>
+        <div style="width: 100%;">
           <p class="navigation-main__link">Navigationspunkt</p>
           <mat-list>
             <mat-list-item class="child-link active-link">Eintrag</mat-list-item>
@@ -35,7 +35,7 @@
         </div>
       </mat-list-item>
       <mat-list-item>
-        <div>
+        <div style="width: 100%;">
           <p class="navigation-main__link" >Über uns</p>
           <mat-list>
             <mat-list-item class="child-link active-link">Navigationspunkt</mat-list-item>
@@ -47,36 +47,23 @@
     </mat-list>
     <!-- Logged in -->
     <mat-list *ngIf="userLoaded" >
-      <mat-list-item class="navigation-main__item">
-        <a href="javascript:;" title=""
-        class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter">Fall
-        einreichen</a>
-      </mat-list-item>
-      <mat-list-item class="navigation-main__item">
-        <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
-      </mat-list-item>
-      <mat-list-item class="navigation-main__item">
-        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
-      </mat-list-item>
-      <mat-list-item class="navigation-main__item">
+      <mat-list-item class="navigation-main__item first-field logged">
         <div class="profile">
           <div class="userprofile">
+            <div class="userprofile__bubble" style="background-color: #722ED1;">
+              J
+            </div>
             <div class="userprofile__content">
               <div class="userprofile__name-wrapper">
-                <div class="userprofile__award userprofile__award--gold"></div>
                 <div class="userprofile__name">
                   {{user.name}}
                 </div>
+                <div class="userprofile__award userprofile__award--gold"></div>
               </div>
               <div class="userprofile__title">
                 Detective Superintendent
               </div>
             </div>
-
-            <div class="userprofile__bubble" style="background-color: #722ED1;">
-              J
-            </div>
-
             <div class="userprofile__flyout-call"></div>
           </div>
           <div class="navigation-flyout">
@@ -90,6 +77,17 @@
             </ul>
           </div>
         </div>
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item active-link">
+        <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color">
+          Fall einreichen
+        </a>
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item active-link">
+        <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item active-link">
+        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
       </mat-list-item>
     </mat-list>
   </div>
