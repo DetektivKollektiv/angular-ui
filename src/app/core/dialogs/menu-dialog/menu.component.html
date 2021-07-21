@@ -20,9 +20,9 @@
         <a href="javascript:;" title="" class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective login-detective">
           Detektiv werden
         </a>
-        <a class="navigation-main__link login-detective" title="Login" (click)="login()">Login</a>
+        <a class="navigation-main__link login-detective" title="Login" (click)="navigate('login')">Login</a>
       </mat-list-item>
-      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="archive()">Gelöste Fälle</a></mat-list-item>
+      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a></mat-list-item>
       <mat-list-item>
         <div style="width: 100%;">
           <p class="navigation-main__link">Navigationspunkt</p>
@@ -43,7 +43,7 @@
           </mat-list>
         </div>
       </mat-list-item>
-      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a></mat-list-item>
+      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="FAQ" (click)="navigate('about')">FAQ</a></mat-list-item>
     </mat-list>
     <!-- Logged in -->
     <mat-list *ngIf="userLoaded" >
@@ -69,7 +69,7 @@
           <div class="navigation-flyout">
             <ul class="navigation-flyout__list">
               <li class="navigation-flyout__item">
-                <a href="javascript:;" class="navigation-flyout__link" title="Profil">Profil</a>
+                <a href="javascript:;" class="navigation-flyout__link" title="Profil" (click)="navigate('my-file')">Profil</a>
               </li>
               <li class="navigation-flyout__item">
                 <a (click)="logOut()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
@@ -79,15 +79,15 @@
         </div>
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
-        <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="submit()">
+        <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="navigate('submit')">
           Fall einreichen
         </a>
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
-        <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
+        <a href="javascript:;" class="navigation-main__link" title="FAQ" (click)="navigate('about')">FAQ</a>
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
-        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="archive()">Gelöste Fälle</a>
+        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a>
       </mat-list-item>
     </mat-list>
   </div>

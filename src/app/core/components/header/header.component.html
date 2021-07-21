@@ -47,7 +47,7 @@
             </a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
+            <a href="javascript:;" class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
           </li>
           <li class="navigation-main__item">
             <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
@@ -76,7 +76,7 @@
             <div class="navigation-flyout">
               <ul class="navigation-flyout__list">
                 <li class="navigation-flyout__item">
-                  <a href="javascript:;" class="navigation-flyout__link" title="Profil">Profil</a>
+                  <a href="javascript:;" class="navigation-flyout__link" title="Profil" [routerLink]="['/my-file']">Profil</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a (click)="logout()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
