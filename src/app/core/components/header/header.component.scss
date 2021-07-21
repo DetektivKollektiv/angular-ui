@@ -105,7 +105,7 @@
     margin: 0 _b__rem(10px) 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   &__name-wrapper {
