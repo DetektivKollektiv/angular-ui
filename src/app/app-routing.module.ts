@@ -33,6 +33,13 @@ const routes: Routes = [
       { path: '', component: LoginPageComponent }
     ]
   },
+  {
+    path: 'forgot-password',
+    component: FooterOnlyLayoutComponent,
+    children: [
+      { path: '', component: LoginPageComponent }
+    ]
+  },
   { path: 'terms', component: CommunityGuidelinesComponent },
   { path: 'submit', component: SubmitComponent },
   {
