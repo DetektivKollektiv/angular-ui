@@ -21,7 +21,7 @@
             <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
+            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
             <a href="javascript:;" title=""
@@ -42,14 +42,15 @@
         <ul class="navigation-main__list">
           <li class="navigation-main__item navigation-main__item--no-spacing">
             <a href="javascript:;" title=""
-              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter">Fall
-              einreichen</a>
+              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter" [routerLink]="['/submit']">
+              Fall einreichen
+            </a>
           </li>
           <li class="navigation-main__item">
             <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
+            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
             <div class="userprofile">

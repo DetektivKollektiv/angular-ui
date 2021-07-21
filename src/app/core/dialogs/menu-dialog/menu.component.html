@@ -22,7 +22,7 @@
         </a>
         <a class="navigation-main__link login-detective" title="Login" (click)="login()">Login</a>
       </mat-list-item>
-      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a></mat-list-item>
+      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="archive()">Gelöste Fälle</a></mat-list-item>
       <mat-list-item>
         <div style="width: 100%;">
           <p class="navigation-main__link">Navigationspunkt</p>
@@ -79,7 +79,7 @@
         </div>
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
-        <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color">
+        <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="submit()">
           Fall einreichen
         </a>
       </mat-list-item>
@@ -87,7 +87,7 @@
         <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
-        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
+        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="archive()">Gelöste Fälle</a>
       </mat-list-item>
     </mat-list>
   </div>

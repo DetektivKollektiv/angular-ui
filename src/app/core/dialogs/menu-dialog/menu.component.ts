@@ -54,6 +54,16 @@ export class MenuDialogComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  archive(): void {
+    this.dialogRef.close();
+    this.router.navigate(['/archive']);
+  }
+
+  submit(): void {
+    this.dialogRef.close();
+    this.router.navigate(['/submit']);
+  }
+
   logOut(): void {
     if (!this.authState.isLoggedIn) {
       return;
