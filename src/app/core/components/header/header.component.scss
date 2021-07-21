@@ -198,7 +198,7 @@
     &:hover,
     &:focus,
     &:active {
-      text-decoration: underline;
+      text-decoration: none;
       cursor: pointer;
     }
   }
@@ -234,3 +234,16 @@
   //Here be Overlay Stuff
 }
 
+.third-theme-color {
+  color: #ff7268;
+}
+
+.around-button {
+  border: 1px solid #ff7269;
+  padding: 5px 10px;
+  border-radius: 15px;
+  &:hover {
+    background-color: #ff7269;
+    color: white;
+  }
+}

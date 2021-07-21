@@ -25,8 +25,9 @@
           </li>
           <li class="navigation-main__item">
             <a href="javascript:;" title=""
-              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
-              werden</a>
+              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
+              Detektiv werden
+            </a>
           </li>
           <li class="navigation-main__item">
             <a class="navigation-main__link" title="Login" [routerLink]="['/login']">Login</a>
@@ -40,9 +41,9 @@
       <nav *ngIf="userLoaded" class="navigation-main">
 
         <ul class="navigation-main__list">
-          <li class="navigation-main__item navigation-main__item--no-spacing">
+          <li class="navigation-main__item">
             <a href="javascript:;" title=""
-              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter" [routerLink]="['/submit']">
+              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/submit']">
               Fall einreichen
             </a>
           </li>
@@ -62,8 +63,7 @@
                   </div>
                 </div>
                 <div class="userprofile__title">
-                  Detective Superintendent
-
+                  {{user.level_description}}
                 </div>
               </div>
 
