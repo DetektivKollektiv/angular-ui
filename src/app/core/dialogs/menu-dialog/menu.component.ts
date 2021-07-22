@@ -49,9 +49,9 @@ export class MenuDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  login(): void {
+  navigate(link): void {
     this.dialogRef.close();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/' + link]);
   }
 
   logOut(): void {

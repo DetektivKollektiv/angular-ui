@@ -18,15 +18,16 @@
             <a href="javascript:;" class="navigation-main__link" title="Über uns">Über uns</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
+            <a href="javascript:;" class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
+            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
             <a href="javascript:;" title=""
-              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
-              werden</a>
+              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
+              <sup class="sup-title">TM</sup> Detektiv werden
+            </a>
           </li>
           <li class="navigation-main__item">
             <a class="navigation-main__link" title="Login" [routerLink]="['/login']">Login</a>
@@ -40,16 +41,17 @@
       <nav *ngIf="userLoaded" class="navigation-main">
 
         <ul class="navigation-main__list">
-          <li class="navigation-main__item navigation-main__item--no-spacing">
+          <li class="navigation-main__item">
             <a href="javascript:;" title=""
-              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter">Fall
-              einreichen</a>
+              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/submit']">
+              Fall einreichen
+            </a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
+            <a href="javascript:;" class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
+            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
             <div class="userprofile">
@@ -61,8 +63,7 @@
                   </div>
                 </div>
                 <div class="userprofile__title">
-                  Detective Superintendent
-
+                  {{user.level_description}}
                 </div>
               </div>
 
@@ -75,7 +76,7 @@
             <div class="navigation-flyout">
               <ul class="navigation-flyout__list">
                 <li class="navigation-flyout__item">
-                  <a href="javascript:;" class="navigation-flyout__link" title="Profil">Profil</a>
+                  <a href="javascript:;" class="navigation-flyout__link" title="Profil" [routerLink]="['/my-file']">Profil</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a (click)="logout()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
