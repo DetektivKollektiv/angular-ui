@@ -233,11 +233,13 @@
   //TODO DEV
   //Here be Overlay Stuff
 }
-
+$light-reddish1: #ff7268;
 .third-theme-color {
-  color: #ff7268;
+  color: $light-reddish1;
 }
 
+
+// todo: move to its own component
 .around-button {
   border: 1px solid #ff7269;
   padding: 5px 10px;
@@ -246,8 +248,9 @@
     background-color: #ff7269;
     color: white;
   }
+  .sup-title {
+    font-size: 8px;
+  }
 }
 
-.sup-title {
-  font-size: 8px;
-}
+
