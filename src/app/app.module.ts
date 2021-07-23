@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material/material.module';
 import { AuthModule } from './shared/auth/auth.module';
 import { LoginPageModule } from './login-page/login-page.module';
+import { ForgotPasswordPageModule } from './forgot-password-page/forgot-password-page.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoaderModule } from './shared/loader/loader.module';
@@ -26,6 +27,7 @@ import 'hammerjs';
 import { HelperModule } from './shared/helper/helper.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
+import { AuthenticationPageComponent } from './authentication-page/authentication-page.component';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -33,7 +35,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent],
+  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent, AuthenticationPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
