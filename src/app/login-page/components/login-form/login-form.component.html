@@ -19,7 +19,7 @@
     </div>
     <div>
       <button class="button button--neon-blue" (click)="onLoginSubmit()">Einloggen</button>
-      <button class="button-flat" type="button" (click)="forgotPassword()">Passwort vergessen</button>
+      <button class="button-flat" type="button" [routerLink]="['/forgot-password']">Passwort vergessen</button>
     </div>
   </mat-card-content>
 </mat-card>

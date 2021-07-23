@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthModule } from '../shared/auth/auth.module';
 import { MaterialModule } from '../shared/material/material.module';
-import { LoginPageComponent } from './components/login-page/login-page.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ForgotPasswordPageComponent } from './components/forgot-password-page/forgot-password-page.component';
+import { ForgotPasswordFormComponent } from './components/forgot-password-form/forgot-password-form.component';
 import { CaseListModule } from '../shared/case-list/case-list.module';
 
 
 @NgModule({
-    declarations: [LoginPageComponent, LoginFormComponent],
+    declarations: [ForgotPasswordPageComponent, ForgotPasswordFormComponent],
     exports: [
-        LoginPageComponent,
-        LoginFormComponent,
+        ForgotPasswordPageComponent,
+        ForgotPasswordFormComponent,
     ],
     imports: [
         MaterialModule,
         CaseListModule,
-        AuthModule
-    ],
-})
-export class LoginPageModule { }
+        AuthModule],
+
+    })
+export class ForgotPasswordPageModule { }

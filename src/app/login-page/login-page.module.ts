@@ -5,6 +5,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { CaseListModule } from '../shared/case-list/case-list.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CaseListModule } from '../shared/case-list/case-list.module';
     imports: [
         MaterialModule,
         CaseListModule,
-        AuthModule
+        AuthModule,
+        RouterModule
     ],
 })
 export class LoginPageModule { }

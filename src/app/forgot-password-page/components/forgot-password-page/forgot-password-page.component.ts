@@ -12,7 +12,7 @@ import { Select, Store } from '@ngxs/store';
   styleUrls: ['./forgot-password-page.component.scss'],
 })
 
-export class ForgotPassowrdPageComponent implements OnInit {
+export class ForgotPasswordPageComponent implements OnInit {
   @Select(ArchiveState.items) items$: Observable<Item[]>;
   cases:any[];
   constructor( private archiveService: ArchiveService  ) {
