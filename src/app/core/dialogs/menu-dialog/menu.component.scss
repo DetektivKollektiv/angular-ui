@@ -201,10 +201,26 @@
   }
   &.unlogged {
     display: flex !important;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
   }
 }
 
 .login-detective {
   margin: 0 10px;
+}
+
+.third-theme-color {
+  color: #ff7268;
+}
+
+.round-button {
+  border: 1px solid #ff7269;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 15px;
+  &:hover {
+    background-color: #ff7269;
+    color: white;
+  }
 }
