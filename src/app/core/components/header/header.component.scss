@@ -233,9 +233,9 @@
   //TODO DEV
   //Here be Overlay Stuff
 }
-
+$light-reddish1: #ff7268;
 .third-theme-color {
-  color: #ff7268;
+  color: $light-reddish1;
 }
 
 .round-button {
@@ -246,8 +246,9 @@
     background-color: #ff7269;
     color: white;
   }
+  .sup-title {
+    font-size: 8px;
+  }
 }
 
-.sup-title {
-  font-size: 8px;
-}
+

@@ -1,32 +1,146 @@
 @charset "utf-8";
 @import "../../../../assets/scss/_initializer.scss";
 
+// .mat-list-item-content {
+//   padding: 0;
+// }
+
+
+
+$light-reddish1: #ff7268;
+$light-grey1: #F8F8F8;
+
+// todo: move to its own component
+.around-button {
+  border: 1px solid #ff7269;
+  padding: 5px 10px;
+  border-radius: 15px;
+
+  &:hover {
+    background-color: #ff7269;
+    color: white;
+  }
+  .sup-title {
+    font-size: 8px;
+  }
+}
+
+
+
+
+
+.menu-dialog {
+  // its quite annoying to override material design defaults...
+  .mat-list-base .mat-list-item.menu-top-strip {
+    min-height: 77px;
+    background-color: $light-grey1;
+    margin-bottom: 20px;
+
+
+
+    .menu-top-strip-item-container {
+        height: 77px;
+        background-color: $light-grey1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+  }
+
+
+  // .menu-top-strip .menu-top-strip-item-container {
+  //   height: 77px;
+  //   background-color: $light-grey1;
+  //   width: 100%;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: space-evenly;
+  // }
+
+  .third-theme-color {
+    color: $light-reddish1;
+  }
+  .around-button {
+    min-width: 135px;
+    padding: 10px;
+  }
+  .main-section {
+    padding: 0;
+  }
+
+  .navigation-main__link {
+    @include font__effra--bold;
+    @include _b__font-size-rem(18px);
+
+    color: $color__navigation-main-link;
+    font-weight: 600;
+    padding: _b__rem(6px) 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      cursor: pointer;
+    }
+    &.red-color {
+      color: orangered;
+    }
+  }
+
+  .child-link {
+    margin: 5px 0;
+    font-weight: normal;
+    @include _b__font-size-rem(15px);
+    padding: 5px !important;
+  }
+
+  .login-button {
+    margin-top: 0;
+  }
+
+  // todo: this should be in its own component
+  $font-awesome--middle-line: "f8e7";
+  .navigation-main__button--typewriter {
+      @include fontawesome($font-awesome--middle-line);
+  }
+
+  .mat-list-base.authenticated {
+    .mat-list-item.menu-top-strip {
+      min-height: unset;
+      padding: 20px;
+
+      .menu-top-strip-item-container {
+        height: unset;
+        flex-direction: column;
+        align-items: flex-start;
+        .sublinks {
+          &__list {
+            margin-left: 30px;
+            margin-top: 20px;
+            &__item {
+              margin-top: 10px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+
 .menu-dialog-header{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.navigation-main__link {
-  @include font__effra--bold;
-  @include _b__font-size-rem(18px);
 
-  color: $color__navigation-main-link;
-  padding: _b__rem(6px) 0;
-  margin: 0;
-  display: inline-block;
-  width: 100%;
-
-  &,
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: none;
-    cursor: pointer;
-  }
-  &.red-color {
-    color: orangered;
-  }
-}
 
 // todo: move this somewhere more appropriate
 //_userprofile.scss
@@ -186,24 +300,10 @@
   background-color: #e1e1e1;
 }
 
-.child-link {
-  margin: 5px 0;
-  font-weight: bold;
-  padding: 5px !important;
-}
-
-.first-field {
-  height: 150px !important;
-  background-color: #e1e1e1;
-  margin-bottom: 10px;
-  &.logged {
-
-  }
-  &.unlogged {
-    display: flex !important;
-    justify-content: space-around;
-    align-items: center;
-  }
+.first-field.unlogged {
+  display: flex !important;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .login-detective {
