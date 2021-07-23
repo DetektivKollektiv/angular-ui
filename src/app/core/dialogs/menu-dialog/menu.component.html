@@ -13,19 +13,23 @@
       </button>
     </div>
   </div>
-  <div class="first-field unlogged">
-    <div>
-      <a href="javascript:;" title="" class="navigation-flyout__link third-theme-color round-button">
-        Detektiv werden
-      </a>
-    </div>
-    <div>
-      <a class="navigation-main__link login-detective" title="Login" (click)="navigate('login')">Login</a>
-    </div>
-  </div>
+
   <div mat-dialog-content class="main-section">
     <!--Not logged in-->
     <mat-list *ngIf="!authState.isLoggedIn">
+      <mat-list-item class="menu-top-strip">
+        <div class="menu-top-strip-item-container">
+          <div>
+            <a href="javascript:;" title=""
+              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
+              <sup class="sup-title">TM</sup> Detektiv werden
+            </a>
+          </div>
+          <div>
+            <a class="navigation-main__link login-button" title="Login" (click)="navigate('login')">Login</a>
+          </div>
+        </div>
+      </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
         <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="navigate('submit')">
           Fall einreichen
