@@ -9,6 +9,7 @@ import { LoginPageModule } from './login-page/login-page.module';
 import { AuthenticationPageModule } from './authentication-page/authentication-page.module';
 import { ForgotPasswordPageModule } from './forgot-password-page/forgot-password-page.module';
 import { RegisterPageModule } from './register-page/register-page.module';
+import { ConfirmEmailPageModule } from './confirm-email-page/confirm-email-page.module';
 import { SetPasswordPageModule } from './set-password-page/set-password-page.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';

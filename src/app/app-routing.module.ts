@@ -7,11 +7,14 @@ import { HomeComponent } from './home/components/home/home.component';
 import { SubmitComponent } from './submit-item/components/submit/submit.component';
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
+
+/* Auth page routes */
 import { LoginPageComponent } from './login-page/components/login-page/login-page.component';
 import { ForgotPasswordPageComponent } from './forgot-password-page/components/forgot-password-page/forgot-password-page.component';
 import { RegisterPageComponent } from './register-page/components/register-page/register-page.component';
-
+import { ConfirmEmailPageComponent } from './confirm-email-page/components/confirm-email-page/confirm-email-page.component';
 import { SetPasswordPageComponent } from './set-password-page/components/set-password-page/set-password-page.component';
+/* / Auth page routes */
 
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
 import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-changes.guard';
@@ -59,6 +62,13 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [
       { path: '', component: RegisterPageComponent }
+    ]
+  },
+  {
+    path: 'confirm-email',
+    component: FooterOnlyLayoutComponent,
+    children: [
+      { path: '', component: ConfirmEmailPageComponent }
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },

@@ -15,16 +15,16 @@
 
         <ul class="navigation-main__list">
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="Über uns">Über uns</a>
+            <a [routerLink]="['/about']" class="navigation-main__link" title="Über uns">Über uns</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
+            <a  class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" title=""
+            <a [routerLink]="['/register']" title=""
               class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
               <sup class="sup-title">TM</sup> Detektiv werden
             </a>
