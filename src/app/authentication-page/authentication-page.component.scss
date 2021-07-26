@@ -126,26 +126,6 @@
             margin: 0px;
             padding:0px;
             // background-color: #f8f8f8;
-
-            .login-form {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 30px 30px 31px;
-
-                .full-width-input {
-                    width: 100%;
-                    display: inline-block;
-                    margin:10px 0;
-                }
-                .submit-button {
-                    margin-top: 20px;
-                }
-                .mat-form-field {
-                    width: 310px;
-                }
-            }
         }
 
     }

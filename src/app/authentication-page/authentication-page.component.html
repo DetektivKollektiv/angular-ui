@@ -5,7 +5,12 @@
                 <img src="assets/logo/codetekt_white_logo.png" width="200">
             </div>
 
-            <ng-content></ng-content>
+            <mat-card class="authentication-page-card">
+              <mat-card-content class="authentication-page-card--contents">
+              	<ng-content></ng-content>
+              </mat-card-content>
+            </mat-card>
+            
 
             <div class="line"></div>
             <p class="login_form_buttom_text">
