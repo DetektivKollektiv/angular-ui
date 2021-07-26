@@ -1,0 +1,32 @@
+<div class="authentication-form-container">
+  <h2>Verifiziere deine E-Mail Adresse</h2>
+  
+  <div class="authentication-form" [formGroup]="form">
+    <p>
+      {{title}}
+    </p>
+    <mat-error *ngIf="invalid">
+      Dein Benutzername oder der Code sind nicht korrekt.
+      Versichere dich, dass die eingegebenen Daten korrekt sind.
+    </mat-error>
+    <mat-form-field class="full-width-input">
+      <input matInput placeholder="Dein Benutzername" formControlName="username" required>
+      <mat-error>
+        Bitte gib hier deinen Benutzername ein.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput type="text" placeholder="Dein Verifizierungscode" formControlName="code" required>
+      <mat-error>
+        Bitte gib hier den Code ein.
+      </mat-error>
+    </mat-form-field>
+
+  </div>
+
+  <div class="authentication-form--actions-container">
+    <button class="button button--neon-blue" (click)="onConfirmSubmit()">Bestätigen</button>
+    <button class="button-flat" type="button" (click)="resendCode()">Code erneut zusenden</button>
+
+  </div>
+</div>

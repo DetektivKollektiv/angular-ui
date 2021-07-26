@@ -5,12 +5,7 @@ import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { OperationResult } from '../../../shared/helper/model/operation-result';
-// import { LoginResult } from '../../../shared/auth/model/register-result';
-// import { LoginResultReason } from '../../../shared/auth/model/LoginResultReason';
-import { ConfirmComponent } from '../../../shared/auth/dialogs/confirm/confirm.component';
-import { ConfirmResult } from '../../../shared/auth/model/confirm-result';
 import { ForgotPasswordComponent } from '../../../shared/auth/dialogs/forgot-password/forgot-password.component';
-// import { ForgotPasswordSubmitComponent } from '../../../shared/auth/dialogs/forgot-password-submit/forgot-password-submit.component';
 import { Globals } from '../../../shared/helper/globals/globals';
 import { ForgotPasswordResult } from '../../../shared/auth/model/forgot-password-result';
 
@@ -91,7 +86,8 @@ export class RegisterFormComponent implements OnInit {
         this.formControls.email.value
       )
       .then(() => {
-          this.router.navigate(['/login']);
+        this.router.navigate(['/login'], { queryParams: { username: this.formControls.username.value  } });
+
       })
       .catch((result) => {
         switch (result.payload.code) {

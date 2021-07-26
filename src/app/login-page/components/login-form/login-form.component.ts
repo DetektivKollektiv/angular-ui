@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
@@ -13,6 +14,7 @@ import { ForgotPasswordComponent } from '../../../shared/auth/dialogs/forgot-pas
 import { ForgotPasswordSubmitComponent } from '../../../shared/auth/dialogs/forgot-password-submit/forgot-password-submit.component';
 import { Globals } from '../../../shared/helper/globals/globals';
 import { ForgotPasswordResult } from '../../../shared/auth/model/forgot-password-result';
+
 
 @Component({
   selector: 'app-login-form',
@@ -28,8 +30,9 @@ export class LoginFormComponent implements OnInit {
   } as LoginResult;
 
   constructor(
-    private dialog: MatDialog,
+    // private dialog: MatDialog,
     private router: Router,
+    private route: ActivatedRoute,
     private authService: AuthService,
     private loaderService: LoaderService,
     private formBuilder: FormBuilder
@@ -38,8 +41,23 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let userName = '';
+    // this.route.queryParams.subscribe(params => {
+    //   this.name = params['name'];
+    // });
+
+    this.route.queryParams
+        // .filter(params => params.username)
+        .subscribe(params => {
+          console.log(params); // { order: "popular" }
+
+          userName = params.username;
+          console.log(userName); // popular
+        }
+      );
+
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      username: [userName , Validators.required],
       password: ['', Validators.required],
     });
   }
@@ -67,47 +85,11 @@ export class LoginFormComponent implements OnInit {
       })
       .catch((reason: OperationResult<any>) => {
         if (reason.payload?.code === 'UserNotConfirmedException') {
-          this.confirm();
+          this.router.navigate(['/confirm-email'], { queryParams: { username: this.formControls.username.value}});  
         }
 
         this.loginInvalid = true;
       })
       .finally(() => this.loaderService.hide());
-  }
-
-  forgotPassword() {
-    this.dialog
-      .open(ForgotPasswordComponent, {
-        ...Globals.dialogData,
-        ...{ data: { username: this.formControls.username.value } },
-      })
-      .afterClosed()
-      .subscribe((value: ForgotPasswordResult) => {
-        if (value.success) {
-          this.dialog.open(ForgotPasswordSubmitComponent, {
-            ...Globals.dialogData,
-            ...{
-              data: {
-                username: this.formControls.username.value,
-                details: value.deliveryDetails,
-              },
-            },
-          });
-        }
-      });
-  }
-
-  private confirm() {
-    this.dialog
-      .open(ConfirmComponent, {
-        ...Globals.dialogData,
-        ...{ data: { username: this.formControls.username.value } },
-      })
-      .afterClosed()
-      .subscribe((result: ConfirmResult) => {
-        if (result.success) {
-          this.onLoginSubmit();
-        }
-      });
   }
 }
