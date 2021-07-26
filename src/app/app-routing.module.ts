@@ -8,6 +8,7 @@ import { SubmitComponent } from './submit-item/components/submit/submit.componen
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 import { LoginPageComponent } from './login-page/components/login-page/login-page.component';
+import { ForgotPasswordPageComponent } from './forgot-password-page/components/forgot-password-page/forgot-password-page.component';
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
 import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-changes.guard';
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
@@ -15,6 +16,7 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+
 import {FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
 
@@ -32,6 +34,13 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [
       { path: '', component: LoginPageComponent }
+    ]
+  },
+  {
+    path: 'forgot-password',
+    component: FooterOnlyLayoutComponent,
+    children: [
+      { path: '', component: ForgotPasswordPageComponent }
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
