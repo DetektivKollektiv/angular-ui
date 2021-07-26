@@ -9,6 +9,7 @@ import { ReviewComponent } from './review-item/components/review/review.componen
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 import { LoginPageComponent } from './login-page/components/login-page/login-page.component';
 import { ForgotPasswordPageComponent } from './forgot-password-page/components/forgot-password-page/forgot-password-page.component';
+import { RegisterPageComponent } from './register-page/components/register-page/register-page.component';
 
 import { SetPasswordPageComponent } from './set-password-page/components/set-password-page/set-password-page.component';
 
@@ -51,6 +52,13 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [
       { path: '', component: SetPasswordPageComponent }
+    ]
+  },
+  {
+    path: 'register',
+    component: FooterOnlyLayoutComponent,
+    children: [
+      { path: '', component: RegisterPageComponent }
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
