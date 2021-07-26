@@ -1,0 +1,176 @@
+@import "../../assets/scss/_buttons.scss";
+
+.authentication-page {
+    .container-fluid {
+        background: linear-gradient(to right, #336699 0%, #000066 100%);
+    }
+
+    .hero-section {
+        margin: 0 auto;
+        padding-top: 100px;
+        height: 800px;
+    }
+
+    .logo {
+        text-align:center;
+        margin-bottom: 40px
+    }
+
+    .passwort_vergessen {
+        margin: 0 0px 0 110px;
+    }
+    .line {
+        height: 1px;
+        margin: 40px 70px 20px 70px;
+        background-color: #fff;
+    }
+
+    .login_form_buttom_text {
+        text-align: center;
+        color: #ffffff;
+        padding: 0 0 25px 0;
+        width: 64%;
+        margin: 0 auto;
+    }
+
+    span.tm {
+        font-size: 8px;
+        padding: 0 10px 0px 0;
+        vertical-align: text-top;
+    }
+
+    .detektiv_werden_btn {
+        color: #fff;
+        font-weight: botrap_third_serial_number;
+        width: 42%;
+        margin: 0 auto;
+        padding: 10px 15px;
+        border-radius: 30px;
+        border: solid 2px #ffffff;
+        background: transparent;
+        text-align: center;
+    }
+
+    .detektiv_werden_btn button {
+        background: transparent;
+        border: unset;
+        color: #fff;
+    }
+
+    .full-width-container {
+        width: 100%;
+        background: white;
+    }
+
+    .wrapper {
+        padding-top: 80px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .case-list-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button {
+            padding: 16px 19px 14px 24px;
+            border-radius: 30px;
+            background-color: #5f38fa;
+            color: #ffffff;
+            border: solid 2px #ffffff;
+        }
+
+    }
+
+    .unsere_partner_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px;
+    }
+
+    .wrapper:after {content: '';clear: both;display: block;}
+    .case-list-container h3 {
+        padding-left: 20px;
+    }
+
+    .social_image {
+        margin-top: 15px;
+    }
+
+    .unsere_partner_section .paragraph {
+        margin-top: 70px;
+    }
+
+    .orange {
+        color: orange;
+    }
+
+
+
+    .authentication-page-card {
+        border-radius: 30px;
+        background: #fff;
+        margin: 20px;
+
+        .authentication-page-card--contents {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            margin: 0px;
+            padding:0px;
+            // background-color: #f8f8f8;
+
+            .login-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 30px 30px 31px;
+
+                .full-width-input {
+                    width: 100%;
+                    display: inline-block;
+                    margin:10px 0;
+                }
+                .submit-button {
+                    margin-top: 20px;
+                }
+                .mat-form-field {
+                    width: 310px;
+                }
+            }
+        }
+
+    }
+
+
+
+    @media only screen and (min-width: 480px) {
+        .hero-section {
+            width: 410px;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+        .wrapper {
+            flex-direction: row;
+            width: 900px;
+        }
+
+        .hero-section {
+            width: 410px;
+        }
+
+        .unsere_partner_section {
+            margin-top: 0px;
+            margin-left: 50px;
+        }
+    }
+}

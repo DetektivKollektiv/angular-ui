@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material/material.module';
 import { AuthModule } from './shared/auth/auth.module';
 import { LoginPageModule } from './login-page/login-page.module';
+import { AuthenticationPageModule } from './authentication-page/authentication-page.module';
 import { ForgotPasswordPageModule } from './forgot-password-page/forgot-password-page.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -35,7 +36,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent, AuthenticationPageComponent],
+  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     CoreModule,
     AuthModule,
     LoginPageModule,
+    AuthenticationPageModule,
     UnsavedChangesModule,
     SubmitItemModule,
     ReviewItemModule,
