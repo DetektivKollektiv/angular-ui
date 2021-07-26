@@ -8,6 +8,7 @@ import { AuthModule } from './shared/auth/auth.module';
 import { LoginPageModule } from './login-page/login-page.module';
 import { AuthenticationPageModule } from './authentication-page/authentication-page.module';
 import { ForgotPasswordPageModule } from './forgot-password-page/forgot-password-page.module';
+import { SetPasswordPageModule } from './set-password-page/set-password-page.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoaderModule } from './shared/loader/loader.module';

@@ -9,6 +9,9 @@ import { ReviewComponent } from './review-item/components/review/review.componen
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 import { LoginPageComponent } from './login-page/components/login-page/login-page.component';
 import { ForgotPasswordPageComponent } from './forgot-password-page/components/forgot-password-page/forgot-password-page.component';
+
+import { SetPasswordPageComponent } from './set-password-page/components/set-password-page/set-password-page.component';
+
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
 import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-changes.guard';
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
@@ -17,7 +20,7 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
-import {FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
+import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
@@ -41,6 +44,13 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [
       { path: '', component: ForgotPasswordPageComponent }
+    ]
+  },
+  {
+    path: 'set-password',
+    component: FooterOnlyLayoutComponent,
+    children: [
+      { path: '', component: SetPasswordPageComponent }
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },

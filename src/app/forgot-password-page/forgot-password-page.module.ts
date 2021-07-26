@@ -6,6 +6,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { ForgotPasswordPageComponent } from './components/forgot-password-page/forgot-password-page.component';
 import { ForgotPasswordFormComponent } from './components/forgot-password-form/forgot-password-form.component';
 import { CaseListModule } from '../shared/case-list/case-list.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,10 +16,11 @@ import { CaseListModule } from '../shared/case-list/case-list.module';
         ForgotPasswordFormComponent,
     ],
     imports: [
-        MaterialModule,
-        CaseListModule,
         AuthModule,
-        AuthenticationPageModule
+        AuthenticationPageModule,
+        CaseListModule,
+        MaterialModule,
+        RouterModule
     ],
 })
 export class ForgotPasswordPageModule { }

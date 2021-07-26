@@ -31,11 +31,13 @@ export class ForgotPasswordFormComponent implements OnInit {
 
   // public loginForm: FormGroup;
   // public loginInvalid: boolean;
-
   constructor(
-              private authService: AuthService,
-              private loaderService: LoaderService,
-              private formBuilder: FormBuilder) {
+      private authService: AuthService,
+      private loaderService: LoaderService,
+      private formBuilder: FormBuilder,
+      private router: Router,
+    ) {
+
   }
 
   ngOnInit(): void {
@@ -60,7 +62,7 @@ export class ForgotPasswordFormComponent implements OnInit {
     this.authService.forgotPassword(this.formControls.username.value)
       .then(value => {
         if (value.success && value.payload.CodeDeliveryDetails) {
-         console.log('whhooopdie doo')
+        this.router.navigate(['/set-password']);
         }
       })
       .catch(() => this.invalid = true)
