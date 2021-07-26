@@ -13,63 +13,106 @@
       </button>
     </div>
   </div>
-  <div mat-dialog-content>
+  <div mat-dialog-content class="main-section">
     <!--Not logged in-->
     <mat-list *ngIf="!authState.isLoggedIn">
-      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Über uns">Über uns</a></mat-list-item>
-      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a></mat-list-item>
-      <mat-list-item><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a></mat-list-item>
-      <mat-list-item><a href="javascript:;" title=""
-        class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
-        werden</a></mat-list-item>
-      <mat-list-item><a class="navigation-main__link" title="Login" (click)="login()">Login</a></mat-list-item>
-    </mat-list>
-    <!-- Logged in -->
-    <mat-list *ngIf="userLoaded" >
-      <mat-list-item class="navigation-main__item">
-        <a href="javascript:;" title=""
-        class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter">Fall
-        einreichen</a>
-      </mat-list-item>
-      <mat-list-item class="navigation-main__item">
-        <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
-      </mat-list-item>
-      <mat-list-item class="navigation-main__item">
-        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
-      </mat-list-item>
-      <mat-list-item class="navigation-main__item">
-        <div class="profile">
-          <div class="userprofile">
-            <div class="userprofile__content">
-              <div class="userprofile__name-wrapper">
-                <div class="userprofile__award userprofile__award--gold"></div>
-                <div class="userprofile__name">
-                  {{user.name}}
-                </div>
-              </div>
-              <div class="userprofile__title">
-                Detective Superintendent
-              </div>
-            </div>
-
-            <div class="userprofile__bubble" style="background-color: #722ED1;">
-              J
-            </div>
-
-            <div class="userprofile__flyout-call"></div>
+      <mat-list-item class="menu-top-strip">
+        <div class="menu-top-strip-item-container">
+          
+          <div>
+            <a href="javascript:;" title=""
+              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
+              <sup class="sup-title">TM</sup> Detektiv werden
+            </a>
           </div>
-          <div class="navigation-flyout">
-            <ul class="navigation-flyout__list">
-              <li class="navigation-flyout__item">
-                <a href="javascript:;" class="navigation-flyout__link" title="Profil">Profil</a>
-              </li>
-              <li class="navigation-flyout__item">
-                <a (click)="logOut()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
-              </li>
-            </ul>
+          <div>
+            <a class="navigation-main__link login-button" title="Login" (click)="navigate('login')">Login</a>
           </div>
         </div>
       </mat-list-item>
+      <mat-list-item class="navigation-main__item active-link">
+        <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="navigate('submit')">
+          Fall einreichen
+        </a>
+      </mat-list-item>
+
+      <mat-list-item class="active-link"><a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a></mat-list-item>
+
+      <mat-list-item>
+        <div style="width: 100%;">
+          <p class="navigation-main__link">Über uns</p>
+          <mat-list>
+            <mat-list-item class="child-link active-link">Über codetekt</mat-list-item>
+            <mat-list-item class="child-link active-link">Das Team</mat-list-item>
+            <mat-list-item class="child-link active-link">Gemeinnützigkeit</mat-list-item>
+          </mat-list>
+        </div>
+      </mat-list-item>
+      <mat-list-item>
+        <div style="width: 100%;">
+          <p class="navigation-main__link">Hilfe</p>
+          <mat-list>
+            <mat-list-item class="child-link active-link">FAQ</mat-list-item>
+            <mat-list-item class="child-link active-link">Die Kriterien</mat-list-item>
+          </mat-list>
+        </div>
+      </mat-list-item>
+    </mat-list>
+    <!-- Logged in -->
+    <mat-list *ngIf="userLoaded" class="authenticated">
+
+      <mat-list-item class="navigation-main__item menu-top-strip">
+        <div class="menu-top-strip-item-container">
+          <div class="profile">
+            <div class="userprofile">
+              <div class="userprofile__bubble" style="background-color: #722ED1;">
+                J
+              </div>
+              <div class="userprofile__content">
+                <div class="userprofile__name-wrapper">
+                  <div class="userprofile__name">
+                    {{user.name}}
+                  </div>
+                  <div class="userprofile__award userprofile__award--gold"></div>
+                </div>
+                <div class="userprofile__title">
+                  {{user.level_description}}
+                </div>
+              </div>
+              <div class="userprofile__flyout-call"></div>
+            </div>                    
+          </div>
+          <div class="sublinks__list">
+            <div class="sublinks__list__item">
+              <a class="sublinks__list__link" title="Profil" (click)="navigate('my-file')">Profil</a>
+            </div>
+            <div class="sublinks__list__item">
+              <a (click)="logOut()" class="sublinks__list__item__link" title="Abmelden">Abmelden</a>
+            </div>
+          </div>
+        </div>
+        
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item active-link">
+        <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="navigate('submit')">
+          Fall einreichen
+        </a>
+      </mat-list-item>
+      <mat-list-item class="navigation-main__item active-link">
+        <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div style="width: 100%;">
+          <p class="navigation-main__link">Hilfe</p>
+          <mat-list>
+            <mat-list-item class="child-link active-link">FAQ</mat-list-item>
+            <mat-list-item class="child-link active-link">Die Kriterien</mat-list-item>
+          </mat-list>
+        </div>
+      </mat-list-item>
+      
+
     </mat-list>
   </div>
   <div>

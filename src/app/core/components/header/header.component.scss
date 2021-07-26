@@ -105,7 +105,7 @@
     margin: 0 _b__rem(10px) 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   &__name-wrapper {
@@ -198,7 +198,7 @@
     &:hover,
     &:focus,
     &:active {
-      text-decoration: underline;
+      text-decoration: none;
       cursor: pointer;
     }
   }
@@ -233,4 +233,24 @@
   //TODO DEV
   //Here be Overlay Stuff
 }
+$light-reddish1: #ff7268;
+.third-theme-color {
+  color: $light-reddish1;
+}
+
+
+// todo: move to its own component
+.around-button {
+  border: 1px solid #ff7269;
+  padding: 5px 10px;
+  border-radius: 15px;
+  &:hover {
+    background-color: #ff7269;
+    color: white;
+  }
+  .sup-title {
+    font-size: 8px;
+  }
+}
+
 

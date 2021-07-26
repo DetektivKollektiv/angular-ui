@@ -16,10 +16,12 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 
 
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
+
+import {FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  
+
   {
     path: '',
     component: MainLayoutComponent,
@@ -61,6 +63,7 @@ const routes: Routes = [
   },
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },
   { path: 'issues', component: IssuesComponent },
+  { path: 'about', component: AboutComponent },
   {
     path: '**',
     redirectTo: '',
