@@ -26,13 +26,21 @@ $light-grey1: #F8F8F8;
 }
 
 .menu-dialog {
+  
+  .mat-list-base .mat-list-item {
+    margin-top: 20px;
+  }
+
+  // theres less items on the authenicated version of the menu, so we space them out a bit more
+  .mat-list-base.authenticated .mat-list-item {
+    margin-top: 30px;
+  }
+
   // its quite annoying to override material design defaults...
   .mat-list-base .mat-list-item.menu-top-strip {
     min-height: 77px;
     background-color: $light-grey1;
     margin-bottom: 20px;
-
-
 
     .menu-top-strip-item-container {
         height: 77px;
@@ -44,25 +52,21 @@ $light-grey1: #F8F8F8;
     }
   }
 
-
-  // .menu-top-strip .menu-top-strip-item-container {
-  //   height: 77px;
-  //   background-color: $light-grey1;
-  //   width: 100%;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-evenly;
-  // }
-
   .third-theme-color {
     color: $light-reddish1;
   }
+
   .around-button {
     min-width: 135px;
     padding: 10px;
   }
+  
   .main-section {
     padding: 0;
+  }
+
+  .navigation-main__button i {
+    font-weight: 100;
   }
 
   .navigation-main__link {
@@ -223,11 +227,6 @@ $light-grey1: #F8F8F8;
 .navigation-flyout {
   $parent: &;
   padding-left: 2rem;
-  // position: absolute;
-  // width: 100%;
-  // padding: _b__rem(10px) 0 0 0;
-  // // z-index: 100;
-  // // display: none;
 
   &__list {
     padding: _b__rem(10px) _b__rem(16px);
@@ -257,20 +256,6 @@ $light-grey1: #F8F8F8;
   }
 }
 
-//TODO DEV
-// .navigation-main__item {
-//   &:hover {
-//     .navigation-flyout {
-//       display: block;
-//     }
-//   }
-//   &:active {
-//     .navigation-flyout {
-//       display: block;
-//     }
-//   }
-// }
-
 .mat-dialog-content {
   overflow: unset;
 }
@@ -296,20 +281,3 @@ $light-grey1: #F8F8F8;
 .active-link:hover {
   background-color: #e1e1e1;
 }
-
-
-
-// .first-field {
-//   height: 150px !important;
-//   background-color: #e1e1e1;
-//   margin-bottom: 10px;
-//   &.logged {
-
-//   }
-//   &.unlogged {
-//     display: flex !important;
-//     justify-content: center;
-//   }
-// }
-
-
