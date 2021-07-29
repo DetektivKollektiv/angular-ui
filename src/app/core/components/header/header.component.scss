@@ -79,15 +79,15 @@
     }
   }
 
-  &__button {
-    &--detective {
-      @include fontawesome("f8ea");
-    }
+  // &__button {
+  //   &--detective {
+  //     @include fontawesome("f8ea");
+  //   }
 
-    &--typewriter {
-      @include fontawesome("f8e7");
-    }
-  }
+  //   &--typewriter {
+  //     @include fontawesome("f8e7");
+  //   }
+  // }
 }
 
 
@@ -115,7 +115,7 @@
   }
 
   &__award {
-    @include fontawesome("f5a2");
+    // @include fontawesome("f5a2");
     @include _b__font-size-rem(16px);
 
     margin: 0 _b__rem(4px) 0 0;
@@ -159,7 +159,7 @@
   }
 
   &__flyout-call {
-    @include fontawesome("f078");
+    // @include fontawesome("f078");
     @include _b__font-size-rem(12px);
   }
 }
@@ -222,7 +222,7 @@
   $parent: &;
 
   &__call {
-    @include fontawesome("f0c9");
+    // @include fontawesome("f0c9");
     @include _b__font-size-rem(24px);
 
     cursor: pointer;

@@ -18,11 +18,11 @@
     <mat-list *ngIf="!authState.isLoggedIn">
       <mat-list-item class="menu-top-strip">
         <div class="menu-top-strip-item-container">
-          
+
           <div>
             <a (click)="navigate('register')" title=""
               class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
-              <sup class="sup-title">TM</sup> Detektiv werden
+              <sup class="sup-title"><i class="fas fa-trademark"></i></sup> Detektiv werden
             </a>
           </div>
           <div>
@@ -32,7 +32,7 @@
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
         <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="navigate('submit')">
-          Fall einreichen
+          <i class="fas fa-typewriter"></i>Fall einreichen
         </a>
       </mat-list-item>
 
@@ -80,7 +80,7 @@
                 </div>
               </div>
               <div class="userprofile__flyout-call"></div>
-            </div>                    
+            </div>
           </div>
           <div class="sublinks__list">
             <div class="sublinks__list__item">
@@ -91,11 +91,11 @@
             </div>
           </div>
         </div>
-        
+
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
         <a href="javascript:;" title="" class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link red-color" (click)="navigate('submit')">
-          Fall einreichen
+          <i class="fas fa-typewriter"></i>Fall einreichen
         </a>
       </mat-list-item>
       <mat-list-item class="navigation-main__item active-link">
@@ -111,7 +111,7 @@
           </mat-list>
         </div>
       </mat-list-item>
-      
+
 
     </mat-list>
   </div>

@@ -1,9 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { Observable } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
+
 import { Item } from 'src/app/model/item';
 import { ArchiveState } from '../archive/state/archive.state';
 import { ArchiveService } from '../archive/services/archive.service';
-import { Observable } from 'rxjs';
-import { Select, Store } from '@ngxs/store';
+
 
 @Component({
   selector: 'app-authentication-page',
@@ -12,6 +18,7 @@ import { Select, Store } from '@ngxs/store';
 })
 
 export class AuthenticationPageComponent implements OnInit {
+  @Input('loginCTA') loginCta = 'register'; // tslint:disable-line: no-input-rename
 
   @Select(ArchiveState.items) items$: Observable<Item[]>;
   cases:any[];

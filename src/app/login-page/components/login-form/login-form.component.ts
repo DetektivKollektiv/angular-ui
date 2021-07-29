@@ -42,17 +42,10 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
     let userName = '';
-    // this.route.queryParams.subscribe(params => {
-    //   this.name = params['name'];
-    // });
 
     this.route.queryParams
-        // .filter(params => params.username)
         .subscribe(params => {
-          console.log(params); // { order: "popular" }
-
           userName = params.username;
-          console.log(userName); // popular
         }
       );
 
@@ -85,7 +78,7 @@ export class LoginFormComponent implements OnInit {
       })
       .catch((reason: OperationResult<any>) => {
         if (reason.payload?.code === 'UserNotConfirmedException') {
-          this.router.navigate(['/confirm-email'], { queryParams: { username: this.formControls.username.value}});  
+          this.router.navigate(['/confirm-email'], { queryParams: { username: this.formControls.username.value}});
         }
 
         this.loginInvalid = true;

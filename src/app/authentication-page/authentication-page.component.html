@@ -10,18 +10,40 @@
               	<ng-content></ng-content>
               </mat-card-content>
             </mat-card>
-            
+
 
             <div class="line"></div>
-            <p class="login_form_buttom_text">
-                Du hast keinen Account und möchtest die Welt zu einem besseren Ort machen?
-            </p>
-            <div class="detektiv_werden_btn">
-                <!-- <a [routerLink]="['/register']"><button><span class="tm">TM</span>Detektiv werden</button></a> -->
-                <a title="Login" [routerLink]="['/register']"><button><span class="tm">TM</span>Detektiv werden</button></a>
+
+            <div *ngIf=" loginCta === 'register' " >
+                <p class="login_form_buttom_text">
+                    Du hast keinen Account und möchtest die Welt zu einem besseren Ort machen?
+                </p>
+
+                <div class="registration_call_to_action_button">
+                    <a title="Login" [routerLink]="['/register']">
+                        <button>
+                            <sup class="sup-title"><i class="fas fa-trademark"></i></sup> Detektiv werden
+                        </button>
+                    </a>
+                </div>
             </div>
+            <div *ngIf=" loginCta === 'login' " >
+                <p class="login_form_buttom_text">
+                    Du hast schon einen Account und möchtest Dich anmelden?
+                </p>
+
+                <div class="registration_call_to_action_button">
+                    <a title="Login" [routerLink]="['/login']">
+                        <button>
+                            Login
+                        </button>
+                    </a>
+                </div>
+            </div>
+
         </div>
-        <div class="full-width-container"> 
+
+        <div class="full-width-container">
             <div class="wrapper">
                 <div class="case-list-container">
                     <h3>Die letzten gelosten Falle</h3>
