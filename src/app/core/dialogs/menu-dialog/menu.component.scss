@@ -25,15 +25,11 @@ $light-grey1: #F8F8F8;
   }
 }
 
-
-
-
-
 .menu-dialog {
   // its quite annoying to override material design defaults...
   .mat-list-base .mat-list-item.menu-top-strip {
     min-height: 77px;
-    background-color: $light-grey1;    
+    background-color: $light-grey1;
     margin-bottom: 20px;
 
 
@@ -47,7 +43,7 @@ $light-grey1: #F8F8F8;
         justify-content: space-evenly;
     }
   }
-  
+
 
   // .menu-top-strip .menu-top-strip-item-container {
   //   height: 77px;
@@ -66,7 +62,7 @@ $light-grey1: #F8F8F8;
     padding: 10px;
   }
   .main-section {
-    padding: 0; 
+    padding: 0;
   }
 
   .navigation-main__link {
@@ -107,7 +103,7 @@ $light-grey1: #F8F8F8;
   // todo: this should be in its own component
   $font-awesome--middle-line: "f8e7";
   .navigation-main__button--typewriter {
-      @include fontawesome($font-awesome--middle-line);
+      // @include fontawesome($font-awesome--middle-line);
   }
 
   .mat-list-base.authenticated {
@@ -126,9 +122,9 @@ $light-grey1: #F8F8F8;
             &__item {
               margin-top: 10px;
               &__link {}
-            }  
+            }
           }
-          
+
         }
       }
     }
@@ -171,7 +167,7 @@ $light-grey1: #F8F8F8;
   }
 
   &__award {
-    @include fontawesome("f5a2");
+    // @include fontawesome("f5a2");
     @include _b__font-size-rem(16px);
 
     margin: 0 _b__rem(4px) 0 0;
@@ -215,7 +211,7 @@ $light-grey1: #F8F8F8;
   }
 
   &__flyout-call {
-    @include fontawesome("f078");
+    // @include fontawesome("f078");
     @include _b__font-size-rem(12px);
   }
 }
@@ -283,7 +279,7 @@ $light-grey1: #F8F8F8;
   $parent: &;
 
   &__call {
-    @include fontawesome("f0c9");
+    // @include fontawesome("f0c9");
     @include _b__font-size-rem(24px);
 
     cursor: pointer;
