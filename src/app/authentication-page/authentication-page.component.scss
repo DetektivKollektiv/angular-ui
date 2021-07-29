@@ -8,7 +8,7 @@
     .hero-section {
         margin: 0 auto;
         padding-top: 100px;
-        height: 800px;
+        padding-bottom: 70px;
     }
 
     .logo {
@@ -39,19 +39,23 @@
         vertical-align: text-top;
     }
 
-    .detektiv_werden_btn {
+    .registration_call_to_action_button {
         color: #fff;
         font-weight: botrap_third_serial_number;
-        width: 42%;
-        margin: 0 auto;
-        padding: 10px 15px;
-        border-radius: 30px;
-        border: solid 2px #ffffff;
+
         background: transparent;
         text-align: center;
+
+        a button {
+            border-radius: 30px;
+            border: solid 2px #ffffff;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 15px 22px;
+        }
     }
 
-    .detektiv_werden_btn button {
+    .registration_call_to_action_button button {
         background: transparent;
         border: unset;
         color: #fff;
