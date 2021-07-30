@@ -26,6 +26,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
+import { CaseShowComponent } from './cases/components/case-show/case-show.component';
 
 const routes: Routes = [
 
@@ -73,12 +74,30 @@ const routes: Routes = [
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
   { path: 'submit', component: SubmitComponent },
+  // {
+  //   path: 'review',
+  //   component: ReviewComponent,
+  //   canActivate: [AuthGuard],
+  //   canDeactivate: [UnsavedChangesGuard],
+  // },
   {
     path: 'review',
-    component: ReviewComponent,
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ReviewComponent }
+    ],
     canActivate: [AuthGuard],
     canDeactivate: [UnsavedChangesGuard],
   },
+  // {
+  //   path: 'cases/:id',
+  //   component: MainLayoutComponent,
+  //   children: [
+  //     { path: '', component: CaseShowComponent }
+  //   ],
+  //   canActivate: [AuthGuard],
+  //   canDeactivate: [UnsavedChangesGuard],
+  // },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {
     path: 'archive',

@@ -1,14 +1,5 @@
-.home-image {
-  width: max(50vw, 100px);
-  height: max(50vh, 50px);
-}
-
 .content {
   display: flex;
   align-items: center;
   width: 100%;
-}
-
-.content > * {
-  flex: 1 0 auto;
 }

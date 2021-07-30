@@ -1,16 +1,5 @@
-<div class="page-container-column" style="width: 100%;">
-  <h1>Willkommen in deiner Trust-Checking Community!</h1>
-  <p>Möchtest du einen neuen Fall einstellen oder lieber versuchen <br /> einen der Fälle in unserer Kartei zu
-    lösen?
-  </p>
+<div class="page-container-column">
   <div class="content">
-    <div>
-      <div class="button-group">
-        <button (click)="navigate('submit')" class="button-primary">Fall einreichen</button>
-        <button (click)="navigate('review')" class="button-primary">Fall lösen</button>
-        <button (click)="navigate('archive')" class="button-primary">Archiv öffnen</button>
-      </div>
-    </div>
-    <img src="assets/images/illustrations/undraw_content_vbqo.svg" class="home-image" />
+      <app-open-case-list-slider *ngIf="cases.length" [cases]=cases></app-open-case-list-slider>
   </div>
 </div>
