@@ -63,14 +63,35 @@
 
     }
   } 
-  
-  .case-details--tatbestand {
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
 
-  } 
-  
-  .case-details--questionnaire {
+    @media only screen and (min-width: 1024px) {
+       flex-direction: row;
+    }
+    > div {
+      background: grey;
+      margin-top: 20px;
+      @media only screen and (min-width: 1024px) {
+        width: 50%;
+      }
 
+      &:nth-child(2) {
+        @media only screen and (min-width: 1024px) {
+          margin-left: 15px;
+        }
+      }
+    }
+    .case-details--tatbestand {
+
+    } 
+    
+    .case-details--questionnaire {
+
+    }
   }
+
 }
 
 

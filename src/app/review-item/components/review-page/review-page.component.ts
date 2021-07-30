@@ -33,6 +33,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public review: Review;
 
   private openCases: Item[];
+  public showQuestionaire: boolean;
 
   constructor(
     private itemsService: ItemsService,
@@ -41,7 +42,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     private matSnackBar: MatSnackBar,
     private loader: LoaderService,
     private dialog: MatDialog
+    
   ) {
+    this.showQuestionaire = false;
     this.questions = [
       {
         title: "Woran erkenne ich eine gute Quelle?",
