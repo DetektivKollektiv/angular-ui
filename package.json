@@ -50,6 +50,7 @@
     "roboto-fontface": "^0.10.0",
     "rxjs": "~6.5.4",
     "rxjs-compat": "^6.5.5",
+    "swiper": "^6.8.0",
     "tslib": "^2.1.0",
     "typeface-oswald": "^1.1.4",
     "web-animations-js": "^2.3.2",
