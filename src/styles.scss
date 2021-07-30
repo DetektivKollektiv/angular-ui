@@ -1,6 +1,9 @@
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
 
+// https://swiperjs.com/angular
+@import '~swiper/swiper-bundle';
+
 * {
   font-family: Effra medium, Effra regular, sans-serif;
   box-sizing: border-box;

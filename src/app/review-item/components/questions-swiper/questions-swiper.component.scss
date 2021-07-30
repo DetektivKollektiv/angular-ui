@@ -1,0 +1,13 @@
+@import '~swiper/swiper-bundle';
+.questions-swiper {
+  // width: 100%;
+}
+.question {
+  // width: 360px;
+  background: green;
+  padding: 20px;
+  
+  &--description {
+    // width: 50px;
+  }
+}

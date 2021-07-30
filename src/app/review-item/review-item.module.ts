@@ -12,14 +12,18 @@ import { ReviewsService } from './services/reviews/reviews.service';
 import { FactcheckComponent } from './components/factcheck/factcheck.component';
 import { MockReviewService } from './services/reviews/mock/mock-review.service';
 import { ReviewProcessComponent } from './components/review-process/review-process.component';
+import { ReviewPageComponent } from './components/review-page/review-page.component';
+import { QuestionsSwiperComponent } from './components/questions-swiper/questions-swiper.component';
 import { ReviewQuestionComponent } from './components/review-question/review-question.component';
 import { ReviewSummaryComponent } from './components/review-summary/review-summary.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { RouterModule } from '@angular/router';
 import { OpenReviewDialogComponent } from './components/open-review-dialog/open-review-dialog.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
+    QuestionsSwiperComponent,
     ReviewComponent,
     QuestionComponent,
     TagsQuestionComponent,
@@ -28,6 +32,7 @@ import { OpenReviewDialogComponent } from './components/open-review-dialog/open-
     ReviewQuestionComponent,
     ReviewSummaryComponent,
     OpenReviewDialogComponent,
+    ReviewPageComponent
   ],
   exports: [ReviewComponent],
   imports: [
@@ -38,6 +43,7 @@ import { OpenReviewDialogComponent } from './components/open-review-dialog/open-
     UnsavedChangesModule,
     FormsModule,
     RouterModule,
+    SwiperModule
   ],
   providers: [
     ReviewsService,
