@@ -1,0 +1,67 @@
+.review-page {
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .case-details {
+      max-width: 746px;
+    } 
+
+    .user-experience-section {
+      display: flex;
+      flex-direction: row;
+      // justify-content: center;
+
+      .user-stat-bubble {
+        width: 101px;
+        height: 115px;
+        background: blue;
+        margin-left: 5px;
+        border-radius: 20px;
+      }
+
+      .user-xp  {
+        background: red;
+      }
+    }
+  }
+
+  .questions-section {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+    }
+
+    @media only screen and (min-width: 1024px) {
+
+    }
+    .question {
+      border-radius: 20px;
+      background: grey;
+      margin-left: 5px;
+
+      &:nth-child(1) {
+        margin-left: 0;
+      }
+
+    }
+  } 
+  
+  .case-details--tatbestand {
+
+  } 
+  
+  .case-details--questionnaire {
+
+  }
+}
+
+
