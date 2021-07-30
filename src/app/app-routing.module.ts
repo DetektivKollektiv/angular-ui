@@ -89,15 +89,15 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canDeactivate: [UnsavedChangesGuard],
   },
-  // {
-  //   path: 'cases/:id',
-  //   component: MainLayoutComponent,
-  //   children: [
-  //     { path: '', component: CaseShowComponent }
-  //   ],
-  //   canActivate: [AuthGuard],
-  //   canDeactivate: [UnsavedChangesGuard],
-  // },
+  {
+    path: 'reviews/:id',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: CaseShowComponent }
+    ],
+    canActivate: [AuthGuard],
+    canDeactivate: [UnsavedChangesGuard],
+  },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   {
     path: 'archive',
