@@ -1,12 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import SwiperCore, {
-  EffectFade,
   Navigation,
   Pagination,
   A11y
 } from 'swiper/core';
 
-SwiperCore.use([EffectFade, Navigation, Pagination, A11y]);
+SwiperCore.use([ Navigation, Pagination, A11y]);
 @Component({
   selector: 'cases-list-swiper',
   templateUrl: './case-swiper.component.html',
