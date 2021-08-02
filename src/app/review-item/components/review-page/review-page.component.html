@@ -1,14 +1,6 @@
 <div class="review-page">
   <div class="top-section">
-    <div class="case-details">
-      <div class="case-number-section">
-        <div>ID: {{caseId}}</div>
-        <div>Fallnummer</div>
-      </div>
-      <div class="case-description-section">
-        {{case.description}}
-      </div>
-    </div>
+    <app-case-details [case]=case [caseId]=caseId></app-case-details>
     <div class="user-experience-section">
       <div class="user-stat-bubble user-xp">
         <div class="icon"></div>

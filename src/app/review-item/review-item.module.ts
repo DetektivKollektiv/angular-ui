@@ -20,6 +20,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { RouterModule } from '@angular/router';
 import { OpenReviewDialogComponent } from './components/open-review-dialog/open-review-dialog.component';
 import { SwiperModule } from 'swiper/angular';
+import { CaseDetailsComponent } from './components/case-details/case-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SwiperModule } from 'swiper/angular';
     ReviewQuestionComponent,
     ReviewSummaryComponent,
     OpenReviewDialogComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    CaseDetailsComponent
   ],
   exports: [ReviewComponent],
   imports: [
