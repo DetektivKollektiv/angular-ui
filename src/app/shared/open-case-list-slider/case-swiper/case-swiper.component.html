@@ -4,9 +4,12 @@
       <!-- Slides -->
       <div class="swiper-slide" *ngFor="let case of cases; let index as i">
         <div class="case">
-          <div class="case-header"><p>{{case.content}}</p></div>
+          <div class="case-header"><p>Diese Fälle benötigen deine Hilfe</p></div>
           <div class="case-content">
-            <div class="left-side"><p>{{case.id}}</p></div>
+            <div class="left-side">
+              <p>{{case.id}}</p>
+              <p>{{case.content}}</p>
+            </div>
             <div class="right-side">
               <p>
                 <a [routerLink]="['/reviews', case.id]" title=""
@@ -26,6 +29,10 @@
   <div class="swiper-pagination"></div>
 
   <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev">
+    <i class="fas fa-arrow-left"></i>
+  </div>
+  <div class="swiper-button-next">
+    <i class="fas fa-arrow-right"></i>
+  </div>
 </div>
