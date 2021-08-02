@@ -2,12 +2,12 @@
   <div class="top-section">
     <div class="case-details">
       <div class="case-number-section">
-        <div># {{case.id}}</div>
+        <div>ID: {{caseId}}</div>
         <div>Fallnummer</div>
       </div>
       <div class="case-description-section">
         {{case.description}}
-      </div>      
+      </div>
     </div>
     <div class="user-experience-section">
       <div class="user-stat-bubble user-xp">
@@ -16,7 +16,7 @@
         <div class="">Erfahrung</div>
       </div>
       <div class="user-stat-bubble user-level ">
-        
+
       </div>
 
     </div>
@@ -24,15 +24,15 @@
 
   <div class="questions-section">
     <div class="questions-swiper-container">
-      <app-questions-swiper></app-questions-swiper>  
+      <app-questions-swiper></app-questions-swiper>
     </div>
-    
+
 
     <div class="questions-section--list">
       <div class="question" *ngFor="let q of questions; let i=index">
           <div class="question--icon">{{q.icon}}</div>
           <div class="question--title">{{q.title}}</div>
-          <div class="question--description">{{q.description}}</div>  
+          <div class="question--description">{{q.description}}</div>
       </div>
     </div>
   </div>
@@ -45,24 +45,24 @@
         <div class="review-situation--text">{{reviewSituation.text}}</div>
       </div>
       <div class="links-section">
-        <h3>Hinterlegte und entdeckte Links</h3>  
+        <h3>Hinterlegte und entdeckte Links</h3>
         <a>bladsf</a>
         <a>bladsf</a>
         <a>bladsf</a>
       </div>
       <div class="tags-section">
-        <h3>Tags</h3>  
+        <h3>Tags</h3>
         <div>tag1</div>
         <div>tag1</div>
         <div>tag1</div>
       </div>
       <div class="background-info-section">
-        <h3>Hintergrundinformationen</h3>  
+        <h3>Hintergrundinformationen</h3>
         <div>2021-3-45</div>
         <div>anonym</div>
       </div>
     </div>
-    
+
     <div *ngIf="showQuestionaire" class="case-details--questionnaire">
         <h1>questionaire!</h1>
     </div>
@@ -72,7 +72,7 @@
         <div>Im Tatbestand siehst du alle für den Fall relevanten Informationen. Weiterer Hilfreicher Text...… Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etLorem ipsum dolor sit amet, consetetur sadipscing elitr. Möchtest du diesen Fall annehmen?</div>
         <button>Fall annehmen</button>
         <button>Fall ablehnen</button>
-    </div>  
+    </div>
   </div>
 
 </div>

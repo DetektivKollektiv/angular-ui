@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ItemsService } from '../../services/items/items.service';
 import { Item } from '../../model/item';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -34,6 +35,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   private openCases: Item[];
   public showQuestionaire: boolean;
+  public caseId: string = '';
 
   constructor(
     private itemsService: ItemsService,
@@ -41,8 +43,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     private userService: UserService,
     private matSnackBar: MatSnackBar,
     private loader: LoaderService,
-    private dialog: MatDialog
-    
+    private dialog: MatDialog,
+    private router: Router
+
   ) {
     this.showQuestionaire = false;
     this.questions = [
@@ -82,6 +85,12 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   }
 
   ngOnInit(): void {
+    if (!this.router.url.split('/')[2]) {
+      this.router.navigate(['/']);
+    } else {
+      this.caseId = this.router.url.split('/')[2];
+    }
+    console.log(this.router.url);
     this.openReview = false;
     this.caseAccepted = false;
     this.finished = false;

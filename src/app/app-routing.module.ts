@@ -103,7 +103,7 @@ const routes: Routes = [
     path: 'reviews/:id',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: CaseShowComponent }
+      { path: '', component: ReviewPageComponent }
     ],
     canActivate: [AuthGuard],
     canDeactivate: [UnsavedChangesGuard],
