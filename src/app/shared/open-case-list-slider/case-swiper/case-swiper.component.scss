@@ -10,6 +10,7 @@
     border-radius: 25px;
     background-color: #f1f1f1;
     display: flex;
+    flex-wrap: wrap;
 
     .left-side {
       flex: 1;
@@ -27,6 +28,7 @@
       flex-direction: column;
       justify-content: center;
       padding: 0 20px;
+      text-align: center;
     }
   }
 }
@@ -42,9 +44,6 @@
   &:hover {
     background-color: white;
     color: $color__neon-blue;
-  }
-  .sup-title {
-    font-size: 8px;
   }
 }
 
