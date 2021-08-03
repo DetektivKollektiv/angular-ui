@@ -4,19 +4,19 @@
       Dein Benutzername oder dein Passwort wurden nicht erkannt.
     </mat-error>
     <mat-form-field class="full-width-input">
-      <input matInput #username placeholder="Email Addresse oder Nutzername" formControlName="username" required>
+      <input matInput #username placeholder="Email Addresse oder Nutzername" formControlName="username" required (keyup.enter)="onLoginSubmit()">
       <mat-error>
         Bitte gib hier deinen Benutzernamen ein.
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width-input">
-      <input matInput type="password" placeholder="Passwort" formControlName="password" required>
+      <input matInput type="password" placeholder="Passwort" formControlName="password" required (keyup.enter)="onLoginSubmit()">
       <mat-error>
         Bitte gib hier dein Passwort ein.
       </mat-error>
     </mat-form-field>
   </div>
-  
+
   <div class="authentication-form--actions-container">
     <button class="button button--neon-blue" (click)="onLoginSubmit()">Einloggen</button>
     <button class="button-flat" type="button" [routerLink]="['/forgot-password']">Passwort vergessen</button>
