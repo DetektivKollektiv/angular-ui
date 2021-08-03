@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material/material.module';
 import { AuthModule } from './shared/auth/auth.module';
 import { LoginPageModule } from './login-page/login-page.module';
+import { HomeModule } from './home/home.module';
 import { AuthenticationPageModule } from './authentication-page/authentication-page.module';
 import { ForgotPasswordPageModule } from './forgot-password-page/forgot-password-page.module';
 import { RegisterPageModule } from './register-page/register-page.module';
@@ -33,6 +34,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AuthenticationPageComponent } from './authentication-page/authentication-page.component';
 import { AboutComponent } from './about/about.component';
+import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -72,7 +74,9 @@ export function createTranslateLoader(http: HttpClient) {
       disabled: environment.production,
     }),
     ArchiveModule,
-    HelperModule
+    HelperModule,
+    OpenCaseListSliderModule,
+    HomeModule,
   ],
   bootstrap: [AppComponent],
 })

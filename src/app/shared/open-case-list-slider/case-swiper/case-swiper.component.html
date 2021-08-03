@@ -1,0 +1,38 @@
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide" *ngFor="let case of cases; let index as i">
+        <div class="case">
+          <div class="case-header"><p>Diese Fälle benötigen deine Hilfe</p></div>
+          <div class="case-content">
+            <div class="left-side">
+              <p>{{case.id}}</p>
+              <p>{{case.content}}</p>
+            </div>
+            <div class="right-side">
+              <p>
+                <a [routerLink]="['/reviews', case.id]" title=""
+                    class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color round-button">
+                    <sup class="sup-title"> <i class="fas fa-trademark"></i></sup> Fall ansehen
+                </a>
+              </p>
+              <p>
+                <a>Fall ablehnen</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev">
+    <i class="fas fa-arrow-left"></i>
+  </div>
+  <div class="swiper-button-next">
+    <i class="fas fa-arrow-right"></i>
+  </div>
+</div>
