@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/components/profile/profile.component
 import { HomeComponent } from './home/components/home/home.component';
 import { SubmitComponent } from './submit-item/components/submit/submit.component';
 import { ReviewComponent } from './review-item/components/review/review.component';
+import { ReviewPageComponent } from './review-item/components/review-page/review-page.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 
 /* Auth page routes */
@@ -90,10 +91,19 @@ const routes: Routes = [
     canDeactivate: [UnsavedChangesGuard],
   },
   {
+    path: 'reviews',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ReviewPageComponent }
+    ],
+    // canActivate: [AuthGuard],
+    // canDeactivate: [UnsavedChangesGuard],
+  },
+  {
     path: 'reviews/:id',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: CaseShowComponent }
+      { path: '', component: ReviewPageComponent }
     ],
     canActivate: [AuthGuard],
     canDeactivate: [UnsavedChangesGuard],

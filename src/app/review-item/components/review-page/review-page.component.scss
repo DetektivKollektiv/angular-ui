@@ -1,0 +1,137 @@
+.review-page {
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .case-details {
+      max-width: 746px;
+    }
+
+    .user-experience-section {
+      display: flex;
+      flex-direction: row;
+      // justify-content: center;
+
+      .user-stat-bubble {
+        width: 101px;
+        height: 115px;
+        background: blue;
+        margin-left: 5px;
+        border-radius: 20px;
+      }
+
+      .user-xp  {
+        background: red;
+      }
+    }
+  }
+
+  .questions-section {
+    .questions-section--list {
+      display: none;
+
+      @media only screen and (min-width: 1024px) {
+         display: flex;
+         flex-direction: row;
+      }
+    }
+
+    .questions-swiper-container {
+      display:block;
+      // width: 100%;
+      // max-width: 100%;
+      max-width: 100vw;
+      @media only screen and (min-width: 1024px) {
+         display:none;
+      }
+    }
+
+    .question {
+      border-radius: 20px;
+      background: grey;
+      margin-left: 5px;
+
+      &:nth-child(1) {
+        margin-left: 0;
+      }
+
+    }
+  }
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 1024px) {
+       flex-direction: row;
+    }
+    > div {
+      margin-top: 20px;
+      @media only screen and (min-width: 1024px) {
+        width: 50%;
+      }
+
+      &:nth-child(2) {
+        @media only screen and (min-width: 1024px) {
+          margin-left: 15px;
+        }
+      }
+    }
+    .case-details--tatbestand {
+
+    }
+
+    .case-details--questionnaire {
+
+    }
+
+    .case-details--accept-case {
+      & h1 {
+        color: black;
+      }
+
+      & .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+
+        .case-button {
+          width: 178px;
+          height: 42px;
+          font-weight: bold;
+          font-size: 17px;
+
+          &.accept-case-button {
+            border-radius: 20px;
+            background-color: #5f38fa;
+            color: white;
+            border: 2px solid #5f38fa;
+
+            &:hover {
+              background-color: white;
+              color: #5f38fa;
+            }
+          }
+
+          &.reject-case-button {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-color: transparent;
+            color: grey;
+            text-decoration-line: none;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
