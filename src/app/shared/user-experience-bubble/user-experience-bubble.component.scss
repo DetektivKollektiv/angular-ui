@@ -1,0 +1,21 @@
+.user-stat-bubble {
+  width: 101px;
+  height: 115px;
+  color: #fff;
+  margin-left: 5px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  .icon {
+      margin-bottom: 6px;
+  }
+  .icon i {
+    font-size: 23px;
+  }
+  .subText {
+      font-size: 13px;
+  }
+}

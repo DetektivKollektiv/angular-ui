@@ -23,7 +23,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public caseAccepted: boolean;
   public finished: boolean;
   public openReview: boolean;
-
+  public userExperienceBubbles: any[];
   public case: any;
   public bla: any[];
   public questions: any[];
@@ -33,10 +33,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public caseIndex = 0;
   public review: Review;
 
-  private openCases: Item[];
+
   public showQuestionaire: boolean;
   public caseId: string = '';
-
+  public shortenedCaseId: string = '';
+  private openCases: Item[];
   constructor(
     private itemsService: ItemsService,
     private reviewService: ReviewsService,
@@ -70,6 +71,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       title: "titel bla",
       text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
     }
+
+    this.userExperienceBubbles = [{ iconName: 'star', color: '#160637', text: "100xp", subText: 'erfahrung' },{ iconName: 'user-cowboy', color: '#722ED1', text: "100xp", subText: 'erfahrung' }];
   }
 
   get caseToSolve(): Item {
@@ -89,8 +92,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       this.router.navigate(['/']);
     } else {
       this.caseId = this.router.url.split('/')[2];
+      if(this.caseId){
+        this.shortenedCaseId = this.caseId.split('-')[0];
+      }
     }
-    console.log(this.router.url);
+    
     this.openReview = false;
     this.caseAccepted = false;
     this.finished = false;

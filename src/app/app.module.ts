@@ -35,6 +35,7 @@ import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layo
 import { AuthenticationPageComponent } from './authentication-page/authentication-page.component';
 import { AboutComponent } from './about/about.component';
 import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
+import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -58,6 +59,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReviewItemModule,
     MyFileModule,
     IssuesModule,
+    UserExperienceBubbleListModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
