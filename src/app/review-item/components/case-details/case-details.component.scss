@@ -1,0 +1,18 @@
+.case-details{
+    .case-number-section{
+        .case-number-id {
+            font-size: 52px;
+            font-weight: bold;
+            span {
+                font-size: 17px;
+                color: #8989a2;
+            }
+        }
+    }
+    .case-description-section p {
+        font-size: 15px;
+        line-height: 1.44;
+        letter-spacing: normal;
+        text-align: left;
+    }
+}
