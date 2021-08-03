@@ -4,29 +4,28 @@
       <!-- Slides -->
       <div class="swiper-slide" *ngFor="let case of cases; let index as i">
         <div class="case">
-          <div class="case-header"><p>Diese Fälle benötigen deine Hilfe</p></div>
           <div class="case-content">
             <div class="left-side">
-              <p>{{case.id}}</p>
-              <p>{{case.content}}</p>
+              <p class="id-content">#{{case.id.split('-')[0]}}</p>
+              <p>
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+              </p>
             </div>
             <div class="right-side">
               <p>
                 <a [routerLink]="['/reviews', case.id]" title=""
                     class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color round-button">
-                    <sup class="sup-title"> <i class="fas fa-trademark"></i></sup> Fall ansehen
+                    <i class="far fa-clipboard-list-check"></i>&nbsp;Fall ansehen
                 </a>
               </p>
               <p>
-                <a>Fall ablehnen</a>
+                <a href="" class="reject-button">Fall ablehnen</a>
               </p>
             </div>
           </div>
         </div>
       </div>
   </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
 
   <!-- If we need navigation buttons -->
   <div class="swiper-button-prev">
