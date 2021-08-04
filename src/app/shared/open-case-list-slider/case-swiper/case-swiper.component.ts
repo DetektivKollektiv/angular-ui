@@ -23,35 +23,34 @@ export class CasesSwiperComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
-
   }
 
   ngAfterViewInit() {
     this.swiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
-      spaceBetween: 40,
+      spaceBetween: 50,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      breakpoints: {
-        1024: {
-            slidesPerView: 1,
-            spaceBetween: 40,
-        },
-        768: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-        },
-        640: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-        },
-        320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-        }
-      }
+      // breakpoints: {
+      //   1024: {
+      //       slidesPerView: 1,
+      //       spaceBetween: 40,
+      //   },
+      //   768: {
+      //       slidesPerView: 1,
+      //       spaceBetween: 30,
+      //   },
+      //   640: {
+      //       slidesPerView: 1,
+      //       spaceBetween: 20,
+      //   },
+      //   320: {
+      //       slidesPerView: 1,
+      //       spaceBetween: 10,
+      //   }
+      // }
     });
   }
 
