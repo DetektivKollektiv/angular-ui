@@ -72,7 +72,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
     }
 
-    this.userExperienceBubbles = [{ iconName: 'star', color: '#160637', text: "100xp", subText: 'erfahrung' },{ iconName: 'user-cowboy', color: '#722ED1', text: "100xp", subText: 'erfahrung' }];
+    this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: "100xp", subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: "100xp", subText: 'erfahrung', gridColor: '#722ED1' }];
   }
 
   get caseToSolve(): Item {
