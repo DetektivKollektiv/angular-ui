@@ -1,7 +1,7 @@
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
 @import "~swiper/swiper-bundle";
-
+@import "~swiper/components/navigation/navigation";
 // https://swiperjs.com/angular
 @import '~swiper/swiper-bundle';
 
@@ -195,13 +195,5 @@ mat-icon {
 }
 
 .swiper-container {
-  width: 100%;
-  height: 300px;
-  margin: 50px auto;
-}
-
-.swiper-slide {
-  color: #000;
-  text-align: center;
-  line-height: 300px;
+  margin: 20px 0;
 }
