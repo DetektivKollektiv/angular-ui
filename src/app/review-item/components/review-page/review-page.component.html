@@ -1,25 +1,12 @@
 <div class="review-page">
   <div class="top-section">
-    <app-case-details [case]=case [caseId]=caseId></app-case-details>
-    <div class="user-experience-section">
-      <div class="user-stat-bubble user-xp">
-        <div class="icon"></div>
-        <div class="xp">{{user.xp}} XP</div>
-        <div class="">Erfahrung</div>
-      </div>
-      <div class="user-stat-bubble user-level ">
-
-      </div>
-
-    </div>
+    <app-case-details [case]=case [caseId]=shortenedCaseId></app-case-details>
+    <app-user-experience-bubble-list [userExperienceBubbles]=userExperienceBubbles></app-user-experience-bubble-list>
   </div>
-
   <div class="questions-section">
     <div class="questions-swiper-container">
       <app-questions-swiper></app-questions-swiper>
     </div>
-
-
     <div class="questions-section--list">
       <div class="question" *ngFor="let q of questions; let i=index">
           <div class="question--icon">{{q.icon}}</div>
@@ -28,9 +15,7 @@
       </div>
     </div>
   </div>
-
   <div class="bottom-section">
-
     <div class="case-details--tatbestand">
       <div class="review-situation">
         <h2 class="review-situation--title">{{reviewSituation.title}}</h2>
@@ -54,11 +39,9 @@
         <div>anonym</div>
       </div>
     </div>
-
     <div *ngIf="showQuestionaire" class="case-details--questionnaire">
         <h1>questionaire!</h1>
     </div>
-
     <div *ngIf="!showQuestionaire" class="case-details--accept-case">
         <h1>Die Fallbearbeitung</h1>
         <div>Im Tatbestand siehst du alle für den Fall relevanten Informationen. Weiterer Hilfreicher Text...… Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etLorem ipsum dolor sit amet, consetetur sadipscing elitr. Möchtest du diesen Fall annehmen?</div>
@@ -68,5 +51,4 @@
         </div>
     </div>
   </div>
-
 </div>

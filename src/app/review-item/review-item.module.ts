@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { OpenReviewDialogComponent } from './components/open-review-dialog/open-review-dialog.component';
 import { SwiperModule } from 'swiper/angular';
 import { CaseDetailsComponent } from './components/case-details/case-details.component';
+import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble-list/user-experience-bubble-list.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { CaseDetailsComponent } from './components/case-details/case-details.com
     UnsavedChangesModule,
     FormsModule,
     RouterModule,
-    SwiperModule
+    SwiperModule,
+    UserExperienceBubbleListModule
   ],
   providers: [
     ReviewsService,
