@@ -13,9 +13,11 @@
     .case-details {
       max-width: 746px;
     }
+
     app-case-details {
-        flex: 50%;
+      flex: 50%;
     }
+
     app-user-experience-bubble-list {
       flex: 50%;
       display: flex;
@@ -67,7 +69,6 @@
        flex-direction: row;
     }
     > div {
-      background: grey;
       margin-top: 20px;
       @media only screen and (min-width: 1024px) {
         width: 50%;
@@ -86,8 +87,46 @@
     .case-details--questionnaire {
 
     }
+
+    .case-details--accept-case {
+      & h1 {
+        color: black;
+      }
+
+      & .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+
+        .case-button {
+          width: 178px;
+          height: 42px;
+          font-weight: bold;
+          font-size: 17px;
+
+          &.accept-case-button {
+            border-radius: 20px;
+            background-color: #5f38fa;
+            color: white;
+            border: 2px solid #5f38fa;
+
+            &:hover {
+              background-color: white;
+              color: #5f38fa;
+            }
+          }
+
+          &.reject-case-button {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-color: transparent;
+            color: grey;
+            text-decoration-line: none;
+          }
+        }
+      }
+    }
   }
-
 }
-
-
