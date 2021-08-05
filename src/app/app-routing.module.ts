@@ -108,10 +108,20 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     canDeactivate: [UnsavedChangesGuard],
   },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {
+    path: 'profile',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ProfileComponent }
+    ],
+    canActivate: [AuthGuard]
+  },
   {
     path: 'archive',
-    component: ArchiveComponent,
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: ArchiveComponent }
+    ]
   },
   {
     path: 'archive/:id',

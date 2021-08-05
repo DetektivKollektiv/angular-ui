@@ -7,6 +7,8 @@ import { Select, Store } from '@ngxs/store';
 import { Item } from 'src/app/model/item';
 
 import { ItemsService } from '../../../review-item/services/items/items.service';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { AuthState } from '../../../shared/auth/model/auth-state';
 
 
 @Component({
@@ -16,43 +18,39 @@ import { ItemsService } from '../../../review-item/services/items/items.service'
 })
 export class HomeComponent implements OnInit {
   cases:any[];
-  is_open_preview: boolean;
+  is_open_review: boolean;
 
   private openCases: any[];
+  public authState: AuthState;
+  private showSlider: boolean;
+  public authenticated: boolean = false;
 
   constructor(
-              private itemsService: ItemsService,
-              private router: Router
-              ) { }
+    private authService: AuthService,
+    private itemsService: ItemsService,
+    private router: Router
+  ) {
+    this.showSlider = false;
+  }
 
   ngOnInit(): void {
+    this.authService.auth$.subscribe((authState: AuthState) => {
+      this.authState = authState;
+      this.authenticated = this.authState.isLoggedIn;
+    });
+
+    if (!this.authState.isLoggedIn) {
+      return;
+    }
+
+
     this.itemsService
       .getOpenItems()
       .then((openCases) => {
-        console.log({openCases})
         this.cases = openCases.items;
-        this.is_open_preview = openCases.is_open_review;
-
-        // if (openCases.is_open_review) {
-        //   this.openReview = true;
-
-        //   this.dialog
-        //     .open(OpenReviewDialogComponent)
-        //     .afterClosed()
-        //     .subscribe((resume) => {
-        //       if (resume) {
-        //         this.loader.show();
-
-        //         this.reviewService
-        //           .createReview(openCases.items[0].id)
-        //           .then((review) => {
-        //             this.review = review;
-        //             this.caseAccepted = true;
-        //           })
-        //           .finally(() => this.loader.hide());
-        //       }
-        //     });
-        })
+        this.is_open_review = openCases.is_open_review;
+        this.showSlider = (this.cases && this.cases.length && !this.is_open_review)
+      })
 
   }
 

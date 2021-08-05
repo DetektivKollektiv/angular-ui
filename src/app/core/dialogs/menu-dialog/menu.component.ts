@@ -42,6 +42,7 @@ export class MenuDialogComponent implements OnInit {
       }
 
       this.user = user;
+      console.log({zzz:this.user})
     });
   }
 

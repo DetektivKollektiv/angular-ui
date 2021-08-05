@@ -197,3 +197,8 @@ mat-icon {
 .swiper-container {
   margin: 20px 0;
 }
+
+.no-padding-dialog-container .mat-dialog-container {
+    /* add your styles */
+    padding: 0;
+}

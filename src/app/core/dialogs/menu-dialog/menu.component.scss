@@ -1,11 +1,15 @@
 @charset "utf-8";
 @import "../../../../assets/scss/_initializer.scss";
 
-// .mat-list-item-content {
-//   padding: 0;
-// }
 
-
+/*
+  Note: this file is a mess. 
+  I was struggling a bit to merge several different sources, and
+  most of the development was done using material design angualar's lists 
+  but overriding the material ui classes was basically impossible.
+  and So i've removed the mat-list and sub components.
+  some of the scss here might be uneeded..
+*/
 
 $light-reddish1: #ff7268;
 $light-grey1: #F8F8F8;
@@ -13,69 +17,91 @@ $light-grey1: #F8F8F8;
 // todo: move to its own component
 .around-button {
   border: 1px solid #ff7269;
-  padding: 5px 10px;
+  padding: 15px;
   border-radius: 15px;
+  
+  i {
+    margin-right: 7px;
+  }
+  
+  span {}
 
   &:hover {
     background-color: #ff7269;
     color: white;
   }
-  .sup-title {
-    font-size: 8px;
-  }
 }
 
 .menu-dialog {
-  // its quite annoying to override material design defaults...
-  .mat-list-base .mat-list-item.menu-top-strip {
+  .menu-dialog-header {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 4.375rem;
+    width: 100%;
+
+    .cancel-btn-container {}
+  }
+
+  .menu-dialog-content.main-section {}
+
+  .menu-top-strip {
     min-height: 77px;
     background-color: $light-grey1;
     margin-bottom: 20px;
-
-
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
 
     .menu-top-strip-item-container {
-        height: 77px;
-        background-color: $light-grey1;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+      height: 77px;
+      background-color: $light-grey1;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
     }
   }
-
-
-  // .menu-top-strip .menu-top-strip-item-container {
-  //   height: 77px;
-  //   background-color: $light-grey1;
-  //   width: 100%;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-evenly;
-  // }
 
   .third-theme-color {
     color: $light-reddish1;
   }
   .around-button {
-    min-width: 135px;
-    padding: 10px;
-  }
-  .main-section {
-    padding: 0;
+    // padding: 10px;
+    padding: 15px;
+    margin-right: 10px;
+
   }
 
-  .navigation-main__link {
+  .main-section {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-button {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .main-link {
     @include font__effra--bold;
     @include _b__font-size-rem(18px);
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 
     color: $color__navigation-main-link;
     font-weight: 600;
-    padding: _b__rem(6px) 0;
     margin: 0;
-    display: inline-block;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 40px;
 
     &,
     &:hover,
@@ -88,26 +114,26 @@ $light-grey1: #F8F8F8;
       color: orangered;
     }
   }
+  
+  .child-links-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 
   .child-link {
-    margin: 5px 0;
     font-weight: normal;
+    margin-top: 20px;
     @include _b__font-size-rem(15px);
-    padding: 5px !important;
   }
 
   .login-button {
     margin-top: 0;
   }
 
-  // todo: this should be in its own component
-  $font-awesome--middle-line: "f8e7";
-  .navigation-main__button--typewriter {
-      // @include fontawesome($font-awesome--middle-line);
-  }
-
-  .mat-list-base.authenticated {
-    .mat-list-item.menu-top-strip {
+  .authenticated {
+    
+    .menu-top-strip {
       min-height: unset;
       padding: 20px;
 
@@ -115,6 +141,8 @@ $light-grey1: #F8F8F8;
         height: unset;
         flex-direction: column;
         align-items: flex-start;
+        margin-top: 50px;
+
         .sublinks {
           &__list {
             margin-left: 30px;
@@ -216,18 +244,11 @@ $light-grey1: #F8F8F8;
   }
 }
 
-
-
-//_navigation-flyout.scss
-
+// todo: is this used at all??
 .navigation-flyout {
   $parent: &;
   padding-left: 2rem;
-  // position: absolute;
-  // width: 100%;
-  // padding: _b__rem(10px) 0 0 0;
-  // // z-index: 100;
-  // // display: none;
+
 
   &__list {
     padding: _b__rem(10px) _b__rem(16px);
@@ -257,20 +278,6 @@ $light-grey1: #F8F8F8;
   }
 }
 
-//TODO DEV
-// .navigation-main__item {
-//   &:hover {
-//     .navigation-flyout {
-//       display: block;
-//     }
-//   }
-//   &:active {
-//     .navigation-flyout {
-//       display: block;
-//     }
-//   }
-// }
-
 .mat-dialog-content {
   overflow: unset;
 }
@@ -288,28 +295,8 @@ $light-grey1: #F8F8F8;
   }
 }
 
-.mat-list-base .mat-list-item {
-  height: unset;
-  min-height: 30px;
-}
-
 .active-link:hover {
   background-color: #e1e1e1;
 }
-
-
-
-// .first-field {
-//   height: 150px !important;
-//   background-color: #e1e1e1;
-//   margin-bottom: 10px;
-//   &.logged {
-
-//   }
-//   &.unlogged {
-//     display: flex !important;
-//     justify-content: center;
-//   }
-// }
 
 
