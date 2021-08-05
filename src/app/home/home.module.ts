@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../shared/material/material.module';
+import { AuthModule } from '../shared/auth/auth.module';
 import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
 import { HelperModule } from '../shared/helper/helper.module';
 
@@ -17,6 +18,7 @@ import { HelperModule } from '../shared/helper/helper.module';
     MaterialModule,
     OpenCaseListSliderModule,
     RouterModule,
+    AuthModule
   ]
 })
 
