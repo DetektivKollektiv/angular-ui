@@ -13,7 +13,6 @@ import { ConfirmResult } from '../../../shared/auth/model/confirm-result';
 import { ForgotPasswordComponent } from '../../../shared/auth/dialogs/forgot-password/forgot-password.component';
 import { ForgotPasswordSubmitComponent } from '../../../shared/auth/dialogs/forgot-password-submit/forgot-password-submit.component';
 import { Globals } from '../../../shared/helper/globals/globals';
-// import { ForgotPasswordResult } from '../../../shared/auth/model/forgot-password-result';
 
 
 @Component({
@@ -25,12 +24,7 @@ import { Globals } from '../../../shared/helper/globals/globals';
 export class ForgotPasswordFormComponent implements OnInit {
   forgotPasswordForm: FormGroup;
   invalid: boolean;
-  // closeResult = {
-  //   success: false
-  // } as ForgotPasswordResult;
 
-  // public loginForm: FormGroup;
-  // public loginInvalid: boolean;
   constructor(
       private authService: AuthService,
       private loaderService: LoaderService,

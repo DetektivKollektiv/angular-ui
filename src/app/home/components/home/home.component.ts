@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   private openCases: any[];
   public authState: AuthState;
   private showSlider: boolean;
+  public authenticated: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -35,17 +36,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.authService.auth$.subscribe((authState: AuthState) => {
       this.authState = authState;
+      this.authenticated = this.authState.isLoggedIn;
     });
-
-
 
     if (!this.authState.isLoggedIn) {
       return;
     }
 
-
-
-    console.log('we made it');
 
     this.itemsService
       .getOpenItems()

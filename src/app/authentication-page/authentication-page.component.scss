@@ -13,29 +13,38 @@
         text-align:center;
         margin-bottom: 40px
     }
+    .line-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
 
-    .line {
-        height: 1px;
-        margin: 40px 70px 20px 70px;
-        background-color: #fff;
+        .line {
+            height: 1px;
+            width: 300px;        
+            margin-top: 40px;
+            margin-bottom: 20px;
+            background-color: $color__white;
+        }    
     }
+    
 
     .login_form_buttom_text {
         text-align: center;
-        color: #ffffff;
-        padding: 0 0 25px 0;
+        color: $color__white;
+        padding: 0;
+        padding-bottom: 25px;
         width: 64%;
         margin: 0 auto;
     }
 
     span.tm {
         font-size: 8px;
-        padding: 0 10px 0px 0;
+        padding-top: 10px;
         vertical-align: text-top;
     }
 
     .registration_call_to_action_button {
-        color: #fff;
+        color: $color__white;
         font-weight: botrap_third_serial_number;
 
         background: transparent;
@@ -43,7 +52,7 @@
 
         a button {
             border-radius: 30px;
-            border: solid 2px #ffffff;
+            border: solid 2px $color__white;
             font-size: 17px;
             font-weight: bold;
             padding: 15px 22px;
@@ -53,12 +62,12 @@
     .registration_call_to_action_button button {
         background: transparent;
         border: unset;
-        color: #fff;
+        color: $color__white;
     }
 
     .full-width-container {
         width: 100%;
-        background: white;
+        background: $color__white;
     }
 
     .wrapper {
@@ -78,8 +87,8 @@
             padding: 16px 19px 14px 24px;
             border-radius: 30px;
             background-color: #5f38fa;
-            color: #ffffff;
-            border: solid 2px #ffffff;
+            color: $color__white;
+            border: solid 2px $color__white;
         }
 
     }
@@ -108,8 +117,6 @@
         color: orange;
     }
 
-
-
     .authentication-page-card {
         border-radius: 30px;
         background: #fff;
@@ -123,13 +130,10 @@
             width: 100%;
             height: auto;
             margin: 0px;
-            padding:0px;
-            // background-color: #f8f8f8;
+            padding: 0px;
         }
 
     }
-
-
 
     @media only screen and (min-width: 480px) {
         .hero-section {
