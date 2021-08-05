@@ -60,9 +60,10 @@
     }
 
     .registration_call_to_action_button button {
-        background: transparent;
-        border: unset;
-        color: $color__white;
+      cursor: pointer;
+      background: transparent;
+      border: unset;
+      color: $color__white;
     }
 
     .full-width-container {

@@ -135,6 +135,6 @@ export class HeaderComponent implements OnInit {
 
   openMenuDialog(): void {
     this.dialog
-      .open(MenuDialogComponent)
+      .open(MenuDialogComponent, { panelClass: 'no-padding-dialog-container' })
   }
 }
