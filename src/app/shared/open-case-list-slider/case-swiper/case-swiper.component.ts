@@ -54,6 +54,10 @@ export class CasesSwiperComponent implements AfterViewInit {
     });
   }
 
+  slideNext() {
+    this.swiper.slideNext();
+  }
+
   onSwiper(swiper) {
     console.log(swiper);
   }
