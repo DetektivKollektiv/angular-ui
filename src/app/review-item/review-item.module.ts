@@ -22,6 +22,7 @@ import { OpenReviewDialogComponent } from './components/open-review-dialog/open-
 import { SwiperModule } from 'swiper/angular';
 import { CaseDetailsComponent } from './components/case-details/case-details.component';
 import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble-list/user-experience-bubble-list.module';
+import { WatsonComponent } from './components/watson/watson.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble
     ReviewSummaryComponent,
     OpenReviewDialogComponent,
     ReviewPageComponent,
-    CaseDetailsComponent
+    CaseDetailsComponent,
+    WatsonComponent
   ],
   exports: [ReviewComponent],
   imports: [

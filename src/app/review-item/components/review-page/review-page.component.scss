@@ -12,7 +12,7 @@
 
     .case-details {
       max-width: 746px;
-    } 
+    }
     app-case-details {
         flex: 50%;
     }
@@ -31,7 +31,7 @@
   .questions-section {
     .questions-section--list {
       display: none;
-      
+
       @media only screen and (min-width: 1024px) {
          display: flex;
          flex-direction: row;
@@ -58,7 +58,7 @@
       }
 
     }
-  } 
+  }
   .bottom-section {
     display: flex;
     flex-direction: column;
@@ -81,8 +81,8 @@
     }
     .case-details--tatbestand {
 
-    } 
-    
+    }
+
     .case-details--questionnaire {
 
     }
