@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
-// 
+//
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 import { Item } from 'src/app/model/item';
@@ -16,6 +16,7 @@ import { ItemsService } from '../../../review-item/services/items/items.service'
 })
 export class HomeComponent implements OnInit {
   cases:any[];
+  is_open_preview: boolean;
 
   private openCases: any[];
 
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
       .then((openCases) => {
         console.log({openCases})
         this.cases = openCases.items;
+        this.is_open_preview = openCases.is_open_review;
 
         // if (openCases.is_open_review) {
         //   this.openReview = true;

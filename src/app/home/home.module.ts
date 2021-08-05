@@ -6,7 +6,6 @@ import { MaterialModule } from '../shared/material/material.module';
 import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
 import { HelperModule } from '../shared/helper/helper.module';
 
-
 @NgModule({
   declarations: [HomeComponent],
   exports: [

@@ -1,5 +1,6 @@
 <div class="page-container-column">
   <div class="content">
-      <app-open-case-list-slider *ngIf="cases.length" [cases]=cases></app-open-case-list-slider>
+      <app-open-case-list-slider *ngIf="cases.length && !is_open_preview" [cases]=cases></app-open-case-list-slider>
+      <app-continue-case-bar *ngIf="cases.length && is_open_preview" [cases]=cases></app-continue-case-bar>
   </div>
 </div>
