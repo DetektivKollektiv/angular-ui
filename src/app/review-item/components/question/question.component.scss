@@ -41,6 +41,7 @@
 }
 
 .child-question-container {
+  margin-top: 70px;
   margin-left: 27px;
   background-color: #eee;
   padding: 5px 30px;
@@ -70,6 +71,7 @@ mat-icon {
   & p {
     position: absolute;
     top: 10px;
+    max-height: 30px;
   }
 }
 
