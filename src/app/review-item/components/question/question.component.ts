@@ -28,21 +28,21 @@ export class QuestionComponent implements OnInit {
       a.value > b.value ? -1 : 1
     );
 
+    this.isShowChild = false;
+  }
+
+  change(e) {
+    this.childQuestions = []
     if (this.question.max_children > 0) {
       this.questions.forEach(question => {
-        if (question.parent_question_id === this.question.question_id) {
+        if (question.parent_question_id === this.question.question_id && question.lower_bound < e.value && question.upper_bound > e.value) {
           this.childQuestions.push(question);
         }
       });
     }
 
-    this.isShowChild = false;
-  }
-
-  change(e) {
-    if (this.question.lower_bound < e.target.value && e.target.value < this.question.upper_bound) {
-      this.isShowChild = true;
+    if (this.childQuestions.length > 0) {
+      this.isShowChild = true
     }
-    console.log(e.value)
   }
 }

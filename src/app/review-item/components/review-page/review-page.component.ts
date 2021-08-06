@@ -27,6 +27,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public case: any;
   public bla: any[];
   public questions: any[];
+  public showQuestions: any[];
   public reviewSituation: any;
   public user: any;
   public userInfo: any;
@@ -188,6 +189,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
                   .then((review) => {
                     this.review = review;
                     this.questions = review.questions
+                    this.showQuestions = this.questions.filter(question => !question.parent_question_id)
                     this.caseAccepted = true;
                   })
                   .finally(() => this.loader.hide());
