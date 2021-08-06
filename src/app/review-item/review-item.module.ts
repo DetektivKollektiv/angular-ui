@@ -23,6 +23,7 @@ import { SwiperModule } from 'swiper/angular';
 import { CaseDetailsComponent } from './components/case-details/case-details.component';
 import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { WatsonComponent } from './components/watson/watson.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { WatsonComponent } from './components/watson/watson.component';
     FormsModule,
     RouterModule,
     SwiperModule,
-    UserExperienceBubbleListModule
+    UserExperienceBubbleListModule,
+    IvyCarouselModule
   ],
   providers: [
     ReviewsService,
