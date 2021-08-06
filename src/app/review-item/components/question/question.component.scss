@@ -1,3 +1,43 @@
+@import '../../../../assets/scss/colors';
+
+.question {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 4px dashed gray;
+
+  &-hint-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &-info-container {
+    display: flex;
+    margin-bottom: 20px ;
+  }
+
+  .icon-wrap {
+    color: $color__neon-blue;
+    margin-right: 10px;
+  }
+
+  .large-text {
+    font-size: 21px;
+    font-weight: bold;
+  }
+
+  .medium-text {
+    font-size: 18px;
+  }
+
+  .small-text {
+    font-size: 16px;
+    color: grey;
+    &#text {
+      width: 40vw;
+    }
+  }
+}
+
 mat-radio-group {
   margin-top: 40px !important;
   display: flex;
@@ -19,7 +59,8 @@ mat-icon {
 
 .option {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .not-last-item {
@@ -27,5 +68,6 @@ mat-icon {
 }
 
 .last-item {
+  color: red;
   margin-top: 40px !important;
 }

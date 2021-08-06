@@ -29,6 +29,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public questions: any[];
   public reviewSituation: any;
   public user: any;
+  public userInfo: any;
 
   public caseIndex = 0;
   public review: Review;
@@ -113,6 +114,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     }]
 
     this.user = { xp: 100 }
+
+    this.userService.user$.subscribe((user: any) => {
+      this.userInfo = user;
+    });
   }
 
   reject() {

@@ -52,8 +52,50 @@
           </div>
         </div>
         <div *ngIf="caseAccepted">
-          <div *ngFor="let question of questions">
-            <app-question [question]="question"></app-question>
+          <div *ngFor="let question of questions; let index">
+            <app-question [question]="question" [index]="index" [questions]="questions"></app-question>
+          </div>
+          <div class="case-evaluation-comment-container case-process-container">
+            <p class="large-font">Fallbewertungskommentar</p>
+            <p class="explain">Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens sichtbar sein.</p>
+            <div class="userinfo">
+              <div class="userprofile__bubble" style="background-color: #722ED1;">
+                J
+              </div>
+              {{userInfo.name}}
+            </div>
+            <div class="input-container">
+              <input type="text">
+            </div>
+          </div>
+          <div class="tags-container case-process-container">
+            <p class="large-font">Schlagwörter</p>
+            <p class="explain">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+            <div class="input-container">
+              <input type="text">
+            </div>
+          </div>
+          <div class="legal-information-container case-process-container">
+            <p class="large-font">Rechtliche Angaben</p>
+            <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
+            <div class="radio-container">
+              <mat-radio-group>
+                <mat-radio-button [checked]="false">
+                  <div class="option">
+                    <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
+                  </div>
+                </mat-radio-button>
+                <mat-radio-button [checked]="false">
+                  <div class="option">
+                    <span>Ich stimme den Nutzungsbedingungen zu</span>
+                  </div>
+                </mat-radio-button >
+              </mat-radio-group>
+            </div>
+            <div class="legal-button-container">
+              <a href='' class="abort-button button-group">Abbrechen</a>
+              <button class="submit-button button-group">Lösung einreichen</button>
+            </div>
           </div>
         </div>
     </div>
