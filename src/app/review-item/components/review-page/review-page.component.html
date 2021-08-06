@@ -79,8 +79,8 @@
             <p class="large-font">Rechtliche Angaben</p>
             <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
             <div class="radio-container">
-              <mat-radio-group>
-                <mat-radio-button [checked]="false">
+              <mat-radio-group [(ngModel)]="defaultValue" (change)="change($event)">
+                <mat-radio-button [checked]="false" >
                   <div class="option">
                     <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
                   </div>

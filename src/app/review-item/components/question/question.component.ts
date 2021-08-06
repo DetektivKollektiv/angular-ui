@@ -18,6 +18,7 @@ export class QuestionComponent implements OnInit {
   @Input() public question: Question;
   @Input() public questions: Question[];
   @Input() public index: number;
+  @Input() public isChild: boolean;
   public isShowChild: boolean;
   public childQuestions: Question[] = [];
 

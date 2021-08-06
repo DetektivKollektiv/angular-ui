@@ -31,6 +31,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public reviewSituation: any;
   public user: any;
   public userInfo: any;
+  public defaultValue: null;
 
   public caseIndex = 0;
   public review: Review;
@@ -207,5 +208,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .finally(() => {
         this.loader.hide();
       });
+  }
+
+  change(e) {
+
   }
 }

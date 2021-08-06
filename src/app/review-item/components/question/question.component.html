@@ -1,4 +1,4 @@
-<div class="question">
+<div [className]="isChild ? 'question none-border' : 'question'">
   <p class="large-text">{{question.question_id}}</p>
   <p class="medium-text">{{question.content}}</p>
 
@@ -25,7 +25,7 @@
   </mat-radio-group>
   <div class="child-question-container" *ngIf="isShowChild">
     <div class="child-question" *ngFor="let childQuestion of childQuestions;">
-      <app-question [question]="childQuestion"></app-question>
+      <app-question [question]="childQuestion" [isChild]="true"></app-question>
     </div>
   </div>
 </div>
