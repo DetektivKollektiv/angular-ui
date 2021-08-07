@@ -41,7 +41,7 @@
 }
 
 .child-question-container {
-  margin-top: 70px;
+  margin-top: 50px;
   margin-left: 27px;
   background-color: #eee;
   padding: 5px 30px;
@@ -66,15 +66,6 @@ mat-icon {
   cursor: pointer;
 }
 
-.option {
-  position: relative;
-  & p {
-    position: absolute;
-    top: 10px;
-    max-height: 30px;
-  }
-}
-
 .not-last-item {
   font-weight: bold;
 }
@@ -82,4 +73,12 @@ mat-icon {
 .last-item {
   color: red;
   margin-top: 40px !important;
+
+  & * {
+    width: 100px;
+  }
+
+  .option {
+    margin-top: 15px;
+  }
 }
