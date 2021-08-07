@@ -40,6 +40,23 @@ body {
   height: 100%;
   min-height: 100%;
   margin: 0;
+  overflow-x: hidden;
+}
+
+.review-page .carousel .carousel-arrows .carousel-arrow {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  top: 42% !important;
+  width: 18px !important;
+  background-size: 60px !important;
+}
+
+.carousel .carousel-container .carousel-cell.question {
+  width: 350px !important;
+}
+
+.carousel .carousel-container .question--title {
+  width: 316px !important;
 }
 
 h1 {
