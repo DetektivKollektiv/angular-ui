@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-continue-case-bar',
-  templateUrl: './case-bar.component.html',
-  styleUrls: ['./case-bar.component.scss'],
+  templateUrl: './continue-case-bar.component.html',
+  styleUrls: ['./continue-case-bar.component.scss'],
   inputs: ['cases']
 })
 export class CaseBarComponent implements OnInit {
