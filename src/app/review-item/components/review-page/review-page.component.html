@@ -8,11 +8,13 @@
       <app-questions-swiper></app-questions-swiper>
     </div>
     <div class="questions-section--list">
-      <div class="question" *ngFor="let q of questions; let i=index">
-          <div class="question--icon">{{q.icon}}</div>
+      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
+        <div class="carousel-cell question" *ngFor="let q of questions; let i=index">
+          <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
           <div class="question--title">{{q.title}}</div>
           <div class="question--description">{{q.description}}</div>
-      </div>
+        </div>
+      </carousel>
     </div>
   </div>
   <div class="bottom-section">
@@ -38,6 +40,7 @@
         <div>2021-3-45</div>
         <div>anonym</div>
       </div>
+      <app-watson></app-watson>
     </div>
     <div *ngIf="showQuestionaire" class="case-details--questionnaire">
         <h1>questionaire!</h1>

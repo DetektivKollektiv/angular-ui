@@ -41,6 +41,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public caseId: string = '';
   public shortenedCaseId: string = '';
   private openCases: Item[];
+
   constructor(
     private itemsService: ItemsService,
     private reviewService: ReviewsService,
@@ -52,23 +53,33 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   ) {
     this.showQuestionaire = false;
-    // this.questions = [
-    //   {
-    //     title: "Woran erkenne ich eine gute Quelle?",
-    //     description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-    //     icon: "thing"
-    //   },
-    //   {
-    //     title: "Woran erkenne ich eine gute Quelle?",
-    //     description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-    //     icon: "thing"
-    //   },
-    //   {
-    //     title: "Woran erkenne ich eine gute Quelle?",
-    //     description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-    //     icon: "thing"
-    //   },
-    // ]
+
+    this.staticQuestions = [
+      {
+        title: "Woran erkenne ich eine gute Quelle?",
+        description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
+        background: "#68a8ff",
+        icon: "fal fa-newspaper"
+      },
+      {
+        title: "Die Quelle ist nicht mehr abrufbar. Was kann ich tun?",
+        description: "Eine Anleitung für genau solche Fälle findest du auf dieser Seite.",
+        background: "#3a9832",
+        icon: "fal fa-scroll-old"
+      },
+      {
+        title: "Kann ich den Fall abgeben?",
+        description: "Ja, das geht. Hier erfährst du wie.",
+        background: "#be9843",
+        icon: "fal fa-hands-helping"
+      },
+      {
+        title: "Eine weitere Frage??",
+        description: "Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.",
+        background: "#8f1fff",
+        icon: "fal fa-leaf"
+      },
+    ]
 
     this.reviewSituation = {
       title: "titel bla",
@@ -177,7 +188,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
         if (openCases.is_open_review) {
           this.openReview = true;
-
+            /*
           this.dialog
             .open(OpenReviewDialogComponent)
             .afterClosed()
@@ -196,6 +207,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
                   .finally(() => this.loader.hide());
               }
             });
+            */
+
         }
       })
       .catch(() => {

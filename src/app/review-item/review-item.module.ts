@@ -22,6 +22,8 @@ import { OpenReviewDialogComponent } from './components/open-review-dialog/open-
 import { SwiperModule } from 'swiper/angular';
 import { CaseDetailsComponent } from './components/case-details/case-details.component';
 import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble-list/user-experience-bubble-list.module';
+import { WatsonComponent } from './components/watson/watson.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble
     ReviewSummaryComponent,
     OpenReviewDialogComponent,
     ReviewPageComponent,
-    CaseDetailsComponent
+    CaseDetailsComponent,
+    WatsonComponent
   ],
   exports: [ReviewComponent],
   imports: [
@@ -47,7 +50,8 @@ import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble
     FormsModule,
     RouterModule,
     SwiperModule,
-    UserExperienceBubbleListModule
+    UserExperienceBubbleListModule,
+    IvyCarouselModule
   ],
   providers: [
     ReviewsService,
