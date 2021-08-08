@@ -1,3 +1,5 @@
+@import "../../../../assets/scss/_initializer.scss";
+
 .review-page {
   .top-section {
     display: flex;
@@ -177,6 +179,118 @@
           }
         }
       }
+
+      .large-font {
+        font-size: 36px;
+        font-weight: bold;
+      }
+
+      .explain {
+        font-size: 18px;
+      }
+
+      .case-process-container {
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+        border-bottom: 4px dashed grey;
+
+        .input-container {
+          width: 100%;
+          margin: 10px 0;
+          & input {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            border: 1px solid #aaa;
+          }
+        }
+
+        .padding-left {
+          padding-left: 2rem;
+        }
+      }
+
+      .case-evaluation-comment-container {
+        .userinfo {
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+
+          .userprofile__bubble {
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            color: #ffffff;
+            margin: 0 0.375rem 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+
+      .tags-container {
+
+      }
+
+      .legal-information-container {
+        border: none;
+        mat-radio-group {
+          margin-top: 40px !important;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        mat-radio-button {
+          width: 15px;
+        }
+
+        mat-radio-button + mat-radio-button {
+          margin-top: 1em;
+        }
+
+        .legal-button-container {
+          margin: 40px 0;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          .button-group {
+            width: 178px;
+            height: 42px;
+            font-weight: bold;
+            font-size: 17px;
+
+            &.abort-button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: transparent;
+              color: grey;
+              text-decoration-line: none;
+            }
+
+            &.submit-button {
+              border-radius: 20px;
+              background-color: #5f38fa;
+              color: white;
+              border: 2px solid #5f38fa;
+
+              &:hover {
+                background-color: white;
+                color: #5f38fa;
+              }
+            }
+          }
+
+        }
+      }
+
     }
   }
+}
+
+.full-width-input {
+  width: 100;
 }

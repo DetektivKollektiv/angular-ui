@@ -4,9 +4,10 @@ import { OpenCaseListSliderComponent } from './open-case-list-slider/open-case-l
 import { RouterModule } from '@angular/router';
 import { SwiperModule } from 'swiper/angular';
 import { CasesSwiperComponent } from './case-swiper/case-swiper.component';
+import { CaseBarComponent } from './continue-case-bar/continue-case-bar.component';
 @NgModule({
-  declarations: [ OpenCaseListSliderComponent, CasesSwiperComponent ],
-  exports: [ OpenCaseListSliderComponent ],
+  declarations: [ OpenCaseListSliderComponent, CasesSwiperComponent, CaseBarComponent ],
+  exports: [ OpenCaseListSliderComponent, CaseBarComponent ],
   imports: [
     CommonModule,
     RouterModule,

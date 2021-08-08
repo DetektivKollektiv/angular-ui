@@ -27,8 +27,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public case: any;
   public bla: any[];
   public questions: any[];
+  public showQuestions: any[];
   public reviewSituation: any;
   public user: any;
+  public userInfo: any;
+  public defaultValue: null;
 
   public caseIndex = 0;
   public review: Review;
@@ -50,7 +53,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   ) {
     this.showQuestionaire = false;
-    this.questions = [
+
+    this.staticQuestions = [
       {
         title: "Woran erkenne ich eine gute Quelle?",
         description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
@@ -122,25 +126,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.",
     }]
 
-    // this.questions = [
-    //   {
-    //     title: "Woran erkenne ich eine gute Quelle?",
-    //     description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-    //     icon: "thing"
-    //   },
-    //   {
-    //     title: "Woran erkenne ich eine gute Quelle?",
-    //     description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-    //     icon: "thing"
-    //   },
-    //   {
-    //     title: "Woran erkenne ich eine gute Quelle?",
-    //     description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-    //     icon: "thing"
-    //   },
-    // ]
-    console.log(`questions`, this.questions)
     this.user = { xp: 100 }
+
+    this.userService.user$.subscribe((user: any) => {
+      this.userInfo = user;
+    });
   }
 
   reject() {
@@ -157,7 +147,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .createReview(this.caseToSolve.id)
       .then((review) => {
         this.review = review;
+        this.questions = review.questions
         this.caseAccepted = true;
+        console.log(this.questions)
       })
       .catch(() => {
         this.matSnackBar.open(
@@ -196,23 +188,27 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
         if (openCases.is_open_review) {
           this.openReview = true;
+            /*
+          this.dialog
+            .open(OpenReviewDialogComponent)
+            .afterClosed()
+            .subscribe((resume) => {
+              if (resume) {
+                this.loader.show();
 
-          // this.dialog
-          //   .open(OpenReviewDialogComponent)
-          //   .afterClosed()
-          //   .subscribe((resume) => {
-          //     if (resume) {
-          //       this.loader.show();
+                this.reviewService
+                  .createReview(openCases.items[0].id)
+                  .then((review) => {
+                    this.review = review;
+                    this.questions = review.questions
+                    this.showQuestions = this.questions.filter(question => !question.parent_question_id)
+                    this.caseAccepted = true;
+                  })
+                  .finally(() => this.loader.hide());
+              }
+            });
+            */
 
-          //       this.reviewService
-          //         .createReview(openCases.items[0].id)
-          //         .then((review) => {
-          //           this.review = review;
-          //           this.caseAccepted = true;
-          //         })
-          //         .finally(() => this.loader.hide());
-          //     }
-          //   });
         }
       })
       .catch(() => {
@@ -225,5 +221,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .finally(() => {
         this.loader.hide();
       });
+  }
+
+  change(e) {
+
   }
 }

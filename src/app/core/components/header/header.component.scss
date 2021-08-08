@@ -2,6 +2,10 @@
 
 @import "../../../../assets/scss/_initializer.scss";
 
+.no-padding-dialog-container {
+  padding: 0;
+}
+
 .header {
   $parent: &;
 
@@ -78,17 +82,11 @@
       text-decoration: none;
     }
   }
-
-  // &__button {
-  //   &--detective {
-  //     @include fontawesome("f8ea");
-  //   }
-
-  //   &--typewriter {
-  //     @include fontawesome("f8e7");
-  //   }
-  // }
+  &__button--detective {
+    
+  }
 }
+
 
 
 // todo: move this somewhere more appropriate
@@ -248,9 +246,11 @@ $light-reddish1: #ff7268;
     background-color: #ff7269;
     color: white;
   }
-  .sup-title {
-    font-size: 8px;
-  }
 }
 
-
+.navigation-main__button--detective {
+  padding: 15px;
+  i {
+    margin-right: 7px;
+  }
+}

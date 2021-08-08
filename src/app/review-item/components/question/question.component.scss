@@ -1,3 +1,52 @@
+@import '../../../../assets/scss/colors';
+
+.question {
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  border-bottom: 4px dashed gray;
+
+  &.none-border {
+    border: none;
+    margin: 0;
+  }
+
+  &-hint-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &-info-container {
+    display: flex;
+    margin-bottom: 20px ;
+  }
+
+  .icon-wrap {
+    color: $color__neon-blue;
+    margin-right: 10px;
+  }
+
+  .large-text {
+    font-size: 21px;
+    font-weight: bold;
+  }
+
+  .medium-text {
+    font-size: 18px;
+  }
+
+  .small-text {
+    font-size: 16px;
+    color: grey;
+  }
+}
+
+.child-question-container {
+  margin-top: 50px;
+  margin-left: 27px;
+  background-color: #eee;
+  padding: 5px 30px;
+}
+
 mat-radio-group {
   margin-top: 40px !important;
   display: flex;
@@ -17,15 +66,19 @@ mat-icon {
   cursor: pointer;
 }
 
-.option {
-  display: flex;
-  align-items: center;
-}
-
 .not-last-item {
   font-weight: bold;
 }
 
 .last-item {
+  color: red;
   margin-top: 40px !important;
+
+  & * {
+    width: 100px;
+  }
+
+  .option {
+    margin-top: 15px;
+  }
 }
