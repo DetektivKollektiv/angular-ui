@@ -7,7 +7,7 @@
 >
   <ng-template *ngFor="let q of questions; let index=index" swiperSlide>
       <div class="question">
-          <div class="question--icon">{{q.icon}}</div>
+          <div class="question--icon"><i class="{{q.icon}}"></i></div>
           <div class="question--title">{{q.title}}</div>
           <div class="question--description">{{q.description}}</div>  
       </div>

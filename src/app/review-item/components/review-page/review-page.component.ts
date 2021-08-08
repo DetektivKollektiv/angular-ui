@@ -197,22 +197,22 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         if (openCases.is_open_review) {
           this.openReview = true;
 
-          this.dialog
-            .open(OpenReviewDialogComponent)
-            .afterClosed()
-            .subscribe((resume) => {
-              if (resume) {
-                this.loader.show();
+          // this.dialog
+          //   .open(OpenReviewDialogComponent)
+          //   .afterClosed()
+          //   .subscribe((resume) => {
+          //     if (resume) {
+          //       this.loader.show();
 
-                this.reviewService
-                  .createReview(openCases.items[0].id)
-                  .then((review) => {
-                    this.review = review;
-                    this.caseAccepted = true;
-                  })
-                  .finally(() => this.loader.hide());
-              }
-            });
+          //       this.reviewService
+          //         .createReview(openCases.items[0].id)
+          //         .then((review) => {
+          //           this.review = review;
+          //           this.caseAccepted = true;
+          //         })
+          //         .finally(() => this.loader.hide());
+          //     }
+          //   });
         }
       })
       .catch(() => {
