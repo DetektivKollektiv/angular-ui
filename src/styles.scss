@@ -58,6 +58,9 @@ body {
 .carousel .carousel-container .question--title {
   width: 316px !important;
 }
+.carousel-arrows .carousel-arrow-disabled {
+  display: none;
+}
 
 h1 {
   font-family: Effra medium, sans-serif;

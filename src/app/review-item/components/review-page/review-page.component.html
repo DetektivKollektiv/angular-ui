@@ -1,6 +1,6 @@
 <div class="review-page">
   <div class="top-section">
-    <app-case-details [case]=case [caseId]=shortenedCaseId></app-case-details>
+    <app-case-details *ngIf="!!case" [case]=case [caseId]=shortenedCaseId></app-case-details>
     <app-user-experience-bubble-list [userExperienceBubbles]=userExperienceBubbles></app-user-experience-bubble-list>
   </div>
   <div class="questions-section">
@@ -9,7 +9,7 @@
     </div>
     <div class="questions-section--list">
       <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
-        <div class="carousel-cell question" *ngFor="let q of questions; let i=index">
+        <div class="carousel-cell question" *ngFor="let q of questionPrompts; let i=index">
           <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
           <div class="question--title">{{q.title}}</div>
           <div class="question--description">{{q.description}}</div>

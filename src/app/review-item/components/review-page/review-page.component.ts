@@ -25,8 +25,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public openReview: boolean;
   public userExperienceBubbles: any[];
   public case: any;
-  public bla: any[];
+  public questionPrompts: any[];
   public questions: any[];
+
   public showQuestions: any[];
   public reviewSituation: any;
   public user: any;
@@ -54,7 +55,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   ) {
     this.showQuestionaire = false;
 
-    this.staticQuestions = [
+    this.questionPrompts = [
       {
         title: "Woran erkenne ich eine gute Quelle?",
         description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
@@ -116,16 +117,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.finished = false;
     this.getNewCase();
 
-    this.case = {
-      id: "123id",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.",
-    }
-    this.bla = [{
-      id: "123id",
-      bla: "blaaaa",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.",
-    }]
-
     this.user = { xp: 100 }
 
     this.userService.user$.subscribe((user: any) => {
@@ -150,6 +141,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.questions = review.questions
         this.caseAccepted = true;
         console.log(this.questions)
+        console.log({review})
       })
       .catch(() => {
         this.matSnackBar.open(
@@ -185,9 +177,32 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .getOpenItems()
       .then((openCases) => {
         this.openCases = openCases.items;
+        const firstCase = openCases.items[0]
+
+        const sampleTags =['tag1','tag2','really long tag here'];
+        const sampleUrls = ['reddit.com','otherwebsite.io','thisismyfavorite.com'];
+
+        this.case = {
+          ...firstCase,
+          tags: "tags" in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
+          urls: "urls" in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,  
+        }
+
+        console.log({zzz: this.case})
 
         if (openCases.is_open_review) {
           this.openReview = true;
+
+          this.reviewService
+            .createReview(firstCase.id)
+            .then((review) => {
+              this.review = review;
+              console.log({review})
+              this.questions = review.questions
+              this.showQuestions = this.questions.filter(question => !question.parent_question_id)
+              this.caseAccepted = true;
+            })
+
             /*
           this.dialog
             .open(OpenReviewDialogComponent)
