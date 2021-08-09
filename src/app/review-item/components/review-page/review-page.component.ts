@@ -12,6 +12,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { OpenReviewDialogComponent } from '../open-review-dialog/open-review-dialog.component';
 import { ReviewState } from '../../model/review-state';
 import { globals } from 'src/environments/globals';
+import { FactCheckService } from '../../services/factchecks/fact-check.service';
+import { Factcheck } from '../../model/factcheck';
 
 
 @Component({
@@ -43,6 +45,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public shortenedCaseId: string = '';
   private openCases: Item[];
 
+  public factCheck: Factcheck = null;
+
   constructor(
     private itemsService: ItemsService,
     private reviewService: ReviewsService,
@@ -50,7 +54,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     private matSnackBar: MatSnackBar,
     private loader: LoaderService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private factCheckService: FactCheckService
 
   ) {
     this.showQuestionaire = false;
@@ -122,6 +127,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.userService.user$.subscribe((user: any) => {
       this.userInfo = user;
     });
+
+    if (this.caseId) {
+      this.getFactCheck(this.caseId)
+    }
   }
 
   reject() {
@@ -185,7 +194,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.case = {
           ...firstCase,
           tags: "tags" in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
-          urls: "urls" in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,  
+          urls: "urls" in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,
         }
 
         console.log({zzz: this.case})
@@ -240,5 +249,21 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   change(e) {
 
+  }
+
+  getFactCheck(id: string): void {
+    this.loader.show();
+
+    this.factCheckService
+      .getFactCheck(id)
+      .then(factCheck => {
+        this.factCheck = factCheck;
+      })
+      .catch(() => {
+        this.factCheck = null;
+      })
+      .finally(() => {
+        this.loader.hide();
+      })
   }
 }
