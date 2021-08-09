@@ -9,38 +9,48 @@
     </div>
     <div class="questions-section--list">
       <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
-        <div class="carousel-cell question" *ngFor="let q of questions; let i=index">
+        <div class="carousel-cell question" *ngFor="let q of staticQuestions; let i=index">
           <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
           <div class="question--title">{{q.title}}</div>
-          <div class="question--description">{{q.description}}</div>
+          <div class="question--description questions-section-quote">{{q.description}}</div>
         </div>
       </carousel>
     </div>
   </div>
   <div class="bottom-section">
-    <div class="case-details--tatbestand">
+    <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
       <div class="review-situation">
         <h2 class="review-situation--title">{{reviewSituation.title}}</h2>
-        <div class="review-situation--text">{{reviewSituation.text}}</div>
+        <div class="review-situation--text">
+          <i class="fas fa-quote-left"></i>
+          {{reviewSituation.text}}
+          <i class="fas fa-quote-right"></i>
+        </div>
       </div>
       <div class="links-section">
         <h3>Hinterlegte und entdeckte Links</h3>
-        <a>bladsf</a>
-        <a>bladsf</a>
-        <a>bladsf</a>
+        <div>
+          <span class="link-icon"><a href=""><i class="far fa-external-link-square-alt"></i> https://eine-url.tld</a></span>
+          <span class="link-icon gray-link"><a href=""><i class="fal fa-exclamation-square"></i>https://www.domain.tld/0ou2349234iojsdfln</a></span>
+          <span class="link-icon"><a href=""><i class="far fa-external-link-square-alt"></i>www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel</a></span>
+        </div>
       </div>
       <div class="tags-section">
         <h3>Tags</h3>
-        <div>tag1</div>
-        <div>tag1</div>
-        <div>tag1</div>
+        <ul>
+          <li>Ein Tag</li>
+          <li>Ein weiterer Tag</li>
+          <li>Ein echt sehr langer Tag</li>
+        </ul>
       </div>
       <div class="background-info-section">
         <h3>Hintergrundinformationen</h3>
-        <div>2021-3-45</div>
-        <div>anonym</div>
+        <ul>
+          <span class="link-icon"><li><i class="far fa-calendar-alt"></i>01.01.0001</li></span>
+          <span class="link-icon"><li><i class="fal fa-user"></i>Anonym</li></span>
+        </ul>
       </div>
-      <app-watson></app-watson>
+
     </div>
     <div *ngIf="showQuestionaire" class="case-details--questionnaire">
         <h1>questionaire!</h1>
@@ -100,7 +110,9 @@
               <button class="submit-button button-group">Lösung einreichen</button>
             </div>
           </div>
+
         </div>
+        <app-watson></app-watson>
     </div>
   </div>
 </div>

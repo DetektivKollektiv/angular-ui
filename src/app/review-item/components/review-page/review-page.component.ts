@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemsService } from '../../services/items/items.service';
@@ -27,6 +28,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public case: any;
   public bla: any[];
   public questions: any[];
+  public staticQuestions: any[];
   public showQuestions: any[];
   public reviewSituation: any;
   public user: any;
@@ -82,8 +84,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     ]
 
     this.reviewSituation = {
-      title: "titel bla",
-      text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      title: 'Der Tatbestand',
+      // eslint-disable-next-line max-len
+      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      //urls: {"https://eine-url.tld", "https://eine-url.tld","https://eine-url.tld","https://eine-url.tld"},
+      //tags:{ "4444444444",  "4444444444", "4444444444" , "4444444444"},
     }
 
     this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: "100xp", subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: "100xp", subText: 'erfahrung', gridColor: '#722ED1' }];
