@@ -45,5 +45,7 @@ export class QuestionComponent implements OnInit {
     if (this.childQuestions.length > 0) {
       this.isShowChild = true
     }
+
+    this.valueChange.emit()
   }
 }

@@ -56,7 +56,7 @@
         </div>
         <div *ngIf="caseAccepted">
           <div *ngFor="let question of showQuestions; let index">
-            <app-question [question]="question" [index]="index" [questions]="questions"></app-question>
+            <app-question [question]="question" [index]="index" [questions]="questions" (valueChange)="updateReview()"></app-question>
           </div>
           <div class="case-evaluation-comment-container case-process-container">
             <p class="large-font">Fallbewertungskommentar</p>

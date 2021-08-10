@@ -266,4 +266,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.loader.hide();
       })
   }
+
+  updateReview() {
+    this.reviewService.updateReview(this.review);
+  }
 }
