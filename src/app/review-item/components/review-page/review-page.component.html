@@ -40,7 +40,7 @@
         <div>2021-3-45</div>
         <div>anonym</div>
       </div>
-      <app-watson></app-watson>
+      <app-watson *ngIf="factCheck"></app-watson>
     </div>
     <div *ngIf="showQuestionaire" class="case-details--questionnaire">
         <h1>questionaire!</h1>
