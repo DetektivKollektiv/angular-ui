@@ -59,6 +59,19 @@ body {
   width: 316px !important;
 }
 
+.review-situation--text a{
+  color: #ff7268;
+  text-decoration: none;
+}
+.review-situation--text i.fas.fa-quote-left {
+  color: #ff7268;
+}
+.review-situation--text i.fas.fa-quote-right {
+  color: #ff7268;
+  display: flex;
+  justify-content: flex-end;
+}
+
 h1 {
   font-family: Effra medium, sans-serif;
   line-height: 70px;

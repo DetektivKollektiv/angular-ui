@@ -40,9 +40,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
 
   public showQuestionaire: boolean;
-  public caseId: string = '';
-  public shortenedCaseId: string = '';
+  public caseId: string = null;
+  public shortenedCaseId: string = null;
   private openCases: Item[];
+
 
   constructor(
     private itemsService: ItemsService,
@@ -58,40 +59,40 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
     this.staticQuestions = [
       {
-        title: "Woran erkenne ich eine gute Quelle?",
-        description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-        background: "#68a8ff",
-        icon: "fal fa-newspaper"
+        title: 'Woran erkenne ich eine gute Quelle?',
+        description: 'Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen',
+        background: '#68a8ff',
+        icon: 'fal fa-newspaper'
       },
       {
-        title: "Die Quelle ist nicht mehr abrufbar. Was kann ich tun?",
-        description: "Eine Anleitung für genau solche Fälle findest du auf dieser Seite.",
-        background: "#3a9832",
-        icon: "fal fa-scroll-old"
+        title: 'Die Quelle ist nicht mehr abrufbar. Was kann ich tun?',
+        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+        background: '#3a9832',
+        icon: 'fal fa-scroll-old'
       },
       {
-        title: "Kann ich den Fall abgeben?",
-        description: "Ja, das geht. Hier erfährst du wie.",
-        background: "#be9843",
-        icon: "fal fa-hands-helping"
+        title: 'Kann ich den Fall abgeben?',
+        description: 'Ja, das geht. Hier erfährst du wie.',
+        background: '#be9843',
+        icon: 'fal fa-hands-helping'
       },
       {
-        title: "Eine weitere Frage??",
-        description: "Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.",
-        background: "#8f1fff",
-        icon: "fal fa-leaf"
+        title: 'Eine weitere Frage??',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#8f1fff',
+        icon: 'fal fa-leaf'
       },
-    ]
+    ];
 
     this.reviewSituation = {
       title: 'Der Tatbestand',
-      // eslint-disable-next-line max-len
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      text: '<i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <a href="#" >https://eine-url.tld</a> magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <a href="#" >www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel</a> m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br><i class="fas fa-quote-right"></i>',
+      open_timesteamp: '01.01.0001',
       //urls: {"https://eine-url.tld", "https://eine-url.tld","https://eine-url.tld","https://eine-url.tld"},
       //tags:{ "4444444444",  "4444444444", "4444444444" , "4444444444"},
-    }
+    };
 
-    this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: "100xp", subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: "100xp", subText: 'erfahrung', gridColor: '#722ED1' }];
+    this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: '100xp', subText: 'erfahrung', gridColor: '#722ED1' }];
   }
 
   get caseToSolve(): Item {
@@ -122,16 +123,17 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.getNewCase();
 
     this.case = {
-      id: "123id",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.",
-    }
-    this.bla = [{
-      id: "123id",
-      bla: "blaaaa",
-      description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.",
-    }]
+      id: '123id',
+      description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.',
+    };
 
-    this.user = { xp: 100 }
+    this.bla = [{
+      id: '123id',
+      bla: 'blaaaa',
+      description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.',
+    }];
+
+    this.user = { xp: 100 };
 
     this.userService.user$.subscribe((user: any) => {
       this.userInfo = user;
@@ -152,9 +154,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .createReview(this.caseToSolve.id)
       .then((review) => {
         this.review = review;
-        this.questions = review.questions
+        this.questions = review.questions;
         this.caseAccepted = true;
-        console.log(this.questions)
+        console.log(this.questions);
       })
       .catch(() => {
         this.matSnackBar.open(
@@ -181,6 +183,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   openSignal(): void{
     window.open(globals.signalLink,'_blank');
+  }
+
+  change(e) {
+    //
   }
 
   private getNewCase(): void {
@@ -228,7 +234,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       });
   }
 
-  change(e) {
 
-  }
+
 }

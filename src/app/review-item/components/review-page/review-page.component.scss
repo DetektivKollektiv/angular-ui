@@ -141,13 +141,7 @@
         }
         .review-situation--text{
           font-size: 18px;
-          line-height: 28px;
-          i.fas.fa-quote-left {
-              color: #ff7268;
-          }
-          i.fas.fa-quote-right {
-              color: #ff7268;
-          }
+          line-height: 1.44;
         }
 
       }
@@ -168,8 +162,10 @@
             margin-bottom: 10px;
              a {
               color: #ff7268;
+              text-decoration: none;
                i {
-                margin-right: 10px;
+                margin-right: 3px;
+                font-weight: 500;
             }
           }
         }
@@ -202,6 +198,7 @@
 
       .background-info-section {
         margin-bottom: 20px;
+        margin-top: inherit;
         h3 {
           margin: 15px 0;
           display: flex;
@@ -212,10 +209,11 @@
           display: flex;
           li {
             padding: 0;
-            margin-right: 20px;
+            margin-right: 70px;
             list-style: none;
             i{
-              margin-right: 10px;
+              margin-right: 4px;
+              font-weight: 500;
             }
           }
         }
