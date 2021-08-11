@@ -135,6 +135,92 @@
       }
     }
     .case-details--tatbestand {
+      .review-situation{
+        .review-situation--title{
+          font-family: 'PT Mono', monospace;
+          line-height: 70px;
+          font-size: max(2vw, 14px);
+        }
+        .review-situation--text{
+          font-size: 18px;
+          line-height: 1.44;
+        }
+
+      }
+
+      .links-section{
+        margin: 25px 0px 0px 0px;
+        display: flex;
+        flex-wrap: wrap;
+            h3 {
+              margin-bottom: 15px;
+              font-weight: bold;
+              font-family: 'PT Mono', monospace;
+          }
+          span.link-icon {
+            //color: #f00;
+            margin-right: 15px;
+            display: inline-block;
+            margin-bottom: 10px;
+             a {
+              color: #ff7268;
+              text-decoration: none;
+               i {
+                margin-right: 3px;
+                font-weight: 500;
+            }
+          }
+        }
+        .link-icon.gray-link{
+          a{
+            color:#a7a3a3;
+          }
+        }
+
+      }
+      .tags-section {
+          h3 {
+            margin: 15px 0;
+            display: flex;
+            width: 100%;
+        }
+        ul {
+            display: flex;
+            li {
+              list-style: none;
+              margin-right: 10px;
+              background-color: #efefef;
+              padding: 5px 10px;
+              font-weight: bold;
+              border-radius: 30px;
+              font-family: 'PT Mono', monospace;
+            }
+          }
+      }
+
+      .background-info-section {
+        margin-bottom: 20px;
+        margin-top: inherit;
+        h3 {
+          margin: 15px 0;
+          display: flex;
+          width: 100%;
+          font-family: 'PT Mono', monospace;
+      }
+      ul {
+          display: flex;
+          li {
+            padding: 0;
+            margin-right: 70px;
+            list-style: none;
+            i{
+              margin-right: 4px;
+              font-weight: 500;
+            }
+          }
+        }
+
+    }
 
     }
 
@@ -145,6 +231,7 @@
     .case-details--accept-case {
       & h1 {
         color: black;
+        font-family: "PT Mono", monospace;
       }
 
       & .button-container {

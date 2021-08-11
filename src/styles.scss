@@ -62,6 +62,27 @@ body {
   display: none;
 }
 
+.archive .carousel .carousel-arrows .carousel-arrow {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  top: 42% !important;
+  width: 18px !important;
+  background-size: 60px !important;
+}
+
+.review-situation--text a{
+  color: #ff7268;
+  text-decoration: none;
+}
+.review-situation--text i.fas.fa-quote-left {
+  color: #ff7268;
+}
+.review-situation--text i.fas.fa-quote-right {
+  color: #ff7268;
+  display: flex;
+  justify-content: flex-end;
+}
+
 h1 {
   font-family: Effra medium, sans-serif;
   line-height: 70px;

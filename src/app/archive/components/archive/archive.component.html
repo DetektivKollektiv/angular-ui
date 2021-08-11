@@ -39,6 +39,23 @@
   <app-archive-toolbar>
   </app-archive-toolbar>
 
+  <div class="top-section">
+    <div>Gelöste Fälle</div>
+    <app-rating-legend></app-rating-legend>
+  </div>
+
+  <div class="questions-section">
+    <div class="questions-section--list">
+      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
+        <div class="carousel-cell question" *ngFor="let q of archiveQuestions; let i=index">
+          <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
+          <div class="question--title">{{q.title}}</div>
+          <div class="question--description questions-section-quote">{{q.description}}</div>
+        </div>
+      </carousel>
+    </div>
+  </div>
+
   <table mat-table [dataSource]="items" multiTemplateDataRows class="mat-elevation-z8">
     <ng-container matColumnDef="content">
       <th mat-header-cell *matHeaderCellDef> Inhalt </th>

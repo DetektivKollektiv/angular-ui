@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemsService } from '../../services/items/items.service';
@@ -30,6 +31,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public questionPrompts: any[];
   public questions: any[];
 
+  public staticQuestions: any[];
+
   public showQuestions: any[];
   public reviewSituation: any;
   public user: any;
@@ -41,9 +44,13 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
 
   public showQuestionaire: boolean;
+
+//   public caseId: string = null;
+//   public shortenedCaseId: string = null;
+  private openCases: Item[];
+
   public caseId = '';
   public shortenedCaseId = '';
-  private openCases: Item[];
 
   public factCheck: Factcheck = null;
   public comment = '';
@@ -92,8 +99,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     ];
 
     this.reviewSituation = {
-      title: 'titel bla',
-      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+      title: 'Der Tatbestand',
+      text: '<i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore <a href="#" >https://eine-url.tld</a> magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, <a href="#" >www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel</a> m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br><i class="fas fa-quote-right"></i>',
+      open_timesteamp: '01.01.0001',
+      //urls: {"https://eine-url.tld", "https://eine-url.tld","https://eine-url.tld","https://eine-url.tld"},
+      //tags:{ "4444444444",  "4444444444", "4444444444" , "4444444444"},
     };
 
     this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: '100xp', subText: 'erfahrung', gridColor: '#722ED1' }];
@@ -153,8 +163,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.review = review;
         this.questions = review.questions;
         this.caseAccepted = true;
-        console.log(this.questions);
-        console.log({review});
       })
       .catch(() => {
         this.matSnackBar.open(
@@ -181,6 +189,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   openSignal(): void{
     window.open(globals.signalLink,'_blank');
+  }
+
+  change(e) {
+    //
   }
 
   private getNewCase(): void {
@@ -249,10 +261,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .finally(() => {
         this.loader.hide();
       });
-  }
-
-  change(e) {
-
   }
 
   getFactCheck(id: string): void {
