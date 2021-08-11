@@ -17,13 +17,13 @@ import { AuthState } from '../../../shared/auth/model/auth-state';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  cases:any[];
+  cases: any[];
   is_open_review: boolean;
 
   private openCases: any[];
   public authState: AuthState;
   private showSlider: boolean;
-  public authenticated: boolean = false;
+  public authenticated = false;
 
   constructor(
     private authService: AuthService,
@@ -49,8 +49,8 @@ export class HomeComponent implements OnInit {
       .then((openCases) => {
         this.cases = openCases.items;
         this.is_open_review = openCases.is_open_review;
-        this.showSlider = (this.cases && this.cases.length && !this.is_open_review)
-      })
+        this.showSlider = (this.cases && this.cases.length && !this.is_open_review);
+      });
 
   }
 

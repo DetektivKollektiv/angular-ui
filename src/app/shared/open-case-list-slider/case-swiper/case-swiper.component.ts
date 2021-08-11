@@ -15,7 +15,7 @@ SwiperCore.use([ Navigation, Pagination, A11y]);
 })
 export class CasesSwiperComponent implements AfterViewInit {
   public cases: any[];
-  public swiper: Swiper
+  public swiper: Swiper;
 
   constructor(
   ) {

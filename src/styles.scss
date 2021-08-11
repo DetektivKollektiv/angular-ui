@@ -58,6 +58,9 @@ body {
 .carousel .carousel-container .question--title {
   width: 316px !important;
 }
+.carousel-arrows .carousel-arrow-disabled {
+  display: none;
+}
 
 .archive .carousel .carousel-arrows .carousel-arrow {
   background-color: unset !important;

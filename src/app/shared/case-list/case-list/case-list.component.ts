@@ -4,10 +4,10 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'app-case-list',
   templateUrl: './case-list.component.html',
   styleUrls: ['./case-list.component.scss'],
-  inputs: ['cases'] 
+  inputs: ['cases']
 })
 export class CaseListComponent implements OnInit {
-  cases:any[];
+  cases: any[];
 
   constructor() { }
 

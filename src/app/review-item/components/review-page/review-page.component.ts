@@ -13,6 +13,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { OpenReviewDialogComponent } from '../open-review-dialog/open-review-dialog.component';
 import { ReviewState } from '../../model/review-state';
 import { globals } from 'src/environments/globals';
+import { FactCheckService } from '../../services/factchecks/fact-check.service';
+import { Factcheck } from '../../model/factcheck';
 
 
 @Component({
@@ -26,9 +28,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public openReview: boolean;
   public userExperienceBubbles: any[];
   public case: any;
-  public bla: any[];
+  public questionPrompts: any[];
   public questions: any[];
+
   public staticQuestions: any[];
+
   public showQuestions: any[];
   public reviewSituation: any;
   public user: any;
@@ -40,10 +44,20 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
 
   public showQuestionaire: boolean;
-  public caseId: string = null;
-  public shortenedCaseId: string = null;
+
+//   public caseId: string = null;
+//   public shortenedCaseId: string = null;
   private openCases: Item[];
 
+  public caseId = '';
+  public shortenedCaseId = '';
+  private openCases: Item[];
+
+  public factCheck: Factcheck = null;
+  public comment = '';
+  public policyChecked = false;
+  public conditionChecked = false;
+  public buttonStatus = true;
 
   constructor(
     private itemsService: ItemsService,
@@ -52,12 +66,13 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     private matSnackBar: MatSnackBar,
     private loader: LoaderService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private factCheckService: FactCheckService
 
   ) {
     this.showQuestionaire = false;
 
-    this.staticQuestions = [
+    this.questionPrompts = [
       {
         title: 'Woran erkenne ich eine gute Quelle?',
         description: 'Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen',
@@ -122,22 +137,15 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.finished = false;
     this.getNewCase();
 
-    this.case = {
-      id: '123id',
-      description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.',
-    };
-
-    this.bla = [{
-      id: '123id',
-      bla: 'blaaaa',
-      description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo.',
-    }];
-
     this.user = { xp: 100 };
 
     this.userService.user$.subscribe((user: any) => {
       this.userInfo = user;
     });
+
+    if (this.caseId) {
+      this.getFactCheck(this.caseId);
+    }
   }
 
   reject() {
@@ -156,7 +164,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.review = review;
         this.questions = review.questions;
         this.caseAccepted = true;
-        console.log(this.questions);
       })
       .catch(() => {
         this.matSnackBar.open(
@@ -196,9 +203,32 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .getOpenItems()
       .then((openCases) => {
         this.openCases = openCases.items;
+        const firstCase = openCases.items[0];
+
+        const sampleTags =['tag1','tag2','really long tag here'];
+        const sampleUrls = ['reddit.com','otherwebsite.io','thisismyfavorite.com'];
+
+        this.case = {
+          ...firstCase,
+          tags: 'tags' in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
+          urls: 'urls' in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,
+        };
+
+        console.log({zzz: this.case});
 
         if (openCases.is_open_review) {
           this.openReview = true;
+
+          this.reviewService
+            .createReview(firstCase.id)
+            .then((review) => {
+              this.review = review;
+              console.log({review});
+              this.questions = review.questions;
+              this.showQuestions = this.questions.filter(question => !question.parent_question_id);
+              this.caseAccepted = true;
+            });
+
             /*
           this.dialog
             .open(OpenReviewDialogComponent)
@@ -233,7 +263,52 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.loader.hide();
       });
   }
+  }
 
+  getFactCheck(id: string): void {
+    this.loader.show();
 
+    this.factCheckService
+      .getFactCheck(id)
+      .then(factCheck => {
+        this.factCheck = factCheck;
+      })
+      .catch(() => {
+        this.factCheck = null;
+      })
+      .finally(() => {
+        this.loader.hide();
+      });
+  }
 
+  updateReview() {
+    this.reviewService.updateReview(this.review);
+  }
+
+  async submitTags() {
+    await this.itemsService.setItemTags(this.caseId, []);
+  }
+
+  commentChange() {
+    this.review.comment = this.comment;
+    this.reviewService.updateReview(this.review);
+  }
+
+  agreePolicy(event) {
+    this.policyChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  agreeCondition(event) {
+    this.conditionChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  checkButtonStatus() {
+    if (this.policyChecked === true && this.conditionChecked === true) {
+      this.buttonStatus = false;
+    } else {
+      this.buttonStatus = true;
+    }
+  }
 }

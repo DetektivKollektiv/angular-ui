@@ -21,7 +21,7 @@ export class AuthenticationPageComponent implements OnInit {
   @Input('loginCTA') loginCta = 'register'; // tslint:disable-line: no-input-rename
 
   @Select(ArchiveState.items) items$: Observable<Item[]>;
-  cases:any[];
+  cases: any[];
   constructor( private archiveService: ArchiveService  ) {
 
   }
