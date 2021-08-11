@@ -285,7 +285,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   }
 
   agreePolicy(event) {
-    console.log(event)
     this.policyChecked = event.checked;
     this.checkButtonStatus();
   }
