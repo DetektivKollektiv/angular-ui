@@ -55,8 +55,8 @@
           </div>
         </div>
         <div *ngIf="caseAccepted">
-          <div *ngFor="let question of showQuestions; let index">
-            <app-question [question]="question" [index]="index" [questions]="questions" (valueChange)="updateReview()"></app-question>
+          <div *ngFor="let question of showQuestions; let i=index">
+            <app-question [question]="question" [index]="i" [questions]="questions" (valueChange)="updateReview()"></app-question>
           </div>
           <div class="case-evaluation-comment-container case-process-container">
             <p class="large-font">Fallbewertungskommentar</p>
@@ -75,25 +75,23 @@
             <p class="large-font">Schlagwörter</p>
             <p class="explain">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
             <div class="input-container">
-              <input type="text">
+              <input type="text" (focusout)="submitTags()">
             </div>
           </div>
           <div class="legal-information-container case-process-container">
             <p class="large-font">Rechtliche Angaben</p>
             <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
             <div class="radio-container">
-              <mat-radio-group [(ngModel)]="defaultValue" (change)="change($event)">
-                <mat-radio-button [checked]="false" >
-                  <div class="option">
-                    <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
-                  </div>
-                </mat-radio-button>
-                <mat-radio-button [checked]="false">
-                  <div class="option">
-                    <span>Ich stimme den Nutzungsbedingungen zu</span>
-                  </div>
-                </mat-radio-button >
-              </mat-radio-group>
+              <mat-checkbox class="example-margin">
+                <div class="option">
+                  <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
+                </div>
+              </mat-checkbox>
+              <mat-checkbox class="example-margin">
+                <div class="option">
+                  <span>Ich stimme den Nutzungsbedingungen zu</span>
+                </div>
+              </mat-checkbox>
             </div>
             <div class="legal-button-container">
               <a href='' class="abort-button button-group">Abbrechen</a>
