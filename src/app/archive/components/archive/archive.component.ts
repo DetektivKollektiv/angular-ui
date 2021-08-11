@@ -47,12 +47,42 @@ export class ArchiveComponent implements OnInit {
   public expandedItem: Item | null;
   public loaded = false;
   public resultScoreMode = ResultScoreMode.bar;
+  public archiveQuestions: any[];
 
   constructor(
     private route: ActivatedRoute,
     private store: Store,
     private viewportScroller: ViewportScroller
-  ) {}
+  ) {
+
+    this.archiveQuestions = [
+      {
+        title: 'Wann sehe ich etwas im Archiv?',
+        description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
+        background: '#af00a1',
+        icon: 'fal fa-eye'
+      },
+      {
+        title: 'Wie errechnet sich der Score?',
+        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+        background: '#47cc7f',
+        icon: 'fal fa-chart-bar'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#8f1fff',
+        icon: 'fal fa-leaf'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#8f1fff',
+        icon: 'fal fa-leaf'
+      },
+    ];
+
+   }
 
   ngOnInit(): void {
     this.items$.subscribe((items) => {
