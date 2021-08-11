@@ -14,8 +14,8 @@ import { Select, Store } from '@ngxs/store';
 
 export class RegisterPageComponent implements OnInit {
   @Select(ArchiveState.items) items$: Observable<Item[]>;
-  cases:any[];
-  
+  cases: any[];
+
   constructor( private archiveService: ArchiveService  ) {
 
   }

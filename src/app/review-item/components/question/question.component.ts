@@ -19,11 +19,11 @@ export class QuestionComponent implements OnInit {
   @Input() public questions: Question[];
   @Input() public index: number;
   @Input() public isChild: boolean;
-  @Input() public parentIndex: number = -1;
+  @Input() public parentIndex = -1;
   public isShowChild: boolean;
   public childQuestions: Question[] = [];
   public title: string;
-  public alphbt: string = 'abcdefghijklmnopqrstuvwxyz';
+  public alphbt = 'abcdefghijklmnopqrstuvwxyz';
 
   @Output() public valueChange = new EventEmitter();
 
@@ -34,14 +34,14 @@ export class QuestionComponent implements OnInit {
 
     this.isShowChild = false;
     if (this.parentIndex === -1) {
-      this.title = `Frage ${this.index + 1}`
+      this.title = `Frage ${this.index + 1}`;
     } else {
-      this.title = `Frage ${this.parentIndex + 1}${this.alphbt[this.index]}`
+      this.title = `Frage ${this.parentIndex + 1}${this.alphbt[this.index]}`;
     }
   }
 
   change(e) {
-    this.childQuestions = []
+    this.childQuestions = [];
     if (this.question.max_children > 0) {
       this.questions.forEach(question => {
         if (question.parent_question_id === this.question.question_id && question.lower_bound < e.value && question.upper_bound > e.value) {
@@ -51,7 +51,7 @@ export class QuestionComponent implements OnInit {
     }
 
     if (this.childQuestions.length > 0) {
-      this.isShowChild = true
+      this.isShowChild = true;
     }
   }
 }

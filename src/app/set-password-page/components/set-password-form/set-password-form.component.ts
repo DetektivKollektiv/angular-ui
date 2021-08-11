@@ -42,7 +42,7 @@ export class SetPasswordFormComponent implements OnInit {
     return this.form.controls;
   }
 
- 
+
   ngOnInit(): void {
     // todo: figure out how to pass in this.data
 
@@ -57,8 +57,8 @@ export class SetPasswordFormComponent implements OnInit {
     //     this.title = ``;
     //     break;
     // }
-    const title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per E-Mail geschickt.`; 
-    this.title = title
+    const title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per E-Mail geschickt.`;
+    this.title = title;
     this.form = this.formBuilder.group({
       username: ['', Validators.required], // todo: fix to use username
       code: ['', Validators.required],

@@ -41,15 +41,15 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
 
   public showQuestionaire: boolean;
-  public caseId: string = '';
-  public shortenedCaseId: string = '';
+  public caseId = '';
+  public shortenedCaseId = '';
   private openCases: Item[];
 
   public factCheck: Factcheck = null;
-  public comment: string = '';
-  public policyChecked: boolean = false;
-  public conditionChecked: boolean = false;
-  public buttonStatus: boolean = true;
+  public comment = '';
+  public policyChecked = false;
+  public conditionChecked = false;
+  public buttonStatus = true;
 
   constructor(
     private itemsService: ItemsService,
@@ -66,37 +66,37 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
     this.questionPrompts = [
       {
-        title: "Woran erkenne ich eine gute Quelle?",
-        description: "Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen",
-        background: "#68a8ff",
-        icon: "fal fa-newspaper"
+        title: 'Woran erkenne ich eine gute Quelle?',
+        description: 'Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen',
+        background: '#68a8ff',
+        icon: 'fal fa-newspaper'
       },
       {
-        title: "Die Quelle ist nicht mehr abrufbar. Was kann ich tun?",
-        description: "Eine Anleitung für genau solche Fälle findest du auf dieser Seite.",
-        background: "#3a9832",
-        icon: "fal fa-scroll-old"
+        title: 'Die Quelle ist nicht mehr abrufbar. Was kann ich tun?',
+        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+        background: '#3a9832',
+        icon: 'fal fa-scroll-old'
       },
       {
-        title: "Kann ich den Fall abgeben?",
-        description: "Ja, das geht. Hier erfährst du wie.",
-        background: "#be9843",
-        icon: "fal fa-hands-helping"
+        title: 'Kann ich den Fall abgeben?',
+        description: 'Ja, das geht. Hier erfährst du wie.',
+        background: '#be9843',
+        icon: 'fal fa-hands-helping'
       },
       {
-        title: "Eine weitere Frage??",
-        description: "Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.",
-        background: "#8f1fff",
-        icon: "fal fa-leaf"
+        title: 'Eine weitere Frage??',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#8f1fff',
+        icon: 'fal fa-leaf'
       },
-    ]
+    ];
 
     this.reviewSituation = {
-      title: "titel bla",
-      text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-    }
+      title: 'titel bla',
+      text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore https://eine-url.tld magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel m nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.'
+    };
 
-    this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: "100xp", subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: "100xp", subText: 'erfahrung', gridColor: '#722ED1' }];
+    this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: '100xp', subText: 'erfahrung', gridColor: '#722ED1' }];
   }
 
   get caseToSolve(): Item {
@@ -126,14 +126,14 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.finished = false;
     this.getNewCase();
 
-    this.user = { xp: 100 }
+    this.user = { xp: 100 };
 
     this.userService.user$.subscribe((user: any) => {
       this.userInfo = user;
     });
 
     if (this.caseId) {
-      this.getFactCheck(this.caseId)
+      this.getFactCheck(this.caseId);
     }
   }
 
@@ -151,10 +151,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .createReview(this.caseToSolve.id)
       .then((review) => {
         this.review = review;
-        this.questions = review.questions
+        this.questions = review.questions;
         this.caseAccepted = true;
-        console.log(this.questions)
-        console.log({review})
+        console.log(this.questions);
+        console.log({review});
       })
       .catch(() => {
         this.matSnackBar.open(
@@ -190,18 +190,18 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .getOpenItems()
       .then((openCases) => {
         this.openCases = openCases.items;
-        const firstCase = openCases.items[0]
+        const firstCase = openCases.items[0];
 
         const sampleTags =['tag1','tag2','really long tag here'];
         const sampleUrls = ['reddit.com','otherwebsite.io','thisismyfavorite.com'];
 
         this.case = {
           ...firstCase,
-          tags: "tags" in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
-          urls: "urls" in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,
-        }
+          tags: 'tags' in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
+          urls: 'urls' in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,
+        };
 
-        console.log({zzz: this.case})
+        console.log({zzz: this.case});
 
         if (openCases.is_open_review) {
           this.openReview = true;
@@ -210,11 +210,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
             .createReview(firstCase.id)
             .then((review) => {
               this.review = review;
-              console.log({review})
-              this.questions = review.questions
-              this.showQuestions = this.questions.filter(question => !question.parent_question_id)
+              console.log({review});
+              this.questions = review.questions;
+              this.showQuestions = this.questions.filter(question => !question.parent_question_id);
               this.caseAccepted = true;
-            })
+            });
 
             /*
           this.dialog
@@ -268,7 +268,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       })
       .finally(() => {
         this.loader.hide();
-      })
+      });
   }
 
   updateReview() {

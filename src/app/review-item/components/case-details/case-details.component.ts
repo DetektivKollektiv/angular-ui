@@ -4,11 +4,11 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-case-details',
   templateUrl: './case-details.component.html',
   styleUrls: ['./case-details.component.scss'],
-  inputs: ['case','caseId'] 
+  inputs: ['case','caseId']
 })
 export class CaseDetailsComponent implements OnInit {
-  case:any;
-  caseId:string;
+  case: any;
+  caseId: string;
   constructor() { }
 
   ngOnInit(): void {

@@ -25,7 +25,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class HeaderComponent implements OnInit {
   public authState: AuthState;
   public user: User;
-  public authenticated: boolean = false;
+  public authenticated = false;
   public userLoaded = true;
 
 
@@ -40,25 +40,25 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.auth$.subscribe((authState: AuthState) => {
-      console.log('ayy')
+      console.log('ayy');
       this.authState = authState;
-      this.authenticated = !!authState.isLoggedIn
+      this.authenticated = !!authState.isLoggedIn;
 
-      console.log({authenticated: this.authenticated, condition: !this.authenticated})
+      console.log({authenticated: this.authenticated, condition: !this.authenticated});
     });
 
     this.userService.user$.subscribe((user: User) => {
-      console.log('yoo')
+      console.log('yoo');
       if (user) {
         this.userLoaded = true;
-        this.authenticated = !!this.authState.isLoggedIn
+        this.authenticated = !!this.authState.isLoggedIn;
       } else {
         this.userLoaded = false;
       }
 
       this.user = user;
     });
-    console.log(`header!`,{user: this.user, userLoaded: this.userLoaded})
+    console.log(`header!`,{user: this.user, userLoaded: this.userLoaded});
   }
 
   public setLanguage(language: string) {
@@ -135,6 +135,6 @@ export class HeaderComponent implements OnInit {
 
   openMenuDialog(): void {
     this.dialog
-      .open(MenuDialogComponent, { panelClass: 'no-padding-dialog-container' })
+      .open(MenuDialogComponent, { panelClass: 'no-padding-dialog-container' });
   }
 }

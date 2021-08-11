@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   inputs: ['cases']
 })
 export class CaseBarComponent implements OnInit {
-  public cases: any[]
+  public cases: any[];
   constructor(
   ) {
 
