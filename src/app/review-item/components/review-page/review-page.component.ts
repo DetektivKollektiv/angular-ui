@@ -47,6 +47,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   public factCheck: Factcheck = null;
   public comment: string = '';
+  public policyChecked: boolean = false;
+  public conditionChecked: boolean = false;
+  public buttonStatus: boolean = true;
 
   constructor(
     private itemsService: ItemsService,
@@ -279,5 +282,24 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   commentChange() {
     this.review.comment = this.comment;
     this.reviewService.updateReview(this.review);
+  }
+
+  agreePolicy(event) {
+    console.log(event)
+    this.policyChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  agreeCondition(event) {
+    this.conditionChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  checkButtonStatus() {
+    if (this.policyChecked === true && this.conditionChecked === true) {
+      this.buttonStatus = false;
+    } else {
+      this.buttonStatus = true;
+    }
   }
 }

@@ -82,12 +82,12 @@
             <p class="large-font">Rechtliche Angaben</p>
             <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
             <div class="radio-container">
-              <mat-checkbox class="example-margin">
+              <mat-checkbox class="example-margin" (change)="agreePolicy($event)">
                 <div class="option">
                   <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
                 </div>
               </mat-checkbox>
-              <mat-checkbox class="example-margin">
+              <mat-checkbox class="example-margin" (change)="agreeCondition($event)">
                 <div class="option">
                   <span>Ich stimme den Nutzungsbedingungen zu</span>
                 </div>
@@ -95,7 +95,7 @@
             </div>
             <div class="legal-button-container">
               <a href='' class="abort-button button-group">Abbrechen</a>
-              <button class="submit-button button-group">Lösung einreichen</button>
+              <button class="submit-button button-group" [disabled]="buttonStatus">Lösung einreichen</button>
             </div>
           </div>
         </div>

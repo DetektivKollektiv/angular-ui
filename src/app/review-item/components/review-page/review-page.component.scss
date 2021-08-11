@@ -51,7 +51,7 @@
          display:none;
       }
     }
- 
+
     .carousel-arrows .carousel-arrow.carousel-arrow-disabled {
       display: none;
       opacity: 0;
@@ -73,7 +73,7 @@
       @media only screen and (min-width: 1024px) {
          width: 360px;
       }
-      
+
         .question--icon {
           width: 42px;
           height: 42px;
@@ -187,7 +187,7 @@
         @media only screen and (min-width: 1024px) {
           font-size: 36px;
         }
-        
+
         font-weight: bold;
       }
 
@@ -260,7 +260,7 @@
           margin: 40px 0;
           display: flex;
           align-items: center;
-          
+
           justify-content: center;
           // justify-content: flex-end;
 
@@ -288,6 +288,15 @@
               &:hover {
                 background-color: white;
                 color: #5f38fa;
+              }
+              &:disabled {
+                background-color: grey;
+                border: none;
+                opacity: 0.3;
+
+                &:hover {
+                  color: white;
+                }
               }
             }
           }
