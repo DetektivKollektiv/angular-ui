@@ -1,4 +1,40 @@
-<div class="archive">
+<div class="archive-page">
+  <div class="top-section">
+    <div class="overview-section">
+      <h1>Gelöste Fälle</h1>  
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+      </div>
+    </div>
+    <div class="rating-legend-section">
+      <h4>Bewertungskala</h4>
+
+      <!-- The color bar component goes here! -->
+      <!--  -->
+    </div>
+  </div>
+  <div class="questions-section">
+    <div class="questions-swiper-container">
+      <!--todo figure out how to import this -->
+      <!-- <app-questions-swiper></app-questions-swiper> -->
+    </div>
+    <div class="questions-section--list">
+      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
+        <div class="carousel-cell question" *ngFor="let q of questionPrompts; let i=index">
+          <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
+          <div class="question--title">{{q.title}}</div>
+          <div class="question--description">{{q.description}}</div>
+        </div>
+      </carousel>
+    </div>
+  </div>
+  <div class="bottom-section">
+
+
+
+
+
+  <!-- the stuff below, is the old page, i will delete later. -->
   <h1>Archiv</h1>
   <app-archive-toolbar>
   </app-archive-toolbar>

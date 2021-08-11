@@ -13,6 +13,8 @@ import { NgxsModule } from '@ngxs/store';
 import { ArchiveState } from './state/archive.state';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { registerLocaleData } from '@angular/common';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+
 import localeDE from '@angular/common/locales/de';
 
 registerLocaleData(localeDE, 'de');
@@ -30,6 +32,7 @@ registerLocaleData(localeDE, 'de');
     RouterModule,
     ShareButtonsModule,
     ShareIconsModule,
+    IvyCarouselModule,
     NgxsModule.forFeature([ArchiveState]),
   ],
   providers: [
