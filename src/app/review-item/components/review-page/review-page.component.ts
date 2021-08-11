@@ -51,7 +51,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   public caseId = '';
   public shortenedCaseId = '';
-  private openCases: Item[];
 
   public factCheck: Factcheck = null;
   public comment = '';
@@ -262,7 +261,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .finally(() => {
         this.loader.hide();
       });
-  }
   }
 
   getFactCheck(id: string): void {
