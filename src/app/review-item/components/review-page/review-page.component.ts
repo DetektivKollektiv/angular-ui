@@ -46,6 +46,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   private openCases: Item[];
 
   public factCheck: Factcheck = null;
+  public comment: string = '';
 
   constructor(
     private itemsService: ItemsService,
@@ -268,6 +269,15 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   }
 
   updateReview() {
+    this.reviewService.updateReview(this.review);
+  }
+
+  async submitTags() {
+    await this.itemsService.setItemTags(this.caseId, []);
+  }
+
+  commentChange() {
+    this.review.comment = this.comment;
     this.reviewService.updateReview(this.review);
   }
 }

@@ -68,7 +68,7 @@
               {{userInfo.name}}
             </div>
             <div class="input-container padding-left">
-              <input type="text">
+              <input type="text" (focusout)="commentChange()" [(ngModel)]="comment">
             </div>
           </div>
           <div class="tags-container case-process-container">
