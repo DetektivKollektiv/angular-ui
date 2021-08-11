@@ -20,12 +20,12 @@ export class QuestionComponent implements OnInit {
   @Input() public index: number;
   @Input() public isChild: boolean;
   @Input() public parentIndex = -1;
+  @Output() public valueChange = new EventEmitter();
   public isShowChild: boolean;
   public childQuestions: Question[] = [];
   public title: string;
   public alphbt = 'abcdefghijklmnopqrstuvwxyz';
 
-  @Output() public valueChange = new EventEmitter();
 
   ngOnInit(): void {
     this.question.options = this.question.options.sort((a, b) =>

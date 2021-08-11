@@ -20,10 +20,10 @@ export class HomeComponent implements OnInit {
   cases: any[];
   is_open_review: boolean;
 
-  private openCases: any[];
   public authState: AuthState;
-  private showSlider: boolean;
   public authenticated = false;
+  private openCases: any[];
+  private showSlider: boolean;
 
   constructor(
     private authService: AuthService,

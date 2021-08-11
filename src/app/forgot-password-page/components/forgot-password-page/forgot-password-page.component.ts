@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 
 @Component({
-  selector: 'forgot-password-page',
+  selector: 'app-forgot-password-page',
   templateUrl: './forgot-password-page.component.html',
   styleUrls: ['./forgot-password-page.component.scss'],
 })

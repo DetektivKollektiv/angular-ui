@@ -35,7 +35,8 @@
           { "selector": "property", "format": ["camelCase", "snake_case"] }
         ],
         "max-len": ["warn"],
-        "no-shadow": ["warn"]
+        "no-shadow": ["warn"],
+        "@typescript-eslint/no-non-null-assertion": "off"
       }
     },
     {
