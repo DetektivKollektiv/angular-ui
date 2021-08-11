@@ -46,6 +46,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   private openCases: Item[];
 
   public factCheck: Factcheck = null;
+  public comment: string = '';
+  public policyChecked: boolean = false;
+  public conditionChecked: boolean = false;
+  public buttonStatus: boolean = true;
 
   constructor(
     private itemsService: ItemsService,
@@ -265,5 +269,36 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .finally(() => {
         this.loader.hide();
       })
+  }
+
+  updateReview() {
+    this.reviewService.updateReview(this.review);
+  }
+
+  async submitTags() {
+    await this.itemsService.setItemTags(this.caseId, []);
+  }
+
+  commentChange() {
+    this.review.comment = this.comment;
+    this.reviewService.updateReview(this.review);
+  }
+
+  agreePolicy(event) {
+    this.policyChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  agreeCondition(event) {
+    this.conditionChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  checkButtonStatus() {
+    if (this.policyChecked === true && this.conditionChecked === true) {
+      this.buttonStatus = false;
+    } else {
+      this.buttonStatus = true;
+    }
   }
 }
