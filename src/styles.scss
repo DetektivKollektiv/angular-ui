@@ -62,7 +62,7 @@ body {
   display: none;
 }
 
-.archive .carousel .carousel-arrows .carousel-arrow {
+.archive-page .carousel .carousel-arrows .carousel-arrow {
   background-color: unset !important;
   box-shadow: unset !important;
   top: 42% !important;
@@ -243,3 +243,12 @@ mat-icon {
     /* add your styles */
     padding: 0;
 }
+header.header {
+  z-index: 9999! important;
+}
+
+.carousel-container .carousel-cells {
+  width: 100% !important;
+}
+
+

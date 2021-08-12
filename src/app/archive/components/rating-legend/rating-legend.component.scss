@@ -1,4 +1,4 @@
-.rating-legend-section {
+.rating-legend-container {
   flex: 50%;
   display: flex;
   flex-direction: column;
@@ -40,6 +40,7 @@
       border-radius: 10px;
       //-webkit-box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
       //box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+      background-color: #0daf00;
 
       .progress-bar {
         float: left;
@@ -64,24 +65,27 @@
       }
       .progress-bar-yellow {
         background-color: #ffa700;
-        border-radius: 10px;
         position: relative;
         z-index: 777;
-        left: -15px;
+        left: -5px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
       }
       .progress-bar-lime {
         background-color: #a9d100;
         position: relative;
         z-index: 555;
-        border-radius: 10px;
-        left: -30px;
+        left: -10px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
       }
       .progress-bar-green {
         background-color: #0daf00;
         position: relative;
         z-index: 333;
-        border-radius: 10px;
-        left: -45px;
+        // left: -11px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
       }
 
   	}
@@ -92,7 +96,8 @@
     flex-wrap: nowrap;
     //background-color: #a0a8af;
     //justify-content: center;
-    justify-content: space-evenly;
+    //justify-content: space-evenly;
+    justify-content: flex-end;
       div {
         //background-color: #e0d9d9;
         //margin: 10px;
@@ -106,7 +111,7 @@
         }
     }
     .rating-legend-left-box{
-      margin-left: 100px;
+      margin-left: 140px;
     }
     .rating-legend-right-box{
       margin-left: 100px;

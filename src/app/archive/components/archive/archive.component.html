@@ -1,15 +1,16 @@
 <div class="archive-page">
   <div class="top-section">
     <div class="overview-section">
-      <h1>Gelöste Fälle</h1>  
+      <h1>Gelöste Fälle</h1>
       <div>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
       </div>
     </div>
     <div class="rating-legend-section">
-      <h4>Bewertungskala</h4>
+      <!-- <h4>Bewertungskala</h4> -->
 
       <!-- The color bar component goes here! -->
+      <app-rating-legend></app-rating-legend>
       <!--  -->
     </div>
   </div>
@@ -19,11 +20,18 @@
       <!-- <app-questions-swiper></app-questions-swiper> -->
     </div>
     <div class="questions-section--list">
-      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
+      <!-- <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
         <div class="carousel-cell question" *ngFor="let q of questionPrompts; let i=index">
           <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
           <div class="question--title">{{q.title}}</div>
           <div class="question--description">{{q.description}}</div>
+        </div>
+      </carousel> -->
+      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
+        <div class="carousel-cell question" *ngFor="let q of archiveQuestions; let i=index">
+          <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
+          <div class="question--title">{{q.title}}</div>
+          <div class="question--description questions-section-quote">{{q.description}}</div>
         </div>
       </carousel>
     </div>
@@ -40,11 +48,11 @@
   </app-archive-toolbar>
 
   <div class="top-section">
-    <div>Gelöste Fälle</div>
-    <app-rating-legend></app-rating-legend>
+    <!-- <div>Gelöste Fälle</div> -->
+    <!-- <app-rating-legend></app-rating-legend> -->
   </div>
 
-  <div class="questions-section">
+  <!-- <div class="questions-section">
     <div class="questions-section--list">
       <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
         <div class="carousel-cell question" *ngFor="let q of archiveQuestions; let i=index">
@@ -54,7 +62,7 @@
         </div>
       </carousel>
     </div>
-  </div>
+  </div> -->
 
   <table mat-table [dataSource]="items" multiTemplateDataRows class="mat-elevation-z8">
     <ng-container matColumnDef="content">
