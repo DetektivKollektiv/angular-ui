@@ -74,7 +74,13 @@ const routes: Routes = [
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
-  { path: 'submit', component: SubmitComponent },
+  {
+    path: 'submit',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: SubmitComponent }
+    ]
+  },
   // {
   //   path: 'review',
   //   component: ReviewComponent,
