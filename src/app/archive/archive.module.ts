@@ -16,8 +16,9 @@ import { registerLocaleData } from '@angular/common';
 import localeDE from '@angular/common/locales/de';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
+import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 
-registerLocaleData(localeDE, 'de');
+registerLocaleData(localeDE, 'de')    ;
 @NgModule({
   declarations: [
     ArchiveComponent,
@@ -34,6 +35,7 @@ registerLocaleData(localeDE, 'de');
     ShareButtonsModule,
     ShareIconsModule,
     IvyCarouselModule,
+    QuestionCarouselModule,
     NgxsModule.forFeature([ArchiveState]),
   ],
   providers: [
