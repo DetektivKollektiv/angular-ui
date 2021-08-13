@@ -10,11 +10,11 @@ import { ReviewPageComponent } from './review-item/components/review-page/review
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 
 /* Auth page routes */
-import { LoginPageComponent } from './login-page/components/login-page/login-page.component';
+import { LoginPageComponent } from './authentication-pages/components/login-page/components/login-page/login-page.component';
 import { ForgotPasswordPageComponent } from './forgot-password-page/components/forgot-password-page/forgot-password-page.component';
-import { RegisterPageComponent } from './register-page/components/register-page/register-page.component';
+import { RegisterPageComponent } from './authentication-pages/components/register-page/components/register-page/register-page.component';
 import { ConfirmEmailPageComponent } from './confirm-email-page/components/confirm-email-page/confirm-email-page.component';
-import { SetPasswordPageComponent } from './set-password-page/components/set-password-page/set-password-page.component';
+import { SetPasswordPageComponent } from './authentication-pages/components/set-password-page/components/set-password-page/set-password-page.component';
 /* / Auth page routes */
 
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';

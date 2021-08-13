@@ -1,17 +1,17 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { AuthService } from '../../../../../shared/auth/auth-service/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
-import { OperationResult } from '../../../shared/helper/model/operation-result';
-import { ForgotPasswordComponent } from '../../../shared/auth/dialogs/forgot-password/forgot-password.component';
-import { Globals } from '../../../shared/helper/globals/globals';
-import { ForgotPasswordResult } from '../../../shared/auth/model/forgot-password-result';
+import { LoaderService } from '../../../../../shared/loader/service/loader.service';
+import { OperationResult } from '../../../../../shared/helper/model/operation-result';
+import { ForgotPasswordComponent } from '../../../../../shared/auth/dialogs/forgot-password/forgot-password.component';
+import { Globals } from '../../../../../shared/helper/globals/globals';
+import { ForgotPasswordResult } from '../../../../../shared/auth/model/forgot-password-result';
 
 
-import { CustomValidators } from '../../../shared/helper/validators/custom-validators';
-import { SignupResult } from '../../../shared/auth/model/signup-result';
+import { CustomValidators } from '../../../../../shared/helper/validators/custom-validators';
+import { SignupResult } from '../../../../../shared/auth/model/signup-result';
 
 @Component({
   selector: 'app-register-form',
