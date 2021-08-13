@@ -7,26 +7,15 @@
       </div>
     </div>
     <div class="rating-legend-section">
-      <!-- <h4>Bewertungskala</h4> -->
-
       <!-- The color bar component goes here! -->
       <app-rating-legend></app-rating-legend>
-      <!--  -->
     </div>
   </div>
   <div class="questions-section">
     <div class="questions-swiper-container">
       <!--todo figure out how to import this -->
-      <!-- <app-questions-swiper></app-questions-swiper> -->
     </div>
     <div class="questions-section--list">
-      <!-- <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
-        <div class="carousel-cell question" *ngFor="let q of questionPrompts; let i=index">
-          <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
-          <div class="question--title">{{q.title}}</div>
-          <div class="question--description">{{q.description}}</div>
-        </div>
-      </carousel> -->
       <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
         <div class="carousel-cell question" *ngFor="let q of archiveQuestions; let i=index">
           <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
@@ -37,56 +26,30 @@
     </div>
   </div>
   <div class="bottom-section">
-
-
-
-
-
   <!-- the stuff below, is the old page, i will delete later. -->
   <h1>Archiv</h1>
   <app-archive-toolbar>
   </app-archive-toolbar>
-
-  <div class="top-section">
-    <!-- <div>Gelöste Fälle</div> -->
-    <!-- <app-rating-legend></app-rating-legend> -->
-  </div>
-
-  <!-- <div class="questions-section">
-    <div class="questions-section--list">
-      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
-        <div class="carousel-cell question" *ngFor="let q of archiveQuestions; let i=index">
-          <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
-          <div class="question--title">{{q.title}}</div>
-          <div class="question--description questions-section-quote">{{q.description}}</div>
-        </div>
-      </carousel>
-    </div>
-  </div> -->
-
+  <div class="top-section"></div>
   <table mat-table [dataSource]="items" multiTemplateDataRows class="mat-elevation-z8">
     <ng-container matColumnDef="content">
       <th mat-header-cell *matHeaderCellDef> Inhalt </th>
       <td mat-cell *matCellDef="let item"> {{item.content}} </td>
     </ng-container>
-
     <ng-container matColumnDef="open_timestamp">
       <th mat-header-cell *matHeaderCellDef> Eingegangen </th>
       <td mat-cell *matCellDef="let item"> {{item.open_timestamp | date}} </td>
     </ng-container>
-
     <ng-container matColumnDef="close_timestamp">
       <th mat-header-cell *matHeaderCellDef> Geschlossen </th>
       <td mat-cell *matCellDef="let item"> {{item.close_timestamp | date}} </td>
     </ng-container>
-
     <ng-container matColumnDef="result_score">
       <th mat-header-cell *matHeaderCellDef> Vertrauensindex </th>
       <td mat-cell *matCellDef="let item">
         <app-result-score [score]="item.result_score" [mode]="resultScoreMode"></app-result-score>
       </td>
     </ng-container>
-
     <ng-container matColumnDef="expandedDetail">
       <td mat-cell *matCellDef="let item" [attr.colspan]="displayedColumns.length">
         <div class="item-detail" [@detailExpand]="item == expandedItem ? 'expanded' : 'collapsed'">
@@ -94,7 +57,6 @@
         </div>
       </td>
     </ng-container>
-
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let item; columns: displayedColumns;" class="item-row" id="{{item.id}}"
       [class.expanded-row]="expandedItem === item" (click)="expandedItem = expandedItem === item ? null : item">
