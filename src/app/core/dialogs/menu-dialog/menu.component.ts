@@ -12,7 +12,7 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'menu-dialog',
+  selector: 'app-menu-dialog',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })

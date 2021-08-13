@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 
 @Component({
-  selector: 'login-page',
+  selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
 })
