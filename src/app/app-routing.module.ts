@@ -5,6 +5,9 @@ import { AuthGuard } from './shared/auth/auth-guard/auth.guard';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HomeComponent } from './home/components/home/home.component';
 import { SubmitComponent } from './submit-item/components/submit/submit.component';
+import { SubmitPageComponent } from './submit-item/components/submit-page/submit-page.component';
+import { SubmitSuccessPageComponent } from './submit-item/components/submit-success-page/submit-success-page.component';
+
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ReviewPageComponent } from './review-item/components/review-page/review-page.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
@@ -74,7 +77,22 @@ const routes: Routes = [
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
-  { path: 'submit', component: SubmitComponent },
+  { path: 'submit_old', component: SubmitComponent },
+  {
+    path: 'submit',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: SubmitPageComponent }
+    ]
+  },
+  {
+    path: 'submit/success',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: SubmitSuccessPageComponent }
+    ]
+  },
+  // { path: 'submit/success', component: SubmitSuccessPageComponent },
   // {
   //   path: 'review',
   //   component: ReviewComponent,
