@@ -6,6 +6,8 @@ import { HelperModule } from '../shared/helper/helper.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
+import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
 
 @NgModule({
   declarations: [SubmitComponent],
@@ -15,6 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
     AppRoutingModule,
     HelperModule,
     RouterModule,
+    QuestionCarouselModule,
+    OpenCaseListSliderModule,
     TranslateModule.forChild()
   ]
 })

@@ -28,6 +28,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
 import { CaseShowComponent } from './cases/components/case-show/case-show.component';
+import { SubmitSuccessComponent } from './submit-item/components/submit-success/submit-success.component';
 
 const routes: Routes = [
 
@@ -79,6 +80,13 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', component: SubmitComponent }
+    ]
+  },
+  {
+    path: 'submit/success',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: SubmitSuccessComponent }
     ]
   },
   // {
