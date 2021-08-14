@@ -35,11 +35,11 @@
   background: #555;
 }
 
-html,
 body {
   height: 100%;
   min-height: 100%;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .review-page .carousel .carousel-arrows .carousel-arrow {
@@ -250,4 +250,9 @@ header.header {
   width: 100% !important;
 }
 
-
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem !important;
+  background: #ddd !important;
+  color: black !important;
+  border-radius: 5px;
+}

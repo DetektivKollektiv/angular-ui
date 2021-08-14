@@ -11,10 +11,10 @@
   <pagination-controls
       [maxSize]="11"
       [responsive]="true"
-      previousLabel="Prev"
-      nextLabel="Next"
-      [responsive]="true"
+      previousLabel=""
+      nextLabel=""
       (pageChange)="handlePageChange($event)"
+      *ngIf="page > 0"
     >
   </pagination-controls>
 </div>
