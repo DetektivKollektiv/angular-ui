@@ -17,7 +17,12 @@ export class ArchiveListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.count = this.archives.length;
+    // this.count = this.archives.length;
+    this.count = 199;
+  }
+
+  handlePageChange(event: number) {
+    this.page = event
   }
 
 }

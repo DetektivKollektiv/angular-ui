@@ -134,15 +134,25 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    margin-top: 50px;
 
     .search-input {
       width: 50%;
-    }
-  }
+      margin: 20px;
+      position: relative;
 
-  .pagination-container {
-    display: flex;
-    justify-content: center;
-    margin: 100px;
+      .input-tag {
+        border: none;
+        border-radius: 15px;
+        background-color: #eee;
+        padding: 8px 20px;
+      }
+
+      .icon {
+        position: absolute;
+        right: -25px;
+        top: 5px;
+      }
+    }
   }
 }

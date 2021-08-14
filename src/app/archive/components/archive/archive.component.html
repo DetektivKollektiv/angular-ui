@@ -28,20 +28,20 @@
   <div class="bottom-section">
   <!-- the stuff below, is the old page, i will delete later. -->
   <div class="archive-list-setting">
-    <mat-form-field class="search-input">
-      <input matInput type="search" >
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Favorite food</mat-label>
+    <div class="search-input">
+      <input matInput type="search" class="input-tag" placeholder="Fälle durchsuchen">
+      <mat-icon class="icon">search</mat-icon>
+    </div>
+    <mat-form-field>
+      <mat-label>Filter anzeigen</mat-label>
       <mat-select>
-        <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
+        <!-- <mat-option *ngFor="let brand of brands" [value]="brand.value">
+          {{ brand.viewValue }}
         </mat-option> -->
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Favorite food</mat-label>
+    <mat-form-field>
+      <mat-label>Sortiert nach</mat-label>
       <mat-select>
         <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
@@ -50,13 +50,4 @@
     </mat-form-field>
   </div>
   <app-archive-list [archives]="items"></app-archive-list>
-  <div class="pagination-container">
-    <pagination-controls
-        previousLabel="Prev"
-        nextLabel="Next"
-        [responsive]="true"
-        (pageChange)="handlePageChange($event)"
-      >
-    </pagination-controls>
-  </div>
 </div>

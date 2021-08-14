@@ -1,6 +1,12 @@
 <li class="item">
   <div class="score-container">
-      <h2 class="content">{{ archive.result_score }}</h2>
+      <h2 [ngClass]="{'red': color === 'red',
+                      'orange': color === 'orange',
+                      'light-green': color === 'lightGreen',
+                      'green': color === 'green'
+      }">
+        {{ archive.result_score }}
+      </h2>
   </div>
   <div class="main-container">
       <h4>#{{archive.id.split('-')[0]}}</h4>

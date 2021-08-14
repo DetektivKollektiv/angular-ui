@@ -152,7 +152,5 @@ export class ArchiveComponent implements OnInit {
 
   }
 
-  handlePageChange(event: number) {
 
-  }
 }

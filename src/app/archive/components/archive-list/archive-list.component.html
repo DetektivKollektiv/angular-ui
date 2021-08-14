@@ -7,3 +7,14 @@
     [archive]=archive>
   </app-archive-list-item>
 </ul>
+<div class="pagination-container">
+  <pagination-controls
+      [maxSize]="11"
+      [responsive]="true"
+      previousLabel="Prev"
+      nextLabel="Next"
+      [responsive]="true"
+      (pageChange)="handlePageChange($event)"
+    >
+  </pagination-controls>
+</div>
