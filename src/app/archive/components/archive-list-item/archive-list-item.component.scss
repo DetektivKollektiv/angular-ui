@@ -30,20 +30,41 @@
   }
 
   .main-container {
+    min-width: 70%;
     display: flex;
     flex-direction: column;
+
+    h4 {
+      margin: 0;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .archive-info {
+      span {
+        margin-right: 20px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin: 0;
+    }
 
     .archive-body {
       display: flex;
 
       &-main {
-        width: 70%;
+        width: 65%;
         display: flex;
         flex-direction: column;
-
-        h4 {
-          margin: 0;
-        }
 
         .content {
           flex: 1;
