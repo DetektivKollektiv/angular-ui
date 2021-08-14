@@ -17,7 +17,8 @@ import localeDE from '@angular/common/locales/de';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
 import { ArchiveListComponent } from './components/archive-list/archive-list.component';
-import { ArchiveListItemComponent } from './components/archive-list-item/archive-list-item.component'
+import { ArchiveListItemComponent } from './components/archive-list-item/archive-list-item.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -38,6 +39,7 @@ registerLocaleData(localeDE, 'de');
     ShareButtonsModule,
     ShareIconsModule,
     IvyCarouselModule,
+    NgxPaginationModule,
     NgxsModule.forFeature([ArchiveState]),
   ],
   providers: [

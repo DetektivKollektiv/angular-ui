@@ -9,10 +9,15 @@ import { Item } from 'src/app/model/item';
 export class ArchiveListComponent implements OnInit {
   @Input() archives: Item[];
 
+  public page = 1;
+  public pageSize = 10;
+  public count = 0;
+
+
   constructor() { }
 
   ngOnInit(): void {
-
+    this.count = this.archives.length;
   }
 
 }

@@ -1,3 +1,9 @@
 <ul class="archive-list">
-	<app-archive-list-item *ngFor="let archive of archives" [archive]=archive></app-archive-list-item>
+	<app-archive-list-item
+    *ngFor="let archive of archives | paginate: {
+      itemsPerPage: pageSize,
+      currentPage: page,
+      totalItems: count}"
+    [archive]=archive>
+  </app-archive-list-item>
 </ul>

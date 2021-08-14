@@ -50,4 +50,13 @@
     </mat-form-field>
   </div>
   <app-archive-list [archives]="items"></app-archive-list>
+  <div class="pagination-container">
+    <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        [responsive]="true"
+        (pageChange)="handlePageChange($event)"
+      >
+    </pagination-controls>
+  </div>
 </div>
