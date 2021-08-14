@@ -130,68 +130,13 @@
     }
   }
 
-  table {
-    width: 100%;
-    table-layout: fixed;
-    white-space: nowrap;
-  }
-
-  tr.detail-row {
-    height: 0;
-  }
-
-  tr.item-row:not(.expanded-row):hover {
-    background: whitesmoke;
-  }
-
-  tr.item-row:not(.expanded-row):active {
-    background: #efefef;
-  }
-
-  .item-row td {
-    border-bottom-width: 0;
-    cursor: pointer;
-  }
-
-  .item-detail {
-    overflow: hidden;
+  .archive-list-setting {
     display: flex;
-    width: 100%;
-  }
+    align-items: flex-end;
+    justify-content: space-between;
 
-  td {
-    font-family: Effra regular, sans-serif;
-    font-size: 16px;
-    line-height: 26px;
-    color: #4a4a4a;
-  }
-
-  .no-data-cell {
-    text-align: center;
-  }
-
-  .mat-column-content {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 10px 0 0;
-    width: 50%;
-  }
-
-  .mat-column-open_timestamp {
-    width: 10%;
-  }
-
-  .mat-column-close_timestamp {
-    width: 10%;
-  }
-
-  .mat-column-result_score {
-    min-width: min-content;
-    max-width: max-content;
-  }
-
-  th {
-    align-items: center;
+    .search-input {
+      width: 50%;
+    }
   }
 }

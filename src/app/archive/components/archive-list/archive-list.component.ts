@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from 'src/app/model/item';
-import { Observable } from 'rxjs';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-archive-list',
@@ -14,7 +12,7 @@ export class ArchiveListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.archives)
+
   }
 
 }
