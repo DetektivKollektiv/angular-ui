@@ -162,8 +162,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .createReview(this.caseToSolve.id)
       .then((review) => {
         this.review = review;
-        this.questions = review.questions
-        this.showQuestions = this.questions.filter(question => !question.parent_question_id)
+        this.questions = review.questions;
+        this.showQuestions = this.questions.filter(question => !question.parent_question_id);
         this.caseAccepted = true;
       })
       .catch(() => {
