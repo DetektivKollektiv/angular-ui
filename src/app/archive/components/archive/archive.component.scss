@@ -1,72 +1,186 @@
-app-archive-toolbar {
-  margin: 10px;
-}
 
-app-archive-details {
-  width: 100%;
-}
+.archive-page {
+  .top-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    // justify-content: space-between;
 
-table {
-  width: 100%;
-  table-layout: fixed;
-  white-space: nowrap;
-}
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-tr.detail-row {
-  height: 0;
-}
+    .overview-section {
+      max-width: 746px;
+    }
+  }
 
-tr.item-row:not(.expanded-row):hover {
-  background: whitesmoke;
-}
+  app-archive-toolbar {
+    margin: 10px;
+  }
 
-tr.item-row:not(.expanded-row):active {
-  background: #efefef;
-}
+  app-archive-details {
+    width: 100%;
+  }
 
-.item-row td {
-  border-bottom-width: 0;
-  cursor: pointer;
-}
 
-.item-detail {
-  overflow: hidden;
-  display: flex;
-  width: 100%;
-}
+  .top-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 
-td {
-  font-family: Effra regular, sans-serif;
-  font-size: 16px;
-  line-height: 26px;
-  color: #4a4a4a;
-}
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-.no-data-cell {
-  text-align: center;
-}
+    div {
+      flex: 50%;
+    }
 
-.mat-column-content {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0 10px 0 0;
-  width: 50%;
-}
+    app-rating-legend {
+      flex: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .user-xp  {
+        background: red;
+      }
+    }
+  }
 
-.mat-column-open_timestamp {
-  width: 10%;
-}
+  .questions-section {
+    .questions-section--list {
+      display: none;
 
-.mat-column-close_timestamp {
-  width: 10%;
-}
+      @media only screen and (min-width: 1024px) {
+        display: flex;
+        flex-direction: row;
+      }
 
-.mat-column-result_score {
-  min-width: min-content;
-  max-width: max-content;
-}
 
-th {
-  align-items: center;
+      .carousel-arrows .carousel-arrow.carousel-arrow-disabled {
+        display: none;
+        opacity: 0;
+      }
+
+      .question {
+        border-radius: 20px;
+        background:#f8f8f8;
+        height: auto;
+        margin-left: 5px;
+        margin-right: 1.5%;
+        padding: 10px 15px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @media only screen and (min-width: 1024px) {
+          width: 360px;
+        }
+
+        .question--icon {
+          width: 42px;
+          height: 42px;
+          margin: 10px 10px -3px 0;
+          padding: 12.9px 2.5px;
+          background-color: #68a8ff;
+          color: white;
+          border-radius: 30px;
+          font-family: 'Font Awesome 5 Pro';
+          font-weight: 900;
+          font-size: 23px;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+        }
+
+
+        .question--title {
+          width: 320px;
+          height: 18px;
+          margin: 16px 0 14px;
+          font-family: Effra medium, Effra regular, sans-serif;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: center;
+          color: var(--dark-indigo);
+        }
+        .question--description {
+          font-family: Effra medium, Effra regular, sans-serif;
+          width: 320px;
+          height: 35px;
+          margin: 14px 0 18px;
+          font-size: 16px;
+          text-align: center;
+          color: var(--dark-indigo);
+        }
+
+        .carousel.carousel-container.carousel-cells {
+          transition: transform .2s;
+          width: 100%;
+          height: 100%;
+          display: block;
+          will-change: transform;
+        }
+      }
+    }
+  }
+
+  // todo: I think probably a lot of the below can be removed now.
+  // but i was unsure on how to resolve a merge conflict.
+  .archive-list-setting {
+  table {
+    width: 100%;
+    table-layout: fixed;
+    white-space: nowrap;
+  }
+
+  tr.detail-row {
+    height: 0;
+  }
+
+  tr.item-row:not(.expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.item-row:not(.expanded-row):active {
+    background: #efefef;
+  }
+
+  .item-row td {
+    border-bottom-width: 0;
+    cursor: pointer;
+  }
+
+  .item-detail {
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    .search-input {
+      min-width: 50%;
+      margin-bottom: 20px;
+      position: relative;
+
+      .input-tag {
+        width: 100%;
+        border: none;
+        border-radius: 15px;
+        background-color: #eee;
+        padding: 8px 20px;
+      }
+
+      .icon {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+    }
+  }
 }

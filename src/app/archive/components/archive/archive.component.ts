@@ -37,35 +37,101 @@ export class ArchiveComponent implements OnInit {
   @Select(ArchiveState.filter) filter$: Observable<Filter>;
   @Select(ArchiveState.itemById) itemById$: Observable<Item>;
 
-  public items = new MatTableDataSource<Item>();
+  public items: Item[];
   public displayedColumns = [
     'content',
     'open_timestamp',
     'close_timestamp',
     'result_score',
   ];
+  /*
+
+  Change these questions to match what is in 06-Archiv in Adobe XD
+
+
+
+  */
+  public questionPrompts: any[] = [
+    {
+      title: 'Woran erkenne ich eine gute Quelle?',
+      description: 'Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen',
+      background: '#68a8ff',
+      icon: 'fal fa-newspaper'
+    },
+    {
+      title: 'Die Quelle ist nicht mehr abrufbar. Was kann ich tun?',
+      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+      background: '#3a9832',
+      icon: 'fal fa-scroll-old'
+    },
+    {
+      title: 'Kann ich den Fall abgeben?',
+      description: 'Ja, das geht. Hier erfährst du wie.',
+      background: '#be9843',
+      icon: 'fal fa-hands-helping'
+    },
+    {
+      title: 'Eine weitere Frage??',
+      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+      background: '#8f1fff',
+      icon: 'fal fa-leaf'
+    },
+  ];
+
   public expandedItem: Item | null;
   public loaded = false;
   public resultScoreMode = ResultScoreMode.bar;
+  public archiveQuestions: any[];
 
   constructor(
     private route: ActivatedRoute,
     private store: Store,
     private viewportScroller: ViewportScroller
-  ) {}
+  ) {
+
+    this.archiveQuestions = [
+      {
+        title: 'Wann sehe ich etwas im Archiv?',
+        description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
+        background: '#af00a1',
+        icon: 'fal fa-eye'
+      },
+      {
+        title: 'Wie errechnet sich der Score?',
+        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+        background: '#47cc7f',
+        icon: 'fal fa-chart-bar'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#8f1fff',
+        icon: 'fal fa-leaf'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#8f1fff',
+        icon: 'fal fa-leaf'
+      },
+    ];
+
+   }
 
   ngOnInit(): void {
+    console.log(this.items)
     this.items$.subscribe((items) => {
+      console.log(items)
       // Safari timestamp fix
       // TODO: Remove when format is adapted in API
-      const itemsSafariSafe = [];
-      items.forEach(val => itemsSafariSafe.push(Object.assign({}, val)));
-      itemsSafariSafe.forEach((item) => {
-        item.open_timestamp = item.open_timestamp.replace(/\s/g, 'T');
-        item.close_timestamp = item.close_timestamp.replace(/\s/g, 'T');
-      });
+      // const itemsSafariSafe = [];
+      // items.forEach(val => itemsSafariSafe.push(Object.assign({}, val)));
+      // itemsSafariSafe.forEach((item) => {
+      //   item.open_timestamp = item.open_timestamp.replace(/\s/g, 'T');
+      //   item.close_timestamp = item.close_timestamp.replace(/\s/g, 'T');
+      // });
 
-      this.items.data = itemsSafariSafe;
+      this.items = items;
       this.loaded = true;
     });
 
@@ -85,4 +151,6 @@ export class ArchiveComponent implements OnInit {
     });
 
   }
+
+
 }

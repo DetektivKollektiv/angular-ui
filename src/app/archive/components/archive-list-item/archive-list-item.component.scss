@@ -1,0 +1,112 @@
+.item {
+  margin: 30px 0;
+  display: flex;
+
+  .score-container {
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    margin-right: 20px;
+    background-color: #eee;
+    border-radius: 15px;
+
+    .red {
+      color: red;
+    }
+
+    .orange {
+      color: orangered;
+    }
+
+    .light-green {
+      color: lightgreen;
+    }
+
+    .green {
+      color: green;
+    }
+  }
+
+  .main-container {
+    min-width: 70%;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin: 0;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .archive-info {
+      span {
+        margin-right: 20px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin: 0;
+    }
+
+    .archive-body {
+      display: flex;
+
+      &-main {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+
+        .content {
+          flex: 1;
+        }
+
+        .archive-info {
+          span {
+            margin-right: 20px;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      .card-container {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+          border-radius: 15px;
+          display: flex;
+          align-items: center;
+          padding: 5px 10px;
+          margin: 5px;
+          font-size: 12px;
+          font-weight: bold;
+        }
+
+        .active {
+          border: 2px solid;
+        }
+
+        .non-active {
+          background-color: #eee;
+        }
+
+        .color-card {
+          background-color: #722ED1;
+          color: white;
+        }
+
+      }
+    }
+  }
+}

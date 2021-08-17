@@ -35,11 +35,51 @@
   background: #555;
 }
 
-html,
 body {
   height: 100%;
   min-height: 100%;
   margin: 0;
+  overflow-x: hidden;
+}
+
+.review-page .carousel .carousel-arrows .carousel-arrow {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  top: 42% !important;
+  width: 18px !important;
+  background-size: 60px !important;
+}
+
+.carousel .carousel-container .carousel-cell.question {
+  width: 350px !important;
+}
+
+.carousel .carousel-container .question--title {
+  width: 316px !important;
+}
+.carousel-arrows .carousel-arrow-disabled {
+  display: none;
+}
+
+.archive-page .carousel .carousel-arrows .carousel-arrow {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  top: 42% !important;
+  width: 18px !important;
+  background-size: 60px !important;
+}
+
+.review-situation--text a{
+  color: #ff7268;
+  text-decoration: none;
+}
+.review-situation--text i.fas.fa-quote-left {
+  color: #ff7268;
+}
+.review-situation--text i.fas.fa-quote-right {
+  color: #ff7268;
+  display: flex;
+  justify-content: flex-end;
 }
 
 h1 {
@@ -201,4 +241,18 @@ mat-icon {
 .no-padding-dialog-container .mat-dialog-container {
     /* add your styles */
     padding: 0;
+}
+header.header {
+  z-index: 9999! important;
+}
+
+.carousel-container .carousel-cells {
+  width: 100% !important;
+}
+
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem !important;
+  background: #ddd !important;
+  color: black !important;
+  border-radius: 5px;
 }

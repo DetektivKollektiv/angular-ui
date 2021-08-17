@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 
 @Component({
-  selector: 'forgot-password-page',
+  selector: 'app-forgot-password-page',
   templateUrl: './forgot-password-page.component.html',
   styleUrls: ['./forgot-password-page.component.scss'],
 })
 
 export class ForgotPasswordPageComponent implements OnInit {
   @Select(ArchiveState.items) items$: Observable<Item[]>;
-  cases:any[];
+  cases: any[];
   constructor( private archiveService: ArchiveService  ) {
 
   }

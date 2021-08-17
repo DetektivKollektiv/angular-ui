@@ -5,16 +5,19 @@ import { AuthGuard } from './shared/auth/auth-guard/auth.guard';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HomeComponent } from './home/components/home/home.component';
 import { SubmitComponent } from './submit-item/components/submit/submit.component';
+import { SubmitPageComponent } from './submit-item/components/submit-page/submit-page.component';
+import { SubmitSuccessPageComponent } from './submit-item/components/submit-success-page/submit-success-page.component';
+
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ReviewPageComponent } from './review-item/components/review-page/review-page.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
 
 /* Auth page routes */
-import { LoginPageComponent } from './login-page/components/login-page/login-page.component';
+import { LoginPageComponent } from './authentication-pages/components/login-page/components/login-page/login-page.component';
 import { ForgotPasswordPageComponent } from './forgot-password-page/components/forgot-password-page/forgot-password-page.component';
-import { RegisterPageComponent } from './register-page/components/register-page/register-page.component';
+import { RegisterPageComponent } from './authentication-pages/components/register-page/components/register-page/register-page.component';
 import { ConfirmEmailPageComponent } from './confirm-email-page/components/confirm-email-page/confirm-email-page.component';
-import { SetPasswordPageComponent } from './set-password-page/components/set-password-page/set-password-page.component';
+import { SetPasswordPageComponent } from './authentication-pages/components/set-password-page/components/set-password-page/set-password-page.component';
 /* / Auth page routes */
 
 import { CommunityGuidelinesComponent } from './core/components/community-guidelines/community-guidelines.component';
@@ -74,7 +77,22 @@ const routes: Routes = [
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
-  { path: 'submit', component: SubmitComponent },
+
+  { path: 'submit_old', component: SubmitComponent },
+  {
+    path: 'submit',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: SubmitPageComponent }
+    ]
+  },
+  {
+    path: 'submit/success',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: SubmitSuccessPageComponent }
+    ]
+  },
   // {
   //   path: 'review',
   //   component: ReviewComponent,

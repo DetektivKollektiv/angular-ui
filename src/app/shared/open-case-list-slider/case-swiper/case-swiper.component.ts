@@ -1,4 +1,4 @@
-import { Component, HostListener, AfterViewInit } from '@angular/core';
+import { Component, HostListener, AfterViewInit, Input } from '@angular/core';
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -8,21 +8,20 @@ import SwiperCore, {
 
 SwiperCore.use([ Navigation, Pagination, A11y]);
 @Component({
-  selector: 'cases-list-swiper',
+  selector: 'app-cases-list-swiper',
   templateUrl: './case-swiper.component.html',
   styleUrls: ['./case-swiper.component.scss'],
-  inputs: ['cases']
 })
 export class CasesSwiperComponent implements AfterViewInit {
-  public cases: any[];
-  public swiper: Swiper
+  @Input() public cases: any[];
+  public swiper: Swiper;
 
   constructor(
   ) {
 
   }
 
-  ngOnInit(): void {
+  OnInit(): void {
   }
 
   ngAfterViewInit() {

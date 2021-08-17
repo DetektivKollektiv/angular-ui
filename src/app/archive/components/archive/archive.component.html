@@ -1,50 +1,41 @@
-<div class="archive">
-  <h1>Archiv</h1>
-  <app-archive-toolbar>
-  </app-archive-toolbar>
+<div class="archive-page">
+  <div class="top-section">
+    <div class="overview-section">
+      <h1>Gelöste Fälle</h1>
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      </div>
+    </div>
+    <div class="rating-legend-section">
+      <!-- The color bar component goes here! -->
+      <app-rating-legend></app-rating-legend>
+    </div>
+  </div>
+  <app-question-carousel *ngIf="!!archiveQuestions" [questions]=archiveQuestions></app-question-carousel>
 
-  <table mat-table [dataSource]="items" multiTemplateDataRows class="mat-elevation-z8">
-    <ng-container matColumnDef="content">
-      <th mat-header-cell *matHeaderCellDef> Inhalt </th>
-      <td mat-cell *matCellDef="let item"> {{item.content}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="open_timestamp">
-      <th mat-header-cell *matHeaderCellDef> Eingegangen </th>
-      <td mat-cell *matCellDef="let item"> {{item.open_timestamp | date}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="close_timestamp">
-      <th mat-header-cell *matHeaderCellDef> Geschlossen </th>
-      <td mat-cell *matCellDef="let item"> {{item.close_timestamp | date}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="result_score">
-      <th mat-header-cell *matHeaderCellDef> Vertrauensindex </th>
-      <td mat-cell *matCellDef="let item">
-        <app-result-score [score]="item.result_score" [mode]="resultScoreMode"></app-result-score>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="expandedDetail">
-      <td mat-cell *matCellDef="let item" [attr.colspan]="displayedColumns.length">
-        <div class="item-detail" [@detailExpand]="item == expandedItem ? 'expanded' : 'collapsed'">
-          <app-archive-details [item]="item"></app-archive-details>
-        </div>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let item; columns: displayedColumns;" class="item-row" id="{{item.id}}"
-      [class.expanded-row]="expandedItem === item" (click)="expandedItem = expandedItem === item ? null : item">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" class="no-data-cell" [attr.colspan]="displayedColumns.length">Leider wurden mit diesen
-        Filtern
-        keine
-        Einträge gefunden.
-      </td>
-    </tr>
-  </table>
+  <div class="bottom-section">
+  <!-- the stuff below, is the old page, i will delete later. -->
+  <div class="archive-list-setting">
+    <div class="search-input">
+      <input type="search" class="input-tag" placeholder="Fälle durchsuchen">
+      <mat-icon class="icon">search</mat-icon>
+    </div>
+    <mat-form-field>
+      <mat-label>Filter anzeigen</mat-label>
+      <mat-select>
+        <!-- <mat-option *ngFor="let brand of brands" [value]="brand.value">
+          {{ brand.viewValue }}
+        </mat-option> -->
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Sortiert nach</mat-label>
+      <mat-select>
+        <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option> -->
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <app-archive-list [archives]="items"></app-archive-list>
 </div>

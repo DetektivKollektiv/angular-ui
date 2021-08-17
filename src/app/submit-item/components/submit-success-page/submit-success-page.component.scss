@@ -1,0 +1,25 @@
+@import "../../../../assets/scss/_initializer.scss";
+
+.submit-success-page {
+  .top-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+
+  .bottom-section {
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+
+    @media only screen and (min-width: 1024px) {
+       flex-direction: row;
+    }
+  }
+}

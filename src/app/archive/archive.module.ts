@@ -14,14 +14,23 @@ import { ArchiveState } from './state/archive.state';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { registerLocaleData } from '@angular/common';
 import localeDE from '@angular/common/locales/de';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
+import { ArchiveListComponent } from './components/archive-list/archive-list.component';
+import { ArchiveListItemComponent } from './components/archive-list-item/archive-list-item.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 
-registerLocaleData(localeDE, 'de');
+registerLocaleData(localeDE, 'de')    ;
 @NgModule({
   declarations: [
     ArchiveComponent,
     ArchiveToolbarComponent,
     ArchiveItemComponent,
     ArchiveDetailsComponent,
+    RatingLegendComponent,
+    ArchiveListComponent,
+    ArchiveListItemComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +39,9 @@ registerLocaleData(localeDE, 'de');
     RouterModule,
     ShareButtonsModule,
     ShareIconsModule,
+    IvyCarouselModule,
+    NgxPaginationModule,
+    QuestionCarouselModule,
     NgxsModule.forFeature([ArchiveState]),
   ],
   providers: [

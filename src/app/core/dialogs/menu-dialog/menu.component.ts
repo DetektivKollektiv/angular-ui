@@ -12,7 +12,7 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'menu-dialog',
+  selector: 'app-menu-dialog',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
@@ -42,7 +42,7 @@ export class MenuDialogComponent implements OnInit {
       }
 
       this.user = user;
-      console.log({zzz:this.user})
+      console.log({zzz:this.user});
     });
   }
 
