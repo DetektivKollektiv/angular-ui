@@ -21,7 +21,7 @@ export class ArchiveListComponent implements OnInit {
   }
 
   handlePageChange(event: number) {
-    this.page = event
+    this.page = event;
   }
 
 }
