@@ -60,6 +60,10 @@
 
     .archive-body {
       display: flex;
+      flex-direction: column;
+      @media only screen and (min-width: 1024px) {
+        flex-direction: row;
+      }
 
       &-main {
         width: 65%;

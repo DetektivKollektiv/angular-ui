@@ -1,11 +1,14 @@
 <li class="item">
   <div class="score-container">
-      <h2 [ngClass]="{'red': color === 'red',
-                      'orange': color === 'orange',
-                      'light-green': color === 'lightGreen',
-                      'green': color === 'green'
-      }">
-        {{ archive.result_score }}
+      <h2 [ngClass]="color === 'red'
+                      ? 'red'
+                      : color === 'orange'
+                        ? 'orange'
+                        : color === 'light-green'
+                          ? 'light-green'
+                          : 'green'
+      ">
+        {{ result_score }}
       </h2>
   </div>
   <div class="main-container">
