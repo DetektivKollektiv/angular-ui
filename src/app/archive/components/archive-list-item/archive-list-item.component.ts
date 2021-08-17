@@ -12,7 +12,7 @@ export class ArchiveListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.result_score = this.archive.result_score * 25;
+    this.result_score = Math.ceil(this.archive.result_score * 25);
 
     if (this.result_score <= 33) {
       this.color = 'red';
