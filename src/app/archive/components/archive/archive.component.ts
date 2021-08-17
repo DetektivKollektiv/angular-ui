@@ -119,9 +119,7 @@ export class ArchiveComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.items)
     this.items$.subscribe((items) => {
-      console.log(items)
       // Safari timestamp fix
       // TODO: Remove when format is adapted in API
       // const itemsSafariSafe = [];
