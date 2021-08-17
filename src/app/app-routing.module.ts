@@ -77,6 +77,7 @@ const routes: Routes = [
     ]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
+
   { path: 'submit_old', component: SubmitComponent },
   {
     path: 'submit',
@@ -92,7 +93,6 @@ const routes: Routes = [
       { path: '', component: SubmitSuccessPageComponent }
     ]
   },
-  // { path: 'submit/success', component: SubmitSuccessPageComponent },
   // {
   //   path: 'review',
   //   component: ReviewComponent,

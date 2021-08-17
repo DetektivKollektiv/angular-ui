@@ -11,20 +11,8 @@
       <app-rating-legend></app-rating-legend>
     </div>
   </div>
-  <div class="questions-section">
-    <div class="questions-swiper-container">
-      <!--todo figure out how to import this -->
-    </div>
-    <div class="questions-section--list">
-      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{'z-index':'unset'}">
-        <div class="carousel-cell question" *ngFor="let q of archiveQuestions; let i=index">
-          <div class="question--icon" [ngStyle]="{'background-color': q.background}"><i class="{{q.icon}}"></i></div>
-          <div class="question--title">{{q.title}}</div>
-          <div class="question--description questions-section-quote">{{q.description}}</div>
-        </div>
-      </carousel>
-    </div>
-  </div>
+  <app-question-carousel *ngIf="!!archiveQuestions" [questions]=archiveQuestions></app-question-carousel>
+
   <div class="bottom-section">
   <!-- the stuff below, is the old page, i will delete later. -->
   <div class="archive-list-setting">

@@ -13,7 +13,7 @@ import { FactcheckComponent } from './components/factcheck/factcheck.component';
 import { MockReviewService } from './services/reviews/mock/mock-review.service';
 import { ReviewProcessComponent } from './components/review-process/review-process.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
-import { QuestionsSwiperComponent } from './components/questions-swiper/questions-swiper.component';
+//import { QuestionsSwiperComponent } from './components/questions-swiper/questions-swiper.component';
 import { ReviewQuestionComponent } from './components/review-question/review-question.component';
 import { ReviewSummaryComponent } from './components/review-summary/review-summary.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
@@ -27,7 +27,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
-    QuestionsSwiperComponent,
+    ///QuestionsSwiperComponent,
     ReviewComponent,
     QuestionComponent,
     TagsQuestionComponent,

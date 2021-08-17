@@ -130,7 +130,34 @@
     }
   }
 
+  // todo: I think probably a lot of the below can be removed now.
+  // but i was unsure on how to resolve a merge conflict.
   .archive-list-setting {
+  table {
+    width: 100%;
+    table-layout: fixed;
+    white-space: nowrap;
+  }
+
+  tr.detail-row {
+    height: 0;
+  }
+
+  tr.item-row:not(.expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.item-row:not(.expanded-row):active {
+    background: #efefef;
+  }
+
+  .item-row td {
+    border-bottom-width: 0;
+    cursor: pointer;
+  }
+
+  .item-detail {
+    overflow: hidden;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;

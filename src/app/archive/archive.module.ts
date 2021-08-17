@@ -19,8 +19,9 @@ import { RatingLegendComponent } from './components/rating-legend/rating-legend.
 import { ArchiveListComponent } from './components/archive-list/archive-list.component';
 import { ArchiveListItemComponent } from './components/archive-list-item/archive-list-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 
-registerLocaleData(localeDE, 'de');
+registerLocaleData(localeDE, 'de')    ;
 @NgModule({
   declarations: [
     ArchiveComponent,
@@ -40,6 +41,7 @@ registerLocaleData(localeDE, 'de');
     ShareIconsModule,
     IvyCarouselModule,
     NgxPaginationModule,
+    QuestionCarouselModule,
     NgxsModule.forFeature([ArchiveState]),
   ],
   providers: [
