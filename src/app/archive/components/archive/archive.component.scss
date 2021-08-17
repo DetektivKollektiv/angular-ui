@@ -137,23 +137,17 @@
     align-items: flex-end;
     justify-content: space-between;
     margin-top: 50px;
+    flex-wrap: wrap;
+
+    @media only screen and (min-width: 768px) {
+      flex-wrap: unset;
+    }
 
     .search-input {
-      min-width: 50%;
-      position: relative;
+      width: 100%;
 
-      .input-tag {
-        width: 100%;
-        border: none;
-        border-radius: 15px;
-        background-color: #eee;
-        padding: 8px 20px;
-      }
-
-      .icon {
-        position: absolute;
-        right: 10px;
-        top: 5px;
+      @media only screen and (min-width: 768px) {
+        width: 50%;
       }
     }
   }
