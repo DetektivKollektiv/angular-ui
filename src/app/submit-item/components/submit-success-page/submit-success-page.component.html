@@ -1,0 +1,64 @@
+<div class="submit-success-page">
+  <div class="top-section">
+    <div class="overview-section">
+      <div class="submit-success-number-section">
+        <div class="submit-success-number-id">#194948 <span>Fallnummer</span></div>
+      </div>
+      <div class="submit-success-description-section">
+        <div class="like-wrapper">
+          <div class="like-icon-box1">
+            <i class="fal fa-thumbs-up"></i>
+          </div>
+          <div class="like-icon-box2">
+            <h3 class="like-icon-heading">Vielen Dank für's Einreichen!</h3>
+            <p class="like-icon-text">
+              Vielen Dank für das Einreichen dieses Falls.  Die Community nimmt sich dem Fall an. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+            </p>
+          </div>
+        </div>
+        <div class="message-wrapper">
+          <div class="message-icon-box1">
+            <i class="fal fa-envelope-open-text"></i>
+          </div>
+          <div class="message-icon-box2">
+            <h3 class="message-icon-heading">Wir informieren dich.</h3>
+            <p class="message-icon-text">
+              Wir melden uns per E-Mail, wenn es Neuigkeiten zu deinem Fall gibt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overview-right-section">
+      <img src="assets/images/submit-success.png">
+    </div>
+  </div>
+  <div class="open-cases-swiper-section">
+    <!--  make these work -->
+    <app-open-case-list-slider *ngIf="authenticated && cases && cases.length && !is_open_review" [cases]=cases></app-open-case-list-slider>
+  <!-- <app-continue-case-bar *ngIf="authenticated && cases && cases.length && is_open_review" [cases]=cases></app-continue-case-bar>   -->
+  </div>
+  <div class="bottom-section">
+    <div class="share-section">
+        <div class="share-section-top-box">
+          <h3 class="share-section-heading">codetekt teilen</h3>
+          <p class="share-section-title">Wenn dir codeteckt gefällt, lass es deine Freunde wissen und sage Falschinformationen den Kampf an!</p>
+          <p class="share-section-description">Marketing-Wording: Ich habe gerade einen Fall bei codeteckt eingereicht. Tritt auch du der Community gegen Falschinformationen bei!</p>
+        </div>
+        <div class="social-media-icon">
+          <span class="link-icon"><a routerLink=""><i class="far fa-link"></i></a></span>
+          <span class="envelope-icon"><a routerLink=""><i class="fas fa-envelope"></i></a></span>
+          <span class="twitter-icon"><a routerLink=""><i class="fab fa-twitter"></i></a></span>
+          <span class="facebook-icon"><a routerLink=""><i class="fab fa-facebook-f"></i></a></span>
+          <span class="instagram-icon"><a routerLink=""><i class="fab fab fa-instagram"></i></a></span>
+        </div>
+    </div>
+    <div class="solved-cases-section">
+      <div class="title"> </div>
+        <div class="solved-cases-container">
+          <!-- <app-case-list [cases]=caseList1></app-case-list> -->
+        <!-- <app-case-list [cases]=caseList2></app-case-list> -->
+        </div>
+    </div>
+  </div>
+</div>

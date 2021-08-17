@@ -47,7 +47,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
 //   public caseId: string = null;
 //   public shortenedCaseId: string = null;
-  private openCases: Item[];
 
   public caseId = '';
   public shortenedCaseId = '';
@@ -57,6 +56,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public policyChecked = false;
   public conditionChecked = false;
   public buttonStatus = true;
+
+  private openCases: Item[];
 
   constructor(
     private itemsService: ItemsService,
@@ -195,6 +196,53 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     //
   }
 
+  getFactCheck(id: string): void {
+    this.loader.show();
+
+    this.factCheckService
+      .getFactCheck(id)
+      .then(factCheck => {
+        this.factCheck = factCheck;
+      })
+      .catch(() => {
+        this.factCheck = null;
+      })
+      .finally(() => {
+        this.loader.hide();
+      });
+  }
+
+  updateReview() {
+    this.reviewService.updateReview(this.review);
+  }
+
+  async submitTags() {
+    await this.itemsService.setItemTags(this.caseId, []);
+  }
+
+  commentChange() {
+    this.review.comment = this.comment;
+    this.reviewService.updateReview(this.review);
+  }
+
+  agreePolicy(event) {
+    this.policyChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  agreeCondition(event) {
+    this.conditionChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  checkButtonStatus() {
+    if (this.policyChecked === true && this.conditionChecked === true) {
+      this.buttonStatus = false;
+    } else {
+      this.buttonStatus = true;
+    }
+  }
+
   private getNewCase(): void {
     this.loader.show();
 
@@ -261,52 +309,5 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .finally(() => {
         this.loader.hide();
       });
-  }
-
-  getFactCheck(id: string): void {
-    this.loader.show();
-
-    this.factCheckService
-      .getFactCheck(id)
-      .then(factCheck => {
-        this.factCheck = factCheck;
-      })
-      .catch(() => {
-        this.factCheck = null;
-      })
-      .finally(() => {
-        this.loader.hide();
-      });
-  }
-
-  updateReview() {
-    this.reviewService.updateReview(this.review);
-  }
-
-  async submitTags() {
-    await this.itemsService.setItemTags(this.caseId, []);
-  }
-
-  commentChange() {
-    this.review.comment = this.comment;
-    this.reviewService.updateReview(this.review);
-  }
-
-  agreePolicy(event) {
-    this.policyChecked = event.checked;
-    this.checkButtonStatus();
-  }
-
-  agreeCondition(event) {
-    this.conditionChecked = event.checked;
-    this.checkButtonStatus();
-  }
-
-  checkButtonStatus() {
-    if (this.policyChecked === true && this.conditionChecked === true) {
-      this.buttonStatus = false;
-    } else {
-      this.buttonStatus = true;
-    }
   }
 }

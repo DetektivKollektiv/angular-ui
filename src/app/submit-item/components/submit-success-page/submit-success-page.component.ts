@@ -1,39 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-
-//
-import { Observable } from 'rxjs';
-import { Select, Store } from '@ngxs/store';
-import { Item } from 'src/app/model/item';
-
-import { ItemsService } from '../../../review-item/services/items/items.service';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
-import { AuthState } from '../../../shared/auth/model/auth-state';
+import { ItemsService } from 'src/app/review-item/services/items/items.service';
+import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
+import { AuthState } from 'src/app/shared/auth/model/auth-state';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-submit-success-page',
+  templateUrl: './submit-success-page.component.html',
+  styleUrls: ['./submit-success-page.component.scss'],
+  providers: [
+  ],
 })
-export class HomeComponent implements OnInit {
+export class SubmitSuccessPageComponent implements OnInit {
+
+  public authenticated = false;
+  public authState: AuthState;
   cases: any[];
   is_open_review: boolean;
-
-  public authState: AuthState;
-  public authenticated = false;
-  private openCases: any[];
   private showSlider: boolean;
 
   constructor(
     private authService: AuthService,
     private itemsService: ItemsService,
-    private router: Router
   ) {
     this.showSlider = false;
   }
-
   ngOnInit(): void {
+
     this.authService.auth$.subscribe((authState: AuthState) => {
       this.authState = authState;
       this.authenticated = this.authState.isLoggedIn;
@@ -43,7 +36,6 @@ export class HomeComponent implements OnInit {
       return;
     }
 
-
     this.itemsService
       .getOpenItems()
       .then((openCases) => {
@@ -52,11 +44,5 @@ export class HomeComponent implements OnInit {
         this.showSlider = (this.cases && this.cases.length && !this.is_open_review);
       });
 
-  }
-
-  navigate(url: string) {
-    this.router.navigateByUrl(url)
-      .then()
-      .catch();
   }
 }
