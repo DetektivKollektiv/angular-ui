@@ -16,10 +16,19 @@
   <div class="bottom-section">
   <!-- the stuff below, is the old page, i will delete later. -->
   <div class="archive-list-setting">
-    <div class="search-input">
-      <input type="search" class="input-tag" placeholder="Fälle durchsuchen">
-      <mat-icon class="icon">search</mat-icon>
-    </div>
+    <mat-form-field class="search-input">
+      <mat-label>Fälle durchsuchen</mat-label>
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true"
+          (removed)="remove(keyword)">
+          {{keyword}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
     <mat-form-field>
       <mat-label>Filter anzeigen</mat-label>
       <mat-select>

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Item } from 'src/app/model/item';
 import { Filter } from '../../model/filter';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatChipInputEvent } from '@angular/material/chips';
 import {
   animate,
   state,
@@ -13,7 +15,7 @@ import {
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
-import { AddFilterKeyword } from '../../state/archive.actions';
+import { AddFilterKeyword, RemoveFilterKeyword } from '../../state/archive.actions';
 import { ViewportScroller } from '@angular/common';
 import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
 
@@ -37,6 +39,7 @@ export class ArchiveComponent implements OnInit {
   @Select(ArchiveState.filter) filter$: Observable<Filter>;
   @Select(ArchiveState.itemById) itemById$: Observable<Item>;
 
+  public filter: Filter;
   public items: Item[];
   public displayedColumns = [
     'content',
@@ -83,6 +86,8 @@ export class ArchiveComponent implements OnInit {
   public resultScoreMode = ResultScoreMode.bar;
   public archiveQuestions: any[];
 
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+
   constructor(
     private route: ActivatedRoute,
     private store: Store,
@@ -119,9 +124,7 @@ export class ArchiveComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.items)
     this.items$.subscribe((items) => {
-      console.log(items)
       // Safari timestamp fix
       // TODO: Remove when format is adapted in API
       // const itemsSafariSafe = [];
@@ -150,7 +153,23 @@ export class ArchiveComponent implements OnInit {
       }
     });
 
+    this.filter$.subscribe((filter) => (this.filter = filter));
   }
 
+  remove(keyword: string): void {
+    this.store.dispatch(new RemoveFilterKeyword(keyword));
+  }
 
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    if ((value || '').trim()) {
+      this.store.dispatch(new AddFilterKeyword(value));
+    }
+
+    if (input) {
+      input.value = '';
+    }
+  }
 }
