@@ -1,18 +1,23 @@
-<div class="submit-success-page">
-  <div class="top-section responsive-100">
-    <h1>Gelöste Fälle</h1>
-    <div>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+<div class="submit-page responsive-100">
+  <div class="top-section">
+    <div class="overview-section">
+      <!-- <span class="alt"><i class="far fa-home"></i>&nbsp;<i class="fal fa-greater-than"></i></span> -->
+      <h1><span class="alt">Fall einreichen.</span></h1>
+      <div>
+        <span class="submit-text">Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf
+          Fall absenden klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis.
+          Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für
+          dich prüfen.</span>
+      </div>
     </div>
+    <div class="overview-right-section"></div>
   </div>
   <div class="questions-section">
     <div class="questions-swiper-container">
       <!--  make this import work -->
-      <!-- <app-questions-swiper></app-questions-swiper> -->
     </div>
     <app-question-carousel *ngIf="!!questionPrompts" [questions]=questionPrompts></app-question-carousel>
   </div>
-
   <div class="middle-section responsive-100">
     <h2 class="mono-font bold-weight">Dein Fall</h2>
     <p>Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein. Gibt es diesen Fall bereits, erhältst du das Ergebnis sofort. Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich prüfen.</p>

@@ -71,6 +71,8 @@ export class SubmitComponent implements OnInit {
   mailGiven: boolean;
   item: Item;
 
+  public submitQuestions: any[];
+
   public resultScoreMode = ResultScoreMode.text;
 
   constructor(
@@ -80,7 +82,34 @@ export class SubmitComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private loaderService: LoaderService
-  ) {}
+  ) {
+    this.submitQuestions = [
+      {
+        title: 'Wann sehe ich etwas im Archiv?',
+        description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
+        background: '#ff7268',
+        icon: 'fal fa-question-circle'
+      },
+      {
+        title: 'Wie errechnet sich der Score?',
+        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+        background: '#722ed1',
+        icon: 'fal fa-plus'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#8f1fff',
+        icon: 'fal fa-archive'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: '#ff7268',
+        icon: 'fal fa-meteor'
+      },
+    ];
+  }
 
   get formArray(): AbstractControl | null {
     return this.formGroup.get('formArray');
@@ -168,6 +197,7 @@ export class SubmitComponent implements OnInit {
     this.submitItemService
       .submitItem(item)
       .then((result) => {
+        this.router.navigateByUrl('submit/success').then().catch();
         if (result.status === 'closed') {
           this.item = result;
           this.itemClosed = true;

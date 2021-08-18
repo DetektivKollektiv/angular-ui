@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SubmitComponent } from './components/submit/submit.component';
 import { SubmitPageComponent } from './components/submit-page/submit-page.component';
-import { SubmitSuccessPageComponent } from './components/submit-success-page/submit-success-page.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { HelperModule } from '../shared/helper/helper.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
+
 @NgModule({
-  declarations: [SubmitComponent, SubmitPageComponent,SubmitSuccessPageComponent],
+  declarations: [SubmitComponent, SubmitPageComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -19,6 +20,7 @@ import { QuestionCarouselModule } from '../shared/question-carousel/question-car
     HelperModule,
     RouterModule,
     IvyCarouselModule,
+    OpenCaseListSliderModule,
     TranslateModule.forChild(),
     QuestionCarouselModule
   ]
