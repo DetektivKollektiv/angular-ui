@@ -20,16 +20,6 @@
       }
     }
 
-    .questions-swiper-container {
-      display:block;
-      // width: 100%;
-      // max-width: 100%;
-      max-width: 100vw;
-      @media only screen and (min-width: 1024px) {
-        //  display:none;
-      }
-    }
-
     .carousel-arrows .carousel-arrow.carousel-arrow-disabled {
       display: none;
       opacity: 0;
@@ -87,6 +77,14 @@
         font-size: 16px;
         text-align: center;
         color: var(--dark-indigo);
+      }
+
+      .carousel.carousel-container.carousel-cells {
+        transition: transform .2s;
+        width: 100%;
+        height: 100%;
+        display: block;
+        will-change: transform;
       }
     }
   }
@@ -159,8 +157,33 @@
       }
     }
 
+    .email-container {
+      width: 40%;
+      position: relative;
+
+      input {
+        padding: 10px 15px;
+        width: 100%;
+        border: 1px solid grey;
+        border-radius: 10px;
+
+        &:focus {
+          border: 1px solid grey;
+        }
+      }
+
+      .icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 16px;
+      }
+    }
+
     .check-container {
       margin-top: 40px;
+      display: flex;
+      flex-direction: column;
     }
 
     .legal-button-container {
