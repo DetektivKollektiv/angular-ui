@@ -3,22 +3,9 @@
 .submit-success-page {
   .top-section {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    // justify-content: space-between;
-
-    @media only screen and (min-width: 480px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .case-details {
-      max-width: 746px;
-    }
-
-    app-case-details {
-      flex: 50%;
-    }
+    margin-bottom: 50px;
+    width: 60%;
   }
 
   .questions-section {
@@ -102,13 +89,83 @@
     }
   }
 
+  .middle-section {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-bottom: 80px;
+
+    .form-select {
+      width: 50%;
+    }
+
+    .textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 15px;
+
+      &:focus {
+        border: 1px solid grey;
+      }
+    }
+  }
+
   .bottom-section {
     display: flex;
     flex-direction: column;
-    max-width: 100vw;
+    width: 60%;
+    .legal-button-container {
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
 
-    @media only screen and (min-width: 1024px) {
-       flex-direction: row;
+      justify-content: center;
+      // justify-content: flex-end;
+
+      .button-group {
+        width: 178px;
+        height: 42px;
+        font-weight: bold;
+        font-size: 17px;
+
+        &.abort-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+          color: grey;
+          text-decoration-line: none;
+        }
+
+        &.submit-button {
+          border-radius: 20px;
+          background-color: #5f38fa;
+          color: white;
+          border: 2px solid #5f38fa;
+
+          &:hover {
+            background-color: white;
+            color: #5f38fa;
+          }
+          &:disabled {
+            background-color: grey;
+            border: none;
+            opacity: 0.3;
+
+            &:hover {
+              color: white;
+            }
+          }
+        }
+      }
     }
+  }
+
+  .mono-font {
+    font-family: PT mono;
+  }
+
+  .bold-weight {
+    font-weight: bold;
   }
 }
