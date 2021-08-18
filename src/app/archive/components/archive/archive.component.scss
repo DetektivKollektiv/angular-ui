@@ -1,5 +1,6 @@
 
 .archive-page {
+  width: 100%;
   .top-section {
     display: flex;
     flex-wrap: wrap;
@@ -51,68 +52,105 @@
     }
   }
 
-  table {
-    width: 100%;
-    table-layout: fixed;
-    white-space: nowrap;
+  .questions-section {
+    .questions-section--list {
+      display: none;
+
+      @media only screen and (min-width: 1024px) {
+        display: flex;
+        flex-direction: row;
+      }
+
+
+      .carousel-arrows .carousel-arrow.carousel-arrow-disabled {
+        display: none;
+        opacity: 0;
+      }
+
+      .question {
+        border-radius: 20px;
+        background:#f8f8f8;
+        height: auto;
+        margin-left: 5px;
+        margin-right: 1.5%;
+        padding: 10px 15px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        @media only screen and (min-width: 1024px) {
+          width: 360px;
+        }
+
+        .question--icon {
+          width: 42px;
+          height: 42px;
+          margin: 10px 10px -3px 0;
+          padding: 12.9px 2.5px;
+          background-color: #68a8ff;
+          color: white;
+          border-radius: 30px;
+          font-family: 'Font Awesome 5 Pro';
+          font-weight: 900;
+          font-size: 23px;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+        }
+
+
+        .question--title {
+          width: 320px;
+          height: 18px;
+          margin: 16px 0 14px;
+          font-family: Effra medium, Effra regular, sans-serif;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: center;
+          color: var(--dark-indigo);
+        }
+        .question--description {
+          font-family: Effra medium, Effra regular, sans-serif;
+          width: 320px;
+          height: 35px;
+          margin: 14px 0 18px;
+          font-size: 16px;
+          text-align: center;
+          color: var(--dark-indigo);
+        }
+
+        .carousel.carousel-container.carousel-cells {
+          transition: transform .2s;
+          width: 100%;
+          height: 100%;
+          display: block;
+          will-change: transform;
+        }
+      }
+    }
   }
 
-  tr.detail-row {
-    height: 0;
-  }
-
-  tr.item-row:not(.expanded-row):hover {
-    background: whitesmoke;
-  }
-
-  tr.item-row:not(.expanded-row):active {
-    background: #efefef;
-  }
-
-  .item-row td {
-    border-bottom-width: 0;
-    cursor: pointer;
-  }
-
-  .item-detail {
-    overflow: hidden;
+  // todo: I think probably a lot of the below can be removed now.
+  // but i was unsure on how to resolve a merge conflict.
+  .archive-list-setting {
     display: flex;
-    width: 100%;
-  }
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 50px;
+    flex-wrap: wrap;
 
-  td {
-    font-family: Effra regular, sans-serif;
-    font-size: 16px;
-    line-height: 26px;
-    color: #4a4a4a;
-  }
+    @media only screen and (min-width: 768px) {
+      flex-wrap: unset;
+    }
 
-  .no-data-cell {
-    text-align: center;
-  }
+    .search-input {
+      width: 100%;
 
-  .mat-column-content {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 10px 0 0;
-    width: 50%;
+      @media only screen and (min-width: 768px) {
+        width: 50%;
+      }
+    }
   }
-
-  .mat-column-open_timestamp {
-    width: 10%;
-  }
-
-  .mat-column-close_timestamp {
-    width: 10%;
-  }
-
-  .mat-column-result_score {
-    min-width: min-content;
-    max-width: max-content;
-  }
-
-  th {
-    align-items: center;
-  }
+}
 }

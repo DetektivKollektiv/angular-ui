@@ -9,6 +9,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
+import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 
 @NgModule({
   declarations: [SubmitComponent, SubmitPageComponent],
@@ -20,8 +21,9 @@ import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-c
     RouterModule,
     IvyCarouselModule,
     OpenCaseListSliderModule,
-    TranslateModule.forChild()
-  ],
+    TranslateModule.forChild(),
+    QuestionCarouselModule
+  ]
 })
 export class SubmitItemModule {
 }

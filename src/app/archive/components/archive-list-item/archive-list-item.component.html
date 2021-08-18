@@ -1,0 +1,36 @@
+<li class="item">
+  <div class="score-container">
+      <h2 [ngClass]="color === 'red'
+                      ? 'red'
+                      : color === 'orange'
+                        ? 'orange'
+                        : color === 'light-green'
+                          ? 'light-green'
+                          : 'green'
+      ">
+        {{ result_score }}
+      </h2>
+  </div>
+  <div class="main-container">
+      <h2>#{{archive.id.split('-')[0]}}</h2>
+      <div class="archive-body">
+        <div class="archive-body-main">
+          <p class="content">{{ archive.content }}</p>
+          <div class="archive-info">
+              <span class="received-txt"><small><i class="far fa-calendar-alt"></i>&nbsp;{{ archive.open_timestamp }}</small></span>
+              <span class="closed"><small><i class="far fa-calendar-check"></i>&nbsp;{{ archive.close_timestamp }}</small></span>
+              <span class="confidence-index"><small><i class="far fa-eye"></i>&nbsp;5</small></span>
+          </div>
+        </div>
+        <div class="card-container">
+          <span class="card non-active">Ein Tag</span>
+          <span class="card active">Ein weiterer Tag</span>
+          <span class="card non-active">Ein echt sehr langer Tag</span>
+          <span class="card active"><i class="fas fa-question"></i>&nbsp;Kein Impressum</span>
+          <span class="card active"><i class="far fa-frown"></i>&nbsp;Hatespeech</span>
+          <span class="card non-active"><i class="fas fa-unlink"></i>&nbsp;Keine Quellen</span>
+          <span class="card color-card">Details ansehen</span>
+        </div>
+      </div>
+  </div>
+</li>

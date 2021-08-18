@@ -27,8 +27,14 @@ export class SubmitPageComponent implements OnInit {
   ];
 
 
+  public policyChecked = false;
+  public conditionChecked = false;
+  public buttonStatus = true;
+  public textareaValue: string;
+
   constructor(
   ) {}
+  
   ngOnInit(): void {
     this.questionPrompts = [
       {
@@ -56,5 +62,27 @@ export class SubmitPageComponent implements OnInit {
         icon: 'fal fa-meteor'
       },
     ];
+
+    this.textareaValue = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor" +
+                          "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et" +
+                          "accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea.";
+  }
+
+  agreePolicy(event) {
+    this.policyChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  agreeCondition(event) {
+    this.conditionChecked = event.checked;
+    this.checkButtonStatus();
+  }
+
+  checkButtonStatus() {
+    if (this.policyChecked === true && this.conditionChecked === true) {
+      this.buttonStatus = false;
+    } else {
+      this.buttonStatus = true;
+    }
   }
 }
