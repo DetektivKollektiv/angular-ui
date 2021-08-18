@@ -4,6 +4,7 @@
 @import "~swiper/components/navigation/navigation";
 // https://swiperjs.com/angular
 @import '~swiper/swiper-bundle';
+@import './assets/scss/colors';
 
 * {
   font-family: Effra medium, Effra regular, sans-serif;
@@ -79,14 +80,14 @@ body {
 }
 
 .review-situation--text a{
-  color: #ff7268;
+  color: $color__bittersweet;
   text-decoration: none;
 }
 .review-situation--text i.fas.fa-quote-left {
-  color: #ff7268;
+  color: $color__bittersweet;
 }
 .review-situation--text i.fas.fa-quote-right {
-  color: #ff7268;
+  color: $color__bittersweet;
   display: flex;
   justify-content: flex-end;
 }

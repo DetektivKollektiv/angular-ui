@@ -22,12 +22,12 @@
                 font-weight: bold;
                 span {
                     font-size: 17px;
-                    color: #8989a2;
+                    color: $color__old-paragraph;
                 }
             }
         }
         .submit-success-description-section {
-          margin-top: 10%;
+          margin-top: 50px;
         }
         .submit-success-description-section p {
             font-size: 18px;
@@ -52,8 +52,8 @@
               height: 60px;
               margin: 0px 10px -3px 0;
               padding: 12.9px 2.5px;
-              background-color: #ff7268;
-              color: white;
+              background-color: $color__bittersweet;
+              color: $color__white;
               border-radius: 30px;
               font-family: "Font Awesome 5 Pro";
               font-weight: 900;
@@ -66,7 +66,7 @@
 
           .message-wrapper{
             display: flex;
-            margin-top: 10%;
+            margin-top: 50px;
             .message-icon-box1{
               max-width: 75px;
             }
@@ -80,8 +80,8 @@
               height: 60px;
               margin: 0px 10px -3px 0;
               padding: 12.9px 2.5px;
-              background-color: #722ed1;
-              color: white;
+              background-color: $color__purple;
+              color: $color__white;
               border-radius: 30px;
               font-family: "Font Awesome 5 Pro";
               font-weight: 900;
@@ -101,8 +101,8 @@
         justify-content: center;
         align-items: center;
         img{
-          height: 100%;
-          margin-top: 10%;
+          height: 400px;
+          margin-top: 50px;
         }
     }
 
@@ -121,29 +121,29 @@
           h3.share-section-heading {
             font-size: 30px;
             font-weight: bold;
-            color: #4a4a4a;
+            color: $color__share-section-heading;
           }
           p.share-section-title {
-            max-width: 63%;
+            max-width: 700px;
             text-align: center;
             font-size: 18px;
           }
           p.share-section-description {
             font-size: 14px;
-            color: #8989a2;
+            color: $color__old-paragraph;
             margin: 23px 0 30px;
             padding: 15px 5px 15px 15px;
             border-radius: 30px;
-            border: solid 1px #cecece;
-            max-width: 75%;
-            background-color: #efefef;
+            border: solid 1px $color__spacer;
+            max-width: 585px;
+            background-color: $color__tag-background;
         }
       }
 
       .social-media-icon {
         display: flex;
         justify-content: center;
-        margin-bottom: 5%;
+        margin-bottom: 30px;
       }
       .social-media-icon{
         span.link-icon a{
@@ -153,11 +153,11 @@
           margin: 1px 15px 8px 0;
           font-size: 18px;
           display: flex;
-          color: #fff;
+          color: $color__white;
           justify-content: center;
           align-items: center;
           border-radius: 4px;
-          background-color: #5f38fa;
+          background-color: $color__neon-blue;
         }
         span.envelope-icon a{
           width: 30px;
@@ -166,11 +166,11 @@
           display: flex;
           margin: 1px 15px 8px 0;
           font-size: 18px;
-          color: #fff;
+          color: $color__white;
           justify-content: center;
           align-items: center;
           border-radius: 4px;
-          background-color: #722ed1;
+          background-color: $color__purple;
         }
         span.twitter-icon a{
           width: 30px;
@@ -179,11 +179,11 @@
           display: flex;
           margin: 1px 15px 8px 0;
           font-size: 18px;
-          color: #fff;
+          color: $color__white;
           justify-content: center;
           align-items: center;
           border-radius: 4px;
-          background-color: #1da1f2;
+          background-color: $color__rating-tweeter;
           ;
         }
         span.facebook-icon a{
@@ -193,11 +193,11 @@
           display: flex;
           margin: 1px 15px 8px 0;
           font-size: 18px;
-          color: #fff;
+          color: $color__white;
           justify-content: center;
           align-items: center;
           border-radius: 4px;
-          background-color: #166fe5;
+          background-color: $color__rating-facebook;
         }
         span.instagram-icon a{
           width: 30px;
@@ -206,11 +206,11 @@
           display: flex;
           margin: 1px 15px 8px 0;
           font-size: 18px;
-          color: #fff;
+          color: $color__white;
           justify-content: center;
           align-items: center;
           border-radius: 4px;
-          background-color: #ff7268;
+          background-color: $color__bittersweet;
         }
       }
     }
