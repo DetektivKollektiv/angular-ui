@@ -3,41 +3,20 @@
 .submit-success-page {
   .top-section {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    // justify-content: space-between;
-
-    @media only screen and (min-width: 480px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .case-details {
-      max-width: 746px;
-    }
-
-    app-case-details {
-      flex: 50%;
-    }
+    margin-bottom: 50px;
+    width: 60%;
   }
 
   .questions-section {
+    margin-bottom: 50px;
+
     .questions-section--list {
       display: none;
 
       @media only screen and (min-width: 1024px) {
          display: flex;
          flex-direction: row;
-      }
-    }
-
-    .questions-swiper-container {
-      display:block;
-      // width: 100%;
-      // max-width: 100%;
-      max-width: 100vw;
-      @media only screen and (min-width: 1024px) {
-         display:none;
       }
     }
 
@@ -99,16 +78,174 @@
         text-align: center;
         color: var(--dark-indigo);
       }
+
+      .carousel.carousel-container.carousel-cells {
+        transition: transform .2s;
+        width: 100%;
+        height: 100%;
+        display: block;
+        will-change: transform;
+      }
+    }
+  }
+
+  .middle-section {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-bottom: 80px;
+
+    .form-select {
+      width: 50%;
+    }
+
+    .textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 15px;
+
+      &:focus {
+        border: 1px solid grey;
+      }
     }
   }
 
   .bottom-section {
     display: flex;
     flex-direction: column;
-    max-width: 100vw;
+    width: 60%;
 
-    @media only screen and (min-width: 1024px) {
-       flex-direction: row;
+    .option-container {
+      margin-bottom: 40px;
+      .radio-container {
+        margin-bottom: 5px;
+
+        mat-radio-group {
+          display: flex;
+          flex-direction: column;
+
+          mat-radio-button {
+            margin: 5px 0;
+          }
+        }
+      }
+
+      .text-input {
+        padding: 10px 15px;
+        width: 40%;
+        border: 1px solid grey;
+        border-radius: 10px;
+
+        &:focus {
+          border: 1px solid grey;
+        }
+      }
+    }
+
+    .notify-container {
+      margin: 40px 0;
+
+      .text-input {
+        padding: 10px 15px;
+        width: 40%;
+        border: 1px solid grey;
+        border-radius: 10px;
+
+        &:focus {
+          border: 1px solid grey;
+        }
+      }
+    }
+
+    .email-container {
+      width: 40%;
+      position: relative;
+
+      input {
+        padding: 10px 15px;
+        width: 100%;
+        border: 1px solid grey;
+        border-radius: 10px;
+
+        &:focus {
+          border: 1px solid grey;
+        }
+      }
+
+      .icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 16px;
+      }
+    }
+
+    .check-container {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legal-button-container {
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .button-group {
+        width: 178px;
+        height: 42px;
+        font-weight: bold;
+        font-size: 17px;
+
+        &.abort-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: transparent;
+          color: grey;
+          text-decoration-line: none;
+        }
+
+        &.submit-button {
+          border-radius: 20px;
+          background-color: #5f38fa;
+          color: white;
+          border: 2px solid #5f38fa;
+
+          &:hover {
+            background-color: white;
+            color: #5f38fa;
+          }
+          &:disabled {
+            background-color: grey;
+            border: none;
+            opacity: 0.3;
+
+            &:hover {
+              color: white;
+            }
+          }
+        }
+      }
     }
   }
+
+  .mono-font {
+    font-family: PT mono;
+  }
+
+  .bold-weight {
+    font-weight: bold;
+  }
+
+  .wrap-mat-radio-label {
+    white-space: normal;
+}
+
+  @media only screen and (max-width: 1024px) {
+    .responsive-100 {
+      width: 100% !important;
+    }
+ }
 }

@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
-
+import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 @NgModule({
   declarations: [SubmitComponent, SubmitPageComponent,SubmitSuccessPageComponent],
   imports: [
@@ -19,7 +19,8 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     HelperModule,
     RouterModule,
     IvyCarouselModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    QuestionCarouselModule
   ]
 })
 export class SubmitItemModule {
