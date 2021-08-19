@@ -264,3 +264,36 @@ header.header {
   color: black !important;
   border-radius: 5px;
 }
+
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: white !important;
+}
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0 !important; /*click effect color change*/
+  background-color: white !important;
+}
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: white !important;
+}
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: white !important;
+}
+
+.submit-check-container .mat-checkbox.mat-accent {
+  .mat-checkbox-frame {
+    border: 1px solid white;
+  }
+
+  &.mat-checkbox-checked .mat-checkbox-background {
+    background-color: transparent;
+    border: 1px solid white;
+  }
+
+  .mat-checkbox-checkmark-path {
+    stroke: white !important;
+  }
+}

@@ -24,12 +24,10 @@
     <div>
       <p class="mono-font bold-weight">Um welche Form von Medium handelt es sich?*</p>
       <mat-form-field class="form-select responsive-100">
-        <mat-label>Filter anzeigen</mat-label>
-        <mat-select>
-          <!-- <mat-option *ngFor="let brand of brands" [value]="brand.value">
-            {{ brand.viewValue }}
-          </mat-option> -->
-        </mat-select>
+        <select matNativeControl>
+          <option value="link" selected>Link zu Artikel</option>
+          <option value="message">Textnachricht / Aussage</option>
+        </select>
       </mat-form-field>
     </div>
     <div>
@@ -38,6 +36,7 @@
     </div>
   </div>
   <div class="bottom-section responsive-100">
+    <div class="bottom-background"></div>
     <div class="option-container">
       <h2 class="bold-weight">Optionale Angaben</h2>
       <p>
@@ -85,7 +84,7 @@
       </div>
     </div>
     <mat-divider></mat-divider>
-    <div class="check-container">
+    <div class="submit-check-container">
       <h2 class="bold-weight">Rechtliche Angaben</h2>
       <p>
         Zum Abschluss der Einreichung, hinterlasse uns bitte deine E-Mail-Adresse und bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.
