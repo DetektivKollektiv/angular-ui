@@ -3,9 +3,9 @@
 
 
 /*
-  Note: this file is a mess. 
+  Note: this file is a mess.
   I was struggling a bit to merge several different sources, and
-  most of the development was done using material design angualar's lists 
+  most of the development was done using material design angualar's lists
   but overriding the material ui classes was basically impossible.
   and So i've removed the mat-list and sub components.
   some of the scss here might be uneeded..
@@ -19,11 +19,11 @@ $light-grey1: #F8F8F8;
   border: 1px solid #ff7269;
   padding: 15px;
   border-radius: 15px;
-  
+
   i {
     margin-right: 7px;
   }
-  
+
   span {}
 
   &:hover {
@@ -41,6 +41,7 @@ $light-grey1: #F8F8F8;
     align-items: center;
     min-height: 4.375rem;
     width: 100%;
+    z-index: 10000;
 
     .cancel-btn-container {}
   }
@@ -114,7 +115,7 @@ $light-grey1: #F8F8F8;
       color: orangered;
     }
   }
-  
+
   .child-links-list {
     display: flex;
     align-items: center;
@@ -132,7 +133,7 @@ $light-grey1: #F8F8F8;
   }
 
   .authenticated {
-    
+
     .menu-top-strip {
       min-height: unset;
       padding: 20px;
