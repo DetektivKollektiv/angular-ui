@@ -26,6 +26,16 @@
           width: 20px;
         }
     }
+
+    .rating-legend-left-box {
+      width: 30%;
+    }
+
+    .rating-legend-right-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
   }
 
   .rating-legend-bar{
@@ -115,6 +125,7 @@
       }
     }
     .rating-legend-right-box{
+      width: 30%;
       margin-left: 10px;
 
       @media only screen and (min-width: 768px) {
