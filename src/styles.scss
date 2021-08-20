@@ -264,3 +264,7 @@ header.header {
   color: black !important;
   border-radius: 5px;
 }
+
+.cdk-overlay-container {
+  z-index: 10000;
+}
