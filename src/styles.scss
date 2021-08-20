@@ -265,7 +265,6 @@ header.header {
   border-radius: 5px;
 }
 
-
 .radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-inner-circle {
   background-color: white !important;
 }
@@ -296,4 +295,8 @@ header.header {
   .mat-checkbox-checkmark-path {
     stroke: white !important;
   }
+}
+
+.cdk-overlay-container {
+  z-index: 10000;
 }

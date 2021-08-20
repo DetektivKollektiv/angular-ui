@@ -5,8 +5,9 @@
   width: 100vw;
 
   .container {
-    @media only screen and (min-width: 410px) {
-      width: 380px;
+    width: calc(100% - 20px);
+    @media only screen and (min-width: 480px) {
+
     }
 
     @media only screen and (min-width: 1024px) {

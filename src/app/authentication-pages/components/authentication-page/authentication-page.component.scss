@@ -20,13 +20,13 @@
 
         .line {
             height: 1px;
-            width: 300px;        
+            width: 300px;
             margin-top: 40px;
             margin-bottom: 20px;
             background-color: $color__white;
-        }    
+        }
     }
-    
+
 
     .login_form_buttom_text {
         text-align: center;
@@ -83,6 +83,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        flex: 1;
+
+        app-case-list {
+          width: 100%;
+        }
 
         button {
             padding: 16px 19px 14px 24px;
@@ -99,6 +104,10 @@
         flex-direction: column;
         align-items: center;
         margin: 30px;
+
+        @media only screen and (min-width: 480px) {
+          width: 50%;
+        }
     }
 
     .wrapper:after {content: '';clear: both;display: block;}
