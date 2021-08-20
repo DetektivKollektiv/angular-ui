@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CaseListComponent implements OnInit {
   @Input() cases: any[];
   @Input() numberOfCases: number;
+  @Input() showText: boolean;
   public showCases: any[];
 
   constructor() { }

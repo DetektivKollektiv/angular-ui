@@ -83,18 +83,27 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        flex: 1;
+        width: 100%;
+        padding-top: 30px;
+
+        h3 {
+          font-size: 36px;
+        }
 
         app-case-list {
           width: 100%;
         }
 
         button {
-            padding: 16px 19px 14px 24px;
+            padding: 7px 10px 5px 10px;
             border-radius: 30px;
             background-color: #5f38fa;
             color: $color__white;
             border: solid 2px $color__white;
+        }
+
+        @media only screen and (min-width: 480px) {
+          width: 50%;
         }
 
     }
@@ -102,11 +111,15 @@
     .partner-logo-section {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        margin: 30px;
+        width: 100%;
+        padding: 30px;
 
         @media only screen and (min-width: 480px) {
           width: 50%;
+        }
+
+        h3 {
+          font-size: 36px;
         }
     }
 
@@ -163,7 +176,6 @@
 
         .partner-logo-section {
             margin-top: 0px;
-            margin-left: 50px;
         }
     }
 }
