@@ -29,3 +29,28 @@ $_b__settings-default: (
 @import "_fonts.scss";
 @import "_mixins.scss";
 @import "_functions.scss";
+
+
+.normal-width-page-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.standard-content-container-width {
+  // padding: 10px;
+  // width: calc(100% - 20px);
+  @media only screen and (min-width: 480px) {
+
+  }
+
+  @media only screen and (min-width: 1024px) {
+     width: 800px;
+     padding: 0;
+  }
+
+  // this number 1350  i just made up randomly
+  @media only screen and (min-width: 1350px) {
+     width: 1240px;
+  }
+}

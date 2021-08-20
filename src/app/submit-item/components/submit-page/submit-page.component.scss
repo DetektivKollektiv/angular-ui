@@ -1,17 +1,23 @@
 @import "../../../../assets/scss/_initializer.scss";
 
 .submit-page {
+  width: 100vw;
+
   .top-section {
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
 
     @media only screen and (min-width: 480px) {
       flex-direction: row;
       justify-content: space-between;
     }
 
-    div {
-      flex: 50%;
+    @media only screen and (min-width: 1024px) {
+      width: 767px;
     }
 
     .overview-section{
@@ -30,107 +36,18 @@
 
   }
 
-  .questions-section {
-    margin-top: 60px;
-    // width: 60%;
-  }
-
-  .questions-section {
-    margin-bottom: 50px;
-
-    .questions-section--list {
-      display: none;
-
-      @media only screen and (min-width: 1024px) {
-         display: flex;
-         flex-direction: row;
-      }
-    }
-
-    .carousel-arrows .carousel-arrow.carousel-arrow-disabled {
-      display: none;
-      opacity: 0;
-    }
-
-    .question {
-      border-radius: 20px;
-      background: $color__tile-background;
-      height: auto;
-      margin-left: 5px;
-      //margin-right: 1.5%;
-      padding: 10px 15px 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-      @media only screen and (min-width: 1024px) {
-         width: 360px;
-      }
-
-      .question--icon {
-        width: 42px;
-        height: 42px;
-        margin: 10px 10px -3px 0;
-        padding: 12.9px 2.5px;
-        background-color: #68a8ff;
-        color: $color__white;
-        border-radius: 30px;
-        font-family: 'Font Awesome 5 Pro';
-        font-weight: 900;
-        font-size: 23px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-      }
-
-      .color__bittersweet{
-        background-color: $color__bittersweet;
-      }
-      .color__neon-blue{
-        background-color: $color__neon-blue;
-      }
-      .color__purple{
-        background-color: $color__purple;
-      }
-      .color__bittersweet{
-        background-color: $color__bittersweet;
-      }
-
-      .question--title {
-        width: 320px;
-        height: 18px;
-        margin: 16px 0 14px;
-        font-family: Effra medium, Effra regular, sans-serif;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        color: var(--dark-indigo);
-      }
-      .question--description{
-        font-family: Effra medium, Effra regular, sans-serif;
-        width: 320px;
-        height: 35px;
-        margin: 14px 0 18px;
-        font-size: 16px;
-        text-align: center;
-        color: var(--dark-indigo);
-      }
-
-      .carousel.carousel-container.carousel-cells {
-        transition: transform .2s;
-        width: 100%;
-        height: 100%;
-        display: block;
-        will-change: transform;
-      }
-    }
-  }
-
   .middle-section {
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
-    width: 60%;
+    // width: 60%;
+    width: 100%;
+    padding: 10px;
+
+
+    @media only screen and (min-width: 1024px) {
+      width: 767px;
+    }
     margin-bottom: 110px;
 
     .form-select {
@@ -149,272 +66,288 @@
   }
 
   .bottom-section {
+    background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
     display: flex;
     flex-direction: column;
-    max-width: 100vw;
-    padding-top: 50px;
-    width: 60%;
-    color: white;
-    position: relative;
+    align-items: center;
+    width: 100%;
 
-    .bottom-background {
-      position: absolute;
-      background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
-
-      width: 100vw;
-      height: calc(100% + 50px);
-      z-index: -1;
-      top: -50px;
-      @media only screen and (min-width: 410px) {
-        left: calc(-1 * (100vw - 380px) / 2);
-      }
-
-      @media only screen and (min-width: 1024px) {
-        left: calc(-1 * (100vw - 800px) / 2);
-      }
-
-      // this number 1350  i just made up randomly
-      @media only screen and (min-width: 1350px) {
-        left: calc(-1 * (100vw - 1240px) / 2);
-      }
-    }
-
-    .option-container {
-      margin-bottom: 40px;
-      .radio-container {
-        margin-bottom: 5px;
-
-        mat-radio-group {
-          display: flex;
-          flex-direction: column;
-
-          mat-radio-button {
-            margin: 5px 0;
-          }
-        }
-      }
-
-      .text-input {
-        padding: 10px 15px;
-        width: 40%;
-        border: 1px solid grey;
-        border-radius: 10px;
-
-        &:focus {
-          border: 1px solid grey;
-        }
-      }
-    }
-
-    .notify-container {
-      margin: 40px 0;
-
-      .text-input {
-        padding: 10px 15px;
-        width: 40%;
-        border: 1px solid grey;
-        border-radius: 10px;
-
-        &:focus {
-          border: 1px solid grey;
-        }
-      }
-    }
-
-    .email-container {
-      width: 40%;
-      position: relative;
-
-      input {
-        padding: 10px 15px;
-        width: 100%;
-        border: 1px solid grey;
-        border-radius: 10px;
-
-        &:focus {
-          border: 1px solid grey;
-        }
-      }
-
-      .icon {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 16px;
-      }
-    }
-
-    .check-container {
-      margin-top: 40px;
+    .bottom-section-content-container {
       display: flex;
       flex-direction: column;
-    }
+      // align-items: center;
+      padding: 10px;
+      width: 100%;
 
-    .legal-button-container {
-      margin: 40px 0;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      @media only screen and (max-width: 480px) {
-        justify-content: center;
+      @media only screen and (min-width: 1024px) {
+        width: 767px;
       }
+      max-width: 100vw;
+      padding-top: 50px;
+      // width: 60%;
+      color: white;
+      position: relative;
+      
 
-      .button-group {
-        width: 178px;
-        height: 42px;
-        font-weight: bold;
-        font-size: 17px;
+      // .bottom-background {
+      //   position: absolute;
+      //   background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
 
-        &.abort-button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: transparent;
-          color: grey;
-          text-decoration-line: none;
+      //   width: 100vw;
+      //   height: calc(100% + 50px);
+      //   z-index: -1;
+      //   top: -50px;
+      //   @media only screen and (min-width: 410px) {
+      //     left: calc(-1 * (100vw - 380px) / 2);
+      //   }
+
+      //   @media only screen and (min-width: 1024px) {
+      //     left: calc(-1 * (100vw - 800px) / 2);
+      //   }
+
+      //   // this number 1350  i just made up randomly
+      //   @media only screen and (min-width: 1350px) {
+      //     left: calc(-1 * (100vw - 1240px) / 2);
+      //   }
+      // }
+
+      .option-container {
+        margin-bottom: 40px;
+        .radio-container {
+          margin-bottom: 5px;
+
+          mat-radio-group {
+            display: flex;
+            flex-direction: column;
+
+            mat-radio-button {
+              margin: 5px 0;
+            }
+          }
         }
 
-        &.submit-button {
-          border-radius: 20px;
-          background-color: $color__neon-blue;
-          color: white;
-          border: 2px solid $color__neon-blue;
+        .text-input {
+          padding: 10px 15px;
+          width: 40%;
+          border: 1px solid grey;
+          border-radius: 10px;
 
-          &:hover {
-            background-color: white;
-            color: $color__neon-blue;
+          &:focus {
+            border: 1px solid grey;
           }
-          &:disabled {
-            border: none;
-            opacity: 0.7;
+        }
+      }
+
+      .notify-container {
+        margin: 40px 0;
+
+        .text-input {
+          padding: 10px 15px;
+          width: 40%;
+          border: 1px solid grey;
+          border-radius: 10px;
+
+          &:focus {
+            border: 1px solid grey;
+          }
+        }
+      }
+
+      .email-container {
+        width: 40%;
+        position: relative;
+
+        input {
+          padding: 10px 15px;
+          width: 100%;
+          border: 1px solid grey;
+          border-radius: 10px;
+
+          &:focus {
+            border: 1px solid grey;
+          }
+        }
+
+        .icon {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      .check-container {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .legal-button-container {
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @media only screen and (max-width: 480px) {
+          justify-content: center;
+        }
+
+        .button-group {
+          width: 178px;
+          height: 42px;
+          font-weight: bold;
+          font-size: 17px;
+
+          &.abort-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: grey;
+            text-decoration-line: none;
+          }
+
+          &.submit-button {
+            border-radius: 20px;
+            background-color: $color__neon-blue;
+            color: white;
+            border: 2px solid $color__neon-blue;
 
             &:hover {
-              background-color: $color__neon-blue;
-              color: white;
+              background-color: white;
+              color: $color__neon-blue;
+            }
+            &:disabled {
+              border: none;
+              opacity: 0.7;
+
+              &:hover {
+                background-color: $color__neon-blue;
+                color: white;
+              }
             }
           }
         }
       }
-    }
 
-    .bottom-left-section{
-      flex: 60%;
-      span >i {
-        color: $color__old-paragraph;
-        font-size: small;
-      }
-      h1 > span{
-        font-size: 40px;
-        font-family: "PT Mono", monospace;
-        font-weight: bold;
-      }
-      .submit-page-bottom-description{
-        margin-bottom: 40px;
-        span.submit-text {
-          font-size: 17px;
+      .bottom-left-section{
+        flex: 60%;
+        span >i {
+          color: $color__old-paragraph;
+          font-size: small;
         }
-      }
-      h3 > span{
-        font-size: 17px;
-        font-family: "PT Mono", monospace;
-        font-weight: bold;
-      }
-      select.submit-bottom-select {
-        width: 300px;
-        border: 1px solid $color__select-border;
-        border-radius: 4px;
-        height: 35px;
-        padding-left: 10px;
-        font-size: 17px;
-        margin-top: 15px;
-        margin-bottom: 40px;
-      }
-      h4 > span{
-        font-size: 15;
-        font-family: "PT Mono", monospace;
-        font-weight: bold;
-      }
-      .submit-text-bottom {
-        border: 1px solid $color__select-border;
-        border-radius: 5px;
-        padding: 20px;
-        border-inline-style: none;
-        margin-top: 20px;
-        padding-bottom: 60px;
-      }
-    }
-    .bottom-right-section{
-      flex: 40%;
-    }
-
-    p {
-      color: white;
-    }
-
-  }
-
-  .submit-form-section{
-    display: flex;
-    .submit-form-section-left{
-        flex: 50%;
-        .submit-form-description{
-          font-size: 17px;
-        }
-        .submit-form-subheading{
+        h1 > span{
+          font-size: 40px;
           font-family: "PT Mono", monospace;
           font-weight: bold;
-          margin-top: 30px;
         }
-        .example-radio-group {
-          display: flex;
-          flex-direction: column;
-          margin: 15px 0;
-          margin-left: -6px;
+        .submit-page-bottom-description{
+          margin-bottom: 40px;
+          span.submit-text {
+            font-size: 17px;
+          }
         }
-        .example-radio-button {
-          margin: 5px;
+        h3 > span{
+          font-size: 17px;
+          font-family: "PT Mono", monospace;
+          font-weight: bold;
         }
-        input.submit-form-section-input {
-          width: 250px;
+        select.submit-bottom-select {
+          width: 300px;
           border: 1px solid $color__select-border;
-          border-radius: 8px;
+          border-radius: 4px;
           height: 35px;
           padding-left: 10px;
           font-size: 17px;
-          color: $color__old-paragraph;;
           margin-top: 15px;
+          margin-bottom: 40px;
+        }
+        h4 > span{
+          font-size: 15;
+          font-family: "PT Mono", monospace;
+          font-weight: bold;
+        }
+        .submit-text-bottom {
+          border: 1px solid $color__select-border;
+          border-radius: 5px;
+          padding: 20px;
+          border-inline-style: none;
+          margin-top: 20px;
+          padding-bottom: 60px;
+        }
       }
-      hr{
-        margin: 40px 0px 10px
+      .bottom-right-section{
+        flex: 40%;
       }
-      i.fal.fa-envelope {
-        text-align: center;
-        position: relative;
-        margin-left: -25px;
+
+      p {
+        color: white;
+      }
+
+    }
+
+    .submit-form-section{
+      display: flex;
+      .submit-form-section-left{
+          flex: 50%;
+          .submit-form-description{
+            font-size: 17px;
+          }
+          .submit-form-subheading{
+            font-family: "PT Mono", monospace;
+            font-weight: bold;
+            margin-top: 30px;
+          }
+          .example-radio-group {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 0;
+            margin-left: -6px;
+          }
+          .example-radio-button {
+            margin: 5px;
+          }
+          input.submit-form-section-input {
+            width: 250px;
+            border: 1px solid $color__select-border;
+            border-radius: 8px;
+            height: 35px;
+            padding-left: 10px;
+            font-size: 17px;
+            color: $color__old-paragraph;;
+            margin-top: 15px;
+        }
+        hr{
+          margin: 40px 0px 10px
+        }
+        i.fal.fa-envelope {
+          text-align: center;
+          position: relative;
+          margin-left: -25px;
+        }
+      }
+      .submit-form-section-right {
+          flex: 50%;
+      }
+
+    }
+
+    .mono-font {
+      font-family: PT mono;
+    }
+
+    .bold-weight {
+      font-weight: bold;
+    }
+
+    .wrap-mat-radio-label {
+      white-space: normal;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      .responsive-100 {
+        width: 100% !important;
       }
     }
-    .submit-form-section-right {
-        flex: 50%;
-    }
-
   }
-
-  .mono-font {
-    font-family: PT mono;
-  }
-
-  .bold-weight {
-    font-weight: bold;
-  }
-
-  .wrap-mat-radio-label {
-    white-space: normal;
-  }
-
-  @media only screen and (max-width: 1024px) {
-    .responsive-100 {
-      width: 100% !important;
-    }
- }
 }

@@ -1,4 +1,7 @@
 @import '~swiper/swiper-bundle';
+@import "../../../../assets/scss/_colors.scss";
+
+
 .questions-swiper {
   // width: 100%;
 }
@@ -30,7 +33,7 @@
       height: 42px;
       margin: 10px 10px -3px 0;
       padding: 12.9px 2.5px;
-      background-color: #68a8ff;
+      // background-color: #68a8ff;
       color: white;
       border-radius: 30px;
       font-family: 'Font Awesome 5 Pro';
