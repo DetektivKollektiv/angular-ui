@@ -46,7 +46,7 @@ export class SubmitPageComponent implements OnInit {
       {
         title: 'Die Quelle ist nicht mehr abrufbar. Was kann ich tun?',
         description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
-        background: 'color__neon',
+        background: 'color__neon-blue',
         icon: 'fal fa-plus'
       },
       {
