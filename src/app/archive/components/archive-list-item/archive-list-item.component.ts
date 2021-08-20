@@ -9,6 +9,8 @@ export class ArchiveListItemComponent implements OnInit {
   @Input() archive: any;
   public color: string;
   public result_score: number;
+  public startTime: string;
+  public endTime: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -26,6 +28,11 @@ export class ArchiveListItemComponent implements OnInit {
     if (this.result_score > 84 && this.result_score <= 100) {
       this.color = 'green';
     }
+
+    const startTimeArr = this.archive.open_timestamp.split(" ")[0].split("-");
+    this.startTime = `${startTimeArr[2]}.${startTimeArr[1]}.${startTimeArr[0]}`;
+    const endTimeArr = this.archive.close_timestamp.split(" ")[0].split("-");
+    this.endTime = `${endTimeArr[2]}.${endTimeArr[1]}.${endTimeArr[0]}`;
   }
 
 }
