@@ -1,3 +1,4 @@
+@import "../../../../assets/scss/colors";
 .questions-section {
   // margin-top: 50px;
   .questions-section--list {
@@ -84,6 +85,22 @@
     @media only screen and (min-width: 1024px) {
        display:none;
     }
+  }
+
+  .color__bittersweet {
+    background-color: $color__bittersweet !important;
+  }
+
+  .color__neon {
+    background-color: $color__neon-blue !important;
+  }
+
+  .color__purple {
+    background-color: $color__purple !important;
+  }
+
+  .color__bittersweet {
+    background-color: $color__bittersweet !important;
   }
 
 }
