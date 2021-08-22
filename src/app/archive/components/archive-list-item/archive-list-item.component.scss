@@ -3,122 +3,121 @@
 .item {
   margin: 30px 0;
   display: flex;
+  flex-wrap: wrap;
 
-  .score-container {
-    min-width: 86px;
+  .item-content {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5px;
-    margin-right: 20px;
-    background-color: #eee;
-    border-radius: 15px;
-
-    .red {
-      color: $color__rating-red;
-    }
-
-    .orange {
-      color: $color__rating-yellow;
-    }
-
-    .light-green {
-      color: $color__rating-light-green;
-    }
-
-    .green {
-      color: $color__rating-green;
-    }
-  }
-
-  .main-container {
     min-width: 70%;
-    display: flex;
-    flex-direction: column;
 
-    h4 {
-      margin: 0;
-    }
+    .score-container {
+      min-width: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+      margin-right: 20px;
+      background-color: #eee;
+      border-radius: 15px;
 
-    .content {
-      flex: 1;
-    }
+      h2 {
+        font-family: PT MONO;
+      }
 
-    .archive-info {
-      span {
-        margin-right: 20px;
-        margin-top: 5px;
+      .red {
+        color: $color__rating-red;
+      }
+
+      .orange {
+        color: $color__rating-yellow;
+      }
+
+      .light-green {
+        color: $color__rating-light-green;
+      }
+
+      .green {
+        color: $color__rating-green;
       }
     }
-  }
 
-  .main-container {
-    display: flex;
-    flex-direction: column;
-
-    h2 {
-      margin: 0;
-      font-family: 'PT Mono', monospace;
-    }
-
-    .archive-body {
+    .main-container {
       display: flex;
       flex-direction: column;
-      @media only screen and (min-width: 1024px) {
-        flex-direction: row;
+      width: 100%;
+
+      h2 {
+        margin: 0;
+        font-family: 'PT Mono', monospace;
       }
 
-      &-main {
-        width: 65%;
+      .archive-body {
         display: flex;
         flex-direction: column;
+        height: 100%;
 
-        .content {
-          flex: 1;
-        }
-
-        .archive-info {
-          span {
-            margin-right: 20px;
-            margin-top: 5px;
-          }
+        &-main {
+          width: 65%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
 
           @media only screen and (max-width: 768px) {
-            display: flex;
-            flex-wrap: wrap;
+            width: 100%;
+          }
+
+          .content {
+            flex: 1;
+            word-break: break-word;
+          }
+
+          .archive-info {
+            span {
+              margin-right: 20px;
+              margin-top: 5px;
+            }
+
+            @media only screen and (max-width: 768px) {
+              display: flex;
+              flex-wrap: wrap;
+            }
           }
         }
       }
-
-      .card-container {
-        flex: 1;
-        display: flex;
-        flex-wrap: wrap;
-
-        .card {
-          border-radius: 15px;
-          display: flex;
-          align-items: center;
-          padding: 5px 10px;
-          margin: 5px;
-          font-size: 12px;
-          font-weight: bold;
-        }
-
-        .active {
-          border: 2px solid;
-        }
-
-        .non-active {
-          background-color: #eee;
-        }
-
-        .color-card {
-          background-color: #722ED1;
-          color: white;
-        }
-
-      }
     }
+  }
+  .card-container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 28px;
+
+    @media only screen and (max-width: 768px) {
+      margin-top: 10px;
+    }
+
+    .card {
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      margin: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .active {
+      border: 2px solid;
+    }
+
+    .non-active {
+      background-color: #eee;
+    }
+
+    .color-card {
+      background-color: #722ED1;
+      color: white;
+    }
+
   }
 }
