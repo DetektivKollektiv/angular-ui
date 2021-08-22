@@ -1,6 +1,10 @@
+@import '../../../../assets/scss/colors';
+
 .item{
     list-style: none;
     display: flex;
+	  margin: 10px 0;
+
     p {
         margin: unset;
     }
@@ -12,14 +16,52 @@
     }
     .received{
         font-weight: bold;
-        font-size: 14px;        
+        font-size: 14px;
         .received-txt {
             font-weight: normal;
         }
     }
     .item-left {
-        min-width: 18%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+        margin-right: 20px;
+        background-color: #eee;
+        border-radius: 25px;
+
+        h2 {
+          font-family: PT MONO;
+          font-size: 42px;
+        }
+
+        .red {
+          color: $color__rating-red;
+        }
+
+        .orange {
+          color: $color__rating-yellow;
+        }
+
+        .light-green {
+          color: $color__rating-light-green;
+        }
+
+        .green {
+          color: $color__rating-green;
+        }
     }
+
+    .item-right {
+      flex: 1;
+
+      .received {
+        font-size: 21px;
+      }
+    }
+
     .item-col span {
             width: 33%;
             display: inline-block;

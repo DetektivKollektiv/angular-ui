@@ -48,8 +48,8 @@
     <div class="full-width-container">
         <div class="wrapper">
             <div class="case-list-container">
-                <h3>Die letzten gelosten Falle</h3>
-                <app-case-list *ngIf="cases.length > 0" [cases]=cases [numberOfCases]="5"></app-case-list>
+                <h3>Die letzten gelösten Fälle</h3>
+                <app-case-list *ngIf="cases.length > 0" [cases]=cases [numberOfCases]="5" [showText]="true"></app-case-list>
                 <button type="submit" class="">Weitere gelöste Fälle ansehen</button>
             </div>
             <div class="partner-logo-section">

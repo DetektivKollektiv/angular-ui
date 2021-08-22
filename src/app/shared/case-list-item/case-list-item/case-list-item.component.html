@@ -1,13 +1,22 @@
 <li class="item">
     <div class="item-left">
-        <h2 class="content">{{ score }}</h2>
+        <h2 [ngClass]="color === 'red'
+        ? 'red'
+        : color === 'orange'
+          ? 'orange'
+          : color === 'light-green'
+            ? 'light-green'
+            : 'green'
+        ">
+          {{ score }}
+        </h2>
     </div>
     <div class="item-right">
-        <h2 class="received">{{ case.content }}</h2>
+        <h2 class="received">#{{ case.id.split('-')[0] }}</h2>
         <div class="item-col">
-            <span class="received-txt"><small>{{ case.open_timestamp | date }}</small></span>
-            <span class="closed"><small>{{ case.close_timestamp | date }}</small></span>
-            <!-- <span class="confidence-index"><small>{{ case.result_score }}</small></span> -->
+            <span class="received-txt"><small><i class="far fa-calendar-alt"></i>{{ case.open_timestamp | date }}</small></span>
+            <span class="closed"><small><i class="far fa-calendar-check"></i>{{ case.close_timestamp | date }}</small></span>
+            <span class="confidence-index"><small><i class="far fa-comment-alt-lines"></i>&nbsp;5</small></span>
         </div>
     </div>
 </li>
