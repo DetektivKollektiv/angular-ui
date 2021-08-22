@@ -6,15 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./archive-list-item.component.scss'],
 })
 export class ArchiveListItemComponent implements OnInit {
-  @Input() archive: any;
+  @Input() case: any;
   public color: string;
+
   public result_score: number;
   public startTime: string;
   public endTime: string;
+  public taggies = [];
   constructor() { }
 
   ngOnInit(): void {
-    this.result_score = Math.ceil(this.archive.result_score * 25);
+    this.result_score = Math.ceil(this.case.result_score * 25);
 
     if (this.result_score <= 33) {
       this.color = 'red';
@@ -29,9 +31,9 @@ export class ArchiveListItemComponent implements OnInit {
       this.color = 'green';
     }
 
-    const startTimeArr = this.archive.open_timestamp.split(" ")[0].split("-");
+    const startTimeArr = this.case.open_timestamp.split(" ")[0].split("-");
     this.startTime = `${startTimeArr[2]}.${startTimeArr[1]}.${startTimeArr[0]}`;
-    const endTimeArr = this.archive.close_timestamp.split(" ")[0].split("-");
+    const endTimeArr = this.case.close_timestamp.split(" ")[0].split("-");
     this.endTime = `${endTimeArr[2]}.${endTimeArr[1]}.${endTimeArr[0]}`;
   }
 

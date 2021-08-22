@@ -1,10 +1,10 @@
 <ul class="archive-list">
 	<app-archive-list-item
-    *ngFor="let archive of archives | paginate: {
+    *ngFor="let case of archives | paginate: {
       itemsPerPage: pageSize,
       currentPage: page,
       totalItems: count}"
-    [archive]=archive>
+    [case]=case>
   </app-archive-list-item>
 </ul>
 <div class="pagination-container">

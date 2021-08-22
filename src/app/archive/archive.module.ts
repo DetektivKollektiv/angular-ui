@@ -18,6 +18,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
 import { ArchiveListComponent } from './components/archive-list/archive-list.component';
 import { ArchiveListItemComponent } from './components/archive-list-item/archive-list-item.component';
+import { TagIconComponent } from './components/tag-icon/tag-icon.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 
@@ -31,6 +32,7 @@ registerLocaleData(localeDE, 'de')    ;
     RatingLegendComponent,
     ArchiveListComponent,
     ArchiveListItemComponent,
+    TagIconComponent
   ],
   imports: [
     CommonModule,
