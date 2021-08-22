@@ -13,6 +13,7 @@ export class ArchiveListItemComponent implements OnInit {
   public startTime: string;
   public endTime: string;
   public taggies = [];
+  public comments = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -30,6 +31,10 @@ export class ArchiveListItemComponent implements OnInit {
     if (this.result_score > 84 && this.result_score <= 100) {
       this.color = 'green';
     }
+
+    if ('comments' in this.case && this.case.comments) {
+      this.comments = this.case.comments;
+    } 
 
     const startTimeArr = this.case.open_timestamp.split(" ")[0].split("-");
     this.startTime = `${startTimeArr[2]}.${startTimeArr[1]}.${startTimeArr[0]}`;

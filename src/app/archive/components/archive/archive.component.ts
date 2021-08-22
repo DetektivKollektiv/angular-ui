@@ -47,44 +47,37 @@ export class ArchiveComponent implements OnInit {
     'close_timestamp',
     'result_score',
   ];
-  /*
 
-  Change these questions to match what is in 06-Archiv in Adobe XD
-
-
-
-  */
-  public questionPrompts: any[] = [
-    {
-      title: 'Woran erkenne ich eine gute Quelle?',
-      description: 'Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen',
-      background: '#68a8ff',
-      icon: 'fal fa-newspaper'
-    },
-    {
-      title: 'Die Quelle ist nicht mehr abrufbar. Was kann ich tun?',
-      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
-      background: '#3a9832',
-      icon: 'fal fa-scroll-old'
-    },
-    {
-      title: 'Kann ich den Fall abgeben?',
-      description: 'Ja, das geht. Hier erfährst du wie.',
-      background: '#be9843',
-      icon: 'fal fa-hands-helping'
-    },
-    {
-      title: 'Eine weitere Frage??',
-      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-      background: '#8f1fff',
-      icon: 'fal fa-leaf'
-    },
-  ];
+  public archiveQuestions: any[] = [
+      {
+        title: 'Wann sehe ich etwas im Archiv?',
+        description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
+        background: 'color__bittersweet',
+        icon: 'fal fa-eye'
+      },
+      {
+        title: 'Wie errechnet sich der Score?',
+        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+        background: 'color__neon-blue',
+        icon: 'fal fa-chart-bar'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: 'color__purple',
+        icon: 'fal fa-leaf'
+      },
+      {
+        title: 'Eine weitere Frage?',
+        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+        background: 'color__bittersweet',
+        icon: 'fal fa-leaf'
+      },
+    ];
 
   public expandedItem: Item | null;
   public loaded = false;
   public resultScoreMode = ResultScoreMode.bar;
-  public archiveQuestions: any[];
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
@@ -93,34 +86,7 @@ export class ArchiveComponent implements OnInit {
     private store: Store,
     private viewportScroller: ViewportScroller
   ) {
-
-    this.archiveQuestions = [
-      {
-        title: 'Wann sehe ich etwas im Archiv?',
-        description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
-        background: '#af00a1',
-        icon: 'fal fa-eye'
-      },
-      {
-        title: 'Wie errechnet sich der Score?',
-        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
-        background: '#47cc7f',
-        icon: 'fal fa-chart-bar'
-      },
-      {
-        title: 'Eine weitere Frage?',
-        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-        background: '#8f1fff',
-        icon: 'fal fa-leaf'
-      },
-      {
-        title: 'Eine weitere Frage?',
-        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-        background: '#8f1fff',
-        icon: 'fal fa-leaf'
-      },
-    ];
-
+    // this.archiveQuestions = this.questionPrompts;
    }
 
   ngOnInit(): void {

@@ -75,7 +75,12 @@
             span {
               margin-right: 20px;
               margin-top: 5px;
+              
+              i {
+                margin-right: 5px;
+              }
             }
+
 
             @media only screen and (max-width: 768px) {
               display: flex;
