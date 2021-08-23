@@ -45,7 +45,208 @@
     </div>
 
     <div class="case-overview-section">
-      sdfgadsfgads
+      <h2 class="overview-section--title">Fallabschlussbericht</h2>
+      <div class="show-archive-result">
+        <div class="mark">13</div>
+        <div class="description">
+          <div class="description-header">Dieser Fall ist nicht vertrauenswürdig</div>
+          <div class="description-content">
+            Dieser Fall ist von 3 Detektiven mit 13 von 100 Punkten bewertet worden. Du solltest die Informationen in diesem Fall unbedingt mit Vorsicht behandeln.
+          </div>
+        </div>
+      </div>
+      <div class="show-archive-detail">
+        <p class="show-archive-detail-mark">
+          13%<sub class="sub-description">Der Fragen wurden mit Trifft eher nicht zu beantwortet.</sub>
+        </p>
+        <p class="show-archive-detail-mark">
+          87%<sub class="sub-description">Der Fragen wurden mit Trifft nicht zu beantwortet.</sub>
+        </p>
+        <div class="show-archive-detail-description">Keine Frage wurde mit Trifft zu beantwortet.</div>
+        <div class="show-archive-detail-description">Keine Frage wurde mit Trifft eher zu beantwortet.</div>
+        <div class="show-archive-detail-description">Die Kriterien waren auf alle Fragen anwendbar.</div>
+        <div class="show-archive-detail-description">Der Fall war 27 Tage aktiv.</div>
+        <span><i class="far fa-calendar-check"></i>&nbsp;02.01.0001</span>
+      </div>
+      <div class="tag-icon-container">
+        <div class="tag-icon-container-title">
+          Folgendes trifft auf den Fall zu
+        </div>
+        <div class="tag-icon-container-content">
+          <app-tag-icon *ngFor="let tag of tags" [tag]="tag"></app-tag-icon>
+        </div>
+      </div>
+      <div class="detectives-container">
+        <div class="detectives-container-title">Ermittelnde Detektive</div>
+        <div class="detectives-container-body">
+          <div class="detective-content">
+            <div class="medal-container font-supernova"><i class="fas fa-medal"></i></div>
+            <div class="profile-container">
+              <div class="avatar font-bold color__rating-red">J</div>
+              <div class="profile-info">
+                <div class="name font-bold">Jane Doe</div>
+                <div class="job">Detective Superintendent</div>
+              </div>
+            </div>
+          </div>
+          <div class="detective-content">
+            <div class="medal-container font-purple"><i class="fas fa-medal"></i></div>
+            <div class="profile-container">
+              <div class="avatar font-bold color__rating-tweeter">J</div>
+              <div class="profile-info">
+                <div class="name font-bold">Johanna Doe</div>
+                <div class="job">Detective</div>
+              </div>
+            </div>
+          </div>
+          <div class="detective-content">
+            <div class="medal-container"></div>
+            <div class="profile-container">
+              <div class="avatar font-bold color__rating-light-green">?</div>
+              <div class="profile-info">
+                <div class="name font-italic">Detective</div>
+                <div class="job"></div>
+              </div>
+            </div>
+          </div>
+          <div class="detective-content">
+            <div class="medal-container"></div>
+            <div class="profile-container">
+              <div class="avatar font-bold color__rating-green">?</div>
+              <div class="profile-info">
+                <div class="name font-italic">Detective</div>
+                <div class="job"></div>
+              </div>
+            </div>
+          </div>
+          <div class="detective-content">
+            <div class="medal-container"></div>
+            <div class="profile-container">
+              <div class="avatar font-bold color__purple">J</div>
+              <div class="profile-info">
+                <div class="name font-bold">Joe Doe</div>
+                <div class="job">Detective</div>
+              </div>
+            </div>
+          </div>
+          <div class="detective-content">
+            <div class="medal-container"></div>
+            <div class="profile-container">
+              <div class="avatar font-bold color__supernova">J</div>
+              <div class="profile-info">
+                <div class="name font-bold">Jens Doe</div>
+                <div class="job">Detective</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comments-container">
+        <div class="comments-container-title font-bold">
+          Fallbewertungskommentare
+        </div>
+        <div class="comments-container-body">
+          <div class="comments-content">
+            <div class="avatar-container">
+              <div class="avatar font-bold color__purple">J</div>
+            </div>
+            <div class="content">
+              <div class="name-date">
+                <span class="name font-bold">Johanna Doe</span>&nbsp;
+                <span class="date">01.01.0001</span>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+            </div>
+          </div>
+          <div class="comments-content">
+            <div class="avatar-container">
+              <div class="avatar font-bold color__rating-light-green">?</div>
+            </div>
+            <div class="content">
+              <div class="name-date">
+                <span class="name font-italic">Detective</span>&nbsp;
+                <span class="date">01.01.0001</span>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+            </div>
+          </div>
+          <div class="comments-content">
+            <div class="avatar-container">
+              <div class="avatar font-bold color__rating-red">J</div>
+            </div>
+            <div class="content">
+              <div class="name-date">
+                <span class="name font-bold">Jane Doe</span>&nbsp;
+                <span class="date">01.01.0001</span>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+            </div>
+          </div>
+        </div>
+        <div class="show-case">
+          <span class="font-bold title">Fallbearbeitung</span>&nbsp;<span class="explain">einblenden</span>&nbsp;<i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+      <div class="dicussions-container">
+        <div class="discussions-container-title font-bold">
+          Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="discussions-container-body">
+          <div class="discussions-content">
+            <div class="avatar-container">
+              <div class="avatar font-bold color__purple">J</div>
+            </div>
+            <div class="content">
+              <div class="name-date">
+                <span class="name font-bold">Johanna Doe</span>&nbsp;
+                <span class="date">01.01.0001</span>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+            </div>
+          </div>
+          <div class="discussions-content">
+            <div class="avatar-container">
+              <div class="avatar font-bold color__rating-light-green">?</div>
+            </div>
+            <div class="content">
+              <div class="name-date">
+                <span class="name font-italic">Detective</span>&nbsp;
+                <span class="date">01.01.0001</span>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+            </div>
+          </div>
+          <div class="discussions-content">
+            <div class="avatar-container">
+              <div class="avatar font-bold color__rating-red">J</div>
+            </div>
+            <div class="content">
+              <div class="name-date">
+                <span class="name font-bold">Jane Doe</span>&nbsp;
+                <span class="date">01.01.0001</span>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="discussions-button-container">
+        <button>Mehr Kommentare laden</button>
+      </div>
+      <div class="reply-container">
+        <div class="avatar-container">
+          <div class="avatar font-bold color__purple">J</div>
+        </div>
+        <div class="reply-body">
+          <div class="name font-bold">Joe Doe</div>
+          <div class="input-container">
+            <textarea id="" rows="5"></textarea>
+          </div>
+          <div class="reply-button-container">
+            <button>Posten</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

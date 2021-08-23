@@ -20,13 +20,14 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
   public user: any;
   public userInfo: any;
-  
+
   public reviewSituation: any;
   public case: any;
   public items: any;
   public loaded: any;
   public caseId = '';
   public shortenedCaseId = '';
+  public tags: any[];
   // private openCases: Item[];
 
   constructor(
@@ -44,6 +45,10 @@ export class ArchiveDetailsPageComponent implements OnInit {
       //urls: {"https://eine-url.tld", "https://eine-url.tld","https://eine-url.tld","https://eine-url.tld"},
       //tags:{ "4444444444",  "4444444444", "4444444444" , "4444444444"},
     };
+
+    this.tags = [
+      'kein impressum', 'hatespeech', 'keine quellen'
+    ]
 
   }
 
