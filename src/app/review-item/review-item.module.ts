@@ -20,7 +20,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { RouterModule } from '@angular/router';
 import { OpenReviewDialogComponent } from './components/open-review-dialog/open-review-dialog.component';
 import { SwiperModule } from 'swiper/angular';
-import { CaseDetailsComponent } from './components/case-details/case-details.component';
+import { CaseDetailsModule } from '../shared/case-details/case-details.module';
 import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { WatsonComponent } from './components/watson/watson.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
@@ -37,7 +37,6 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     ReviewSummaryComponent,
     OpenReviewDialogComponent,
     ReviewPageComponent,
-    CaseDetailsComponent,
     WatsonComponent
   ],
   exports: [ReviewComponent],
@@ -51,7 +50,8 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     RouterModule,
     SwiperModule,
     UserExperienceBubbleListModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    CaseDetailsModule
   ],
   providers: [
     ReviewsService,

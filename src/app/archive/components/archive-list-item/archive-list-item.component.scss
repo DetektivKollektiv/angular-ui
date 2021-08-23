@@ -127,6 +127,13 @@
       background-color: #722ED1;
       color: white;
       height: 24px;
+      cursor: pointer;
+
+      &:hover {
+        border: 2px solid #722ED1;
+        background-color: white;
+        color: #722ED1;
+      }
     }
 
   }
