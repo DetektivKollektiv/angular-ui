@@ -27,6 +27,34 @@
     }
   }
 
+  .help-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    .flag {
+      color: $color__bittersweet;
+      margin-right: 20px;
+    }
+
+    .life-ring {
+      margin-right: 5px;
+      i {
+        color: $color__purple;
+      }
+    }
+
+    .chevron-right {
+      display: flex;
+      align-items: center;
+      color: #aaa;
+
+      i {
+        color: black;
+      }
+    }
+  }
+
   .bottom-section {
     display: flex;
     flex-direction: column;
@@ -88,7 +116,7 @@
             display: inline-block;
             margin-bottom: 10px;
              a {
-              color: #ff7268;
+              color: $color__bittersweet;
               text-decoration: none;
                i {
                 margin-right: 3px;

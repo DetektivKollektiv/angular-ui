@@ -2,7 +2,11 @@
   <div class="top-section standard-content-container-width">
       <app-case-details *ngIf="!!case" [case]=case></app-case-details>
   </div>
-
+  <div class="help-container">
+    <div class="flag"><i class="fas fa-flag"></i>&nbsp;Fall melden</div>
+    <div class="life-ring"><i class="fas fa-life-ring"></i>&nbsp;Hilfe zu dieser Seite</div>
+    <div class="chevron-right">anzeigen&nbsp;<i class="fas fa-chevron-right"></i></div>
+  </div>
   <div class="bottom-section standard-content-container-width">
     <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
       <div class="review-situation">
