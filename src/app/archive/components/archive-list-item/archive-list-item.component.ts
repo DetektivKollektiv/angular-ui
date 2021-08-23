@@ -14,6 +14,7 @@ export class ArchiveListItemComponent implements OnInit {
   public endTime: string;
   public taggies = [];
   public comments = [];
+  public linkUrl: string;
   constructor() { }
 
   ngOnInit(): void {
@@ -34,12 +35,14 @@ export class ArchiveListItemComponent implements OnInit {
 
     if ('comments' in this.case && this.case.comments) {
       this.comments = this.case.comments;
-    } 
+    }
 
     const startTimeArr = this.case.open_timestamp.split(" ")[0].split("-");
     this.startTime = `${startTimeArr[2]}.${startTimeArr[1]}.${startTimeArr[0]}`;
     const endTimeArr = this.case.close_timestamp.split(" ")[0].split("-");
     this.endTime = `${endTimeArr[2]}.${endTimeArr[1]}.${endTimeArr[0]}`;
+
+    this.linkUrl = `/archive/${this.case.id}`
   }
 
 }
