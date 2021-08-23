@@ -17,9 +17,12 @@
       [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
       <div class="option">
         <span>{{option.text}}</span>
-        <div class="small-text" *ngIf="option.tooltip">
-          {{option.tooltip}}
-        </div>
+        <!-- <div class="small-text" *ngIf="option.tooltip">
+          {{option.tooltip}} 
+        </div> -->
+        <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above">
+          help
+        </mat-icon>
       </div>
     </mat-radio-button>
   </mat-radio-group>

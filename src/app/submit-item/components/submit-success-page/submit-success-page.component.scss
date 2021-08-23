@@ -2,6 +2,7 @@
 
 .submit-success-page {
   .top-section {
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -16,82 +17,84 @@
     }
 
     .overview-section{
-        .submit-success-number-section{
-            .submit-success-number-id {
-                font-size: 52px;
-                font-weight: bold;
-                span {
-                    font-size: 17px;
-                    color: $color__old-paragraph;
-                }
-            }
+      .submit-success-number-section{
+        .submit-success-number-id {
+          font-size: 52px;
+          font-weight: bold;
+          span {
+            font-size: 17px;
+            color: $color__old-paragraph;
+          }
         }
-        .submit-success-description-section {
+      }
+      
+      .submit-success-description-section {
+        margin-top: 50px;
+      }
+
+      .submit-success-description-section p {
+          font-size: 18px;
+          line-height: 1.44;
+          letter-spacing: normal;
+          text-align: left;
+      }
+      .submit-success-description-section{
+        .like-wrapper{
+          display: flex;
+          .like-icon-box1{
+            max-width: 75px;
+          }
+          .like-icon-box2 {
+            .like-icon-heading{
+              font-size: 21px;
+            }
+
+          }
+          .like-icon-box1 i{
+            width: 60px;
+            height: 60px;
+            margin: 0px 10px -3px 0;
+            padding: 12.9px 2.5px;
+            background-color: $color__bittersweet;
+            color: $color__white;
+            border-radius: 30px;
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            font-size: 23px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+          }
+        }
+
+        .message-wrapper{
+          display: flex;
           margin-top: 50px;
-        }
-        .submit-success-description-section p {
-            font-size: 18px;
-            line-height: 1.44;
-            letter-spacing: normal;
-            text-align: left;
-        }
-        .submit-success-description-section{
-          .like-wrapper{
-            display: flex;
-            .like-icon-box1{
-              max-width: 75px;
-            }
-            .like-icon-box2 {
-              .like-icon-heading{
-                font-size: 21px;
-              }
-
-            }
-            .like-icon-box1 i{
-              width: 60px;
-              height: 60px;
-              margin: 0px 10px -3px 0;
-              padding: 12.9px 2.5px;
-              background-color: $color__bittersweet;
-              color: $color__white;
-              border-radius: 30px;
-              font-family: "Font Awesome 5 Pro";
-              font-weight: 900;
-              font-size: 23px;
-              justify-content: center;
-              align-items: center;
-              display: flex;
+          .message-icon-box1{
+            max-width: 75px;
+          }
+          .message-icon-box2 {
+            .message-icon-heading{
+              font-size: 21px;
             }
           }
-
-          .message-wrapper{
+          .message-icon-box1 i{
+            width: 60px;
+            height: 60px;
+            margin: 0px 10px -3px 0;
+            padding: 12.9px 2.5px;
+            background-color: $color__purple;
+            color: $color__white;
+            border-radius: 30px;
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            font-size: 23px;
+            justify-content: center;
+            align-items: center;
             display: flex;
-            margin-top: 50px;
-            .message-icon-box1{
-              max-width: 75px;
-            }
-            .message-icon-box2 {
-              .message-icon-heading{
-                font-size: 21px;
-              }
-            }
-            .message-icon-box1 i{
-              width: 60px;
-              height: 60px;
-              margin: 0px 10px -3px 0;
-              padding: 12.9px 2.5px;
-              background-color: $color__purple;
-              color: $color__white;
-              border-radius: 30px;
-              font-family: "Font Awesome 5 Pro";
-              font-weight: 900;
-              font-size: 23px;
-              justify-content: center;
-              align-items: center;
-              display: flex;
-            }
           }
         }
+      }
     }
 
     .overview-right-section {
@@ -100,9 +103,11 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        
         img{
-          height: 400px;
+          // height: 400px;
           margin-top: 50px;
+          width: 100%;
         }
     }
 
@@ -112,6 +117,7 @@
     display: flex;
     flex-direction: column;
     max-width: 100vw;
+    padding: 20px;
     justify-content: center;
     .share-section{
       .share-section-top-box {

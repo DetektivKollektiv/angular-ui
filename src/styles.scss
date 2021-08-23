@@ -236,11 +236,15 @@ mat-icon {
   font-size: 15px !important;
 }
 
-.cdk-overlay-pane {
-  max-width: none !important;
-  width: 100vw;
-  height: 100vh;
-}
+
+/*
+This made tooltips on /reviews/:id not work anymore
+*/
+// .cdk-overlay-pane {
+//   max-width: none !important;
+//   width: 100vw;
+//   height: 100vh;
+// }
 
 .swiper-container {
   margin: 20px 0;
@@ -249,6 +253,9 @@ mat-icon {
 .no-padding-dialog-container .mat-dialog-container {
     /* add your styles */
     padding: 0;
+
+    /* not sure if this is the correct place to add this */
+    width: 100%;
 }
 header.header {
   z-index: 9999! important;

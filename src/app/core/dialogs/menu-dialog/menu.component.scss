@@ -279,9 +279,15 @@ $light-grey1: #F8F8F8;
   }
 }
 
-.mat-dialog-content {
-  overflow: unset;
-}
+// causing issues
+
+// .mat-dialog-content {
+//   overflow: unset;
+// }
+
+// .cdk-overlay-pane.no-padding-dialog-container .mat-dialog-content {
+//   margin: 0 !important;
+// }
 
 .navigation-mobile {
   $parent: &;

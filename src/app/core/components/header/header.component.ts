@@ -135,6 +135,12 @@ export class HeaderComponent implements OnInit {
 
   openMenuDialog(): void {
     this.dialog
-      .open(MenuDialogComponent, { panelClass: 'no-padding-dialog-container' });
+      .open(MenuDialogComponent, {
+        panelClass: 'no-padding-dialog-container',
+        height: "100vh",
+        width: "100vw",
+        maxWidth: "100vw",
+        maxHeight: "100vh",
+      });
   }
 }

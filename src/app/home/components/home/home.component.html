@@ -1,5 +1,5 @@
 <div class="page-container-column">
-  <div class="content">
+  <div class="content standard-content-container-width">
       <app-open-case-list-slider *ngIf="authenticated && cases && cases.length && !is_open_review" [cases]=cases></app-open-case-list-slider>
       <app-continue-case-bar *ngIf="authenticated && cases && cases.length && is_open_review" [cases]=cases></app-continue-case-bar>
   </div>
