@@ -40,15 +40,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.auth$.subscribe((authState: AuthState) => {
-      console.log('ayy');
       this.authState = authState;
       this.authenticated = !!authState.isLoggedIn;
-
-      console.log({authenticated: this.authenticated, condition: !this.authenticated});
     });
 
     this.userService.user$.subscribe((user: User) => {
-      console.log('yoo');
       if (user) {
         this.userLoaded = true;
         this.authenticated = !!this.authState.isLoggedIn;
@@ -58,7 +54,6 @@ export class HeaderComponent implements OnInit {
 
       this.user = user;
     });
-    console.log(`header!`,{user: this.user, userLoaded: this.userLoaded});
   }
 
   public setLanguage(language: string) {

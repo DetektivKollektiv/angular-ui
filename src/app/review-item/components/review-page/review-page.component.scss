@@ -153,6 +153,15 @@
         .review-situation--text{
           font-size: 18px;
           line-height: 1.44;
+          .fa-quote-left, .fa-quote-right {
+            position: relative;
+          }
+          .fa-quote-left {
+            left: -20px;
+          }
+          .fa-quote-right {
+            right: 20px;
+          }
         }
 
       }

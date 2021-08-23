@@ -22,28 +22,34 @@
     <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
       <div class="review-situation">
         <h2 class="review-situation--title">{{reviewSituation.title}}</h2>
-        <div class="review-situation--text" [innerHTML]="reviewSituation.text"></div>
+        <div class="review-situation--text">
+          <i class="fas fa-quote-left"></i>
+            <div [innerHTML]="reviewSituation.text"></div>
+
+          <i class="fas fa-quote-right"></i>
+        </div>
       </div>
       <div class="links-section">
         <h3>Hinterlegte und entdeckte Links</h3>
-        <div>
-          <span class="link-icon"><a href=""><i class="far fa-external-link-square-alt"></i>https://eine-url.tld</a></span>
-          <span class="link-icon gray-link"><a href=""><i class="fal fa-exclamation-square"></i>https://www.domain.tld/0ou2349234iojsdfln</a></span>
-          <span class="link-icon"><a href=""><i class="far fa-external-link-square-alt"></i>www.domainname.tld/eine-seite/ein-artikel-mit-langem-titel</a></span>
+        <div *ngIf="case && 'urls' in case">
+          <span *ngFor="let url of case.urls" class="link-icon gray-link">
+            <a href="{{url}}">
+              <i class="far fa-external-link-square-alt"></i>
+              {{url}}
+            </a>
+          </span>
         </div>
       </div>
       <div class="tags-section">
         <h3>Tags</h3>
-        <ul>
-          <li>Ein Tag</li>
-          <li>Ein weiterer Tag</li>
-          <li>Ein echt sehr langer Tag</li>
+        <ul *ngIf="case && 'tags' in case">
+          <li *ngFor="let tag of case.tags">{{tag}}</li>
         </ul>
       </div>
       <div class="background-info-section">
         <h3>Hintergrundinformationen</h3>
         <ul>
-          <span class="link-icon"><li><i class="far fa-calendar-alt"></i>{{reviewSituation.open_timesteamp}}</li></span>
+          <span *ngIf="case && 'open_timestamp' in case" class="link-icon"><li><i class="far fa-calendar-alt"></i>{{case.open_timestamp}}</li></span>
           <span class="link-icon"><li><i class="fal fa-user"></i>Anonym</li></span>
         </ul>
       </div>
