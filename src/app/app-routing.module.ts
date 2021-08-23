@@ -12,6 +12,7 @@ import { ReviewSuccessPageComponent } from './review-success-page/components/rev
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ReviewPageComponent } from './review-item/components/review-page/review-page.component';
 import { ArchiveComponent } from './archive/components/archive/archive.component';
+import { ArchiveDetailsPageComponent } from './archive/components/archive-details-page/archive-details-page.component';
 
 /* Auth page routes */
 import { LoginPageComponent } from './authentication-pages/components/login-page/components/login-page/login-page.component';
@@ -151,7 +152,7 @@ const routes: Routes = [
   },
   {
     path: 'archive/:id',
-    component: ArchiveComponent,
+    component: ArchiveDetailsPageComponent,
     canActivate: [AuthGuard],
   },
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },

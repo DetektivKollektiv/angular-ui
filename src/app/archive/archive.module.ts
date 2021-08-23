@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ArchiveToolbarComponent } from './components/archive-toolbar/archive-toolbar.component';
 import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveDetailsComponent } from './components/archive-details/archive-details.component';
+import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { NgxsModule } from '@ngxs/store';
@@ -29,6 +30,7 @@ registerLocaleData(localeDE, 'de')    ;
     ArchiveToolbarComponent,
     ArchiveItemComponent,
     ArchiveDetailsComponent,
+    ArchiveDetailsPageComponent,
     RatingLegendComponent,
     ArchiveListComponent,
     ArchiveListItemComponent,
