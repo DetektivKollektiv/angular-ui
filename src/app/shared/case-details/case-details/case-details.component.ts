@@ -8,9 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CaseDetailsComponent implements OnInit {
   @Input() case: any;
   @Input() caseId: string;
+  public description: string;
   constructor() { }
 
   ngOnInit(): void {
+    this.description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. ";
   }
 
 }

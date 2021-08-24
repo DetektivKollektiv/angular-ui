@@ -4,13 +4,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   .top-section {
     margin-bottom: 50px;
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    padding: 20px;
     // justify-content: space-between;
 
     @media only screen and (min-width: 480px) {
@@ -23,7 +24,43 @@
     }
 
     app-case-details {
-      flex: 50%;
+      width: 100%;
+
+      @media only screen and (min-width: 480px) {
+        width: 50%;
+      }
+    }
+  }
+
+  .help-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    @media only screen and (min-width: 480px) {
+      justify-content: flex-end;
+    }
+
+    .flag {
+      color: $color__bittersweet;
+      margin-right: 20px;
+    }
+
+    .life-ring {
+      margin-right: 5px;
+      i {
+        color: $color__purple;
+      }
+    }
+
+    .chevron-right {
+      display: flex;
+      align-items: center;
+      color: #aaa;
+
+      i {
+        color: black;
+      }
     }
   }
 
@@ -55,7 +92,7 @@
         .review-situation--title{
           font-family: 'PT Mono', monospace;
           line-height: 70px;
-          font-size: max(2vw, 14px);
+          font-size: max(2vw, 24px);
         }
         .review-situation--text{
           font-size: 18px;
@@ -88,7 +125,7 @@
             display: inline-block;
             margin-bottom: 10px;
              a {
-              color: #ff7268;
+              color: $color__bittersweet;
               text-decoration: none;
                i {
                 margin-right: 3px;
@@ -146,9 +183,329 @@
         }
       }
     }
+
+    .case-overview-section {
+      .overview-section--title {
+        font-family: "PT Mono", monospace;
+        line-height: 70px;
+        font-size: max(2vw, 24px);
+      }
+
+      .show-archive-result {
+        display: flex;
+        background-color: red;
+        color: white;
+        padding: 16px;
+        border-radius: 24px;
+
+        .mark {
+          border-radius: 24px;
+          width: 25%;
+          font-size: 42px;
+          background-color: white;
+          color: $color__rating-red;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 16px 10px;
+          margin-right: 10px;
+          max-height: 100px;
+          font-family: 'PT MONO';
+          font-weight: bold;
+        }
+
+        .description {
+          &-header {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+
+          &-content {
+            font-size: 18px;
+          }
+        }
+      }
+
+      .show-archive-detail {
+        &-mark {
+          font-size: 24px;
+          font-weight: bold;
+
+          .sub-description {
+            font-size: 18px;
+            font-weight: lighter;
+            margin-left: 8px;
+          }
+        }
+
+        &-description {
+          margin: 5px 0;
+        }
+      }
+
+      .tag-icon-container {
+        margin-top: 24px;
+        &-title {
+          font-size: 18px;
+          margin-bottom: 8px;
+        }
+
+        &-content {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+
+      .detectives-container {
+        margin-top: 40px;
+
+        &-title {
+          margin-bottom: 16px;
+          font-size: 21px;
+          font-weight: bold;
+        }
+
+        &-body {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          height: 200px;
+
+          .detective-content {
+            display: flex;
+            margin: 10px 0;
+
+            .medal-container {
+              width: 20px;
+              display: flex;
+              align-items: center;
+              font-size: 18px;
+            }
+
+            .profile-container {
+              display: flex;
+
+              .profile-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 5px;
+                .name {
+                  font-size: 18px;
+                }
+
+                .job {
+                  font-size: 11px;
+                  color: #aaa;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .comments-container {
+        &-title {
+          font-size: 21px;
+          margin-bottom: 20px;
+        }
+
+        &-body {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 40px;
+
+          .comments-content {
+            display: flex;
+
+            .content {
+              .name-date {
+                margin-top: 14px;
+                .name {
+                  font-size: 18px;
+                }
+
+                .date {
+                  font-size: 14px;
+                  color: #aaa;
+                }
+              }
+            }
+          }
+        }
+
+        .show-case {
+          font-size: 21px;
+          margin-bottom: 80px;
+
+          .explain {
+            color: #aaa;
+          }
+        }
+      }
+
+      .discussions-container {
+        &-title {
+          font-size: 21px;
+          margin-bottom: 20px;
+
+          span {
+            color: #aaa;
+          }
+        }
+
+        &-body {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 40px;
+
+          .discussions-content {
+            display: flex;
+
+            .content {
+              .name-date {
+                margin-top: 14px;
+                .name {
+                  font-size: 18px;
+                }
+
+                .date {
+                  font-size: 14px;
+                  color: #aaa;
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+      .discussions-button-container {
+        display: flex;
+        justify-content: center;
+
+        button {
+          padding: 5px 15px;
+          border-radius: 15px;
+          background-color: $color__purple;
+          color: white;
+          border: none;
+          font-weight: bold;
+          border: 2px solid $color__purple;
+
+          &:hover {
+            background-color: white;
+            color: $color__purple;
+            border: 2px solid $color__purple;
+          }
+        }
+      }
+
+      .reply-container {
+        display: flex;
+
+        .reply-body {
+          flex: 1;
+
+          .name {
+            font-size: 18px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+          }
+          textarea {
+            width: 100%;
+            border-radius: 10px;
+            padding: 16px;
+
+            &:focus {
+              border: 1px solid;
+            }
+          }
+
+          .reply-button-container {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+              padding: 5px 15px;
+              border-radius: 15px;
+              background-color: $color__purple;
+              color: white;
+              border: none;
+              font-weight: bold;
+              border: 2px solid $color__purple;
+
+              &:hover {
+                background-color: white;
+                color: $color__purple;
+                border: 2px solid $color__purple;
+              }
+            }
+          }
+        }
+      }
+    }
   }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-family: 'PT MONO';
+  margin: 0 5px;
 }
 
 .full-width-input {
   width: 100;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.color__supernova {
+  background-color: $color__supernova;
+}
+
+.color__bittersweet {
+  background-color: $color__bittersweet;
+}
+
+.color__rating-red {
+  background-color: $color__rating-red;
+}
+
+.color__rating-light-green {
+  background-color: $color__rating-light-green;
+}
+
+.color__rating-green {
+  background-color: $color__rating-green;
+}
+
+.color__rating-tweeter {
+  background-color: $color__rating-tweeter;
+}
+
+.color__purple {
+  background-color: $color__purple;
+}
+
+.font-supernova {
+  color: $color__supernova;
+}
+
+.font-purple {
+  color: $color__purple;
 }

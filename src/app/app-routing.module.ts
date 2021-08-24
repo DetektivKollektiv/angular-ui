@@ -152,7 +152,10 @@ const routes: Routes = [
   },
   {
     path: 'archive/:id',
-    component: ArchiveDetailsPageComponent,
+    component: MainLayoutComponent,
+    children:[
+      { path: '', component: ArchiveDetailsPageComponent }
+    ],
     canActivate: [AuthGuard],
   },
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },

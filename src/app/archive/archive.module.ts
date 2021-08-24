@@ -22,6 +22,7 @@ import { ArchiveListItemComponent } from './components/archive-list-item/archive
 import { TagIconComponent } from './components/tag-icon/tag-icon.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
+import { CaseDetailsModule } from '../shared/case-details/case-details.module';
 
 registerLocaleData(localeDE, 'de')    ;
 @NgModule({
@@ -46,6 +47,7 @@ registerLocaleData(localeDE, 'de')    ;
     IvyCarouselModule,
     NgxPaginationModule,
     QuestionCarouselModule,
+    CaseDetailsModule,
     NgxsModule.forFeature([ArchiveState]),
   ],
   providers: [

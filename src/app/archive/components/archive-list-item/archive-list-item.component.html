@@ -21,5 +21,6 @@
   </div>
   <div class="card-container">
     <app-tag-icon *ngFor="let tag of case.tags" [tag]="tag"></app-tag-icon>
+    <span class="card color-card" [routerLink]="linkUrl">details ansehen</span>
   </div>
 </li>
