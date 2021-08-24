@@ -20,5 +20,6 @@ export class Item {
   open_timestamp: string;
   close_timestamp: string;
   tags: string[] = [];
-  urls: string[] = [];
+  urls: any[] = [];
+  comments: any[] = [];
 }

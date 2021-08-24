@@ -145,87 +145,42 @@
         <div class="comments-container-title font-bold">
           Fallbewertungskommentare
         </div>
-        <div class="comments-container-body">
-          <div class="comments-content">
+        <div *ngIf="case && 'comments' in case" class="comments-container-body">
+          <div *ngFor="let comment of case.comments" class="comments-content">
             <div class="avatar-container">
-              <div class="avatar font-bold color__purple">J</div>
+              <div class="{{ 'avatar font-bold ' + comment.color }}">{{comment.name[0]}}</div>
             </div>
             <div class="content">
               <div class="name-date">
-                <span class="name font-bold">Johanna Doe</span>&nbsp;
-                <span class="date">01.01.0001</span>
+                <span class="name font-bold">{{comment.name}}</span>&nbsp;
+                <span class="date">{{comment.date}}</span>
               </div>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-            </div>
-          </div>
-          <div class="comments-content">
-            <div class="avatar-container">
-              <div class="avatar font-bold color__rating-light-green">?</div>
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-italic">Detective</span>&nbsp;
-                <span class="date">01.01.0001</span>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-            </div>
-          </div>
-          <div class="comments-content">
-            <div class="avatar-container">
-              <div class="avatar font-bold color__rating-red">J</div>
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-bold">Jane Doe</span>&nbsp;
-                <span class="date">01.01.0001</span>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+              <p>{{comment.text}}</p>
             </div>
           </div>
         </div>
+
         <div class="show-case">
           <span class="font-bold title">Fallbearbeitung</span>&nbsp;<span class="explain">einblenden</span>&nbsp;<i class="fas fa-chevron-right"></i>
         </div>
       </div>
-      <div class="dicussions-container">
-        <div class="discussions-container-title font-bold">
+      <div class="comments-container">
+        <div class="comments-container-title font-bold">
           Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
         </div>
-        <div class="discussions-container-body">
-          <div class="discussions-content">
+        <div *ngIf="case && 'comments' in case" class="comments-container-body">
+          <div *ngFor="let comment of case.comments" class="comments-content">
             <div class="avatar-container">
-              <div class="avatar font-bold color__purple">J</div>
+              <div class="{{ 'avatar font-bold ' + comment.color }}">
+                {{comment.name[0]}}
+              </div>
             </div>
             <div class="content">
               <div class="name-date">
-                <span class="name font-bold">Johanna Doe</span>&nbsp;
-                <span class="date">01.01.0001</span>
+                <span class="name font-bold">{{comment.name}}</span>&nbsp;
+                <span class="date">{{comment.date}}</span>
               </div>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
-            </div>
-          </div>
-          <div class="discussions-content">
-            <div class="avatar-container">
-              <div class="avatar font-bold color__rating-light-green">?</div>
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-italic">Detective</span>&nbsp;
-                <span class="date">01.01.0001</span>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-            </div>
-          </div>
-          <div class="discussions-content">
-            <div class="avatar-container">
-              <div class="avatar font-bold color__rating-red">J</div>
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-bold">Jane Doe</span>&nbsp;
-                <span class="date">01.01.0001</span>
-              </div>
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+              <p>{{comment.text}}</p>
             </div>
           </div>
         </div>

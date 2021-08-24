@@ -71,10 +71,10 @@ export class ArchiveDetailsPageComponent implements OnInit {
     // // this.getNewCase();
 
     this.user = { xp: 100 };
-
     this.userService.user$.subscribe((user: any) => {
       this.userInfo = user;
     });
+
 
     this.items$.subscribe((items) => {
       // Safari timestamp fix
@@ -87,14 +87,57 @@ export class ArchiveDetailsPageComponent implements OnInit {
       // });
 
       this.items = items;
-
       /*
         TODO Find the case with the correct id or redirect.
 
       */
-      this.case = items[0]
 
-      console.log({zzz: this.case})
+      function getColorClass(color) {
+        if(color === 'purple') {
+          return `color__purple`;
+        } else if(color === 'red') {
+          return `color__rating-red`;
+        } else if(color === 'light-green') {
+          return `color__rating-light-green`;
+        }
+      }
+
+      const sampleComments = [
+        {
+          name: 'Jorny Gonponicamo',
+          text: "this be comment",
+          date: "2010-08-04",
+          medal: '',
+          color: getColorClass('purple')//color__purple
+        },
+        {
+          name: 'Lawn Rediko',
+          text: "another one",
+          date: "2011-08-04",
+          medal: '',
+          color: getColorClass('red')//color__rating-red
+        },
+        {
+          name: 'Scrawp Amadoo',
+          text: "etc.etc.etc.etc.etc.etc.\nnewline etc.etc.etc.\n newline etc\n newline etc..",
+          date: "2012-08-04",
+          medal: '',
+          color: getColorClass('light-green')//color__rating-light-green
+        },
+      ];
+
+      const firstCase = items[0];
+      this.case = {
+        ...firstCase,
+        comments: 'comments' in firstCase && Array.isArray(firstCase!.comments) ? firstCase!.comments : sampleComments,
+        // urls: 'urls' in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,
+          // urls: sampleUrls,
+          // tags: sampleTags,
+      };
+
+      console.log({zzz: firstCase});
+
+
       this.loaded = true;
     });
   }

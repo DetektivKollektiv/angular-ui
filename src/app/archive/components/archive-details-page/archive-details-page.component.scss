@@ -320,6 +320,11 @@
             display: flex;
 
             .content {
+
+              p {
+                white-space: pre; // respect newlines /n
+              }
+
               .name-date {
                 margin-top: 14px;
                 .name {
@@ -330,6 +335,7 @@
                   font-size: 14px;
                   color: #aaa;
                 }
+
               }
             }
           }
