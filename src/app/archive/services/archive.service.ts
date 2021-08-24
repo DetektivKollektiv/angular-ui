@@ -26,4 +26,23 @@ export class ArchiveService {
         .catch()
     );
   }
+
+  public getClosedItem(id): /*Promise*/ Observable<any> {
+    const newPath = `${this.path}/${id}`;
+    return from(
+      API.get(this.apiName, newPath, { response: true })
+        .then((response) => {
+          console.log('yaay', response)
+
+          if (response.status === 200) {
+            const items = response.data;
+
+            return items;
+          } else if (response.status === 204) {
+            return null;
+          }
+        })
+        .catch()
+    );
+  }
 }

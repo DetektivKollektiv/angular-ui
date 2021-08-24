@@ -5,6 +5,7 @@ import { ArchiveService } from '../services/archive.service';
 import {
   AddFilterKeyword,
   FetchAllItems,
+  GetDetailItem,
   RemoveFilterId,
   RemoveFilterKeyword,
   SetEndDateFilter,
@@ -21,6 +22,7 @@ import { LoaderService } from 'src/app/shared/loader/service/loader.service';
   name: 'archive',
   defaults: {
     items: [],
+    detailItem: null,
     filter: {
       keywords: [],
       maxValue: 4,
@@ -72,11 +74,25 @@ export class ArchiveState implements NgxsOnInit {
     return state.items.find((i) => i.id === state.filter.id);
   }
 
+  @Selector()
+  static detailItem(state: ArchiveStateModel) {
+    return state.detailItem;
+  }
+
   @Action(FetchAllItems)
   fetchAllItems(ctx: StateContext<ArchiveStateModel>) {
     return this.archiveService.getClosedItems().pipe(
       tap((items) => {
         ctx.patchState({ items });
+      })
+    );
+  }
+
+  @Action(GetDetailItem)
+  getDetailItem(ctx: StateContext<ArchiveStateModel>, action) {
+    return this.archiveService.getClosedItem(action.id).pipe(
+      tap((detailItem) => {
+        ctx.patchState({ detailItem });
       })
     );
   }
@@ -178,6 +194,6 @@ export class ArchiveState implements NgxsOnInit {
   }
 
   ngxsOnInit(ctx?: StateContext<any>) {
-        ctx.dispatch(new FetchAllItems());
+    ctx.dispatch(new FetchAllItems());
   }
 }
