@@ -258,15 +258,15 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         const sampleUrls = [
           { url: 'reddit.com', is_safe: true },
           { url: 'otherwebsite.io', is_safe: true },
-          { url: 'thisismyfavorite.com', is_safe: true },
+          { url: 'thisismyfavorite.com', is_safe: false },
         ];
         
         this.case = {
           ...firstCase,
           tags: 'tags' in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
           urls: 'urls' in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,
-          //   urls: sampleUrls,
-          //   tags: sampleTags,
+            // urls: sampleUrls,
+            // tags: sampleTags,
         };
         
         this.reviewSituation.text = this.case.content
