@@ -255,8 +255,12 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         const firstCase = openCases.items[0];
 
         const sampleTags =['tag1','tag2','really long tag here'];
-        const sampleUrls = ['reddit.com','otherwebsite.io','thisismyfavorite.com'];
-
+        const sampleUrls = [
+          { url: 'reddit.com', is_safe: true },
+          { url: 'otherwebsite.io', is_safe: true },
+          { url: 'thisismyfavorite.com', is_safe: true },
+        ];
+        
         this.case = {
           ...firstCase,
           tags: 'tags' in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
@@ -266,7 +270,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         };
         
         this.reviewSituation.text = this.case.content
-        console.log({zzz: this.case});
 
         if (openCases.is_open_review) {
           this.openReview = true;
@@ -275,7 +278,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
             .createReview(firstCase.id)
             .then((review) => {
               this.review = review;
-              console.log({review});
               this.questions = review.questions;
               this.showQuestions = this.questions.filter(question => !question.parent_question_id);
               this.caseAccepted = true;

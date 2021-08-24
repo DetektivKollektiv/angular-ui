@@ -32,10 +32,10 @@
       <div class="links-section">
         <h3>Hinterlegte und entdeckte Links</h3>
         <div *ngIf="case && 'urls' in case">
-          <span *ngFor="let url of case.urls" class="link-icon gray-link">
-            <a href="{{url}}">
+            <span *ngFor="let url of case.urls" class="{{'link-icon' + url.is_safe ? 'gray-link' : ''}} ">
+            <a href="{{url.url}}">
               <i class="far fa-external-link-square-alt"></i>
-              {{url}}
+              {{url.url}}
             </a>
           </span>
         </div>

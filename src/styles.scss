@@ -77,18 +77,23 @@ body {
   width: 18px !important;
   background-size: 60px !important;
 }
+.review-situation--text {
+  word-wrap: break-word;
 
-.review-situation--text a{
-  color: $color__bittersweet;
-  text-decoration: none;
-}
-.review-situation--text i.fas.fa-quote-left {
-  color: $color__bittersweet;
-}
-.review-situation--text i.fas.fa-quote-right {
-  color: $color__bittersweet;
-  display: flex;
-  justify-content: flex-end;
+  a {
+    color: $color__bittersweet;
+    text-decoration: none;
+  }
+
+  i.fas.fa-quote-left {
+    color: $color__bittersweet;
+  }
+
+  i.fas.fa-quote-right {
+    color: $color__bittersweet;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 h1 {
