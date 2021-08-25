@@ -146,18 +146,7 @@
           Fallbewertungskommentare
         </div>
         <div *ngIf="case && 'comments' in case" class="comments-container-body">
-          <div *ngFor="let comment of case.comments" class="comments-content">
-            <div class="avatar-container">
-              <div class="{{ 'avatar font-bold ' + comment.color }}">{{comment.name[0]}}</div>
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-bold">{{comment.name}}</span>&nbsp;
-                <span class="date">{{comment.date}}</span>
-              </div>
-              <p>{{comment.text}}</p>
-            </div>
-          </div>
+          <app-comment-list [comments]="case.comments"></app-comment-list>
         </div>
 
         <div class="show-case">
@@ -169,39 +158,13 @@
           Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
         </div>
         <div *ngIf="case && 'comments' in case" class="comments-container-body">
-          <div *ngFor="let comment of case.comments" class="comments-content">
-            <div class="avatar-container">
-              <div class="{{ 'avatar font-bold ' + comment.color }}">
-                {{comment.name[0]}}
-              </div>
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-bold">{{comment.name}}</span>&nbsp;
-                <span class="date">{{comment.date}}</span>
-              </div>
-              <p>{{comment.text}}</p>
-            </div>
-          </div>
+          <app-comment-list [comments]="case.comments"></app-comment-list>
         </div>
       </div>
       <div class="discussions-button-container">
         <button>Mehr Kommentare laden</button>
       </div>
-      <div class="reply-container">
-        <div class="avatar-container">
-          <div class="avatar font-bold color__purple">J</div>
-        </div>
-        <div class="reply-body">
-          <div class="name font-bold">Joe Doe</div>
-          <div class="input-container">
-            <textarea id="" rows="5"></textarea>
-          </div>
-          <div class="reply-button-container">
-            <button>Posten</button>
-          </div>
-        </div>
-      </div>
+      <app-comment-input></app-comment-input>
     </div>
   </div>
 </div>

@@ -23,6 +23,9 @@ import { TagIconComponent } from './components/tag-icon/tag-icon.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 import { CaseDetailsModule } from '../shared/case-details/case-details.module';
+import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { CommentListItemComponent } from './components/comment-list-item/comment-list-item.component';
+import { CommentInputComponent } from './components/comment-input/comment-input.component';
 
 registerLocaleData(localeDE, 'de')    ;
 @NgModule({
@@ -35,7 +38,10 @@ registerLocaleData(localeDE, 'de')    ;
     RatingLegendComponent,
     ArchiveListComponent,
     ArchiveListItemComponent,
-    TagIconComponent
+    TagIconComponent,
+    CommentListComponent,
+    CommentListItemComponent,
+    CommentInputComponent,
   ],
   imports: [
     CommonModule,
