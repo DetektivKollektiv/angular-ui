@@ -79,63 +79,15 @@
       <div class="detectives-container">
         <div class="detectives-container-title">Ermittelnde Detektive</div>
         <div class="detectives-container-body">
-          <div class="detective-content">
-            <div class="medal-container font-supernova"><i class="fas fa-medal"></i></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__rating-red">J</div>
-              <div class="profile-info">
-                <div class="name font-bold">Jane Doe</div>
-                <div class="job">Detective Superintendent</div>
-              </div>
+          <div class="detective-content" *ngFor="let detective of detectives; let index = index">
+            <div class="medal-container {{index === 0 ? 'font-supernova' : index === 1 ? 'font-purple' : ''}}">
+              <i *ngIf="index < 2" class="fas fa-medal"></i>
             </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container font-purple"><i class="fas fa-medal"></i></div>
             <div class="profile-container">
-              <div class="avatar font-bold color__rating-tweeter">J</div>
+              <div class="avatar font-bold {{detective.color}}">{{detective.name === 'Detective' ? '?' : detective.name[0]}}</div>
               <div class="profile-info">
-                <div class="name font-bold">Johanna Doe</div>
-                <div class="job">Detective</div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__rating-light-green">?</div>
-              <div class="profile-info">
-                <div class="name font-italic">Detective</div>
-                <div class="job"></div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__rating-green">?</div>
-              <div class="profile-info">
-                <div class="name font-italic">Detective</div>
-                <div class="job"></div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__purple">J</div>
-              <div class="profile-info">
-                <div class="name font-bold">Joe Doe</div>
-                <div class="job">Detective</div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__supernova">J</div>
-              <div class="profile-info">
-                <div class="name font-bold">Jens Doe</div>
-                <div class="job">Detective</div>
+                <div class="name {{detective.name === 'Detective' ? 'font-italic' : 'font-bold'}}">{{detective.name}}</div>
+                <div class="job">{{detective.job}}</div>
               </div>
             </div>
           </div>

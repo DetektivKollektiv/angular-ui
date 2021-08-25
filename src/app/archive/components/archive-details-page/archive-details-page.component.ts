@@ -34,6 +34,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public caseId = '';
   public shortenedCaseId = '';
   public tags: any[];
+  public detectives: any[];
   // private openCases: Item[];
 
   constructor(
@@ -166,6 +167,39 @@ export class ArchiveDetailsPageComponent implements OnInit {
           // urls: sampleUrls,
           // tags: sampleTags,
       };
+
+      this.detectives = [
+        {
+          name: 'Jane Doe',
+          job: 'Detective Superintendent',
+          color: 'color__rating-red'
+        },
+        {
+          name: 'Johanna Doe',
+          job: 'Detective',
+          color: 'color__rating-tweeter'
+        },
+        {
+          name: 'Detective',
+          job: '',
+          color: 'color__rating-light-green'
+        },
+        {
+          name: 'Detective',
+          job: '',
+          color: 'color__rating-green'
+        },
+        {
+          name: 'Joe Doe',
+          job: 'Detective',
+          color: 'color__purple'
+        },
+        {
+          name: 'Jens Doe',
+          job: 'Detective',
+          color: 'color__supernova'
+        }
+      ]
 
       console.log({zzz: firstCase});
 
