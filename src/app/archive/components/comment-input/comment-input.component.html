@@ -1,14 +1,22 @@
 <div class="reply-container">
   <div class="avatar-container">
-    <div class="avatar font-bold color__purple">J</div>
+    <div *ngIf="authenticated" class="avatar font-bold color__purple">J</div>
+    <div *ngIf="!authenticated" class="avatar font-bold font-old-parapgraph">A</div>
   </div>
   <div class="reply-body">
-    <div class="name font-bold">Joe Doe</div>
+    <div *ngIf="authenticated" class="name font-bold">Joe Doe</div>
+    <div *ngIf="!authenticated" class="name font-bold">Anonym</div>
     <div class="input-container">
       <textarea id="" rows="5"></textarea>
     </div>
-    <div class="reply-button-container">
+    <div *ngIf="authenticated" class="reply-button-container">
       <button>Posten</button>
+    </div>
+    <div *ngIf="!authenticated" class="register-button-container">
+      <a [routerLink]="['/register']" title=""
+        class="around-button">
+        <i class="fas fa-user-cowboy"></i>&nbsp;Detektiv werden
+      </a>
     </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./comment-input.component.scss'],
 })
 export class CommentInputComponent implements OnInit {
+  @Input() authenticated: boolean;
 
   constructor() { }
 

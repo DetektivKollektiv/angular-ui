@@ -153,7 +153,7 @@
           <span class="font-bold title">Fallbearbeitung</span>&nbsp;<span class="explain">einblenden</span>&nbsp;<i class="fas fa-chevron-right"></i>
         </div>
       </div>
-      <div class="comments-container">
+      <div *ngIf="authenticated" class="comments-container">
         <div class="comments-container-title font-bold">
           Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
         </div>
@@ -161,10 +161,10 @@
           <app-comment-list [comments]="case.comments"></app-comment-list>
         </div>
       </div>
-      <div class="discussions-button-container">
+      <div *ngIf="authenticated" class="discussions-button-container">
         <button>Mehr Kommentare laden</button>
       </div>
-      <app-comment-input></app-comment-input>
+      <app-comment-input [authenticated]="authenticated"></app-comment-input>
     </div>
   </div>
 </div>

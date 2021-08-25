@@ -10,6 +10,8 @@ import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item';
 import { GetDetailItem } from '../../state/archive.actions';
+import { AuthState } from '../../../shared/auth/model/auth-state';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -20,6 +22,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$: Observable<any>;
 
+  public authState: AuthState;
+  public authenticated = false;
   public user: any;
   public userInfo: any;
 
@@ -38,6 +42,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private loader: LoaderService,
     private router: Router,
     private store: Store,
+    private authService: AuthService,
   ) {
 
 
@@ -57,6 +62,10 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.authService.auth$.subscribe((authState: AuthState) => {
+      this.authState = authState;
+      this.authenticated = !!authState.isLoggedIn;
+    });
     if (!this.router.url.split('/')[2]) {
       this.router.navigate(['/']);
     } else {
