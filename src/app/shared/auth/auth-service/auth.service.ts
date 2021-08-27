@@ -33,6 +33,7 @@ export class AuthService {
         () => this.authState.next(initialAuthState)
       )
       .catch();
+
   }
 
   public signUp(
@@ -195,6 +196,7 @@ export class AuthService {
   }
 
   private setUser(user: any) {
+    console.log(`setUser`, user)
     if (!user) {
       return;
     }
@@ -205,7 +207,7 @@ export class AuthService {
       isLoggedIn: true,
       id: '',
       username,
-      email: '',
+      email: user?.attributes?.email ?? '',
       idToken: '',
     });
   }

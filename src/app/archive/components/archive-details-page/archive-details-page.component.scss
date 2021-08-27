@@ -228,6 +228,8 @@
       }
 
       .show-archive-detail {
+
+        margin-bottom: 60px;
         &-mark {
           font-size: 24px;
           font-weight: bold;
@@ -242,6 +244,10 @@
         &-description {
           margin: 5px 0;
         }
+   
+      }
+      .archive-case-date-info {
+        margin-top: 50px;
       }
 
       .tag-icon-container {
