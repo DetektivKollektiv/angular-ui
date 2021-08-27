@@ -63,8 +63,12 @@
       </div>
     </div>
   </div>
-
-  <div class="solved-case-section">
+  <div class="standard-content-container-width section">
+    <div style="width: 100%;" >
+      <app-open-case-list-slider *ngIf="cases" [cases]="cases"></app-open-case-list-slider>
+    </div>
+  </div>
+    <div class="solved-case-section">
     <div class="main-container standard-content-container-width section">
       <div class="title font-bold font-mono">
         In gelösten Fällen stöbern

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item';
 import { ArchiveState } from 'src/app/archive/state/archive.state';
 import { UserService } from 'src/app/core/services/user/user.service';
+import { ItemsService } from 'src/app/review-item/services/items/items.service';
 import { User } from 'src/app/core/model/user';
 
 @Component({
@@ -18,9 +19,11 @@ export class MyProfileComponent implements OnInit {
   public userName: string;
   public userLoaded: boolean = true;
   public topTenScores: Item[];
+  public cases: any[];
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private itemsService: ItemsService,
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +42,12 @@ export class MyProfileComponent implements OnInit {
       this.topTenScores = items.splice(0, 10);
       console.log(this.topTenScores)
     });
+
+    this.itemsService
+      .getOpenItems()
+      .then((openCases) => {
+        this.cases = openCases.items;
+      });
   }
 
 }

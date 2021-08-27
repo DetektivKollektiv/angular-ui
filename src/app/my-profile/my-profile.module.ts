@@ -10,6 +10,7 @@ import { ScoreListComponent } from './components/score-list/score-list.component
 import { SolveScoreListComponent } from './components/solve-score-list/solve-score-list.component';
 import { ScoreListItemComponent } from './components/score-list-item/score-list-item.component';
 import { CaseListModule } from '../shared/case-list/case-list.module';
+import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 registerLocaleData(localeDE, 'de')    ;
@@ -25,7 +26,8 @@ registerLocaleData(localeDE, 'de')    ;
     HelperModule,
     MaterialModule,
     NgxPaginationModule,
-    CaseListModule
+    CaseListModule,
+    OpenCaseListSliderModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
