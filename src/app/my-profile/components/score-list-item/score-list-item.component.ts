@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ScoreListItemComponent implements OnInit {
   @Input() case: any;
+  @Input() fontColor: string;
   public color: string;
 
   public result_score: number;

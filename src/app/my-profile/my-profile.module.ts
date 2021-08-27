@@ -7,6 +7,7 @@ import { HelperModule } from '../shared/helper/helper.module';
 import { MaterialModule } from '../shared/material/material.module';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { ScoreListComponent } from './components/score-list/score-list.component';
+import { SolveScoreListComponent } from './components/solve-score-list/solve-score-list.component';
 import { ScoreListItemComponent } from './components/score-list-item/score-list-item.component';
 import { CaseListModule } from '../shared/case-list/case-list.module';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -16,7 +17,8 @@ registerLocaleData(localeDE, 'de')    ;
   declarations: [
     MyProfileComponent,
     ScoreListComponent,
-    ScoreListItemComponent
+    ScoreListItemComponent,
+    SolveScoreListComponent
   ],
   imports: [
     CommonModule,

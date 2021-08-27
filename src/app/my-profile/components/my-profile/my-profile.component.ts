@@ -17,6 +17,7 @@ export class MyProfileComponent implements OnInit {
   public user: User;
   public userName: string;
   public userLoaded: boolean = true;
+  public topTenScores: Item[];
 
   constructor(
     private userService: UserService
@@ -35,6 +36,8 @@ export class MyProfileComponent implements OnInit {
 
     this.items$.subscribe((items) => {
       this.items = items;
+      this.topTenScores = items.splice(0, 10);
+      console.log(this.topTenScores)
     });
   }
 
