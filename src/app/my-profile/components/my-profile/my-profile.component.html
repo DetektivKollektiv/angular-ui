@@ -15,23 +15,23 @@
   <div class="middle-section standard-content-container-width section">
     <div class="left-side side">
       <div  class="left-side-title">
-        Level <span *ngIf="userLoaded">{{user.level}}</span> - Detective Superintendent
+        Level <span *ngIf="userLoaded">{{user.level}}</span> - <span *ngIf="userLoaded">{{user.level_description}}</span>
       </div>
       <div class="ranking-container">
         <div class="scored-case ranking-content">
-          <h2 span class="mark font__rating-orange">13</h2>
+          <h2 *ngIf="userLoaded" class="mark font__rating-orange">{{user.solved_cases_total < 10 ? "0" : ""}}{{user.solved_cases_total}}</h2>
           <span class="mark-explain">Bewertete Fälle</span>
         </div>
         <div class="rated-cases-today ranking-content">
-          <h2 class="mark font__rating-orange">08</h2>
+          <h2 *ngIf="userLoaded" class="mark font__rating-orange">{{user.solved_cases_today < 10 ? "0" : ""}}{{user.solved_cases_today}}</h2>
           <span class="mark-explain">Bewertete Fälle heute</span>
         </div>
         <div class="rank-overall ranking-content">
-          <h2 class="mark font__supernova">44</h2>
+          <h2 *ngIf="userLoaded" class="mark font__supernova">{{user.total_rank < 10 ? "0" : ""}}{{user.total_rank}}</h2>
           <span class="mark-explain">Rang insgesamt</span>
         </div>
         <div class="rank-at-your-level ranking-content">
-          <h2 class="mark font__purple">01</h2>
+          <h2 *ngIf="userLoaded" class="mark font__purple">{{user.level_rank < 10 ? "0" : ""}}{{user.level_rank}}</h2>
           <span class="mark-explain">Rang auf  deinem Level</span>
         </div>
       </div>
@@ -42,10 +42,10 @@
             [value]="40"
           >
           </mat-progress-bar>
-          <div>1100 / 2000XP</div>
+          <div *ngIf="userLoaded">{{user.experience_points * 100}} / {{(user.experience_points + user.exp_needed) * 100}}XP</div>
         </div>
         <div class="level-title">
-          <span>Level</span><span>12</span>
+          <span>Level</span><span *ngIf="userLoaded">{{user.level}}</span>
         </div>
       </div>
       <div class="image-container"></div>
