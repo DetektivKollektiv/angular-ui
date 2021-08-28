@@ -32,6 +32,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public tags: any[];
   public percentageResponses: {[key: string]: number} = {};
   public commentText
+  public caseCollapse: boolean = true;
+  public communityCollapse: boolean = true;
 
   public users: { [key:string]: {
     user: string,
@@ -251,6 +253,14 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
       return aggregated;
     }
+  }
+
+  changeCaseCollapse() {
+    this.caseCollapse = !this.caseCollapse;
+  }
+
+  changeCommunityCollapse() {
+    this.communityCollapse = !this.communityCollapse;
   }
 
   onPostComment() {

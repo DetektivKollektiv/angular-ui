@@ -180,14 +180,20 @@
         </div>
 
         <div class="show-case">
-          <span class="font-bold title">Fallbearbeitung</span>&nbsp;<span class="explain">einblenden</span>&nbsp;<i class="fas fa-chevron-right"></i>
+          <span class="font-bold title">Fallbearbeitung</span>&nbsp;
+          <span class="explain" (click)="changeCaseCollapse()">{{caseCollapse ? "ausblenden" : "einblenden"}}</span>&nbsp;
+          <i *ngIf="!caseCollapse" class="fas fa-chevron-right"></i>
+          <i *ngIf="caseCollapse" class="fas fa-chevron-down"></i>
         </div>
       </div>
       <div class="comments-container">
-        <div class="comments-container-title font-bold">
-          Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
+        <div class="comments-container-title">
+          <span class="font-bold">Communitydiskussion</span>&nbsp;
+          <span class="explain" (click)="changeCommunityCollapse()">{{communityCollapse ? "ausblenden" : "einblenden"}}</span>&nbsp;
+          <i *ngIf="!communityCollapse" class="fas fa-chevron-right"></i>
+          <i *ngIf="communityCollapse" class="fas fa-chevron-down"></i>
         </div>
-        <div *ngIf="case && 'comments' in case" class="comments-container-body">
+        <div *ngIf="communityCollapse && case && 'comments' in case" class="comments-container-body">
           <div *ngFor="let comment of case.comments" class="comments-content">
             <div class="avatar-container">
               <div class="{{ 'avatar font-bold ' + comment.color }}">
