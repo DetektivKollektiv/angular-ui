@@ -4,6 +4,7 @@ import { finalize, tap } from 'rxjs/operators';
 import { ArchiveService } from '../services/archive.service';
 import {
   AddFilterKeyword,
+  CreateComment,
   FetchAllItems,
   GetDetailItem,
   RemoveFilterId,
@@ -195,5 +196,17 @@ export class ArchiveState implements NgxsOnInit {
 
   ngxsOnInit(ctx?: StateContext<any>) {
     ctx.dispatch(new FetchAllItems());
+  }
+
+  @Action(CreateComment)
+  createComment(
+    ctx: StateContext<ArchiveStateModel>,
+    action: CreateComment
+  ) {
+    return this.archiveService.createComment(action.itemId, action.text, action.user).pipe(
+      tap((detailItem) => {
+        ctx.patchState({ detailItem });
+      })
+    );
   }
 }

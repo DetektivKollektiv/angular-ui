@@ -9,7 +9,7 @@ import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item';
-import { GetDetailItem } from '../../state/archive.actions';
+import { GetDetailItem, CreateComment } from '../../state/archive.actions';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -31,7 +31,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public shortenedCaseId = '';
   public tags: any[];
   public percentageResponses: {[key: string]: number} = {};
-  
+  public commentText
+
   public users: { [key:string]: {
     user: string,
     user_id: string,
@@ -114,9 +115,9 @@ export class ArchiveDetailsPageComponent implements OnInit {
     const users = reviews.reduce((acc:any, currentReview) => {
       const name = currentReview.user.trim().toLowerCase() === "deleted" ? "Deaktiviert" : currentReview.user
       const avatarCharacter = currentReview.user === 'deleted' ? "?" : currentReview.user[0].toUpperCase()
-      // const isAUserWeHaveDataFor = false 
+      // const isAUserWeHaveDataFor = false
       // const color = isAUserWeHaveDataFor ? 'use the users actual color' : this.getRandomColor();
-      
+
       const user = this.getUser(currentReview.user_id, currentReview.user);
 
       acc[currentReview.user] = user
@@ -187,7 +188,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       const { detailItem } = archive;
       const aggregated : {[key: string]: number} = getAggregatedResponses(detailItem);
       const numberResponses: number = Object.values(aggregated).reduce(
-        (accumulator: number, value: number) => accumulator+=value, 
+        (accumulator: number, value: number) => accumulator+=value,
         0
         );
       const allkeys = Object.keys(detailItem);
@@ -225,7 +226,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     function getAggregatedResponses(detailItem:any)
     {
       const aggregated = {};
-  
+
       for(let i = 0; i < detailItem.reviews.length; i++) {
         const review = detailItem.reviews[i];
 
@@ -236,19 +237,23 @@ export class ArchiveDetailsPageComponent implements OnInit {
           if(!answer_value) {
             continue;
           }
-       
+
           const { text } = theOption;
 
 
           if(!(text in aggregated)) {
             aggregated[text] = 1;
           } else {
-            aggregated[text]++;  
+            aggregated[text]++;
           }
         }
-      } 
+      }
 
       return aggregated;
     }
+  }
+
+  onPostComment() {
+    this.store.dispatch(new CreateComment(this.caseId, this.commentText, this.userInfo.id)).subscribe(({result}) => { })
   }
 }

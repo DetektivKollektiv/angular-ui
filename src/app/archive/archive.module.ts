@@ -1,5 +1,6 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material/material.module';
 import { HelperModule } from '../shared/helper/helper.module';
 import { ArchiveComponent } from './components/archive/archive.component';
@@ -39,6 +40,7 @@ registerLocaleData(localeDE, 'de')    ;
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialModule,
     HelperModule,
     RouterModule,
