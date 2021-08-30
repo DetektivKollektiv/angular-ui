@@ -167,7 +167,7 @@
         <div *ngIf="case && 'comments' in case" class="comments-container-body">
           <div *ngFor="let comment of case.comments" class="comments-content">
             <div class="avatar-container">
-              <div class="{{ 'avatar font-bold ' + comment.color }}">{{comment.name[0]}}</div>
+              <div *ngIf="comment.name" class="{{ 'avatar font-bold ' + comment.color }}">{{comment.name[0]}}</div>
             </div>
             <div class="content">
               <div class="name-date">
@@ -201,7 +201,7 @@
         <div *ngIf="communityCollapse && case && 'comments' in case" class="comments-container-body">
           <div *ngFor="let comment of case.comments" class="comments-content">
             <div class="avatar-container">
-              <div class="{{ 'avatar font-bold ' + comment.color }}">
+              <div *ngIf="comment.name" class="{{ 'avatar font-bold ' + comment.color }}">
                 {{comment.name[0]}}
               </div>
             </div>

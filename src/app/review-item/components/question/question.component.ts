@@ -28,9 +28,9 @@ export class QuestionComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.question.options = this.question.options.sort((a, b) =>
-      a.value > b.value ? -1 : 1
-    );
+    // this.question.options = this.question.options.sort((a, b) =>
+    //   a.value > b.value ? -1 : 1
+    // );
 
     this.isShowChild = false;
     if (this.parentIndex === -1) {
