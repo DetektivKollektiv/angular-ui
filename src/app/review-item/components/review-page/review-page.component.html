@@ -1,6 +1,6 @@
 <div class="review-page">
   <div class="top-section standard-content-container-width">
-    <app-case-details *ngIf="!!case" [case]=case></app-case-details>
+    <app-case-details title="Fall lösen" *ngIf="!!case" [case]=case></app-case-details>
     <app-user-experience-bubble-list [userExperienceBubbles]=userExperienceBubbles></app-user-experience-bubble-list>
   </div>
   <div class="questions-section standard-content-container-width">
@@ -76,7 +76,7 @@
             <p class="explain">Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens sichtbar sein.</p>
             <div class="userinfo">
               <div class="userprofile__bubble" style="background-color: #722ED1;">
-                J
+                {{userInfo.name[0].toUpperCase()}}
               </div>
               {{userInfo.name}}
             </div>
