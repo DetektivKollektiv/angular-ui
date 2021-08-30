@@ -24,6 +24,7 @@ import { TagIconComponent } from './components/tag-icon/tag-icon.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 import { CaseDetailsModule } from '../shared/case-details/case-details.module';
+import { ReviewItemModule } from 'src/app/review-item/review-item.module';
 
 registerLocaleData(localeDE, 'de')    ;
 @NgModule({
@@ -51,6 +52,7 @@ registerLocaleData(localeDE, 'de')    ;
     QuestionCarouselModule,
     CaseDetailsModule,
     NgxsModule.forFeature([ArchiveState]),
+    ReviewItemModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },

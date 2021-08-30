@@ -10,6 +10,8 @@ import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item';
 import { GetDetailItem, CreateComment } from '../../state/archive.actions';
+import { Review } from 'src/app/review-item/model/review';
+import { ReviewsService } from 'src/app/review-item/services/reviews/reviews.service';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -34,6 +36,9 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public commentText
   public caseCollapse: boolean = true;
   public communityCollapse: boolean = true;
+  public questions: any[];
+  public showQuestions: any[];
+  public review: Review;
 
   public users: { [key:string]: {
     user: string,
@@ -71,6 +76,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private loader: LoaderService,
     private router: Router,
     private store: Store,
+    private reviewService: ReviewsService
   ) {
     this.reviewSituation = {
       title: 'Der Tatbestand',
@@ -253,6 +259,14 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
       return aggregated;
     }
+
+    this.reviewService
+            .createReview(this.caseId)
+            .then((review) => {
+              this.review = review;
+              this.questions = review.questions;
+              this.showQuestions = this.questions.filter(question => !question.parent_question_id);
+            });
   }
 
   changeCaseCollapse() {

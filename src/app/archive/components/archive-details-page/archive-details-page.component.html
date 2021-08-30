@@ -185,6 +185,11 @@
           <i *ngIf="!caseCollapse" class="fas fa-chevron-right"></i>
           <i *ngIf="caseCollapse" class="fas fa-chevron-down"></i>
         </div>
+        <div  *ngIf="caseCollapse" class="question-section">
+          <div *ngFor="let question of showQuestions; let i=index">
+            <app-question [question]="question" [index]="i" [questions]="questions"></app-question>
+          </div>
+        </div>
       </div>
       <div class="comments-container">
         <div class="comments-container-title">
