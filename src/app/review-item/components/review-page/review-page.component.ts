@@ -106,8 +106,13 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       //urls: {"https://eine-url.tld", "https://eine-url.tld","https://eine-url.tld","https://eine-url.tld"},
       //tags:{ "4444444444",  "4444444444", "4444444444" , "4444444444"},
     };
+    // 100 XP is always static
 
-    this.userExperienceBubbles = [{ iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' },{ iconName: 'user-cowboy', color: '#fff', text: '100xp', subText: 'erfahrung', gridColor: '#722ED1' }];
+    this.userExperienceBubbles = [
+      { iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' },
+      // this one was in the designs, but is temporarily removed.
+      // { iconName: 'user-cowboy', color: '#fff', text: '3', subText: 'Detektive', gridColor: '#722ED1' } 
+    ];
   }
 
   get caseToSolve(): Item {
@@ -176,6 +181,12 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       })
       .finally(() => this.loader.hide());
   }
+  doAnUpdate()
+  {
+    this.reviewService.updateReview(this.review).then(() => {
+      console.log('we just totes did an update')
+    });    
+  }
 
   closeReview() {
     this.review.status = ReviewState[ReviewState.closed];
@@ -215,6 +226,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   }
 
   updateReview() {
+    console.log(`updateReview! in review-page`)
     this.reviewService.updateReview(this.review);
   }
 
@@ -254,6 +266,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.openCases = openCases.items;
         const firstCase = openCases.items[0];
 
+        console.log({response: openCases})
+
         const sampleTags =['tag1','tag2','really long tag here'];
         const sampleUrls = [
           { url: 'reddit.com', is_safe: true },
@@ -268,6 +282,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
             // urls: sampleUrls,
             // tags: sampleTags,
         };
+
+        console.log({zzz: this.case})
         
         this.reviewSituation.text = this.case.content
 

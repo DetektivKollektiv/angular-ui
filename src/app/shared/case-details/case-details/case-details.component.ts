@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CaseDetailsComponent implements OnInit {
   @Input() case: any;
   @Input() caseId: string;
+  @Input() title: string;
   public description: string;
   constructor() { }
 

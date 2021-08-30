@@ -27,7 +27,7 @@
     </mat-radio-button>
   </mat-radio-group>
   <div class="child-question-container" *ngIf="isShowChild">
-    <div class="child-question" *ngFor="let childQuestion of childQuestions; let i=index;">
+    <div class="child-question" *ngFor="let childQuestion of visibleChildQuestions; let i=index;">
       <app-question [question]="childQuestion" [isChild]="true" [parentIndex]="index" [index]="i"></app-question>
     </div>
   </div>
