@@ -52,3 +52,8 @@ export class SetEndDateFilter {
 export class RemoveFilterId {
   static readonly type = '[Archive] Remove Filter Id';
 }
+
+export class CreateComment {
+  static readonly type = '[Archive] Create Comment';
+  constructor(public itemId: string, public text: string, public user: string) {}
+}

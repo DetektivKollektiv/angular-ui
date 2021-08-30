@@ -244,7 +244,7 @@
         &-description {
           margin: 5px 0;
         }
-   
+
       }
       .archive-case-date-info {
         margin-top: 50px;
@@ -315,6 +315,11 @@
         &-title {
           font-size: 21px;
           margin-bottom: 20px;
+
+          .explain {
+            color: #aaa;
+            cursor: pointer;
+          }
         }
 
         &-body {
@@ -353,6 +358,7 @@
 
           .explain {
             color: #aaa;
+            cursor: pointer;
           }
         }
       }

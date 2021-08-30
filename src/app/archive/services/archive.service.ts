@@ -43,4 +43,23 @@ export class ArchiveService {
         .catch()
     );
   }
+
+  public createComment(itemId, text, user): Observable<any> {
+    const newPath = `/comments`;
+    return from(
+      API.post(this.apiName, newPath, { body: {item_id: itemId, comment: text, user: user}, response: true })
+        .then((response) => {
+          console.log('yaay', response)
+
+          if (response.status === 200) {
+            const data = response.data;
+
+            return data;
+          } else if (response.status === 204) {
+            return null;
+          }
+        })
+        .catch()
+    );
+  }
 }

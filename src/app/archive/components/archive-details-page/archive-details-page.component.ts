@@ -9,7 +9,9 @@ import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item';
-import { GetDetailItem } from '../../state/archive.actions';
+import { GetDetailItem, CreateComment } from '../../state/archive.actions';
+import { Review } from 'src/app/review-item/model/review';
+import { ReviewsService } from 'src/app/review-item/services/reviews/reviews.service';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -29,8 +31,18 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public shortenedCaseId = '';
   public tags: any[];
   public percentageResponses: {[key: string]: number} = {};
+
+  public commentText;
+  public caseCollapse: boolean = true;
+  public communityCollapse: boolean = true;
+  public questions: any[];
+  public showQuestions: any[];
+  public review: Review;
+
+
   
   public reviewQuestions:any[] = [];
+
   public users: { [key:string]: {
     user: string,
     color: string,
@@ -65,6 +77,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private loader: LoaderService,
     private router: Router,
     private store: Store,
+    private reviewService: ReviewsService
   ) {
     this.reviewSituation = {
       title: 'Der Tatbestand',
@@ -115,7 +128,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     const users = reviews.reduce((acc:any, currentReview) => {
       const name = currentReview.user.trim().toLowerCase() === "deleted" ? "Deaktiviert" : currentReview.user
       const avatarCharacter = currentReview.user === 'deleted' ? "?" : currentReview.user[0].toUpperCase()
-      // const isAUserWeHaveDataFor = false 
+      // const isAUserWeHaveDataFor = false
       // const color = isAUserWeHaveDataFor ? 'use the users actual color' : this.getRandomColor();
       
       const user = this.getUser( currentReview.user);
@@ -208,7 +221,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       const { detailItem } = archive;
       const aggregated : {[key: string]: number} = getAggregatedResponses(detailItem);
       const numberResponses: number = Object.values(aggregated).reduce(
-        (accumulator: number, value: number) => accumulator+=value, 
+        (accumulator: number, value: number) => accumulator+=value,
         0
         );
       const allkeys = Object.keys(detailItem);
@@ -238,6 +251,10 @@ export class ArchiveDetailsPageComponent implements OnInit {
         // tags: sampleTags,
       };
 
+      this.questions = this.case.reviews[0].questions;
+      this.showQuestions = this.questions.filter(question => !question.parent_question_id);
+      console.log({showQuestions: this.showQuestions})
+
       // const questions = this.case.reviews[0].questions;
   
       // console.log({questionsMap})
@@ -259,30 +276,51 @@ export class ArchiveDetailsPageComponent implements OnInit {
     function getAggregatedResponses(detailItem:any)
     {
       const aggregated = {};
-  
+
       for(let i = 0; i < detailItem.reviews.length; i++) {
         const review = detailItem.reviews[i];
 
         for(let j = 0; j < review.questions.length; j++) {
           const question = review.questions[j];
           const { options, answer_value, answer_id }  = question
-          const theOption = options.find((opt:any) => opt.value === answer_value)
+          const theOption = options.find((opt:any) => opt.value 
+                                   answer_value)
           if(!answer_value) {
             continue;
           }
-       
+
           const { text } = theOption;
 
 
           if(!(text in aggregated)) {
             aggregated[text] = 1;
           } else {
-            aggregated[text]++;  
+            aggregated[text]++;
           }
         }
-      } 
+      }
 
       return aggregated;
     }
+
+    // this.reviewService
+    //         .createReview(this.caseId)
+    //         .then((review) => {
+    //           this.review = review;
+    //           this.questions = review.questions;
+    //           this.showQuestions = this.questions.filter(question => !question.parent_question_id);
+    //         });
+  }
+
+  changeCaseCollapse() {
+    this.caseCollapse = !this.caseCollapse;
+  }
+
+  changeCommunityCollapse() {
+    this.communityCollapse = !this.communityCollapse;
+  }
+
+  onPostComment() {
+    this.store.dispatch(new CreateComment(this.caseId, this.commentText, this.userInfo.id)).subscribe(({result}) => { })
   }
 }
