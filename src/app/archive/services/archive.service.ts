@@ -32,8 +32,6 @@ export class ArchiveService {
     return from(
       API.get(this.apiName, newPath, { response: true })
         .then((response) => {
-          console.log('yaay', response)
-
           if (response.status === 200) {
             const items = response.data;
 
