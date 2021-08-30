@@ -164,17 +164,17 @@
         <div class="comments-container-title font-bold">
           Fallbewertungskommentare
         </div>
-        <div *ngIf="case && 'comments' in case" class="comments-container-body">
-          <div *ngFor="let comment of case.comments" class="comments-content">
+        <div *ngIf="case && 'reviewComments' in case && case.reviewComments.length > 0" class="comments-container-body">
+          <div *ngFor="let comment of case.reviewComments" class="comments-content">
             <div class="avatar-container">
-              <div class="{{ 'avatar font-bold ' + comment.color }}">{{comment.name[0]}}</div>
+              <div class="{{ 'avatar font-bold ' + comment.color }}">{{!!comment.user ? comment.avatarCharacter : ''}}</div>
             </div>
             <div class="content">
               <div class="name-date">
-                <span class="name font-bold">{{comment.name}}</span>&nbsp;
+                <span class="name font-bold">{{comment.user}}</span>&nbsp;
                 <span class="date">{{comment.date}}</span>
               </div>
-              <p>{{comment.text}}</p>
+              <p>{{comment.comment}}</p>
             </div>
           </div>
         </div>
@@ -187,19 +187,19 @@
         <div class="comments-container-title font-bold">
           Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
         </div>
-        <div *ngIf="case && 'comments' in case" class="comments-container-body">
+        <div *ngIf="case && 'comments' in case && case.comments.length > 0" class="comments-container-body">
           <div *ngFor="let comment of case.comments" class="comments-content">
             <div class="avatar-container">
               <div class="{{ 'avatar font-bold ' + comment.color }}">
-                {{comment.name[0]}}
+                {{comment.avatarCharacter}}
               </div>
             </div>
             <div class="content">
               <div class="name-date">
-                <span class="name font-bold">{{comment.name}}</span>&nbsp;
+                <span class="name font-bold">{{comment.user}}</span>&nbsp;
                 <span class="date">{{comment.date}}</span>
               </div>
-              <p>{{comment.text}}</p>
+              <p>{{comment.comment}}</p>
             </div>
           </div>
         </div>
