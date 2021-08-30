@@ -1,0 +1,129 @@
+@import "../../../../assets/scss/_initializer.scss";
+
+.reply-container {
+  display: flex;
+  margin-bottom: 100px;
+
+  .reply-body {
+    flex: 1;
+
+    .name {
+      font-size: 18px;
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+    textarea {
+      width: 100%;
+      border-radius: 10px;
+      padding: 16px;
+
+      &:focus {
+        border: 1px solid;
+      }
+    }
+
+    .reply-button-container {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        padding: 5px 15px;
+        border-radius: 15px;
+        background-color: $color__purple;
+        color: white;
+        border: none;
+        font-weight: bold;
+        border: 2px solid $color__purple;
+
+        &:hover {
+          background-color: white;
+          color: $color__purple;
+          border: 2px solid $color__purple;
+        }
+      }
+    }
+
+    .register-button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+
+      .around-button {
+        border: 1px solid #ff7269;
+        padding: 14px 24px;
+        color: #ff7269;
+        border-radius: 24px;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #ff7269;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-family: 'PT MONO';
+  margin: 0 5px;
+}
+
+.full-width-input {
+  width: 100;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.color__supernova {
+  background-color: $color__supernova;
+}
+
+.color__bittersweet {
+  background-color: $color__bittersweet;
+}
+
+.color__rating-red {
+  background-color: $color__rating-red;
+}
+
+.color__rating-light-green {
+  background-color: $color__rating-light-green;
+}
+
+.color__rating-green {
+  background-color: $color__rating-green;
+}
+
+.color__rating-tweeter {
+  background-color: $color__rating-tweeter;
+}
+
+.color__purple {
+  background-color: $color__purple;
+}
+
+.font-supernova {
+  color: $color__supernova;
+}
+
+.font-purple {
+  color: $color__purple;
+}
+.font-old-parapgraph {
+  color: $color__old-paragraph;
+}

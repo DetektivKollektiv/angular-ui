@@ -9,9 +9,10 @@ import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item';
+import { AuthState } from '../../../shared/auth/model/auth-state';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { GetDetailItem, CreateComment } from '../../state/archive.actions';
 import { Review } from 'src/app/review-item/model/review';
-import { ReviewsService } from 'src/app/review-item/services/reviews/reviews.service';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -22,6 +23,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$: Observable<any>;
 
+  public authState: AuthState;
+  public authenticated = false;
   public user: any;
   public reviewSituation: any;
   public case: any;
@@ -30,6 +33,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public caseId = '';
   public shortenedCaseId = '';
   public tags: any[];
+
   public percentageResponses: {[key: string]: number} = {};
 
   public commentText;
@@ -77,7 +81,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private loader: LoaderService,
     private router: Router,
     private store: Store,
-    private reviewService: ReviewsService
+
+    private authService: AuthService,
   ) {
     this.reviewSituation = {
       title: 'Der Tatbestand',
@@ -164,6 +169,10 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.auth$.subscribe((authState: AuthState) => {
+      this.authState = authState;
+      this.authenticated = !!authState.isLoggedIn;
+    });
     if (!this.router.url.split('/')[2]) {
       this.router.navigate(['/']);
     } else {
@@ -265,6 +274,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       this.detectives = Object.values(this.getDetectives(detailItem.reviews));
     });
 
+
     function getPercentages(aggregatedResponses:any, numberResponses: number)
     {
       return Object.keys(aggregatedResponses).reduce((acc:any, currentKey:string) => {
@@ -303,14 +313,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
       return aggregated;
     }
-
-    // this.reviewService
-    //         .createReview(this.caseId)
-    //         .then((review) => {
-    //           this.review = review;
-    //           this.questions = review.questions;
-    //           this.showQuestions = this.questions.filter(question => !question.parent_question_id);
-    //         });
   }
 
   changeCaseCollapse() {

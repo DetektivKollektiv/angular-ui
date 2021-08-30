@@ -94,91 +94,26 @@
       <div class="detectives-container">
         <div class="detectives-container-title">Ermittelnde Detektive</div>
         <div class="detectives-container-body">
-
-
-          <div *ngFor="let detective of detectives" class="detective-content">
-            <!-- <div class="medal-container font-supernova"><i class="fas fa-medal"></i></div> -->
+          <div class="detective-content" *ngFor="let detective of detectives; let index = index">
+            <div class="medal-container {{index === 0 ? 'font-supernova' : index === 1 ? 'font-purple' : ''}}">
+              <i *ngIf="index < 2" class="fas fa-medal"></i>
+            </div>
             <div class="profile-container">
-
-              <div class="{{'avatar font-bold ' + detective.color}}">{{detective.avatarCharacter}}</div>
+              <div class="avatar font-bold {{detective.color}}">{{detective.user === 'Detective' ? '?' : detective.user[0]}}</div>
               <div class="profile-info">
-                <div class="name font-bold">{{detective.user}}</div>
-                <!-- <div class="job">Detective Superintendent</div> -->
+                <div class="name {{detective.user === 'Detective' ? 'font-italic' : 'font-bold'}}">{{detective.user}}</div>
+                <!-- <div class="job">{{detective.job}}</div> -->
               </div>
             </div>
           </div>
-
-        <!--   <div class="detective-content">
-            <div class="medal-container font-purple"><i class="fas fa-medal"></i></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__rating-tweeter">J</div>
-              <div class="profile-info">
-                <div class="name font-bold">Johanna Doe</div>
-                <div class="job">Detective</div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__rating-light-green">?</div>
-              <div class="profile-info">
-                <div class="name font-italic">Detective</div>
-                <div class="job"></div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__rating-green">?</div>
-              <div class="profile-info">
-                <div class="name font-italic">Detective</div>
-                <div class="job"></div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__purple">J</div>
-              <div class="profile-info">
-                <div class="name font-bold">Joe Doe</div>
-                <div class="job">Detective</div>
-              </div>
-            </div>
-          </div>
-          <div class="detective-content">
-            <div class="medal-container"></div>
-            <div class="profile-container">
-              <div class="avatar font-bold color__supernova">J</div>
-              <div class="profile-info">
-                <div class="name font-bold">Jens Doe</div>
-                <div class="job">Detective</div>
-              </div>
-            </div>
-          </div>
-        </div> -->
+        </div>
       </div>
       <div class="comments-container">
         <div class="comments-container-title font-bold">
           Fallbewertungskommentare
         </div>
         <div *ngIf="case && 'reviewComments' in case && case.reviewComments.length > 0" class="comments-container-body">
-          <div *ngFor="let comment of case.reviewComments" class="comments-content">
-            <div class="avatar-container">
-              <div *ngIf="comment.name" class="{{ 'avatar font-bold ' + comment.color }}">{{!!comment.user ? comment.avatarCharacter : ''}}</div>
-<!--               <div class="{{ 'avatar font-bold ' + comment.color }}">{{!!comment.user ? comment.avatarCharacter : ''}}</div> -->
-
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-bold">{{comment.user}}</span>&nbsp;
-                <span class="date">{{comment.date}}</span>
-              </div>
-              <p>{{comment.comment}}</p>
-            </div>
-          </div>
+          <app-comment-list [comments]="case.reviewComments"></app-comment-list>
         </div>
 
         <div class="show-case">
@@ -193,41 +128,20 @@
           </div>
         </div>
       </div>
-      <div class="comments-container">
-        <div class="comments-container-title">
-          <span class="font-bold">Communitydiskussion</span>&nbsp;
-          <span class="explain" (click)="changeCommunityCollapse()">{{communityCollapse ? "ausblenden" : "einblenden"}}</span>&nbsp;
-          <i *ngIf="!communityCollapse" class="fas fa-chevron-right"></i>
-          <i *ngIf="communityCollapse" class="fas fa-chevron-down"></i>
+      <div *ngIf="authenticated" class="comments-container">
+        <div class="comments-container-title font-bold">
+          Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
         </div>
-
-        <div *ngIf="communityCollapse && case && 'comments' in case && case.comments.length > 0" class="comments-container-body">
-          <div *ngFor="let comment of case.comments" class="comments-content">
-            <div class="avatar-container">
-              <div *ngIf="comment.name" class="{{ 'avatar font-bold ' + comment.color }}">
-                {{comment.avatarCharacter}}
-
-<!--         <div *ngIf="case && 'comments' in case && case.comments.length > 0" class="comments-container-body"> -->
-<!--           <div *ngFor="let comment of case.comments" class="comments-content"> -->
-<!--             <div class="avatar-container"> -->
-<!--               <div class="{{ 'avatar font-bold ' + comment.color }}"> -->
-<!--                 {{comment.avatarCharacter}} -->
-
-              </div>
-            </div>
-            <div class="content">
-              <div class="name-date">
-                <span class="name font-bold">{{comment.user}}</span>&nbsp;
-                <span class="date">{{comment.date}}</span>
-              </div>
-              <p>{{comment.comment}}</p>
-            </div>
-          </div>
+        <div *ngIf="case && 'comments' in case" class="comments-container-body">
+          <app-comment-list [comments]="case.comments"></app-comment-list>
         </div>
       </div>
-      <div class="discussions-button-container">
+      <div *ngIf="authenticated" class="discussions-button-container">
         <button>Mehr Kommentare laden</button>
       </div>
+
+      <app-comment-input [authenticated]="authenticated"></app-comment-input>
+      
       <div class="reply-container">
         <div class="avatar-container">
           <div *ngIf="user && user.name" class="avatar font-bold color__purple">{{ user.name[0].toUpperCase() }}</div>

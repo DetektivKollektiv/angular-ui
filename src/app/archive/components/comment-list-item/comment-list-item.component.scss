@@ -1,0 +1,79 @@
+@import "../../../../assets/scss/_initializer.scss";
+
+.content {
+
+  p {
+    white-space: pre; // respect newlines /n
+  }
+
+  .name-date {
+    margin-top: 14px;
+    .name {
+      font-size: 18px;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-family: 'PT MONO';
+  margin: 0 5px;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.color__supernova {
+  background-color: $color__supernova;
+}
+
+.color__bittersweet {
+  background-color: $color__bittersweet;
+}
+
+.color__rating-red {
+  background-color: $color__rating-red;
+}
+
+.color__rating-light-green {
+  background-color: $color__rating-light-green;
+}
+
+.color__rating-green {
+  background-color: $color__rating-green;
+}
+
+.color__rating-tweeter {
+  background-color: $color__rating-tweeter;
+}
+
+.color__purple {
+  background-color: $color__purple;
+}
+
+.font-supernova {
+  color: $color__supernova;
+}
+
+.font-purple {
+  color: $color__purple;
+}
+

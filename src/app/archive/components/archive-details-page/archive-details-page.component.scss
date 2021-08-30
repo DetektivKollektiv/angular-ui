@@ -326,30 +326,6 @@
           display: flex;
           flex-direction: column;
           margin-bottom: 40px;
-
-          .comments-content {
-            display: flex;
-
-            .content {
-
-              p {
-                white-space: pre; // respect newlines /n
-              }
-
-              .name-date {
-                margin-top: 14px;
-                .name {
-                  font-size: 18px;
-                }
-
-                .date {
-                  font-size: 14px;
-                  color: #aaa;
-                }
-
-              }
-            }
-          }
         }
 
         .show-case {
@@ -402,6 +378,7 @@
       .discussions-button-container {
         display: flex;
         justify-content: center;
+        margin-bottom: 40px;
 
         button {
           padding: 5px 15px;
@@ -416,50 +393,6 @@
             background-color: white;
             color: $color__purple;
             border: 2px solid $color__purple;
-          }
-        }
-      }
-
-      .reply-container {
-        display: flex;
-
-        .reply-body {
-          flex: 1;
-
-          .name {
-            font-size: 18px;
-            margin-top: 16px;
-            margin-bottom: 8px;
-          }
-          textarea {
-            width: 100%;
-            border-radius: 10px;
-            padding: 16px;
-
-            &:focus {
-              border: 1px solid;
-            }
-          }
-
-          .reply-button-container {
-            display: flex;
-            justify-content: flex-end;
-
-            button {
-              padding: 5px 15px;
-              border-radius: 15px;
-              background-color: $color__purple;
-              color: white;
-              border: none;
-              font-weight: bold;
-              border: 2px solid $color__purple;
-
-              &:hover {
-                background-color: white;
-                color: $color__purple;
-                border: 2px solid $color__purple;
-              }
-            }
           }
         }
       }
