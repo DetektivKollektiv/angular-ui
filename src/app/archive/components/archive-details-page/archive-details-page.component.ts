@@ -283,11 +283,12 @@ export class ArchiveDetailsPageComponent implements OnInit {
         for(let j = 0; j < review.questions.length; j++) {
           const question = review.questions[j];
           const { options, answer_value, answer_id }  = question
-          const theOption = options.find((opt:any) => opt.value 
-                                   answer_value)
+          
           if(!answer_value) {
             continue;
           }
+
+          const theOption = options.find((opt:any) => opt.value === answer_value)
 
           const { text } = theOption;
 
@@ -321,6 +322,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   onPostComment() {
-    this.store.dispatch(new CreateComment(this.caseId, this.commentText, this.userInfo.id)).subscribe(({result}) => { })
+    this.store.dispatch(new CreateComment(this.caseId, this.commentText, this.user.id)).subscribe(({result}) => { })
   }
 }
