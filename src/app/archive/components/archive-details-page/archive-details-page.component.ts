@@ -238,6 +238,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       // this.aggegatedResponses = aggregated
       this.percentageResponses = getPercentages(aggregated, numberResponses);
       const comments = detailItem && 'comments' in detailItem && Array.isArray(detailItem!.comments) ? detailItem!.comments : sampleComments;
+
       const commentsWithUsers = comments.map((comment: any) => {
         const user = this.getUser(comment.user);
 
@@ -250,7 +251,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
       const reviewComments = commentsWithUsers.filter((comment:any) => comment.is_review_comment === 'True');
       const nonReviewComments = commentsWithUsers.filter((comment:any) => comment.is_review_comment !== 'True');
 
-      console.log({reviewComments, nonReviewComments})
       this.case = {
         ...detailItem,
         comments: nonReviewComments,
@@ -262,7 +262,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
       this.questions = this.case.reviews[0].questions;
       this.showQuestions = this.questions.filter(question => !question.parent_question_id);
-      console.log({showQuestions: this.showQuestions})
 
       // const questions = this.case.reviews[0].questions;
   
@@ -323,7 +322,9 @@ export class ArchiveDetailsPageComponent implements OnInit {
     this.communityCollapse = !this.communityCollapse;
   }
 
-  onPostComment() {
-    this.store.dispatch(new CreateComment(this.caseId, this.commentText, this.user.id)).subscribe(({result}) => { })
+  onPostComment(text) {
+    this.store.dispatch(new CreateComment(this.caseId, text, this.user.id)).subscribe(({result}) => { 
+      console.log('comment posted ', text, `result `, result)
+    })
   }
 }

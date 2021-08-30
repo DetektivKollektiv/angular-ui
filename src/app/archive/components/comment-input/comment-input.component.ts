@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-comment-input',
@@ -7,9 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CommentInputComponent implements OnInit {
   @Input() authenticated: boolean;
+  @Input() user;
+  @Output() commentSubmitted = new EventEmitter();
+  public comment:string = "";
 
   constructor() { }
-
+  submitComment() {
+    this.commentSubmitted.emit(this.comment)
+  }
+  setComment(e) {
+    this.comment = e.target.value
+  }
   ngOnInit(): void {
   }
 }

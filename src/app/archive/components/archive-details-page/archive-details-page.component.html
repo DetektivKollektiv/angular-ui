@@ -20,7 +20,7 @@
       </div>
       <div class="links-section">
         <h3>Hinterlegte und entdeckte Links</h3>
-        <div *ngIf="case && 'urls' in case">
+        <div *ngIf="case && case.hasOwnProperty('urls')">
           <span *ngFor="let url of case.urls" class="{{'link-icon' + url.is_safe ? 'gray-link' : ''}} ">
             <a href="{{url.url}}">
               <i class="far fa-external-link-square-alt"></i>
@@ -31,14 +31,14 @@
       </div>
       <div class="tags-section">
         <h3>Tags</h3>
-        <ul *ngIf="case && 'tags' in case">
+        <ul *ngIf="case && case.hasOwnProperty('tags')">
           <li *ngFor="let tag of case.tags">{{tag}}</li>
         </ul>
       </div>
       <div class="background-info-section">
         <h3>Hintergrundinformationen</h3>
         <ul>
-          <span *ngIf="case && 'open_timestamp' in case" class="link-icon"><li><i class="far fa-calendar-alt"></i>{{case.open_timestamp}}</li></span>
+          <span *ngIf="case && case.hasOwnProperty('open_timestamp')" class="link-icon"><li><i class="far fa-calendar-alt"></i>{{case.open_timestamp}}</li></span>
           <span class="link-icon"><li><i class="fal fa-user"></i>Anonym</li></span>
         </ul>
       </div>
@@ -51,7 +51,7 @@
         <div class="description">
           <div class="description-header">Dieser Fall ist nicht vertrauenswürdig</div>
           <div class="description-content">
-            Dieser Fall ist von {{detectives.length}} Detektiven mit {{score}} von 100 Punkten bewertet worden. Du solltest die Informationen in diesem Fall unbedingt mit Vorsicht behandeln.
+            Dieser Fall ist von {{detectives.length}} Detektiven mit {{score}} von 100 Punkten bewertet worden. Du solltest diediesem.hasOwnProperty( Informationen) Fall unbedingt mit Vorsicht behandeln.
           </div>
         </div>
       </div>
@@ -112,7 +112,7 @@
         <div class="comments-container-title font-bold">
           Fallbewertungskommentare
         </div>
-        <div *ngIf="case && 'reviewComments' in case && case.reviewComments.length > 0" class="comments-container-body">
+        <div *ngIf="case && case.hasOwnProperty('reviewComments') && case.reviewComments.length > 0" class="comments-container-body">
           <app-comment-list [comments]="case.reviewComments"></app-comment-list>
         </div>
 
@@ -129,10 +129,13 @@
         </div>
       </div>
       <div *ngIf="authenticated" class="comments-container">
-        <div class="comments-container-title font-bold">
-          Fallbewertungskommentare <span>ausblenden</span>&nbsp;<i class="fas fa-chevron-down"></i>
+        <div class="comments-container-title">
+          <span class="font-bold">Communitydiskussion</span>&nbsp;
+          <span class="explain" (click)="changeCommunityCollapse()">{{communityCollapse ? "ausblenden" : "einblenden"}}</span>&nbsp;
+          <i *ngIf="!communityCollapse" class="fas fa-chevron-right"></i>
+          <i *ngIf="communityCollapse" class="fas fa-chevron-down"></i>
         </div>
-        <div *ngIf="case && 'comments' in case" class="comments-container-body">
+        <div *ngIf="case && case.hasOwnProperty('comments')" class="comments-container-body">
           <app-comment-list [comments]="case.comments"></app-comment-list>
         </div>
       </div>
@@ -140,22 +143,7 @@
         <button>Mehr Kommentare laden</button>
       </div>
 
-      <app-comment-input [authenticated]="authenticated"></app-comment-input>
-      
-      <div class="reply-container">
-        <div class="avatar-container">
-          <div *ngIf="user && user.name" class="avatar font-bold color__purple">{{ user.name[0].toUpperCase() }}</div>
-        </div>
-        <div class="reply-body">
-          <div *ngIf="user && user.name" class="name font-bold">{{user.name}}</div>
-          <div class="input-container">
-            <textarea id="" rows="5" [(ngModel)]="commentText"></textarea>
-          </div>
-          <div class="reply-button-container">
-            <button (click)="onPostComment()">Posten</button>
-          </div>
-        </div>
-      </div>
+      <app-comment-input [user]="user" (commentSubmitted)="onPostComment($event)" [authenticated]="authenticated"></app-comment-input>
     </div>
   </div>
 </div>
