@@ -47,25 +47,40 @@
     <div class="case-overview-section">
       <h2 class="overview-section--title">Fallabschlussbericht</h2>
       <div class="show-archive-result">
-        <div class="mark">13</div>
+        <div class="mark">{{score}}</div>
         <div class="description">
           <div class="description-header">Dieser Fall ist nicht vertrauenswürdig</div>
           <div class="description-content">
-            Dieser Fall ist von 3 Detektiven mit 13 von 100 Punkten bewertet worden. Du solltest die Informationen in diesem Fall unbedingt mit Vorsicht behandeln.
+            Dieser Fall ist von {{detectives.length}} Detektiven mit {{score}} von 100 Punkten bewertet worden. Du solltest die Informationen in diesem Fall unbedingt mit Vorsicht behandeln.
           </div>
         </div>
       </div>
       <div class="show-archive-detail">
-        <p class="show-archive-detail-mark">
-          13%<sub class="sub-description">Der Fragen wurden mit Trifft eher nicht zu beantwortet.</sub>
-        </p>
-        <p class="show-archive-detail-mark">
-          87%<sub class="sub-description">Der Fragen wurden mit Trifft nicht zu beantwortet.</sub>
-        </p>
-        <div class="show-archive-detail-description">Keine Frage wurde mit Trifft zu beantwortet.</div>
-        <div class="show-archive-detail-description">Keine Frage wurde mit Trifft eher zu beantwortet.</div>
-        <div class="show-archive-detail-description">Die Kriterien waren auf alle Fragen anwendbar.</div>
-        <div class="show-archive-detail-description">Der Fall war 27 Tage aktiv.</div>
+        <div *ngFor="let answer of answers" class="show-archive-detail-description">
+          <div *ngIf="percentageResponses.hasOwnProperty(answer) && percentageResponses[answer] > 0;then show_number else other_content">
+          </div>
+
+          <ng-template #show_number>
+             <p class="show-archive-detail-mark">
+              {{this.percentageResponses[answer]}}%
+              <sub class="sub-description">Der Fragen wurden mit "<i>{{answer}}</i>" beantwortet.</sub>
+            </p > 
+          </ng-template> 
+          <ng-template #other_content>
+            <div>
+              Keine Frage wurde mit "<i>{{answer}}</i>" beantwortet.  
+            </div>
+          </ng-template>
+        </div>
+        <!-- "Kriterium nicht anwendbar" -->
+
+        <!-- <div class="show-archive-detail-description">Die Kriterien waren auf alle Fragen anwendbar.</div>
+        20% Der Fragen hatten Kriterien die nicht anwendbar waren -->
+
+       
+      </div>
+      <div class="archive-case-date-info">
+        <div class="">Der Fall war 27 Tage aktiv.</div>
         <span><i class="far fa-calendar-check"></i>&nbsp;02.01.0001</span>
       </div>
       <div class="tag-icon-container">
@@ -91,7 +106,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="comments-container">
         <div class="comments-container-title font-bold">

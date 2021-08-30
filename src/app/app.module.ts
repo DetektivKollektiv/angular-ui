@@ -23,6 +23,7 @@ import { UnsavedChangesModule } from './shared/unsaved-changes/unsaved-changes.m
 import { ProfileModule } from './profile/profile.module';
 import { HighscoresModule } from './highscores/highscores.module';
 import { MyFileModule } from './my-file/my-file.module';
+import { MyProfileModule } from './my-profile/my-profile.module';
 import { IssuesModule } from './issues/issues.module';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -79,6 +80,7 @@ export function createTranslateLoader(http: HttpClient) {
     HelperModule,
     OpenCaseListSliderModule,
     HomeModule,
+    MyProfileModule
   ],
   bootstrap: [AppComponent],
 })

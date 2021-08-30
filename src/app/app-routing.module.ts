@@ -32,6 +32,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
+import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
 import { CaseShowComponent } from './cases/components/case-show/case-show.component';
 
 const routes: Routes = [
@@ -157,6 +158,14 @@ const routes: Routes = [
       { path: '', component: ArchiveDetailsPageComponent }
     ],
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'my-profile',
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: MyProfileComponent }
+    ],
+    canActivate: [AuthGuard]
   },
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },
   { path: 'issues', component: IssuesComponent },
