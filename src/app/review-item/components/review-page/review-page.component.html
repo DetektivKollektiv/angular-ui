@@ -87,9 +87,12 @@
           <div class="tags-container case-process-container">
             <p class="large-font">Schlagwörter</p>
             <p class="explain">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
-            <div class="input-container">
+   <!--          <div class="input-container">
               <input type="text" (focusout)="submitTags()">
-            </div>
+            </div> -->
+
+            <app-tags-question [review]="review" [itemId]="caseId" #tags>
+            </app-tags-question>
           </div>
           <div class="legal-information-container case-process-container">
             <p class="large-font">Rechtliche Angaben</p>
@@ -108,7 +111,7 @@
             </div>
             <div class="legal-button-container">
               <a href='' class="abort-button button-group">Abbrechen</a>
-              <button class="submit-button button-group" [disabled]="buttonStatus">Lösung einreichen</button>
+              <button class="submit-button button-group" (click)="closeReview()" [disabled]="buttonStatus">Lösung einreichen</button>
             </div>
           </div>
 

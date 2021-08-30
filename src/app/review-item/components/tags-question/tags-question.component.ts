@@ -58,6 +58,7 @@ export class TagsQuestionComponent implements OnInit {
   }
 
   async submitTags() {
+    console.log('submitTags')
     await this.itemsService.setItemTags(this.itemId, this.tagsUser);
   }
 }
