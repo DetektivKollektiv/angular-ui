@@ -72,13 +72,43 @@ mat-icon {
 
 .last-item {
   color: red;
-  margin-top: 40px !important;
 
   & * {
     width: 100px;
   }
 
   .option {
-    margin-top: 15px;
+  }
+}
+
+.option {
+  display: flex;
+
+  .info {
+    display: flex;
+  }
+
+  .percentage {
+    font-family: 'PT MONO';
+    color: $color__purple;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .green {
+    background-color: green;
+  }
+
+  .red {
+    background-color: red;
+    margin-left: -8px;
   }
 }
