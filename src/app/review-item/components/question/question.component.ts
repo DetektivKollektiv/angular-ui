@@ -49,37 +49,14 @@ export class QuestionComponent implements OnInit {
     if(!hasChildren) {
       return
     }
-    console.log('yoooo')
-    // if (hasChildren) {
-      this.questions.forEach(question => {
-        if (question.parent_question_id === this.question.question_id) {
-          this.childQuestions.push(question);
-          // const lowerBound = !!question.lower_bound ? question.lower_bound : 0;
-          // const upperBound = !!question.upper_bound ? question.upper_bound : 1000;
-          // const valueInBound = value && lowerBound <= value && upperBound >= value;
-
-        }
-      });
-    // }
-      
-    // const hasChildren = this.childQuestions.length > 0;
-
-    // if(value && valueInBound) {
-    //   this.isShowChild = true;
-    // }
-    // if(hasChildren) {
-    //   debugger
-    // }
-    // console.log({isShowChild: 
-    //   this.isShowChild,
-    //   hasChildren, 
-    //   valueInBound,
-    //   value,
-    //   children: this.childQuestions})
+    this.questions.forEach(question => {
+      if (question.parent_question_id === this.question.question_id) {
+        this.childQuestions.push(question);
+      }
+    });
   }
 
   showChildQuestions(value) {
-    console.log(`showChildQuestions ${value}`)
     
     if(!value) {
       return;
@@ -89,35 +66,16 @@ export class QuestionComponent implements OnInit {
     this.isShowChild = false;
     this.childQuestions.forEach( question => {
       const valueInBound = question.lower_bound <= value && question.upper_bound >= value;
-      console.log(`showChildQuetsions`,
-        {
-          valueInBound,
-          lower: question.lower_bound,
-          upper: question.upper_bound
-        }
-        )
+      
       if(valueInBound) {
         this.isShowChild = true;
         this.visibleChildQuestions.push(question)  
       } 
     })
-
-    console.log({visible: this.visibleChildQuestions})
   }
 
   change(e) {
-    console.log(`its party time`)
     this.valueChange.emit();
     this.showChildQuestions(e.value)
-
-    // this.visibleChildQuestions = [];
-    // const valueInBound = this.question.lower_bound <= value && this.question.upper_bound >= value;
-    
-    // const hasChildren = this.childQuestions.length > 0;
-    
-    // if (hasChildren && valueInBound ) {
-    //   this.isShowChild = true;
-    // }
-    
   }
 }

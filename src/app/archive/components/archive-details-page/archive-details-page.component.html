@@ -230,10 +230,10 @@
       </div>
       <div class="reply-container">
         <div class="avatar-container">
-          <div class="avatar font-bold color__purple">J</div>
+          <div *ngIf="user && user.name" class="avatar font-bold color__purple">{{ user.name[0].toUpperCase() }}</div>
         </div>
         <div class="reply-body">
-          <div class="name font-bold">Joe Doe</div>
+          <div *ngIf="user && user.name" class="name font-bold">{{user.name}}</div>
           <div class="input-container">
             <textarea id="" rows="5" [(ngModel)]="commentText"></textarea>
           </div>

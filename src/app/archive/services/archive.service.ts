@@ -47,10 +47,9 @@ export class ArchiveService {
   public createComment(itemId, text, user): Observable<any> {
     const newPath = `/comments`;
     return from(
-      API.post(this.apiName, newPath, { body: {item_id: itemId, comment: text, user: user}, response: true })
+      API.post(this.apiName, newPath, { body: {item_id: itemId, comment: text}, response: true })
+      // API.post(this.apiName, newPath, { body: {item_id: itemId, comment: text, user: user}, response: true })
         .then((response) => {
-          console.log('yaay', response)
-
           if (response.status === 200) {
             const data = response.data;
 
