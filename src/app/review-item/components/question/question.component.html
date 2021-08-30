@@ -16,9 +16,13 @@
     <mat-radio-button *ngFor="let option of question.options" [value]="option.value" [checked]="false"
       [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
       <div class="option">
-        <span>{{option.text}}</span>
+        {{option.text}}&nbsp;
+        <div class="info" *ngIf="!option.tooltip && option.value === question.answer_value">
+          <span class="percentage"><i class="fas fa-user-cowboy"></i>&nbsp;~33%</span>&nbsp;
+          <div class="avatar green">J</div><div class="avatar red">?</div>
+        </div>
         <!-- <div class="small-text" *ngIf="option.tooltip">
-          {{option.tooltip}} 
+          {{option.tooltip}}
         </div> -->
         <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above">
           help
@@ -27,7 +31,7 @@
     </mat-radio-button>
   </mat-radio-group>
   <div class="child-question-container" *ngIf="isShowChild">
-    <div class="child-question" *ngFor="let childQuestion of childQuestions; let i=index;">
+    <div class="child-question" *ngFor="let childQuestion of visibleChildQuestions; let i=index;">
       <app-question [question]="childQuestion" [isChild]="true" [parentIndex]="index" [index]="i"></app-question>
     </div>
   </div>

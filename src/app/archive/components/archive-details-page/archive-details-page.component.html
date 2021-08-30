@@ -1,6 +1,6 @@
 <div class="archive-details-page">
   <div class="top-section standard-content-container-width">
-      <app-case-details *ngIf="!!case" [case]=case></app-case-details>
+      <app-case-details title="Gelöste Fälle" *ngIf="!!case" [case]=case></app-case-details>
   </div>
   <div class="help-container">
     <div class="flag"><i class="fas fa-flag"></i>&nbsp;Fall melden</div>
@@ -64,11 +64,11 @@
              <p class="show-archive-detail-mark">
               {{this.percentageResponses[answer]}}%
               <sub class="sub-description">Der Fragen wurden mit "<i>{{answer}}</i>" beantwortet.</sub>
-            </p > 
-          </ng-template> 
+            </p >
+          </ng-template>
           <ng-template #other_content>
             <div>
-              Keine Frage wurde mit "<i>{{answer}}</i>" beantwortet.  
+              Keine Frage wurde mit "<i>{{answer}}</i>" beantwortet.
             </div>
           </ng-template>
         </div>
@@ -77,7 +77,7 @@
         <!-- <div class="show-archive-detail-description">Die Kriterien waren auf alle Fragen anwendbar.</div>
         20% Der Fragen hatten Kriterien die nicht anwendbar waren -->
 
-       
+
       </div>
       <div class="archive-case-date-info">
         <div class="">Der Fall war 27 Tage aktiv.</div>
@@ -99,25 +99,33 @@
               <i *ngIf="index < 2" class="fas fa-medal"></i>
             </div>
             <div class="profile-container">
-              <div class="avatar font-bold {{detective.color}}">{{detective.name === 'Detective' ? '?' : detective.name[0]}}</div>
+              <div class="avatar font-bold {{detective.color}}">{{detective.user === 'Detective' ? '?' : detective.user[0]}}</div>
               <div class="profile-info">
-                <div class="name {{detective.name === 'Detective' ? 'font-italic' : 'font-bold'}}">{{detective.name}}</div>
-                <div class="job">{{detective.job}}</div>
+                <div class="name {{detective.user === 'Detective' ? 'font-italic' : 'font-bold'}}">{{detective.user}}</div>
+                <!-- <div class="job">{{detective.job}}</div> -->
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <div class="comments-container">
         <div class="comments-container-title font-bold">
           Fallbewertungskommentare
         </div>
-        <div *ngIf="case && 'comments' in case" class="comments-container-body">
-          <app-comment-list [comments]="case.comments"></app-comment-list>
+        <div *ngIf="case && 'reviewComments' in case && case.reviewComments.length > 0" class="comments-container-body">
+          <app-comment-list [comments]="case.reviewComments"></app-comment-list>
         </div>
 
         <div class="show-case">
-          <span class="font-bold title">Fallbearbeitung</span>&nbsp;<span class="explain">einblenden</span>&nbsp;<i class="fas fa-chevron-right"></i>
+          <span class="font-bold title">Fallbearbeitung</span>&nbsp;
+          <span class="explain" (click)="changeCaseCollapse()">{{caseCollapse ? "ausblenden" : "einblenden"}}</span>&nbsp;
+          <i *ngIf="!caseCollapse" class="fas fa-chevron-right"></i>
+          <i *ngIf="caseCollapse" class="fas fa-chevron-down"></i>
+        </div>
+        <div  *ngIf="caseCollapse" class="question-section">
+          <div *ngFor="let question of showQuestions; let i=index">
+            <app-question [question]="question" [index]="i" [questions]="questions"></app-question>
+          </div>
         </div>
       </div>
       <div *ngIf="authenticated" class="comments-container">
@@ -131,7 +139,23 @@
       <div *ngIf="authenticated" class="discussions-button-container">
         <button>Mehr Kommentare laden</button>
       </div>
+
       <app-comment-input [authenticated]="authenticated"></app-comment-input>
+      
+      <div class="reply-container">
+        <div class="avatar-container">
+          <div *ngIf="user && user.name" class="avatar font-bold color__purple">{{ user.name[0].toUpperCase() }}</div>
+        </div>
+        <div class="reply-body">
+          <div *ngIf="user && user.name" class="name font-bold">{{user.name}}</div>
+          <div class="input-container">
+            <textarea id="" rows="5" [(ngModel)]="commentText"></textarea>
+          </div>
+          <div class="reply-button-container">
+            <button (click)="onPostComment()">Posten</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

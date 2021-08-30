@@ -39,7 +39,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     ReviewPageComponent,
     WatsonComponent
   ],
-  exports: [ReviewComponent],
+  exports: [ReviewComponent, QuestionComponent],
   imports: [
     CommonModule,
     HelperModule,

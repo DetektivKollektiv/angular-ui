@@ -1,6 +1,6 @@
 <div class="review-page">
   <div class="top-section standard-content-container-width">
-    <app-case-details *ngIf="!!case" [case]=case></app-case-details>
+    <app-case-details title="Fall lösen" *ngIf="!!case" [case]=case></app-case-details>
     <app-user-experience-bubble-list [userExperienceBubbles]=userExperienceBubbles></app-user-experience-bubble-list>
   </div>
   <div class="questions-section standard-content-container-width">
@@ -76,7 +76,7 @@
             <p class="explain">Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens sichtbar sein.</p>
             <div class="userinfo">
               <div class="userprofile__bubble" style="background-color: #722ED1;">
-                J
+                {{userInfo.name[0].toUpperCase()}}
               </div>
               {{userInfo.name}}
             </div>
@@ -87,9 +87,12 @@
           <div class="tags-container case-process-container">
             <p class="large-font">Schlagwörter</p>
             <p class="explain">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
-            <div class="input-container">
+   <!--          <div class="input-container">
               <input type="text" (focusout)="submitTags()">
-            </div>
+            </div> -->
+
+            <app-tags-question [review]="review" [itemId]="caseId" #tags>
+            </app-tags-question>
           </div>
           <div class="legal-information-container case-process-container">
             <p class="large-font">Rechtliche Angaben</p>
@@ -108,7 +111,7 @@
             </div>
             <div class="legal-button-container">
               <a href='' class="abort-button button-group">Abbrechen</a>
-              <button class="submit-button button-group" [disabled]="buttonStatus">Lösung einreichen</button>
+              <button class="submit-button button-group" (click)="closeReview()" [disabled]="buttonStatus">Lösung einreichen</button>
             </div>
           </div>
 

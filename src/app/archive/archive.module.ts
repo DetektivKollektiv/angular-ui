@@ -1,5 +1,6 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material/material.module';
 import { HelperModule } from '../shared/helper/helper.module';
 import { ArchiveComponent } from './components/archive/archive.component';
@@ -26,6 +27,7 @@ import { CaseDetailsModule } from '../shared/case-details/case-details.module';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { CommentListItemComponent } from './components/comment-list-item/comment-list-item.component';
 import { CommentInputComponent } from './components/comment-input/comment-input.component';
+import { ReviewItemModule } from 'src/app/review-item/review-item.module';
 
 registerLocaleData(localeDE, 'de')    ;
 @NgModule({
@@ -45,6 +47,7 @@ registerLocaleData(localeDE, 'de')    ;
   ],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialModule,
     HelperModule,
     RouterModule,
@@ -55,6 +58,7 @@ registerLocaleData(localeDE, 'de')    ;
     QuestionCarouselModule,
     CaseDetailsModule,
     NgxsModule.forFeature([ArchiveState]),
+    ReviewItemModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
