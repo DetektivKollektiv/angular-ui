@@ -19,6 +19,8 @@ import { Review } from 'src/app/review-item/model/review';
   templateUrl: './archive-details-page.component.html',
   styleUrls: ['./archive-details-page.component.scss'],
 })
+
+
 export class ArchiveDetailsPageComponent implements OnInit {
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$: Observable<any>;
@@ -47,6 +49,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   
   public reviewQuestions:any[] = [];
 
+  
   public users: { [key:string]: {
     user: string,
     color: string,
@@ -201,7 +204,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       {
         user: 'Jorny Gonponicamo',
         comment: "this be comment",
-        date: "2010-08-04",
+        timestamp: "2010-08-04",
         medal: '',
         is_review_comment: 'False',
         color: getColorClass('purple')//color__purple
@@ -209,7 +212,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       {
         user: 'Lawn Rediko',
         comment: "another one",
-        date: "2011-08-04",
+        timestamp: "2011-08-04",
         medal: '',
         is_review_comment: 'False',
         color: getColorClass('red')//color__rating-red
@@ -217,16 +220,16 @@ export class ArchiveDetailsPageComponent implements OnInit {
       {
         user: 'Scrawp Amadoo',
         comment: "this is a review comment .\nnewline etc.etc.etc.\n newline etc\n newline etc..",
-        date: "2012-08-04",
+        timestamp: "2012-08-04",
         medal: '',
         is_review_comment: 'True',
         color: getColorClass('light-green')//color__rating-light-green
       },
     ];
 
-    const tempIdForDev  = "4fff2318-5b56-4cb3-b8d7-842545992e50";
-    this.store.dispatch(new GetDetailItem(tempIdForDev)).subscribe(({archive}) => {
-    // this.store.dispatch(new GetDetailItem(this.caseId)).subscribe(({archive}) => {
+    // const tempIdForDev  = "4fff2318-5b56-4cb3-b8d7-842545992e50";
+    // this.store.dispatch(new GetDetailItem(tempIdForDev)).subscribe(({archive}) => {
+    this.store.dispatch(new GetDetailItem(this.caseId)).subscribe(({archive}) => {
       const { detailItem } = archive;
       const aggregated : {[key: string]: number} = getAggregatedResponses(detailItem);
       const numberResponses: number = Object.values(aggregated).reduce(
@@ -263,6 +266,12 @@ export class ArchiveDetailsPageComponent implements OnInit {
       this.questions = this.case.reviews[0].questions;
       this.showQuestions = this.questions.filter(question => !question.parent_question_id);
 
+      // this.todo_contributors = [
+      //   {
+      //     name: 'bernarno',
+
+      //   }
+      // ];
       // const questions = this.case.reviews[0].questions;
   
       // console.log({questionsMap})
@@ -271,6 +280,10 @@ export class ArchiveDetailsPageComponent implements OnInit {
       this.score = Math.floor(detailItem.result_score * 25);
 
       this.detectives = Object.values(this.getDetectives(detailItem.reviews));
+
+      // debugger
+
+      
     });
 
 

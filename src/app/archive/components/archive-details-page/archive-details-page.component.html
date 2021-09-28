@@ -124,7 +124,11 @@
         </div>
         <div  *ngIf="caseCollapse" class="question-section">
           <div *ngFor="let question of showQuestions; let i=index">
-            <app-question [question]="question" [index]="i" [questions]="questions"></app-question>
+
+            <!-- todo: set [contributors].. but is the data there? -->
+            <app-question [question]="question" [contributors]="[detectives[0]]" [percentageVoted]="33" [displayOnly]="true" [index]="i" [questions]="questions"></app-question>
+
+            <!-- <app-question [question]="question" [percentageVoted]="33" [displayOnly]="true" [index]="i" [questions]="questions"></app-question> -->
           </div>
         </div>
       </div>

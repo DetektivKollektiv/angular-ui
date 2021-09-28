@@ -13,13 +13,15 @@
   </div>
 
   <mat-radio-group [(ngModel)]="question.answer_value" (change)="change($event)">
-    <mat-radio-button *ngFor="let option of question.options" [value]="option.value" [checked]="false"
+    <mat-radio-button disabled="!!displayOnly" *ngFor="let option of question.options" [value]="option.value" [checked]="false"
       [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
       <div class="option">
         {{option.text}}&nbsp;
         <div class="info" *ngIf="!option.tooltip && option.value === question.answer_value">
-          <span class="percentage"><i class="fas fa-user-cowboy"></i>&nbsp;~33%</span>&nbsp;
-          <div class="avatar green">J</div><div class="avatar red">?</div>
+          <span *ngIf="!!percentageVoted" class="percentage"><i class="fas fa-user-cowboy"></i>&nbsp;~{{percentageVoted}}%</span>&nbsp;
+          <div *ngIf="contributors && contributors.length > 0">
+            <div class="avatar green" *ngFor="let contributor of contributors; let i=index;">{{contributor.avatarCharacter}}</div>  
+          </div>
         </div>
         <!-- <div class="small-text" *ngIf="option.tooltip">
           {{option.tooltip}}

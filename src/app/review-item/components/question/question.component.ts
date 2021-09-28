@@ -17,8 +17,12 @@ import { Question } from '../../model/question';
 export class QuestionComponent implements OnInit {
   @Input() public question: Question;
   @Input() public questions: Question[];
+  @Input() public contributors: any[];
   @Input() public index: number;
   @Input() public isChild: boolean;
+  @Input() public displayOnly: boolean;
+  @Input() public percentageVoted: number;
+
   @Input() public parentIndex = -1;
   @Output() public valueChange = new EventEmitter();
   public isShowChild: boolean;
