@@ -93,6 +93,7 @@ mat-icon {
     color: $color__purple;
   }
 
+  // todo check if can remove
   .avatar {
     width: 24px;
     height: 24px;
@@ -109,6 +110,7 @@ mat-icon {
 
   .red {
     background-color: red;
+    //todo move somewhere
     margin-left: -8px;
   }
 }

@@ -124,10 +124,6 @@ $color__badge-description: $color__white;
   background-color: $color__purple;
 }
 
-.color__bittersweet {
-  background-color: $color__bittersweet;
-}
-
 .color__supernova {
   background-color: $color__supernova;
 }
@@ -148,4 +144,6 @@ $color__badge-description: $color__white;
   background-color: $color__rating-tweeter;
 }
 
-
+.font-old-parapgraph {
+  color: $color__old-paragraph;
+}

@@ -31,12 +31,6 @@ $_b__settings-default: (
 @import "_functions.scss";
 
 
-.normal-width-page-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .standard-content-container-width {
   // padding: 10px;
   // width: calc(100% - 20px);
@@ -53,4 +47,27 @@ $_b__settings-default: (
   @media only screen and (min-width: 1350px) {
      width: 1240px;
   }
+}
+
+.normal-width-page-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-family: 'PT MONO';
+  margin: 0 5px;
+}
+
+.full-width-input {
+  width: 100;
 }
