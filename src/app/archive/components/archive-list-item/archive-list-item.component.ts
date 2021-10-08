@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { RatingColorService } from '../../../services/rating-color-service/rating-color.service';
 
 @Component({
   selector: 'app-archive-list-item',
@@ -15,23 +16,14 @@ export class ArchiveListItemComponent implements OnInit {
   public taggies = [];
   public comments = [];
   public linkUrl: string;
-  constructor() { }
+  constructor(private ratingColorService: RatingColorService) { }
 
   ngOnInit(): void {
     this.result_score = Math.ceil(this.case.result_score * 25);
 
-    if (this.result_score <= 33) {
-      this.color = 'red';
-    }
-    if (this.result_score > 33 && this.result_score <= 66) {
-      this.color = 'orange';
-    }
-    if (this.result_score > 66 && this.result_score <= 83) {
-      this.color = 'light-green';
-    }
-    if (this.result_score > 84 && this.result_score <= 100) {
-      this.color = 'green';
-    }
+
+    this.color = this.ratingColorService.getColorForScore(this.result_score);
+
 
     if ('comments' in this.case && this.case.comments) {
       this.comments = this.case.comments;
