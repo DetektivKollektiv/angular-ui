@@ -40,7 +40,6 @@ export class MyProfileComponent implements OnInit {
     this.items$.subscribe((items) => {
       this.items = items;
       this.topTenScores = items.splice(0, 10);
-      console.log(this.topTenScores)
     });
 
     this.itemsService

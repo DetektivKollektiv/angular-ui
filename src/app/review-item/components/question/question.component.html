@@ -13,7 +13,7 @@
   </div>
 
   <mat-radio-group [(ngModel)]="question.answer_value" (change)="change($event)">
-    <mat-radio-button disabled="!!displayOnly" *ngFor="let option of question.options" [value]="option.value" [checked]="false"
+    <mat-radio-button [disabled]="displayOnly" *ngFor="let option of question.options" [value]="option.value" [checked]="false"
       [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
       <div class="option">
         {{option.text}}&nbsp;
