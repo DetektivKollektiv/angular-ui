@@ -1,8 +1,9 @@
-.case-details{
+@import "../../../../assets/scss/_colors.scss";
+.case-details {
     .case-number-section{
         .go-home {
           font-size: 14px;
-          color: #8989a2;
+          color: $color__old-paragraph;
         }
 
         .case-number-id {
@@ -10,7 +11,7 @@
             font-weight: bold;
             span {
                 font-size: 17px;
-                color: #8989a2;
+                color: $color__old-paragraph;
             }
         }
     }

@@ -104,6 +104,14 @@ $color__badge-headline: $color__white;
 $color__badge-description: $color__white;
 
 
+.font-bold {
+  font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
 .color__bittersweet {
   background-color: $color__bittersweet;
 }
@@ -119,4 +127,25 @@ $color__badge-description: $color__white;
 .color__bittersweet {
   background-color: $color__bittersweet;
 }
+
+.color__supernova {
+  background-color: $color__supernova;
+}
+
+.color__rating-red {
+  background-color: $color__rating-red;
+}
+
+.color__rating-light-green {
+  background-color: $color__rating-light-green;
+}
+
+.color__rating-green {
+  background-color: $color__rating-green;
+}
+
+.color__rating-tweeter {
+  background-color: $color__rating-tweeter;
+}
+
 

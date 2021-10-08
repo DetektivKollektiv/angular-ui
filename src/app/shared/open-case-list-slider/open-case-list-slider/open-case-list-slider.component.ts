@@ -8,13 +8,9 @@ import { input } from 'aws-amplify';
 })
 export class OpenCaseListSliderComponent implements OnInit {
   @Input() cases: any[];
-  case: any;
 
   constructor() { }
 
-  ngOnInit(): void {
-    // @ts-ignore
-    this.case = this.cases[0];
-  }
+  ngOnInit(): void { }
 
 }
