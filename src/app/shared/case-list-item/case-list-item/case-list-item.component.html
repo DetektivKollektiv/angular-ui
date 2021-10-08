@@ -1,13 +1,6 @@
 <li class="item">
     <div class="item-left">
-        <h2 [ngClass]="color === 'red'
-        ? 'red'
-        : color === 'orange'
-          ? 'orange'
-          : color === 'light-green'
-            ? 'light-green'
-            : 'green'
-        ">
+        <h2 [ngClass]="color">
           {{ score }}
         </h2>
     </div>
