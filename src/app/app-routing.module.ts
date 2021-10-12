@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth-guard/auth.guard';
@@ -19,6 +18,7 @@ import { LoginPageComponent } from './authentication-pages/components/login-page
 import { ForgotPasswordPageComponent } from './forgot-password-page/components/forgot-password-page/forgot-password-page.component';
 import { RegisterPageComponent } from './authentication-pages/components/register-page/components/register-page/register-page.component';
 import { ConfirmEmailPageComponent } from './confirm-email-page/components/confirm-email-page/confirm-email-page.component';
+// eslint-disable-next-line max-len
 import { SetPasswordPageComponent } from './authentication-pages/components/set-password-page/components/set-password-page/set-password-page.component';
 /* / Auth page routes */
 
@@ -27,146 +27,103 @@ import { UnsavedChangesGuard } from './shared/unsaved-changes/guard/unsaved-chan
 import { MyFileComponent } from './my-file/components/my-file/my-file.component';
 import { IssuesComponent } from './issues/components/issues/issues.component';
 
-
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
-import { CaseShowComponent } from './cases/components/case-show/case-show.component';
 
 const routes: Routes = [
-
   {
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', component: HomeComponent }
-    ]
+      { path: 'submit_old', component: SubmitComponent },
+      {
+        path: 'submit/success',
+        component: SubmitSuccessPageComponent,
+      },
+      {
+        path: 'submit',
+        component: SubmitPageComponent,
+      },
+      {
+        path: 'review/success',
+        component: ReviewSuccessPageComponent,
+      },
+      {
+        path: 'review',
+        component: ReviewComponent,
+        canActivate: [AuthGuard],
+        canDeactivate: [UnsavedChangesGuard],
+      },
+      {
+        path: 'reviews/:id',
+        component: ReviewPageComponent,
+        canActivate: [AuthGuard],
+        canDeactivate: [UnsavedChangesGuard],
+      },
+      {
+        path: 'reviews',
+        component: ReviewPageComponent,
+        // canActivate: [AuthGuard],
+        // canDeactivate: [UnsavedChangesGuard],
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'archive/:id',
+        component: ArchiveDetailsPageComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'archive',
+        component: ArchiveComponent,
+      },
+      {
+        path: 'my-profile',
+        component: MyProfileComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: '', component: HomeComponent },
+    ],
   },
   {
     path: 'login',
     component: FooterOnlyLayoutComponent,
-    children: [
-      { path: '', component: LoginPageComponent }
-    ]
+    children: [{ path: '', component: LoginPageComponent }],
   },
   {
     path: 'forgot-password',
     component: FooterOnlyLayoutComponent,
-    children: [
-      { path: '', component: ForgotPasswordPageComponent }
-    ]
+    children: [{ path: '', component: ForgotPasswordPageComponent }],
   },
   {
     path: 'set-password',
     component: FooterOnlyLayoutComponent,
-    children: [
-      { path: '', component: SetPasswordPageComponent }
-    ]
+    children: [{ path: '', component: SetPasswordPageComponent }],
   },
   {
     path: 'register',
     component: FooterOnlyLayoutComponent,
-    children: [
-      { path: '', component: RegisterPageComponent }
-    ]
+    children: [{ path: '', component: RegisterPageComponent }],
   },
   {
     path: 'confirm-email',
     component: FooterOnlyLayoutComponent,
-    children: [
-      { path: '', component: ConfirmEmailPageComponent }
-    ]
+    children: [{ path: '', component: ConfirmEmailPageComponent }],
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
 
-  { path: 'submit_old', component: SubmitComponent },
-  {
-    path: 'submit',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: SubmitPageComponent }
-    ]
-  },
-  {
-    path: 'submit/success',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: SubmitSuccessPageComponent }
-    ]
-  },
-  {
-    path: 'review/success',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: ReviewSuccessPageComponent }
-    ]
-  },
   // {
   //   path: 'review',
   //   component: ReviewComponent,
   //   canActivate: [AuthGuard],
   //   canDeactivate: [UnsavedChangesGuard],
   // },
-  {
-    path: 'review',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: ReviewComponent }
-    ],
-    canActivate: [AuthGuard],
-    canDeactivate: [UnsavedChangesGuard],
-  },
-  {
-    path: 'reviews',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: ReviewPageComponent }
-    ],
-    // canActivate: [AuthGuard],
-    // canDeactivate: [UnsavedChangesGuard],
-  },
-  {
-    path: 'reviews/:id',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: ReviewPageComponent }
-    ],
-    canActivate: [AuthGuard],
-    canDeactivate: [UnsavedChangesGuard],
-  },
-  {
-    path: 'profile',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: ProfileComponent }
-    ],
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'archive',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: ArchiveComponent }
-    ]
-  },
-  {
-    path: 'archive/:id',
-    component: MainLayoutComponent,
-    children:[
-      { path: '', component: ArchiveDetailsPageComponent }
-    ],
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'my-profile',
-    component: MainLayoutComponent,
-    children: [
-      { path: '', component: MyProfileComponent }
-    ],
-    canActivate: [AuthGuard]
-  },
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },
   { path: 'issues', component: IssuesComponent },
   { path: 'about', component: AboutComponent },
