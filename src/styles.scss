@@ -1,3 +1,4 @@
+@use './assets/scss/fonts' as fonts;
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
 @import '~swiper/swiper-bundle';
@@ -7,7 +8,8 @@
 @import './assets/scss/colors';
 
 * {
-  font-family: Effra medium, Effra regular, sans-serif;
+  // font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--regular;
   box-sizing: border-box;
 }
 
@@ -97,12 +99,12 @@ body {
 }
 
 h1 {
-  font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--medium;
   line-height: 70px;
   color: mat-color($custom-theme-accent);
 
   span.alt {
-    font-family: Effra medium, sans-serif;
+    @include fonts.font__effra--medium;
     line-height: 70px;
     font-size: 40px;
     font-size: max(1.8vw, 12px);
@@ -111,17 +113,17 @@ h1 {
 }
 
 h2 {
-  font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--medium;
   margin: 0;
 }
 
 h3 {
-  font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--medium;
   margin: 0;
 }
 
 p {
-  font-family: Effra regular, sans-serif;
+  @include fonts.font__effra--regular;
   font-size: max(0.7vw, 14px);
   line-height: max(1vw, 22px);
   color: #4a4a4a;
@@ -346,4 +348,12 @@ header.header {
   i ~ i {
     margin-left: 4px;
   }
+}
+
+.mono-font {
+  @include fonts.font__pt-mono;
+}
+
+.bold-weight {
+  font-weight: 700;
 }
