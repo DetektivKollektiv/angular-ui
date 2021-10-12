@@ -1,7 +1,7 @@
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
-@import "~swiper/swiper-bundle";
-@import "~swiper/components/navigation/navigation";
+@import '~swiper/swiper-bundle';
+@import '~swiper/components/navigation/navigation';
 // https://swiperjs.com/angular
 @import '~swiper/swiper-bundle';
 @import './assets/scss/colors';
@@ -241,7 +241,6 @@ mat-icon {
   font-size: 15px !important;
 }
 
-
 /*
 This made tooltips on /reviews/:id not work anymore
 */
@@ -256,14 +255,14 @@ This made tooltips on /reviews/:id not work anymore
 }
 
 .no-padding-dialog-container .mat-dialog-container {
-    /* add your styles */
-    padding: 0;
+  /* add your styles */
+  padding: 0;
 
-    /* not sure if this is the correct place to add this */
-    width: 100%;
+  /* not sure if this is the correct place to add this */
+  width: 100%;
 }
 header.header {
-  z-index: 9999! important;
+  z-index: 9999 !important;
 }
 
 .carousel-container .carousel-cells {
@@ -277,20 +276,33 @@ header.header {
   border-radius: 5px;
 }
 
-.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-inner-circle {
+.radio-container
+  .mat-radio-group
+  .mat-radio-button.mat-accent
+  .mat-radio-inner-circle {
   background-color: white !important;
 }
 
-.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+.radio-container
+  .mat-radio-group
+  .mat-radio-button.mat-accent
+  .mat-radio-ripple
+  .mat-ripple-element {
   opacity: 0 !important; /*click effect color change*/
   background-color: white !important;
 }
 
-.radio-container .mat-radio-group .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+.radio-container
+  .mat-radio-group
+  .mat-radio-button.mat-accent.mat-radio-checked
+  .mat-radio-outer-circle {
   border-color: white !important;
 }
 
-.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-outer-circle {
+.radio-container
+  .mat-radio-group
+  .mat-radio-button.mat-accent
+  .mat-radio-outer-circle {
   border-color: white !important;
 }
 
@@ -311,4 +323,27 @@ header.header {
 
 .cdk-overlay-container {
   z-index: 10000;
+}
+
+.mat-select-panel .mat-option.mat-selected {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.option-container {
+  .mat-radio-container,
+  .mat-radio-outer-circle,
+  .mat-radio-inner-circle {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.breadcrumb {
+  &__link {
+    cursor: pointer;
+  }
+
+  i ~ i {
+    margin-left: 4px;
+  }
 }

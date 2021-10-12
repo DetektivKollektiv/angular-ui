@@ -10,11 +10,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SubmitComponent, SubmitPageComponent],
   imports: [
     CommonModule,
+    FormsModule,
     MaterialModule,
     AppRoutingModule,
     HelperModule,
@@ -22,8 +24,7 @@ import { QuestionCarouselModule } from '../shared/question-carousel/question-car
     IvyCarouselModule,
     OpenCaseListSliderModule,
     TranslateModule.forChild(),
-    QuestionCarouselModule
-  ]
+    QuestionCarouselModule,
+  ],
 })
-export class SubmitItemModule {
-}
+export class SubmitItemModule {}

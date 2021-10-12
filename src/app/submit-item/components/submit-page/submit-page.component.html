@@ -1,142 +1,206 @@
 <div class="submit-page responsive-100">
-  
-  <div class="">
-    
-    <div class="top-section standard-content-container-width">
-      
-      <div class="overview-section">
-        <!-- <span class="alt"><i class="far fa-home"></i>&nbsp;<i class="fal fa-greater-than"></i></span> -->
-        <h1><span class="alt">Fall einreichen.</span></h1>
-        <div>
-          <span class="submit-text">Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf
-            Fall absenden klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis.
-            Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für
-            dich prüfen.</span>
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="section-of-questions standard-content-container-width">
-      <app-question-carousel *ngIf="!!questionPrompts" [questions]=questionPrompts></app-question-carousel>
-    </div>
-
-    <!-- Middle Section -->
-
-    <div class="middle-section responsive-100">
-      <div class="middle-section-container">
-
-        <h2 class="mono-font bold-weight">Dein Fall</h2>
-        <p>Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein. Gibt es diesen Fall bereits, erhältst du das Ergebnis sofort. Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich prüfen.</p>
-        <div>
-          <p class="mono-font bold-weight">Um welche Form von Medium handelt es sich?*</p>
-          <mat-form-field class="form-select responsive-100">
-            <select matNativeControl>
-              <option value="link" selected>Link zu Artikel</option>
-              <option value="message">Textnachricht / Aussage</option>
-            </select>
-          </mat-form-field>
-        </div>
-        <div>
-          <p class="mono-font bold-weight">Bitte gib den Inhalt der Textnachricht ein*</p>
-          <textarea class="textarea" rows="10" [value]="textareaValue"></textarea>
-        </div>
-      
-
-        <div class="lady-detective-svg-container">
-          <img src="assets/images/illustrations/lady-detective.svg">
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="chunky-border">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1923.772" height="113.786" viewBox="0 0 1923.772 113.786">
-      <defs>
-        <linearGradient id="linear-gradient" x1="0.588" y1="0.702" x2="0.588" y2="0.027" gradientUnits="objectBoundingBox">
-          <!-- <stop offset="0" stop-color="#160637"/> -->
-          <stop offset="0" stop-color="#53407b"/>
-          
-          <stop offset="1" stop-color="#53407b"/>
-        </linearGradient>
-      </defs>
-      <path id="Path_378" data-name="Path 378" d="M4395.377,1693.926s224.637,18.6,231.41,16.161,320.229-24.692,320.229-24.692,342.286,38,350.569,38,378.752-13.31,378.752-13.31l438.737-61.962,204.076,61.962v51.824H4395.377Z" transform="translate(-4395.377 -1648.125)" fill="url(#linear-gradient)"/>
-    </svg>
-  </div>
-
-
-  <div class="bottom-section responsive-100">
-    <!-- <div class="bottom-background"></div> -->
-    <div class="bottom-section-content-container standard-content-container-width">
-      <div class="option-container">
-        <h2 class="bold-weight">Optionale Angaben</h2>
-        <p>
-          Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben.
-          Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
-        </p>
-        <div class="radio-container">
-          <p class="mono-font bold-weight">Wie hat dich diese Information erreicht?</p>
-          <mat-radio-group>
-            <mat-radio-button [checked]="false" [value]="0">
-              <span class="wrap-mat-radio-label">Per Messenger (z.B. Whatsapp, Telegram oder SMS)</span>
-            </mat-radio-button>
-            <mat-radio-button [checked]="false" [value]="1">
-              <span class="wrap-mat-radio-label">Über soziale Medien (z.B. Facebook, Twitter, Instagram)</span>
-            </mat-radio-button>
-            <mat-radio-button [checked]="false" [value]="2">
-              <span class="wrap-mat-radio-label">Beim Surfen im Internet</span>
-            </mat-radio-button>
-            <mat-radio-button [checked]="false" [value]="3">
-              <span class="wrap-mat-radio-label">Über andere Medien (z.B. Fernsehen, Radio, Zeitung)</span>
-            </mat-radio-button>
-            <mat-radio-button [checked]="false" [value]="4">
-              <span class="wrap-mat-radio-label">Aus Gesprächen (z.B. mit Freunden oder Familienmitgliedern)</span>
-            </mat-radio-button>
-            <mat-radio-button [checked]="false" [value]="5">
-              <span class="wrap-mat-radio-label">Sonstiges</span>
-            </mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <p class="mono-font bold-weight">Wie oft hast du diese Information erhalten?</p>
-        <input type="text" class="text-input responsive-100">
-        <p class="mono-font bold-weight">Wann hat dich diese Information das erste Mal erreicht?</p>
-        <input type="date" class="text-input responsive-100" ui-date-format="dd.mm.yyyy">
-      </div>
-      <mat-divider></mat-divider>
-      <div class="notify-container">
-        <h2 class="bold-weight">Möchtest du benachrichtigt werden?</h2>
-        <p>
-          Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum Fall gibt. Wenn nicht, dann siehst du den Fall nach Abschluss im Archiv.
-        </p>
-        <p class="mono-font bold-weight">E-Mail-Adresse</p>
-        <div class="email-container responsive-100">
-          <input type="email">
-          <mat-icon class="icon">mail_outline</mat-icon>
-        </div>
-      </div>
-      <mat-divider></mat-divider>
-      <div class="submit-check-container">
-        <h2 class="bold-weight">Rechtliche Angaben</h2>
-        <p>
-          Zum Abschluss der Einreichung, hinterlasse uns bitte deine E-Mail-Adresse und bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.
-        </p>
-        <mat-checkbox class="example-margin" (change)="agreePolicy($event)">
-          <div class="option">
-            <span class="wrap-mat-radio-label">Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
+  <form #submitForm="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div class="top-section standard-content-container-width">
+        <div class="overview-section">
+          <span class="breadcrumb">
+            <i class="far fa-home breadcrumb__link" routerLink="/"></i>
+            <i class="fal fa-greater-than"></i>
+          </span>
+          <h1><span class="alt">Fall einreichen.</span></h1>
+          <div>
+            <span class="submit-text">
+              Gib hier die Details zu deinem Fall ein. Das kann entweder eine
+              Behauptung sein, oder ein Link. Sobald du auf Fall absenden
+              klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben.
+              Dann erhältst du sofort ein Ergebnis. Falls dein Fall neu ist,
+              werden wir ihn sofort an unser Team von Detektiven weitergeben,
+              die den Fall dann für dich prüfen.
+            </span>
           </div>
-        </mat-checkbox>
-        <mat-checkbox class="example-margin" (change)="agreeCondition($event)">
-          <div class="option">
-            <span class="wrap-mat-radio-label">Ich stimme den Nutzungsbedingungen zu</span>
-          </div>
-        </mat-checkbox>
+        </div>
       </div>
-      <div class="legal-button-container">
-        <a href='' class="abort-button button-group">Abbrechen</a>
-        <button class="submit-button button-group" [disabled]="buttonStatus">Lösung einreichen</button>
+
+      <div class="section-of-questions standard-content-container-width">
+        <app-question-carousel
+          *ngIf="!!questionPrompts"
+          [questions]="questionPrompts"
+        ></app-question-carousel>
+      </div>
+
+      <!-- Middle Section -->
+
+      <div class="middle-section responsive-100">
+        <div class="middle-section-container">
+          <h2 class="mono-font bold-weight">Dein Fall</h2>
+          <p>
+            Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein.
+            Gibt es diesen Fall bereits, erhältst du das Ergebnis sofort. Falls
+            dein Fall neu ist, werden wir ihn sofort an unser Team von
+            Detektiven weitergeben, die den Fall dann für dich prüfen.
+          </p>
+          <div>
+            <p class="mono-font bold-weight">
+              Um welche Form von Medium handelt es sich?*
+            </p>
+            <mat-form-field class="form-select responsive-100">
+              <mat-select [(ngModel)]="form.medium" name="medium" required>
+                <mat-option value="link"> Link zu einem Artikel </mat-option>
+                <mat-option value="message">
+                  Textnachricht / Aussage
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <p class="mono-font bold-weight">
+              Bitte gib den Inhalt der Textnachricht ein*
+            </p>
+            <textarea
+              class="textarea"
+              rows="10"
+              [(ngModel)]="form.content"
+              name="content"
+              required
+            ></textarea>
+          </div>
+
+          <div class="lady-detective-svg-container">
+            <img src="assets/images/illustrations/lady-detective.svg" />
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="chunky-border">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="1923.772"
+        height="113.786"
+        viewBox="0 0 1923.772 113.786"
+      >
+        <defs>
+          <linearGradient
+            id="linear-gradient"
+            x1="0.588"
+            y1="0.702"
+            x2="0.588"
+            y2="0.027"
+            gradientUnits="objectBoundingBox"
+          >
+            <!-- <stop offset="0" stop-color="#160637"/> -->
+            <stop offset="0" stop-color="#53407b" />
+
+            <stop offset="1" stop-color="#53407b" />
+          </linearGradient>
+        </defs>
+        <path
+          id="Path_378"
+          data-name="Path 378"
+          d="M4395.377,1693.926s224.637,18.6,231.41,16.161,320.229-24.692,320.229-24.692,342.286,38,350.569,38,378.752-13.31,378.752-13.31l438.737-61.962,204.076,61.962v51.824H4395.377Z"
+          transform="translate(-4395.377 -1648.125)"
+          fill="url(#linear-gradient)"
+        />
+      </svg>
+    </div>
+
+    <div class="bottom-section responsive-100">
+      <!-- <div class="bottom-background"></div> -->
+      <div
+        class="
+          bottom-section-content-container
+          standard-content-container-width
+        "
+      >
+        <div class="option-container">
+          <h2 class="bold-weight">Optionale Angaben</h2>
+          <p>
+            Du kannst uns noch freiwillig einige zusätzliche Informationen zu
+            deinem Fall geben. Das hilft uns dabei, die Ausbreitung von
+            Falschinformationen besser zu untersuchen.
+          </p>
+          <div class="radio-container">
+            <p class="mono-font bold-weight">
+              Wie hat dich diese Information erreicht?
+            </p>
+            <mat-radio-group [(ngModel)]="form.source" name="source">
+              <mat-radio-button
+                *ngFor="let source of informationSources"
+                [value]="source.value"
+              >
+                <span class="wrap-mat-radio-label">{{ source.label }}</span>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <p class="mono-font bold-weight">
+            Wie oft hast du diese Information erhalten?
+          </p>
+          <input
+            type="text"
+            class="text-input responsive-100"
+            [(ngModel)]="form.frequency"
+            name="frequency"
+          />
+          <p class="mono-font bold-weight">
+            Wann hat dich diese Information das erste Mal erreicht?
+          </p>
+          <input
+            type="date"
+            class="text-input responsive-100"
+            [(ngModel)]="form.received_date"
+            ui-date-format="dd.mm.yyyy"
+            name="received_date"
+          />
+        </div>
+        <mat-divider></mat-divider>
+        <div class="notify-container">
+          <h2 class="bold-weight">Möchtest du benachrichtigt werden?</h2>
+          <p>
+            Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum
+            Fall gibt. Wenn nicht, dann siehst du den Fall nach Abschluss im
+            Archiv.
+          </p>
+          <p class="mono-font bold-weight">E-Mail-Adresse</p>
+          <div class="email-container responsive-100">
+            <input type="email" [(ngModel)]="form.mail" name="mail" email />
+            <mat-icon class="icon">mail_outline</mat-icon>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="submit-check-container">
+          <h2 class="bold-weight">Rechtliche Angaben</h2>
+          <p>
+            Zum Abschluss der Einreichung, hinterlasse uns bitte deine
+            E-Mail-Adresse und bestätigte die Datenschutzerklärung und die
+            Nutzungsbedingungen.
+          </p>
+          <mat-checkbox [(ngModel)]="form.policy" name="policy" required>
+            <div class="option">
+              <span class="wrap-mat-radio-label">
+                Ich stimme den Bedingungen der Datenschutzerklärung zu</span
+              >
+            </div>
+          </mat-checkbox>
+          <mat-checkbox [(ngModel)]="form.condition" name="condition" required>
+            <div class="option">
+              <span class="wrap-mat-radio-label">
+                Ich stimme den Nutzungsbedingungen zu
+              </span>
+            </div>
+          </mat-checkbox>
+        </div>
+        <div class="legal-button-container">
+          <a routerLink="/" class="abort-button button-group">Abbrechen</a>
+          <button
+            type="submit"
+            class="submit-button button-group"
+            [disabled]="submitForm.invalid"
+          >
+            Lösung einreichen
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
 </div>
