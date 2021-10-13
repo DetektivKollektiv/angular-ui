@@ -10,22 +10,16 @@
           <h1><span class="alt">Fall einreichen.</span></h1>
           <div>
             <span class="submit-text">
-              Gib hier die Details zu deinem Fall ein. Das kann entweder eine
-              Behauptung sein, oder ein Link. Sobald du auf Fall absenden
-              klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben.
-              Dann erhältst du sofort ein Ergebnis. Falls dein Fall neu ist,
-              werden wir ihn sofort an unser Team von Detektiven weitergeben,
-              die den Fall dann für dich prüfen.
+              Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf Fall absenden
+              klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis. Falls dein Fall neu ist,
+              werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich prüfen.
             </span>
           </div>
         </div>
       </div>
 
       <div class="section-of-questions standard-content-container-width">
-        <app-question-carousel
-          *ngIf="!!questionPrompts"
-          [questions]="questionPrompts"
-        ></app-question-carousel>
+        <app-question-carousel *ngIf="!!questionPrompts" [questions]="questionPrompts"></app-question-carousel>
       </div>
 
       <!-- Middle Section -->
@@ -34,25 +28,15 @@
         <div class="middle-section-container">
           <h2 class="mono-font bold-weight">Dein Fall</h2>
           <p>
-            Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein.
-            Gibt es diesen Fall bereits, erhältst du das Ergebnis sofort. Falls
-            dein Fall neu ist, werden wir ihn sofort an unser Team von
-            Detektiven weitergeben, die den Fall dann für dich prüfen.
+            Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein. Gibt es diesen Fall bereits, erhältst du das Ergebnis
+            sofort. Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich
+            prüfen.
           </p>
           <div>
-            <p class="mono-font bold-weight">
-              Um welche Form von Medium handelt es sich?*
-            </p>
+            <p class="mono-font bold-weight">Um welche Form von Medium handelt es sich?*</p>
             <mat-form-field class="form-select responsive-100">
-              <mat-select
-                [(ngModel)]="form.item_type_id"
-                name="item_type_id"
-                required
-              >
-                <mat-option
-                  *ngFor="let itemType of itemTypes$ | async"
-                  [value]="itemType.id"
-                >
+              <mat-select [(ngModel)]="form.item_type_id" name="item_type_id" required>
+                <mat-option *ngFor="let itemType of itemTypes$ | async" [value]="itemType.id">
                   {{ itemType.id | itemType }}
                 </mat-option>
               </mat-select>
@@ -60,13 +44,7 @@
           </div>
           <div>
             <p class="mono-font bold-weight">Bitte gib hier den Inhalt ein*</p>
-            <textarea
-              class="textarea"
-              rows="10"
-              [(ngModel)]="form.content"
-              name="content"
-              required
-            ></textarea>
+            <textarea class="textarea" rows="10" [(ngModel)]="form.content" name="content" required></textarea>
           </div>
 
           <div class="lady-detective-svg-container">
@@ -85,14 +63,7 @@
         viewBox="0 0 1923.772 113.786"
       >
         <defs>
-          <linearGradient
-            id="linear-gradient"
-            x1="0.588"
-            y1="0.702"
-            x2="0.588"
-            y2="0.027"
-            gradientUnits="objectBoundingBox"
-          >
+          <linearGradient id="linear-gradient" x1="0.588" y1="0.702" x2="0.588" y2="0.027" gradientUnits="objectBoundingBox">
             <!-- <stop offset="0" stop-color="#160637"/> -->
             <stop offset="0" stop-color="#53407b" />
 
@@ -111,31 +82,18 @@
 
     <div class="bottom-section responsive-100">
       <!-- <div class="bottom-background"></div> -->
-      <div
-        class="
-          bottom-section-content-container
-          standard-content-container-width
-        "
-      >
+      <div class="bottom-section-content-container standard-content-container-width">
         <div class="option-container">
           <h2 class="bold-weight">Optionale Angaben</h2>
           <p>
-            Du kannst uns noch freiwillig einige zusätzliche Informationen zu
-            deinem Fall geben. Das hilft uns dabei, die Ausbreitung von
+            Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben. Das hilft uns dabei, die Ausbreitung von
             Falschinformationen besser zu untersuchen.
           </p>
           <div class="radio-container">
-            <p class="mono-font bold-weight">
-              Wie hat dich diese Information erreicht?
-            </p>
+            <p class="mono-font bold-weight">Wie hat dich diese Information erreicht?</p>
             <mat-radio-group [(ngModel)]="form.source" name="source">
-              <mat-radio-button
-                *ngFor="let source of itemSources"
-                [value]="source"
-              >
-                <span class="wrap-mat-radio-label">{{
-                  source | itemSource
-                }}</span>
+              <mat-radio-button *ngFor="let source of itemSources" [value]="source">
+                <span class="wrap-mat-radio-label">{{ source | itemSource }}</span>
               </mat-radio-button>
             </mat-radio-group>
             <input
@@ -146,18 +104,9 @@
               name="other_source"
             />
           </div>
-          <p class="mono-font bold-weight">
-            Wie oft hast du diese Information erhalten?
-          </p>
-          <input
-            type="text"
-            class="text-input responsive-100"
-            [(ngModel)]="form.frequency"
-            name="frequency"
-          />
-          <p class="mono-font bold-weight">
-            Wann hat dich diese Information das erste Mal erreicht?
-          </p>
+          <p class="mono-font bold-weight">Wie oft hast du diese Information erhalten?</p>
+          <input type="text" class="text-input responsive-100" [(ngModel)]="form.frequency" name="frequency" />
+          <p class="mono-font bold-weight">Wann hat dich diese Information das erste Mal erreicht?</p>
           <input
             type="date"
             class="text-input responsive-100"
@@ -170,9 +119,8 @@
         <div class="notify-container">
           <h2 class="bold-weight">Möchtest du benachrichtigt werden?</h2>
           <p>
-            Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum
-            Fall gibt. Wenn nicht, dann siehst du den Fall nach Abschluss im
-            Archiv.
+            Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum Fall gibt. Wenn nicht, dann siehst du den Fall nach Abschluss
+            im Archiv.
           </p>
           <p class="mono-font bold-weight">E-Mail-Adresse</p>
           <div class="email-container responsive-100">
@@ -184,34 +132,23 @@
         <div class="submit-check-container">
           <h2 class="bold-weight">Rechtliche Angaben</h2>
           <p>
-            Zum Abschluss der Einreichung, hinterlasse uns bitte deine
-            E-Mail-Adresse und bestätigte die Datenschutzerklärung und die
+            Zum Abschluss der Einreichung, hinterlasse uns bitte deine E-Mail-Adresse und bestätigte die Datenschutzerklärung und die
             Nutzungsbedingungen.
           </p>
           <mat-checkbox [(ngModel)]="form.policy" name="policy" required>
             <div class="option">
-              <span class="wrap-mat-radio-label">
-                Ich stimme den Bedingungen der Datenschutzerklärung zu</span
-              >
+              <span class="wrap-mat-radio-label"> Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
             </div>
           </mat-checkbox>
           <mat-checkbox [(ngModel)]="form.condition" name="condition" required>
             <div class="option">
-              <span class="wrap-mat-radio-label">
-                Ich stimme den Nutzungsbedingungen zu
-              </span>
+              <span class="wrap-mat-radio-label"> Ich stimme den Nutzungsbedingungen zu </span>
             </div>
           </mat-checkbox>
         </div>
         <div class="legal-button-container">
           <a routerLink="/" class="abort-button button-group">Abbrechen</a>
-          <button
-            type="submit"
-            class="submit-button button-group"
-            [disabled]="submitForm.invalid"
-          >
-            Lösung einreichen
-          </button>
+          <button type="submit" class="submit-button button-group" [disabled]="submitForm.invalid">Lösung einreichen</button>
         </div>
       </div>
     </div>

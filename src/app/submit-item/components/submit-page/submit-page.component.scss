@@ -134,11 +134,7 @@
   }
 
   .bottom-section {
-    background-image: linear-gradient(
-      to top,
-      $color__mysterious-blue 29%,
-      #53407b 99%
-    );
+    background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
     display: flex;
     flex-direction: column;
     width: 100%;
