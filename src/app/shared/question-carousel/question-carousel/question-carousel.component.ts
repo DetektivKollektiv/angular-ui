@@ -8,9 +8,9 @@ import SwiperCore from 'swiper/core';
 export class QuestionCarouselComponent implements OnInit {
   @Input() public questions: any[];
 
-  constructor() { }
+  isCollapsed = true;
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }
