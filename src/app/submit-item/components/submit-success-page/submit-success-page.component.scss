@@ -89,15 +89,13 @@
             --icon-color: #{$color__neon-blue};
           }
 
+          &__heading {
+            font-size: 21px;
+          }
+
           &__icon {
             max-width: 125px;
             margin-right: 20px;
-          }
-
-          &__text {
-            &__heading {
-              font-size: 21px;
-            }
           }
 
           &__icon i {
