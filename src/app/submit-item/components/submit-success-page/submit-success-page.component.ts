@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { ItemsService } from 'src/app/review-item/services/items/items.service';
 import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
-import { AuthState } from 'src/app/shared/auth/model/auth-state';
 import { ArchiveService } from '../../../archive/services/archive.service';
 import { Item } from '../../../model/item';
 import { QuestionPrompt } from '../../model/question-prompt.interface';
@@ -14,24 +14,7 @@ import { QuestionPrompt } from '../../model/question-prompt.interface';
   styleUrls: ['./submit-success-page.component.scss'],
   providers: []
 })
-export class SubmitSuccessPageComponent implements OnInit {
-  mockItem: Item = {
-    id: 'cc92e969-5c5f-42bc-8d3d-ec3ea3a3bdd8',
-    item_type_id: '1',
-    content: 'afsdsfeee',
-    language: null,
-    status: 'unconfirmed',
-    variance: null,
-    result_score: null,
-    // open_reviews_level_1: 4,
-    // open_reviews_level_2: 4,
-    open_reviews: 4,
-    // in_progress_reviews_level_1: 0,
-    // in_progress_reviews_level_2: 0,
-    open_timestamp: '2021-10-13 09:31:56',
-    close_timestamp: null
-  } as Item;
-
+export class SubmitSuccessPageComponent {
   item: Item;
 
   closedItems$ = this.archiveService.getClosedItems();
@@ -51,8 +34,12 @@ export class SubmitSuccessPageComponent implements OnInit {
     }
   ];
 
+  authState$ = this.authService.auth$.pipe(
+    tap(({ isLoggedIn }) => (this.authenticated = isLoggedIn)),
+    tap(({ isLoggedIn }) => isLoggedIn && this.loadOpenItems())
+  );
+
   authenticated = false;
-  authState: AuthState;
   cases: any[];
   is_open_review: boolean;
   withEmail: boolean;
@@ -61,7 +48,8 @@ export class SubmitSuccessPageComponent implements OnInit {
     private authService: AuthService,
     private itemsService: ItemsService,
     private archiveService: ArchiveService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
     const state = this.router.getCurrentNavigation().extras?.state;
     if (state) {
@@ -69,19 +57,9 @@ export class SubmitSuccessPageComponent implements OnInit {
       this.item = item;
       this.withEmail = withEmail;
     } else {
-      this.item = this.mockItem;
+      this.snackBar.open('Ups, da ist etwas schiefgelaufen!', '', { duration: 5000 });
+      this.router.navigate(['submit']);
     }
-  }
-
-  ngOnInit(): void {
-    this.authService.auth$.subscribe((authState: AuthState) => {
-      this.authState = authState;
-      this.authenticated = this.authState.isLoggedIn;
-
-      if (this.authState.isLoggedIn) {
-        this.loadOpenItems();
-      }
-    });
   }
 
   loadOpenItems(): void {

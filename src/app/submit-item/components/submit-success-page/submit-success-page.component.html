@@ -1,4 +1,4 @@
-<div class="submit-success-page standard-content-container-width">
+<div class="submit-success-page standard-content-container-width" *ngIf="authState$ | async">
   <div class="top-section">
     <div class="overview-section">
       <span class="breadcrumb">
@@ -56,7 +56,6 @@
     </div>
   </div>
   <div class="open-cases-swiper-section" *ngIf="authenticated && cases && cases.length && !is_open_review">
-    <!--  make these work -->
     <app-open-case-list-slider [cases]="cases"></app-open-case-list-slider>
   </div>
   <app-submit-no-auth *ngIf="!authenticated"></app-submit-no-auth>
