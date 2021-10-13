@@ -13,9 +13,11 @@ import { QuestionCarouselModule } from '../shared/question-carousel/question-car
 import { FormsModule } from '@angular/forms';
 import { ItemTypePipe } from './services/item-type.pipe';
 import { ItemSourcePipe } from './services/item-source.pipe';
+import { SubmitSuccessPageComponent } from './components/submit-success-page/submit-success-page.component';
+import { SubmitNoAuthComponent } from './components/submit-no-auth/submit-no-auth.component';
 
 @NgModule({
-  declarations: [SubmitComponent, SubmitPageComponent, ItemTypePipe, ItemSourcePipe],
+  declarations: [SubmitComponent, SubmitPageComponent, SubmitSuccessPageComponent, ItemTypePipe, ItemSourcePipe, SubmitNoAuthComponent],
   imports: [
     CommonModule,
     FormsModule,

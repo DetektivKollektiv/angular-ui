@@ -19,7 +19,7 @@
       </div>
 
       <div class="section-of-questions standard-content-container-width">
-        <app-question-carousel *ngIf="!!questionPrompts" [questions]="questionPrompts"></app-question-carousel>
+        <app-question-carousel *ngIf="questionPrompts?.length" [questions]="questionPrompts"></app-question-carousel>
       </div>
 
       <!-- Middle Section -->
@@ -148,7 +148,7 @@
         </div>
         <div class="legal-button-container">
           <a routerLink="/" class="abort-button button-group">Abbrechen</a>
-          <button type="submit" class="submit-button button-group" [disabled]="submitForm.invalid">Lösung einreichen</button>
+          <button type="submit" class="submit-button button-group" [disabled]="submitForm.invalid">Fall einreichen</button>
         </div>
       </div>
     </div>

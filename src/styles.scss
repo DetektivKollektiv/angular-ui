@@ -207,9 +207,7 @@ mat-icon {
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #fac800;
 }
-.yellow-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #fac800;
 }
 
@@ -220,9 +218,7 @@ mat-icon {
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #5f38fa;
 }
-.purple-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.purple-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #5f38fa;
 }
 
@@ -233,9 +229,7 @@ mat-icon {
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #ff7268;
 }
-.coral-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.coral-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #ff7268;
 }
 
@@ -278,33 +272,20 @@ header.header {
   border-radius: 5px;
 }
 
-.radio-container
-  .mat-radio-group
-  .mat-radio-button.mat-accent
-  .mat-radio-inner-circle {
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-inner-circle {
   background-color: white !important;
 }
 
-.radio-container
-  .mat-radio-group
-  .mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   opacity: 0 !important; /*click effect color change*/
   background-color: white !important;
 }
 
-.radio-container
-  .mat-radio-group
-  .mat-radio-button.mat-accent.mat-radio-checked
-  .mat-radio-outer-circle {
+.radio-container .mat-radio-group .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: white !important;
 }
 
-.radio-container
-  .mat-radio-group
-  .mat-radio-button.mat-accent
-  .mat-radio-outer-circle {
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: white !important;
 }
 
@@ -341,10 +322,14 @@ header.header {
 }
 
 .breadcrumb {
+  font-size: 14px;
+  color: #8989a2;
+
   &__link {
     cursor: pointer;
   }
 
+  span,
   i ~ i {
     margin-left: 4px;
   }
@@ -355,5 +340,5 @@ header.header {
 }
 
 .bold-weight {
-  font-weight: 700;
+  font-weight: 700 !important;
 }
