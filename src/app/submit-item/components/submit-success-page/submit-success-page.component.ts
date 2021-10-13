@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { ItemsService } from 'src/app/review-item/services/items/items.service';
 import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
 import { AuthState } from 'src/app/shared/auth/model/auth-state';
+import { ArchiveService } from '../../../archive/services/archive.service';
 import { Item } from '../../../model/item';
 import { QuestionPrompt } from '../../model/question-prompt.interface';
 
@@ -11,7 +12,7 @@ import { QuestionPrompt } from '../../model/question-prompt.interface';
   selector: 'app-submit-success-page',
   templateUrl: './submit-success-page.component.html',
   styleUrls: ['./submit-success-page.component.scss'],
-  providers: [],
+  providers: []
 })
 export class SubmitSuccessPageComponent implements OnInit {
   mockItem: Item = {
@@ -28,14 +29,17 @@ export class SubmitSuccessPageComponent implements OnInit {
     // in_progress_reviews_level_1: 0,
     // in_progress_reviews_level_2: 0,
     open_timestamp: '2021-10-13 09:31:56',
-    close_timestamp: null,
+    close_timestamp: null
   } as Item;
 
   item: Item;
 
+  closedItems$ = this.archiveService.getClosedItems();
+  closedItemCount = 10;
+
   loginFormData = {
     email: null,
-    password: null,
+    password: null
   };
 
   questionPrompts: QuestionPrompt[] = [
@@ -43,8 +47,8 @@ export class SubmitSuccessPageComponent implements OnInit {
       title: 'Kann ich den Fall abgeben?',
       description: 'Ja, das geht. Hier erfährst du wie.',
       background: 'color__purple',
-      icon: 'fal fa-archive',
-    },
+      icon: 'fal fa-archive'
+    }
   ];
 
   authenticated = false;
@@ -53,7 +57,12 @@ export class SubmitSuccessPageComponent implements OnInit {
   is_open_review: boolean;
   withEmail: boolean;
 
-  constructor(private authService: AuthService, private itemsService: ItemsService, private router: Router) {
+  constructor(
+    private authService: AuthService,
+    private itemsService: ItemsService,
+    private archiveService: ArchiveService,
+    private router: Router
+  ) {
     const state = this.router.getCurrentNavigation().extras?.state;
     if (state) {
       const { item, withEmail } = state;

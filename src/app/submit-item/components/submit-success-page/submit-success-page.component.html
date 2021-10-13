@@ -89,12 +89,22 @@
         ></span>
       </div>
     </div>
-    <div class="solved-cases-section">
-      <div class="title"></div>
-      <div class="solved-cases-container">
-        <!-- <app-case-list [cases]=caseList1></app-case-list> -->
-        <!-- <app-case-list [cases]=caseList2></app-case-list> -->
+    <div class="solved-cases-section" *ngIf="closedItems$ | async as closedItems">
+      <div class="solved-cases-section__title">In gelösten Fällen stöbern</div>
+      <div class="solved-cases-section__container">
+        <app-case-list-item
+          class="case-item"
+          *ngFor="let closedItem of closedItems | slice: 0:closedItemCount"
+          [case]="closedItem"
+        ></app-case-list-item>
       </div>
+      <button
+        class="solved-cases-section__btn button button--neon-blue"
+        *ngIf="closedItemCount <= closedItems.length"
+        (click)="closedItemCount = closedItemCount + 10"
+      >
+        Weitere gelöste Fälle ansehen
+      </button>
     </div>
   </div>
 </div>

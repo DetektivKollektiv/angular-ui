@@ -1,75 +1,84 @@
 @import '../../../../assets/scss/colors';
 
-.item{
-    list-style: none;
+.item {
+  list-style: none;
+  display: flex;
+  margin: 10px 0;
+
+  p {
+    margin: unset;
+  }
+
+  .content {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0daf00;
+    padding: 10px 38px 10px 0;
+  }
+
+  .received {
+    font-weight: bold;
+    font-size: 14px;
+    .received-txt {
+      font-weight: normal;
+    }
+  }
+
+  .item-left {
+    width: 80px;
+    height: 80px;
     display: flex;
-	  margin: 10px 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    margin-right: 20px;
+    background-color: #eee;
+    border-radius: 25px;
 
-    p {
-        margin: unset;
-    }
-    .content{
-        font-size: 22px;
-        font-weight: bold;
-        color: #0daf00;
-        padding: 10px 38px 10px 0;
-    }
-    .received{
-        font-weight: bold;
-        font-size: 14px;
-        .received-txt {
-            font-weight: normal;
-        }
-    }
-    .item-left {
-        width: 80px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 5px;
-        margin-right: 20px;
-        background-color: #eee;
-        border-radius: 25px;
-
-        h2 {
-          font-family: PT MONO;
-          font-size: 42px;
-        }
-
-        .red {
-          color: $color__rating-red;
-        }
-
-        .orange {
-          color: $color__rating-yellow;
-        }
-
-        .light-green {
-          color: $color__rating-light-green;
-        }
-
-        .green {
-          color: $color__rating-green;
-        }
+    h2 {
+      font-family: PT MONO;
+      font-size: 42px;
     }
 
-    .item-right {
-      flex: 1;
-
-      .received {
-        font-size: 21px;
-      }
+    .red {
+      color: $color__rating-red;
     }
 
-    .item-col span {
-            width: 33%;
-            display: inline-block;
-        }
-    .closed {
-        padding-top: 22px;
+    .orange {
+      color: $color__rating-yellow;
     }
-    .confidence-index{
-        padding: 22px;
+
+    .light-green {
+      color: $color__rating-light-green;
     }
+
+    .green {
+      color: $color__rating-green;
+    }
+  }
+
+  .item-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding-bottom: 8px;
+
+    .received {
+      font-size: 21px;
+    }
+  }
+
+  .item-col {
+    margin-top: 8px;
+
+    i {
+      margin-right: 4px;
+    }
+
+    span {
+      width: 33%;
+      display: inline-block;
+    }
+  }
 }
