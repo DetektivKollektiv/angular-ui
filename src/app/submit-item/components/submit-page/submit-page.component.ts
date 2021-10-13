@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Item } from '../../../model/item';
 import { InformationSource } from '../../model/information-source.interface';
 import { SubmitFormData } from '../../model/submit-form-data.interface';
+import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { SubmitItemService } from '../../services/submit-item.service';
 import { QuestionPrompt } from './../../model/question-prompt.interface';
 
@@ -12,19 +13,15 @@ import { QuestionPrompt } from './../../model/question-prompt.interface';
   providers: [],
 })
 export class SubmitPageComponent {
-  informationSources: InformationSource[] = [
-    { label: 'Per Messenger (z.B. Whatsapp, Telegram oder SMS)', value: 0 },
-    {
-      label: 'Über soziale Medien (z.B. Facebook, Twitter, Instagram)',
-      value: 1,
-    },
-    { label: 'Beim Surfen im Internet', value: 2 },
-    { label: 'Über andere Medien (z.B. Fernsehen, Radio, Zeitung)', value: 3 },
-    {
-      label: 'Aus Gesprächen (z.B. mit Freunden oder Familienmitgliedern)',
-      value: 4,
-    },
-    { label: 'Sonstiges', value: 5 },
+  itemTypes$ = this.itemTypesService.getItemTypes();
+
+  itemSources: string[] = [
+    'messenger',
+    'social_media',
+    'web_surfing',
+    'other_media',
+    'orally',
+    'other',
   ];
 
   questionPrompts: QuestionPrompt[] = [
@@ -61,9 +58,10 @@ export class SubmitPageComponent {
    * The form data. Filled with initial values.
    */
   form: SubmitFormData = {
-    medium: 'link',
+    item_type_id: '1',
     content: null,
     source: null,
+    other_source: null,
     frequency: null,
     received_date: null,
     mail: null,
@@ -71,11 +69,18 @@ export class SubmitPageComponent {
     condition: false,
   };
 
-  constructor(private submitItemService: SubmitItemService) {}
+  constructor(
+    private submitItemService: SubmitItemService,
+    private itemTypesService: ItemTypesService
+  ) {}
 
   onSubmit() {
-    const { policy, condition, ...item } = this.form;
-    console.log(item);
-    // this.submitItemService.submitItem(item);
+    const { policy, condition, other_source, ...itemData } = this.form;
+    const item = new Item();
+    Object.assign(item, itemData);
+    if (item.source === 'other' && !!other_source) {
+      item.source = other_source;
+    }
+    this.submitItemService.submitItem(item);
   }
 }

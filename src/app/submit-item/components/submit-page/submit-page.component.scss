@@ -194,6 +194,10 @@
             border: 1px solid grey;
           }
         }
+
+        .other-source-input {
+          margin-top: 4px;
+        }
       }
 
       .notify-container {
@@ -223,6 +227,11 @@
 
           &:focus {
             border: 1px solid grey;
+          }
+
+          &.ng-invalid.ng-touched {
+            border-color: red;
+            color: red;
           }
         }
 

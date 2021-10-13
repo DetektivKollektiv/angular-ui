@@ -1,3 +1,5 @@
+import { ItemSource } from './item-source.type';
+
 /* eslint-disable @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match */
 export class Item {
   content: string;
@@ -6,7 +8,7 @@ export class Item {
   phone: string;
   type: string;
   item_type_id: string;
-  source: string;
+  source: ItemSource;
   channel: string;
   frequency: string;
   received_date: string;

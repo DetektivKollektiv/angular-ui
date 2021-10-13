@@ -1,7 +1,10 @@
+import { ItemSource } from '../../model/item-source.type';
+
 export interface SubmitFormData {
-  medium: 'link' | 'message';
+  item_type_id: string;
   content: string | null;
-  source: number | null;
+  source: ItemSource | 'other';
+  other_source: string | null;
   frequency: string | null;
   received_date: string | null;
   mail: string | null;

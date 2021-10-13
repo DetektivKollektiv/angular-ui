@@ -44,18 +44,22 @@
               Um welche Form von Medium handelt es sich?*
             </p>
             <mat-form-field class="form-select responsive-100">
-              <mat-select [(ngModel)]="form.medium" name="medium" required>
-                <mat-option value="link"> Link zu einem Artikel </mat-option>
-                <mat-option value="message">
-                  Textnachricht / Aussage
+              <mat-select
+                [(ngModel)]="form.item_type_id"
+                name="item_type_id"
+                required
+              >
+                <mat-option
+                  *ngFor="let itemType of itemTypes$ | async"
+                  [value]="itemType.id"
+                >
+                  {{ itemType.id | itemType }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
           <div>
-            <p class="mono-font bold-weight">
-              Bitte gib den Inhalt der Textnachricht ein*
-            </p>
+            <p class="mono-font bold-weight">Bitte gib hier den Inhalt ein*</p>
             <textarea
               class="textarea"
               rows="10"
@@ -126,12 +130,21 @@
             </p>
             <mat-radio-group [(ngModel)]="form.source" name="source">
               <mat-radio-button
-                *ngFor="let source of informationSources"
-                [value]="source.value"
+                *ngFor="let source of itemSources"
+                [value]="source"
               >
-                <span class="wrap-mat-radio-label">{{ source.label }}</span>
+                <span class="wrap-mat-radio-label">{{
+                  source | itemSource
+                }}</span>
               </mat-radio-button>
             </mat-radio-group>
+            <input
+              *ngIf="form.source === 'other'"
+              [(ngModel)]="form.other_source"
+              class="other-source-input text-input responsive-100"
+              type="text"
+              name="other_source"
+            />
           </div>
           <p class="mono-font bold-weight">
             Wie oft hast du diese Information erhalten?

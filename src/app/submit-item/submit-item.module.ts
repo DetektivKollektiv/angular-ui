@@ -11,9 +11,11 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { OpenCaseListSliderModule } from '../shared/open-case-list-slider/open-case-list-slider.module';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 import { FormsModule } from '@angular/forms';
+import { ItemTypePipe } from './services/item-type.pipe';
+import { ItemSourcePipe } from './services/item-source.pipe';
 
 @NgModule({
-  declarations: [SubmitComponent, SubmitPageComponent],
+  declarations: [SubmitComponent, SubmitPageComponent, ItemTypePipe, ItemSourcePipe],
   imports: [
     CommonModule,
     FormsModule,
