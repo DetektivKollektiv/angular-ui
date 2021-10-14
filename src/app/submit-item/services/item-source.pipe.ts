@@ -1,21 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ItemSource } from '../../model/item-source.type';
+import { ItemSource, ItemSources } from '../../model/item-source';
 
 @Pipe({
-  name: 'itemSource',
+  name: 'itemSource'
 })
 export class ItemSourcePipe implements PipeTransform {
   transform(value: ItemSource): string {
     switch (value) {
-      case 'messenger':
+      case ItemSources.Messenger:
         return 'Per Messenger (z.B. Whatsapp, Telegram oder SMS)';
-      case 'social_media':
+      case ItemSources.SocialMedia:
         return 'Über soziale Medien (z.B. Facebook, Twitter, Instagram)';
-      case 'web_surfing':
+      case ItemSources.WebSurfing:
         return 'Beim Surfen im Internet';
-      case 'other_media':
+      case ItemSources.OtherMedia:
         return 'Über andere Medien (z.B. Fernsehen, Radio, Zeitung)';
-      case 'orally':
+      case ItemSources.Orally:
         return 'Aus Gesprächen (z.B. mit Freunden oder Familienmitgliedern)';
       default:
         return 'Sonstiges';

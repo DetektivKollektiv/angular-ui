@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Item } from '../../../model/item';
+import { ItemSources } from '../../../model/item-source';
 import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { SubmitFormData } from '../../model/submit-form-data.interface';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
@@ -12,38 +13,38 @@ import { QuestionPrompt } from './../../model/question-prompt.interface';
   selector: 'app-submit-page',
   templateUrl: './submit-page.component.html',
   styleUrls: ['./submit-page.component.scss'],
-  providers: [],
+  providers: []
 })
 export class SubmitPageComponent {
   itemTypes$ = this.itemTypesService.getItemTypes();
 
-  itemSources: string[] = ['messenger', 'social_media', 'web_surfing', 'other_media', 'orally', 'other'];
+  itemSources: string[] = Object.values(ItemSources);
 
   questionPrompts: QuestionPrompt[] = [
     {
       title: 'Woran erkenne ich eine gute Quelle?',
       description: 'Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen',
       background: 'color__bittersweet',
-      icon: 'fal fa-question-circle',
+      icon: 'fal fa-question-circle'
     },
     {
       title: 'Die Quelle ist nicht mehr abrufbar. Was kann ich tun?',
       description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
       background: 'color__neon-blue',
-      icon: 'fal fa-plus',
+      icon: 'fal fa-plus'
     },
     {
       title: 'Kann ich den Fall abgeben?',
       description: 'Ja, das geht. Hier erfährst du wie.',
       background: 'color__purple',
-      icon: 'fal fa-archive',
+      icon: 'fal fa-archive'
     },
     {
       title: 'Eine weitere Frage??',
       description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
       background: 'color__bittersweet',
-      icon: 'fal fa-meteor',
-    },
+      icon: 'fal fa-meteor'
+    }
   ];
 
   /**
@@ -58,7 +59,7 @@ export class SubmitPageComponent {
     received_date: null,
     mail: null,
     policy: false,
-    condition: false,
+    condition: false
   };
 
   constructor(
@@ -96,7 +97,7 @@ export class SubmitPageComponent {
 
   private goToArchive(responseItem: Item) {
     this.snackBar.open('Sieht so aus, als hätte unsere Community den Fall schon bearbeitet. 😊', '', {
-      duration: 5000,
+      duration: 5000
     });
     this.router.navigate(['archive', responseItem.id]);
   }

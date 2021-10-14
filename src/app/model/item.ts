@@ -1,4 +1,4 @@
-import { ItemSource } from './item-source.type';
+import { ItemSource } from './item-source';
 
 /* eslint-disable @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match */
 export class Item {
