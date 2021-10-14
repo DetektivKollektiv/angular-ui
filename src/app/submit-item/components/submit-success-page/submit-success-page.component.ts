@@ -35,6 +35,8 @@ export class SubmitSuccessPageComponent {
   is_open_review: boolean;
   withEmail: boolean;
 
+  marketingWording = 'Ich habe gerade einen Fall bei codetekt eingereicht. Tritt auch du der Community gegen Falschinformationen bei!';
+
   constructor(
     private authService: AuthService,
     private itemsService: ItemsService,
@@ -53,7 +55,12 @@ export class SubmitSuccessPageComponent {
     }
   }
 
-  loadOpenItems(): void {
+  copy() {
+    navigator.clipboard.writeText(this.marketingWording);
+    this.snackBar.open('Text wurde in die Zwischenablage kopiert!', '', { duration: 3000 });
+  }
+
+  private loadOpenItems(): void {
     this.itemsService.getOpenItems().then((openCases) => {
       this.cases = openCases.items;
       this.is_open_review = openCases.is_open_review;

@@ -57,13 +57,14 @@
   <app-submit-no-auth *ngIf="!authenticated"></app-submit-no-auth>
   <div class="bottom-section">
     <div class="share-section">
-      <div class="share-section-top-box">
-        <h3 class="share-section-heading">codetekt teilen</h3>
-        <p class="share-section-title">
+      <div class="share-section__top-box">
+        <h3 class="share-section__heading">codetekt teilen</h3>
+        <p class="share-section__title">
           Wenn dir codetekt gefällt, lass es deine Freunde wissen und sage Falschinformationen den Kampf an!
         </p>
-        <p class="share-section-description">
-          Marketing-Wording: Ich habe gerade einen Fall bei codetekt eingereicht. Tritt auch du der Community gegen Falschinformationen bei!
+        <p class="share-section__description mono-font">
+          {{ marketingWording }}
+          <i class="far fa-copy" (click)="copy()"></i>
         </p>
       </div>
       <div class="social-media-icon">

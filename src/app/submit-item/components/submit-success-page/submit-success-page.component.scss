@@ -140,29 +140,40 @@
     justify-content: center;
 
     .share-section {
-      .share-section-top-box {
+      &__top-box {
         display: flex;
         flex-direction: column;
         align-items: center;
-        h3.share-section-heading {
-          font-size: 30px;
-          font-weight: bold;
-          color: $color__share-section-heading;
-        }
-        p.share-section-title {
-          max-width: 700px;
-          text-align: center;
-          font-size: 18px;
-        }
-        p.share-section-description {
-          font-size: 14px;
-          color: $color__old-paragraph;
-          margin: 23px 0 30px;
-          padding: 15px 5px 15px 15px;
-          border-radius: 30px;
-          border: solid 1px $color__spacer;
-          max-width: 585px;
-          background-color: $color__tag-background;
+      }
+      &__heading {
+        font-size: 30px;
+        font-weight: bold;
+        color: $color__share-section-heading;
+      }
+
+      &__title {
+        max-width: 700px;
+        text-align: center;
+        font-size: 18px;
+      }
+
+      &__description {
+        display: flex;
+        align-items: center;
+
+        font-size: 14px;
+        color: $color__old-paragraph;
+        margin: 23px 0 30px;
+        padding: 15px 5px 15px 15px;
+        border-radius: 30px;
+        border: solid 1px $color__spacer;
+        max-width: 585px;
+        background-color: $color__tag-background;
+
+        i {
+          margin: 0 10px 0 20px;
+          font-size: 20px;
+          cursor: pointer;
         }
       }
 
