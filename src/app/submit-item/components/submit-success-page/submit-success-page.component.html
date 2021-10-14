@@ -11,10 +11,6 @@
         <div class="submit-success-number-id">#{{ item.id.split('-')[0] }} <span>Fallnummer</span></div>
       </div>
 
-      <div class="section-of-questions">
-        <app-question-carousel *ngIf="questionPrompts?.length" [questions]="questionPrompts"></app-question-carousel>
-      </div>
-
       <div class="submit-success-description-section">
         <div class="submit-success-description-section__left">
           <div class="icon-with-content icon-with-content--bittersweet">

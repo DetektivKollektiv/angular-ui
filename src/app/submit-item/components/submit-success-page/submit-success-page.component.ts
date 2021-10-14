@@ -25,15 +25,6 @@ export class SubmitSuccessPageComponent {
     password: null
   };
 
-  questionPrompts: QuestionPrompt[] = [
-    {
-      title: 'Kann ich den Fall abgeben?',
-      description: 'Ja, das geht. Hier erfährst du wie.',
-      background: 'color__purple',
-      icon: 'fal fa-archive'
-    }
-  ];
-
   authState$ = this.authService.auth$.pipe(
     tap(({ isLoggedIn }) => (this.authenticated = isLoggedIn)),
     tap(({ isLoggedIn }) => isLoggedIn && this.loadOpenItems())
