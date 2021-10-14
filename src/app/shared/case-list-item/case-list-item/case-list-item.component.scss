@@ -70,6 +70,8 @@
   }
 
   .item-col {
+    display: flex;
+    flex-flow: row wrap;
     margin-top: 8px;
 
     i {
@@ -77,8 +79,16 @@
     }
 
     span {
-      width: 33%;
-      display: inline-block;
+      width: 50%;
+    }
+
+    @media only screen and (min-width: 480px) {
+      display: block;
+
+      span {
+        width: 33%;
+        display: inline-block;
+      }
     }
   }
 }

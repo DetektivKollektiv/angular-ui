@@ -58,7 +58,11 @@
           justify-content: center;
 
           img {
-            width: 350px;
+            width: 80%;
+
+            @media only screen and (min-width: 480px) {
+              width: 350px;
+            }
 
             @media only screen and (min-width: 1024px) {
               margin-left: 100px;
@@ -125,7 +129,6 @@
       align-items: center;
 
       img {
-        // height: 400px;
         margin-top: 50px;
         width: 100%;
       }
@@ -237,7 +240,8 @@
         }
 
         .case-item {
-          width: 400px;
+          width: 100%;
+          max-width: 400px;
         }
       }
 
