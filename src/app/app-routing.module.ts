@@ -41,80 +41,80 @@ const routes: Routes = [
       { path: 'submit_old', component: SubmitComponent },
       {
         path: 'submit/success',
-        component: SubmitSuccessPageComponent,
+        component: SubmitSuccessPageComponent
       },
       {
         path: 'submit',
-        component: SubmitPageComponent,
+        component: SubmitPageComponent
       },
       {
         path: 'review/success',
-        component: ReviewSuccessPageComponent,
+        component: ReviewSuccessPageComponent
       },
       {
         path: 'review',
         component: ReviewComponent,
         canActivate: [AuthGuard],
-        canDeactivate: [UnsavedChangesGuard],
+        canDeactivate: [UnsavedChangesGuard]
       },
       {
         path: 'reviews/:id',
         component: ReviewPageComponent,
         canActivate: [AuthGuard],
-        canDeactivate: [UnsavedChangesGuard],
+        canDeactivate: [UnsavedChangesGuard]
       },
       {
         path: 'reviews',
-        component: ReviewPageComponent,
+        component: ReviewPageComponent
         // canActivate: [AuthGuard],
         // canDeactivate: [UnsavedChangesGuard],
       },
       {
         path: 'profile',
         component: ProfileComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'archive/:id',
         component: ArchiveDetailsPageComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'archive',
-        component: ArchiveComponent,
+        component: ArchiveComponent
       },
       {
         path: 'my-profile',
         component: MyProfileComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
-      { path: '', component: HomeComponent },
-    ],
+      { path: '', component: HomeComponent }
+    ]
   },
   {
     path: 'login',
     component: FooterOnlyLayoutComponent,
-    children: [{ path: '', component: LoginPageComponent }],
+    children: [{ path: '', component: LoginPageComponent }]
   },
   {
     path: 'forgot-password',
     component: FooterOnlyLayoutComponent,
-    children: [{ path: '', component: ForgotPasswordPageComponent }],
+    children: [{ path: '', component: ForgotPasswordPageComponent }]
   },
   {
     path: 'set-password',
     component: FooterOnlyLayoutComponent,
-    children: [{ path: '', component: SetPasswordPageComponent }],
+    children: [{ path: '', component: SetPasswordPageComponent }]
   },
   {
     path: 'register',
     component: FooterOnlyLayoutComponent,
-    children: [{ path: '', component: RegisterPageComponent }],
+    children: [{ path: '', component: RegisterPageComponent }]
   },
   {
     path: 'confirm-email',
     component: FooterOnlyLayoutComponent,
-    children: [{ path: '', component: ConfirmEmailPageComponent }],
+    children: [{ path: '', component: ConfirmEmailPageComponent }]
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
 
@@ -130,8 +130,8 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full',
-  },
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
@@ -139,8 +139,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       anchorScrolling: 'enabled',
       relativeLinkResolution: 'legacy',
-    }),
+      scrollPositionRestoration: 'top'
+    })
   ],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
