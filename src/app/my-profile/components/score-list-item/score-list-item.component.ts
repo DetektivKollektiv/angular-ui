@@ -27,9 +27,9 @@ export class ScoreListItemComponent implements OnInit {
       this.comments = this.case.comments;
     }
 
-    const startTimeArr = this.case.open_timestamp.split(" ")[0].split("-");
+    const startTimeArr = this.case.open_timestamp.split(' ')[0].split('-');
     this.startTime = `${startTimeArr[2]}.${startTimeArr[1]}.${startTimeArr[0]}`;
-    const endTimeArr = this.case.close_timestamp.split(" ")[0].split("-");
+    const endTimeArr = this.case.close_timestamp.split(' ')[0].split('-');
     this.endTime = `${endTimeArr[2]}.${endTimeArr[1]}.${endTimeArr[0]}`;
   }
 

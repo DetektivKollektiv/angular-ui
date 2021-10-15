@@ -111,7 +111,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.userExperienceBubbles = [
       { iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' },
       // this one was in the designs, but is temporarily removed.
-      // { iconName: 'user-cowboy', color: '#fff', text: '3', subText: 'Detektive', gridColor: '#722ED1' } 
+      // { iconName: 'user-cowboy', color: '#fff', text: '3', subText: 'Detektive', gridColor: '#722ED1' }
     ];
   }
 
@@ -184,8 +184,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   doAnUpdate()
   {
     this.reviewService.updateReview(this.review).then(() => {
-      console.log('we just totes did an update')
-    });    
+      console.log('we just totes did an update');
+    });
   }
 
   closeReview() {
@@ -226,7 +226,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   }
 
   updateReview() {
-    console.log(`updateReview! in review-page`)
+    console.log(`updateReview! in review-page`);
     this.reviewService.updateReview(this.review);
   }
 
@@ -266,7 +266,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.openCases = openCases.items;
         const firstCase = openCases.items[0];
 
-        console.log({response: openCases})
+        console.log({response: openCases});
 
         const sampleTags =['tag1','tag2','really long tag here'];
         const sampleUrls = [
@@ -274,7 +274,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
           { url: 'otherwebsite.io', is_safe: true },
           { url: 'thisismyfavorite.com', is_safe: false },
         ];
-        
+
         this.case = {
           ...firstCase,
           tags: 'tags' in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
@@ -283,9 +283,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
             // tags: sampleTags,
         };
 
-        console.log({zzz: this.case})
-        
-        this.reviewSituation.text = this.case.content
+        console.log({zzz: this.case});
+
+        this.reviewSituation.text = this.case.content;
 
         if (openCases.is_open_review) {
           this.openReview = true;

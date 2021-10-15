@@ -43,15 +43,15 @@ export class QuestionComponent implements OnInit {
     } else {
       this.title = `Frage ${this.parentIndex + 1}${this.alphbt[this.index]}`;
     }
-    this.addChildQuestions()
-    this.showChildQuestions(this.question.answer_value)
+    this.addChildQuestions();
+    this.showChildQuestions(this.question.answer_value);
   }
 
   addChildQuestions() {
     const value = this.question.answer_value;
-    const hasChildren = this.question.max_children > 0
+    const hasChildren = this.question.max_children > 0;
     if(!hasChildren) {
-      return
+      return;
     }
     this.questions.forEach(question => {
       if (question.parent_question_id === this.question.question_id) {
@@ -61,7 +61,7 @@ export class QuestionComponent implements OnInit {
   }
 
   showChildQuestions(value) {
-    
+
     if(!value) {
       return;
     }
@@ -70,16 +70,16 @@ export class QuestionComponent implements OnInit {
     this.isShowChild = false;
     this.childQuestions.forEach( question => {
       const valueInBound = question.lower_bound <= value && question.upper_bound >= value;
-      
+
       if(valueInBound) {
         this.isShowChild = true;
-        this.visibleChildQuestions.push(question)  
-      } 
-    })
+        this.visibleChildQuestions.push(question);
+      }
+    });
   }
 
   change(e) {
     this.valueChange.emit();
-    this.showChildQuestions(e.value)
+    this.showChildQuestions(e.value);
   }
 }

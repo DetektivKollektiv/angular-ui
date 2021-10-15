@@ -132,10 +132,10 @@ export class HeaderComponent implements OnInit {
     this.dialog
       .open(MenuDialogComponent, {
         panelClass: 'no-padding-dialog-container',
-        height: "100vh",
-        width: "100vw",
-        maxWidth: "100vw",
-        maxHeight: "100vh",
+        height: '100vh',
+        width: '100vw',
+        maxWidth: '100vw',
+        maxHeight: '100vh',
       });
   }
 }

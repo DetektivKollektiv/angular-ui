@@ -17,7 +17,7 @@ export class MyProfileComponent implements OnInit {
   public items: Item[];
   public user: User;
   public userName: string;
-  public userLoaded: boolean = true;
+  public userLoaded = true;
   public topTenScores: Item[];
   public cases: any[];
 

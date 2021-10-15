@@ -196,7 +196,7 @@ export class AuthService {
   }
 
   private setUser(user: any) {
-    console.log(`setUser`, user)
+    console.log(`setUser`, user);
     if (!user) {
       return;
     }

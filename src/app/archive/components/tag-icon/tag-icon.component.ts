@@ -7,25 +7,25 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TagIconComponent implements OnInit {
   @Input() tag: any;
-  public cssClass: string = "";
-  public iconClass: string = "";
-  
+  public cssClass = '';
+  public iconClass = '';
+
   constructor() { }
 
   ngOnInit(): void {
     const lowerCaseTag = this.tag.toLowerCase();
     if(lowerCaseTag === 'kein impressum') {
-      this.iconClass = "fas fa-question";
+      this.iconClass = 'fas fa-question';
     } else if(lowerCaseTag === 'hatespeech') {
-      this.iconClass = "far fa-frown";
+      this.iconClass = 'far fa-frown';
     } else if(lowerCaseTag === 'keine quellen') {
-      this.iconClass = "fas fa-unlink";
+      this.iconClass = 'fas fa-unlink';
     }
 
     const specialTags = [ 'hatespeech', 'kein impressum', 'keine quellen'];
     const specialEmptyStyleTag = specialTags.indexOf(lowerCaseTag) > -1;
     if(specialEmptyStyleTag) {
-      this.cssClass = "empty";
+      this.cssClass = 'empty';
     }
 
   }

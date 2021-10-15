@@ -9,14 +9,14 @@ export class CommentInputComponent implements OnInit {
   @Input() authenticated: boolean;
   @Input() user;
   @Output() commentSubmitted = new EventEmitter();
-  public comment:string = "";
+  public comment = '';
 
   constructor() { }
   submitComment() {
-    this.commentSubmitted.emit(this.comment)
+    this.commentSubmitted.emit(this.comment);
   }
   setComment(e) {
-    this.comment = e.target.value
+    this.comment = e.target.value;
   }
   ngOnInit(): void {
   }
