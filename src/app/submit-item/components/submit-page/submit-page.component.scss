@@ -1,4 +1,4 @@
-@import "../../../../assets/scss/_initializer.scss";
+@import '../../../../assets/scss/_initializer.scss';
 
 .submit-page {
   overflow-x: hidden;
@@ -8,9 +8,6 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    padding-top: 80px;
-    padding-bottom: 80px;
-
 
     @media only screen and (min-width: 480px) {
       flex-direction: row;
@@ -19,6 +16,7 @@
 
     @media only screen and (min-width: 1024px) {
       width: 600px;
+      padding: 80px 20px;
       margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
     }
 
@@ -27,20 +25,23 @@
       margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
     }
 
-    .overview-section{
-      span >i {
+    .overview-section {
+      span > i {
         color: $color__old-paragraph;
         font-size: small;
       }
-      h1 > span{
-        font-size: 52px;
+      h1 > span {
+        font-size: 40px;
         font-weight: bold;
+
+        @media only screen and (min-width: 480px) {
+          font-size: 52px;
+        }
       }
       span.submit-text {
         font-size: 17px;
       }
     }
-
   }
 
   .section-of-questions {
@@ -54,7 +55,7 @@
     }
   }
 
-  $middle-section-margin-bottom: 110px;
+  $middle-section-margin-bottom: 40px;
 
   .middle-section {
     width: 100%;
@@ -64,34 +65,28 @@
     align-items: flex-start;
 
     .middle-section-container {
-      // margin-left: calc((100vw - 767px) /2);
-
-      
-      margin-top: 80px;
       display: flex;
       flex-direction: column;
-      // width: 60%;
-      // width: 100%;
-      padding: 20px;
-      position:relative;
-      
-      @media only screen and (min-width: 1024px) {
-        // margin-left: 300px;
-        // margin-left: calc((100vw - 767px) / 2); // this would be centered
+      padding: 0 20px 0;
+      margin-top: 20px;
+      position: relative;
 
+      @media only screen and (min-width: 480px) {
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-top: 40px;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        margin-bottom: $middle-section-margin-bottom;
         margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
         width: 600px;
       }
 
       @media only screen and (min-width: 1350px) {
-        // margin-left: 300px;
-        // margin-left: calc((100vw - 767px) / 2); // this would be centered
-
         margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
         width: 767px;
       }
-
-      margin-bottom: 110px;
 
       .form-select {
         width: 50%;
@@ -109,20 +104,14 @@
 
       .lady-detective-svg-container {
         position: absolute;
-        right: 0;
-        right: -380px;
         right: -484px;
-        bottom: -150px;
         display: none;
-        // the -24 is  because theres a weird svg thing in the middle... 
-        bottom: calc(#{-$middle-section-margin-bottom} - 24px); 
+        // the -24 is  because theres a weird svg thing in the middle...
+        bottom: calc(#{-$middle-section-margin-bottom} - 24px);
         z-index: 5;
 
         @media only screen and (min-width: 1350px) {
           display: block;
-        }
-        svg {
-          
         }
       }
     }
@@ -139,10 +128,9 @@
     //   display: block;
     // }
 
-
     // background: white;
     // this linear gradient is just a hack because the svg had some strip of empty space at the bottom, or something like that
-    background-image: linear-gradient(to top,#53407b 10%, transparent 50%);
+    background-image: linear-gradient(to top, #53407b 10%, transparent 50%);
     // background-image: linear-gradient(to top, transparent 10%,white 35%);
   }
 
@@ -150,20 +138,26 @@
     background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
     display: flex;
     flex-direction: column;
-    // align-items: center;
     width: 100%;
 
     .bottom-section-content-container {
       display: flex;
       flex-direction: column;
       // align-items: center;
-      padding: 20px;
+      padding: 0 20px 20px;
       width: 100%;
+      max-width: 100vw;
+      color: white;
+      position: relative;
+
+      @media only screen and (min-width: 480px) {
+        padding: 20px;
+      }
 
       @media only screen and (min-width: 1024px) {
+        padding-top: 50px;
         width: 600px;
         margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
-
       }
 
       @media only screen and (min-width: 1350px) {
@@ -171,39 +165,14 @@
         margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
       }
 
-      max-width: 100vw;
-      padding-top: 50px;
-      // width: 60%;
-      color: white;
-      position: relative;
-      
-
-      // .bottom-background {
-      //   position: absolute;
-      //   background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
-
-      //   width: 100vw;
-      //   height: calc(100% + 50px);
-      //   z-index: -1;
-      //   top: -50px;
-      //   @media only screen and (min-width: 410px) {
-      //     left: calc(-1 * (100vw - 380px) / 2);
-      //   }
-
-      //   @media only screen and (min-width: 1024px) {
-      //     left: calc(-1 * (100vw - 800px) / 2);
-      //   }
-
-      //   // this number 1350  i just made up randomly
-      //   @media only screen and (min-width: 1350px) {
-      //     left: calc(-1 * (100vw - 1240px) / 2);
-      //   }
-      // }
+      .mat-divider {
+        border-top-color: white;
+      }
 
       .option-container {
         margin-bottom: 40px;
         .radio-container {
-          margin-bottom: 5px;
+          padding-bottom: 10px;
 
           mat-radio-group {
             display: flex;
@@ -215,6 +184,10 @@
           }
         }
 
+        input:not(:last-child) {
+          margin-bottom: 15px;
+        }
+
         .text-input {
           padding: 10px 15px;
           width: 40%;
@@ -224,6 +197,10 @@
           &:focus {
             border: 1px solid grey;
           }
+        }
+
+        .other-source-input {
+          margin-top: 4px;
         }
       }
 
@@ -255,6 +232,11 @@
           &:focus {
             border: 1px solid grey;
           }
+
+          &.ng-invalid.ng-touched {
+            border-color: red;
+            color: red;
+          }
         }
 
         .icon {
@@ -265,10 +247,12 @@
         }
       }
 
-      .check-container {
-        margin-top: 40px;
-        display: flex;
-        flex-direction: column;
+      .submit-check-container {
+        margin: 40px 0;
+
+        .mat-checkbox ~ .mat-checkbox {
+          margin-top: 0.5rem;
+        }
       }
 
       .legal-button-container {
@@ -301,6 +285,7 @@
             background-color: $color__neon-blue;
             color: white;
             border: 2px solid $color__neon-blue;
+            cursor: pointer;
 
             &:hover {
               background-color: white;
@@ -319,114 +304,9 @@
         }
       }
 
-      .bottom-left-section{
-        flex: 60%;
-        span >i {
-          color: $color__old-paragraph;
-          font-size: small;
-        }
-        h1 > span{
-          font-size: 40px;
-          font-family: "PT Mono", monospace;
-          font-weight: bold;
-        }
-        .submit-page-bottom-description{
-          margin-bottom: 40px;
-          span.submit-text {
-            font-size: 17px;
-          }
-        }
-        h3 > span{
-          font-size: 17px;
-          font-family: "PT Mono", monospace;
-          font-weight: bold;
-        }
-        select.submit-bottom-select {
-          width: 300px;
-          border: 1px solid $color__select-border;
-          border-radius: 4px;
-          height: 35px;
-          padding-left: 10px;
-          font-size: 17px;
-          margin-top: 15px;
-          margin-bottom: 40px;
-        }
-        h4 > span{
-          font-size: 15;
-          font-family: "PT Mono", monospace;
-          font-weight: bold;
-        }
-        .submit-text-bottom {
-          border: 1px solid $color__select-border;
-          border-radius: 5px;
-          padding: 20px;
-          border-inline-style: none;
-          margin-top: 20px;
-          padding-bottom: 60px;
-        }
-      }
-      .bottom-right-section{
-        flex: 40%;
-      }
-
       p {
         color: white;
       }
-
-    }
-
-    .submit-form-section{
-      display: flex;
-      .submit-form-section-left{
-          flex: 50%;
-          .submit-form-description{
-            font-size: 17px;
-          }
-          .submit-form-subheading{
-            font-family: "PT Mono", monospace;
-            font-weight: bold;
-            margin-top: 30px;
-          }
-          .example-radio-group {
-            display: flex;
-            flex-direction: column;
-            margin: 15px 0;
-            margin-left: -6px;
-          }
-          .example-radio-button {
-            margin: 5px;
-          }
-          input.submit-form-section-input {
-            width: 250px;
-            border: 1px solid $color__select-border;
-            border-radius: 8px;
-            height: 35px;
-            padding-left: 10px;
-            font-size: 17px;
-            color: $color__old-paragraph;;
-            margin-top: 15px;
-        }
-        hr{
-          margin: 40px 0px 10px
-        }
-        i.fal.fa-envelope {
-          text-align: center;
-          position: relative;
-          margin-left: -25px;
-        }
-      }
-      .submit-form-section-right {
-          flex: 50%;
-      }
-
-    }
-
-    .mono-font {
-      font-family: PT mono;
-    }
-
-    .bold-weight {
-      font-weight: bold;
     }
 
     .wrap-mat-radio-label {

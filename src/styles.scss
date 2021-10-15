@@ -1,13 +1,15 @@
+@use './assets/scss/fonts' as fonts;
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
-@import "~swiper/swiper-bundle";
-@import "~swiper/components/navigation/navigation";
+@import '~swiper/swiper-bundle';
+@import '~swiper/components/navigation/navigation';
 // https://swiperjs.com/angular
 @import '~swiper/swiper-bundle';
 @import './assets/scss/colors';
 
 * {
-  font-family: Effra medium, Effra regular, sans-serif;
+  // font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--regular;
   box-sizing: border-box;
 }
 
@@ -97,12 +99,12 @@ body {
 }
 
 h1 {
-  font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--medium;
   line-height: 70px;
   color: mat-color($custom-theme-accent);
 
   span.alt {
-    font-family: Effra medium, sans-serif;
+    @include fonts.font__effra--medium;
     line-height: 70px;
     font-size: 40px;
     font-size: max(1.8vw, 12px);
@@ -111,17 +113,17 @@ h1 {
 }
 
 h2 {
-  font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--medium;
   margin: 0;
 }
 
 h3 {
-  font-family: Effra medium, sans-serif;
+  @include fonts.font__effra--medium;
   margin: 0;
 }
 
 p {
-  font-family: Effra regular, sans-serif;
+  @include fonts.font__effra--regular;
   font-size: max(0.7vw, 14px);
   line-height: max(1vw, 22px);
   color: #4a4a4a;
@@ -205,9 +207,7 @@ mat-icon {
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #fac800;
 }
-.yellow-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #fac800;
 }
 
@@ -218,9 +218,7 @@ mat-icon {
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #5f38fa;
 }
-.purple-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.purple-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #5f38fa;
 }
 
@@ -231,16 +229,13 @@ mat-icon {
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #ff7268;
 }
-.coral-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.coral-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #ff7268;
 }
 
 .mat-tooltip {
   font-size: 15px !important;
 }
-
 
 /*
 This made tooltips on /reviews/:id not work anymore
@@ -256,14 +251,14 @@ This made tooltips on /reviews/:id not work anymore
 }
 
 .no-padding-dialog-container .mat-dialog-container {
-    /* add your styles */
-    padding: 0;
+  /* add your styles */
+  padding: 0;
 
-    /* not sure if this is the correct place to add this */
-    width: 100%;
+  /* not sure if this is the correct place to add this */
+  width: 100%;
 }
 header.header {
-  z-index: 9999! important;
+  z-index: 9999 !important;
 }
 
 .carousel-container .carousel-cells {
@@ -311,4 +306,39 @@ header.header {
 
 .cdk-overlay-container {
   z-index: 10000;
+}
+
+.mat-select-panel .mat-option.mat-selected {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.option-container {
+  .mat-radio-container,
+  .mat-radio-outer-circle,
+  .mat-radio-inner-circle {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #8989a2;
+
+  &__link {
+    cursor: pointer;
+  }
+
+  span,
+  i ~ i {
+    margin-left: 4px;
+  }
+}
+
+.mono-font {
+  @include fonts.font__pt-mono;
+}
+
+.bold-weight {
+  font-weight: 700 !important;
 }

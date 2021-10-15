@@ -1,5 +1,4 @@
-@import "./_initializer.scss";
-
+@import './_initializer.scss';
 
 /* these were the old styles */
 button.button-primary {
@@ -109,6 +108,11 @@ button.button-flat:disabled {
     margin: 0 _b__rem(6px) 0 0;
   }
 
+  &:disabled {
+    border: none;
+    opacity: 0.7;
+  }
+
   @at-root a#{$parent} {
     &:hover,
     &:focus,
@@ -154,7 +158,7 @@ button.button-flat:disabled {
       color: $color__neon-blue;
     }
 
-    &#{$parent}--bittersweet {
+    &--bittersweet {
       color: $color__bittersweet;
     }
 

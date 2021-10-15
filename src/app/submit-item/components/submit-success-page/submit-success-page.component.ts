@@ -1,48 +1,69 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 import { ItemsService } from 'src/app/review-item/services/items/items.service';
 import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
-import { AuthState } from 'src/app/shared/auth/model/auth-state';
-
+import { ArchiveService } from '../../../archive/services/archive.service';
+import { Item } from '../../../model/item';
+import { QuestionPrompt } from '../../model/question-prompt.interface';
 
 @Component({
   selector: 'app-submit-success-page',
   templateUrl: './submit-success-page.component.html',
   styleUrls: ['./submit-success-page.component.scss'],
-  providers: [
-  ],
+  providers: []
 })
-export class SubmitSuccessPageComponent implements OnInit {
+export class SubmitSuccessPageComponent {
+  item: Item;
 
-  public authenticated = false;
-  public authState: AuthState;
+  closedItems$ = this.archiveService.getClosedItems();
+  closedItemCount = 10;
+
+  loginFormData = {
+    email: null,
+    password: null
+  };
+
+  authState$ = this.authService.auth$.pipe(
+    tap(({ isLoggedIn }) => (this.authenticated = isLoggedIn)),
+    tap(({ isLoggedIn }) => isLoggedIn && this.loadOpenItems())
+  );
+
+  authenticated = false;
   cases: any[];
   is_open_review: boolean;
-  private showSlider: boolean;
+  withEmail: boolean;
+
+  marketingWording = 'Ich habe gerade einen Fall bei codetekt eingereicht. Tritt auch du der Community gegen Falschinformationen bei!';
 
   constructor(
     private authService: AuthService,
     private itemsService: ItemsService,
+    private archiveService: ArchiveService,
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
-    this.showSlider = false;
-  }
-  ngOnInit(): void {
-
-    this.authService.auth$.subscribe((authState: AuthState) => {
-      this.authState = authState;
-      this.authenticated = this.authState.isLoggedIn;
-    });
-
-    if (!this.authState.isLoggedIn) {
-      return;
+    const state = this.router.getCurrentNavigation().extras?.state;
+    if (state) {
+      const { item, withEmail } = state;
+      this.item = item;
+      this.withEmail = withEmail;
+    } else {
+      this.snackBar.open('Ups, da ist etwas schiefgelaufen!', '', { duration: 5000 });
+      this.router.navigate(['submit']);
     }
+  }
 
-    this.itemsService
-      .getOpenItems()
-      .then((openCases) => {
-        this.cases = openCases.items;
-        this.is_open_review = openCases.is_open_review;
-        this.showSlider = (this.cases && this.cases.length && !this.is_open_review);
-      });
+  copy() {
+    navigator.clipboard.writeText(this.marketingWording);
+    this.snackBar.open('Text wurde in die Zwischenablage kopiert!', '', { duration: 3000 });
+  }
 
+  private loadOpenItems(): void {
+    this.itemsService.getOpenItems().then((openCases) => {
+      this.cases = openCases.items;
+      this.is_open_review = openCases.is_open_review;
+    });
   }
 }
