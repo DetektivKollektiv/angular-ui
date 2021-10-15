@@ -4,6 +4,18 @@ https://codebuild.eu-central-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
+
+## Setup
+
+This project uses Husky to add a pre-commit hook, that runs the linter
+If you want to commit without running the hook, add --no-verify.
+you may need to run `husky install` during setup
+`yarn husky install`
+or
+`npx husky install`
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
