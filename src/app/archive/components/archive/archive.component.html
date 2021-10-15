@@ -1,9 +1,16 @@
-<div class="archive-page">
+<div class="archive-page standard-content-container-width">
   <div class="top-section">
     <div class="overview-section">
+      <span class="breadcrumb">
+        <i class="far fa-home breadcrumb__link" routerLink="/"></i>
+        <i class="fal fa-greater-than"></i>
+      </span>
+
       <h1>Gelöste Fälle</h1>
       <div>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+        est Lorem ipsum dolor sit amet.
       </div>
     </div>
     <div class="rating-legend-section">
@@ -11,40 +18,43 @@
       <app-rating-legend></app-rating-legend>
     </div>
   </div>
-  <app-question-carousel *ngIf="!!archiveQuestions" [questions]=archiveQuestions></app-question-carousel>
+
+  <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
 
   <div class="bottom-section">
-  <!-- the stuff below, is the old page, i will delete later. -->
-  <div class="archive-list-setting">
-    <mat-form-field class="search-input">
-      <mat-label>Fälle durchsuchen</mat-label>
-      <mat-chip-list #chipList>
-        <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true"
-          (removed)="remove(keyword)">
-          {{keyword}}
-          <mat-icon matChipRemove>cancel</mat-icon>
-        </mat-chip>
-        <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-          [matChipInputAddOnBlur]="true" (matChipInputTokenEnd)="add($event)">
-      </mat-chip-list>
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Filter anzeigen</mat-label>
-      <mat-select>
-        <!-- <mat-option *ngFor="let brand of brands" [value]="brand.value">
-          {{ brand.viewValue }}
-        </mat-option> -->
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Sortiert nach</mat-label>
-      <mat-select>
-        <!-- <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
-        </mat-option> -->
-      </mat-select>
-    </mat-form-field>
+    <!-- the stuff below, is the old page, i will delete later. -->
+    <div class="archive-list-setting">
+      <mat-form-field class="search-input mat-form-field--alt" appearance="fill">
+        <mat-label>Fälle durchsuchen</mat-label>
+        <mat-chip-list #chipList class="search-chip-list search-chip-list--neon-blue">
+          <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true" (removed)="remove(keyword)">
+            {{ keyword }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
+          <input
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="true"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+      <div class="archive-list-options">
+        <div class="archive-list-option">
+          <span class="bold-weight">Filter</span>
+          <span class="archive-list-option__btn">anzeigen</span>
+          <i class="far" [ngClass]="true ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+        </div>
+
+        <div class="archive-list-option">
+          <span class="archive-list-option__btn">Sortiert nach:</span>
+          <span class="bold-weight">Datum</span>
+          <i class="far" [ngClass]="true ? 'fa-sort-size-down' : 'fa-sort-size-up'"></i>
+        </div>
+      </div>
+    </div>
+    <app-archive-list [archives]="items"></app-archive-list>
   </div>
-  <app-archive-list [archives]="items"></app-archive-list>
 </div>

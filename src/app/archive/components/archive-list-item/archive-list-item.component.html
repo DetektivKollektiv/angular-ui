@@ -1,26 +1,9 @@
 <li class="item">
-  <div class="item-content">
-    <div class="score-container">
-        <h2 [ngClass]="color">
-          {{ result_score }}
-        </h2>
+  <app-case-list-item [case]="case" [showContent]="true" class="item__case"></app-case-list-item>
+  <div class="item__more">
+    <div class="item__tags">
+      <app-tag-icon *ngFor="let tag of case.tags" [tag]="tag"></app-tag-icon>
     </div>
-    <div class="main-container">
-      <div class="archive-body">
-          <h2>#{{case.id.split('-')[0]}}</h2>
-          <div class="archive-body-main">
-            <p class="content">{{ case.content }}</p>
-            <div class="archive-info">
-                <span class="received-txt"><small><i class="far fa-calendar-alt"></i>{{ startTime }}</small></span>
-                <span class="closed"><small><i class="far fa-calendar-check"></i>{{ endTime }}</small></span>
-                <span class="comments"><small><i class="far fa-comment"></i>{{ comments.length }}</small></span>
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-  <div class="card-container">
-    <app-tag-icon *ngFor="let tag of case.tags" [tag]="tag"></app-tag-icon>
-    <span class="card color-card" [routerLink]="linkUrl">details ansehen</span>
+    <span class="item__details-btn" [routerLink]="linkUrl">Details ansehen</span>
   </div>
 </li>

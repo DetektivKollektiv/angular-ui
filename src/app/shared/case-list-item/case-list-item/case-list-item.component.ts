@@ -8,6 +8,7 @@ import { RatingColorService } from '../../../services/rating-color-service/ratin
 })
 export class CaseListItemComponent implements OnInit {
   @Input() case: any;
+  @Input() showContent: boolean;
 
   score: number;
   color: string;

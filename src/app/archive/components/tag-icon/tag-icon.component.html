@@ -1,1 +1,3 @@
-<span [ngClass]="'tag-icon card ' + cssClass"><i *ngIf="this.iconClass && this.iconClass.length > 0" class="{{this.iconClass}}"></i> {{ tag }}</span>
+<span class="tag-icon card mono-font" [ngClass]="cssClass"
+  ><i *ngIf="this.iconClass?.length" [ngClass]="this.iconClass"></i> {{ tag }}</span
+>

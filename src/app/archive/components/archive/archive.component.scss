@@ -1,22 +1,56 @@
+@import '../../../../assets/scss/_initializer.scss';
+
+:host {
+  width: 100%;
+}
 
 .archive-page {
-  width: 100%;
+  margin: auto;
+
+  @media only screen and (min-width: 1024px) {
+    width: 900px;
+    margin-left: calc((100vw - 900px) / 4);
+  }
+
+  @media only screen and (min-width: 1350px) {
+    width: 1240px;
+    margin-left: calc((100vw - 1240px) / 4);
+  }
+
   .top-section {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    // justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
 
     @media only screen and (min-width: 480px) {
       flex-direction: row;
       justify-content: space-between;
     }
 
+    @media only screen and (min-width: 1024px) {
+      flex-direction: row;
+      padding: 80px 20px;
+    }
+
+    app-rating-legend {
+      flex: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .user-xp {
+        background: red;
+      }
+    }
+
     .overview-section {
       max-width: 746px;
 
       h1 {
-        color: black;
+        font-size: 52px;
+        font-weight: 700;
+        color: #4a4a4a;
       }
     }
   }
@@ -29,130 +63,53 @@
     width: 100%;
   }
 
-
-  .top-section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-
-    @media only screen and (min-width: 480px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    div {
-      flex: 50%;
-    }
-
-    app-rating-legend {
-      flex: 50%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      .user-xp  {
-        background: red;
-      }
-    }
-  }
-
-  .questions-section {
-    .questions-section--list {
-      display: none;
-
-      @media only screen and (min-width: 1024px) {
-        display: flex;
-        flex-direction: row;
-      }
-
-
-      .carousel-arrows .carousel-arrow.carousel-arrow-disabled {
-        display: none;
-        opacity: 0;
-      }
-
-      .question {
-        border-radius: 20px;
-        background:#f8f8f8;
-        height: auto;
-        margin-left: 5px;
-        margin-right: 1.5%;
-        padding: 10px 15px 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        @media only screen and (min-width: 1024px) {
-          width: 360px;
-        }
-
-        .question--icon {
-          width: 42px;
-          height: 42px;
-          margin: 10px 10px -3px 0;
-          padding: 12.9px 2.5px;
-          background-color: #68a8ff;
-          color: white;
-          border-radius: 30px;
-          font-family: 'Font Awesome 5 Pro';
-          font-weight: 900;
-          font-size: 23px;
-          justify-content: center;
-          align-items: center;
-          display: flex;
-        }
-
-
-        .question--title {
-          width: 320px;
-          height: 18px;
-          margin: 16px 0 14px;
-          font-family: Effra medium, Effra regular, sans-serif;
-          font-size: 18px;
-          font-weight: bold;
-          text-align: center;
-          color: var(--dark-indigo);
-        }
-        .question--description {
-          font-family: Effra medium, Effra regular, sans-serif;
-          width: 320px;
-          height: 35px;
-          margin: 14px 0 18px;
-          font-size: 16px;
-          text-align: center;
-          color: var(--dark-indigo);
-        }
-
-        .carousel.carousel-container.carousel-cells {
-          transition: transform .2s;
-          width: 100%;
-          height: 100%;
-          display: block;
-          will-change: transform;
-        }
-      }
-    }
+  .bottom-section {
+    padding: 0 20px;
   }
 
   // todo: I think probably a lot of the below can be removed now.
   // but i was unsure on how to resolve a merge conflict.
   .archive-list-setting {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
     margin-top: 50px;
-    flex-wrap: wrap;
+    flex-direction: column;
 
     @media only screen and (min-width: 768px) {
-      flex-wrap: unset;
+      flex-direction: row;
     }
 
     .search-input {
       width: 100%;
+      flex-grow: 1;
 
       @media only screen and (min-width: 768px) {
         width: 50%;
+      }
+    }
+
+    .archive-list-options {
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      margin: 20px 20px 0;
+
+      @media only screen and (min-width: 768px) {
+        justify-content: space-around;
+        margin-top: 0;
+      }
+    }
+
+    .archive-list-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &__btn {
+        color: #8989a2;
+      }
+
+      > * ~ * {
+        margin-left: 4px;
       }
     }
   }
