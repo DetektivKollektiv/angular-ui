@@ -12,10 +12,11 @@ import { AuthState } from 'src/app/shared/auth/model/auth-state';
   ],
 })
 export class ReviewSuccessPageComponent implements OnInit {
+  @Input() cases: any[];
 
   public authenticated = false;
   public authState: AuthState;
-  @Input() cases: any[];
+
   is_open_review: boolean;
   private showSlider: boolean;
 

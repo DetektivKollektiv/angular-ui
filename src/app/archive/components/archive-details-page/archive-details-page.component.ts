@@ -39,28 +39,28 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public percentageResponses: {[key: string]: number} = {};
 
   public commentText;
-  public caseCollapse: boolean = true;
-  public communityCollapse: boolean = true;
+  public caseCollapse = true;
+  public communityCollapse = true;
   public questions: any[];
   public showQuestions: any[];
   public review: Review;
 
 
-  
-  public reviewQuestions:any[] = [];
 
-  
-  public users: { [key:string]: {
-    user: string,
-    color: string,
-    avatarCharacter: string
-    }
+  public reviewQuestions: any[] = [];
+
+
+  public users: { [key: string]: {
+    user: string;
+    color: string;
+    avatarCharacter: string;
+    };
   } = {};
 
   public detectives: {
-    user: string,
-    color: string,
-    avatarCharacter: string
+    user: string;
+    color: string;
+    avatarCharacter: string;
   }[] = [];
 
   public score: number;
@@ -97,7 +97,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
     this.tags = [
       'kein impressum', 'hatespeech', 'keine quellen'
-    ]
+    ];
 
   }
 
@@ -108,14 +108,14 @@ export class ArchiveDetailsPageComponent implements OnInit {
   getUserColor() {
     // todo: use localStorage to retrieve color as set by profile-picture.component.split
     // however, that file needs to be adapted to the correct color scheme.
-    return this.colors[0]
+    return this.colors[0];
   }
 
   getUser(userName)
   {
     const color = userName === this.user.name ? this.getUserColor() : this.getRandomColor();
-    const name = userName.trim().toLowerCase() === "deleted" ? "Deaktiviert" : userName
-    const avatarCharacter = userName === 'deleted' ? "?" : userName[0].toUpperCase()
+    const name = userName.trim().toLowerCase() === 'deleted' ? 'Deaktiviert' : userName;
+    const avatarCharacter = userName === 'deleted' ? '?' : userName[0].toUpperCase();
     // if the user is already set, then use it.
     // so that the color stays consistent
 
@@ -123,7 +123,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       user: name,
       color,
       avatarCharacter
-    }
+    };
 
     if(userName && !this.users[userName]) {
       this.users[userName] = user;
@@ -133,17 +133,17 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   getDetectives(reviews: any[]) {
-    const users = reviews.reduce((acc:any, currentReview) => {
-      const name = currentReview.user.trim().toLowerCase() === "deleted" ? "Deaktiviert" : currentReview.user
-      const avatarCharacter = currentReview.user === 'deleted' ? "?" : currentReview.user[0].toUpperCase()
+    const users = reviews.reduce((acc: any, currentReview) => {
+      const name = currentReview.user.trim().toLowerCase() === 'deleted' ? 'Deaktiviert' : currentReview.user;
+      const avatarCharacter = currentReview.user === 'deleted' ? '?' : currentReview.user[0].toUpperCase();
       // const isAUserWeHaveDataFor = false
       // const color = isAUserWeHaveDataFor ? 'use the users actual color' : this.getRandomColor();
-      
+
       const user = this.getUser( currentReview.user);
 
-      acc[currentReview.user] = user
+      acc[currentReview.user] = user;
       return acc;
-    }, {})
+    }, {});
 
     // if the user has been deactivated then the .user prop will be 'deleted'
     // set the name to Deaktiviert
@@ -156,18 +156,15 @@ export class ArchiveDetailsPageComponent implements OnInit {
   getQuestions(reviews)
   {
     const questionsMap = {};
-    for(var i = 0; i < this.case.reviews.length; i++) {
-      const review = this.case.reviews[i];
-      const qs = review.questions;
 
-      for(var j = 0; j < qs.length; j++) {
-        const question = qs[j]
-
+    for(const review of this.case.reviews) {
+      for(const question of review.questions) {
         if(!(Object.keys(questionsMap).indexOf(question.question_id) > -1 )) {
           questionsMap[question.question_id] = question;
         }
       }
     }
+
     return Object.values(questionsMap);
   }
 
@@ -187,10 +184,9 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
     this.userService.user$.subscribe((user: any) => {
       this.user = user;
-      console.log({user})
     });
 
-    function getColorClass(color) {
+    const getColorClass = (color) => {
       if(color === 'purple') {
         return `color__purple`;
       } else if(color === 'red') {
@@ -198,29 +194,29 @@ export class ArchiveDetailsPageComponent implements OnInit {
       } else if(color === 'light-green') {
         return `color__rating-light-green`;
       }
-    }
+    };
 
     const sampleComments = [
       {
         user: 'Jorny Gonponicamo',
-        comment: "this be comment",
-        timestamp: "2010-08-04",
+        comment: 'this be comment',
+        timestamp: '2010-08-04',
         medal: '',
         is_review_comment: 'False',
         color: getColorClass('purple')//color__purple
       },
       {
         user: 'Lawn Rediko',
-        comment: "another one",
-        timestamp: "2011-08-04",
+        comment: 'another one',
+        timestamp: '2011-08-04',
         medal: '',
         is_review_comment: 'False',
         color: getColorClass('red')//color__rating-red
       },
       {
         user: 'Scrawp Amadoo',
-        comment: "this is a review comment .\nnewline etc.etc.etc.\n newline etc\n newline etc..",
-        timestamp: "2012-08-04",
+        comment: 'this is a review comment .\nnewline etc.etc.etc.\n newline etc\n newline etc..',
+        timestamp: '2012-08-04',
         medal: '',
         is_review_comment: 'True',
         color: getColorClass('light-green')//color__rating-light-green
@@ -231,7 +227,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     // this.store.dispatch(new GetDetailItem(tempIdForDev)).subscribe(({archive}) => {
     this.store.dispatch(new GetDetailItem(this.caseId)).subscribe(({archive}) => {
       const { detailItem } = archive;
-      const aggregated : {[key: string]: number} = getAggregatedResponses(detailItem);
+      const aggregated: {[key: string]: number} = getAggregatedResponses(detailItem);
       const numberResponses: number = Object.values(aggregated).reduce(
         (accumulator: number, value: number) => accumulator+=value,
         0
@@ -240,7 +236,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
       // this.aggegatedResponses = aggregated
       this.percentageResponses = getPercentages(aggregated, numberResponses);
-      const comments = detailItem && 'comments' in detailItem && Array.isArray(detailItem!.comments) ? detailItem!.comments : sampleComments;
+      const comments = detailItem && 'comments' in detailItem && Array.isArray(detailItem?.comments) ? detailItem?.comments : sampleComments;
 
       const commentsWithUsers = comments.map((comment: any) => {
         const user = this.getUser(comment.user);
@@ -249,10 +245,10 @@ export class ArchiveDetailsPageComponent implements OnInit {
           ...comment,
           color: user.color,
           avatarCharacter: user.avatarCharacter,
-        }
-      })
-      const reviewComments = commentsWithUsers.filter((comment:any) => comment.is_review_comment === 'True');
-      const nonReviewComments = commentsWithUsers.filter((comment:any) => comment.is_review_comment !== 'True');
+        };
+      });
+      const reviewComments = commentsWithUsers.filter((comment: any) => comment.is_review_comment === 'True');
+      const nonReviewComments = commentsWithUsers.filter((comment: any) => comment.is_review_comment !== 'True');
 
       this.case = {
         ...detailItem,
@@ -266,51 +262,35 @@ export class ArchiveDetailsPageComponent implements OnInit {
       this.questions = this.case.reviews[0].questions;
       this.showQuestions = this.questions.filter(question => !question.parent_question_id);
 
-      // this.todo_contributors = [
-      //   {
-      //     name: 'bernarno',
-
-      //   }
-      // ];
-      // const questions = this.case.reviews[0].questions;
-  
-      // console.log({questionsMap})
       this.reviewQuestions = this.getQuestions(this.case.reviews);
-      
+
       this.score = Math.floor(detailItem.result_score * 25);
 
       this.detectives = Object.values(this.getDetectives(detailItem.reviews));
 
-      // debugger
-
-      
     });
 
 
-    function getPercentages(aggregatedResponses:any, numberResponses: number)
-    {
-      return Object.keys(aggregatedResponses).reduce((acc:any, currentKey:string) => {
-        acc[currentKey] = Math.round(aggregatedResponses[currentKey] / numberResponses * 100);
-        return acc;
-      }, {});
-    }
+    const  getPercentages = (aggregatedResponses: any, numberResponses: number) => (
+      Object.keys(aggregatedResponses).reduce(
+        (acc: any, currentKey: string) => {
+          acc[currentKey] = Math.round(aggregatedResponses[currentKey] / numberResponses * 100);
+          return acc;
+        }, {}
+      )
+    );
 
-    function getAggregatedResponses(detailItem:any)
-    {
+    const getAggregatedResponses = (detailItem: any) => {
       const aggregated = {};
+      for(const review of detailItem.reviews) {
+        for(const question of review.questions) {
+          const { options, answer_value, answer_id }  = question;
 
-      for(let i = 0; i < detailItem.reviews.length; i++) {
-        const review = detailItem.reviews[i];
-
-        for(let j = 0; j < review.questions.length; j++) {
-          const question = review.questions[j];
-          const { options, answer_value, answer_id }  = question
-          
           if(!answer_value) {
             continue;
           }
 
-          const theOption = options.find((opt:any) => opt.value === answer_value)
+          const theOption = options.find((opt: any) => opt.value === answer_value);
 
           const { text } = theOption;
 
@@ -324,7 +304,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       }
 
       return aggregated;
-    }
+    };
   }
 
   changeCaseCollapse() {
@@ -336,8 +316,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   onPostComment(text) {
-    this.store.dispatch(new CreateComment(this.caseId, text, this.user.id)).subscribe(({result}) => { 
-      console.log('comment posted ', text, `result `, result)
-    })
+    this.store.dispatch(new CreateComment(this.caseId, text, this.user.id)).subscribe(({result}) => {
+
+    });
   }
 }

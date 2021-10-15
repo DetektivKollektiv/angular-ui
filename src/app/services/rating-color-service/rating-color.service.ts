@@ -13,7 +13,7 @@ export class RatingColorService {
 
     if (score <= 33) {
       color = 'red';
-    } 
+    }
     else if (score > 33 && score <= 66) {
       color = 'orange';
     }
