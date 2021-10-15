@@ -156,18 +156,15 @@ export class ArchiveDetailsPageComponent implements OnInit {
   getQuestions(reviews)
   {
     const questionsMap = {};
-    for(let i = 0; i < this.case.reviews.length; i++) {
-      const review = this.case.reviews[i];
-      const qs = review.questions;
 
-      for(let j = 0; j < qs.length; j++) {
-        const question = qs[j];
-
+    for(const review of this.case.reviews) {
+      for(const question of review.questions) {
         if(!(Object.keys(questionsMap).indexOf(question.question_id) > -1 )) {
           questionsMap[question.question_id] = question;
         }
       }
     }
+
     return Object.values(questionsMap);
   }
 
@@ -190,7 +187,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       console.log({user});
     });
 
-    function getColorClass(color) {
+    const getColorClass = (color) => {
       if(color === 'purple') {
         return `color__purple`;
       } else if(color === 'red') {
@@ -198,7 +195,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       } else if(color === 'light-green') {
         return `color__rating-light-green`;
       }
-    }
+    };
 
     const sampleComments = [
       {
@@ -240,7 +237,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
       // this.aggegatedResponses = aggregated
       this.percentageResponses = getPercentages(aggregated, numberResponses);
-      const comments = detailItem && 'comments' in detailItem && Array.isArray(detailItem!.comments) ? detailItem!.comments : sampleComments;
+      const comments = detailItem && 'comments' in detailItem && Array.isArray(detailItem?.comments) ? detailItem?.comments : sampleComments;
 
       const commentsWithUsers = comments.map((comment: any) => {
         const user = this.getUser(comment.user);
@@ -287,23 +284,19 @@ export class ArchiveDetailsPageComponent implements OnInit {
     });
 
 
-    function getPercentages(aggregatedResponses: any, numberResponses: number)
-    {
-      return Object.keys(aggregatedResponses).reduce((acc: any, currentKey: string) => {
-        acc[currentKey] = Math.round(aggregatedResponses[currentKey] / numberResponses * 100);
-        return acc;
-      }, {});
-    }
+    const  getPercentages = (aggregatedResponses: any, numberResponses: number) => (
+      Object.keys(aggregatedResponses).reduce(
+        (acc: any, currentKey: string) => {
+          acc[currentKey] = Math.round(aggregatedResponses[currentKey] / numberResponses * 100);
+          return acc;
+        }, {}
+      )
+    );
 
-    function getAggregatedResponses(detailItem: any)
-    {
+    const getAggregatedResponses = (detailItem: any) => {
       const aggregated = {};
-
-      for(let i = 0; i < detailItem.reviews.length; i++) {
-        const review = detailItem.reviews[i];
-
-        for(let j = 0; j < review.questions.length; j++) {
-          const question = review.questions[j];
+      for(const review of detailItem.reviews) {
+        for(const question of review.questions) {
           const { options, answer_value, answer_id }  = question;
 
           if(!answer_value) {
@@ -324,7 +317,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       }
 
       return aggregated;
-    }
+    };
   }
 
   changeCaseCollapse() {

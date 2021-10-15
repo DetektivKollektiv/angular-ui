@@ -277,8 +277,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
         this.case = {
           ...firstCase,
-          tags: 'tags' in firstCase && Array.isArray(firstCase!.tags) ? firstCase!.tags : sampleTags,
-          urls: 'urls' in firstCase && Array.isArray(firstCase!.urls) ? firstCase!.urls : sampleUrls,
+          tags: 'tags' in firstCase && Array.isArray(firstCase?.tags) ? firstCase?.tags : sampleTags,
+          urls: 'urls' in firstCase && Array.isArray(firstCase?.urls) ? firstCase?.urls : sampleUrls,
             // urls: sampleUrls,
             // tags: sampleTags,
         };

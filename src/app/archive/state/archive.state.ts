@@ -194,10 +194,6 @@ export class ArchiveState implements NgxsOnInit {
     );
   }
 
-  ngxsOnInit(ctx?: StateContext<any>) {
-    ctx.dispatch(new FetchAllItems());
-  }
-
   @Action(CreateComment)
   createComment(
     ctx: StateContext<ArchiveStateModel>,
@@ -208,5 +204,9 @@ export class ArchiveState implements NgxsOnInit {
         ctx.patchState({ detailItem });
       })
     );
+  }
+
+  ngxsOnInit(ctx?: StateContext<any>) {
+    ctx.dispatch(new FetchAllItems());
   }
 }

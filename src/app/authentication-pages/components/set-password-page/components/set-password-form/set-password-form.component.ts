@@ -48,10 +48,15 @@ export class SetPasswordFormComponent implements OnInit {
 
     // switch (this.data.details.DeliveryMedium) {
     //   case 'SMS':
-    //     this.title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per SMS an die Nummer ${this.data.details.Destination} geschickt.`;
+    // // breaking string into multi line to stay within char limit
+    //     this.title = 'Wir haben dir einen Code zum Zurücksetzen deines Passworts per SMS an die Nummer '
+    // + ` ${this.data.details.Destination} geschickt.`;
     //     break;
     //   case 'EMAIL':
-    //     this.title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per E-Mail an die Adresse ${this.data.details.Destination} geschickt.`;
+    //     this.title =
+    // // breaking string into multi line to stay within char limit
+    // `Wir haben dir einen Code zum Zurücksetzen deines Passworts per E-Mail an die Adresse `
+    // + `${this.data.details.Destination} geschickt.`;
     //     break;
     //   default:
     //     this.title = ``;
