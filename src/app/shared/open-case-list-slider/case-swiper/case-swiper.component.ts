@@ -58,9 +58,7 @@ export class CasesSwiperComponent implements AfterViewInit {
   }
 
   onSwiper(swiper) {
-    console.log(swiper);
   }
   onSlideChange() {
-    console.log('slide change');
   }
 }

@@ -184,7 +184,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
     this.userService.user$.subscribe((user: any) => {
       this.user = user;
-      console.log({user});
     });
 
     const getColorClass = (color) => {
@@ -263,23 +262,11 @@ export class ArchiveDetailsPageComponent implements OnInit {
       this.questions = this.case.reviews[0].questions;
       this.showQuestions = this.questions.filter(question => !question.parent_question_id);
 
-      // this.todo_contributors = [
-      //   {
-      //     name: 'bernarno',
-
-      //   }
-      // ];
-      // const questions = this.case.reviews[0].questions;
-
-      // console.log({questionsMap})
       this.reviewQuestions = this.getQuestions(this.case.reviews);
 
       this.score = Math.floor(detailItem.result_score * 25);
 
       this.detectives = Object.values(this.getDetectives(detailItem.reviews));
-
-      // debugger
-
 
     });
 
@@ -330,7 +317,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
   onPostComment(text) {
     this.store.dispatch(new CreateComment(this.caseId, text, this.user.id)).subscribe(({result}) => {
-      console.log('comment posted ', text, `result `, result);
+
     });
   }
 }
