@@ -43,14 +43,14 @@
     font-size: 14px;
     font-weight: 700;
 
-    background-color: #722ed1;
+    border: 2px solid $color__neon-blue;
+    background-color: $color__neon-blue;
     color: white;
     cursor: pointer;
 
     &:hover {
-      border: 2px solid #722ed1;
       background-color: white;
-      color: #722ed1;
+      color: $color__neon-blue;
     }
   }
 }

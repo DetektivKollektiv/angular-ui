@@ -1,8 +1,10 @@
 import { Item } from 'src/app/model/item';
-import { Filter } from '../model/filter';
+import { CaseFilter } from '../model/case-filter';
+import { CaseSort } from '../model/case-sort';
 
 export class ArchiveStateModel {
   items: Item[];
   detailItem: any; //todo update.
-  filter: Filter;
+  filter: CaseFilter;
+  sort: CaseSort;
 }

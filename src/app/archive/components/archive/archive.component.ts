@@ -2,22 +2,30 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Item } from 'src/app/model/item';
-import { Filter } from '../../model/filter';
+import { CaseFilter } from '../../model/case-filter';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatChipInputEvent } from '@angular/material/chips';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
-import { AddFilterKeyword, RemoveFilterKeyword } from '../../state/archive.actions';
+import {
+  AddFilterKeyword,
+  RemoveFilterKeyword,
+  SetEndDateFilter,
+  SetFilter,
+  SetMaxFilter,
+  SetMinFilter,
+  SetSortBy,
+  SetSortOrder,
+  SetStartDateFilter,
+  ToggleSortOrder
+} from '../../state/archive.actions';
 import { ViewportScroller } from '@angular/common';
 import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
+import { MatDialog } from '@angular/material/dialog';
+import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
+import { CaseSort, CaseSortBy, CaseSortOrder } from '../../model/case-sort';
 
 @Component({
   selector: 'app-archive',
@@ -27,67 +35,56 @@ import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/r
     trigger('detailExpand', [
       state('collapsed', style({ height: '0px', minHeight: '0' })),
       state('expanded', style({ height: '*' })),
-      transition(
-        'expanded <=> collapsed',
-        animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')
-      ),
-    ]),
-  ],
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ])
+  ]
 })
 export class ArchiveComponent implements OnInit {
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
-  @Select(ArchiveState.filter) filter$: Observable<Filter>;
+  @Select(ArchiveState.filter) filter$: Observable<CaseFilter>;
   @Select(ArchiveState.itemById) itemById$: Observable<Item>;
+  @Select(ArchiveState.sort) sort$: Observable<CaseSort>;
 
-  public filter: Filter;
+  public filter: CaseFilter;
   public items: Item[];
-  public displayedColumns = [
-    'content',
-    'open_timestamp',
-    'close_timestamp',
-    'result_score',
-  ];
 
   public archiveQuestions: any[] = [
-      {
-        title: 'Wann sehe ich etwas im Archiv?',
-        description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
-        background: 'color__bittersweet',
-        icon: 'fal fa-eye'
-      },
-      {
-        title: 'Wie errechnet sich der Score?',
-        description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
-        background: 'color__neon-blue',
-        icon: 'fal fa-chart-bar'
-      },
-      {
-        title: 'Eine weitere Frage?',
-        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-        background: 'color__purple',
-        icon: 'fal fa-leaf'
-      },
-      {
-        title: 'Eine weitere Frage?',
-        description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-        background: 'color__bittersweet',
-        icon: 'fal fa-leaf'
-      },
-    ];
+    {
+      title: 'Wann sehe ich etwas im Archiv?',
+      description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
+      background: 'color__bittersweet',
+      icon: 'fal fa-eye'
+    },
+    {
+      title: 'Wie errechnet sich der Score?',
+      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+      background: 'color__neon-blue',
+      icon: 'fal fa-chart-bar'
+    },
+    {
+      title: 'Eine weitere Frage?',
+      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+      background: 'color__purple',
+      icon: 'fal fa-leaf'
+    },
+    {
+      title: 'Eine weitere Frage?',
+      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
+      background: 'color__bittersweet',
+      icon: 'fal fa-leaf'
+    }
+  ];
 
-  public expandedItem: Item | null;
   public loaded = false;
   public resultScoreMode = ResultScoreMode.bar;
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  constructor(
-    private route: ActivatedRoute,
-    private store: Store,
-    private viewportScroller: ViewportScroller
-  ) {
-    // this.archiveQuestions = this.questionPrompts;
-   }
+  archiveListFilterOpened = false;
+
+  caseSortByValues: string[] = Object.values(CaseSortBy);
+
+  constructor(private store: Store, private matDialog: MatDialog) {}
 
   ngOnInit(): void {
     this.items$.subscribe((items) => {
@@ -102,21 +99,6 @@ export class ArchiveComponent implements OnInit {
 
       this.items = items;
       this.loaded = true;
-    });
-
-    this.itemById$.subscribe((item) => {
-
-      this.expandedItem = item;
-
-      if (item) {
-        this.viewportScroller.scrollToAnchor(item.id);
-      }
-    });
-
-    this.route.queryParams.subscribe((params) => {
-      if (params.id) {
-        this.store.dispatch(new AddFilterKeyword(params.id));
-      }
     });
 
     this.filter$.subscribe((filter) => (this.filter = filter));
@@ -137,5 +119,36 @@ export class ArchiveComponent implements OnInit {
     if (input) {
       input.value = '';
     }
+  }
+
+  onApplyFilter(caseFilter: CaseFilter) {
+    const { minValue, maxValue, ...filter } = caseFilter;
+    this.store.dispatch(new SetFilter({ ...filter, minValue: minValue / 25, maxValue: maxValue / 25 }));
+    this.archiveListFilterOpened = false;
+  }
+
+  openFilterDialog() {
+    this.matDialog
+      .open(ArchiveListFilterComponent, {
+        panelClass: 'no-padding-dialog-container',
+        height: '100vh',
+        width: '100vw',
+        maxWidth: '100vw',
+        maxHeight: '100vh'
+      })
+      .afterClosed()
+      .subscribe((filterData: CaseFilter) => {
+        if (filterData) {
+          this.onApplyFilter(filterData);
+        }
+      });
+  }
+
+  changeSortOrder() {
+    this.store.dispatch(new ToggleSortOrder());
+  }
+
+  changeSortBy(value: string) {
+    this.store.dispatch(new SetSortBy(value as CaseSortBy));
   }
 }

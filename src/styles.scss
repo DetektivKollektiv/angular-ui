@@ -264,6 +264,17 @@ mat-icon {
   }
 }
 
+.mat-slider {
+  .mat-slider-thumb,
+  .mat-slider-track-fill {
+    background-color: $color__neon-blue;
+  }
+
+  .mat-slider-thumb-label-text {
+    color: white;
+  }
+}
+
 /*
 This made tooltips on /reviews/:id not work anymore
 */
@@ -348,6 +359,10 @@ header.header {
   }
 }
 
+.mat-menu-panel.archive-list-filter-menu {
+  max-width: unset !important;
+}
+
 .breadcrumb {
   font-size: 14px;
   color: #8989a2;
@@ -368,4 +383,8 @@ header.header {
 
 .bold-weight {
   font-weight: 700 !important;
+}
+
+.w-100-p {
+  width: 100%;
 }

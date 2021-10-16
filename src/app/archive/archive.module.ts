@@ -5,7 +5,6 @@ import { MaterialModule } from '../shared/material/material.module';
 import { HelperModule } from '../shared/helper/helper.module';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { RouterModule } from '@angular/router';
-import { ArchiveToolbarComponent } from './components/archive-toolbar/archive-toolbar.component';
 import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveDetailsComponent } from './components/archive-details/archive-details.component';
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
@@ -29,12 +28,13 @@ import { CommentListItemComponent } from './components/comment-list-item/comment
 import { CommentInputComponent } from './components/comment-input/comment-input.component';
 import { ReviewItemModule } from 'src/app/review-item/review-item.module';
 import { CaseListItemModule } from '../shared/case-list-item/case-list-item.module';
+import { ArchiveListFilterComponent } from './components/archive-list-filter/archive-list-filter.component';
+import { CaseSortByPipe } from './services/case-sort-by.pipe';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
   declarations: [
     ArchiveComponent,
-    ArchiveToolbarComponent,
     ArchiveItemComponent,
     ArchiveDetailsComponent,
     ArchiveDetailsPageComponent,
@@ -44,7 +44,9 @@ registerLocaleData(localeDE, 'de');
     TagIconComponent,
     CommentListComponent,
     CommentListItemComponent,
-    CommentInputComponent
+    CommentInputComponent,
+    ArchiveListFilterComponent,
+    CaseSortByPipe
   ],
   imports: [
     CommonModule,

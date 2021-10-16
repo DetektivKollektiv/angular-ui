@@ -1,4 +1,4 @@
-export interface Filter {
+export interface CaseFilter {
   keywords?: string[];
   id?: string;
   minValue?: number;

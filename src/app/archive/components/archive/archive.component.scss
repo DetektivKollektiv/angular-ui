@@ -1,4 +1,4 @@
-@import '../../../../assets/scss/_initializer.scss';
+@import '../../../../assets/scss/initializer';
 
 :host {
   width: 100%;
@@ -55,14 +55,6 @@
     }
   }
 
-  app-archive-toolbar {
-    margin: 10px;
-  }
-
-  app-archive-details {
-    width: 100%;
-  }
-
   .bottom-section {
     padding: 0 20px;
   }
@@ -90,6 +82,7 @@
     .archive-list-options {
       display: flex;
       flex-grow: 1;
+      gap: 20px;
       justify-content: space-between;
       margin: 20px 20px 0;
 
@@ -106,6 +99,26 @@
 
       &__btn {
         color: #8989a2;
+
+        &--menu {
+          display: none;
+        }
+
+        @media only screen and (min-width: 480px) {
+          &--menu {
+            display: block;
+          }
+
+          &--dialog {
+            display: none;
+          }
+        }
+      }
+
+      &__trigger {
+        &:hover {
+          color: #8989a2;
+        }
       }
 
       > * ~ * {
