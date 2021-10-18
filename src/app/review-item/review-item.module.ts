@@ -24,6 +24,7 @@ import { CaseDetailsModule } from '../shared/case-details/case-details.module';
 import { UserExperienceBubbleListModule } from '../shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { WatsonComponent } from './components/watson/watson.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [
@@ -51,14 +52,15 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
     SwiperModule,
     UserExperienceBubbleListModule,
     IvyCarouselModule,
-    CaseDetailsModule
+    CaseDetailsModule,
+    BreadcrumbModule
   ],
   providers: [
     ReviewsService,
     {
       provide: STEPPER_GLOBAL_OPTIONS,
-      useValue: { displayDefaultIndicatorType: false },
-    },
-  ],
+      useValue: { displayDefaultIndicatorType: false }
+    }
+  ]
 })
 export class ReviewItemModule {}

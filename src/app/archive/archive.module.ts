@@ -30,6 +30,8 @@ import { ReviewItemModule } from 'src/app/review-item/review-item.module';
 import { CaseListItemModule } from '../shared/case-list-item/case-list-item.module';
 import { ArchiveListFilterComponent } from './components/archive-list-filter/archive-list-filter.component';
 import { CaseSortByPipe } from './services/case-sort-by.pipe';
+import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
+import { CaseFactsModule } from '../shared/case-facts/case-facts.module';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -46,7 +48,8 @@ registerLocaleData(localeDE, 'de');
     CommentListItemComponent,
     CommentInputComponent,
     ArchiveListFilterComponent,
-    CaseSortByPipe
+    CaseSortByPipe,
+    CommentInputComponent
   ],
   imports: [
     CommonModule,
@@ -62,7 +65,9 @@ registerLocaleData(localeDE, 'de');
     CaseDetailsModule,
     NgxsModule.forFeature([ArchiveState]),
     ReviewItemModule,
-    CaseListItemModule
+    CaseListItemModule,
+    BreadcrumbModule,
+    CaseFactsModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
