@@ -1,20 +1,26 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginFormComponent } from './login-form.component';
+import { ForgotPasswordFormComponent } from './forgot-password-form.component';
+import { MaterialModule } from '../../../shared/material/material.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('LoginFormComponent', () => {
-  let component: LoginFormComponent;
-  let fixture: ComponentFixture<LoginFormComponent>;
+describe('ForgotPasswordFormComponent', () => {
+  let component: ForgotPasswordFormComponent;
+  let fixture: ComponentFixture<ForgotPasswordFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent ]
+      declarations: [ ForgotPasswordFormComponent ],
+      imports: [
+        MaterialModule,
+        RouterTestingModule.withRoutes([]),
+      ],
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginFormComponent);
+    fixture = TestBed.createComponent(ForgotPasswordFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,6 +5,8 @@ import { Item } from 'src/app/model/item';
 import { Filter } from '../../model/filter';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatChipInputEvent } from '@angular/material/chips';
+import { RatingLegendComponent } from '../rating-legend/rating-legend.component';
+
 import {
   animate,
   state,
