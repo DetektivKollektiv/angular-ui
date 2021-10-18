@@ -13,17 +13,18 @@ import { AuthState } from '../../../shared/auth/model/auth-state';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { GetDetailItem, CreateComment } from '../../state/archive.actions';
 import { Review } from 'src/app/review-item/model/review';
+import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-archive-details-page',
   templateUrl: './archive-details-page.component.html',
-  styleUrls: ['./archive-details-page.component.scss'],
+  styleUrls: ['./archive-details-page.component.scss']
 })
-
-
 export class ArchiveDetailsPageComponent implements OnInit {
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$: Observable<any>;
+
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
 
   public authState: AuthState;
   public authenticated = false;
@@ -36,7 +37,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public shortenedCaseId = '';
   public tags: any[];
 
-  public percentageResponses: {[key: string]: number} = {};
+  public percentageResponses: { [key: string]: number } = {};
 
   public commentText;
   public caseCollapse = true;
@@ -45,15 +46,13 @@ export class ArchiveDetailsPageComponent implements OnInit {
   public showQuestions: any[];
   public review: Review;
 
-
-
   public reviewQuestions: any[] = [];
 
-
-  public users: { [key: string]: {
-    user: string;
-    color: string;
-    avatarCharacter: string;
+  public users: {
+    [key: string]: {
+      user: string;
+      color: string;
+      avatarCharacter: string;
     };
   } = {};
 
@@ -72,7 +71,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     'color__rating-light-green',
     'color__rating-green',
     'color__purple',
-    'color__supernova',
+    'color__supernova'
   ];
 
   public answers: string[] = ['Stimme eher nicht zu', 'Stimme nicht zu', 'Stimme zu', 'Stimme eher zu', 'Kriterium nicht anwendbar'];
@@ -85,24 +84,21 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private router: Router,
     private store: Store,
 
-    private authService: AuthService,
+    private authService: AuthService
   ) {
     this.reviewSituation = {
       title: 'Der Tatbestand',
       text: 'asdfdsafas',
-      open_timesteamp: '01.01.0001',
+      open_timesteamp: '01.01.0001'
       //urls: {"https://eine-url.tld", "https://eine-url.tld","https://eine-url.tld","https://eine-url.tld"},
       //tags:{ "4444444444",  "4444444444", "4444444444" , "4444444444"},
     };
 
-    this.tags = [
-      'kein impressum', 'hatespeech', 'keine quellen'
-    ];
-
+    this.tags = ['kein impressum', 'hatespeech', 'keine quellen'];
   }
 
   getRandomColor() {
-    return this.colors[Math.floor(Math.random()*this.colors.length)];
+    return this.colors[Math.floor(Math.random() * this.colors.length)];
   }
 
   getUserColor() {
@@ -111,21 +107,20 @@ export class ArchiveDetailsPageComponent implements OnInit {
     return this.colors[0];
   }
 
-  getUser(userName)
-  {
-    const color = userName === this.user.name ? this.getUserColor() : this.getRandomColor();
+  getUser(userName) {
+    const color = userName === this.user?.name ? this.getUserColor() : this.getRandomColor();
     const name = userName.trim().toLowerCase() === 'deleted' ? 'Deaktiviert' : userName;
     const avatarCharacter = userName === 'deleted' ? '?' : userName[0].toUpperCase();
     // if the user is already set, then use it.
     // so that the color stays consistent
 
-    const user = ( userName && this.users[userName]) ?? {
+    const user = (userName && this.users[userName]) ?? {
       user: name,
       color,
       avatarCharacter
     };
 
-    if(userName && !this.users[userName]) {
+    if (userName && !this.users[userName]) {
       this.users[userName] = user;
     }
 
@@ -139,7 +134,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       // const isAUserWeHaveDataFor = false
       // const color = isAUserWeHaveDataFor ? 'use the users actual color' : this.getRandomColor();
 
-      const user = this.getUser( currentReview.user);
+      const user = this.getUser(currentReview.user);
 
       acc[currentReview.user] = user;
       return acc;
@@ -153,13 +148,12 @@ export class ArchiveDetailsPageComponent implements OnInit {
     return users;
   }
 
-  getQuestions(reviews)
-  {
+  getQuestions(reviews) {
     const questionsMap = {};
 
-    for(const review of this.case.reviews) {
-      for(const question of review.questions) {
-        if(!(Object.keys(questionsMap).indexOf(question.question_id) > -1 )) {
+    for (const review of this.case.reviews) {
+      for (const question of review.questions) {
+        if (!(Object.keys(questionsMap).indexOf(question.question_id) > -1)) {
           questionsMap[question.question_id] = question;
         }
       }
@@ -177,7 +171,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       this.router.navigate(['/']);
     } else {
       this.caseId = this.router.url.split('/')[2];
-      if(this.caseId){
+      if (this.caseId) {
         this.shortenedCaseId = this.caseId.split('-')[0];
       }
     }
@@ -187,11 +181,11 @@ export class ArchiveDetailsPageComponent implements OnInit {
     });
 
     const getColorClass = (color) => {
-      if(color === 'purple') {
+      if (color === 'purple') {
         return `color__purple`;
-      } else if(color === 'red') {
+      } else if (color === 'red') {
         return `color__rating-red`;
-      } else if(color === 'light-green') {
+      } else if (color === 'light-green') {
         return `color__rating-light-green`;
       }
     };
@@ -203,7 +197,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
         timestamp: '2010-08-04',
         medal: '',
         is_review_comment: 'False',
-        color: getColorClass('purple')//color__purple
+        color: getColorClass('purple') //color__purple
       },
       {
         user: 'Lawn Rediko',
@@ -211,7 +205,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
         timestamp: '2011-08-04',
         medal: '',
         is_review_comment: 'False',
-        color: getColorClass('red')//color__rating-red
+        color: getColorClass('red') //color__rating-red
       },
       {
         user: 'Scrawp Amadoo',
@@ -219,24 +213,22 @@ export class ArchiveDetailsPageComponent implements OnInit {
         timestamp: '2012-08-04',
         medal: '',
         is_review_comment: 'True',
-        color: getColorClass('light-green')//color__rating-light-green
-      },
+        color: getColorClass('light-green') //color__rating-light-green
+      }
     ];
 
     // const tempIdForDev  = "4fff2318-5b56-4cb3-b8d7-842545992e50";
     // this.store.dispatch(new GetDetailItem(tempIdForDev)).subscribe(({archive}) => {
-    this.store.dispatch(new GetDetailItem(this.caseId)).subscribe(({archive}) => {
+    this.store.dispatch(new GetDetailItem(this.caseId)).subscribe(({ archive }) => {
       const { detailItem } = archive;
-      const aggregated: {[key: string]: number} = getAggregatedResponses(detailItem);
-      const numberResponses: number = Object.values(aggregated).reduce(
-        (accumulator: number, value: number) => accumulator+=value,
-        0
-        );
+      const aggregated: { [key: string]: number } = getAggregatedResponses(detailItem);
+      const numberResponses: number = Object.values(aggregated).reduce((accumulator: number, value: number) => (accumulator += value), 0);
       const allkeys = Object.keys(detailItem);
 
       // this.aggegatedResponses = aggregated
       this.percentageResponses = getPercentages(aggregated, numberResponses);
-      const comments = detailItem && 'comments' in detailItem && Array.isArray(detailItem?.comments) ? detailItem?.comments : sampleComments;
+      const comments =
+        detailItem && 'comments' in detailItem && Array.isArray(detailItem?.comments) ? detailItem?.comments : sampleComments;
 
       const commentsWithUsers = comments.map((comment: any) => {
         const user = this.getUser(comment.user);
@@ -244,7 +236,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
         return {
           ...comment,
           color: user.color,
-          avatarCharacter: user.avatarCharacter,
+          avatarCharacter: user.avatarCharacter
         };
       });
       const reviewComments = commentsWithUsers.filter((comment: any) => comment.is_review_comment === 'True');
@@ -253,40 +245,35 @@ export class ArchiveDetailsPageComponent implements OnInit {
       this.case = {
         ...detailItem,
         comments: nonReviewComments,
-        reviewComments,
+        reviewComments
         // urls: 'urls' in detailItem && Array.isArray(detailItem!.urls) ? detailItem!.urls : sampleUrls,
         // urls: sampleUrls,
         // tags: sampleTags,
       };
 
       this.questions = this.case.reviews[0].questions;
-      this.showQuestions = this.questions.filter(question => !question.parent_question_id);
+      this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
 
       this.reviewQuestions = this.getQuestions(this.case.reviews);
 
       this.score = Math.floor(detailItem.result_score * 25);
 
       this.detectives = Object.values(this.getDetectives(detailItem.reviews));
-
     });
 
-
-    const  getPercentages = (aggregatedResponses: any, numberResponses: number) => (
-      Object.keys(aggregatedResponses).reduce(
-        (acc: any, currentKey: string) => {
-          acc[currentKey] = Math.round(aggregatedResponses[currentKey] / numberResponses * 100);
-          return acc;
-        }, {}
-      )
-    );
+    const getPercentages = (aggregatedResponses: any, numberResponses: number) =>
+      Object.keys(aggregatedResponses).reduce((acc: any, currentKey: string) => {
+        acc[currentKey] = Math.round((aggregatedResponses[currentKey] / numberResponses) * 100);
+        return acc;
+      }, {});
 
     const getAggregatedResponses = (detailItem: any) => {
       const aggregated = {};
-      for(const review of detailItem.reviews) {
-        for(const question of review.questions) {
-          const { options, answer_value, answer_id }  = question;
+      for (const review of detailItem.reviews) {
+        for (const question of review.questions) {
+          const { options, answer_value, answer_id } = question;
 
-          if(!answer_value) {
+          if (!answer_value) {
             continue;
           }
 
@@ -294,8 +281,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
           const { text } = theOption;
 
-
-          if(!(text in aggregated)) {
+          if (!(text in aggregated)) {
             aggregated[text] = 1;
           } else {
             aggregated[text]++;
@@ -316,8 +302,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   onPostComment(text) {
-    this.store.dispatch(new CreateComment(this.caseId, text, this.user.id)).subscribe(({result}) => {
-
-    });
+    this.store.dispatch(new CreateComment(this.caseId, text, this.user.id)).subscribe(({ result }) => {});
   }
 }

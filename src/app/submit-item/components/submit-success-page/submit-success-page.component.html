@@ -1,11 +1,7 @@
 <div class="submit-success-page standard-content-container-width" *ngIf="authState$ | async">
   <div class="top-section">
     <div class="overview-section">
-      <span class="breadcrumb">
-        <i class="far fa-home breadcrumb__link" routerLink="/"></i>
-        <span class="breadcrumb__link" routerLink="/submit">Fall einreichen</span>
-        <i class="fal fa-greater-than"></i>
-      </span>
+      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
 
       <div class="submit-success-number-section">
         <div class="submit-success-number-id">#{{ item.id.split('-')[0] }} <span>Fallnummer</span></div>

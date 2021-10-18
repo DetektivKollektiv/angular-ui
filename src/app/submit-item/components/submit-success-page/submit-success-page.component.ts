@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { ItemsService } from 'src/app/review-item/services/items/items.service';
 import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
+import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
 import { ArchiveService } from '../../../archive/services/archive.service';
 import { Item } from '../../../model/item';
 import { QuestionPrompt } from '../../model/question-prompt.interface';
@@ -15,6 +16,8 @@ import { QuestionPrompt } from '../../model/question-prompt.interface';
   providers: []
 })
 export class SubmitSuccessPageComponent {
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fall einreichen', link: '/submit' }];
+
   item: Item;
 
   closedItems$ = this.archiveService.getClosedItems();
