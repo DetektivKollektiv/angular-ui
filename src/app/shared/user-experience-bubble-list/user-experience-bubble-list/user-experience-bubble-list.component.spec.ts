@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserExperienceBubbleListComponent } from './user-experience-bubble-list.component';
+import { UserExperienceBubbleComponent } from '../../user-experience-bubble/user-experience-bubble.component';
 
 describe('UserExperienceBubbleListComponent', () => {
   let component: UserExperienceBubbleListComponent;
@@ -8,7 +9,10 @@ describe('UserExperienceBubbleListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserExperienceBubbleListComponent ]
+      declarations: [
+        UserExperienceBubbleListComponent,
+        UserExperienceBubbleComponent,
+      ]
     })
     .compileComponents();
   });
