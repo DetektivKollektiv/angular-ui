@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ReviewComponent } from './review.component';
+import { ReviewPageComponent } from './review-page.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from '../../../shared/material/material.module';
 import { LoaderModule } from '../../../shared/loader/loader.module';
@@ -19,22 +19,27 @@ import { FactcheckComponent } from '../factcheck/factcheck.component';
 import { ReviewProcessComponent } from '../review-process/review-process.component';
 import { ReviewQuestionComponent } from '../review-question/review-question.component';
 import { ReviewSummaryComponent } from '../review-summary/review-summary.component';
+import { CaseDetailsModule } from '../../../shared/case-details/case-details.module';
+import { UserExperienceBubbleListModule } from '../../../shared/user-experience-bubble-list/user-experience-bubble-list.module';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { WatsonComponent } from '../watson/watson.component';
 
-describe('ReviewComponent', () => {
-  let component: ReviewComponent;
-  let fixture: ComponentFixture<ReviewComponent>;
+describe('ReviewPageComponent', () => {
+  let component: ReviewPageComponent;
+  let fixture: ComponentFixture<ReviewPageComponent>;
 
   beforeEach(
     waitForAsync(() => {
       TestBed.configureTestingModule({
         declarations: [
-          ReviewComponent,
+          ReviewPageComponent,
           QuestionComponent,
           TagsQuestionComponent,
           FactcheckComponent,
           ReviewProcessComponent,
           ReviewQuestionComponent,
           ReviewSummaryComponent,
+          WatsonComponent,
         ],
         imports: [
           RouterTestingModule,
@@ -44,6 +49,9 @@ describe('ReviewComponent', () => {
           CommonModule,
           UnsavedChangesModule,
           FormsModule,
+          CaseDetailsModule,
+          UserExperienceBubbleListModule,
+          IvyCarouselModule,
         ],
         providers: [
           { provide: AuthService, useClass: MockAuthService },
@@ -55,7 +63,7 @@ describe('ReviewComponent', () => {
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReviewComponent);
+    fixture = TestBed.createComponent(ReviewPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -8,6 +8,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
 import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { FormsModule } from '@angular/forms';
+import { ScoreListComponent } from '../score-list/score-list.component';
+import { SolveScoreListComponent } from '../solve-score-list/solve-score-list.component';
+import { ScoreListItemComponent } from '../score-list-item/score-list-item.component';
+import { OpenCaseListSliderModule } from '../../../shared/open-case-list-slider/open-case-list-slider.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxsModule } from '@ngxs/store';
+import { ArchiveState } from '../../../archive/state/archive.state';
+
 
 describe('MyProfileComponent', () => {
   let component: MyProfileComponent;
@@ -15,8 +23,20 @@ describe('MyProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MyProfileComponent],
-      imports: [MaterialModule, RouterTestingModule, FormsModule],
+      declarations: [
+        MyProfileComponent,
+        ScoreListComponent,
+        SolveScoreListComponent,
+        ScoreListItemComponent,
+      ],
+      imports: [
+        MaterialModule,
+        RouterTestingModule,
+        FormsModule,
+        OpenCaseListSliderModule,
+        NgxPaginationModule,
+        NgxsModule.forRoot([ArchiveState]),
+      ],
       providers: [
         { provide: AuthService, useClass: MockAuthService },
         { provide: UserService, useClass: MockUserService },
