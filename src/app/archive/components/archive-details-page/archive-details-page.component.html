@@ -1,16 +1,17 @@
-<div class="archive-details-page">
-  <div class="top-section standard-content-container-width">
+<div class="archive-details-page standard-content-container-width">
+  <div class="top-section">
     <app-case-details *ngIf="case" [case]="case">
       <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
   </div>
-  <div class="help-container">
-    <div class="flag"><i class="fas fa-flag"></i>&nbsp;Fall melden</div>
-    <div class="life-ring"><i class="fas fa-life-ring"></i>&nbsp;Hilfe zu dieser Seite</div>
-    <div class="chevron-right">anzeigen&nbsp;<i class="fas fa-chevron-right"></i></div>
-  </div>
+
+  <app-question-carousel [questions]="archiveQuestions">
+    <div class="flag question-container-action"><i class="fas fa-flag"></i>&nbsp;Fall melden</div>
+  </app-question-carousel>
+
   <div class="bottom-section standard-content-container-width">
-    <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
+    <app-case-facts [case]="case"></app-case-facts>
+    <!-- <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
       <div class="review-situation">
         <h2 class="review-situation--title">{{ reviewSituation.title }}</h2>
         <div class="review-situation--text">
@@ -48,7 +49,7 @@
           >
         </ul>
       </div>
-    </div>
+    </div> -->
 
     <div class="case-overview-section">
       <h2 class="overview-section--title">Fallabschlussbericht</h2>

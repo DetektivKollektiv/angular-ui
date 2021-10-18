@@ -1,13 +1,25 @@
 @import '../../../../assets/scss/_initializer.scss';
 
+:host {
+  width: 100%;
+}
+
 app-case-details {
-  max-width: 600px;
+  max-width: 746px;
 }
 
 .archive-details-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: auto;
+
+  @media only screen and (min-width: 1024px) {
+    width: 900px;
+    margin-left: calc((100vw - 900px) / 4);
+  }
+
+  @media only screen and (min-width: 1350px) {
+    width: 1240px;
+    margin-left: calc((100vw - 1240px) / 4);
+  }
 
   .top-section {
     margin-bottom: 50px;
@@ -16,59 +28,26 @@ app-case-details {
     flex-wrap: wrap;
     flex-direction: column;
     padding: 20px;
-    // justify-content: space-between;
 
     @media only screen and (min-width: 480px) {
       flex-direction: row;
       justify-content: space-between;
     }
-
-    .case-details {
-      max-width: 746px;
-    }
   }
 
-  .help-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-    @media only screen and (min-width: 480px) {
-      justify-content: flex-end;
-    }
-
-    .flag {
-      color: $color__bittersweet;
-      margin-right: 20px;
-    }
-
-    .life-ring {
-      margin-right: 5px;
-      i {
-        color: $color__purple;
-      }
-    }
-
-    .chevron-right {
-      display: flex;
-      align-items: center;
-      color: #aaa;
-
-      i {
-        color: black;
-      }
-    }
+  .flag {
+    color: $color__bittersweet;
+    margin-right: 20px;
   }
 
   .bottom-section {
     display: flex;
     flex-direction: column;
     max-width: 100vw;
-    padding: 20px;
+    padding: 0 20px;
 
     @media only screen and (min-width: 1024px) {
       flex-direction: row;
-      padding: 0px;
     }
 
     > div {
@@ -83,13 +62,16 @@ app-case-details {
         }
       }
     }
+
     .case-details--tatbestand {
       .review-situation {
         .review-situation--title {
           font-family: 'PT Mono', monospace;
           line-height: 70px;
           font-size: max(2vw, 24px);
+          font-weight: 700;
         }
+
         .review-situation--text {
           font-size: 18px;
           line-height: 1.44;

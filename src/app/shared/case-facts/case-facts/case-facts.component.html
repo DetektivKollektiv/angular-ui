@@ -1,0 +1,36 @@
+<section class="fact">
+  <h2 class="fact__title mono-font">Der Tatbestand</h2>
+  <div class="fact__text">
+    <i class="fas fa-quote-left"></i>
+    <div>{{ case.content }}</div>
+    <i class="fas fa-quote-right"></i>
+  </div>
+</section>
+<section class="links">
+  <h3>Hinterlegte und entdeckte Links</h3>
+  <div *ngIf="case && case.hasOwnProperty('urls')">
+    <span *ngFor="let url of case.urls" class="{{ 'link-icon' + url.is_safe ? 'gray-link' : '' }} ">
+      <a href="{{ url.url }}">
+        <i class="far fa-external-link-square-alt"></i>
+        {{ url.url }}
+      </a>
+    </span>
+  </div>
+</section>
+<section class="tags">
+  <h3>Tags</h3>
+  <ul *ngIf="case && case.hasOwnProperty('tags')">
+    <li *ngFor="let tag of case.tags">{{ tag }}</li>
+  </ul>
+</section>
+<section class="facts__background-info">
+  <h3>Hintergrundinformationen</h3>
+  <ul>
+    <span *ngIf="case && case.hasOwnProperty('open_timestamp')" class="link-icon">
+      <li><i class="far fa-calendar-alt"></i>{{ case.open_timestamp }}</li>
+    </span>
+    <span class="link-icon">
+      <li><i class="fal fa-user"></i>Anonym</li>
+    </span>
+  </ul>
+</section>

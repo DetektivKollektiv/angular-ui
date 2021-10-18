@@ -1,16 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import SwiperCore from 'swiper/core';
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-question-carousel',
   templateUrl: './question-carousel.component.html',
-  styleUrls: ['./question-carousel.component.scss'],
+  styleUrls: ['./question-carousel.component.scss']
 })
-export class QuestionCarouselComponent implements OnInit {
+export class QuestionCarouselComponent {
   @Input() public questions: any[];
 
   isCollapsed = true;
-
-  constructor() {}
-
-  ngOnInit() {}
 }

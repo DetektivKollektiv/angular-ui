@@ -1,0 +1,38 @@
+@import '../../../../assets/scss/colors';
+
+:host {
+  .fact {
+    &__title {
+      line-height: 70px;
+      font-size: max(2vw, 24px);
+      font-weight: 700;
+    }
+
+    &__text {
+      font-size: 18px;
+      line-height: 1.44;
+      word-wrap: break-word;
+
+      a {
+        color: $color__bittersweet;
+        text-decoration: none;
+      }
+
+      .fa-quote-left,
+      .fa-quote-right {
+        position: relative;
+        color: $color__bittersweet;
+      }
+
+      .fa-quote-left {
+        left: -20px;
+      }
+
+      .fa-quote-right {
+        display: flex;
+        justify-content: flex-end;
+        right: 20px;
+      }
+    }
+  }
+}
