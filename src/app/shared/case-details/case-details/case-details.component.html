@@ -1,9 +1,9 @@
 <div class="case-details">
-  <div class="case-number-section">
+  <section class="case-details__header">
     <ng-content select="app-breadcrumb"></ng-content>
-    <div class="case-number-id">#{{ case.id.split('-')[0] }} <span>Fallnummer</span></div>
-  </div>
-  <div class="case-description-section">
+    <div class="case-details__number-id">#{{ case.id.split('-')[0] }} <span class="mono-font">Fallnummer</span></div>
+  </section>
+  <section class="case-details__description">
     <p>{{ description }}</p>
-  </div>
+  </section>
 </div>

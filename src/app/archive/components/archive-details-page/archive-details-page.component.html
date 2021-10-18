@@ -1,69 +1,24 @@
 <div class="archive-details-page standard-content-container-width">
-  <div class="top-section">
+  <section class="top">
     <app-case-details *ngIf="case" [case]="case">
       <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
-  </div>
+  </section>
 
   <app-question-carousel [questions]="archiveQuestions">
-    <div class="flag question-container-action"><i class="fas fa-flag"></i>&nbsp;Fall melden</div>
+    <div class="flag question-container-action"><i class="fas fa-flag"></i>Fall melden</div>
   </app-question-carousel>
 
-  <div class="bottom-section standard-content-container-width">
-    <app-case-facts [case]="case"></app-case-facts>
-    <!-- <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
-      <div class="review-situation">
-        <h2 class="review-situation--title">{{ reviewSituation.title }}</h2>
-        <div class="review-situation--text">
-          <i class="fas fa-quote-left"></i>
-          <div [innerHTML]="reviewSituation.text"></div>
+  <section class="bottom">
+    <div class="facts">
+      <app-case-facts [case]="case"></app-case-facts>
+    </div>
 
-          <i class="fas fa-quote-right"></i>
-        </div>
-      </div>
-      <div class="links-section">
-        <h3>Hinterlegte und entdeckte Links</h3>
-        <div *ngIf="case && case.hasOwnProperty('urls')">
-          <span *ngFor="let url of case.urls" class="{{ 'link-icon' + url.is_safe ? 'gray-link' : '' }} ">
-            <a href="{{ url.url }}">
-              <i class="far fa-external-link-square-alt"></i>
-              {{ url.url }}
-            </a>
-          </span>
-        </div>
-      </div>
-      <div class="tags-section">
-        <h3>Tags</h3>
-        <ul *ngIf="case && case.hasOwnProperty('tags')">
-          <li *ngFor="let tag of case.tags">{{ tag }}</li>
-        </ul>
-      </div>
-      <div class="background-info-section">
-        <h3>Hintergrundinformationen</h3>
-        <ul>
-          <span *ngIf="case && case.hasOwnProperty('open_timestamp')" class="link-icon"
-            ><li><i class="far fa-calendar-alt"></i>{{ case.open_timestamp }}</li></span
-          >
-          <span class="link-icon"
-            ><li><i class="fal fa-user"></i>Anonym</li></span
-          >
-        </ul>
-      </div>
-    </div> -->
+    <div class="overview">
+      <h2 class="overview__title mono-font">Fallabschlussbericht</h2>
+      <app-case-result-card [case]="case"></app-case-result-card>
 
-    <div class="case-overview-section">
-      <h2 class="overview-section--title">Fallabschlussbericht</h2>
-      <div class="show-archive-result">
-        <div class="mark">{{ score }}</div>
-        <div class="description">
-          <div class="description-header">Dieser Fall ist nicht vertrauenswürdig</div>
-          <div class="description-content">
-            Dieser Fall ist von {{ detectives.length }} Detektiven mit {{ score }} von 100 Punkten bewertet worden. Du solltest
-            diediesem.hasOwnProperty( Informationen) Fall unbedingt mit Vorsicht behandeln.
-          </div>
-        </div>
-      </div>
-      <div class="show-archive-detail">
+      <div class="overview__archive-detail">
         <div *ngFor="let answer of answers" class="show-archive-detail-description">
           <div
             *ngIf="percentageResponses.hasOwnProperty(answer) && percentageResponses[answer] > 0; then show_number; else other_content"
@@ -164,5 +119,5 @@
 
       <app-comment-input [user]="user" (commentSubmitted)="onPostComment($event)" [authenticated]="authenticated"></app-comment-input>
     </div>
-  </div>
+  </section>
 </div>

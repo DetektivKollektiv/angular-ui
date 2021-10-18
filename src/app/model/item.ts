@@ -1,3 +1,4 @@
+import { ItemReview } from './item-review.interface';
 import { ItemSource } from './item-source';
 
 /* eslint-disable @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match */
@@ -24,4 +25,5 @@ export class Item {
   tags: string[] = [];
   urls: any[] = [];
   comments: any[] = [];
+  reviews: ItemReview[] | null;
 }

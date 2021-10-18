@@ -19,7 +19,6 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
 import { ArchiveListComponent } from './components/archive-list/archive-list.component';
 import { ArchiveListItemComponent } from './components/archive-list-item/archive-list-item.component';
-import { TagIconComponent } from './components/tag-icon/tag-icon.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 import { CaseDetailsModule } from '../shared/case-details/case-details.module';
@@ -32,6 +31,8 @@ import { ArchiveListFilterComponent } from './components/archive-list-filter/arc
 import { CaseSortByPipe } from './services/case-sort-by.pipe';
 import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
 import { CaseFactsModule } from '../shared/case-facts/case-facts.module';
+import { TagIconModule } from '../shared/tag-icon/tag-icon.module';
+import { CaseResultCardModule } from '../shared/case-result-card/case-result-card.module';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -43,7 +44,6 @@ registerLocaleData(localeDE, 'de');
     RatingLegendComponent,
     ArchiveListComponent,
     ArchiveListItemComponent,
-    TagIconComponent,
     CommentListComponent,
     CommentListItemComponent,
     CommentInputComponent,
@@ -67,7 +67,9 @@ registerLocaleData(localeDE, 'de');
     ReviewItemModule,
     CaseListItemModule,
     BreadcrumbModule,
-    CaseFactsModule
+    CaseFactsModule,
+    TagIconModule,
+    CaseResultCardModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },

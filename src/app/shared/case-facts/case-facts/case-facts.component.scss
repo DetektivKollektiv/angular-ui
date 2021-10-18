@@ -1,11 +1,25 @@
 @import '../../../../assets/scss/colors';
 
 :host {
+  section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+  }
+
+  section ~ section {
+    margin-top: 25px;
+  }
+
   .fact {
     &__title {
       line-height: 70px;
-      font-size: max(2vw, 24px);
       font-weight: 700;
+      font-size: 24px;
+
+      @media only screen and (min-width: 480px) {
+        font-size: max(2vw, 36px);
+      }
     }
 
     &__text {
@@ -31,8 +45,55 @@
       .fa-quote-right {
         display: flex;
         justify-content: flex-end;
-        right: 20px;
+        right: 0;
       }
+    }
+  }
+
+  .links {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .link-icon {
+      //color: #f00;
+      margin-right: 15px;
+      display: inline-block;
+      margin-bottom: 10px;
+      a {
+        color: $color__bittersweet;
+        text-decoration: none;
+        i {
+          margin-right: 3px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .link-icon.gray-link {
+      a {
+        color: #a7a3a3;
+      }
+    }
+  }
+
+  .tags {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .background-info {
+    &__details {
+      display: flex;
+      gap: 16px;
+    }
+
+    &__entry {
+      display: flex;
+      gap: 8px;
     }
   }
 }

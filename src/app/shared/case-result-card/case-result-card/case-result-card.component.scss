@@ -1,0 +1,44 @@
+@use '../../../../assets/scss/fonts' as fonts;
+@use '../../../../assets/scss/colors' as colors;
+
+:host {
+  display: flex;
+  background-color: colors.$color__rating-red;
+  color: white;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 20px #0000004d;
+
+  .score {
+    border-radius: 24px;
+    width: 25%;
+    font-size: 42px;
+    background-color: white;
+    color: colors.$color__rating-red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 10px;
+    margin-right: 10px;
+    max-height: 100px;
+    @include fonts.font__pt-mono--bold;
+  }
+
+  .description {
+    width: 100%;
+
+    &__header {
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    &__content {
+      font-size: 18px;
+    }
+  }
+
+  .strong {
+    @include fonts.font__effra--bold;
+  }
+}

@@ -25,33 +25,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
   @Select(ArchiveState.detailItem) detailItem$: Observable<any>;
 
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
+  archiveQuestions: any[] = [];
 
-  public archiveQuestions: any[] = [
-    {
-      title: 'Wann sehe ich etwas im Archiv?',
-      description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
-      background: 'color__bittersweet',
-      icon: 'fal fa-eye'
-    },
-    {
-      title: 'Wie errechnet sich der Score?',
-      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
-      background: 'color__neon-blue',
-      icon: 'fal fa-chart-bar'
-    },
-    {
-      title: 'Eine weitere Frage?',
-      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-      background: 'color__purple',
-      icon: 'fal fa-leaf'
-    },
-    {
-      title: 'Eine weitere Frage?',
-      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-      background: 'color__bittersweet',
-      icon: 'fal fa-leaf'
-    }
-  ];
   public authState: AuthState;
   public authenticated = false;
   public user: any;
