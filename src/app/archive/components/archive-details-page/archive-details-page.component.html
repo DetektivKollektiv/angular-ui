@@ -26,13 +26,20 @@
           </div>
         </div>
 
-        <div *ngFor="let response of notGivenResponsesPercentages$ | async" class="review-response review-response--small">
+        <div
+          *ngFor="let response of notGivenResponsesPercentages$ | async"
+          class="review-response review-response--single review-response--small"
+        >
           <div>
             <span class="strong">Keine</span> Frage wurde mit <span class="strong">{{ response.answer }}</span> beantwortet.
           </div>
         </div>
 
-        <div class="review-response review-response--small" *ngIf="noCriteriaResponsesPercentage$ | async as noCriteriaResponsesPercentage">
+        <div
+          class="review-response review-response--small"
+          [class.review-response--single]="!noCriteriaResponsesPercentage.count"
+          *ngIf="noCriteriaResponsesPercentage$ | async as noCriteriaResponsesPercentage"
+        >
           <span *ngIf="!noCriteriaResponsesPercentage.count">Die Kriterien waren auf alle Fragen anwendbar.</span>
           <ng-container *ngIf="noCriteriaResponsesPercentage.count > 0">
             <div class="review-response__count">{{ noCriteriaResponsesPercentage.count }}%</div>

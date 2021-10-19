@@ -82,7 +82,7 @@ app-case-details {
 
   .overview {
     &__title {
-      line-height: 70px;
+      margin: 20px 0;
       font-weight: 700;
       font-size: 24px;
 
@@ -98,7 +98,8 @@ app-case-details {
       margin-top: 20px;
 
       .review-response {
-        display: flex;
+        display: grid;
+        grid-template-columns: 50px 1fr;
         align-items: center;
         gap: 8px;
 
@@ -113,7 +114,11 @@ app-case-details {
         }
 
         &--small {
-          font-size: 14px;
+          font-size: 16px;
+        }
+
+        &--single {
+          grid-template-columns: 1fr;
         }
 
         .strong {
@@ -216,6 +221,7 @@ app-case-details {
         display: flex;
         flex-direction: column;
         margin-top: 20px;
+        margin-left: 20px;
       }
     }
 
@@ -230,10 +236,12 @@ app-case-details {
         display: flex;
         flex-direction: column;
         margin-top: 20px;
+        margin-left: 20px;
       }
 
       app-comment-input {
         margin-top: 40px;
+        margin-left: 20px;
       }
 
       &__more {
