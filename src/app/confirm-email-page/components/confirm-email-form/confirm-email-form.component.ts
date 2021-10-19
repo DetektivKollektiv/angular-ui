@@ -1,23 +1,23 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
-import { OperationResult } from '../../../shared/helper/model/operation-result';
-import { ConfirmComponent } from '../../../shared/auth/dialogs/confirm/confirm.component';
-import { ConfirmResult } from '../../../shared/auth/model/confirm-result';
-import { ForgotPasswordComponent } from '../../../shared/auth/dialogs/forgot-password/forgot-password.component';
-import { Globals } from '../../../shared/helper/globals/globals';
+import { LoaderService } from '@shared/loader/service/loader.service';
+import { OperationResult } from '@shared/helper/model/operation-result';
+import { ConfirmComponent } from '@shared/auth/dialogs/confirm/confirm.component';
+import { ConfirmResult } from '@shared/auth/model/confirm-result';
+import { ForgotPasswordComponent } from '@shared/auth/dialogs/forgot-password/forgot-password.component';
+import { Globals } from '@shared/helper/globals/globals';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 
-import { CustomValidators } from '../../../shared/helper/validators/custom-validators';
-import { LoginResult } from '../../../shared/auth/model/login-result';
+import { CustomValidators } from '@shared/helper/validators/custom-validators';
+import { LoginResult } from '@shared/auth/model/login-result';
 
-import { SignupResult } from '../../../shared/auth/model/signup-result';
+import { SignupResult } from '@shared/auth/model/signup-result';
 
 @Component({
   selector: 'app-confirm-email-form',

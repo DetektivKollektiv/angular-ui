@@ -7,8 +7,8 @@ import { Select, Store } from '@ngxs/store';
 import { Item } from 'src/app/model/item';
 
 import { ItemsService } from '../../../review-item/services/items/items.service';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
-import { AuthState } from '../../../shared/auth/model/auth-state';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
+import { AuthState } from '@shared/auth/model/auth-state';
 
 
 @Component({

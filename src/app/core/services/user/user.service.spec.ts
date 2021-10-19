@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 
 import {UserService} from './user.service';
-import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {AuthService} from '@shared/auth/auth-service/auth.service';
 import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
 
 describe('UserService', () => {
