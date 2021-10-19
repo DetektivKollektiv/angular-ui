@@ -5,7 +5,6 @@ import { MaterialModule } from '../shared/material/material.module';
 import { HelperModule } from '../shared/helper/helper.module';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { RouterModule } from '@angular/router';
-import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveDetailsComponent } from './components/archive-details/archive-details.component';
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
@@ -38,7 +37,6 @@ registerLocaleData(localeDE, 'de');
 @NgModule({
   declarations: [
     ArchiveComponent,
-    ArchiveItemComponent,
     ArchiveDetailsComponent,
     ArchiveDetailsPageComponent,
     RatingLegendComponent,
