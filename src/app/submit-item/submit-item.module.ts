@@ -15,6 +15,7 @@ import { ItemTypePipe } from './services/item-type.pipe';
 import { ItemSourcePipe } from './services/item-source.pipe';
 import { SubmitSuccessPageComponent } from './components/submit-success-page/submit-success-page.component';
 import { SubmitNoAuthComponent } from './components/submit-no-auth/submit-no-auth.component';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module
     TranslateModule.forChild(),
     QuestionCarouselModule,
     CaseListItemModule,
-  ],
+    BreadcrumbModule
+  ]
 })
 export class SubmitItemModule {}

@@ -1,6 +1,8 @@
 <div class="archive-details-page">
   <div class="top-section standard-content-container-width">
-      <app-case-details title="Gelöste Fälle" *ngIf="!!case" [case]=case></app-case-details>
+    <app-case-details *ngIf="case" [case]="case">
+      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
+    </app-case-details>
   </div>
   <div class="help-container">
     <div class="flag"><i class="fas fa-flag"></i>&nbsp;Fall melden</div>
@@ -10,10 +12,10 @@
   <div class="bottom-section standard-content-container-width">
     <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
       <div class="review-situation">
-        <h2 class="review-situation--title">{{reviewSituation.title}}</h2>
+        <h2 class="review-situation--title">{{ reviewSituation.title }}</h2>
         <div class="review-situation--text">
           <i class="fas fa-quote-left"></i>
-            <div [innerHTML]="reviewSituation.text"></div>
+          <div [innerHTML]="reviewSituation.text"></div>
 
           <i class="fas fa-quote-right"></i>
         </div>
@@ -21,10 +23,10 @@
       <div class="links-section">
         <h3>Hinterlegte und entdeckte Links</h3>
         <div *ngIf="case && case.hasOwnProperty('urls')">
-          <span *ngFor="let url of case.urls" class="{{'link-icon' + url.is_safe ? 'gray-link' : ''}} ">
-            <a href="{{url.url}}">
+          <span *ngFor="let url of case.urls" class="{{ 'link-icon' + url.is_safe ? 'gray-link' : '' }} ">
+            <a href="{{ url.url }}">
               <i class="far fa-external-link-square-alt"></i>
-              {{url.url}}
+              {{ url.url }}
             </a>
           </span>
         </div>
@@ -32,14 +34,18 @@
       <div class="tags-section">
         <h3>Tags</h3>
         <ul *ngIf="case && case.hasOwnProperty('tags')">
-          <li *ngFor="let tag of case.tags">{{tag}}</li>
+          <li *ngFor="let tag of case.tags">{{ tag }}</li>
         </ul>
       </div>
       <div class="background-info-section">
         <h3>Hintergrundinformationen</h3>
         <ul>
-          <span *ngIf="case && case.hasOwnProperty('open_timestamp')" class="link-icon"><li><i class="far fa-calendar-alt"></i>{{case.open_timestamp}}</li></span>
-          <span class="link-icon"><li><i class="fal fa-user"></i>Anonym</li></span>
+          <span *ngIf="case && case.hasOwnProperty('open_timestamp')" class="link-icon"
+            ><li><i class="far fa-calendar-alt"></i>{{ case.open_timestamp }}</li></span
+          >
+          <span class="link-icon"
+            ><li><i class="fal fa-user"></i>Anonym</li></span
+          >
         </ul>
       </div>
     </div>
@@ -47,28 +53,34 @@
     <div class="case-overview-section">
       <h2 class="overview-section--title">Fallabschlussbericht</h2>
       <div class="show-archive-result">
-        <div class="mark">{{score}}</div>
+        <div class="mark">{{ score }}</div>
         <div class="description">
           <div class="description-header">Dieser Fall ist nicht vertrauenswürdig</div>
           <div class="description-content">
-            Dieser Fall ist von {{detectives.length}} Detektiven mit {{score}} von 100 Punkten bewertet worden. Du solltest diediesem.hasOwnProperty( Informationen) Fall unbedingt mit Vorsicht behandeln.
+            Dieser Fall ist von {{ detectives.length }} Detektiven mit {{ score }} von 100 Punkten bewertet worden. Du solltest
+            diediesem.hasOwnProperty( Informationen) Fall unbedingt mit Vorsicht behandeln.
           </div>
         </div>
       </div>
       <div class="show-archive-detail">
         <div *ngFor="let answer of answers" class="show-archive-detail-description">
-          <div *ngIf="percentageResponses.hasOwnProperty(answer) && percentageResponses[answer] > 0;then show_number else other_content">
-          </div>
+          <div
+            *ngIf="percentageResponses.hasOwnProperty(answer) && percentageResponses[answer] > 0; then show_number; else other_content"
+          ></div>
 
           <ng-template #show_number>
-             <p class="show-archive-detail-mark">
-              {{this.percentageResponses[answer]}}%
-              <sub class="sub-description">Der Fragen wurden mit "<i>{{answer}}</i>" beantwortet.</sub>
-            </p >
+            <p class="show-archive-detail-mark">
+              {{ this.percentageResponses[answer] }}%
+              <sub class="sub-description"
+                >Der Fragen wurden mit "<i>{{ answer }}</i
+                >" beantwortet.</sub
+              >
+            </p>
           </ng-template>
           <ng-template #other_content>
             <div>
-              Keine Frage wurde mit "<i>{{answer}}</i>" beantwortet.
+              Keine Frage wurde mit "<i>{{ answer }}</i
+              >" beantwortet.
             </div>
           </ng-template>
         </div>
@@ -76,17 +88,13 @@
 
         <!-- <div class="show-archive-detail-description">Die Kriterien waren auf alle Fragen anwendbar.</div>
         20% Der Fragen hatten Kriterien die nicht anwendbar waren -->
-
-
       </div>
       <div class="archive-case-date-info">
         <div class="">Der Fall war 27 Tage aktiv.</div>
         <span><i class="far fa-calendar-check"></i>&nbsp;02.01.0001</span>
       </div>
       <div class="tag-icon-container">
-        <div class="tag-icon-container-title">
-          Folgendes trifft auf den Fall zu
-        </div>
+        <div class="tag-icon-container-title">Folgendes trifft auf den Fall zu</div>
         <div class="tag-icon-container-content">
           <app-tag-icon *ngFor="let tag of tags" [tag]="tag"></app-tag-icon>
         </div>
@@ -95,13 +103,13 @@
         <div class="detectives-container-title">Ermittelnde Detektive</div>
         <div class="detectives-container-body">
           <div class="detective-content" *ngFor="let detective of detectives; let index = index">
-            <div class="medal-container {{index === 0 ? 'font-supernova' : index === 1 ? 'font-purple' : ''}}">
+            <div class="medal-container {{ index === 0 ? 'font-supernova' : index === 1 ? 'font-purple' : '' }}">
               <i *ngIf="index < 2" class="fas fa-medal"></i>
             </div>
             <div class="profile-container">
-              <div class="avatar font-bold {{detective.color}}">{{detective.user === 'Detective' ? '?' : detective.user[0]}}</div>
+              <div class="avatar font-bold {{ detective.color }}">{{ detective.user === 'Detective' ? '?' : detective.user[0] }}</div>
               <div class="profile-info">
-                <div class="name {{detective.user === 'Detective' ? 'font-italic' : 'font-bold'}}">{{detective.user}}</div>
+                <div class="name {{ detective.user === 'Detective' ? 'font-italic' : 'font-bold' }}">{{ detective.user }}</div>
                 <!-- <div class="job">{{detective.job}}</div> -->
               </div>
             </div>
@@ -109,24 +117,29 @@
         </div>
       </div>
       <div class="comments-container">
-        <div class="comments-container-title font-bold">
-          Fallbewertungskommentare
-        </div>
+        <div class="comments-container-title font-bold">Fallbewertungskommentare</div>
         <div *ngIf="case && case.hasOwnProperty('reviewComments') && case.reviewComments.length > 0" class="comments-container-body">
           <app-comment-list [comments]="case.reviewComments"></app-comment-list>
         </div>
 
         <div class="show-case">
           <span class="font-bold title">Fallbearbeitung</span>&nbsp;
-          <span class="explain" (click)="changeCaseCollapse()">{{caseCollapse ? "ausblenden" : "einblenden"}}</span>&nbsp;
+          <span class="explain" (click)="changeCaseCollapse()">{{ caseCollapse ? 'ausblenden' : 'einblenden' }}</span
+          >&nbsp;
           <i *ngIf="!caseCollapse" class="fas fa-chevron-right"></i>
           <i *ngIf="caseCollapse" class="fas fa-chevron-down"></i>
         </div>
-        <div  *ngIf="caseCollapse" class="question-section">
-          <div *ngFor="let question of showQuestions; let i=index">
-
+        <div *ngIf="caseCollapse" class="question-section">
+          <div *ngFor="let question of showQuestions; let i = index">
             <!-- todo: set [contributors].. but is the data there? -->
-            <app-question [question]="question" [contributors]="[detectives[0]]" [percentageVoted]="33" [displayOnly]="true" [index]="i" [questions]="questions"></app-question>
+            <app-question
+              [question]="question"
+              [contributors]="[detectives[0]]"
+              [percentageVoted]="33"
+              [displayOnly]="true"
+              [index]="i"
+              [questions]="questions"
+            ></app-question>
 
             <!-- <app-question [question]="question" [percentageVoted]="33" [displayOnly]="true" [index]="i" [questions]="questions"></app-question> -->
           </div>
@@ -135,7 +148,8 @@
       <div *ngIf="authenticated" class="comments-container">
         <div class="comments-container-title">
           <span class="font-bold">Communitydiskussion</span>&nbsp;
-          <span class="explain" (click)="changeCommunityCollapse()">{{communityCollapse ? "ausblenden" : "einblenden"}}</span>&nbsp;
+          <span class="explain" (click)="changeCommunityCollapse()">{{ communityCollapse ? 'ausblenden' : 'einblenden' }}</span
+          >&nbsp;
           <i *ngIf="!communityCollapse" class="fas fa-chevron-right"></i>
           <i *ngIf="communityCollapse" class="fas fa-chevron-down"></i>
         </div>

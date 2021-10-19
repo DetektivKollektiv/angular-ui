@@ -1,9 +1,9 @@
 <div class="case-details">
   <div class="case-number-section">
-    <span class="go-home"><i class="fas fa-home"></i>&nbsp;{{title}}&nbsp;<i class="fas fa-chevron-right"></i></span>
-    <div class="case-number-id">#{{case.id.split('-')[0]}} <span>Fallnummer</span></div>
+    <ng-content select="app-breadcrumb"></ng-content>
+    <div class="case-number-id">#{{ case.id.split('-')[0] }} <span>Fallnummer</span></div>
   </div>
   <div class="case-description-section">
-    <p>{{description}}</p>
+    <p>{{ description }}</p>
   </div>
 </div>

@@ -28,8 +28,9 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
 import { CommentListItemComponent } from './components/comment-list-item/comment-list-item.component';
 import { CommentInputComponent } from './components/comment-input/comment-input.component';
 import { ReviewItemModule } from 'src/app/review-item/review-item.module';
+import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
 
-registerLocaleData(localeDE, 'de')    ;
+registerLocaleData(localeDE, 'de');
 @NgModule({
   declarations: [
     ArchiveComponent,
@@ -43,7 +44,7 @@ registerLocaleData(localeDE, 'de')    ;
     TagIconComponent,
     CommentListComponent,
     CommentListItemComponent,
-    CommentInputComponent,
+    CommentInputComponent
   ],
   imports: [
     CommonModule,
@@ -59,10 +60,11 @@ registerLocaleData(localeDE, 'de')    ;
     CaseDetailsModule,
     NgxsModule.forFeature([ArchiveState]),
     ReviewItemModule,
+    BreadcrumbModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
-    { provide: LOCALE_ID, useValue: 'de' },
-  ],
+    { provide: LOCALE_ID, useValue: 'de' }
+  ]
 })
 export class ArchiveModule {}

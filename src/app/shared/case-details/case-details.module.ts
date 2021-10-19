@@ -5,8 +5,6 @@ import { CaseDetailsComponent } from './case-details/case-details.component';
 @NgModule({
   declarations: [CaseDetailsComponent],
   exports: [CaseDetailsComponent],
-  imports: [
-    CommonModule,
-  ]
+  imports: [CommonModule]
 })
-export class CaseDetailsModule { }
+export class CaseDetailsModule {}

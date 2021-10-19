@@ -15,14 +15,16 @@ import { ReviewState } from '../../model/review-state';
 import { globals } from 'src/environments/globals';
 import { FactCheckService } from '../../services/factchecks/fact-check.service';
 import { Factcheck } from '../../model/factcheck';
-
+import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-review-page',
   templateUrl: './review-page.component.html',
-  styleUrls: ['./review-page.component.scss'],
+  styleUrls: ['./review-page.component.scss']
 })
 export class ReviewPageComponent implements OnInit, UnsavedChanges {
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fall lösen', link: '/reviews' }];
+
   public caseAccepted: boolean;
   public finished: boolean;
   public openReview: boolean;
@@ -42,11 +44,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public caseIndex = 0;
   public review: Review;
 
-
   public showQuestionaire: boolean;
 
-//   public caseId: string = null;
-//   public shortenedCaseId: string = null;
+  //   public caseId: string = null;
+  //   public shortenedCaseId: string = null;
 
   public caseId = '';
   public shortenedCaseId = '';
@@ -68,7 +69,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     private dialog: MatDialog,
     private router: Router,
     private factCheckService: FactCheckService
-
   ) {
     this.showQuestionaire = false;
 
@@ -96,20 +96,20 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
         background: '#8f1fff',
         icon: 'fal fa-leaf'
-      },
+      }
     ];
 
     this.reviewSituation = {
       title: 'Der Tatbestand',
       text: '',
-      open_timesteamp: '01.01.0001',
+      open_timesteamp: '01.01.0001'
       //urls: {"https://eine-url.tld", "https://eine-url.tld","https://eine-url.tld","https://eine-url.tld"},
       //tags:{ "4444444444",  "4444444444", "4444444444" , "4444444444"},
     };
     // 100 XP is always static
 
     this.userExperienceBubbles = [
-      { iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' },
+      { iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' }
       // this one was in the designs, but is temporarily removed.
       // { iconName: 'user-cowboy', color: '#fff', text: '3', subText: 'Detektive', gridColor: '#722ED1' }
     ];
@@ -122,8 +122,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   @HostListener('window:beforeunload', ['$event'])
   public onPageUnload($event: BeforeUnloadEvent) {
     if (this.hasChanges()) {
-      $event.returnValue =
-        'Deine Änderungen gehen verloren, wenn du die Seite neu lädst.';
+      $event.returnValue = 'Deine Änderungen gehen verloren, wenn du die Seite neu lädst.';
     }
   }
 
@@ -132,7 +131,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       this.router.navigate(['/']);
     } else {
       this.caseId = this.router.url.split('/')[2];
-      if(this.caseId){
+      if (this.caseId) {
         this.shortenedCaseId = this.caseId.split('-')[0];
       }
     }
@@ -151,7 +150,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     if (this.caseId) {
       this.getFactCheck(this.caseId);
     }
-
   }
 
   reject() {
@@ -169,23 +167,16 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .then((review) => {
         this.review = review;
         this.questions = review.questions;
-        this.showQuestions = this.questions.filter(question => !question.parent_question_id);
+        this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
         this.caseAccepted = true;
       })
       .catch(() => {
-        this.matSnackBar.open(
-          'Leider konnte der Fall nicht angenommen werden. Versuche es später nochmal.',
-          'Ok',
-          { duration: 2000 }
-        );
+        this.matSnackBar.open('Leider konnte der Fall nicht angenommen werden. Versuche es später nochmal.', 'Ok', { duration: 2000 });
       })
       .finally(() => this.loader.hide());
   }
-  doAnUpdate()
-  {
-    this.reviewService.updateReview(this.review).then(() => {
-
-    });
+  doAnUpdate() {
+    this.reviewService.updateReview(this.review).then(() => {});
   }
 
   closeReview() {
@@ -201,8 +192,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     return this.caseAccepted && !this.finished;
   }
 
-  openSignal(): void{
-    window.open(globals.signalLink,'_blank');
+  openSignal(): void {
+    window.open(globals.signalLink, '_blank');
   }
 
   change(e) {
@@ -214,7 +205,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
     this.factCheckService
       .getFactCheck(id)
-      .then(factCheck => {
+      .then((factCheck) => {
         this.factCheck = factCheck;
       })
       .catch(() => {
@@ -265,19 +256,19 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         this.openCases = openCases.items;
         const firstCase = openCases.items[0];
 
-        const sampleTags =['tag1','tag2','really long tag here'];
+        const sampleTags = ['tag1', 'tag2', 'really long tag here'];
         const sampleUrls = [
           { url: 'reddit.com', is_safe: true },
           { url: 'otherwebsite.io', is_safe: true },
-          { url: 'thisismyfavorite.com', is_safe: false },
+          { url: 'thisismyfavorite.com', is_safe: false }
         ];
 
         this.case = {
           ...firstCase,
           tags: 'tags' in firstCase && Array.isArray(firstCase?.tags) ? firstCase?.tags : sampleTags,
-          urls: 'urls' in firstCase && Array.isArray(firstCase?.urls) ? firstCase?.urls : sampleUrls,
-            // urls: sampleUrls,
-            // tags: sampleTags,
+          urls: 'urls' in firstCase && Array.isArray(firstCase?.urls) ? firstCase?.urls : sampleUrls
+          // urls: sampleUrls,
+          // tags: sampleTags,
         };
 
         this.reviewSituation.text = this.case.content;
@@ -285,16 +276,14 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
         if (openCases.is_open_review) {
           this.openReview = true;
 
-          this.reviewService
-            .createReview(firstCase.id)
-            .then((review) => {
-              this.review = review;
-              this.questions = review.questions;
-              this.showQuestions = this.questions.filter(question => !question.parent_question_id);
-              this.caseAccepted = true;
-            });
+          this.reviewService.createReview(firstCase.id).then((review) => {
+            this.review = review;
+            this.questions = review.questions;
+            this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
+            this.caseAccepted = true;
+          });
 
-            /*
+          /*
           this.dialog
             .open(OpenReviewDialogComponent)
             .afterClosed()
@@ -314,15 +303,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
               }
             });
             */
-
         }
       })
       .catch(() => {
-        this.matSnackBar.open(
-          'Es konnte leider kein neuer Fall geladen werden. Versuche es später nochmal.',
-          'Ok',
-          { duration: 2000 }
-        );
+        this.matSnackBar.open('Es konnte leider kein neuer Fall geladen werden. Versuche es später nochmal.', 'Ok', { duration: 2000 });
       })
       .finally(() => {
         this.loader.hide();
