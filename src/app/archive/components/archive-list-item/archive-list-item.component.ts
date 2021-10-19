@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Item } from '../../../model/item';
-import { RatingColorService } from '../../../services/rating-color-service/rating-color.service';
 
 @Component({
   selector: 'app-archive-list-item',
@@ -19,6 +18,4 @@ export class ArchiveListItemComponent {
     const { warning_tags } = this.case;
     return Math.min(5 - this.tagsCount, warning_tags.length);
   }
-
-  constructor(private ratingColorService: RatingColorService) {}
 }

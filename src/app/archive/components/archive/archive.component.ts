@@ -9,7 +9,7 @@ import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
 import { AddFilterKeyword, RemoveFilterKeyword, SetFilter, SetSortBy, ToggleSortOrder } from '../../state/archive.actions';
-import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
+import { ResultScoreMode } from '@shared/helper/components/result-score/result-score-mode';
 import { MatDialog } from '@angular/material/dialog';
 import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
 import { CaseSort, CaseSortBy } from '../../model/case-sort';

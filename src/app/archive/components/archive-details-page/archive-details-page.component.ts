@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
+import { LoaderService } from '@shared/loader/service/loader.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
-import { Item } from 'src/app/model/item';
+import { Item } from '../../../model/item';
 import { GetDetailItem, CreateComment } from '../../state/archive.actions';
-import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
-import { ItemReview } from 'src/app/model/item-review.interface';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
+import { ItemReview } from '../../../model/item-review.interface';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
-import { Detective } from 'src/app/core/model/detective';
+import { Detective } from '../../../core/model/detective';
 
 @Component({
   selector: 'app-archive-details-page',

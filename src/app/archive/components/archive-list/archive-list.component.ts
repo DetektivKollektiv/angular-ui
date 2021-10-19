@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Item } from 'src/app/model/item';
+import { Item } from '../../../model/item';
 
 @Component({
   selector: 'app-archive-list',
   templateUrl: './archive-list.component.html',
-  styleUrls: ['./archive-list.component.scss'],
+  styleUrls: ['./archive-list.component.scss']
 })
 export class ArchiveListComponent implements OnInit {
   @Input() archives: Item[];
@@ -13,8 +13,7 @@ export class ArchiveListComponent implements OnInit {
   public pageSize = 10;
   public count = 0;
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.count = this.archives.length;
@@ -23,5 +22,4 @@ export class ArchiveListComponent implements OnInit {
   handlePageChange(event: number) {
     this.page = event;
   }
-
 }
