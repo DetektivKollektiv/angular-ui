@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from '@shared/loader/service/loader.service';
 import { UserService } from '../../../core/services/user/user.service';
@@ -11,6 +11,7 @@ import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interfa
 import { ItemReview } from '../../../model/item-review.interface';
 import { filter, map, switchMap, tap } from 'rxjs/operators';
 import { Detective } from '../../../core/model/detective';
+import { CaseFactsComponent } from '@shared/case-facts/case-facts/case-facts.component';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -18,10 +19,12 @@ import { Detective } from '../../../core/model/detective';
   styleUrls: ['./archive-details-page.component.scss']
 })
 export class ArchiveDetailsPageComponent implements OnInit {
+  @ViewChild(CaseFactsComponent, { read: ElementRef }) caseFacts: ElementRef;
+  @ViewChild('overview', { read: ElementRef }) overview: ElementRef;
+
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$!: Observable<Item>;
   @Select(ArchiveState.responsesPercentages) answerPercentages$: Observable<{ [key: string]: number }>;
-
   case$ = this.detailItem$.pipe(filter((item) => !!item));
 
   givenResponsesPercentages$ = this.store
@@ -83,6 +86,29 @@ export class ArchiveDetailsPageComponent implements OnInit {
   private answers: string[] = ['Stimme zu', 'Stimme eher zu', 'Stimme eher nicht zu', 'Stimme nicht zu'];
 
   constructor(private userService: UserService, private loader: LoaderService, private route: ActivatedRoute, private store: Store) {}
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    const el: HTMLDivElement = this.overview.nativeElement;
+    const run =
+      el.offsetTop - 70 < scrollY &&
+      scrollY < el.offsetTop + el.parentElement.clientHeight - this.caseFacts.nativeElement.clientHeight - 90;
+
+    if (!run) {
+      return;
+    }
+
+    let vertical_position = 0;
+    if (scrollY) {
+      vertical_position = scrollY;
+    } else if (document.documentElement.clientHeight) {
+      vertical_position = document.documentElement.scrollTop;
+    } else if (document.body) {
+      vertical_position = document.body.scrollTop;
+    }
+
+    this.caseFacts.nativeElement.style.top = vertical_position - el.offsetTop + 70 + 'px';
+  }
 
   getRandomColor() {
     return this.colors[Math.floor(Math.random() * this.colors.length)];

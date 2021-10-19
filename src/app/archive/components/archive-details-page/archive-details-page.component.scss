@@ -65,6 +65,7 @@ app-case-details {
     width: 100%;
     background-color: $color__tile-background;
     margin-left: 0;
+    position: relative;
 
     @media only screen and (min-width: 1024px) {
       width: calc(50% + 40px);
@@ -72,6 +73,7 @@ app-case-details {
     }
 
     app-case-facts {
+      position: relative;
       display: block;
       margin-right: 20px;
       margin-left: 40px;
