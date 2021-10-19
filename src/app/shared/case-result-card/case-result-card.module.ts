@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CaseResultCardComponent } from './case-result-card/case-result-card.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [CaseResultCardComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, PipesModule],
   exports: [CaseResultCardComponent]
 })
 export class CaseResultCardModule {}

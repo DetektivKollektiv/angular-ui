@@ -9,6 +9,6 @@ import { RatingScorePipe } from './rating-score.pipe';
   declarations: [CaseIdPipe, TextOverflowPipe, RatingColorPipe, RatingScorePipe],
   imports: [CommonModule],
   exports: [CaseIdPipe, TextOverflowPipe, RatingColorPipe, RatingScorePipe],
-  providers: [RatingScorePipe]
+  providers: [RatingScorePipe, RatingColorPipe]
 })
 export class PipesModule {}

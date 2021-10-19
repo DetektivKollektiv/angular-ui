@@ -3,7 +3,6 @@
 
 :host {
   display: flex;
-  background-color: colors.$color__rating-red;
   color: white;
   padding: 20px;
   border-radius: 30px;
@@ -14,7 +13,6 @@
     width: 25%;
     font-size: 42px;
     background-color: white;
-    color: colors.$color__rating-red;
     display: flex;
     align-items: center;
     justify-content: center;

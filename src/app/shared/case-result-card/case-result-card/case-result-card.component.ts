@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { Item } from '../../../model/item';
+import { RatingColorPipe } from '../../pipes/rating-color.pipe';
 
 @Component({
   selector: 'app-case-result-card',
@@ -10,8 +11,8 @@ import { Item } from '../../../model/item';
 export class CaseResultCardComponent {
   @Input() case: Item;
 
-  get score(): number {
-    return this.case?.result_score ? Math.round(this.case.result_score * 25) : 0;
+  @HostBinding('class') get ratingColor(): string {
+    return this.case ? 'rating-color-bg--' + this.ratingColorPipe.transform(this.case.result_score) : '';
   }
 
   get detectivesCount(): number {
@@ -25,4 +26,6 @@ export class CaseResultCardComponent {
         ).length
       : 0;
   }
+
+  constructor(private ratingColorPipe: RatingColorPipe) {}
 }
