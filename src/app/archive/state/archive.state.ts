@@ -244,8 +244,8 @@ export class ArchiveState implements NgxsOnInit {
   @Action(CreateComment)
   createComment(ctx: StateContext<ArchiveStateModel>, action: CreateComment) {
     return this.archiveService.createComment(action.itemId, action.text, action.user).pipe(
-      tap((detailItem) => {
-        ctx.patchState({ detailItem });
+      tap(() => {
+        ctx.dispatch(new GetDetailItem(action.itemId));
       })
     );
   }

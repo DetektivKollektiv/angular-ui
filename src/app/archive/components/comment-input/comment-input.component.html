@@ -1,22 +1,19 @@
 <div class="reply-container">
   <div class="avatar-container">
-    <div *ngIf="authenticated && user && user.hasOwnProperty('name')" class="avatar font-bold color__purple">{{user.name[0].toUpperCase()}}</div>
+    <div *ngIf="authenticated && user?.name" class="avatar font-bold color__purple">{{ user.name[0].toUpperCase() }}</div>
     <div *ngIf="!authenticated" class="avatar font-bold font-old-parapgraph">A</div>
   </div>
   <div class="reply-body">
-    <div *ngIf="authenticated && user && user.hasOwnProperty('name')" class="name font-bold">{{user.name}}</div>
+    <div *ngIf="authenticated && user?.name" class="name font-bold">{{ user.name }}</div>
     <div *ngIf="!authenticated" class="name font-bold">Anonym</div>
     <div class="input-container">
       <textarea [(ngModel)]="comment" rows="5"></textarea>
     </div>
     <div *ngIf="authenticated" class="reply-button-container">
-      <button (click)="submitComment()">Posten</button>
+      <button (click)="submitComment()" [disabled]="!comment?.length">Posten</button>
     </div>
     <div *ngIf="!authenticated" class="register-button-container">
-      <a [routerLink]="['/register']" title=""
-        class="around-button">
-        <i class="fas fa-user-cowboy"></i>&nbsp;Detektiv werden
-      </a>
+      <a [routerLink]="['/register']" title="" class="around-button"> <i class="fas fa-user-cowboy"></i>Detektiv werden </a>
     </div>
   </div>
 </div>

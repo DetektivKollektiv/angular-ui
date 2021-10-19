@@ -1,25 +1,19 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-comment-input',
   templateUrl: './comment-input.component.html',
-  styleUrls: ['./comment-input.component.scss'],
+  styleUrls: ['./comment-input.component.scss']
 })
-export class CommentInputComponent implements OnInit {
+export class CommentInputComponent {
   @Input() authenticated: boolean;
   @Input() user;
   @Output() commentSubmitted = new EventEmitter();
-  public comment = '';
 
-  constructor() { }
+  comment = '';
 
   submitComment() {
-    if(this.comment.length > 0) {
-      this.commentSubmitted.emit(this.comment);
-      this.comment = '';
-    }
-  }
-
-  ngOnInit(): void {
+    this.commentSubmitted.emit(this.comment);
+    this.comment = '';
   }
 }

@@ -47,6 +47,9 @@ export class ArchiveDetailsPageComponent implements OnInit {
   );
   communityComments$ = this.case$.pipe(
     map((item) => item.comments.filter((comment) => comment.is_review_comment === 'False')),
+    map((comments) =>
+      comments.sort((comment1, comment2) => new Date(comment1.timestamp).getTime() - new Date(comment2.timestamp).getTime())
+    ),
     map((comments) => this.fillUserInfo(comments))
   );
 
@@ -140,7 +143,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   onPostComment(text) {
-    this.store.dispatch(new CreateComment(this.case.id, text, this.user.id)).subscribe(({ result }) => {});
+    this.store.dispatch(new CreateComment(this.case.id, text, this.user.id));
   }
 
   private initCase(item: Item) {
