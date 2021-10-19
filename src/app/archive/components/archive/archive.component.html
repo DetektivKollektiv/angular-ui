@@ -17,7 +17,7 @@
   <div class="bottom-section">
     <!-- the stuff below, is the old page, i will delete later. -->
     <div class="archive-list-setting">
-      <mat-form-field class="search-input mat-form-field--alt" appearance="fill">
+      <mat-form-field *ngIf="filter$ | async as filter" class="search-input mat-form-field--alt" appearance="fill">
         <mat-label>Fälle durchsuchen</mat-label>
         <mat-chip-list #chipList class="search-chip-list search-chip-list--neon-blue">
           <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true" (removed)="remove(keyword)">
@@ -65,7 +65,7 @@
         </mat-menu>
       </div>
     </div>
-    <app-archive-list [archives]="items"></app-archive-list>
+    <app-archive-list [archives]="items$ | async"></app-archive-list>
   </div>
 </div>
 

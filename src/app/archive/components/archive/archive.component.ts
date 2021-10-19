@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Item } from 'src/app/model/item';
 import { CaseFilter } from '../../model/case-filter';
 import { MatChipInputEvent } from '@angular/material/chips';
-
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
@@ -17,23 +15,12 @@ import { CaseSort, CaseSortBy } from '../../model/case-sort';
 @Component({
   selector: 'app-archive',
   templateUrl: './archive.component.html',
-  styleUrls: ['./archive.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({ height: '0px', minHeight: '0' })),
-      state('expanded', style({ height: '*' })),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
-    ])
-  ]
+  styleUrls: ['./archive.component.scss']
 })
-export class ArchiveComponent implements OnInit {
+export class ArchiveComponent {
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.filter) filter$: Observable<CaseFilter>;
-  @Select(ArchiveState.itemById) itemById$: Observable<Item>;
   @Select(ArchiveState.sort) sort$: Observable<CaseSort>;
-
-  public filter: CaseFilter;
-  public items: Item[];
 
   public archiveQuestions: any[] = [
     {
@@ -72,24 +59,6 @@ export class ArchiveComponent implements OnInit {
   caseSortByValues: string[] = Object.values(CaseSortBy);
 
   constructor(private store: Store, private matDialog: MatDialog) {}
-
-  ngOnInit(): void {
-    this.items$.subscribe((items) => {
-      // Safari timestamp fix
-      // TODO: Remove when format is adapted in API
-      // const itemsSafariSafe = [];
-      // items.forEach(val => itemsSafariSafe.push(Object.assign({}, val)));
-      // itemsSafariSafe.forEach((item) => {
-      //   item.open_timestamp = item.open_timestamp.replace(/\s/g, 'T');
-      //   item.close_timestamp = item.close_timestamp.replace(/\s/g, 'T');
-      // });
-
-      this.items = items;
-      this.loaded = true;
-    });
-
-    this.filter$.subscribe((filter) => (this.filter = filter));
-  }
 
   remove(keyword: string): void {
     this.store.dispatch(new RemoveFilterKeyword(keyword));
