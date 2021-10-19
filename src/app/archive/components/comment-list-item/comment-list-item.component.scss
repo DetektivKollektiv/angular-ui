@@ -1,21 +1,28 @@
-@import "../../../../assets/scss/_initializer.scss";
+@import '../../../../assets/scss/_initializer.scss';
 
 .content {
+  margin-left: 8px;
 
-  p {
-    white-space: pre; // respect newlines /n
+  &__name-date {
+    margin-top: 14px;
   }
 
-  .name-date {
-    margin-top: 14px;
-    .name {
-      font-size: 18px;
-    }
+  &__name {
+    @include font__effra--bold;
+    font-size: 18px;
+  }
 
-    .date {
-      font-size: 14px;
-      color: #aaa;
-    }
+  &__date {
+    @include font__effra--regular;
+    font-size: 14px;
+    color: #aaa;
+    margin-left: 8px;
+  }
 
+  &__comment {
+    white-space: pre; // respect newlines /n
+    @include font__effra--regular;
+    font-size: 16px;
+    margin-top: 8px;
   }
 }

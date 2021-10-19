@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
+import { Action, createSelector, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
 import { finalize, tap } from 'rxjs/operators';
 import { ArchiveService } from '../services/archive.service';
 import {
@@ -92,8 +92,51 @@ export class ArchiveState implements NgxsOnInit {
   }
 
   @Selector()
-  static detailItem(state: ArchiveStateModel) {
+  static detailItem(state: ArchiveStateModel): Item {
     return state.detailItem;
+  }
+
+  @Selector([ArchiveState.detailItem])
+  static aggregatedResponses(state: ArchiveStateModel, item: Item): { [answer: string]: number } {
+    const aggregated = {};
+    for (const review of item.reviews) {
+      for (const question of review.questions) {
+        const { options, answer_value } = question;
+        if (!answer_value) {
+          continue;
+        }
+
+        const theOption = options.find((opt: any) => opt.value === answer_value);
+        const { text } = theOption;
+
+        if (text in aggregated) {
+          aggregated[text]++;
+        } else {
+          aggregated[text] = 1;
+        }
+      }
+    }
+
+    return aggregated;
+  }
+
+  @Selector([ArchiveState.aggregatedResponses])
+  static responsesCount(state: ArchiveStateModel, responses: { [answer: string]: number }): number {
+    return Object.values(responses).reduce((accumulator: number, value: number) => (accumulator += value), 0);
+  }
+
+  @Selector([ArchiveState.aggregatedResponses, ArchiveState.responsesCount])
+  static responsesPercentages(state: ArchiveStateModel, responses: { [answer: string]: number }, count: number) {
+    return Object.keys(responses).reduce((acc: any, currentKey: string) => {
+      acc[currentKey] = Math.round((responses[currentKey] / count) * 100);
+      return acc;
+    }, {});
+  }
+
+  @Selector([ArchiveState.responsesPercentages])
+  static filteredResponsesPercentages(state: ArchiveStateModel, responses: { [answer: string]: number }) {
+    return (answers: string[], filterFn?: (responseCount) => boolean) =>
+      answers.filter((answer) => !filterFn || filterFn(responses[answer])).map((answer) => ({ answer, count: responses[answer] }));
   }
 
   @Action(FetchAllItems)

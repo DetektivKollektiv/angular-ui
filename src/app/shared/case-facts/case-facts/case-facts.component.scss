@@ -1,4 +1,4 @@
-@import '../../../../assets/scss/colors';
+@use '../../../../assets/scss/colors' as colors;
 
 :host {
   section h3 {
@@ -28,14 +28,14 @@
       word-wrap: break-word;
 
       a {
-        color: $color__bittersweet;
+        color: colors.$color__bittersweet;
         text-decoration: none;
       }
 
       .fa-quote-left,
       .fa-quote-right {
         position: relative;
-        color: $color__bittersweet;
+        color: colors.$color__bittersweet;
       }
 
       .fa-quote-left {
@@ -54,26 +54,27 @@
     &__list {
       display: flex;
       flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .link-icon {
-      //color: #f00;
-      margin-right: 15px;
+    &__icon {
       display: inline-block;
-      margin-bottom: 10px;
+
       a {
-        color: $color__bittersweet;
+        color: colors.$color__bittersweet;
         text-decoration: none;
+        word-break: break-all;
+
         i {
-          margin-right: 3px;
+          margin-right: 4px;
           font-weight: 500;
         }
       }
-    }
 
-    .link-icon.gray-link {
-      a {
-        color: #a7a3a3;
+      &.gray-link {
+        a {
+          color: colors.$color__old-paragraph;
+        }
       }
     }
   }
@@ -86,6 +87,8 @@
   }
 
   .background-info {
+    margin-bottom: 25px;
+
     &__details {
       display: flex;
       gap: 16px;

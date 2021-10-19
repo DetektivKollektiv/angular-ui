@@ -26,4 +26,5 @@ export class Item {
   urls: any[] = [];
   comments: any[] = [];
   reviews: ItemReview[] | null;
+  warning_tags: string[];
 }

@@ -1,4 +1,8 @@
-@import "../../../../assets/scss/_initializer.scss";
+@import '../../../../assets/scss/_initializer.scss';
+
+:host {
+  display: block;
+}
 
 .reply-container {
   display: flex;
