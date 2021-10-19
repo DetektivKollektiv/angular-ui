@@ -6,7 +6,7 @@
   </div>
   <div class="item__content">
     <h2 class="item__received">{{ case.id | caseId }}</h2>
-    <div *ngIf="showContent" class="case-content case-content--inner">{{ case.content | textOverflow: 30 }}</div>
+    <div *ngIf="showContent" class="case-content case-content--inner">{{ case.content | textOverflow: 500 }}</div>
     <div class="item__info">
       <span class="received-txt"
         ><small><i class="far fa-calendar-alt"></i>{{ case.open_timestamp | date }}</small></span
