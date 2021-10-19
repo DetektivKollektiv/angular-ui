@@ -7,7 +7,7 @@
     <div *ngIf="authenticated && user && user.hasOwnProperty('name')" class="name font-bold">{{user.name}}</div>
     <div *ngIf="!authenticated" class="name font-bold">Anonym</div>
     <div class="input-container">
-      <textarea (change)="setComment($event)" id="" rows="5"></textarea>
+      <textarea [(ngModel)]="comment" rows="5"></textarea>
     </div>
     <div *ngIf="authenticated" class="reply-button-container">
       <button (click)="submitComment()">Posten</button>

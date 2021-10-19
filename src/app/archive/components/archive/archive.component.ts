@@ -1,31 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Item } from 'src/app/model/item';
 import { CaseFilter } from '../../model/case-filter';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatChipInputEvent } from '@angular/material/chips';
+
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
 import { Observable } from 'rxjs';
-import {
-  AddFilterKeyword,
-  RemoveFilterKeyword,
-  SetEndDateFilter,
-  SetFilter,
-  SetMaxFilter,
-  SetMinFilter,
-  SetSortBy,
-  SetSortOrder,
-  SetStartDateFilter,
-  ToggleSortOrder
-} from '../../state/archive.actions';
-import { ViewportScroller } from '@angular/common';
+import { AddFilterKeyword, RemoveFilterKeyword, SetFilter, SetSortBy, ToggleSortOrder } from '../../state/archive.actions';
 import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
 import { MatDialog } from '@angular/material/dialog';
 import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
-import { CaseSort, CaseSortBy, CaseSortOrder } from '../../model/case-sort';
+import { CaseSort, CaseSortBy } from '../../model/case-sort';
 
 @Component({
   selector: 'app-archive',

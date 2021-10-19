@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { AuthState } from '../../../shared/auth/model/auth-state';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { AuthState } from '@shared/auth/model/auth-state';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../model/user';
 

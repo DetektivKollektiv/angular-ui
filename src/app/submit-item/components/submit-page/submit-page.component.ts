@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Item } from '../../../model/item';
 import { ItemSources } from '../../../model/item-source';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
+import { LoaderService } from '@shared/loader/service/loader.service';
 import { SubmitFormData } from '../../model/submit-form-data.interface';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { SubmitItemService } from '../../services/submit-item.service';

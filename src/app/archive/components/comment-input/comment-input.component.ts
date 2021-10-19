@@ -12,12 +12,14 @@ export class CommentInputComponent implements OnInit {
   public comment = '';
 
   constructor() { }
+
   submitComment() {
-    this.commentSubmitted.emit(this.comment);
+    if(this.comment.length > 0) {
+      this.commentSubmitted.emit(this.comment);
+      this.comment = '';
+    }
   }
-  setComment(e) {
-    this.comment = e.target.value;
-  }
+
   ngOnInit(): void {
   }
 }

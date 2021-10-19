@@ -32,7 +32,7 @@
       </div>
       <div class="links-section">
         <h3>Hinterlegte und entdeckte Links</h3>
-        <div *ngIf="case && 'urls'; in: case">
+        <div *ngIf="case && case['urls']">
           <span *ngFor="let url of case.urls" class="{{ 'link-icon' + (!!url.is_safe ? 'gray-link' : '') }} ">
             <a href="{{ url.url }}">
               <i class="far fa-external-link-square-alt"></i>
@@ -43,14 +43,14 @@
       </div>
       <div class="tags-section">
         <h3>Tags</h3>
-        <ul *ngIf="case && 'tags'; in: case">
+        <ul *ngIf="case && case.hasOwnProperty('tags')">
           <li *ngFor="let tag of case.tags">{{ tag }}</li>
         </ul>
       </div>
       <div class="background-info-section">
         <h3>Hintergrundinformationen</h3>
         <ul>
-          <span *ngIf="case && 'open_timestamp'; in: case" class="link-icon"
+          <span *ngIf="case && case['open_timestamp']" class="link-icon"
             ><li><i class="far fa-calendar-alt"></i>{{ case.open_timestamp }}</li></span
           >
           <span class="link-icon"

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CaseListComponent } from './case-list.component';
+import { CaseListItemModule } from '../../case-list-item/case-list-item.module';
+
 
 describe('CaseListComponent', () => {
   let component: CaseListComponent;
@@ -8,7 +10,10 @@ describe('CaseListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CaseListComponent ]
+      declarations: [ CaseListComponent ],
+      imports: [
+        CaseListItemModule,
+      ],
     })
     .compileComponents();
   });
@@ -16,6 +21,7 @@ describe('CaseListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CaseListComponent);
     component = fixture.componentInstance;
+    component.cases = [];
     fixture.detectChanges();
   });
 
