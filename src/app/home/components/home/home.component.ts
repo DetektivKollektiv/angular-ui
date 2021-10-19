@@ -18,7 +18,7 @@ import { AuthState } from '../../../shared/auth/model/auth-state';
 })
 export class HomeComponent implements OnInit {
   cases: any[];
-  is_open_review: boolean;
+  isOpenReview: boolean;
 
   public authState: AuthState;
   public authenticated = false;
@@ -48,8 +48,8 @@ export class HomeComponent implements OnInit {
       .getOpenItems()
       .then((openCases) => {
         this.cases = openCases.items;
-        this.is_open_review = openCases.is_open_review;
-        this.showSlider = (this.cases && this.cases.length && !this.is_open_review);
+        this.isOpenReview = openCases.is_open_review;
+        this.showSlider = (this.cases && this.cases.length && !this.isOpenReview);
       });
 
   }
