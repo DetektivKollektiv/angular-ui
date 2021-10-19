@@ -1,17 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyProfileComponent } from './my-profile.component';
-import { MaterialModule } from '../../../shared/material/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ScoreListComponent } from '../score-list/score-list.component';
 import { SolveScoreListComponent } from '../solve-score-list/solve-score-list.component';
 import { ScoreListItemComponent } from '../score-list-item/score-list-item.component';
-import { OpenCaseListSliderModule } from '../../../shared/open-case-list-slider/open-case-list-slider.module';
+import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-case-list-slider.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxsModule } from '@ngxs/store';
 import { ArchiveState } from '../../../archive/state/archive.state';

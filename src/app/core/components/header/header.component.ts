@@ -2,19 +2,19 @@ import { Component, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthState } from '../../../shared/auth/model/auth-state';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { AuthState } from '@shared/auth/model/auth-state';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../model/user';
 import { DeleteUserDialogComponent } from '../../dialogs/delete-user-dialog/delete-user-dialog.component';
-import { LoginComponent } from '../../../shared/auth/dialogs/login/login.component';
+import { LoginComponent } from '@shared/auth/dialogs/login/login.component';
 import { MenuDialogComponent } from '../../dialogs/menu-dialog/menu.component';
-import { SignupComponent } from '../../../shared/auth/dialogs/signup/signup.component';
-import { ConfirmComponent } from '../../../shared/auth/dialogs/confirm/confirm.component';
-import { LoginResult } from '../../../shared/auth/model/login-result';
-import { LoginResultReason } from '../../../shared/auth/model/LoginResultReason';
-import { SignupResult } from '../../../shared/auth/model/signup-result';
-import { Globals } from '../../../shared/helper/globals/globals';
+import { SignupComponent } from '@shared/auth/dialogs/signup/signup.component';
+import { ConfirmComponent } from '@shared/auth/dialogs/confirm/confirm.component';
+import { LoginResult } from '@shared/auth/model/login-result';
+import { LoginResultReason } from '@shared/auth/model/LoginResultReason';
+import { SignupResult } from '@shared/auth/model/signup-result';
+import { Globals } from '@shared/helper/globals/globals';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
