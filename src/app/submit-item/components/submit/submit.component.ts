@@ -17,7 +17,7 @@ import {
 } from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
+import { LoaderService } from '@shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { ItemType } from '../../model/item-type';
 import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';

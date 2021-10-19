@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Issue } from '../../model/issue';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
+import { LoaderService } from '@shared/loader/service/loader.service';
 import { IssueService } from '../../services/issue.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Logger } from 'aws-amplify';

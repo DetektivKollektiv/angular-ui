@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReviewPageComponent } from './review-page.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialModule } from '../../../shared/material/material.module';
-import { LoaderModule } from '../../../shared/loader/loader.module';
-import { HelperModule } from '../../../shared/helper/helper.module';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { MaterialModule } from '@shared/material/material.module';
+import { LoaderModule } from '@shared/loader/loader.module';
+import { HelperModule } from '@shared/helper/helper.module';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';
@@ -19,8 +19,8 @@ import { FactcheckComponent } from '../factcheck/factcheck.component';
 import { ReviewProcessComponent } from '../review-process/review-process.component';
 import { ReviewQuestionComponent } from '../review-question/review-question.component';
 import { ReviewSummaryComponent } from '../review-summary/review-summary.component';
-import { CaseDetailsModule } from '../../../shared/case-details/case-details.module';
-import { UserExperienceBubbleListModule } from '../../../shared/user-experience-bubble-list/user-experience-bubble-list.module';
+import { CaseDetailsModule } from '@shared/case-details/case-details.module';
+import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { WatsonComponent } from '../watson/watson.component';
 

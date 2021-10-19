@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../../../core/services/user/user.service';
 import { User } from '../../../core/model/user';
 import { Router } from '@angular/router';
-import { AuthState } from '../../../shared/auth/model/auth-state';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { AuthState } from '@shared/auth/model/auth-state';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { globals } from 'src/environments/globals';
 
 @Component({

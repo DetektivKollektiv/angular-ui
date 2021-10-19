@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReviewComponent } from './review.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialModule } from '../../../shared/material/material.module';
-import { LoaderModule } from '../../../shared/loader/loader.module';
-import { HelperModule } from '../../../shared/helper/helper.module';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { MaterialModule } from '@shared/material/material.module';
+import { LoaderModule } from '@shared/loader/loader.module';
+import { HelperModule } from '@shared/helper/helper.module';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';

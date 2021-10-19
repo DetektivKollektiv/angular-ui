@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { QuestionComponent } from './question.component';
 import { Question } from '../../model/question';
-import { MaterialModule } from '../../../shared/material/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 
 describe('QuestionComponent', () => {
