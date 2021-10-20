@@ -105,7 +105,7 @@ export class ArchiveState implements NgxsOnInit {
     for (const review of item.reviews) {
       for (const question of review.questions) {
         const { options, answer_value } = question;
-        if (!answer_value) {
+        if (answer_value === null) {
           continue;
         }
 
