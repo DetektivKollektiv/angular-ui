@@ -51,7 +51,15 @@ export class ArchiveDetailsPageComponent implements OnInit {
   );
 
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
-  archiveQuestions: any[] = [];
+  archiveQuestions: any[] = [
+    {
+      title: 'Wie errechnet sich der Score?',
+      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+      background: 'color__neon-blue',
+      icon: 'fal fa-chart-bar'
+    }
+  ];
+
   isProcessingCollapsed = true;
   isDiscussionCollapsed = true;
   communityCommentsCount = 5;
@@ -60,13 +68,11 @@ export class ArchiveDetailsPageComponent implements OnInit {
   user: User;
   case: Item;
 
-  public questions: any[];
-  public showQuestions: any[];
-
-  public reviewQuestions: any[] = [];
+  displayedQuestions: any[];
+  allQuestions: any[] = [];
 
   //todo: change this somehow :)
-  public colors = [
+  private colors = [
     'color__rating-red',
     'color__rating-tweeter',
     'color__rating-light-green',
@@ -100,40 +106,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
     this.caseFacts.nativeElement.style.top = vertical_position - el.offsetTop + 70 + 'px';
   }
 
-  getRandomColor() {
-    return this.colors[Math.floor(Math.random() * this.colors.length)];
-  }
-
-  getUserColor() {
-    // todo: use localStorage to retrieve color as set by profile-picture.component.split
-    // however, that file needs to be adapted to the correct color scheme.
-    return this.colors[0];
-  }
-
-  getDetective(user: Partial<Detective>, currentUserName?: string): Detective {
-    const color = user?.username === currentUserName ? this.getUserColor() : this.getRandomColor();
-    return { username: user?.username, level_description: user?.level_description, color };
-  }
-
-  initQuestions(reviews: ItemReview[]) {
-    this.reviewQuestions = [];
-    const questionsMap: { [id: string]: ItemReviewQuestion } = {};
-
-    for (const review of reviews) {
-      for (const question of review.questions) {
-        const q = {
-          ...question,
-          detective: this.detectives.find((detective) => detective.username === review.user)
-        };
-        if (!questionsMap[question.question_id]) {
-          questionsMap[question.question_id] = q;
-        }
-        this.reviewQuestions.push(q);
-      }
-    }
-    this.showQuestions = Object.values(questionsMap).filter((question) => !question.parent_question_id);
-  }
-
   ngOnInit(): void {
     this.loader.show();
     this.userService.user$
@@ -147,6 +119,25 @@ export class ArchiveDetailsPageComponent implements OnInit {
         this.initCase(archive.detailItem);
         this.loader.hide();
       });
+  }
+
+  initQuestions(reviews: ItemReview[]) {
+    this.allQuestions = [];
+    const questionsMap: { [id: string]: ItemReviewQuestion } = {};
+
+    for (const review of reviews) {
+      for (const question of review.questions) {
+        const q = {
+          ...question,
+          detective: this.detectives.find((detective) => detective.username === review.user)
+        };
+        if (!questionsMap[question.question_id]) {
+          questionsMap[question.question_id] = q;
+        }
+        this.allQuestions.push(q);
+      }
+    }
+    this.displayedQuestions = Object.values(questionsMap).filter((question) => !question.parent_question_id);
   }
 
   onPostComment(text) {
@@ -170,5 +161,20 @@ export class ArchiveDetailsPageComponent implements OnInit {
           comments.map((comment) => ({ ...comment, detective: this.getDetective({ username: comment.user }, user?.name) }))
         )
       );
+  }
+
+  private getRandomColor() {
+    return this.colors[Math.floor(Math.random() * this.colors.length)];
+  }
+
+  private getUserColor() {
+    // todo: use localStorage to retrieve color as set by profile-picture.component.split
+    // however, that file needs to be adapted to the correct color scheme.
+    return this.colors[0];
+  }
+
+  private getDetective(user: Partial<Detective>, currentUserName?: string): Detective {
+    const color = user?.username === currentUserName ? this.getUserColor() : this.getRandomColor();
+    return { username: user?.username, level_description: user?.level_description, color };
   }
 }

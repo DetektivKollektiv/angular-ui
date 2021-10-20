@@ -52,11 +52,8 @@
           <i class="far" [ngClass]="isProcessingCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
         </div>
         <div *ngIf="!isProcessingCollapsed" class="processing__body">
-          <div *ngFor="let question of showQuestions; let i = index">
-            <!-- todo: set [contributors].. but is the data there? -->
-            <app-question [question]="question" [displayOnly]="true" [index]="i" [questions]="reviewQuestions"></app-question>
-
-            <!-- <app-question [question]="question" [percentageVoted]="33" [displayOnly]="true" [index]="i" [questions]="questions"></app-question> -->
+          <div *ngFor="let question of displayedQuestions; let i = index">
+            <app-question [question]="question" [displayOnly]="true" [index]="i" [questions]="allQuestions"></app-question>
           </div>
         </div>
       </div>
