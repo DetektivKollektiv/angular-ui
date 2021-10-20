@@ -13,8 +13,9 @@ import { Detective } from '../../../model/detective';
 import { CaseFactsComponent } from '@shared/case-facts/case-facts/case-facts.component';
 import { User } from '../../..//core/model/user';
 import { Comment } from '../../../model/comment.interface';
-import { ItemReview } from 'src/app/model/item-review';
-import { ItemReviewQuestion } from 'src/app/model/Item-review-question';
+import { ItemReview } from '../../../model/item-review';
+import { ItemReviewQuestion } from '../../../model/Item-review-question';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -46,9 +47,11 @@ export class ArchiveDetailsPageComponent implements OnInit {
   );
   detectives$ = this.case$.pipe(
     withLatestFrom(this.userService.user$),
-    map(([item, currentUser]) => item.users.map((user) => this.getDetective(user, currentUser.name))),
+    map(([item, currentUser]) => item.users.map((user) => this.getDetective(user, currentUser?.name))),
     tap((detectives) => (this.detectives = detectives))
   );
+
+  authenticated$ = this.authService.auth$.pipe(map((authState) => authState.isLoggedIn));
 
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
   archiveQuestions: any[] = [
@@ -81,7 +84,13 @@ export class ArchiveDetailsPageComponent implements OnInit {
     'color__supernova'
   ];
 
-  constructor(private userService: UserService, private loader: LoaderService, private route: ActivatedRoute, private store: Store) {}
+  constructor(
+    private userService: UserService,
+    private loader: LoaderService,
+    private route: ActivatedRoute,
+    private store: Store,
+    private authService: AuthService
+  ) {}
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -110,7 +119,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
     this.loader.show();
     this.userService.user$
       .pipe(
-        filter((user) => !!user),
         tap((user) => (this.user = user)),
         switchMap(() => this.route.params),
         switchMap(({ id }) => this.store.dispatch(new GetDetailItem(id)))

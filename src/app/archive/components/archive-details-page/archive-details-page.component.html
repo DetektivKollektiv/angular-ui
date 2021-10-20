@@ -61,12 +61,15 @@
       <div class="discussion">
         <div class="collapsible-toolbar">
           <span class="collapsible-toolbar__title">Communitydiskussion</span>
-          <span class="collapsible-toolbar__toggle" (click)="isDiscussionCollapsed = !isDiscussionCollapsed">{{
-            isDiscussionCollapsed ? 'einblenden' : 'ausblenden'
-          }}</span>
-          <i class="far" [ngClass]="isDiscussionCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+          <ng-container *ngIf="authenticated$ | async">
+            <span class="collapsible-toolbar__toggle" (click)="isDiscussionCollapsed = !isDiscussionCollapsed">{{
+              isDiscussionCollapsed ? 'einblenden' : 'ausblenden'
+            }}</span>
+            <i class="far" [ngClass]="isDiscussionCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+          </ng-container>
         </div>
-        <ng-container *ngIf="!isDiscussionCollapsed">
+
+        <ng-container *ngIf="!isDiscussionCollapsed && (authenticated$ | async)">
           <div *ngIf="communityComments$ | async as communityComments" class="discussion__body">
             <app-comment-list [comments]="communityComments | slice: 0:communityCommentsCount"></app-comment-list>
 
@@ -75,7 +78,11 @@
             </div>
           </div>
         </ng-container>
-        <app-comment-input [user]="user" (commentSubmitted)="onPostComment($event)" [authenticated]="true"></app-comment-input>
+        <app-comment-input
+          [user]="user"
+          (commentSubmitted)="onPostComment($event)"
+          [authenticated]="authenticated$ | async"
+        ></app-comment-input>
       </div>
     </div>
   </section>
