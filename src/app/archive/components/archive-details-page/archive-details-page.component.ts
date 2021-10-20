@@ -4,14 +4,15 @@ import { LoaderService } from '@shared/loader/service/loader.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
-import { Observable } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 import { Item } from '../../../model/item';
 import { GetDetailItem, CreateComment } from '../../state/archive.actions';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { Detective } from '../../../model/detective';
 import { CaseFactsComponent } from '@shared/case-facts/case-facts/case-facts.component';
-import { User } from 'src/app/core/model/user';
+import { User } from '../../..//core/model/user';
+import { Comment } from '../../../model/comment.interface';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -35,24 +36,16 @@ export class ArchiveDetailsPageComponent implements OnInit {
   );
   reviewComments$ = this.case$.pipe(
     map((item) => item.comments.filter((comment) => comment.is_review_comment === 'True')),
-    withLatestFrom(this.userService.user$),
-    map(([comments, user]) =>
-      comments.map((comment) => ({ ...comment, detective: this.getDetective({ username: comment.user }, user?.name) }))
-    )
+    this.mapComments()
   );
   communityComments$ = this.case$.pipe(
     map((item) => item.comments.filter((comment) => comment.is_review_comment === 'False')),
-    map((comments) =>
-      comments.sort((comment1, comment2) => new Date(comment1.timestamp).getTime() - new Date(comment2.timestamp).getTime())
-    ),
-    withLatestFrom(this.userService.user$),
-    map(([comments, user]) =>
-      comments.map((comment) => ({ ...comment, detective: this.getDetective({ username: comment.user }, user?.name) }))
-    )
+    this.mapComments()
   );
   detectives$ = this.case$.pipe(
     withLatestFrom(this.userService.user$),
-    map(([item, currentUser]) => item.users.map((user) => this.getDetective(user, currentUser.name)))
+    map(([item, currentUser]) => item.users.map((user) => this.getDetective(user, currentUser.name))),
+    tap((detectives) => (this.detectives = detectives))
   );
 
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
@@ -61,6 +54,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   isDiscussionCollapsed = true;
   communityCommentsCount = 5;
 
+  detectives: Detective[] = [];
   user: User;
   case: Item;
 
@@ -158,5 +152,18 @@ export class ArchiveDetailsPageComponent implements OnInit {
     this.questions = reviews[0].questions;
     this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
     this.reviewQuestions = this.getQuestions();
+  }
+
+  private mapComments(): OperatorFunction<Comment[], Comment[]> {
+    return (input$) =>
+      input$.pipe(
+        map((comments) =>
+          comments.sort((comment1, comment2) => new Date(comment1.timestamp).getTime() - new Date(comment2.timestamp).getTime())
+        ),
+        withLatestFrom(this.userService.user$),
+        map(([comments, user]) =>
+          comments.map((comment) => ({ ...comment, detective: this.getDetective({ username: comment.user }, user?.name) }))
+        )
+      );
   }
 }
