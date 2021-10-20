@@ -32,6 +32,7 @@ import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
 import { CaseFactsModule } from '../shared/case-facts/case-facts.module';
 import { TagIconModule } from '../shared/tag-icon/tag-icon.module';
 import { CaseResultCardModule } from '../shared/case-result-card/case-result-card.module';
+import { ReviewResponsesComponent } from './components/review-responses/review-responses.component';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -47,7 +48,8 @@ registerLocaleData(localeDE, 'de');
     CommentInputComponent,
     ArchiveListFilterComponent,
     CaseSortByPipe,
-    CommentInputComponent
+    CommentInputComponent,
+    ReviewResponsesComponent
   ],
   imports: [
     CommonModule,

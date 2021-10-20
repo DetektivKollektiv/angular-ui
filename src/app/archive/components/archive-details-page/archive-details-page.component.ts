@@ -24,19 +24,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$!: Observable<Item>;
-  @Select(ArchiveState.responsesPercentages) answerPercentages$: Observable<{ [key: string]: number }>;
   case$ = this.detailItem$.pipe(filter((item) => !!item));
 
-  givenResponsesPercentages$ = this.store
-    .select(ArchiveState.filteredResponsesPercentages)
-    .pipe(map((fn) => fn(this.answers, (count) => count > 0)));
-  notGivenResponsesPercentages$ = this.store
-    .select(ArchiveState.filteredResponsesPercentages)
-    .pipe(map((fn) => fn(this.answers, (count) => !count)));
-  noCriteriaResponsesPercentage$ = this.store.select(ArchiveState.filteredResponsesPercentages).pipe(
-    map((fn) => fn([this.criteriaNotApplicableAnswer])),
-    map((responses) => responses[0])
-  );
   caseDuration$ = this.case$.pipe(
     map((item) => {
       const start = new Date(item.open_timestamp);

@@ -99,6 +99,9 @@ export class ArchiveState implements NgxsOnInit {
   @Selector([ArchiveState.detailItem])
   static aggregatedResponses(state: ArchiveStateModel, item: Item): { [answer: string]: number } {
     const aggregated = {};
+    if (!item) {
+      return aggregated;
+    }
     for (const review of item.reviews) {
       for (const question of review.questions) {
         const { options, answer_value } = question;

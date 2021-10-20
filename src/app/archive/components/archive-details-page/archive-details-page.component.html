@@ -18,45 +18,22 @@
       <h2 class="overview__title mono-font">Fallabschlussbericht</h2>
       <app-case-result-card [case]="case"></app-case-result-card>
 
-      <div class="overview__archive-detail" *ngIf="answerPercentages$ | async as answerPercentages">
-        <div *ngFor="let response of givenResponsesPercentages$ | async" class="review-response">
-          <div class="review-response__count">{{ response.count }}%</div>
-          <div class="review-response__answer">
-            der Fragen wurden mit <span class="strong">{{ response.answer }}</span> beantwortet.
-          </div>
-        </div>
-
-        <div
-          *ngFor="let response of notGivenResponsesPercentages$ | async"
-          class="review-response review-response--single review-response--small"
-        >
-          <div>
-            <span class="strong">Keine</span> Frage wurde mit <span class="strong">{{ response.answer }}</span> beantwortet.
-          </div>
-        </div>
-
-        <div
-          class="review-response review-response--small"
-          [class.review-response--single]="!noCriteriaResponsesPercentage.count"
-          *ngIf="noCriteriaResponsesPercentage$ | async as noCriteriaResponsesPercentage"
-        >
-          <span *ngIf="!noCriteriaResponsesPercentage.count">Die Kriterien waren auf alle Fragen anwendbar.</span>
-          <ng-container *ngIf="noCriteriaResponsesPercentage.count > 0">
-            <div class="review-response__count">{{ noCriteriaResponsesPercentage.count }}%</div>
-            <div class="review-response__answer">der Fragen hatten Kriterien, die nicht anwendbar waren.</div>
-          </ng-container>
-        </div>
+      <div class="overview__archive-detail">
+        <app-review-responses [loading]="(detailItem$ | async) === null"></app-review-responses>
       </div>
+
       <div class="date-info" *ngIf="case">
         <div class="date-info__duration">Der Fall war {{ caseDuration$ | async }} Tage aktiv.</div>
         <div class="date-info__closing-date"><i class="far fa-calendar-check"></i>{{ case.close_timestamp | date: 'dd.MM.yyyy' }}</div>
       </div>
+
       <div class="tags" *ngIf="case?.warning_tags?.length">
         <div class="tags__title">Folgendes trifft auf den Fall zu</div>
         <div class="tags__content">
           <app-tag-icon *ngFor="let tag of case.warning_tags" [tag]="tag" styleClass="empty"></app-tag-icon>
         </div>
       </div>
+
       <div class="detectives">
         <div class="detectives__title">Ermittelnde Detektive</div>
         <div class="detectives__body">

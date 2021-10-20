@@ -92,39 +92,7 @@ app-case-details {
     }
 
     &__archive-detail {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
       margin-top: 20px;
-
-      .review-response {
-        display: grid;
-        grid-template-columns: 50px 1fr;
-        align-items: center;
-        gap: 8px;
-
-        &__count {
-          @include font__effra--bold;
-          font-size: 24px;
-        }
-
-        &__answer {
-          @include font__effra;
-          font-size: 18px;
-        }
-
-        &--small {
-          font-size: 16px;
-        }
-
-        &--single {
-          grid-template-columns: 1fr;
-        }
-
-        .strong {
-          font-weight: 700;
-        }
-      }
     }
 
     .date-info {
