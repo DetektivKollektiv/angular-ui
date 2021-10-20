@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <div class="discussion">
+      <div class="discussion" [class.discussion--border]="isProcessingCollapsed">
         <div class="collapsible-toolbar">
           <span class="collapsible-toolbar__title">Communitydiskussion</span>
           <ng-container *ngIf="authenticated$ | async">

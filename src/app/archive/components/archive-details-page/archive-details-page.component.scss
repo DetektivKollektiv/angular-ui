@@ -155,7 +155,11 @@ app-case-details {
     }
 
     .discussion {
-      margin-top: 40px;
+      &--border {
+        border-top: 4px dashed $color__spacer;
+        padding-top: 40px;
+        margin-top: 40px;
+      }
 
       .collapsible-toolbar {
         margin-bottom: 20px;
