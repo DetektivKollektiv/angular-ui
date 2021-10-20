@@ -15,17 +15,5 @@ export class CaseResultCardComponent {
     return this.case ? 'rating-color-bg--' + this.ratingColorPipe.transform(this.case.result_score) : '';
   }
 
-  get detectivesCount(): number {
-    return this.case?.reviews
-      ? Object.values(
-          this.case.reviews.reduce((detectives, review) => {
-            const name = review.user.trim().toLowerCase() === 'deleted' ? 'Deaktiviert' : review.user;
-            detectives[name] = review;
-            return detectives;
-          }, {})
-        ).length
-      : 0;
-  }
-
   constructor(private ratingColorPipe: RatingColorPipe) {}
 }

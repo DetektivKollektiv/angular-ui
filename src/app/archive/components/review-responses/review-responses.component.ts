@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Globals } from '@shared/helper/globals/globals';
 import { map } from 'rxjs/operators';
@@ -7,7 +7,8 @@ import { ArchiveState } from '../../state/archive.state';
 @Component({
   selector: 'app-review-responses',
   templateUrl: './review-responses.component.html',
-  styleUrls: ['./review-responses.component.scss']
+  styleUrls: ['./review-responses.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReviewResponsesComponent {
   @Input() loading: boolean;

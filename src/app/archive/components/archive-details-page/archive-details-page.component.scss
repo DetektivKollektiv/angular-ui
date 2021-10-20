@@ -134,46 +134,9 @@ app-case-details {
       margin-top: 40px;
 
       &__title {
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         font-size: 21px;
         font-weight: bold;
-      }
-
-      &__body {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      }
-
-      .detective {
-        display: flex;
-        margin: 10px 0;
-
-        &__medal {
-          width: 20px;
-          display: flex;
-          align-items: center;
-          font-size: 18px;
-        }
-
-        &__profile {
-          display: flex;
-        }
-
-        &__profile-info {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          margin-left: 5px;
-        }
-
-        &__name {
-          font-size: 18px;
-        }
-
-        &__job {
-          font-size: 11px;
-          color: #aaa;
-        }
       }
     }
 
@@ -183,13 +146,7 @@ app-case-details {
       &__title {
         @include font__effra--bold;
         font-size: 21px;
-      }
-
-      &__body {
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-        margin-left: 20px;
+        margin-bottom: 20px;
       }
     }
 
@@ -200,16 +157,13 @@ app-case-details {
     .discussion {
       margin-top: 40px;
 
+      .collapsible-toolbar {
+        margin-bottom: 20px;
+      }
+
       &__body {
         display: flex;
         flex-direction: column;
-        margin-top: 20px;
-        margin-left: 20px;
-      }
-
-      app-comment-input {
-        margin-top: 40px;
-        margin-left: 20px;
       }
 
       &__more {
@@ -233,6 +187,11 @@ app-case-details {
             border: 2px solid $color__purple;
           }
         }
+      }
+
+      app-comment-input {
+        margin-top: 40px;
+        margin-left: 20px;
       }
     }
   }

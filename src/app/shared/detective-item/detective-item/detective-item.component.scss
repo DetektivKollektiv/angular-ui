@@ -1,0 +1,44 @@
+@use '../../../../assets/scss/colors' as colors;
+
+.detective {
+  display: flex;
+
+  &__medal {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  &__profile {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+  }
+
+  &__profile-info {
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    justify-content: center;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 18px;
+  }
+
+  &__level {
+    font-size: 11px;
+    color: colors.$color__old-paragraph;
+  }
+}

@@ -1,8 +1,10 @@
+import { Detective } from './detective';
 import { Comment } from './comment.interface';
 import { ItemReview } from './item-review.interface';
 import { ItemSource } from './item-source';
 import { ItemType } from './item-type';
 import { Url } from './url.interface';
+import { WarningTag } from './warning-tag';
 
 /* eslint-disable @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match */
 export class Item {
@@ -31,8 +33,9 @@ export class Item {
   urls: Url[] = [];
   comments: Comment[] = [];
   reviews: ItemReview[] | null;
-  warning_tags: string[];
+  warning_tags: WarningTag[];
   in_progress_reviews_level_1: number;
   in_progress_reviews_level_2: number;
   item_type: ItemType;
+  users: Detective[];
 }

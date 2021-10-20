@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TagIconComponent implements OnInit {
   @Input() tag: any;
   @Input() styleClass;
-  public iconClass = '';
+  @Input() iconClass = '';
 
   constructor() {}
 

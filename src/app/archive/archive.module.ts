@@ -33,6 +33,7 @@ import { CaseFactsModule } from '../shared/case-facts/case-facts.module';
 import { TagIconModule } from '../shared/tag-icon/tag-icon.module';
 import { CaseResultCardModule } from '../shared/case-result-card/case-result-card.module';
 import { ReviewResponsesComponent } from './components/review-responses/review-responses.component';
+import { DetectiveItemModule } from '@shared/detective-item/detective-item.module';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -69,7 +70,8 @@ registerLocaleData(localeDE, 'de');
     BreadcrumbModule,
     CaseFactsModule,
     TagIconModule,
-    CaseResultCardModule
+    CaseResultCardModule,
+    DetectiveItemModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },

@@ -1,28 +1,22 @@
-@import '../../../../assets/scss/_initializer.scss';
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
 
-.content {
-  margin-left: 8px;
+:host {
+  display: flex;
+  flex-direction: column;
+}
 
-  &__name-date {
-    margin-top: 14px;
-  }
-
-  &__name {
-    @include font__effra--bold;
-    font-size: 18px;
-  }
-
+.comment {
   &__date {
-    @include font__effra--regular;
+    @include fonts.font__effra--regular;
     font-size: 14px;
-    color: #aaa;
+    color: colors.$color__old-paragraph;
     margin-left: 8px;
   }
 
-  &__comment {
+  &__content {
     white-space: pre; // respect newlines /n
-    @include font__effra--regular;
+    @include fonts.font__effra--regular;
     font-size: 16px;
-    margin-top: 8px;
   }
 }

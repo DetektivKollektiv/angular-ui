@@ -452,3 +452,16 @@ header.header {
     background-color: $color__rating-green;
   }
 }
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  @include fonts.font__pt-mono--bold;
+  font-size: 20px;
+  margin: 0 5px;
+}

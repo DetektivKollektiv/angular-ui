@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
 import { Item } from '../../../model/item';
 import { GetDetailItem, CreateComment } from '../../state/archive.actions';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
-import { ItemReview } from '../../../model/item-review.interface';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
-import { Detective } from '../../../core/model/detective';
+import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { Detective } from '../../../model/detective';
 import { CaseFactsComponent } from '@shared/case-facts/case-facts/case-facts.component';
+import { User } from 'src/app/core/model/user';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -35,14 +35,24 @@ export class ArchiveDetailsPageComponent implements OnInit {
   );
   reviewComments$ = this.case$.pipe(
     map((item) => item.comments.filter((comment) => comment.is_review_comment === 'True')),
-    map((comments) => this.fillUserInfo(comments))
+    withLatestFrom(this.userService.user$),
+    map(([comments, user]) =>
+      comments.map((comment) => ({ ...comment, detective: this.getDetective({ username: comment.user }, user?.name) }))
+    )
   );
   communityComments$ = this.case$.pipe(
     map((item) => item.comments.filter((comment) => comment.is_review_comment === 'False')),
     map((comments) =>
       comments.sort((comment1, comment2) => new Date(comment1.timestamp).getTime() - new Date(comment2.timestamp).getTime())
     ),
-    map((comments) => this.fillUserInfo(comments))
+    withLatestFrom(this.userService.user$),
+    map(([comments, user]) =>
+      comments.map((comment) => ({ ...comment, detective: this.getDetective({ username: comment.user }, user?.name) }))
+    )
+  );
+  detectives$ = this.case$.pipe(
+    withLatestFrom(this.userService.user$),
+    map(([item, currentUser]) => item.users.map((user) => this.getDetective(user, currentUser.name)))
   );
 
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
@@ -51,15 +61,13 @@ export class ArchiveDetailsPageComponent implements OnInit {
   isDiscussionCollapsed = true;
   communityCommentsCount = 5;
 
-  user: any;
+  user: User;
   case: Item;
 
   public questions: any[];
   public showQuestions: any[];
 
   public reviewQuestions: any[] = [];
-
-  public detectives: Detective[] = [];
 
   //todo: change this somehow :)
   public colors = [
@@ -70,9 +78,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
     'color__purple',
     'color__supernova'
   ];
-
-  private criteriaNotApplicableAnswer = 'Kriterium nicht anwendbar';
-  private answers: string[] = ['Stimme zu', 'Stimme eher zu', 'Stimme eher nicht zu', 'Stimme nicht zu'];
 
   constructor(private userService: UserService, private loader: LoaderService, private route: ActivatedRoute, private store: Store) {}
 
@@ -109,23 +114,9 @@ export class ArchiveDetailsPageComponent implements OnInit {
     return this.colors[0];
   }
 
-  getDetective(userName: string): Detective {
-    const user = userName.trim().toLowerCase() === 'deleted' ? 'Deaktiviert' : userName;
-
-    let detective = this.detectives.find((d) => d.user === user);
-    if (detective) {
-      return detective;
-    }
-
-    const color = userName === this.user.name ? this.getUserColor() : this.getRandomColor();
-    const avatarCharacter = userName === 'deleted' ? '?' : userName[0].toUpperCase();
-    detective = { user, color, avatarCharacter };
-    this.detectives.push(detective);
-    return detective;
-  }
-
-  setDetectives(reviews: ItemReview[]): void {
-    reviews.forEach((review) => this.getDetective(review.user));
+  getDetective(user: Partial<Detective>, currentUserName?: string): Detective {
+    const color = user?.username === currentUserName ? this.getUserColor() : this.getRandomColor();
+    return { username: user?.username, level_description: user?.level_description, color };
   }
 
   getQuestions() {
@@ -167,13 +158,5 @@ export class ArchiveDetailsPageComponent implements OnInit {
     this.questions = reviews[0].questions;
     this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
     this.reviewQuestions = this.getQuestions();
-    this.setDetectives(reviews);
-  }
-
-  private fillUserInfo(comments: any[]): any[] {
-    return comments.map((comment) => {
-      const { color, avatarCharacter } = this.getDetective(comment.user);
-      return { ...comment, color, avatarCharacter };
-    });
   }
 }
