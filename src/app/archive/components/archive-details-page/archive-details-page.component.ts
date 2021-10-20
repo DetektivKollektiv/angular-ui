@@ -100,7 +100,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     const factsEl: HTMLDivElement = this.caseFacts.nativeElement;
     const el: HTMLDivElement = this.overview.nativeElement;
 
-    const run = el.offsetTop - 70 < scrollY && scrollY < el.offsetTop + el.parentElement.clientHeight - factsEl.clientHeight - 90;
+    const run = el.offsetTop - 70 < scrollY && scrollY < el.offsetTop + el.parentElement.clientHeight - factsEl.clientHeight - 250;
 
     if (!run) {
       return;

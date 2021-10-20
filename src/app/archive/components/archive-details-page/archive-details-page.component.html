@@ -11,7 +11,16 @@
 
   <section class="bottom">
     <div class="facts">
-      <app-case-facts *ngIf="case" [case]="case"></app-case-facts>
+      <div class="facts__content">
+        <app-case-facts *ngIf="case" [case]="case"></app-case-facts>
+      </div>
+      <div class="facts__back" routerLink="/archive">
+        <i class="far fa-arrow-left"></i>
+        <div class="facts__back-text">
+          <span class="small">Zurück zur</span>
+          <span>Übersicht</span>
+        </div>
+      </div>
     </div>
 
     <div class="overview" #overview>

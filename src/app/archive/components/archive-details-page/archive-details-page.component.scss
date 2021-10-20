@@ -66,10 +66,45 @@ app-case-details {
     background-color: $color__tile-background;
     margin-left: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     @media only screen and (min-width: 1024px) {
       width: calc(50% + 40px);
       margin-left: -40px;
+    }
+
+    &__content {
+      flex-grow: 1;
+      position: relative;
+    }
+
+    &__back {
+      display: flex;
+      margin-left: 40px;
+      margin-bottom: 80px;
+      cursor: pointer;
+
+      i {
+        font-size: 42px;
+        color: $color__bittersweet;
+        margin-right: 14px;
+      }
+    }
+
+    &__back-text {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        @include fonts.font__pt-mono--bold;
+        font-size: 18px;
+
+        &.small {
+          @include fonts.font__effra;
+          font-size: 14px;
+        }
+      }
     }
 
     app-case-facts {
