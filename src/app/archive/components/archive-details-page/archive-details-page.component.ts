@@ -94,10 +94,13 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
   @HostListener('window:scroll')
   onWindowScroll() {
+    if (!this.overview?.nativeElement || !this.caseFacts?.nativeElement) {
+      return;
+    }
+    const factsEl: HTMLDivElement = this.caseFacts.nativeElement;
     const el: HTMLDivElement = this.overview.nativeElement;
-    const run =
-      el.offsetTop - 70 < scrollY &&
-      scrollY < el.offsetTop + el.parentElement.clientHeight - this.caseFacts.nativeElement.clientHeight - 90;
+
+    const run = el.offsetTop - 70 < scrollY && scrollY < el.offsetTop + el.parentElement.clientHeight - factsEl.clientHeight - 90;
 
     if (!run) {
       return;
@@ -112,7 +115,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       vertical_position = document.body.scrollTop;
     }
 
-    this.caseFacts.nativeElement.style.top = vertical_position - el.offsetTop + 70 + 'px';
+    factsEl.style.top = vertical_position - el.offsetTop + 70 + 'px';
   }
 
   ngOnInit(): void {
