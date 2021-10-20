@@ -16,7 +16,7 @@
 
     <div class="overview" #overview>
       <h2 class="overview__title mono-font">Fallabschlussbericht</h2>
-      <app-case-result-card [case]="case"></app-case-result-card>
+      <app-case-result-card [case]="detailItem$ | async"></app-case-result-card>
 
       <div class="overview__archive-detail">
         <app-review-responses [loading]="(detailItem$ | async) === null"></app-review-responses>

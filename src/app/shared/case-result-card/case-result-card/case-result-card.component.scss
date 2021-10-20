@@ -38,4 +38,10 @@
   .strong {
     @include fonts.font__effra--bold;
   }
+
+  .loader {
+    display: flex;
+    // flex-direction: column;
+    width: 100%;
+  }
 }
