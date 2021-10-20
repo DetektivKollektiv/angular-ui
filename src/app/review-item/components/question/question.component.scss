@@ -95,6 +95,10 @@ mat-icon {
   color: colors.$color__mysterious-blue;
   font-size: 18px;
 
+  .mat-icon {
+    margin-left: 4px;
+  }
+
   &__answer {
     display: flex;
     flex-direction: column;

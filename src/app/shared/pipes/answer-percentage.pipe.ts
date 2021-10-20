@@ -6,7 +6,7 @@ import { ItemReviewQuestion } from 'src/app/model/Item-review-question';
 })
 export class AnswerPercentagePipe implements PipeTransform {
   transform(option: number, questionId: string, questions: ItemReviewQuestion[]): number {
-    const filteredQuestions = questions.filter((q) => q.question_id === questionId);
+    const filteredQuestions = questions.filter((q) => q.question_id === questionId && q.answer_value !== null);
     return Math.round((filteredQuestions.filter((q) => q.answer_value === option).length / filteredQuestions.length) * 100);
   }
 }

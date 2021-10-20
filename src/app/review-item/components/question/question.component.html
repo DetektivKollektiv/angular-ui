@@ -47,7 +47,14 @@
 
   <div class="child-question-container" *ngIf="isShowChild">
     <div class="child-question" *ngFor="let childQuestion of visibleChildQuestions; let i = index">
-      <app-question [question]="childQuestion" [questions]="questions" [isChild]="true" [parentIndex]="index" [index]="i"></app-question>
+      <app-question
+        [question]="childQuestion"
+        [questions]="questions"
+        [isChild]="true"
+        [parentIndex]="index"
+        [index]="i"
+        [displayOnly]="displayOnly"
+      ></app-question>
     </div>
   </div>
 </div>

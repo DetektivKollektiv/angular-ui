@@ -48,7 +48,10 @@ export class QuestionComponent implements OnInit {
       return;
     }
     this.questions.forEach((question) => {
-      if (question.parent_question_id === this.question.question_id) {
+      if (
+        question.parent_question_id === this.question.question_id &&
+        !this.childQuestions.find((q) => q.question_id === question.question_id)
+      ) {
         this.childQuestions.push(question);
       }
     });
@@ -61,8 +64,12 @@ export class QuestionComponent implements OnInit {
 
     this.visibleChildQuestions = [];
     this.isShowChild = false;
+
+    const questions = this.questions.filter((q) => q.question_id === this.question.question_id);
+
     this.childQuestions.forEach((question) => {
-      const valueInBound = question.lower_bound <= value && question.upper_bound >= value;
+      const valueInBound = questions.find((q) => question.lower_bound <= q.answer_value && question.upper_bound >= q.answer_value);
+      // const valueInBound = question.lower_bound <= value && question.upper_bound >= value;
 
       if (valueInBound) {
         this.isShowChild = true;
