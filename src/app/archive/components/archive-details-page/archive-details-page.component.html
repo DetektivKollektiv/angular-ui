@@ -30,7 +30,7 @@
       <div class="tags" *ngIf="case?.warning_tags?.length">
         <div class="tags__title">Folgendes trifft auf den Fall zu</div>
         <div class="tags__content">
-          <app-tag-icon *ngFor="let tag of case.warning_tags" [tag]="tag.text" styleClass="empty"></app-tag-icon>
+          <app-tag-icon *ngFor="let tag of case.warning_tags" [tag]="tag.text" styleClass="empty" [iconClass]="tag.icon"></app-tag-icon>
         </div>
       </div>
 
@@ -56,11 +56,10 @@
             <!-- todo: set [contributors].. but is the data there? -->
             <app-question
               [question]="question"
-              [contributors]="[detectives[0]]"
               [percentageVoted]="33"
               [displayOnly]="true"
               [index]="i"
-              [questions]="questions"
+              [questions]="reviewQuestions"
             ></app-question>
 
             <!-- <app-question [question]="question" [percentageVoted]="33" [displayOnly]="true" [index]="i" [questions]="questions"></app-question> -->

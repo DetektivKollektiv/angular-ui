@@ -13,6 +13,8 @@ import { Detective } from '../../../model/detective';
 import { CaseFactsComponent } from '@shared/case-facts/case-facts/case-facts.component';
 import { User } from '../../..//core/model/user';
 import { Comment } from '../../../model/comment.interface';
+import { ItemReview } from 'src/app/model/item-review';
+import { ItemReviewQuestion } from 'src/app/model/Item-review-question';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -113,18 +115,23 @@ export class ArchiveDetailsPageComponent implements OnInit {
     return { username: user?.username, level_description: user?.level_description, color };
   }
 
-  getQuestions() {
-    const questionsMap = {};
+  initQuestions(reviews: ItemReview[]) {
+    this.reviewQuestions = [];
+    const questionsMap: { [id: string]: ItemReviewQuestion } = {};
 
-    for (const review of this.case.reviews) {
+    for (const review of reviews) {
       for (const question of review.questions) {
-        if (!(Object.keys(questionsMap).indexOf(question.question_id) > -1)) {
-          questionsMap[question.question_id] = question;
+        const q = {
+          ...question,
+          detective: this.detectives.find((detective) => detective.username === review.user)
+        };
+        if (!questionsMap[question.question_id]) {
+          questionsMap[question.question_id] = q;
         }
+        this.reviewQuestions.push(q);
       }
     }
-
-    return Object.values(questionsMap);
+    this.showQuestions = Object.values(questionsMap).filter((question) => !question.parent_question_id);
   }
 
   ngOnInit(): void {
@@ -149,9 +156,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   private initCase(item: Item) {
     const { reviews } = item;
     this.case = item;
-    this.questions = reviews[0].questions;
-    this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
-    this.reviewQuestions = this.getQuestions();
+    this.initQuestions(reviews);
   }
 
   private mapComments(): OperatorFunction<Comment[], Comment[]> {

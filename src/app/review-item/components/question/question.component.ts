@@ -1,23 +1,17 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { Question } from '../../model/question';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { QuestionContributorsPipe } from '@shared/pipes/question-contributors.pipe';
+import { Detective } from 'src/app/model/detective';
+import { ItemReviewQuestion } from 'src/app/model/Item-review-question';
 
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuestionComponent implements OnInit {
-  @Input() public question: Question;
-  @Input() public questions: Question[];
-  @Input() public contributors: any[];
+  @Input() public question: ItemReviewQuestion;
+  @Input() public questions: ItemReviewQuestion[];
   @Input() public index: number;
   @Input() public isChild: boolean;
   @Input() public displayOnly: boolean;
@@ -26,11 +20,12 @@ export class QuestionComponent implements OnInit {
   @Input() public parentIndex = -1;
   @Output() public valueChange = new EventEmitter();
   public isShowChild: boolean;
-  public childQuestions: Question[] = [];
-  public visibleChildQuestions: Question[] = [];
+  public childQuestions: ItemReviewQuestion[] = [];
+  public visibleChildQuestions: ItemReviewQuestion[] = [];
   public title: string;
   public alphbt = 'abcdefghijklmnopqrstuvwxyz';
 
+  constructor(private questionContributorsPipe: QuestionContributorsPipe) {}
 
   ngOnInit(): void {
     // this.question.options = this.question.options.sort((a, b) =>
@@ -48,12 +43,11 @@ export class QuestionComponent implements OnInit {
   }
 
   addChildQuestions() {
-    const value = this.question.answer_value;
     const hasChildren = this.question.max_children > 0;
-    if(!hasChildren) {
+    if (!hasChildren) {
       return;
     }
-    this.questions.forEach(question => {
+    this.questions.forEach((question) => {
       if (question.parent_question_id === this.question.question_id) {
         this.childQuestions.push(question);
       }
@@ -61,21 +55,24 @@ export class QuestionComponent implements OnInit {
   }
 
   showChildQuestions(value) {
-
-    if(!value) {
+    if (!value) {
       return;
     }
 
     this.visibleChildQuestions = [];
     this.isShowChild = false;
-    this.childQuestions.forEach( question => {
+    this.childQuestions.forEach((question) => {
       const valueInBound = question.lower_bound <= value && question.upper_bound >= value;
 
-      if(valueInBound) {
+      if (valueInBound) {
         this.isShowChild = true;
         this.visibleChildQuestions.push(question);
       }
     });
+  }
+
+  getContributors(value: number) {
+    return this.questionContributorsPipe.transform(value, this.question.question_id, this.questions);
   }
 
   change(e) {

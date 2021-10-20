@@ -1,4 +1,5 @@
-@import '../../../../assets/scss/colors';
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
 
 .question {
   padding-bottom: 50px;
@@ -17,11 +18,11 @@
 
   &-info-container {
     display: flex;
-    margin-bottom: 20px ;
+    margin-bottom: 20px;
   }
 
   .icon-wrap {
-    color: $color__neon-blue;
+    color: colors.$color__neon-blue;
     margin-right: 10px;
   }
 
@@ -76,21 +77,52 @@ mat-icon {
   & * {
     width: 100px;
   }
+}
 
-  .option {
+.readonly ::ng-deep {
+  .mat-radio-outer-circle {
+    border-color: colors.$color__neon-blue !important;
+  }
+
+  .mat-radio-inner-circle {
+    background-color: colors.$color__neon-blue;
   }
 }
 
 .option {
   display: flex;
+  align-items: center;
+  color: colors.$color__mysterious-blue;
+  font-size: 18px;
 
-  .info {
+  &__answer {
     display: flex;
+    flex-direction: column;
   }
 
-  .percentage {
-    font-family: 'PT MONO';
-    color: $color__purple;
+  &__info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__contributors {
+    display: flex;
+    margin-left: 10px;
+
+    .avatar:not(:first-child) {
+      margin-left: -16px;
+    }
+  }
+
+  &__percentage {
+    margin-left: 16px;
+    @include fonts.font__pt-mono--bold;
+    font-size: 18px;
+    color: colors.$color__purple;
+
+    i {
+      margin-right: 6px;
+    }
   }
 
   // todo check if can remove

@@ -1,6 +1,6 @@
 import { Detective } from './detective';
 import { Comment } from './comment.interface';
-import { ItemReview } from './item-review.interface';
+import { ItemReview } from './item-review';
 import { ItemSource } from './item-source';
 import { ItemType } from './item-type';
 import { Url } from './url.interface';

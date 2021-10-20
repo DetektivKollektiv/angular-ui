@@ -25,6 +25,7 @@ import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-l
 import { WatsonComponent } from './components/watson/watson.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
     UserExperienceBubbleListModule,
     IvyCarouselModule,
     CaseDetailsModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    PipesModule
   ],
   providers: [
     ReviewsService,
