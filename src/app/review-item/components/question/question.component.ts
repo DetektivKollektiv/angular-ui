@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { QuestionContributorsPipe } from '@shared/pipes/question-contributors.pipe';
-import { Detective } from 'src/app/model/detective';
-import { ItemReviewQuestion } from 'src/app/model/Item-review-question';
+import { ItemReviewQuestion } from '../../../model/Item-review-question';
 
 @Component({
   selector: 'app-question',
@@ -10,28 +9,25 @@ import { ItemReviewQuestion } from 'src/app/model/Item-review-question';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuestionComponent implements OnInit {
-  @Input() public question: ItemReviewQuestion;
-  @Input() public questions: ItemReviewQuestion[];
-  @Input() public index: number;
-  @Input() public isChild: boolean;
-  @Input() public displayOnly: boolean;
-  @Input() public percentageVoted: number;
+  @Input() question: ItemReviewQuestion;
+  @Input() questions: ItemReviewQuestion[];
+  @Input() index: number;
+  @Input() isChild: boolean;
+  @Input() displayOnly: boolean;
+  @Input() parentIndex = -1;
 
-  @Input() public parentIndex = -1;
-  @Output() public valueChange = new EventEmitter();
-  public isShowChild: boolean;
-  public childQuestions: ItemReviewQuestion[] = [];
-  public visibleChildQuestions: ItemReviewQuestion[] = [];
-  public title: string;
-  public alphbt = 'abcdefghijklmnopqrstuvwxyz';
+  @Output() valueChange = new EventEmitter();
+
+  isShowChild: boolean;
+  childQuestions: ItemReviewQuestion[] = [];
+  visibleChildQuestions: ItemReviewQuestion[] = [];
+  title: string;
+
+  private alphbt = 'abcdefghijklmnopqrstuvwxyz';
 
   constructor(private questionContributorsPipe: QuestionContributorsPipe) {}
 
   ngOnInit(): void {
-    // this.question.options = this.question.options.sort((a, b) =>
-    //   a.value > b.value ? -1 : 1
-    // );
-
     this.isShowChild = false;
     if (this.parentIndex === -1) {
       this.title = `Frage ${this.index + 1}`;

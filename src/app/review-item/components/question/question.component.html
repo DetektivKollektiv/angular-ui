@@ -37,9 +37,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="small-text" *ngIf="option.tooltip">
-            {{ option.tooltip }}
-          </div> -->
         </div>
       </mat-radio-button>
     </mat-radio-group>
@@ -70,16 +67,7 @@
       [class.last-item]="option.value == 0"
     >
       <div class="option">
-        {{ option.text }}&nbsp;
-        <!-- <div class="info" *ngIf="!option.tooltip && option.value === question.answer_value">
-          <span *ngIf="!!percentageVoted" class="percentage"><i class="fas fa-user-cowboy"></i>&nbsp;~{{percentageVoted}}%</span>&nbsp;
-          <div *ngIf="contributors && contributors.length > 0">
-            <div class="avatar green" *ngFor="let contributor of contributors; let i=index;">{{contributor.avatarCharacter}}</div>  
-          </div>
-        </div> -->
-        <!-- <div class="small-text" *ngIf="option.tooltip">
-          {{option.tooltip}}
-        </div> -->
+        {{ option.text }}
         <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above"> help </mat-icon>
       </div>
     </mat-radio-button>
