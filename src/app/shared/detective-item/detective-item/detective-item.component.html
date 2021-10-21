@@ -1,5 +1,5 @@
 <div class="detective">
-  <div class="detective__medal {{ index === 0 ? 'font-supernova' : index === 1 ? 'font-purple' : '' }}">
+  <div class="detective__medal" [class.font-supernova]="index === 0" [class.font-purple]="index === 1">
     <i *ngIf="index < 2" class="fas fa-medal"></i>
   </div>
   <div class="detective__profile">
