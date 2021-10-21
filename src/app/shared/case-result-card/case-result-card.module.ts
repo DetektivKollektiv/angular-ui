@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CaseResultCardComponent } from './case-result-card/case-result-card.component';
-import { PipesModule } from '../pipes/pipes.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [CaseResultCardComponent],

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CaseDetailsComponent } from './case-details/case-details.component';
-import { PipesModule } from '../pipes/pipes.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [CaseDetailsComponent],

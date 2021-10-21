@@ -10,10 +10,8 @@ import { UnsavedChangesModule } from '@shared/unsaved-changes/unsaved-changes.mo
 import { TagsQuestionComponent } from './components/tags-question/tags-question.component';
 import { ReviewsService } from './services/reviews/reviews.service';
 import { FactcheckComponent } from './components/factcheck/factcheck.component';
-import { MockReviewService } from './services/reviews/mock/mock-review.service';
 import { ReviewProcessComponent } from './components/review-process/review-process.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
-//import { QuestionsSwiperComponent } from './components/questions-swiper/questions-swiper.component';
 import { ReviewQuestionComponent } from './components/review-question/review-question.component';
 import { ReviewSummaryComponent } from './components/review-summary/review-summary.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
@@ -24,12 +22,11 @@ import { CaseDetailsModule } from '@shared/case-details/case-details.module';
 import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { WatsonComponent } from './components/watson/watson.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
-import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { PipesModule } from '@shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [
-    ///QuestionsSwiperComponent,
     ReviewComponent,
     QuestionComponent,
     TagsQuestionComponent,
