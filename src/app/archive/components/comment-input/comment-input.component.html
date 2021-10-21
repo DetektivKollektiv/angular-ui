@@ -1,6 +1,6 @@
 <div class="reply-container" *ngIf="authenticated; else register">
   <div class="avatar-container">
-    <div class="avatar font-bold color__purple">{{ user?.name ? user.name[0].toUpperCase() : '?' }}</div>
+    <div class="avatar font-bold color__purple">{{ user?.name ? user.name[0] : '?' }}</div>
   </div>
   <div class="reply-body">
     <div *ngIf="user?.name" class="name font-bold">{{ user?.name || 'unbekannt' }}</div>

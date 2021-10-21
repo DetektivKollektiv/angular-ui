@@ -3,7 +3,9 @@
     <i *ngIf="index < 2" class="fas fa-medal"></i>
   </div>
   <div class="detective__profile">
-    <div class="avatar" [ngClass]="detective.color">{{ !detective.username ? '?' : detective.username[0] }}</div>
+    <div class="avatar" [style.background-color]="detective.color">
+      {{ !detective.username ? '?' : detective.username[0] }}
+    </div>
     <div class="detective__content">
       <div class="detective__profile-info">
         <div class="detective__text">

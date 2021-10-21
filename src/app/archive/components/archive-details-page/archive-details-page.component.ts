@@ -47,8 +47,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   );
   detectives$ = this.case$.pipe(
     withLatestFrom(this.userService.user$),
-    map(([item, currentUser]) => item.users.map((user) => this.getDetective(user, currentUser?.name))),
-    tap((detectives) => (this.detectives = detectives))
+    map(([item, currentUser]) => item.users.map((user) => this.getDetective(user, currentUser?.name)))
   );
 
   authenticated$ = this.authService.auth$.pipe(map((authState) => authState.isLoggedIn));
@@ -75,14 +74,14 @@ export class ArchiveDetailsPageComponent implements OnInit {
   allQuestions: any[] = [];
 
   //todo: change this somehow :)
-  private colors = [
-    'color__rating-red',
-    'color__rating-tweeter',
-    'color__rating-light-green',
-    'color__rating-green',
-    'color__purple',
-    'color__supernova'
-  ];
+  // private colors = [
+  //   'color__rating-red',
+  //   'color__rating-tweeter',
+  //   'color__rating-light-green',
+  //   'color__rating-green',
+  //   'color__purple',
+  //   'color__supernova'
+  // ];
 
   constructor(
     private userService: UserService,
@@ -124,15 +123,27 @@ export class ArchiveDetailsPageComponent implements OnInit {
       .pipe(
         tap((user) => (this.user = user)),
         switchMap(() => this.route.params),
-        switchMap(({ id }) => this.store.dispatch(new GetDetailItem(id)))
+        switchMap(({ id }) => this.store.dispatch(new GetDetailItem(id))),
+        map(({ archive }) => archive.detailItem),
+        tap((item) => item.users.forEach((user) => this.getDetective(user, this.user?.name)))
       )
-      .subscribe(({ archive }) => {
-        this.initCase(archive.detailItem);
+      .subscribe((item: Item) => {
+        this.initCase(item);
         this.loader.hide();
       });
   }
 
-  initQuestions(reviews: ItemReview[]) {
+  onPostComment(text) {
+    this.store.dispatch(new CreateComment(this.case.id, text, this.user.id));
+  }
+
+  private initCase(item: Item) {
+    const { reviews } = item;
+    this.case = item;
+    this.initQuestions(reviews);
+  }
+
+  private initQuestions(reviews: ItemReview[]) {
     this.allQuestions = [];
     const questionsMap: { [id: string]: ItemReviewQuestion } = {};
 
@@ -151,16 +162,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
     this.displayedQuestions = Object.values(questionsMap).filter((question) => !question.parent_question_id);
   }
 
-  onPostComment(text) {
-    this.store.dispatch(new CreateComment(this.case.id, text, this.user.id));
-  }
-
-  private initCase(item: Item) {
-    const { reviews } = item;
-    this.case = item;
-    this.initQuestions(reviews);
-  }
-
   private mapComments(): OperatorFunction<Comment[], Comment[]> {
     return (input$) =>
       input$.pipe(
@@ -175,17 +176,57 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   private getRandomColor() {
-    return this.colors[Math.floor(Math.random() * this.colors.length)];
+    const { r, g, b } = this.hsvToRgb(0.5, 0.99);
+    return `rgb(${r},${g},${b})`;
+    // return this.colors[Math.floor(Math.random() * this.colors.length)];
   }
 
   private getUserColor() {
     // todo: use localStorage to retrieve color as set by profile-picture.component.split
     // however, that file needs to be adapted to the correct color scheme.
-    return this.colors[0];
+    return '#5f38fa'; //this.colors[0];
   }
 
   private getDetective(user: Partial<Detective>, currentUserName?: string): Detective {
-    const color = user?.username === currentUserName ? this.getUserColor() : this.getRandomColor();
-    return { username: user?.username, level_description: user?.level_description, color };
+    let detective = !!user && this.detectives.find((d) => d.username === user.username);
+    if (!detective) {
+      const color = user?.username === currentUserName ? this.getUserColor() : this.getRandomColor();
+      detective = { username: user?.username, level_description: user?.level_description, color };
+      this.detectives.push(detective);
+    }
+    return detective;
+  }
+
+  private hsvToRgb(s, v) {
+    const golden_ratio_conjugate = 0.618033988749895;
+    const h = (Math.random() + golden_ratio_conjugate) % 1;
+    const h_i = Math.floor(h * 6);
+    const f = h * 6 - h_i;
+    const p = v * (1 - s);
+    const q = v * (1 - f * s);
+    const t = v * (1 - (1 - f) * s);
+
+    let rgb;
+    switch (h_i) {
+      case 0:
+        rgb = [v, t, p];
+        break;
+      case 1:
+        rgb = [q, v, p];
+        break;
+      case 2:
+        rgb = [p, v, t];
+        break;
+      case 3:
+        rgb = [p, q, v];
+        break;
+      case 4:
+        rgb = [t, p, v];
+        break;
+      default:
+      case 5:
+        rgb = [v, p, q];
+    }
+    return { r: Math.round(rgb[0] * 256), g: Math.round(rgb[1] * 256), b: Math.round(rgb[2] * 256) };
   }
 }
