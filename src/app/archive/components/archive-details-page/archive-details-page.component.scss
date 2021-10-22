@@ -201,8 +201,16 @@ app-case-details {
       }
 
       &__body {
+        position: relative;
+      }
+
+      &__comments {
         display: flex;
         flex-direction: column;
+
+        &--loading {
+          opacity: 0.3;
+        }
       }
 
       &__more {
@@ -226,6 +234,13 @@ app-case-details {
             border: 2px solid $color__purple;
           }
         }
+      }
+
+      &__spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       app-comment-input {

@@ -16,6 +16,7 @@ import { Comment } from '../../../model/comment.interface';
 import { ItemReview } from '../../../model/item-review';
 import { ItemReviewQuestion } from '../../../model/Item-review-question';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -43,7 +44,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
   );
   communityComments$ = this.case$.pipe(
     map((item) => item.comments.filter((comment) => comment.is_review_comment === 'False')),
-    this.mapComments()
+    this.mapComments(),
+    tap(() => (this.commentsLoading = false))
   );
   detectives$ = this.case$.pipe(
     withLatestFrom(this.userService.user$),
@@ -73,6 +75,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   displayedQuestions: any[];
   allQuestions: any[] = [];
 
+  commentsLoading = true;
   //todo: change this somehow :)
   // private colors = [
   //   'color__rating-red',
@@ -88,7 +91,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private loader: LoaderService,
     private route: ActivatedRoute,
     private store: Store,
-    private authService: AuthService
+    private authService: AuthService,
+    private viewportScroller: ViewportScroller
   ) {}
 
   @HostListener('window:scroll')
@@ -134,7 +138,11 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   onPostComment(text) {
+    this.commentsLoading = true;
     this.store.dispatch(new CreateComment(this.case.id, text, this.user.id));
+    // offset of the navigation bar
+    this.viewportScroller.setOffset([0, 70]);
+    this.viewportScroller.scrollToAnchor('archive-details-discussion-section');
   }
 
   private initCase(item: Item) {
@@ -166,7 +174,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
     return (input$) =>
       input$.pipe(
         map((comments) =>
-          comments.sort((comment1, comment2) => new Date(comment1.timestamp).getTime() - new Date(comment2.timestamp).getTime())
+          comments.sort((comment1, comment2) => new Date(comment2.timestamp).getTime() - new Date(comment1.timestamp).getTime())
         ),
         withLatestFrom(this.userService.user$),
         map(([comments, user]) =>

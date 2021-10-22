@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      <div class="discussion" [class.discussion--border]="isProcessingCollapsed">
+      <div class="discussion" [class.discussion--border]="isProcessingCollapsed" id="archive-details-discussion-section">
         <div class="collapsible-toolbar">
           <span class="collapsible-toolbar__title">Communitydiskussion</span>
           <ng-container *ngIf="authenticated$ | async">
@@ -78,15 +78,21 @@
           </ng-container>
         </div>
 
-        <ng-container *ngIf="!isDiscussionCollapsed && (authenticated$ | async)">
-          <div *ngIf="communityComments$ | async as communityComments" class="discussion__body">
+        <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async)">
+          <div
+            *ngIf="communityComments$ | async as communityComments"
+            class="discussion__comments"
+            [class.discussion__comments--loading]="commentsLoading"
+          >
             <app-comment-list [comments]="communityComments | slice: 0:communityCommentsCount"></app-comment-list>
 
             <div *ngIf="communityCommentsCount <= communityComments.length" class="discussion__more">
               <button (click)="communityCommentsCount = communityCommentsCount + 10">Mehr Kommentare laden</button>
             </div>
           </div>
-        </ng-container>
+          <mat-progress-spinner *ngIf="commentsLoading" class="discussion__spinner" color="accent" mode="indeterminate">
+          </mat-progress-spinner>
+        </div>
         <app-comment-input
           [user]="user"
           (commentSubmitted)="onPostComment($event)"

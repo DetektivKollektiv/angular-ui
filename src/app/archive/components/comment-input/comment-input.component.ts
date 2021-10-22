@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { User } from '../../../core/model/user';
 
 @Component({
   selector: 'app-comment-input',
@@ -7,7 +8,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 })
 export class CommentInputComponent {
   @Input() authenticated: boolean;
-  @Input() user;
+  @Input() user: User;
   @Output() commentSubmitted = new EventEmitter();
 
   comment = '';
