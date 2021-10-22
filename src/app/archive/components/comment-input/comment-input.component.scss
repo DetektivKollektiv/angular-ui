@@ -6,7 +6,11 @@
 
 .reply-container {
   display: flex;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
+
+  @media only screen and (min-width: 1024px) {
+    margin-bottom: 100px;
+  }
 
   .reply-body {
     flex: 1;

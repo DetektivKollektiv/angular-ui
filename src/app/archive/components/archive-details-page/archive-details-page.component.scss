@@ -77,34 +77,7 @@ app-case-details {
     &__content {
       flex-grow: 1;
       position: relative;
-    }
-
-    &__back {
-      display: flex;
-      margin-left: 40px;
-      margin-bottom: 80px;
-      cursor: pointer;
-
-      i {
-        font-size: 42px;
-        color: $color__bittersweet;
-        margin-right: 14px;
-      }
-    }
-
-    &__back-text {
-      display: flex;
-      flex-direction: column;
-
-      span {
-        @include fonts.font__pt-mono--bold;
-        font-size: 18px;
-
-        &.small {
-          @include fonts.font__effra;
-          font-size: 14px;
-        }
-      }
+      margin-bottom: 40px;
     }
 
     app-case-facts {
@@ -269,6 +242,40 @@ app-case-details {
     &__toggle {
       color: #aaa;
       cursor: pointer;
+    }
+  }
+
+  .back-btn {
+    display: flex;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    cursor: pointer;
+
+    &--responsive {
+      @media only screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+
+    i {
+      font-size: 42px;
+      color: $color__bittersweet;
+      margin-right: 14px;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        @include fonts.font__pt-mono--bold;
+        font-size: 18px;
+
+        &.small {
+          @include fonts.font__effra;
+          font-size: 14px;
+        }
+      }
     }
   }
 }

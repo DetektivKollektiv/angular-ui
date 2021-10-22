@@ -14,9 +14,9 @@
       <div class="facts__content">
         <app-case-facts *ngIf="case" [case]="case"></app-case-facts>
       </div>
-      <div class="facts__back" routerLink="/archive">
+      <div class="back-btn" routerLink="/archive">
         <i class="far fa-arrow-left"></i>
-        <div class="facts__back-text">
+        <div class="back-btn__text">
           <span class="small">Zurück zur</span>
           <span>Übersicht</span>
         </div>
@@ -98,6 +98,13 @@
           (commentSubmitted)="onPostComment($event)"
           [authenticated]="authenticated$ | async"
         ></app-comment-input>
+      </div>
+      <div class="back-btn back-btn--responsive" routerLink="/archive">
+        <i class="far fa-arrow-left"></i>
+        <div class="back-btn__text">
+          <span class="small">Zurück zur</span>
+          <span>Übersicht</span>
+        </div>
       </div>
     </div>
   </section>
