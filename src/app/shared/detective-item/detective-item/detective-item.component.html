@@ -1,7 +1,4 @@
 <div class="detective">
-  <div class="detective__medal" [class.font-supernova]="index === 0" [class.font-purple]="index === 1">
-    <i *ngIf="index < 2" class="fas fa-medal"></i>
-  </div>
   <div class="detective__profile">
     <div class="avatar" [style.background-color]="detective.color">
       {{ !detective.username ? '?' : detective.username[0] }}
