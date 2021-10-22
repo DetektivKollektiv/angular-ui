@@ -1,14 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { RatingColorService } from '../../services/rating-color-service/rating-color.service';
-import { RatingScorePipe } from './rating-score.pipe';
+import { RatingService } from '../../services/rating.service';
 
 @Pipe({
   name: 'ratingColor'
 })
 export class RatingColorPipe implements PipeTransform {
-  constructor(private ratingColorService: RatingColorService, private ratingScorePipe: RatingScorePipe) {}
+  constructor(private ratingService: RatingService) {}
 
-  transform(score: number): string {
-    return this.ratingColorService.getColorForScore(this.ratingScorePipe.transform(score));
+  transform(resultScore: number): string {
+    return this.ratingService.getColorForScore(resultScore);
   }
 }
