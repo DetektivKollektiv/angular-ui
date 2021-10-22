@@ -81,7 +81,8 @@ app-case-details {
     }
 
     app-case-facts {
-      position: relative;
+      position: sticky;
+      top: 90px;
       display: block;
       margin-right: 20px;
       margin-left: 40px;

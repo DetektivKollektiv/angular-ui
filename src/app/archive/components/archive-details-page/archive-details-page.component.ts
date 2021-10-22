@@ -10,7 +10,6 @@ import { GetDetailItem, CreateComment } from '../../state/archive.actions';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
 import { Detective } from '../../../model/detective';
-import { CaseFactsComponent } from '@shared/case-facts/case-facts/case-facts.component';
 import { User } from '../../..//core/model/user';
 import { Comment } from '../../../model/comment.interface';
 import { ItemReview } from '../../../model/item-review';
@@ -24,9 +23,6 @@ import { ViewportScroller } from '@angular/common';
   styleUrls: ['./archive-details-page.component.scss']
 })
 export class ArchiveDetailsPageComponent implements OnInit {
-  @ViewChild(CaseFactsComponent, { read: ElementRef }) caseFacts: ElementRef;
-  @ViewChild('overview', { read: ElementRef }) overview: ElementRef;
-
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$!: Observable<Item>;
   case$ = this.detailItem$.pipe(filter((item) => !!item));
@@ -94,32 +90,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private authService: AuthService,
     private viewportScroller: ViewportScroller
   ) {}
-
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    if (!this.overview?.nativeElement || !this.caseFacts?.nativeElement) {
-      return;
-    }
-    const factsEl: HTMLDivElement = this.caseFacts.nativeElement;
-    const el: HTMLDivElement = this.overview.nativeElement;
-
-    const run = el.offsetTop - 70 < scrollY && scrollY < el.offsetTop + el.parentElement.clientHeight - factsEl.clientHeight - 250;
-
-    if (!run) {
-      return;
-    }
-
-    let vertical_position = 0;
-    if (scrollY) {
-      vertical_position = scrollY;
-    } else if (document.documentElement.clientHeight) {
-      vertical_position = document.documentElement.scrollTop;
-    } else if (document.body) {
-      vertical_position = document.body.scrollTop;
-    }
-
-    factsEl.style.top = vertical_position - el.offsetTop + 70 + 'px';
-  }
 
   ngOnInit(): void {
     this.loader.show();
