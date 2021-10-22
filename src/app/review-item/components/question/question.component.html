@@ -30,7 +30,7 @@
             <div class="option__contributors">
               <div
                 class="avatar"
-                [ngClass]="contributor?.color || 'color__rating-red'"
+                [style.background-color]="contributor.color"
                 *ngFor="let contributor of getContributors(option.value); let i = index"
               >
                 {{ !contributor?.username ? '?' : contributor.username[0] }}

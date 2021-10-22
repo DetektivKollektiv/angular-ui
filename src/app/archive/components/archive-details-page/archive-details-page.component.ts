@@ -151,7 +151,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
       for (const question of review.questions) {
         const q = {
           ...question,
-          detective: this.detectives.find((detective) => detective.username === review.user)
+          detective: this.getDetective({ username: review.user }, this.user?.name)
         };
         if (!questionsMap[question.question_id]) {
           questionsMap[question.question_id] = q;
@@ -176,7 +176,7 @@ export class ArchiveDetailsPageComponent implements OnInit {
   }
 
   private getRandomColor() {
-    const { r, g, b } = this.hsvToRgb(0.5, 0.99);
+    const { r, g, b } = this.hsvToRgb(0.75, 0.99);
     return `rgb(${r},${g},${b})`;
     // return this.colors[Math.floor(Math.random() * this.colors.length)];
   }
