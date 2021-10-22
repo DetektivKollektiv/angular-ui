@@ -1,4 +1,4 @@
-@import '../../../../assets/scss/colors';
+@use '../../../../assets/scss/colors' as colors;
 
 :host {
   @media only screen and (min-width: 480px) {
@@ -31,6 +31,7 @@
   }
 
   &__received {
+    cursor: pointer;
     font-weight: bold;
     font-size: 14px;
     .received-txt {
@@ -39,6 +40,7 @@
   }
 
   &__score {
+    cursor: pointer;
     width: 80px;
     height: 80px;
     display: flex;
@@ -58,19 +60,19 @@
     }
 
     .red {
-      color: $color__rating-red;
+      color: colors.$color__rating-red;
     }
 
     .orange {
-      color: $color__rating-yellow;
+      color: colors.$color__rating-yellow;
     }
 
     .light-green {
-      color: $color__rating-light-green;
+      color: colors.$color__rating-light-green;
     }
 
     .green {
-      color: $color__rating-green;
+      color: colors.$color__rating-green;
     }
   }
 
