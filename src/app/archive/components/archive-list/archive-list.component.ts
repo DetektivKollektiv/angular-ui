@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../../../model/item';
 
 @Component({
@@ -6,17 +6,24 @@ import { Item } from '../../../model/item';
   templateUrl: './archive-list.component.html',
   styleUrls: ['./archive-list.component.scss']
 })
-export class ArchiveListComponent implements OnInit {
-  @Input() archives: Item[];
+export class ArchiveListComponent {
+  @Input()
+  get archives(): Item[] {
+    return this.items;
+  }
+  set archives(items: Item[]) {
+    this.items = items;
+    this.count = this.items.length;
+    this.page = 1;
+  }
+
   @Output() pageChanged = new EventEmitter<number>();
 
   page = 1;
   pageSize = 10;
-  count = 0;
+  count: number;
 
-  ngOnInit(): void {
-    this.count = this.archives.length;
-  }
+  private items: Item[];
 
   handlePageChange(event: number) {
     this.page = event;
