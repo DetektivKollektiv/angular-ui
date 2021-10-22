@@ -11,6 +11,7 @@ import { ResultScoreMode } from '@shared/helper/components/result-score/result-s
 import { MatDialog } from '@angular/material/dialog';
 import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
 import { CaseSort, CaseSortBy } from '../../model/case-sort';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-archive',
@@ -58,7 +59,7 @@ export class ArchiveComponent {
 
   caseSortByValues: string[] = Object.values(CaseSortBy);
 
-  constructor(private store: Store, private matDialog: MatDialog) {}
+  constructor(private store: Store, private matDialog: MatDialog, private viewportScroller: ViewportScroller) {}
 
   remove(keyword: string): void {
     this.store.dispatch(new RemoveFilterKeyword(keyword));
@@ -106,5 +107,11 @@ export class ArchiveComponent {
 
   changeSortBy(value: string) {
     this.store.dispatch(new SetSortBy(value as CaseSortBy));
+  }
+
+  onListPageChanged() {
+    // offset of the navigation bar
+    this.viewportScroller.setOffset([0, 70]);
+    this.viewportScroller.scrollToAnchor('archive-bottom-section');
   }
 }

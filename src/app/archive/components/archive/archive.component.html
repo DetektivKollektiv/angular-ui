@@ -14,7 +14,7 @@
 
   <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
 
-  <div class="bottom-section">
+  <div class="bottom-section" id="archive-bottom-section">
     <!-- the stuff below, is the old page, i will delete later. -->
     <div class="archive-list-setting">
       <mat-form-field *ngIf="filter$ | async as filter" class="search-input mat-form-field--alt" appearance="fill">
@@ -65,7 +65,7 @@
         </mat-menu>
       </div>
     </div>
-    <app-archive-list [archives]="items$ | async"></app-archive-list>
+    <app-archive-list [archives]="items$ | async" (pageChanged)="onListPageChanged()"></app-archive-list>
   </div>
 </div>
 
