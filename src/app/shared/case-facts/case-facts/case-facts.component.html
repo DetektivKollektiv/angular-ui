@@ -21,8 +21,11 @@
 <section class="tags">
   <h3 class="mono-font">Tags</h3>
   <div class="tags__list" *ngIf="case.tags?.length">
-    <app-tag-icon *ngFor="let tag of case.tags" [tag]="tag"></app-tag-icon>
+    <app-tag-icon *ngFor="let tag of case.tags | slice: 0:maxTagsCount" [tag]="tag"></app-tag-icon>
   </div>
+  <button class="tags__more-btn" *ngIf="maxTagsCount < case.tags.length" (click)="maxTagsCount = case.tags.length">
+    Alle Tags anzeigen
+  </button>
 </section>
 <section class="background-info">
   <h3 class="mono-font">Hintergrundinformationen</h3>

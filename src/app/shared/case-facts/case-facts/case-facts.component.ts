@@ -1,15 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Item } from 'src/app/model/item';
+import { Component, Input } from '@angular/core';
+import { Item } from '../../../model/item';
 
 @Component({
   selector: 'app-case-facts',
   templateUrl: './case-facts.component.html',
   styleUrls: ['./case-facts.component.scss']
 })
-export class CaseFactsComponent implements OnInit {
+export class CaseFactsComponent {
   @Input() case: Item;
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  maxTagsCount = 5;
 }
