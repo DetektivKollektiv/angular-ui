@@ -9,13 +9,15 @@ import { Item } from '../../../model/item';
 export class ArchiveListItemComponent {
   @Input() case: Item;
 
+  private maxTags = 3;
+
   get tagsCount(): number {
     const { tags, warning_tags } = this.case;
-    return tags.length + warning_tags.length <= 5 ? tags.length : Math.min(tags.length, 3);
+    return tags.length + warning_tags.length <= this.maxTags ? tags.length : Math.min(tags.length, Math.round(this.maxTags / 2));
   }
 
   get warningTagsCount(): number {
     const { warning_tags } = this.case;
-    return Math.min(5 - this.tagsCount, warning_tags.length);
+    return Math.min(this.maxTags - this.tagsCount, warning_tags.length);
   }
 }
