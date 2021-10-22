@@ -16,10 +16,6 @@
 
     @media only screen and (min-width: 480px) {
       grid-template-columns: 1fr;
-
-      app-rating-legend {
-        width: 60%;
-      }
     }
 
     @media only screen and (min-width: 1024px) {
@@ -46,7 +42,6 @@
     }
 
     app-rating-legend {
-      width: 80%;
       max-width: 400px;
       align-self: flex-end;
       margin-top: 20px;
