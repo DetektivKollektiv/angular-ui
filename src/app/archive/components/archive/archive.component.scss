@@ -7,22 +7,10 @@
 .archive-page {
   margin: auto;
 
-  @media only screen and (min-width: 1024px) {
-    width: 900px;
-    margin-left: calc((100vw - 900px) / 4);
-  }
-
-  @media only screen and (min-width: 1350px) {
-    width: 1240px;
-    margin-left: calc((100vw - 1240px) / 4);
-  }
-
   .top-section {
     display: grid;
     grid-template-columns: 1fr;
 
-    // display: flex;
-    // flex-direction: column;
     gap: 20px;
     padding: 20px;
 
