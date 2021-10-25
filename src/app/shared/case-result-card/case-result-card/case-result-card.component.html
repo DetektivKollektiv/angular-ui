@@ -1,0 +1,23 @@
+<ng-container *ngIf="case; else skeleton">
+  <div class="score" [ngClass]="'rating-color--' + (case.result_score | ratingColor)">{{ case.result_score | ratingScore }}</div>
+  <div class="description">
+    <div class="description__header">{{ title }}</div>
+    <div class="description__content">
+      Dieser Fall ist von <span class="strong">{{ case.users.length }}</span> Detektiven mit
+      <span class="strong">{{ case.result_score | ratingScore }}</span> von <span class="strong">100</span> Punkten bewertet worden.
+      {{ infoText }}
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #skeleton>
+  <div class="loader">
+    <div class="score skeleton"></div>
+    <div class="description">
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text"></div>
+    </div>
+  </div>
+</ng-template>

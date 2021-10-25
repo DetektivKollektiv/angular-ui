@@ -5,8 +5,6 @@ import { MaterialModule } from '../shared/material/material.module';
 import { HelperModule } from '../shared/helper/helper.module';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { RouterModule } from '@angular/router';
-import { ArchiveToolbarComponent } from './components/archive-toolbar/archive-toolbar.component';
-import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveDetailsComponent } from './components/archive-details/archive-details.component';
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
@@ -20,7 +18,6 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
 import { ArchiveListComponent } from './components/archive-list/archive-list.component';
 import { ArchiveListItemComponent } from './components/archive-list-item/archive-list-item.component';
-import { TagIconComponent } from './components/tag-icon/tag-icon.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { QuestionCarouselModule } from '../shared/question-carousel/question-carousel.module';
 import { CaseDetailsModule } from '../shared/case-details/case-details.module';
@@ -28,23 +25,32 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
 import { CommentListItemComponent } from './components/comment-list-item/comment-list-item.component';
 import { CommentInputComponent } from './components/comment-input/comment-input.component';
 import { ReviewItemModule } from 'src/app/review-item/review-item.module';
+import { CaseListItemModule } from '../shared/case-list-item/case-list-item.module';
+import { ArchiveListFilterComponent } from './components/archive-list-filter/archive-list-filter.component';
+import { CaseSortByPipe } from './services/case-sort-by.pipe';
 import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
+import { CaseFactsModule } from '../shared/case-facts/case-facts.module';
+import { TagIconModule } from '../shared/tag-icon/tag-icon.module';
+import { CaseResultCardModule } from '../shared/case-result-card/case-result-card.module';
+import { ReviewResponsesComponent } from './components/review-responses/review-responses.component';
+import { DetectiveItemModule } from '@shared/detective-item/detective-item.module';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
   declarations: [
     ArchiveComponent,
-    ArchiveToolbarComponent,
-    ArchiveItemComponent,
     ArchiveDetailsComponent,
     ArchiveDetailsPageComponent,
     RatingLegendComponent,
     ArchiveListComponent,
     ArchiveListItemComponent,
-    TagIconComponent,
     CommentListComponent,
     CommentListItemComponent,
-    CommentInputComponent
+    CommentInputComponent,
+    ArchiveListFilterComponent,
+    CaseSortByPipe,
+    CommentInputComponent,
+    ReviewResponsesComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +66,12 @@ registerLocaleData(localeDE, 'de');
     CaseDetailsModule,
     NgxsModule.forFeature([ArchiveState]),
     ReviewItemModule,
-    BreadcrumbModule
+    CaseListItemModule,
+    BreadcrumbModule,
+    CaseFactsModule,
+    TagIconModule,
+    CaseResultCardModule,
+    DetectiveItemModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },

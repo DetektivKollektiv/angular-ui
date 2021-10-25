@@ -76,8 +76,7 @@ const routes: Routes = [
       },
       {
         path: 'archive/:id',
-        component: ArchiveDetailsPageComponent,
-        canActivate: [AuthGuard]
+        component: ArchiveDetailsPageComponent
       },
       {
         path: 'archive',

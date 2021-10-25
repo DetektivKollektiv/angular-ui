@@ -237,6 +237,44 @@ mat-icon {
   font-size: 15px !important;
 }
 
+.mat-chip-list.search-chip-list {
+  &--neon-blue {
+    .mat-chip {
+      background-color: $color__neon-blue;
+      color: white;
+
+      .mat-chip-remove {
+        color: white;
+      }
+    }
+  }
+}
+
+.mat-form-field.mat-form-field--alt {
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-form-field-flex {
+    border-radius: 30px;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+}
+
+.mat-slider {
+  .mat-slider-thumb,
+  .mat-slider-track-fill {
+    background-color: $color__neon-blue;
+  }
+
+  .mat-slider-thumb-label-text {
+    color: white;
+  }
+}
+
 /*
 This made tooltips on /reviews/:id not work anymore
 */
@@ -321,6 +359,10 @@ header.header {
   }
 }
 
+.mat-menu-panel.archive-list-filter-menu {
+  max-width: unset !important;
+}
+
 .breadcrumb {
   font-size: 14px;
   color: #8989a2;
@@ -341,4 +383,85 @@ header.header {
 
 .bold-weight {
   font-weight: 700 !important;
+}
+
+.w-100-p {
+  width: 100%;
+}
+
+/* Skeleton loading animation styles */
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-text:last-child {
+  margin-bottom: 0;
+  width: 80%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+/* Rating colors */
+.rating-color {
+  &--red {
+    color: $color__rating-red;
+  }
+
+  &--orange {
+    color: $color__rating-orange;
+  }
+
+  &--light-green {
+    color: $color__rating-light-green;
+  }
+
+  &--green {
+    color: $color__rating-green;
+  }
+
+  &-bg--red {
+    background-color: $color__rating-red;
+  }
+
+  &-bg--orange {
+    background-color: $color__rating-orange;
+  }
+
+  &-bg--light-green {
+    background-color: $color__rating-light-green;
+  }
+
+  &-bg--green {
+    background-color: $color__rating-green;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  @include fonts.font__pt-mono--bold;
+  font-size: 20px;
+  margin: 0 5px;
 }

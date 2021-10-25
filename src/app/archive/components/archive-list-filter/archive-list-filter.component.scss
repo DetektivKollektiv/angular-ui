@@ -1,0 +1,39 @@
+@import '../../../../assets/scss/buttons';
+
+.options-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  width: 300px;
+  padding: 15px;
+  margin: auto;
+
+  &__entry {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    h3 {
+      font-size: 21px;
+      margin-bottom: 4px;
+    }
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+  }
+}

@@ -24,6 +24,7 @@ import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-l
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { WatsonComponent } from '../watson/watson.component';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 describe('ReviewPageComponent', () => {
   let component: ReviewPageComponent;
@@ -40,7 +41,7 @@ describe('ReviewPageComponent', () => {
           ReviewProcessComponent,
           ReviewQuestionComponent,
           ReviewSummaryComponent,
-          WatsonComponent,
+          WatsonComponent
         ],
         imports: [
           RouterTestingModule,
@@ -54,12 +55,13 @@ describe('ReviewPageComponent', () => {
           UserExperienceBubbleListModule,
           IvyCarouselModule,
           BreadcrumbModule,
+          PipesModule
         ],
         providers: [
           { provide: AuthService, useClass: MockAuthService },
           { provide: UserService, useClass: MockUserService },
-          { provide: ReviewsService, useClass: MockReviewService },
-        ],
+          { provide: ReviewsService, useClass: MockReviewService }
+        ]
       }).compileComponents();
     })
   );

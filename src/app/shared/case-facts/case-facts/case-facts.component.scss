@@ -1,0 +1,120 @@
+@use '../../../../assets/scss/colors' as colors;
+
+:host {
+  section h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0;
+  }
+
+  section ~ section {
+    margin-top: 25px;
+  }
+
+  .fact {
+    &__title {
+      margin: 20px 0;
+      font-weight: 700;
+      font-size: 24px;
+
+      @media only screen and (min-width: 480px) {
+        font-size: max(2vw, 36px);
+      }
+    }
+
+    &__text {
+      font-size: 18px;
+      line-height: 1.44;
+      word-wrap: break-word;
+
+      a {
+        color: colors.$color__bittersweet;
+        text-decoration: none;
+      }
+
+      .fa-quote-left,
+      .fa-quote-right {
+        position: relative;
+        color: colors.$color__bittersweet;
+      }
+
+      .fa-quote-left {
+        left: -20px;
+      }
+
+      .fa-quote-right {
+        display: flex;
+        justify-content: flex-end;
+        right: 0;
+      }
+    }
+  }
+
+  .links {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    &__icon {
+      display: inline-block;
+
+      a {
+        color: colors.$color__bittersweet;
+        text-decoration: none;
+        word-break: break-all;
+
+        i {
+          margin-right: 4px;
+          font-weight: 500;
+        }
+      }
+
+      &.gray-link {
+        a {
+          color: colors.$color__old-paragraph;
+        }
+      }
+    }
+  }
+
+  .tags {
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__more-btn {
+      margin-top: 16px;
+      padding: 5px 15px;
+      border-radius: 15px;
+      background-color: colors.$color__purple;
+      color: white;
+      border: none;
+      font-weight: bold;
+      border: 2px solid colors.$color__purple;
+      cursor: pointer;
+
+      &:hover {
+        background-color: white;
+        color: colors.$color__purple;
+        border: 2px solid colors.$color__purple;
+      }
+    }
+  }
+
+  .background-info {
+    margin-bottom: 25px;
+
+    &__details {
+      display: flex;
+      gap: 16px;
+    }
+
+    &__entry {
+      display: flex;
+      gap: 8px;
+    }
+  }
+}

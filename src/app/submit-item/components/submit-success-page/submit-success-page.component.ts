@@ -2,12 +2,11 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
-import { ItemsService } from 'src/app/review-item/services/items/items.service';
-import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
-import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
+import { ItemsService } from '../../../review-item/services/items/items.service';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 import { ArchiveService } from '../../../archive/services/archive.service';
 import { Item } from '../../../model/item';
-import { QuestionPrompt } from '../../model/question-prompt.interface';
 
 @Component({
   selector: 'app-submit-success-page',

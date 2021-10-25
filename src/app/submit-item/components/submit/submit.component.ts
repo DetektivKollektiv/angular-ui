@@ -1,34 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SubmitItemService } from '../../services/submit-item.service';
 import { Item } from '../../../model/item';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  DateAdapter,
-  MAT_DATE_FORMATS,
-  MAT_DATE_LOCALE,
-} from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
 import { LoaderService } from '@shared/loader/service/loader.service';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
-import { ItemType } from '../../model/item-type';
-import { ResultScoreMode } from 'src/app/shared/helper/components/result-score/result-score-mode';
+import { ItemType } from '../../../model/item-type';
+import { ResultScoreMode } from '@shared/helper/components/result-score/result-score-mode';
 
 export const MY_FORMATS = {
   display: {
     dateInput: 'LL',
     monthYearLabel: 'MMM YYYY',
     dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
+    monthYearA11yLabel: 'MMMM YYYY'
+  }
 };
 
 @Component({
@@ -39,10 +29,10 @@ export const MY_FORMATS = {
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE],
+      deps: [MAT_DATE_LOCALE]
     },
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
-  ],
+    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
+  ]
 })
 export class SubmitComponent implements OnInit {
   typeFormGroup: FormGroup;
@@ -107,7 +97,7 @@ export class SubmitComponent implements OnInit {
         description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
         background: '#ff7268',
         icon: 'fal fa-meteor'
-      },
+      }
     ];
   }
 
@@ -126,7 +116,7 @@ export class SubmitComponent implements OnInit {
     this.frequencyFormControl = new FormControl();
     this.receivedFormControl = new FormControl({
       value: moment(),
-      disabled: true,
+      disabled: true
     });
     this.emailFormControl = new FormControl('', Validators.email);
     this.privacyBox = new FormControl(false, Validators.requiredTrue);
@@ -134,25 +124,25 @@ export class SubmitComponent implements OnInit {
     this.checkboxFormControl = new FormControl(false);
 
     this.typeFormGroup = this.formBuilder.group({
-      typeFormControl: this.typeFormControl,
+      typeFormControl: this.typeFormControl
     });
 
     this.contentFormGroup = this.formBuilder.group({
-      contentFormControl: this.contentFormControl,
+      contentFormControl: this.contentFormControl
     });
 
     this.additionalFormGroup = this.formBuilder.group({
       sourceFormControl: this.sourceFormControl,
       sourceTextFormControl: this.sourceTextFormControl,
       frequencyFormControl: this.frequencyFormControl,
-      receivedFormControl: this.receivedFormControl,
+      receivedFormControl: this.receivedFormControl
     });
 
     this.confirmationFormGroup = this.formBuilder.group({
       emailFormControl: this.emailFormControl,
       privacyBox: this.privacyBox,
       termBox: this.termBox,
-      checkboxFormControl: this.checkboxFormControl,
+      checkboxFormControl: this.checkboxFormControl
     });
 
     this.getItemTypes();
@@ -176,17 +166,13 @@ export class SubmitComponent implements OnInit {
     }
     const item = {
       content: this.contentFormControl.value,
-      received_date: this.receivedFormControl.value.format(
-        'YYYY-MM-DD HH:mm:ss'
-      ),
+      received_date: this.receivedFormControl.value.format('YYYY-MM-DD HH:mm:ss'),
       frequency: this.frequencyFormControl.value,
       item_type_id: this.typeFormControl.value,
       source:
-        this.sourceFormControl.value === 'other' &&
-        this.sourceTextFormControl.value &&
-        this.sourceTextFormControl.value !== ''
+        this.sourceFormControl.value === 'other' && this.sourceTextFormControl.value && this.sourceTextFormControl.value !== ''
           ? this.sourceTextFormControl.value
-          : this.sourceFormControl.value,
+          : this.sourceFormControl.value
     } as Item;
     if (this.emailFormControl.value && this.emailFormControl.value !== '') {
       item.mail = this.emailFormControl.value;
@@ -206,13 +192,9 @@ export class SubmitComponent implements OnInit {
         this.submitted = true;
       })
       .catch((_) => {
-        this.snackBar.open(
-          'Dein Fall konnte nicht eingereicht werden. Versuch es später nochmal.',
-          'Ok',
-          {
-            duration: 2000,
-          }
-        );
+        this.snackBar.open('Dein Fall konnte nicht eingereicht werden. Versuch es später nochmal.', 'Ok', {
+          duration: 2000
+        });
       })
       .finally(() => this.loaderService.hide());
   }

@@ -1,42 +1,33 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { Question } from '../../model/question';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { QuestionContributorsPipe } from '@shared/pipes/question-contributors.pipe';
+import { ItemReviewQuestion } from '../../../model/Item-review-question';
 
 @Component({
   selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuestionComponent implements OnInit {
-  @Input() public question: Question;
-  @Input() public questions: Question[];
-  @Input() public contributors: any[];
-  @Input() public index: number;
-  @Input() public isChild: boolean;
-  @Input() public displayOnly: boolean;
-  @Input() public percentageVoted: number;
+  @Input() question: ItemReviewQuestion;
+  @Input() questions: ItemReviewQuestion[];
+  @Input() index: number;
+  @Input() isChild: boolean;
+  @Input() displayOnly: boolean;
+  @Input() parentIndex = -1;
 
-  @Input() public parentIndex = -1;
-  @Output() public valueChange = new EventEmitter();
-  public isShowChild: boolean;
-  public childQuestions: Question[] = [];
-  public visibleChildQuestions: Question[] = [];
-  public title: string;
-  public alphbt = 'abcdefghijklmnopqrstuvwxyz';
+  @Output() valueChange = new EventEmitter();
 
+  isShowChild: boolean;
+  childQuestions: ItemReviewQuestion[] = [];
+  visibleChildQuestions: ItemReviewQuestion[] = [];
+  title: string;
+
+  private alphbt = 'abcdefghijklmnopqrstuvwxyz';
+
+  constructor(private questionContributorsPipe: QuestionContributorsPipe) {}
 
   ngOnInit(): void {
-    // this.question.options = this.question.options.sort((a, b) =>
-    //   a.value > b.value ? -1 : 1
-    // );
-
     this.isShowChild = false;
     if (this.parentIndex === -1) {
       this.title = `Frage ${this.index + 1}`;
@@ -48,34 +39,43 @@ export class QuestionComponent implements OnInit {
   }
 
   addChildQuestions() {
-    const value = this.question.answer_value;
     const hasChildren = this.question.max_children > 0;
-    if(!hasChildren) {
+    if (!hasChildren) {
       return;
     }
-    this.questions.forEach(question => {
-      if (question.parent_question_id === this.question.question_id) {
+    this.questions.forEach((question) => {
+      if (
+        question.parent_question_id === this.question.question_id &&
+        !this.childQuestions.find((q) => q.question_id === question.question_id)
+      ) {
         this.childQuestions.push(question);
       }
     });
   }
 
   showChildQuestions(value) {
-
-    if(!value) {
+    if (!value) {
       return;
     }
 
     this.visibleChildQuestions = [];
     this.isShowChild = false;
-    this.childQuestions.forEach( question => {
-      const valueInBound = question.lower_bound <= value && question.upper_bound >= value;
 
-      if(valueInBound) {
+    const questions = this.questions.filter((q) => q.question_id === this.question.question_id);
+
+    this.childQuestions.forEach((question) => {
+      const valueInBound = questions.find((q) => question.lower_bound <= q.answer_value && question.upper_bound >= q.answer_value);
+      // const valueInBound = question.lower_bound <= value && question.upper_bound >= value;
+
+      if (valueInBound) {
         this.isShowChild = true;
         this.visibleChildQuestions.push(question);
       }
     });
+  }
+
+  getContributors(value: number) {
+    return this.questionContributorsPipe.transform(value, this.question.question_id, this.questions);
   }
 
   change(e) {

@@ -7,8 +7,17 @@
 
 .collapse-container {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+  align-items: flex-end;
+  gap: 16px;
   margin-right: 20px;
+
+  @media only screen and (min-width: 480px) {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
 
   &__content {
     display: flex;
