@@ -19,6 +19,7 @@ import { FactcheckComponent } from '../factcheck/factcheck.component';
 import { ReviewProcessComponent } from '../review-process/review-process.component';
 import { ReviewQuestionComponent } from '../review-question/review-question.component';
 import { ReviewSummaryComponent } from '../review-summary/review-summary.component';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 describe('ReviewComponent', () => {
   let component: ReviewComponent;
@@ -34,7 +35,7 @@ describe('ReviewComponent', () => {
           FactcheckComponent,
           ReviewProcessComponent,
           ReviewQuestionComponent,
-          ReviewSummaryComponent,
+          ReviewSummaryComponent
         ],
         imports: [
           RouterTestingModule,
@@ -44,12 +45,13 @@ describe('ReviewComponent', () => {
           CommonModule,
           UnsavedChangesModule,
           FormsModule,
+          PipesModule
         ],
         providers: [
           { provide: AuthService, useClass: MockAuthService },
           { provide: UserService, useClass: MockUserService },
-          { provide: ReviewsService, useClass: MockReviewService },
-        ],
+          { provide: ReviewsService, useClass: MockReviewService }
+        ]
       }).compileComponents();
     })
   );
