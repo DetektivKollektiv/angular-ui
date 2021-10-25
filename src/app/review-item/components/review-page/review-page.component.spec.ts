@@ -23,6 +23,7 @@ import { CaseDetailsModule } from '@shared/case-details/case-details.module';
 import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { WatsonComponent } from '../watson/watson.component';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 
 describe('ReviewPageComponent', () => {
   let component: ReviewPageComponent;
@@ -52,6 +53,7 @@ describe('ReviewPageComponent', () => {
           CaseDetailsModule,
           UserExperienceBubbleListModule,
           IvyCarouselModule,
+          BreadcrumbModule,
         ],
         providers: [
           { provide: AuthService, useClass: MockAuthService },
