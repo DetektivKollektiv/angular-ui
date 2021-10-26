@@ -34,6 +34,9 @@ debug.log
 !.vscode/extensions.json
 .history/*
 
+# IntelliJ IDEA
+*.iml
+
 # misc
 /.sass-cache
 /connect.lock
