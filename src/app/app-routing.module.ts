@@ -31,6 +31,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
 import { ImprintComponent } from './core/components/imprint/imprint.component';
 import { PrivacyStatementComponent } from './core/components/privacy-statement/privacy-statement.component';
@@ -124,6 +125,7 @@ const routes: Routes = [
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },
   { path: 'issues', component: IssuesComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'faq', component: FaqPageComponent },
   {
     path: '**',
     redirectTo: '',

@@ -37,6 +37,7 @@ import { AuthenticationPageComponent } from './authentication-pages/components/a
 import { AboutComponent } from './about/about.component';
 import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
 import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -44,7 +45,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent, AboutComponent],
+  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent, AboutComponent, FaqPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
