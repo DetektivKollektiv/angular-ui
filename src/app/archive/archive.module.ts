@@ -34,6 +34,7 @@ import { TagIconModule } from '../shared/tag-icon/tag-icon.module';
 import { CaseResultCardModule } from '../shared/case-result-card/case-result-card.module';
 import { ReviewResponsesComponent } from './components/review-responses/review-responses.component';
 import { DetectiveItemModule } from '@shared/detective-item/detective-item.module';
+import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -71,7 +72,8 @@ registerLocaleData(localeDE, 'de');
     CaseFactsModule,
     TagIconModule,
     CaseResultCardModule,
-    DetectiveItemModule
+    DetectiveItemModule,
+    EdgyBackgroundModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
