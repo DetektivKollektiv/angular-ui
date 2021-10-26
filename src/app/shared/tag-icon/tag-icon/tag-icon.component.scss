@@ -1,0 +1,36 @@
+@import '../../../../assets/scss/colors';
+
+.card {
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+  margin: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #eee;
+}
+
+.active {
+  border: 2px solid;
+  background-color: white;
+}
+
+.empty {
+  border: 2px solid;
+  background-color: white;
+}
+
+.non-active {
+}
+
+.color-card {
+  background-color: #722ed1;
+  color: white;
+}
+
+.tag-icon {
+  i {
+    margin-right: 5px;
+  }
+}

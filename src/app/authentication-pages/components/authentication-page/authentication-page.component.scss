@@ -1,0 +1,181 @@
+@import "../../../../assets/scss/_buttons.scss";
+
+.authentication-page {
+    background: linear-gradient(to right, #336699 0%, #000066 100%);
+
+    .hero-section {
+        margin: 0 auto;
+        padding-top: 100px;
+        padding-bottom: 70px;
+    }
+
+    .logo {
+        text-align:center;
+        margin-bottom: 40px
+    }
+    .line-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .line {
+            height: 1px;
+            width: 300px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            background-color: $color__white;
+        }
+    }
+
+
+    .login_form_buttom_text {
+        text-align: center;
+        color: $color__white;
+        padding: 0;
+        padding-bottom: 25px;
+        width: 64%;
+        margin: 0 auto;
+    }
+
+    span.tm {
+        font-size: 8px;
+        padding-top: 10px;
+        vertical-align: text-top;
+    }
+
+    .registration_call_to_action_button {
+        color: $color__white;
+        font-weight: botrap_third_serial_number;
+
+        background: transparent;
+        text-align: center;
+
+        a button {
+            border-radius: 30px;
+            border: solid 2px $color__white;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 15px 22px;
+        }
+    }
+
+    .registration_call_to_action_button button {
+      cursor: pointer;
+      background: transparent;
+      border: unset;
+      color: $color__white;
+    }
+
+    .full-width-container {
+        width: 100%;
+        background: $color__white;
+    }
+
+    .wrapper {
+        padding-top: 80px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .case-list-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 30px;
+
+        h3 {
+          font-size: 36px;
+        }
+
+        app-case-list {
+          width: 100%;
+        }
+
+        button {
+            padding: 7px 10px 5px 10px;
+            border-radius: 30px;
+            background-color: #5f38fa;
+            color: $color__white;
+            border: solid 2px $color__white;
+        }
+
+        @media only screen and (min-width: 480px) {
+          width: 50%;
+        }
+
+    }
+
+    .partner-logo-section {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 30px;
+
+        @media only screen and (min-width: 480px) {
+          width: 50%;
+        }
+
+        h3 {
+          font-size: 36px;
+        }
+    }
+
+    .wrapper:after {content: '';clear: both;display: block;}
+    .case-list-container h3 {
+        padding-left: 20px;
+    }
+
+    .social_image {
+        margin-top: 15px;
+    }
+
+    .partner-logo-section .paragraph {
+        margin-top: 70px;
+    }
+
+    .orange {
+        color: orange;
+    }
+
+    .authentication-page-card {
+        border-radius: 30px;
+        background: #fff;
+        margin: 20px;
+
+        .authentication-page-card--contents {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            margin: 0px;
+            padding: 0px;
+        }
+
+    }
+
+    @media only screen and (min-width: 480px) {
+        .hero-section {
+            width: 410px;
+        }
+    }
+
+    @media only screen and (min-width: 1024px) {
+        .wrapper {
+            flex-direction: row;
+            width: 900px;
+        }
+
+        .hero-section {
+            width: 410px;
+        }
+
+        .partner-logo-section {
+            margin-top: 0px;
+        }
+    }
+}

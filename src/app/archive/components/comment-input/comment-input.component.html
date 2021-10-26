@@ -1,0 +1,31 @@
+<div class="reply-container" *ngIf="authenticated; else register">
+  <div class="avatar-container">
+    <div class="avatar font-bold color__purple">{{ user?.name ? user.name[0] : '?' }}</div>
+  </div>
+  <div class="reply-body">
+    <div *ngIf="user?.name" class="name font-bold">{{ user?.name || 'unbekannt' }}</div>
+    <div class="input-container">
+      <textarea [(ngModel)]="comment" rows="5"></textarea>
+    </div>
+    <div class="reply-button-container">
+      <button (click)="submitComment()" [disabled]="!comment?.length">Posten</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #register>
+  <div class="reply-container">
+    <div class="avatar-container">
+      <div class="avatar font-bold color__rating-red">A</div>
+    </div>
+    <div class="reply-body">
+      <div class="name font-bold">Anonym</div>
+      <div class="input-container">
+        <textarea disabled rows="5">Registriere dich jetzt um mitzudiskutieren!</textarea>
+      </div>
+      <div class="register-button-container">
+        <a [routerLink]="['/register']" class="around-button"> <i class="fas fa-user-cowboy"></i>Detektiv werden </a>
+      </div>
+    </div>
+  </div>
+</ng-template>

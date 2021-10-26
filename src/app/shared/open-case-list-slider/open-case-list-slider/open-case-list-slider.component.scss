@@ -1,0 +1,19 @@
+.open-case-list-slider {
+    
+}
+
+.case-header {
+  font-weight: bold;
+  text-align: center;
+  & p {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .case-header {
+    & p {
+      font-size: 20px;
+    }
+  }
+}

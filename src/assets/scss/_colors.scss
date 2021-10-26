@@ -2,6 +2,8 @@
 
 $color__bittersweet: #ff7268;
 $color__neon-blue: #5f38fa;
+$color__neon-blue--focus: lighten($color__neon-blue, 5);
+
 $color__supernova: #fac800;
 $color__mysterious-blue: #160637;
 
@@ -20,6 +22,13 @@ $color__rating-light-green: #a9d100;
 $color__rating-green: #0daf00;
 $color__rating-yellow: #e8d600; //inactive
 $color__rating-active: #2682ff;
+
+$color__rating-tweeter: #1da1f2;
+$color__rating-facebook: #166fe5;
+
+$color__select-border: #dcd4d4;
+
+$color__share-section-heading: #4a4a4a;
 
 $color__shadow: rgba(22, 6, 55, 0.15);
 $color__link: $color__bittersweet;
@@ -93,3 +102,48 @@ $color__badge: $color__mysterious-blue;
 $color__badge-icon: $color__white;
 $color__badge-headline: $color__white;
 $color__badge-description: $color__white;
+
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.color__bittersweet {
+  background-color: $color__bittersweet;
+}
+
+.color__neon-blue {
+  background-color: $color__neon-blue;
+}
+
+.color__purple {
+  background-color: $color__purple;
+}
+
+.color__supernova {
+  background-color: $color__supernova;
+}
+
+.color__rating-red {
+  background-color: $color__rating-red;
+}
+
+.color__rating-light-green {
+  background-color: $color__rating-light-green;
+}
+
+.color__rating-green {
+  background-color: $color__rating-green;
+}
+
+.color__rating-tweeter {
+  background-color: $color__rating-tweeter;
+}
+
+.font-old-parapgraph {
+  color: $color__old-paragraph;
+}

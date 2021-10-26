@@ -32,12 +32,14 @@ export class ForgotPasswordSubmitComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    switch (this.data.details.DeliveryMedium) {
+    switch (this.data.details.deliveryMedium) {
       case 'SMS':
-        this.title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per SMS an die Nummer ${this.data.details.Destination} geschickt.`;
+        this.title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per SMS an die Nummer `
+        + `${this.data.details.Destination} geschickt.`;
         break;
       case 'EMAIL':
-        this.title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per E-Mail an die Adresse ${this.data.details.Destination} geschickt.`;
+        this.title = `Wir haben dir einen Code zum Zurücksetzen deines Passworts per E-Mail an die Adresse `
+        + `${this.data.details.Destination} geschickt.`;
         break;
       default:
         this.title = ``;

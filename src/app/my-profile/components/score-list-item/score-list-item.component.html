@@ -1,0 +1,22 @@
+<li class="item">
+  <div class="item-content">
+    <div class="score-container">
+        <h2 [ngClass]="color">
+          {{ result_score }}
+        </h2>
+    </div>
+    <div class="main-container">
+      <div class="archive-body {{fontColor}}">
+          <h2>#{{case.id.split('-')[0]}}</h2>
+          <div class="archive-body-main">
+            <div class="archive-info">
+                <span class="received-txt"><small><i class="far fa-calendar-alt"></i>{{ startTime }}</small></span>
+                <span class="closed"><small><i class="far fa-calendar-check"></i>{{ endTime }}</small></span>
+                <span class="comments"><small><i class="far fa-comment"></i>{{ comments.length }}</small></span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</li>

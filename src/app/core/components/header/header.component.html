@@ -1,87 +1,107 @@
-<div class="header__wrapper">
-  <div class="header__logo">
+<header class="header">
+  <div class="header__wrapper">
+    <div class="header__logo">
 
-    <a href="javascript:;" title="Startseite" class="logo">
-      <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Startseite" class="logo__image" />
-    </a>
+      <a href="/" title="Startseite" class="logo">
+        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Startseite" class="logo__image" />
+      </a>
 
-  </div>
+    </div>
 
-  <div class="header__navigation-main">
+    <div class="header__navigation-main">
 
-    <!-- Not logged in -->
-    <nav *ngIf="!authState.isLoggedIn" class="navigation-main">
+      <!-- Not logged in -->
+      <nav *ngIf="!authenticated" class="navigation-main">
 
-      <ul class="navigation-main__list">
-        <li class="navigation-main__item">
-          <a href="javascript:;" class="navigation-main__link" title="Über uns">Über uns</a>
-        </li>
-        <li class="navigation-main__item">
-          <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
-        </li>
-        <li class="navigation-main__item">
-          <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
-        </li>
-        <li class="navigation-main__item">
-          <a href="javascript:;" title=""
-            class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective">Detektiv
-            werden</a>
-        </li>
-        <li class="navigation-main__item">
-          <a class="navigation-main__link" title="Login" [routerLink]="['/login']">Login</a>
-        </li>
-      </ul>
+        <ul class="navigation-main__list">
+          <li class="navigation-main__item">
+            <a [routerLink]="['/about']" class="navigation-main__link" title="Über uns">Über uns</a>
+          </li>
+          <li class="navigation-main__item">
+            <a  class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
+          </li>
+          <li class="navigation-main__item">
+            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+          </li>
+          <li class="navigation-main__item">
+            <a [routerLink]="['/register']" title=""
+              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
+              <i class="fas fa-user-cowboy"></i>Detektiv werden
+            </a>
+          </li>
+          <li class="navigation-main__item">
+            <a class="navigation-main__link" title="Login" [routerLink]="['/login']">Login</a>
+          </li>
+        </ul>
 
-    </nav>
 
-    <!-- Logged in -->
-    <nav *ngIf="userLoaded" class="navigation-main">
+      </nav>
 
-      <ul class="navigation-main__list">
-        <li class="navigation-main__item navigation-main__item--no-spacing">
-          <a href="javascript:;" title=""
-            class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter">Fall
-            einreichen</a>
-        </li>
-        <li class="navigation-main__item">
-          <a href="javascript:;" class="navigation-main__link" title="FAQ">FAQ</a>
-        </li>
-        <li class="navigation-main__item">
-          <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle">Gelöste Fälle</a>
-        </li>
-        <li class="navigation-main__item">
-          <div class="userprofile">
-            <div class="userprofile__content">
-              <div class="userprofile__name-wrapper">
-                <div class="userprofile__award userprofile__award--gold"></div>
-                <div class="userprofile__name">
-                  John Doe
+      <!-- Logged in -->
+      <nav *ngIf="userLoaded" class="navigation-main">
+
+        <ul class="navigation-main__list">
+          <li class="navigation-main__item">
+            <a href="javascript:;" title=""
+              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/submit']">
+              <i class="fas fa-typewriter"></i>
+              Fall einreichen
+            </a>
+          </li>
+          <li class="navigation-main__item">
+            <a href="javascript:;" class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
+          </li>
+          <li class="navigation-main__item">
+            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+          </li>
+          <li class="navigation-main__item">
+            <div class="userprofile">
+              <div class="userprofile__content">
+                <div class="userprofile__name-wrapper">
+                  <div class="userprofile__award userprofile__award--gold"></div>
+                  <div class="userprofile__name">
+                    {{user.name}}
+                  </div>
+                </div>
+                <div class="userprofile__title">
+                  {{user.level_description}}
                 </div>
               </div>
-              <div class="userprofile__title">
-                Detective Superintendent
+
+              <div class="userprofile__bubble" style="background-color: #722ED1;">
+                J
               </div>
+
+              <div class="userprofile__flyout-call"></div>
             </div>
-
-            <div class="userprofile__bubble" style="background-color: #722ED1;">
-              J
+            <div class="navigation-flyout">
+              <ul class="navigation-flyout__list">
+                <li class="navigation-flyout__item">
+                  <a href="javascript:;" class="navigation-flyout__link" title="Profil" [routerLink]="['/my-file']">Profil</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a (click)="logout()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
+                </li>
+              </ul>
             </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-            <div class="userprofile__flyout-call"></div>
-          </div>
-          <div class="navigation-flyout">
-            <ul class="navigation-flyout__list">
-              <li class="navigation-flyout__item">
-                <a href="javascript:;" class="navigation-flyout__link" title="Profil">Profil</a>
-              </li>
-              <li class="navigation-flyout__item">
-                <a href="javascript:;" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
+    <div class="header__navigation-mobile">
 
-    </nav>
 
+      <nav class="navigation-mobile">
+
+        <!-- <div class="navigation-mobile__call"></div> -->
+        <button mat-icon-button aria-label="hamburger-menu-button" (click)="openMenuDialog()" >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- Here be Overlay Stuff -->
+
+      </nav>
+    </div>
   </div>
+
+</header>

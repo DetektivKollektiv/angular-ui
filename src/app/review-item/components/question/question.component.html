@@ -1,22 +1,75 @@
-<h4>{{question.content}}
-  <span *ngIf="question.hint">
-    <mat-icon [matTooltip]="question.hint" matTooltipPosition="above"> help
-    </mat-icon>
-  </span>
-  <span *ngIf="question.info">
-    <mat-icon [matTooltip]="question.info" matTooltipPosition="above"> info
-    </mat-icon>
-  </span>
-</h4>
+<div [ngClass]="isChild ? 'question none-border' : 'question'">
+  <p class="large-text">{{ title }}</p>
+  <p class="medium-text">{{ question.content }}</p>
 
-<mat-radio-group [(ngModel)]="question.answer_value" (change)="change()">
-  <mat-radio-button *ngFor="let option of question.options" [value]="option.value" [checked]="false"
-    [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
-    <div class="option">
-      <span>{{option.text}}</span>
-      <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above">
-        help
-      </mat-icon>
+  <div class="question-hint-container">
+    <div class="icon-wrap"><i class="fas fa-clipboard-check"></i></div>
+    <div class="small-text">{{ question.hint }}</div>
+  </div>
+
+  <div class="question-info-container">
+    <div class="icon-wrap"><i class="fas fa-info-circle"></i></div>
+    <div class="small-text">{{ question.info }}</div>
+  </div>
+
+  <ng-container *ngIf="displayOnly; else review">
+    <mat-radio-group class="readonly">
+      <mat-radio-button
+        [disabled]="displayOnly"
+        *ngFor="let option of question.options"
+        [value]="option.value"
+        [checked]="getContributors(option.value).length > 0"
+      >
+        <div class="option">
+          {{ option.text }}
+          <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above"> help </mat-icon>
+          <div class="option__info" *ngIf="getContributors(option.value).length">
+            <span class="option__percentage"
+              ><i class="fas fa-user-cowboy"></i>~{{ option.value | answerPercentage: question.question_id:questions }}%</span
+            >
+            <div class="option__contributors">
+              <div
+                class="avatar"
+                [style.background-color]="contributor.color"
+                *ngFor="let contributor of getContributors(option.value); let i = index"
+              >
+                {{ !contributor?.username ? '?' : contributor.username[0] }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-radio-button>
+    </mat-radio-group>
+  </ng-container>
+
+  <div class="child-question-container" *ngIf="isShowChild">
+    <div class="child-question" *ngFor="let childQuestion of visibleChildQuestions; let i = index">
+      <app-question
+        [question]="childQuestion"
+        [questions]="questions"
+        [isChild]="true"
+        [parentIndex]="index"
+        [index]="i"
+        [displayOnly]="displayOnly"
+      ></app-question>
     </div>
-  </mat-radio-button>
-</mat-radio-group>
+  </div>
+</div>
+
+<ng-template #review>
+  <mat-radio-group [(ngModel)]="question.answer_value" (change)="change($event)">
+    <mat-radio-button
+      [disabled]="displayOnly"
+      *ngFor="let option of question.options"
+      [value]="option.value"
+      [checked]="false"
+      [class.not-last-item]="option.value > 0"
+      [class.last-item]="option.value == 0"
+    >
+      <div class="option">
+        {{ option.text }}
+        <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above"> help </mat-icon>
+      </div>
+    </mat-radio-button>
+  </mat-radio-group>
+</ng-template>

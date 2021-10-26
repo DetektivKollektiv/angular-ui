@@ -2,11 +2,11 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ItemsService } from '../../services/items/items.service';
 import { Item } from '../../model/item';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoaderService } from '../../../shared/loader/service/loader.service';
+import { LoaderService } from '@shared/loader/service/loader.service';
 import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 import { UserService } from '../../../core/services/user/user.service';
-import { UnsavedChanges } from '../../../shared/unsaved-changes/interface/unsaved-changes';
+import { UnsavedChanges } from '@shared/unsaved-changes/interface/unsaved-changes';
 import { MatDialog } from '@angular/material/dialog';
 import { OpenReviewDialogComponent } from '../open-review-dialog/open-review-dialog.component';
 import { ReviewState } from '../../model/review-state';
@@ -110,22 +110,22 @@ export class ReviewComponent implements OnInit, UnsavedChanges {
         if (openCases.is_open_review) {
           this.openReview = true;
 
-          this.dialog
-            .open(OpenReviewDialogComponent)
-            .afterClosed()
-            .subscribe((resume) => {
-              if (resume) {
-                this.loader.show();
+          // this.dialog
+          //   .open(OpenReviewDialogComponent)
+          //   .afterClosed()
+          //   .subscribe((resume) => {
+          //     if (resume) {
+          //       this.loader.show();
 
-                this.reviewService
-                  .createReview(openCases.items[0].id)
-                  .then((review) => {
-                    this.review = review;
-                    this.caseAccepted = true;
-                  })
-                  .finally(() => this.loader.hide());
-              }
-            });
+          //       this.reviewService
+          //         .createReview(openCases.items[0].id)
+          //         .then((review) => {
+          //           this.review = review;
+          //           this.caseAccepted = true;
+          //         })
+          //         .finally(() => this.loader.hide());
+          //     }
+          //   });
         }
       })
       .catch(() => {

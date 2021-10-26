@@ -1,0 +1,72 @@
+<div class="authentication-page">
+    <div class="hero-section">
+        <div class="logo">
+            <a title="home" [routerLink]="['/']"><img src="assets/logo/codetekt_white_logo.png" width="200"></a>
+        </div>
+
+        <mat-card class="authentication-page-card">
+          <mat-card-content class="authentication-page-card--contents">
+          	<ng-content></ng-content>
+          </mat-card-content>
+        </mat-card>
+
+
+        <div class="line-container">
+            <div class="line"></div>
+        </div>
+
+
+        <div *ngIf=" loginCTA === 'register' " >
+            <p class="login_form_buttom_text">
+                Du hast keinen Account und möchtest die Welt zu einem besseren Ort machen?
+            </p>
+
+            <div class="registration_call_to_action_button">
+                <a title="Login" [routerLink]="['/register']">
+                    <button>
+                        <i class="fas fa-user-cowboy"></i> Detektiv werden
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div *ngIf=" loginCTA === 'login' " >
+            <p class="login_form_buttom_text">
+                Du hast schon einen Account und möchtest Dich anmelden?
+            </p>
+
+            <div class="registration_call_to_action_button">
+                <a title="Login" [routerLink]="['/login']">
+                    <button>
+                        Login
+                    </button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="full-width-container">
+        <div class="wrapper">
+            <div class="case-list-container">
+                <h3>Die letzten gelösten Fälle</h3>
+                <app-case-list *ngIf="cases.length > 0" [cases]=cases [numberOfCases]="5" [showText]="true"></app-case-list>
+                <button type="submit" class="">Weitere gelöste Fälle ansehen</button>
+            </div>
+            <div class="partner-logo-section">
+                <h3>Unsere Partner</h3>
+                <div class="social_image">
+                    <img src="assets/logo/social_image.png" width="100%">
+                </div>
+                <div class="paragraph">
+                    <h3>Rechtliches</h3>
+                    <p>
+                        Durch die Anmetrap_third_serial_numberung oder Registrierung stimmust du unseren <span class="orange">Nutzungsbedingungen</span> zu. In unserer <span class="orange">Datenrichtlinie</span> erfahrst du, wie wir deine Daten erfassen, verwenden und teilen. Unsere <span class="orange">Cookie-Richtlinie</span> erklart, wie wir Cookies und ahnliche Technologien verwenden.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

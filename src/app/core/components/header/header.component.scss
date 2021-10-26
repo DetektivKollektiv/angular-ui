@@ -2,6 +2,10 @@
 
 @import "../../../../assets/scss/_initializer.scss";
 
+.no-padding-dialog-container {
+  padding: 0;
+}
+
 .header {
   $parent: &;
 
@@ -78,17 +82,11 @@
       text-decoration: none;
     }
   }
-
-  &__button {
-    &--detective {
-      @include fontawesome("f8ea");
-    }
-
-    &--typewriter {
-      @include fontawesome("f8e7");
-    }
+  &__button--detective {
+    
   }
 }
+
 
 
 // todo: move this somewhere more appropriate
@@ -105,7 +103,7 @@
     margin: 0 _b__rem(10px) 0 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   &__name-wrapper {
@@ -115,7 +113,7 @@
   }
 
   &__award {
-    @include fontawesome("f5a2");
+    // @include fontawesome("f5a2");
     @include _b__font-size-rem(16px);
 
     margin: 0 _b__rem(4px) 0 0;
@@ -159,7 +157,7 @@
   }
 
   &__flyout-call {
-    @include fontawesome("f078");
+    // @include fontawesome("f078");
     @include _b__font-size-rem(12px);
   }
 }
@@ -198,7 +196,8 @@
     &:hover,
     &:focus,
     &:active {
-      text-decoration: underline;
+      text-decoration: none;
+      cursor: pointer;
     }
   }
 }
@@ -214,5 +213,44 @@
     .navigation-flyout {
       display: block;
     }
+  }
+}
+
+.navigation-mobile {
+  $parent: &;
+
+  &__call {
+    // @include fontawesome("f0c9");
+    @include _b__font-size-rem(24px);
+
+    cursor: pointer;
+    color: $color__navigation-mobile-call;
+    padding: _b__rem(8px) _b__rem(10px);
+  }
+
+  //TODO DEV
+  //Here be Overlay Stuff
+}
+$light-reddish1: #ff7268;
+.third-theme-color {
+  color: $light-reddish1;
+}
+
+
+// todo: move to its own component
+.around-button {
+  border: 1px solid #ff7269;
+  padding: 5px 10px;
+  border-radius: 15px;
+  &:hover {
+    background-color: #ff7269;
+    color: white;
+  }
+}
+
+.navigation-main__button--detective {
+  padding: 15px;
+  i {
+    margin-right: 7px;
   }
 }

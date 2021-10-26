@@ -1,0 +1,22 @@
+.body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+
+  .container {
+    width: calc(100% - 20px);
+    @media only screen and (min-width: 480px) {
+
+    }
+
+    @media only screen and (min-width: 1024px) {
+       width: 800px;
+    }
+
+    // this number 1350  i just made up randomly
+    @media only screen and (min-width: 1350px) {
+       width: 1240px;
+    }
+  }
+}

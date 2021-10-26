@@ -30,12 +30,10 @@
             "style": "camelCase"
           }
         ],
-        "@typescript-eslint/naming-convention": [
-          "warn",
-          { "selector": "property", "format": ["camelCase", "snake_case"] }
-        ],
+        "@typescript-eslint/naming-convention": ["warn", { "selector": "property", "format": ["camelCase", "snake_case"] }],
         "max-len": ["warn"],
-        "no-shadow": ["warn"]
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": ["warn"]
       }
     },
     {

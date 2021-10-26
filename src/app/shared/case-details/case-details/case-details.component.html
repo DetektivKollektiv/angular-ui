@@ -1,0 +1,9 @@
+<div class="case-details">
+  <section class="case-details__header">
+    <ng-content select="app-breadcrumb"></ng-content>
+    <div class="case-details__number-id">{{ case.id | caseId }} <span class="mono-font">Fallnummer</span></div>
+  </section>
+  <section class="case-details__description">
+    <p>{{ description }}</p>
+  </section>
+</div>

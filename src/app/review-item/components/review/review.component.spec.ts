@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ReviewComponent } from './review.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialModule } from '../../../shared/material/material.module';
-import { LoaderModule } from '../../../shared/loader/loader.module';
-import { HelperModule } from '../../../shared/helper/helper.module';
-import { AuthService } from '../../../shared/auth/auth-service/auth.service';
+import { MaterialModule } from '@shared/material/material.module';
+import { LoaderModule } from '@shared/loader/loader.module';
+import { HelperModule } from '@shared/helper/helper.module';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { MockAuthService } from '../../../../test/mocks/mock-auth.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';
@@ -19,6 +19,7 @@ import { FactcheckComponent } from '../factcheck/factcheck.component';
 import { ReviewProcessComponent } from '../review-process/review-process.component';
 import { ReviewQuestionComponent } from '../review-question/review-question.component';
 import { ReviewSummaryComponent } from '../review-summary/review-summary.component';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 describe('ReviewComponent', () => {
   let component: ReviewComponent;
@@ -34,7 +35,7 @@ describe('ReviewComponent', () => {
           FactcheckComponent,
           ReviewProcessComponent,
           ReviewQuestionComponent,
-          ReviewSummaryComponent,
+          ReviewSummaryComponent
         ],
         imports: [
           RouterTestingModule,
@@ -44,12 +45,13 @@ describe('ReviewComponent', () => {
           CommonModule,
           UnsavedChangesModule,
           FormsModule,
+          PipesModule
         ],
         providers: [
           { provide: AuthService, useClass: MockAuthService },
           { provide: UserService, useClass: MockUserService },
-          { provide: ReviewsService, useClass: MockReviewService },
-        ],
+          { provide: ReviewsService, useClass: MockReviewService }
+        ]
       }).compileComponents();
     })
   );

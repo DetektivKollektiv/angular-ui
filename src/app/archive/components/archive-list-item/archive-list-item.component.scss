@@ -1,0 +1,56 @@
+@import '../../../../assets/scss/colors';
+
+.item {
+  margin: 30px 0;
+  display: flex;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 768px) {
+    &__case {
+      flex-basis: 70%;
+    }
+
+    &__more {
+      flex-basis: 30%;
+    }
+  }
+
+  &__more {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+
+    @media only screen and (max-width: 768px) {
+      margin-top: 10px;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__details-btn {
+    align-self: flex-start;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 700;
+
+    border: 2px solid $color__neon-blue;
+    background-color: $color__neon-blue;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: $color__neon-blue;
+    }
+  }
+}
