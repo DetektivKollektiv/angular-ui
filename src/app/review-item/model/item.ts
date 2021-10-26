@@ -13,8 +13,3 @@ export interface Item {
   tags?: string[];
   urls?: string[];
 }
-
-export interface GetItemResponse {
-  is_open_review: boolean;
-  items: Item[];
-}

@@ -102,6 +102,8 @@ button.button-flat:disabled {
   color: $color__mysterious-blue;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
 
   &::before {
@@ -111,6 +113,11 @@ button.button-flat:disabled {
   &:disabled {
     border: none;
     opacity: 0.7;
+  }
+
+  &:hover {
+    background-color: white;
+    color: $color__mysterious-blue;
   }
 
   @at-root a#{$parent} {
@@ -125,24 +132,40 @@ button.button-flat:disabled {
     background-color: $color__bittersweet;
     border-color: $color__bittersweet;
     color: $color__white;
+
+    &:hover {
+      color: $color__bittersweet;
+    }
   }
 
   &--neon-blue {
     background-color: $color__neon-blue;
     border-color: $color__neon-blue;
     color: $color__white;
+
+    &:hover {
+      color: $color__neon-blue;
+    }
   }
 
   &--mysterious-blue {
     background-color: $color__mysterious-blue;
     border-color: $color__mysterious-blue;
     color: $color__white;
+
+    &:hover {
+      color: $color__mysterious-blue;
+    }
   }
 
   &--supernova {
     background-color: $color__supernova;
     border-color: $color__supernova;
     color: $color__mysterious-blue;
+
+    &:hover {
+      color: $color__supernova;
+    }
   }
 
   &--white {
@@ -153,6 +176,10 @@ button.button-flat:disabled {
 
   &--hallow {
     background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
 
     &#{$parent}--neon-blue {
       color: $color__neon-blue;
@@ -181,6 +208,10 @@ button.button-flat:disabled {
     background-color: transparent;
     border-color: transparent;
 
+    &:hover {
+      background-color: transparent;
+    }
+
     &#{$parent}--neon-blue {
       color: $color__neon-blue;
     }
@@ -207,6 +238,10 @@ button.button-flat:disabled {
 
     background-color: transparent;
     border-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
 
     &#{$parent}--neon-blue {
       color: $color__neon-blue;

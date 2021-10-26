@@ -1,11 +1,8 @@
-.open-case-list-slider {
-    
-}
-
 .case-header {
   font-weight: bold;
   text-align: center;
-  & p {
+
+  p {
     font-size: 30px;
   }
 }
@@ -15,5 +12,29 @@
     & p {
       font-size: 20px;
     }
+  }
+}
+
+.skeleton-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  padding: 10px 20px 20px;
+  margin: 20px 0;
+  width: 100vw;
+
+  @media only screen and (min-width: 1024px) {
+    border-radius: 25px;
+    width: unset;
+  }
+
+  .skeleton-text:first-child {
+    margin: 20px 0;
+    height: 21px;
+    width: 30%;
+  }
+
+  .skeleton-text {
+    height: 18px;
   }
 }

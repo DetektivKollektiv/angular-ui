@@ -1,6 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { ItemsService } from '../../services/items/items.service';
-import { Item } from '../../model/item';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoaderService } from '@shared/loader/service/loader.service';
 import { Review } from '../../model/review';
@@ -8,9 +7,9 @@ import { ReviewsService } from '../../services/reviews/reviews.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { UnsavedChanges } from '@shared/unsaved-changes/interface/unsaved-changes';
 import { MatDialog } from '@angular/material/dialog';
-import { OpenReviewDialogComponent } from '../open-review-dialog/open-review-dialog.component';
 import { ReviewState } from '../../model/review-state';
 import { globals } from 'src/environments/globals';
+import { Item } from '../../../model/item';
 
 
 @Component({

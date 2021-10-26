@@ -47,8 +47,8 @@
       </div>
     </div>
   </div>
-  <div class="open-cases-swiper-section" *ngIf="authenticated && cases && cases.length && !is_open_review">
-    <app-open-case-list-slider [cases]="cases"></app-open-case-list-slider>
+  <div class="open-cases-swiper-section" *ngIf="authenticated">
+    <app-open-case-list-slider></app-open-case-list-slider>
   </div>
   <app-submit-no-auth *ngIf="!authenticated"></app-submit-no-auth>
   <div class="bottom-section">

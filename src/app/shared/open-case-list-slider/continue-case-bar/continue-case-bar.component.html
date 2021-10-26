@@ -1,17 +1,16 @@
-<div class="open-review">
-  <div class="open-review-header">
-    <p>Diese Fälle benötigen deine Hilfe</p>
+<div class="info">
+  <div class="info__header">
+    <i class="far fa-lock-alt"></i>
+    <span class="bold-weight">Du hast bereits den Fall {{ item.id | caseId }} angenommen.</span>
   </div>
-  <div class="open-review-container">
-    <div class="left-side">
-      <p class="id-content">Du hast noch den Fall #{{cases[0].id.split('-')[0]}} in Bearbeitung</p>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+  <div class="info__content">
+    <div class="info__text">
+      Bitte schließe zuerst deinen angenommenen Fall ab. Sobald die Bearbeitung dieses Falls abgeschlossen ist, kannst du neue Fälle
+      annehmen.
     </div>
-    <div class="right-side">
-      <a [routerLink]="['/reviews', cases[0].id]" title=""
-          class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color round-button">
-          <i class="far fa-clipboard-list-check"></i>&nbsp;Fall ansehen
-      </a>
-    </div>
+    <a appButton [routerLink]="['/reviews', item.id]">
+      <i class="far fa-clipboard-list-check"></i>
+      <span>Fall ansehen</span>
+    </a>
   </div>
 </div>

@@ -1,28 +1,16 @@
-import { Component, HostListener, AfterViewInit, Input } from '@angular/core';
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  A11y,
-  Swiper
-} from 'swiper/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
+import SwiperCore, { Navigation, Pagination, A11y, Swiper } from 'swiper/core';
+import { Item } from '../../../model/item';
 
-SwiperCore.use([ Navigation, Pagination, A11y]);
+SwiperCore.use([Navigation, Pagination, A11y]);
 @Component({
   selector: 'app-cases-list-swiper',
   templateUrl: './case-swiper.component.html',
-  styleUrls: ['./case-swiper.component.scss'],
+  styleUrls: ['./case-swiper.component.scss']
 })
 export class CasesSwiperComponent implements AfterViewInit {
-  @Input() public cases: any[];
-  public swiper: Swiper;
-
-  constructor(
-  ) {
-
-  }
-
-  OnInit(): void {
-  }
+  @Input() cases: Item[];
+  swiper: Swiper;
 
   ngAfterViewInit() {
     this.swiper = new Swiper('.swiper-container', {
@@ -30,8 +18,8 @@ export class CasesSwiperComponent implements AfterViewInit {
       spaceBetween: 50,
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+        prevEl: '.swiper-button-prev'
+      }
       // breakpoints: {
       //   1024: {
       //       slidesPerView: 1,
@@ -55,10 +43,5 @@ export class CasesSwiperComponent implements AfterViewInit {
 
   slideNext() {
     this.swiper.slideNext();
-  }
-
-  onSwiper(swiper) {
-  }
-  onSlideChange() {
   }
 }

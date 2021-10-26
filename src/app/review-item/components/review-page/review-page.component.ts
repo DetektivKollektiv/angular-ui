@@ -2,7 +2,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemsService } from '../../services/items/items.service';
-import { Item } from '../../model/item';
+import { Item } from '../../../model/item';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoaderService } from '@shared/loader/service/loader.service';
 import { Review } from '../../model/review';

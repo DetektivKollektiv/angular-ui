@@ -1,4 +1,6 @@
 @use './assets/scss/fonts' as fonts;
+@use './assets/scss/buttons';
+
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
 @import '~swiper/swiper-bundle';
