@@ -103,6 +103,10 @@ app-case-details {
   }
 
   .overview {
+    @media only screen and (min-width: 1024px) {
+      margin-top: 20px;
+    }
+
     &__title {
       margin: 20px 0;
       font-weight: 700;
