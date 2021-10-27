@@ -8,7 +8,7 @@
       Bitte schließe zuerst deinen angenommenen Fall ab. Sobald die Bearbeitung dieses Falls abgeschlossen ist, kannst du neue Fälle
       annehmen.
     </div>
-    <a appButton [routerLink]="['/reviews', item.id]">
+    <a appButton routerLink="/review" [state]="{ item: item, isOpenReview: true }">
       <i class="far fa-clipboard-list-check"></i>
       <span>Fall ansehen</span>
     </a>

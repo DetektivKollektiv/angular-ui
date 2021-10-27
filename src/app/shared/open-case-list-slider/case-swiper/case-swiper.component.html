@@ -10,7 +10,7 @@
             {{ case.content }}
           </div>
           <div class="case__buttons">
-            <a appButton [routerLink]="['/reviews', case.id]">
+            <a appButton routerLink="/review" [state]="{ item: case, isOpenReview: false }">
               <i class="far fa-clipboard-list-check"></i>
               <span>Fall ansehen</span>
             </a>

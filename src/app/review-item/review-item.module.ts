@@ -24,6 +24,10 @@ import { WatsonComponent } from './components/watson/watson.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { PipesModule } from '@shared/pipes/pipes.module';
+import { QuestionCarouselModule } from '@shared/question-carousel/question-carousel.module';
+import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
+import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
+import { ButtonModule } from '@shared/button/button.module';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,11 @@ import { PipesModule } from '@shared/pipes/pipes.module';
     IvyCarouselModule,
     CaseDetailsModule,
     BreadcrumbModule,
-    PipesModule
+    PipesModule,
+    QuestionCarouselModule,
+    EdgyBackgroundModule,
+    CaseFactsModule,
+    ButtonModule
   ],
   providers: [
     ReviewsService,

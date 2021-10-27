@@ -113,6 +113,11 @@ button.button-flat:disabled {
   &:disabled {
     border: none;
     opacity: 0.7;
+
+    // &:hover {
+    //   background-color: transparent;
+    //   color: currentColor;
+    // }
   }
 
   &:hover {
@@ -125,6 +130,20 @@ button.button-flat:disabled {
     &:focus,
     &:active {
       text-decoration: none;
+    }
+  }
+
+  &--reject {
+    text-decoration: none;
+    color: $color__old-paragraph;
+    justify-content: center;
+    border: none;
+    background: none;
+    @include font__effra--regular;
+
+    &:hover {
+      background-color: transparent;
+      color: $color__old-paragraph;
     }
   }
 

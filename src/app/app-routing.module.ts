@@ -53,21 +53,9 @@ const routes: Routes = [
       },
       {
         path: 'review',
-        component: ReviewComponent,
-        canActivate: [AuthGuard],
-        canDeactivate: [UnsavedChangesGuard]
-      },
-      {
-        path: 'reviews/:id',
         component: ReviewPageComponent,
         canActivate: [AuthGuard],
         canDeactivate: [UnsavedChangesGuard]
-      },
-      {
-        path: 'reviews',
-        component: ReviewPageComponent
-        // canActivate: [AuthGuard],
-        // canDeactivate: [UnsavedChangesGuard],
       },
       {
         path: 'profile',

@@ -4,10 +4,11 @@ import { Directive, HostBinding, Input } from '@angular/core';
   selector: '[appButton]'
 })
 export class ButtonDirective {
-  @Input() color = 'button--neon-blue';
+  @Input() color = 'neon-blue';
+  @Input() mode: 'default' | 'reject' = 'default';
 
   @HostBinding('class') get colorClass() {
-    return ['button', this.color];
+    return ['button', this.mode === 'reject' ? 'button--reject' : `button--${this.color}`];
   }
   constructor() {}
 }
