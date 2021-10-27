@@ -17,6 +17,7 @@ import { SubmitSuccessPageComponent } from './components/submit-success-page/sub
 import { SubmitNoAuthComponent } from './components/submit-no-auth/submit-no-auth.component';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
+import { ButtonModule } from '../shared/button/button.module';
 
 @NgModule({
   declarations: [SubmitComponent, SubmitPageComponent, SubmitSuccessPageComponent, ItemTypePipe, ItemSourcePipe, SubmitNoAuthComponent],
@@ -32,7 +33,8 @@ import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module
     TranslateModule.forChild(),
     QuestionCarouselModule,
     CaseListItemModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    ButtonModule
   ]
 })
 export class SubmitItemModule {}

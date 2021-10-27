@@ -111,18 +111,13 @@ button.button-flat:disabled {
   }
 
   &:disabled {
-    border: none;
+    // border: none;
     opacity: 0.7;
-
-    // &:hover {
-    //   background-color: transparent;
-    //   color: currentColor;
-    // }
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: white;
-    color: $color__mysterious-blue;
+    text-decoration: none;
   }
 
   @at-root a#{$parent} {
@@ -142,7 +137,7 @@ button.button-flat:disabled {
     @include font__effra--regular;
 
     &:hover {
-      background-color: transparent;
+      background-color: transparent !important;
       color: $color__old-paragraph;
     }
   }
@@ -152,7 +147,7 @@ button.button-flat:disabled {
     border-color: $color__bittersweet;
     color: $color__white;
 
-    &:hover {
+    &:hover:not(:disabled) {
       color: $color__bittersweet;
     }
   }
@@ -162,7 +157,7 @@ button.button-flat:disabled {
     border-color: $color__neon-blue;
     color: $color__white;
 
-    &:hover {
+    &:hover:not(:disabled) {
       color: $color__neon-blue;
     }
   }
@@ -172,7 +167,7 @@ button.button-flat:disabled {
     border-color: $color__mysterious-blue;
     color: $color__white;
 
-    &:hover {
+    &:hover:not(:disabled) {
       color: $color__mysterious-blue;
     }
   }
@@ -182,7 +177,7 @@ button.button-flat:disabled {
     border-color: $color__supernova;
     color: $color__mysterious-blue;
 
-    &:hover {
+    &:hover:not(:disabled) {
       color: $color__supernova;
     }
   }
@@ -196,7 +191,7 @@ button.button-flat:disabled {
   &--hallow {
     background-color: transparent;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: transparent;
     }
 
@@ -227,7 +222,7 @@ button.button-flat:disabled {
     background-color: transparent;
     border-color: transparent;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: transparent;
     }
 
@@ -258,7 +253,7 @@ button.button-flat:disabled {
     background-color: transparent;
     border-color: transparent;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: transparent;
     }
 

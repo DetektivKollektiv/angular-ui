@@ -54,7 +54,7 @@ export class QuestionComponent implements OnInit {
   }
 
   showChildQuestions(value) {
-    if (!value) {
+    if (value === null || value === undefined) {
       return;
     }
 
@@ -78,8 +78,8 @@ export class QuestionComponent implements OnInit {
     return this.questionContributorsPipe.transform(value, this.question.question_id, this.questions);
   }
 
-  change(e) {
+  onQuestionValueChange(e: number) {
     this.valueChange.emit();
-    this.showChildQuestions(e.value);
+    this.showChildQuestions(e);
   }
 }

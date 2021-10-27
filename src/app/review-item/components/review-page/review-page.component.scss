@@ -128,101 +128,31 @@ app-case-details {
     }
 
     .tags {
-      margin-top: 40px;
-
-      &__title {
-        @include fonts.font__effra--medium;
-        font-size: 18px;
-        margin-bottom: 8px;
-      }
-
-      &__content {
-        display: flex;
-        flex-wrap: wrap;
-      }
-    }
-
-    .detectives {
-      margin-top: 40px;
-
-      &__title {
-        margin-bottom: 20px;
-        font-size: 21px;
-        font-weight: bold;
-      }
+      border-bottom: 4px dashed colors.$color__spacer;
+      padding-bottom: 40px;
+      margin-top: 20px;
     }
 
     .comments {
-      margin-top: 40px;
+      border-bottom: 4px dashed colors.$color__spacer;
+      padding-bottom: 40px;
 
-      &__title {
-        @include fonts.font__effra--bold;
-        font-size: 21px;
-        margin-bottom: 20px;
+      h2 {
+        margin-top: 0;
       }
     }
 
-    .processing {
-      margin-top: 40px;
-    }
+    .legal {
+      margin-top: 20px;
 
-    .discussion {
-      &--border {
-        border-top: 4px dashed colors.$color__spacer;
-        padding-top: 40px;
-        margin-top: 40px;
+      .explain {
+        margin-bottom: 30px;
       }
 
-      .collapsible-toolbar {
-        margin-bottom: 20px;
-      }
-
-      &__body {
-        position: relative;
-      }
-
-      &__comments {
+      &__container {
         display: flex;
         flex-direction: column;
-
-        &--loading {
-          opacity: 0.3;
-        }
-      }
-
-      &__more {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-
-        button {
-          padding: 5px 15px;
-          border-radius: 15px;
-          background-color: colors.$color__purple;
-          color: white;
-          border: none;
-          font-weight: bold;
-          border: 2px solid colors.$color__purple;
-          cursor: pointer;
-
-          &:hover {
-            background-color: white;
-            color: colors.$color__purple;
-            border: 2px solid colors.$color__purple;
-          }
-        }
-      }
-
-      &__spinner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      app-comment-input {
-        margin-top: 40px;
-        margin-left: 20px;
+        gap: 16px;
       }
     }
   }

@@ -70,7 +70,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   // 100 XP is always static
   userExperienceBubbles = [
-    { iconName: 'star', color: '#fac800', text: '100xp', subText: 'erfahrung', gridColor: '#160637' }
+    { iconName: 'star', color: '#fac800', text: '100XP', subText: 'Erfahrung', gridColor: '#160637' }
     // this one was in the designs, but is temporarily removed.
     // { iconName: 'user-cowboy', color: '#fff', text: '3', subText: 'Detektive', gridColor: '#722ED1' }
   ];
@@ -88,6 +88,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public conditionChecked = false;
   public buttonStatus = true;
 
+  private routerState: { [key: string]: any };
+
   constructor(
     private itemsService: ItemsService,
     private reviewsService: ReviewsService,
@@ -96,7 +98,9 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     private loader: LoaderService,
     private router: Router,
     private factCheckService: FactCheckService
-  ) {}
+  ) {
+    this.routerState = this.router.getCurrentNavigation().extras?.state;
+  }
 
   @HostListener('window:beforeunload', ['$event'])
   public onPageUnload($event: BeforeUnloadEvent) {
@@ -198,15 +202,15 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   }
 
   private getItemFromRouterState(): Observable<Item> {
-    const state = this.router.getCurrentNavigation().extras?.state;
-    if (!state) {
+    if (!this.routerState) {
       this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit dem Review zu beginnen', '', {
-        duration: 5000
+        duration: 50000
       });
       this.router.navigate(['/']);
+      return of(null);
     }
 
-    const { item } = state;
+    const { item } = this.routerState;
     return of(item);
   }
 

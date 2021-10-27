@@ -1,5 +1,6 @@
 @use './assets/scss/fonts' as fonts;
 @use './assets/scss/buttons';
+@use './assets/scss/colors' as *;
 
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
@@ -7,7 +8,6 @@
 @import '~swiper/components/navigation/navigation';
 // https://swiperjs.com/angular
 @import '~swiper/swiper-bundle';
-@import './assets/scss/colors';
 
 * {
   // font-family: Effra medium, sans-serif;
@@ -103,7 +103,7 @@ body {
 h1 {
   @include fonts.font__effra--medium;
   line-height: 70px;
-  color: mat-color($custom-theme-accent);
+  // color: mat-color($custom-theme-accent);
 
   span.alt {
     @include fonts.font__effra--medium;
@@ -128,7 +128,18 @@ p {
   @include fonts.font__effra--regular;
   font-size: max(0.7vw, 14px);
   line-height: max(1vw, 22px);
-  color: #4a4a4a;
+}
+
+h1,
+h2,
+h3,
+p,
+div {
+  color: $color__mysterious-blue;
+
+  &.invert {
+    color: white;
+  }
 }
 
 div.page-content {
@@ -274,6 +285,16 @@ mat-icon {
 
   .mat-slider-thumb-label-text {
     color: white;
+  }
+}
+
+.mat-snack-bar-container {
+  background-color: $color__watson-background;
+
+  .mat-simple-snackbar {
+    span {
+      color: white;
+    }
   }
 }
 
