@@ -5,9 +5,9 @@
   <div class="reply-body">
     <div *ngIf="user?.name" class="name font-bold">{{ user?.name || 'unbekannt' }}</div>
     <div class="input-container">
-      <textarea [(ngModel)]="comment" rows="5"></textarea>
+      <textarea [(ngModel)]="comment" (blur)="commentChanged()" rows="5"></textarea>
     </div>
-    <div class="reply-button-container">
+    <div class="reply-button-container" *ngIf="!instantChanges">
       <button (click)="submitComment()" [disabled]="!comment?.length">Posten</button>
     </div>
   </div>

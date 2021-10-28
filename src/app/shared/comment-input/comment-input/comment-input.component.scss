@@ -1,4 +1,4 @@
-@import '../../../../assets/scss/_initializer.scss';
+@use '../../../../assets/scss/colors' as *;
 
 :host {
   display: block;
@@ -7,10 +7,6 @@
 .reply-container {
   display: flex;
   margin-bottom: 20px;
-
-  @media only screen and (min-width: 1024px) {
-    margin-bottom: 100px;
-  }
 
   .reply-body {
     flex: 1;

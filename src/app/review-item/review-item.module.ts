@@ -28,6 +28,7 @@ import { QuestionCarouselModule } from '@shared/question-carousel/question-carou
 import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
 import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
 import { ButtonModule } from '@shared/button/button.module';
+import { CommentInputModule } from '@shared/comment-input/comment-input.module';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ButtonModule } from '@shared/button/button.module';
     QuestionCarouselModule,
     EdgyBackgroundModule,
     CaseFactsModule,
-    ButtonModule
+    ButtonModule,
+    CommentInputModule
   ],
   providers: [
     ReviewsService,

@@ -9,6 +9,8 @@ import { User } from '../../../core/model/user';
 export class CommentInputComponent {
   @Input() authenticated: boolean;
   @Input() user: User;
+  @Input() instantChanges: boolean;
+
   @Output() commentSubmitted = new EventEmitter();
 
   comment = '';
@@ -16,5 +18,11 @@ export class CommentInputComponent {
   submitComment() {
     this.commentSubmitted.emit(this.comment);
     this.comment = '';
+  }
+
+  commentChanged() {
+    if (this.instantChanges) {
+      this.commentSubmitted.emit(this.comment);
+    }
   }
 }

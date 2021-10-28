@@ -83,7 +83,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   public defaultValue: null;
 
   public factCheck: Factcheck = null;
-  public comment = '';
   public policyChecked = false;
   public conditionChecked = false;
   public buttonStatus = true;
@@ -178,8 +177,11 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     await this.itemsService.setItemTags(this.case.id, []);
   }
 
-  commentChange() {
-    this.review.comment = this.comment;
+  commentChange(comment: string) {
+    if (comment === this.review.comment) {
+      return;
+    }
+    this.review.comment = comment;
     this.reviewsService.updateReview(this.review);
   }
 

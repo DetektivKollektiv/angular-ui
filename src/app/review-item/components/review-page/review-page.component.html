@@ -57,15 +57,12 @@
         Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens sichtbar
         sein.
       </p>
-      <div class="userinfo" *ngIf="user$ | async as user">
-        <div class="userprofile__bubble" style="background-color: #722ed1">
-          {{ user.name[0].toUpperCase() }}
-        </div>
-        {{ user.name }}
-      </div>
-      <div class="input-container padding-left">
-        <input type="text" (focusout)="commentChange()" [(ngModel)]="comment" />
-      </div>
+      <app-comment-input
+        [user]="user$ | async"
+        (commentSubmitted)="commentChange($event)"
+        [authenticated]="true"
+        [instantChanges]="true"
+      ></app-comment-input>
     </div>
     <div class="tags">
       <h2>Schlagwörter</h2>

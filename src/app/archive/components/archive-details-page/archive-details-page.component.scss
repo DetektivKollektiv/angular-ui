@@ -235,7 +235,10 @@ app-case-details {
 
       app-comment-input {
         margin-top: 40px;
-        margin-left: 20px;
+
+        @media only screen and (min-width: 1024px) {
+          margin-bottom: 100px;
+        }
       }
     }
   }
@@ -267,6 +270,7 @@ app-case-details {
     margin-left: 40px;
     margin-bottom: 40px;
     cursor: pointer;
+    position: relative;
 
     &--responsive {
       @media only screen and (min-width: 1024px) {
