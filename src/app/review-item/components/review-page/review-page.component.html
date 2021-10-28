@@ -48,9 +48,13 @@
 
 <ng-template #processing>
   <div class="overview__container">
-    <div *ngFor="let question of showQuestions; let i = index">
-      <app-question [question]="question" [index]="i" [questions]="questions" (valueChange)="updateReview()"></app-question>
-    </div>
+    <app-question
+      *ngFor="let question of showQuestions; let i = index"
+      [question]="question"
+      [index]="i"
+      [questions]="questions"
+      (valueChange)="updateReview()"
+    ></app-question>
     <div class="comments">
       <h2>Fallbewertungskommentar</h2>
       <p class="explain">
@@ -70,7 +74,7 @@
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
         erat, sed diam voluptua.
       </p>
-      <app-tags-question [review]="review" [itemId]="case?.id" #tags> </app-tags-question>
+      <app-tags-question [review]="review" [itemId]="case?.id" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
     </div>
     <div class="legal">
       <h2>Rechtliche Angaben</h2>

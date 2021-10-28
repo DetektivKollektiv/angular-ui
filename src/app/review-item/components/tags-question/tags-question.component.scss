@@ -1,3 +1,16 @@
+@use '../../../../assets/scss/colors' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
 .tags-list {
   width: 100%;
+}
+
+.tags-info {
+  color: $color__bittersweet;
+  margin-top: 10px;
+  margin-left: 20px;
 }

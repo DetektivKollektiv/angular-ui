@@ -19,6 +19,7 @@ import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.
 import { from, Observable, of } from 'rxjs';
 import { switchMap, mapTo, tap } from 'rxjs/operators';
 import { ReviewItems } from '../../model/review-items';
+import { Question } from '../../model/question';
 
 @Component({
   selector: 'app-review-page',
@@ -38,6 +39,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   case: Item;
   isOpenReview: boolean;
   review: Review;
+  questions: Question[];
+  showQuestions: Question[];
 
   finished = false;
 
@@ -74,13 +77,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     // this one was in the designs, but is temporarily removed.
     // { iconName: 'user-cowboy', color: '#fff', text: '3', subText: 'Detektive', gridColor: '#722ED1' }
   ];
-
-  public questions: any[];
-
-  public staticQuestions: any[];
-
-  public showQuestions: any[];
-  public defaultValue: null;
 
   public factCheck: Factcheck = null;
   public policyChecked = false;
@@ -185,6 +181,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.reviewsService.updateReview(this.review);
   }
 
+  onTagsChanged(tags: string[]) {
+    // TODO: save tags
+  }
+
   agreePolicy(event) {
     this.policyChecked = event.checked;
     this.checkButtonStatus();
@@ -206,7 +206,7 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   private getItemFromRouterState(): Observable<Item> {
     if (!this.routerState) {
       this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit dem Review zu beginnen', '', {
-        duration: 50000
+        duration: 5000
       });
       this.router.navigate(['/']);
       return of(null);

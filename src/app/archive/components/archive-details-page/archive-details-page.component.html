@@ -63,13 +63,17 @@
           <i class="far" [ngClass]="isProcessingCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
         </div>
         <div *ngIf="!isProcessingCollapsed" class="processing__body">
-          <div *ngFor="let question of displayedQuestions; let i = index">
-            <app-question [question]="question" [displayOnly]="true" [index]="i" [questions]="allQuestions"></app-question>
-          </div>
+          <app-question
+            *ngFor="let question of displayedQuestions; let i = index"
+            [question]="question"
+            [displayOnly]="true"
+            [index]="i"
+            [questions]="allQuestions"
+          ></app-question>
         </div>
       </div>
 
-      <div class="discussion" [class.discussion--border]="isProcessingCollapsed" id="archive-details-discussion-section">
+      <div class="discussion" id="archive-details-discussion-section">
         <div class="collapsible-toolbar">
           <span class="collapsible-toolbar__title">Communitydiskussion</span>
           <ng-container *ngIf="authenticated$ | async">

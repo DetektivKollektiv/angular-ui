@@ -1,10 +1,21 @@
 @use '../../../../assets/scss/colors' as colors;
 @use '../../../../assets/scss/fonts' as fonts;
 
+:host {
+  display: block;
+
+  &:not(:last-of-type) {
+    // padding-bottom: 50px;
+    border-bottom: 4px dashed colors.$color__spacer;
+  }
+
+  &:not(:first-of-type) {
+    margin-top: 50px;
+  }
+}
+
 .question {
-  padding-bottom: 50px;
   margin-bottom: 50px;
-  border-bottom: 4px dashed colors.$color__spacer;
 
   &.no-border {
     border: none;

@@ -177,14 +177,16 @@ app-case-details {
 
     .processing {
       margin-top: 40px;
+
+      &__body {
+        margin-top: 20px;
+      }
     }
 
     .discussion {
-      &--border {
-        border-top: 4px dashed $color__spacer;
-        padding-top: 40px;
-        margin-top: 40px;
-      }
+      border-top: 4px dashed $color__spacer;
+      padding-top: 40px;
+      margin-top: 40px;
 
       .collapsible-toolbar {
         margin-bottom: 20px;
