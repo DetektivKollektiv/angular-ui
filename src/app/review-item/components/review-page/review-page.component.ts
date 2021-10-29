@@ -43,6 +43,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   showQuestions: Question[];
 
   finished = false;
+  isPolicyChecked = false;
+  isConditionChecked = false;
+  isReviewValid = false;
+  reviewChanged = false;
 
   questionPrompts = [
     {
@@ -79,9 +83,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   ];
 
   public factCheck: Factcheck = null;
-  public policyChecked = false;
-  public conditionChecked = false;
-  public buttonStatus = true;
 
   private routerState: { [key: string]: any };
 
@@ -110,6 +111,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     }
   }
 
+  hasChanges() {
+    return this.isOpenReview && this.reviewChanged;
+  }
+
   accept() {
     this.loader.show();
     this.reviewsService
@@ -124,10 +129,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       .finally(() => this.loader.hide());
   }
 
-  doAnUpdate() {
-    this.reviewsService.updateReview(this.review).then(() => {});
-  }
-
   closeReview() {
     this.review.status = ReviewState[ReviewState.closed];
 
@@ -137,16 +138,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     });
   }
 
-  hasChanges() {
-    return this.isOpenReview && !this.finished;
-  }
-
   openSignal(): void {
     window.open(globals.signalLink, '_blank');
-  }
-
-  change(e) {
-    //
   }
 
   getFactCheck(id: string): void {
@@ -167,10 +160,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
   updateReview() {
     this.reviewsService.updateReview(this.review);
-  }
-
-  async submitTags() {
-    await this.itemsService.setItemTags(this.case.id, []);
+    this.validateReview();
+    this.reviewChanged = true;
   }
 
   commentChange(comment: string) {
@@ -178,29 +169,30 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
       return;
     }
     this.review.comment = comment;
-    this.reviewsService.updateReview(this.review);
+    this.updateReview();
   }
 
   onTagsChanged(tags: string[]) {
     // TODO: save tags
+    // this.itemsService.setItemTags(this.case.id, []);
   }
 
-  agreePolicy(event) {
-    this.policyChecked = event.checked;
-    this.checkButtonStatus();
-  }
+  validateReview() {
+    const allQuestionsAnswered = this.questions
+      .filter((question) => !question.parent_question_id)
+      .every(
+        (question) =>
+          question.answer_value !== null &&
+          (!question.max_children ||
+            this.questions
+              .filter((q) => q.parent_question_id === question.question_id)
+              .filter(
+                (childQuestion) => childQuestion.lower_bound <= question.answer_value && childQuestion.upper_bound >= question.answer_value
+              )
+              .every((childQuestion) => childQuestion.answer_value !== null))
+      );
 
-  agreeCondition(event) {
-    this.conditionChecked = event.checked;
-    this.checkButtonStatus();
-  }
-
-  checkButtonStatus() {
-    if (this.policyChecked === true && this.conditionChecked === true) {
-      this.buttonStatus = false;
-    } else {
-      this.buttonStatus = true;
-    }
+    this.isReviewValid = allQuestionsAnswered && this.isPolicyChecked && this.isConditionChecked;
   }
 
   private getItemFromRouterState(): Observable<Item> {
@@ -228,5 +220,6 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.review = review;
     this.questions = review.questions;
     this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
+    this.validateReview();
   }
 }

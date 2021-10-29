@@ -80,12 +80,12 @@
       <h2>Rechtliche Angaben</h2>
       <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
       <div class="legal__container">
-        <mat-checkbox class="example-margin" (change)="agreePolicy($event)">
+        <mat-checkbox [(ngModel)]="isPolicyChecked" (ngModelChange)="validateReview()">
           <div class="option">
             <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
           </div>
         </mat-checkbox>
-        <mat-checkbox class="example-margin" (change)="agreeCondition($event)">
+        <mat-checkbox [(ngModel)]="isConditionChecked" (ngModelChange)="validateReview()">
           <div class="option">
             <span>Ich stimme den Nutzungsbedingungen zu</span>
           </div>
@@ -93,7 +93,7 @@
       </div>
       <div class="button-container button-container--legal">
         <a appButton routerLink="/" mode="reject">Abbrechen</a>
-        <button appButton (click)="closeReview()" [disabled]="buttonStatus">Lösung einreichen</button>
+        <button appButton (click)="closeReview()" [disabled]="!isReviewValid">Lösung einreichen</button>
       </div>
     </div>
   </div>
