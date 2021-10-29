@@ -134,7 +134,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
 
     this.reviewsService.updateReview(this.review).then(() => {
       this.userService.updateUser();
-      this.finished = true;
+      this.isOpenReview = false;
+      this.router.navigate(['review', 'success'], { state: { item: this.case } });
     });
   }
 
