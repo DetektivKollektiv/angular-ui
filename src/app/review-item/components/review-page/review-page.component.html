@@ -17,13 +17,6 @@
       <div class="facts__content">
         <app-case-facts [case]="case"></app-case-facts>
       </div>
-      <div class="back-btn" routerLink="/archive">
-        <i class="far fa-arrow-left"></i>
-        <div class="back-btn__text">
-          <span class="small">Zurück zur</span>
-          <span>Übersicht</span>
-        </div>
-      </div>
     </div>
 
     <div class="overview">
@@ -41,6 +34,9 @@
           </button>
           <button appButton mode="reject" routerLink="/">Fall ablehnen</button>
         </div>
+      </div>
+      <div class="overview__image">
+        <img src="assets/images/illustrations/undraw_newspaper_k-72-w.svg" />
       </div>
     </div>
   </section>

@@ -24,8 +24,8 @@ app-case-details {
   margin: auto;
 
   h2 {
-    @include fonts.font__effra--bold;
-    font-size: 36px;
+    @include fonts.font__pt-mono--bold;
+    font-size: 24px;
     margin: 20px 0;
 
     @media only screen and (min-width: 480px) {
@@ -126,6 +126,26 @@ app-case-details {
       font-size: 18px;
     }
 
+    &__image {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+
+      img {
+        margin-bottom: -11px;
+        width: 240px;
+      }
+
+      @media only screen and (min-width: 480px) {
+        margin-top: 80px;
+
+        img {
+          margin-bottom: -17px;
+          width: 360px;
+        }
+      }
+    }
+
     .tags {
       border-bottom: 4px dashed colors.$color__spacer;
       padding-bottom: 40px;
@@ -175,40 +195,6 @@ app-case-details {
     &__toggle {
       color: #aaa;
       cursor: pointer;
-    }
-  }
-
-  .back-btn {
-    display: flex;
-    margin-left: 40px;
-    margin-bottom: 40px;
-    cursor: pointer;
-
-    &--responsive {
-      @media only screen and (min-width: 1024px) {
-        display: none;
-      }
-    }
-
-    i {
-      font-size: 42px;
-      color: colors.$color__bittersweet;
-      margin-right: 14px;
-    }
-
-    &__text {
-      display: flex;
-      flex-direction: column;
-
-      span {
-        @include fonts.font__pt-mono--bold;
-        font-size: 18px;
-
-        &.small {
-          @include fonts.font__effra;
-          font-size: 14px;
-        }
-      }
     }
   }
 
