@@ -26,7 +26,7 @@
   <div class="tags__list" *ngIf="case.tags?.length">
     <app-tag-icon *ngFor="let tag of case.tags | slice: 0:maxTagsCount" [tag]="tag"></app-tag-icon>
   </div>
-  <div *ngIf="!case?.urls?.length">Keine Tags hinterlegt</div>
+  <div *ngIf="!case?.tags?.length">Keine Tags hinterlegt</div>
   <button class="more-btn" *ngIf="maxTagsCount < case.tags.length" (click)="maxTagsCount = case.tags.length">Alle Tags anzeigen</button>
 </section>
 <section class="background-info">
