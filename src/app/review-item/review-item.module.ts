@@ -29,6 +29,12 @@ import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.mo
 import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
 import { ButtonModule } from '@shared/button/button.module';
 import { CommentInputModule } from '@shared/comment-input/comment-input.module';
+import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
+import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
+import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-case-list-slider.module';
+import { ShareModule } from '@shared/share/share.module';
+import { IconWithContentModule } from '@shared/icon-with-content/icon-with-content.module';
+import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +45,7 @@ import { CommentInputModule } from '@shared/comment-input/comment-input.module';
     ReviewProcessComponent,
     ReviewQuestionComponent,
     ReviewSummaryComponent,
+    ReviewSuccessPageComponent,
     OpenReviewDialogComponent,
     ReviewPageComponent,
     WatsonComponent
@@ -62,7 +69,12 @@ import { CommentInputModule } from '@shared/comment-input/comment-input.module';
     EdgyBackgroundModule,
     CaseFactsModule,
     ButtonModule,
-    CommentInputModule
+    CommentInputModule,
+    CaseListItemModule,
+    OpenCaseListSliderModule,
+    ShareModule,
+    IconWithContentModule,
+    SolvedCasesModule
   ],
   providers: [
     ReviewsService,

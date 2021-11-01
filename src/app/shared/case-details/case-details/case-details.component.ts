@@ -8,8 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CaseDetailsComponent implements OnInit {
   @Input() case: any;
   @Input() caseId: string;
-  public description: string;
-  constructor() {}
+  @Input() showDescription = true;
+
+  description: string;
 
   ngOnInit(): void {
     // keeping within the eslint char limit by concating.
