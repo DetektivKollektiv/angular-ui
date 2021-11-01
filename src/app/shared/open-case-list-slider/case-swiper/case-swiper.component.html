@@ -7,7 +7,7 @@
         <p class="case__header">{{ case.id | caseId }}</p>
         <div class="case__content">
           <div class="case__text">
-            {{ case.content }}
+            {{ case.content | textOverflow: 300 }}
           </div>
           <div class="case__buttons">
             <a appButton routerLink="/review" [state]="{ item: case, isOpenReview: false }">
