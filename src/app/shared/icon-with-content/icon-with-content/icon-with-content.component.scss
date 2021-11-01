@@ -1,0 +1,47 @@
+@use '../../../../assets/scss/fonts' as *;
+@use '../../../../assets/scss/colors' as *;
+
+.icon-with-content {
+  display: flex;
+
+  &--bittersweet {
+    --icon-color: #{$color__bittersweet};
+  }
+
+  &--neon-blue {
+    --icon-color: #{$color__neon-blue};
+  }
+
+  &--purple {
+    --icon-color: #{$color__purple};
+  }
+
+  &__heading {
+    font-size: 21px;
+    @include font__effra--bold;
+  }
+
+  &__content {
+    margin-top: 14px;
+    font-size: 18px;
+  }
+
+  &__icon {
+    max-width: 125px;
+    margin-right: 20px;
+  }
+
+  &__icon i {
+    width: 100px;
+    height: 100px;
+    margin: 0px 10px -3px 0;
+    padding: 12.9px 2.5px;
+    color: $color__white;
+    background-color: var(--icon-color);
+    border-radius: 50%;
+    font-size: 42px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
