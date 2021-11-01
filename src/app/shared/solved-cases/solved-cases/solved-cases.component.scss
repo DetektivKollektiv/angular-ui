@@ -1,0 +1,29 @@
+:host {
+  margin-top: 40px;
+
+  .title {
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    @media only screen and (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .case-item {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  .btn {
+    margin: 20px auto 0;
+  }
+}
