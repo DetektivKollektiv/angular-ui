@@ -84,23 +84,23 @@
       display: flex;
       flex-wrap: wrap;
     }
+  }
 
-    &__more-btn {
-      margin-top: 16px;
-      padding: 5px 15px;
-      border-radius: 15px;
-      background-color: colors.$color__purple;
-      color: white;
-      border: none;
-      font-weight: bold;
+  .more-btn {
+    margin-top: 16px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    background-color: colors.$color__purple;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border: 2px solid colors.$color__purple;
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: colors.$color__purple;
       border: 2px solid colors.$color__purple;
-      cursor: pointer;
-
-      &:hover {
-        background-color: white;
-        color: colors.$color__purple;
-        border: 2px solid colors.$color__purple;
-      }
     }
   }
 

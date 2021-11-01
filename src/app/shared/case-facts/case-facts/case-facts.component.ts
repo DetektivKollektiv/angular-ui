@@ -10,4 +10,5 @@ export class CaseFactsComponent {
   @Input() case: Item;
 
   maxTagsCount = 5;
+  contentTextLength = 500;
 }
