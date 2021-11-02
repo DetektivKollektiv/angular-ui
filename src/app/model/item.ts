@@ -31,7 +31,8 @@ export class Item {
   close_timestamp: string;
   tags: string[] = [];
   urls: Url[] = [];
-  comments: Comment[] = [];
+  discussion_comments: Comment[] = [];
+  review_comments: Comment[] = [];
   reviews: ItemReview[] | null;
   warning_tags: WarningTag[];
   in_progress_reviews_level_1: number;
