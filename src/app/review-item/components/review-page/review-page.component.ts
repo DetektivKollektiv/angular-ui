@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import { Component, HostListener, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ItemsService } from '../../services/items/items.service';
 import { Item } from '../../../model/item';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,9 +8,6 @@ import { LoaderService } from '@shared/loader/service/loader.service';
 import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 import { UserService } from '../../../core/services/user/user.service';
-import { UnsavedChanges } from '@shared/unsaved-changes/interface/unsaved-changes';
-import { MatDialog } from '@angular/material/dialog';
-import { OpenReviewDialogComponent } from '../open-review-dialog/open-review-dialog.component';
 import { ReviewState } from '../../model/review-state';
 import { globals } from 'src/environments/globals';
 import { FactCheckService } from '../../services/factchecks/fact-check.service';
@@ -26,7 +23,7 @@ import { Question } from '../../model/question';
   templateUrl: './review-page.component.html',
   styleUrls: ['./review-page.component.scss']
 })
-export class ReviewPageComponent implements OnInit, UnsavedChanges {
+export class ReviewPageComponent implements OnInit {
   case$ = from(this.itemsService.getOpenItems()).pipe(
     tap((reviewItems) => (this.isOpenReview = reviewItems.is_open_review)),
     switchMap((reviewItems) => (reviewItems.is_open_review ? this.loadReview(reviewItems) : this.getItemFromRouterState())),
@@ -98,21 +95,10 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.routerState = this.router.getCurrentNavigation().extras?.state;
   }
 
-  @HostListener('window:beforeunload', ['$event'])
-  public onPageUnload($event: BeforeUnloadEvent) {
-    if (this.hasChanges()) {
-      $event.returnValue = 'Deine Änderungen gehen verloren, wenn du die Seite neu lädst.';
-    }
-  }
-
   ngOnInit(): void {
     if (this.case?.id) {
       this.getFactCheck(this.case.id);
     }
-  }
-
-  hasChanges() {
-    return this.isOpenReview && this.reviewChanged;
   }
 
   accept() {
