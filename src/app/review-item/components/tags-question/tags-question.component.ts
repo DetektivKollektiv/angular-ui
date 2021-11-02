@@ -9,33 +9,33 @@ import { MatChipInputEvent } from '@angular/material/chips';
   styleUrls: ['./tags-question.component.scss']
 })
 export class TagsQuestionComponent {
-  @Input() review: Review;
-  @Input() itemId: string;
+  @Input() tags: string[] = [];
 
   @Output() tagsChanged = new EventEmitter<string[]>();
 
   chipInputKeyCodes = [ENTER, COMMA];
 
-  tagsUser: string[] = [];
-
   add({ input, value }: MatChipInputEvent): void {
+    if (!this.tags) {
+      this.tags = [];
+    }
     if ((value || '').trim()) {
-      this.tagsUser.push(value.trim());
+      this.tags.push(value.trim());
     }
 
     // Reset the input value
     if (input) {
       input.value = '';
     }
-    this.tagsChanged.emit(this.tagsUser);
+    this.tagsChanged.emit(this.tags);
   }
 
   remove(tag: string): void {
-    const index = this.tagsUser.indexOf(tag);
+    const index = this.tags.indexOf(tag);
 
     if (index >= 0) {
-      this.tagsUser.splice(index, 1);
+      this.tags.splice(index, 1);
     }
-    this.tagsChanged.emit(this.tagsUser);
+    this.tagsChanged.emit(this.tags);
   }
 }

@@ -1,3 +1,4 @@
+import { from, Observable, of } from 'rxjs';
 import { Review } from 'src/app/review-item/model/review';
 import { IReviewService } from '../reviews.service';
 
@@ -373,6 +374,9 @@ const mock_review = {
 } as Review;
 
 export class MockReviewService implements IReviewService {
+  getOpenReview(): Observable<Review> {
+    return of(mock_review);
+  }
   getReview(id: string): Promise<Review> {
     return new Promise((resolve) => resolve(mock_review));
   }

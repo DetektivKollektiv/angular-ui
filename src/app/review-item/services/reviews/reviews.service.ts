@@ -1,12 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Review } from '../../model/review';
 import { API } from 'aws-amplify';
+import { from, Observable } from 'rxjs';
 
 @Injectable()
 export class ReviewsService implements IReviewService {
+  private apiName = 'review_service';
   private reviewsUrl = '/reviews';
 
   constructor() {}
+
+  getOpenReview(): Observable<Review> {
+    return from(
+      API.get(this.apiName, '/review', { response: true })
+        .then((response) => {
+          if (response.status === 200) {
+            return response.data;
+          } else if (response.status === 204) {
+            return null;
+          }
+        })
+        .catch()
+    );
+  }
 
   /**
    * Returns a review based on a given id.
@@ -15,13 +31,9 @@ export class ReviewsService implements IReviewService {
    */
   public async getReview(id: string): Promise<Review> {
     try {
-      const response = await API.get(
-        'review_service',
-        `${this.reviewsUrl}/${id}`,
-        {
-          response: true,
-        }
-      );
+      const response = await API.get('review_service', `${this.reviewsUrl}/${id}`, {
+        response: true
+      });
 
       switch (response.code) {
         case 200:
@@ -44,8 +56,8 @@ export class ReviewsService implements IReviewService {
       const response = await API.post('review_service', this.reviewsUrl, {
         response: true,
         body: {
-          item_id,
-        },
+          item_id
+        }
       });
 
       switch (response.status) {
@@ -68,7 +80,7 @@ export class ReviewsService implements IReviewService {
     try {
       const response = await API.put('review_service', this.reviewsUrl, {
         response: true,
-        body: review,
+        body: review
       });
     } catch (error) {
     } finally {
@@ -77,6 +89,8 @@ export class ReviewsService implements IReviewService {
 }
 
 export interface IReviewService {
+  getOpenReview(): Observable<Review>;
+
   getReview(id: string): Promise<Review>;
 
   createReview(item_id: string): Promise<Review>;

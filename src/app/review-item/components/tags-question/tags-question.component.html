@@ -1,20 +1,20 @@
 <mat-form-field class="tags-list mat-form-field--alt" appearance="fill">
   <mat-label>Tags</mat-label>
   <mat-chip-list #tagsList class="tags-chip-list tags-chip-list--neon-blue">
-    <mat-chip *ngFor="let tag of tagsUser" [removable]="true" (removed)="remove(tag)"
+    <mat-chip *ngFor="let tag of tags" [removable]="true" (removed)="remove(tag)"
       >{{ tag }}
       <mat-icon matChipRemove> cancel</mat-icon>
     </mat-chip>
     <input
       placeholder="Gib hier einen Tag ein"
-      *ngIf="tagsUser.length < 3; else maxAmountOfTagsAdded"
+      *ngIf="tags.length < 3; else maxAmountOfTagsAdded"
       [matChipInputFor]="tagsList"
       [matChipInputSeparatorKeyCodes]="chipInputKeyCodes"
       (matChipInputTokenEnd)="add($event)"
     />
   </mat-chip-list>
 </mat-form-field>
-<span *ngIf="tagsUser.length >= 3" class="tags-info">Du kannst maximal drei Tags vergeben</span>
+<span *ngIf="tags.length >= 3" class="tags-info">Du kannst maximal drei Tags vergeben</span>
 
 <ng-template #maxAmountOfTagsAdded>
   <input disabled [matChipInputFor]="tagsList" />

@@ -16,7 +16,7 @@ import { globals } from 'src/environments/globals';
 import { FactCheckService } from '../../services/factchecks/fact-check.service';
 import { Factcheck } from '../../model/factcheck';
 import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
-import { from, Observable, of } from 'rxjs';
+import { EMPTY, from, Observable, of } from 'rxjs';
 import { switchMap, mapTo, tap } from 'rxjs/operators';
 import { ReviewItems } from '../../model/review-items';
 import { Question } from '../../model/question';
@@ -174,8 +174,8 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
   }
 
   onTagsChanged(tags: string[]) {
-    // TODO: save tags
-    // this.itemsService.setItemTags(this.case.id, []);
+    this.review.tags = tags;
+    this.updateReview();
   }
 
   validateReview() {
@@ -196,24 +196,27 @@ export class ReviewPageComponent implements OnInit, UnsavedChanges {
     this.isReviewValid = allQuestionsAnswered && this.isPolicyChecked && this.isConditionChecked;
   }
 
-  private getItemFromRouterState(): Observable<Item> {
+  private getItemFromRouterState(): Observable<Item | never> {
     if (!this.routerState) {
-      this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit dem Review zu beginnen', '', {
-        duration: 5000
-      });
-      this.router.navigate(['/']);
-      return of(null);
+      return this.navigateOnNoReview();
     }
 
     const { item } = this.routerState;
     return of(item);
   }
 
+  private navigateOnNoReview(): Observable<never> {
+    this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit dem Review zu beginnen', '', {
+      duration: 5000
+    });
+    this.router.navigate(['/']);
+    return EMPTY;
+  }
+
   private loadReview(reviewItems: ReviewItems) {
-    const item = reviewItems.items[0];
-    return from(this.reviewsService.createReview(item.id)).pipe(
+    return this.reviewsService.getOpenReview().pipe(
       tap((review) => this.initReview(review)),
-      mapTo(item)
+      mapTo(reviewItems.items[0])
     );
   }
 

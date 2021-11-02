@@ -10,10 +10,9 @@ export class CommentInputComponent {
   @Input() authenticated: boolean;
   @Input() user: User;
   @Input() instantChanges: boolean;
+  @Input() comment = '';
 
   @Output() commentSubmitted = new EventEmitter();
-
-  comment = '';
 
   submitComment() {
     this.commentSubmitted.emit(this.comment);

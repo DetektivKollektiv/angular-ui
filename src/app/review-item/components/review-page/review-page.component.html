@@ -59,6 +59,7 @@
       </p>
       <app-comment-input
         [user]="user$ | async"
+        [comment]="review.comment"
         (commentSubmitted)="commentChange($event)"
         [authenticated]="true"
         [instantChanges]="true"
@@ -70,7 +71,7 @@
         Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
         erat, sed diam voluptua.
       </p>
-      <app-tags-question [review]="review" [itemId]="case?.id" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
+      <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
     </div>
     <div class="legal">
       <h2>Rechtliche Angaben</h2>
