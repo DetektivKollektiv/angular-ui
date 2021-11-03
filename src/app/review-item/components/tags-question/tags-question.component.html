@@ -7,14 +7,14 @@
     </mat-chip>
     <input
       placeholder="Gib hier einen Tag ein"
-      *ngIf="tags.length < 3; else maxAmountOfTagsAdded"
+      *ngIf="tags?.length < 3; else maxAmountOfTagsAdded"
       [matChipInputFor]="tagsList"
       [matChipInputSeparatorKeyCodes]="chipInputKeyCodes"
       (matChipInputTokenEnd)="add($event)"
     />
   </mat-chip-list>
 </mat-form-field>
-<span *ngIf="tags.length >= 3" class="tags-info">Du kannst maximal drei Tags vergeben</span>
+<span *ngIf="tags?.length >= 3" class="tags-info">Du kannst maximal drei Tags vergeben</span>
 
 <ng-template #maxAmountOfTagsAdded>
   <input disabled [matChipInputFor]="tagsList" />
