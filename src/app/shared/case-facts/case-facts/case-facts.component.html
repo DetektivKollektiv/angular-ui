@@ -42,3 +42,6 @@
     </div>
   </div>
 </section>
+<section class="factcheck" *ngIf="factCheck">
+  <app-watson [factCheck]="factCheck" (closed)="factCheck = null"></app-watson>
+</section>

@@ -55,8 +55,7 @@ const routes: Routes = [
       {
         path: 'review',
         component: ReviewPageComponent,
-        canActivate: [AuthGuard],
-        canDeactivate: [UnsavedChangesGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'profile',

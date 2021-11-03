@@ -20,7 +20,6 @@ import { OpenReviewDialogComponent } from './components/open-review-dialog/open-
 import { SwiperModule } from 'swiper/angular';
 import { CaseDetailsModule } from '@shared/case-details/case-details.module';
 import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
-import { WatsonComponent } from './components/watson/watson.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { PipesModule } from '@shared/pipes/pipes.module';
@@ -47,8 +46,7 @@ import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
     ReviewSummaryComponent,
     ReviewSuccessPageComponent,
     OpenReviewDialogComponent,
-    ReviewPageComponent,
-    WatsonComponent
+    ReviewPageComponent
   ],
   exports: [ReviewComponent, QuestionComponent],
   imports: [

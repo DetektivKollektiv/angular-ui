@@ -1,0 +1,2 @@
+<app-watson-card (opened)="show = true" (closed)="closed.emit()"></app-watson-card>
+<app-watson-card *ngIf="show" [factCheck]="factCheck" (closed)="closed.emit()"></app-watson-card>

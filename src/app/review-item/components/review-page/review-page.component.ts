@@ -11,7 +11,7 @@ import { UserService } from '../../../core/services/user/user.service';
 import { ReviewState } from '../../model/review-state';
 import { globals } from 'src/environments/globals';
 import { FactCheckService } from '../../services/factchecks/fact-check.service';
-import { Factcheck } from '../../model/factcheck';
+import { Factcheck } from '../../../model/factcheck';
 import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
 import { EMPTY, from, Observable, of } from 'rxjs';
 import { switchMap, mapTo, tap } from 'rxjs/operators';
@@ -27,7 +27,8 @@ export class ReviewPageComponent implements OnInit {
   case$ = from(this.itemsService.getOpenItems()).pipe(
     tap((reviewItems) => (this.isOpenReview = reviewItems.is_open_review)),
     switchMap((reviewItems) => (reviewItems.is_open_review ? this.loadReview(reviewItems) : this.getItemFromRouterState())),
-    tap((item) => (this.case = item))
+    tap((item) => (this.case = item)),
+    tap((item) => this.getFactCheck(item?.id))
   );
 
   user$ = this.userService.user$;
@@ -129,22 +130,6 @@ export class ReviewPageComponent implements OnInit {
     window.open(globals.signalLink, '_blank');
   }
 
-  getFactCheck(id: string): void {
-    this.loader.show();
-
-    this.factCheckService
-      .getFactCheck(id)
-      .then((factCheck) => {
-        this.factCheck = factCheck;
-      })
-      .catch(() => {
-        this.factCheck = null;
-      })
-      .finally(() => {
-        this.loader.hide();
-      });
-  }
-
   updateReview() {
     this.reviewsService.updateReview(this.review);
     this.validateReview();
@@ -180,6 +165,10 @@ export class ReviewPageComponent implements OnInit {
       );
 
     this.isReviewValid = allQuestionsAnswered && this.isPolicyChecked && this.isConditionChecked;
+  }
+
+  private getFactCheck(id: string): void {
+    from(this.factCheckService.getFactCheck(id)).subscribe((factcheck) => (this.factCheck = factcheck));
   }
 
   private getItemFromRouterState(): Observable<Item | never> {
