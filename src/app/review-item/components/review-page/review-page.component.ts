@@ -140,12 +140,12 @@ export class ReviewPageComponent implements OnInit {
     if (comment === this.review.comment) {
       return;
     }
-    this.review.comment = comment;
+    this.review.comment = comment?.trim().length ? comment : null;
     this.updateReview();
   }
 
   onTagsChanged(tags: string[]) {
-    this.review.tags = tags;
+    this.review.tags = tags?.length ? tags : null;
     this.updateReview();
   }
 

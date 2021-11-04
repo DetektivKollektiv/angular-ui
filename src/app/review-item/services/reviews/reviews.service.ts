@@ -78,7 +78,7 @@ export class ReviewsService implements IReviewService {
    */
   public async updateReview(review: Review): Promise<void> {
     try {
-      const response = await API.put('review_service', '/review', {
+      const response = await API.put('review_service', this.reviewsUrl, {
         response: true,
         body: review
       });
