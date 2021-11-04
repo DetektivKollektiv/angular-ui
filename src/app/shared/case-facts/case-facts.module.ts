@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CaseFactsComponent } from './case-facts/case-facts.component';
-import { TagIconModule } from '../tag-icon/tag-icon.module';
+import { TagIconModule } from '@shared/tag-icon/tag-icon.module';
 import { PipesModule } from '@shared/pipes/pipes.module';
-import { WatsonModule } from '../watson/watson.module';
+import { WatsonModule } from '@shared/watson/watson.module';
 
 @NgModule({
   declarations: [CaseFactsComponent],

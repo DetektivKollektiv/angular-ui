@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { SwiperModule } from 'swiper/angular';
 import { CasesSwiperComponent } from './case-swiper/case-swiper.component';
 import { CaseBarComponent } from './continue-case-bar/continue-case-bar.component';
-import { ButtonModule } from '../button/button.module';
-import { PipesModule } from '../pipes/pipes.module';
+import { ButtonModule } from '@shared/button/button.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [OpenCaseListSliderComponent, CasesSwiperComponent, CaseBarComponent],
