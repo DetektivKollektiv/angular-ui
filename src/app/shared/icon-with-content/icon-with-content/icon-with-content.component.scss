@@ -1,24 +1,24 @@
-@use '../../../../assets/scss/fonts' as *;
-@use '../../../../assets/scss/colors' as *;
+@use '../../../../assets/scss/fonts' as fonts;
+@use '../../../../assets/scss/colors' as colors;
 
 .icon-with-content {
   display: flex;
 
   &--bittersweet {
-    --icon-color: #{$color__bittersweet};
+    --icon-color: #{colors.$color__bittersweet};
   }
 
   &--neon-blue {
-    --icon-color: #{$color__neon-blue};
+    --icon-color: #{colors.$color__neon-blue};
   }
 
   &--purple {
-    --icon-color: #{$color__purple};
+    --icon-color: #{colors.$color__purple};
   }
 
   &__heading {
     font-size: 21px;
-    @include font__effra--bold;
+    @include fonts.font__effra--bold;
   }
 
   &__content {
@@ -36,7 +36,7 @@
     height: 100px;
     margin: 0px 10px -3px 0;
     padding: 12.9px 2.5px;
-    color: $color__white;
+    color: colors.$color__white;
     background-color: var(--icon-color);
     border-radius: 50%;
     font-size: 42px;

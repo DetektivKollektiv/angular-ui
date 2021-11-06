@@ -1,4 +1,4 @@
-@use '../../../../assets/scss/colors' as *;
+@use '../../../../assets/scss/colors' as colors;
 
 :host {
   display: flex;
@@ -10,7 +10,7 @@
 }
 
 .tags-info {
-  color: $color__bittersweet;
+  color: colors.$color__bittersweet;
   margin-top: 10px;
   margin-left: 20px;
 }

@@ -1,5 +1,5 @@
-@use '../../../../assets/scss/colors' as *;
-@use '../../../../assets/scss/fonts' as *;
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
 
 .review-success-page {
   .top {
@@ -80,12 +80,12 @@
       min-width: 100px;
       max-width: 100px;
       height: 100px;
-      background-color: $color__mysterious-blue;
+      background-color: colors.$color__mysterious-blue;
       border-radius: 50%;
 
       i {
         font-size: 42px;
-        color: $color__supernova;
+        color: colors.$color__supernova;
       }
     }
 
@@ -94,12 +94,12 @@
       flex-direction: column;
 
       h3 {
-        @include font__effra--bold;
+        @include fonts.font__effra--bold;
         font-size: 21px;
       }
 
       h4 {
-        @include font__effra--bold;
+        @include fonts.font__effra--bold;
         font-size: 18px;
         margin: 0 auto 14px;
       }
@@ -112,14 +112,14 @@
 
     &__bar {
       display: flex;
-      background-color: $color__mysterious-blue;
+      background-color: colors.$color__mysterious-blue;
       width: 100%;
       border-radius: 30px;
       height: 6px;
       margin-bottom: 14px;
 
       &-fill {
-        background-color: $color__supernova;
+        background-color: colors.$color__supernova;
         width: 70%;
         border-radius: 30px;
         margin-left: -1px;
@@ -133,12 +133,12 @@
       gap: 8px;
 
       span {
-        @include font__pt-mono--bold;
+        @include fonts.font__pt-mono--bold;
         font-size: 14px;
       }
 
       i {
-        color: $color__supernova;
+        color: colors.$color__supernova;
         font-size: 21px;
       }
     }
