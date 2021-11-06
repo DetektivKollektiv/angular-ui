@@ -1,6 +1,5 @@
-@import './assets/scss/fonts';
 @import './assets/scss/buttons';
-@import './assets/scss/colors';
+@import './assets/scss/initializer';
 
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
@@ -27,7 +26,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $color__case-card;
 }
 
 /* Handle */
