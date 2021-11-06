@@ -104,22 +104,22 @@ export class ReviewPageComponent implements OnInit {
 
   accept() {
     this.loader.show();
-    this.reviewsService
-      .createReview(this.case.id)
-      .then((review) => {
+    this.reviewsService.createReview(this.case.id).subscribe(
+      (review) => {
         this.initReview(review);
         this.isOpenReview = true;
-      })
-      .catch(() => {
+      },
+      () => {
         this.snackBar.open('Leider konnte der Fall nicht angenommen werden. Versuche es später nochmal.', 'Ok', { duration: 2000 });
-      })
-      .finally(() => this.loader.hide());
+      },
+      () => this.loader.hide()
+    );
   }
 
   closeReview() {
     this.review.status = ReviewState[ReviewState.closed];
 
-    this.reviewsService.updateReview(this.review).then(() => {
+    this.reviewsService.updateReview(this.review).subscribe(() => {
       this.userService.updateUser();
       this.isOpenReview = false;
       this.router.navigate(['review', 'success'], { state: { item: this.case } });
