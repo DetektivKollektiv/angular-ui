@@ -63,29 +63,46 @@
       img {
         width: 220px;
         z-index: 10;
+        margin: auto;
+
+        @media only screen and (min-width: 480px) {
+          margin: 0;
+        }
       }
     }
 
     &__status {
       display: flex;
+      flex-direction: column;
       gap: 30px;
       margin-left: 24px;
       margin-top: -12px;
+
+      @media only screen and (min-width: 480px) {
+        flex-direction: row;
+      }
     }
 
     &__circle {
       display: flex;
       align-items: center;
       justify-content: center;
+      align-self: center;
       min-width: 100px;
       max-width: 100px;
       height: 100px;
       background-color: colors.$color__mysterious-blue;
       border-radius: 50%;
+      margin-left: -100px;
 
       i {
         font-size: 42px;
         color: colors.$color__supernova;
+      }
+
+      @media only screen and (min-width: 480px) {
+        align-self: flex-start;
+        margin-left: 0;
       }
     }
 

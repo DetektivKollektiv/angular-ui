@@ -3,6 +3,8 @@
 
 .icon-with-content {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   &--bittersweet {
     --icon-color: #{colors.$color__bittersweet};
@@ -28,7 +30,11 @@
 
   &__icon {
     max-width: 125px;
-    margin-right: 20px;
+    align-self: center;
+
+    @media only screen and (min-width: 480px) {
+      align-self: flex-start;
+    }
   }
 
   &__icon i {
@@ -43,5 +49,9 @@
     justify-content: center;
     align-items: center;
     display: flex;
+  }
+
+  @media only screen and (min-width: 480px) {
+    flex-direction: row;
   }
 }
