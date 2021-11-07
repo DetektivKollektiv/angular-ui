@@ -43,36 +43,5 @@
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-
-    &__link {
-      a {
-        width: 30px;
-        height: 30px;
-        text-decoration: none;
-        margin: 1px 15px 8px 0;
-        font-size: 18px;
-        display: flex;
-        color: colors.$color__white;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4px;
-      }
-
-      &.link-icon a {
-        background-color: colors.$color__neon-blue;
-      }
-      &.envelope-icon a {
-        background-color: colors.$color__purple;
-      }
-      &.twitter-icon a {
-        background-color: colors.$color__rating-tweeter;
-      }
-      &.facebook-icon a {
-        background-color: colors.$color__rating-facebook;
-      }
-      &.instagram-icon a {
-        background-color: colors.$color__bittersweet;
-      }
-    }
   }
 }

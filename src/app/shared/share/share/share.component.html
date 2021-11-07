@@ -1,28 +1,11 @@
 <div class="top">
   <h3 class="top__heading">codetekt teilen</h3>
   <p class="top__title">Wenn dir codetekt gefällt, lass es deine Freunde wissen und sage Falschinformationen den Kampf an!</p>
-  <p class="top__description mono-font">{{ marketingWording }}</p>
+  <p class="top__description mono-font">
+    {{ marketingWording }}
+    <i class="far fa-copy" (click)="copy()"></i>
+  </p>
 </div>
 <div class="icons">
-  <span class="icons__link link-icon"
-    ><a href="https://codetekt.org/" target="_blank"><i class="far fa-link"></i></a
-  ></span>
-  <span class="icons__link envelope-icon"
-    ><a
-      href="mailto:?&subject=&body=Ich%20habe%20gerade%20einen%20Fall%20bei%20codetekt%20eingereicht.%20Tritt%20auch%20du%20der%20Community%20gegen%20Falschinformationen%20bei!%0Ahttps://codetekt.org/"
-      target="_blank"
-      ><i class="fas fa-envelope"></i></a
-  ></span>
-  <span class="icons__link twitter-icon"
-    ><a
-      href="https://twitter.com/intent/tweet?url=https://codetekt.org/&text=Ich%20habe%20gerade%20einen%20Fall%20bei%20codetekt%20eingereicht.%20Tritt%20auch%20du%20der%20Community%20gegen%20Falschinformationen%20bei!"
-      target="_blank"
-      ><i class="fab fa-twitter"></i></a
-  ></span>
-  <span class="icons__link facebook-icon"
-    ><a href="https://www.facebook.com/sharer/sharer.php?u=https://codetekt.org/" target="_blank"><i class="fab fa-facebook-f"></i></a
-  ></span>
-  <span class="icons__link instagram-icon"
-    ><a href="https://www.instagram.com/codetekt/" target="_blank"><i class="fab fab fa-instagram"></i></a
-  ></span>
+  <app-share-item *ngFor="let item of shareItems" [item]="item"></app-share-item>
 </div>
