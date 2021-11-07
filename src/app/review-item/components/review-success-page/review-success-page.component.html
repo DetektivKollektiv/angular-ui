@@ -32,8 +32,8 @@
               <div class="xp__content">
                 <h3>Du hast Erfahrungspunkte erhalten!</h3>
                 <p>
-                  Mit dem Lösen dieses Falls hast du Erfahrungspunkte erhalten. Dir fehlen noch {{ user.exp_needed }}XP, dann steigst du ein
-                  weiteres Level auf.
+                  Mit dem Lösen dieses Falls hast du 100 Erfahrungspunkte erhalten. Dir fehlen noch {{ user.exp_needed * 100 }}XP, dann
+                  steigst du ein weiteres Level auf.
                 </p>
                 <h4>Erfahrungspunkte erhalten</h4>
                 <div class="xp__bar">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="xp__score">
                   <i class="fas fa-stars"></i>
-                  <span>{{ user.experience_points }} / {{ user.experience_points + user.exp_needed }} XP</span>
+                  <span>{{ user.experience_points * 100 }} / {{ (user.experience_points + user.exp_needed) * 100 }} XP</span>
                 </div>
               </div>
             </div>
