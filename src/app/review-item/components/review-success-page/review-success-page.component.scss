@@ -1,6 +1,33 @@
 @use '../../../../assets/scss/colors' as colors;
 @use '../../../../assets/scss/fonts' as fonts;
 
+.glimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100%;
+
+  img {
+    position: absolute;
+    top: 14px;
+    left: 9px;
+    width: 1877px;
+    height: 547px;
+    opacity: 0.5;
+    z-index: -1;
+
+    &:nth-child(2) {
+      top: 4px;
+      left: 47px;
+      width: 1877px;
+      height: 547px;
+      transform: matrix(-1, 0, 0, -1, 0, 0);
+    }
+  }
+}
+
 .review-success-page {
   .top {
     padding: 20px;
