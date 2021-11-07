@@ -10,10 +10,7 @@
   background-color: colors.$color__case-card;
   padding: 30px 20px;
   margin-bottom: 20px;
-
-  @media only screen and (min-width: 1024px) {
-    border-radius: 25px;
-  }
+  border-radius: 25px;
 
   &__header {
     display: flex;
