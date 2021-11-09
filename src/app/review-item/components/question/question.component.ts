@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { QuestionContributorsPipe } from '@shared/pipes/question-contributors.pipe';
 import { ItemReviewQuestion } from '../../../model/Item-review-question';
 
 @Component({
@@ -24,8 +23,6 @@ export class QuestionComponent implements OnInit {
   title: string;
 
   private alphbt = 'abcdefghijklmnopqrstuvwxyz';
-
-  constructor(private questionContributorsPipe: QuestionContributorsPipe) {}
 
   ngOnInit(): void {
     this.isShowChild = false;
@@ -72,10 +69,6 @@ export class QuestionComponent implements OnInit {
         this.visibleChildQuestions.push(question);
       }
     });
-  }
-
-  getContributors(value: number) {
-    return this.questionContributorsPipe.transform(value, this.question.question_id, this.questions);
   }
 
   onQuestionValueChange(e: number) {

@@ -18,12 +18,12 @@
         [disabled]="displayOnly"
         *ngFor="let option of question.options | sort: 'value':'desc'"
         [value]="option.value"
-        [checked]="getContributors(option.value).length > 0"
+        [checked]="(option.value | questionContributors: question.question_id:questions).length > 0"
       >
         <div class="option">
           {{ option.text }}
           <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above"> help </mat-icon>
-          <div class="option__info" *ngIf="getContributors(option.value).length">
+          <div class="option__info" *ngIf="(option.value | questionContributors: question.question_id:questions).length">
             <span class="option__percentage"
               ><i class="fas fa-user-cowboy"></i>~{{ option.value | answerPercentage: question.question_id:questions }}%</span
             >
@@ -31,7 +31,7 @@
               <div
                 class="avatar"
                 [style.background-color]="contributor.color"
-                *ngFor="let contributor of getContributors(option.value); let i = index"
+                *ngFor="let contributor of option.value | questionContributors: question.question_id:questions; let i = index"
               >
                 {{ !contributor?.username ? '?' : contributor.username[0] }}
               </div>
