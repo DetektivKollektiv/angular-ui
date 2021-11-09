@@ -16,7 +16,7 @@
     <mat-radio-group class="option-container readonly">
       <mat-radio-button
         [disabled]="displayOnly"
-        *ngFor="let option of question.options"
+        *ngFor="let option of question.options | sort: 'value':'desc'"
         [value]="option.value"
         [checked]="getContributors(option.value).length > 0"
       >
@@ -61,7 +61,7 @@
   <mat-radio-group class="option-container" [(ngModel)]="question.answer_value" (ngModelChange)="onQuestionValueChange($event)">
     <mat-radio-button
       [disabled]="displayOnly"
-      *ngFor="let option of question.options"
+      *ngFor="let option of question.options | sort: 'value':'desc'"
       [value]="option.value"
       [checked]="false"
       [class.last-item]="option.value === 0"
