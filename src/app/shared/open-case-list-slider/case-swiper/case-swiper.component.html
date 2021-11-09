@@ -1,38 +1,31 @@
-<div class="swiper-parent-wrapper">
-  
-
-  <div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide" *ngFor="let case of cases; let i = index;">
-          <div class="case">
-            <div class="case-content">
-              <div class="left-side">
-                <p class="id-content">#{{case.id.split('-')[0]}}</p>
-                <div>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
-                </div>
-              </div>
-              <div class="right-side">
-                  <a [routerLink]="['/reviews', case.id]" title=""
-                      class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color round-button">
-                      <i class="far fa-clipboard-list-check"></i>&nbsp;Fall ansehen
-                  </a>
-                  <a class="button reject-button" (click)="slideNext()">Fall ablehnen</a>
-              </div>
-            </div>
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide" *ngFor="let case of cases; let i = index">
+      <div class="case">
+        <p class="case__header">{{ case.id | caseId }}</p>
+        <div class="case__content">
+          <div class="case__text">
+            {{ case.content | textOverflow: 300 }}
+          </div>
+          <div class="case__buttons">
+            <a appButton routerLink="/review" [state]="{ item: case, isOpenReview: false }">
+              <i class="far fa-clipboard-list-check"></i>
+              <span>Fall ansehen</span>
+            </a>
+            <a class="reject-button" (click)="slideNext()">Fall ablehnen</a>
           </div>
         </div>
+      </div>
     </div>
+  </div>
+</div>
 
-  </div>
-
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev">
-    <i class="fas fa-arrow-left"></i>
-  </div>
-  <div class="swiper-button-next">
-    <i class="fas fa-arrow-right"></i>
-  </div>
+<!-- If we need navigation buttons -->
+<div class="swiper-button-prev">
+  <i class="fas fa-arrow-left"></i>
+</div>
+<div class="swiper-button-next">
+  <i class="fas fa-arrow-right"></i>
 </div>

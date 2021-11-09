@@ -1,0 +1,13 @@
+<ng-container *ngIf="closedItems$ | async as closedItems">
+  <div class="title">In gelösten Fällen stöbern</div>
+  <div class="container">
+    <app-case-list-item
+      class="case-item"
+      *ngFor="let closedItem of closedItems | slice: 0:closedItemCount"
+      [case]="closedItem"
+    ></app-case-list-item>
+  </div>
+  <button class="btn" appButton *ngIf="closedItemCount <= closedItems.length" (click)="closedItemCount = closedItemCount + 10">
+    Weitere gelöste Fälle ansehen
+  </button>
+</ng-container>

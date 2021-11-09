@@ -1,4 +1,4 @@
-@import '../../../../assets/scss/_initializer';
+@use '../../../../assets/scss/colors' as colors;
 @import '../../../../assets/scss/buttons';
 
 :host {
@@ -34,7 +34,7 @@
       font-size: 21px;
 
       i {
-        color: $color__bittersweet;
+        color: colors.$color__bittersweet;
       }
 
       span {
@@ -53,7 +53,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    background-color: #f1f1f1;
+    background-color: colors.$color__case-card;
     border-radius: 25px;
     padding: 10px 10px 0 10px;
 

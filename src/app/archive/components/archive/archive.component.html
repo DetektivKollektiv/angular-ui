@@ -19,7 +19,7 @@
     <div class="archive-list-setting">
       <mat-form-field *ngIf="filter$ | async as filter" class="search-input mat-form-field--alt" appearance="fill">
         <mat-label>Fälle durchsuchen</mat-label>
-        <mat-chip-list #chipList class="search-chip-list search-chip-list--neon-blue">
+        <mat-chip-list #chipList class="tags-chip-list tags-chip-list--neon-blue">
           <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true" (removed)="remove(keyword)">
             {{ keyword }}
             <mat-icon matChipRemove>cancel</mat-icon>

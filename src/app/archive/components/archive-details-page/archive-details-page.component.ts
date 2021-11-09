@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from '@shared/loader/service/loader.service';
 import { UserService } from '../../../core/services/user/user.service';
@@ -35,11 +35,11 @@ export class ArchiveDetailsPageComponent implements OnInit {
     })
   );
   reviewComments$ = this.case$.pipe(
-    map((item) => item.comments.filter((comment) => comment.is_review_comment === 'True')),
+    map((item) => item.review_comments),
     this.mapComments()
   );
   communityComments$ = this.case$.pipe(
-    map((item) => item.comments.filter((comment) => comment.is_review_comment === 'False')),
+    map((item) => item.discussion_comments),
     this.mapComments(),
     tap(() => (this.commentsLoading = false))
   );
@@ -143,12 +143,12 @@ export class ArchiveDetailsPageComponent implements OnInit {
   private mapComments(): OperatorFunction<Comment[], Comment[]> {
     return (input$) =>
       input$.pipe(
-        map((comments) =>
-          comments.sort((comment1, comment2) => new Date(comment2.timestamp).getTime() - new Date(comment1.timestamp).getTime())
-        ),
         withLatestFrom(this.userService.user$),
         map(([comments, user]) =>
           comments.map((comment) => ({ ...comment, detective: this.getDetective({ username: comment.user }, user?.name) }))
+        ),
+        map((comments) =>
+          comments.sort((comment1, comment2) => new Date(comment2.timestamp).getTime() - new Date(comment1.timestamp).getTime())
         )
       );
   }

@@ -1,0 +1,33 @@
+<div class="watson watson--question" [class.watson--question]="!factCheck">
+  <div class="watson__wrapper">
+    <div class="watson__icon">
+      <img src="assets/images/mustache.png" />
+    </div>
+    <div class="watson__content" *ngIf="!factCheck; else fact">
+      <h3>Watson</h3>
+      <p>Hi👋. Ich habe Recherchen zu diesem Fall angestellt. Möchtest du die Ergebnisse sehen?</p>
+      <div class="watson__buttons">
+        <button (click)="opened.emit()">
+          <i class="fal fa-check"></i>
+          <span>Ja</span>
+        </button>
+        <button (click)="closed.emit()">
+          <i class="fal fa-times"></i>
+          <span>Nein</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="watson__hide" (click)="closed.emit()">Watson ausblenden</div>
+</div>
+
+<ng-template #fact>
+  <div class="watson__content">
+    <h3>Watson</h3>
+    <p>Ich habe folgenden Factcheck-Artikel gefunden, der zu deinem Fall passen könnte:</p>
+    <a class="watson__fact" [href]="factCheck.url">
+      <span>{{ factCheck.title }}</span>
+      <i class="far fa-external-link-square-alt"></i>
+    </a>
+  </div>
+</ng-template>

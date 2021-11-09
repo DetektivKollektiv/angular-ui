@@ -1,3 +1,4 @@
+import { from, Observable, of } from 'rxjs';
 import { Review } from 'src/app/review-item/model/review';
 import { IReviewService } from '../reviews.service';
 
@@ -26,33 +27,33 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
     {
       answer_id: '6bef8baa-e8c5-4435-b2b7-81a58a0c9529',
@@ -71,33 +72,33 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
     {
       answer_id: '95caa4d9-8c68-4ba8-ae46-a22b318cf752',
@@ -116,33 +117,33 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
     {
       answer_id: 'e4a3027d-357d-4dd0-b07e-ece2ff87bbc3',
@@ -161,33 +162,33 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
     {
       answer_id: '15b751ac-a43f-47be-b691-ef3a63acd521',
@@ -206,33 +207,33 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
     {
       answer_id: '5dddf667-f3a1-491e-9e9a-55b99beeece9',
@@ -251,33 +252,33 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
     {
       answer_id: 'a141a388-d349-456c-8f30-ee6c15b23268',
@@ -296,33 +297,33 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
+          value: 0
+        }
+      ]
     },
     {
       answer_id: '1d06349c-f8af-4407-82e5-613b715d4738',
@@ -341,45 +342,48 @@ const mock_review = {
           id: '4',
           text: 'Trifft zu',
           tooltip: 'Trifft zu Tooltip',
-          value: 4,
+          value: 4
         },
         {
           id: '3',
           text: 'Trifft eher zu',
           tooltip: 'Trifft eher zu Tooltip',
-          value: 3,
+          value: 3
         },
         {
           id: '2',
           text: 'Trifft eher nicht zu',
           tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2,
+          value: 2
         },
         {
           id: '1',
           text: 'Trifft nicht zu',
           tooltip: 'Trifft nicht zu Tooltip',
-          value: 1,
+          value: 1
         },
         {
           id: '0',
           text: 'Nicht anwendbar',
           tooltip: 'Nicht anwendbar Tooltip',
-          value: 0,
-        },
-      ],
-    },
-  ],
+          value: 0
+        }
+      ]
+    }
+  ]
 } as Review;
 
 export class MockReviewService implements IReviewService {
-  getReview(id: string): Promise<Review> {
-    return new Promise((resolve) => resolve(mock_review));
+  getOpenReview(): Observable<Review> {
+    return of(mock_review);
   }
-  createReview(item_id: string): Promise<Review> {
-    return new Promise((resolve) => resolve(mock_review));
+  getReview(id: string): Observable<Review> {
+    return of(mock_review);
   }
-  updateReview(review: Review): Promise<void> {
-    return new Promise((resolve) => resolve());
+  createReview(item_id: string): Observable<Review> {
+    return of(mock_review);
+  }
+  updateReview(review: Review): Observable<void> {
+    return of(void 0);
   }
 }

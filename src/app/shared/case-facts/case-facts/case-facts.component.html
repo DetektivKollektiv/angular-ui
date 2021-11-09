@@ -2,7 +2,10 @@
   <h2 class="fact__title mono-font">Der Tatbestand</h2>
   <div class="fact__text">
     <i class="fas fa-quote-left"></i>
-    <div>{{ case.content }}</div>
+    <div>{{ case.content | textOverflow: contentTextLength }}</div>
+    <button class="more-btn" *ngIf="contentTextLength < case.content.length" (click)="contentTextLength = case.content.length">
+      Alles anzeigen
+    </button>
     <i class="fas fa-quote-right"></i>
   </div>
 </section>
@@ -16,16 +19,15 @@
       </a>
     </span>
   </div>
-  <div *ngIf="!case?.urls?.length">Keine Links gefunden</div>
+  <div *ngIf="!case?.urls?.length">Keine Links hinterlegt</div>
 </section>
 <section class="tags">
   <h3 class="mono-font">Tags</h3>
   <div class="tags__list" *ngIf="case.tags?.length">
     <app-tag-icon *ngFor="let tag of case.tags | slice: 0:maxTagsCount" [tag]="tag"></app-tag-icon>
   </div>
-  <button class="tags__more-btn" *ngIf="maxTagsCount < case.tags.length" (click)="maxTagsCount = case.tags.length">
-    Alle Tags anzeigen
-  </button>
+  <div *ngIf="!case?.tags?.length">Keine Tags hinterlegt</div>
+  <button class="more-btn" *ngIf="maxTagsCount < case.tags.length" (click)="maxTagsCount = case.tags.length">Alle Tags anzeigen</button>
 </section>
 <section class="background-info">
   <h3 class="mono-font">Hintergrundinformationen</h3>
@@ -39,4 +41,7 @@
       Anonym
     </div>
   </div>
+</section>
+<section class="factcheck" *ngIf="factCheck">
+  <app-watson [factCheck]="factCheck" (closed)="factCheck = null"></app-watson>
 </section>

@@ -1,0 +1,110 @@
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
+
+:host {
+  .watson {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+    &--question {
+      max-width: 300px;
+      margin-top: 0;
+    }
+
+    &__wrapper {
+      display: flex;
+      background-color: colors.$color__watson-background;
+      box-shadow: 0px 3px 20px colors.$color__watson-background-shadow;
+      border-radius: 30px;
+      padding: 10px 20px 20px 10px;
+    }
+
+    h3,
+    p {
+      color: white;
+    }
+
+    &__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      min-width: 32px;
+      height: 32px;
+      background-color: colors.$color__bittersweet;
+      border-radius: 50%;
+
+      img {
+        max-width: 25px;
+      }
+    }
+
+    &__content {
+      margin-top: 10px;
+
+      h3 {
+        @include fonts.font__effra--bold;
+        font-size: 14px;
+      }
+
+      p {
+        @include fonts.font__effra--regular;
+        font-size: 14px;
+        margin: 4px 0;
+      }
+    }
+
+    &__fact {
+      @include fonts.font__effra--regular;
+      font-size: 14px;
+      color: colors.$color__bittersweet;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      i {
+        margin-left: 8px;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+
+      button {
+        cursor: pointer;
+        border: 1px solid colors.$color__watson-background;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 7px;
+        margin-right: 5px;
+        border-radius: 20px;
+        background-color: white;
+        font-size: 14px;
+
+        i {
+          font-weight: 500;
+        }
+
+        &:hover {
+          background-color: transparent;
+          color: white;
+          border-color: white;
+        }
+      }
+    }
+
+    &__hide {
+      align-self: flex-end;
+      @include fonts.font__effra--regular;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-right: 22px;
+      cursor: pointer;
+    }
+  }
+}

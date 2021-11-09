@@ -30,6 +30,8 @@ $color__select-border: #dcd4d4;
 
 $color__share-section-heading: #4a4a4a;
 
+$color__case-card: #f1f1f1;
+
 $color__shadow: rgba(22, 6, 55, 0.15);
 $color__link: $color__bittersweet;
 
@@ -89,6 +91,7 @@ $color__discovered-links-item-disabled: $color__old-paragraph;
 $color__background-information-color: $color__mysterious-blue;
 
 $color__watson-background: #30475e;
+$color__watson-background-shadow: #0000004d;
 $color__watson-beard: $color__white;
 $color__watson-beard-background: $color__bittersweet;
 $color__watson-font: $color__white;
@@ -102,15 +105,6 @@ $color__badge: $color__mysterious-blue;
 $color__badge-icon: $color__white;
 $color__badge-headline: $color__white;
 $color__badge-description: $color__white;
-
-
-.font-bold {
-  font-weight: bold;
-}
-
-.font-italic {
-  font-style: italic;
-}
 
 .color__bittersweet {
   background-color: $color__bittersweet;
@@ -142,8 +136,4 @@ $color__badge-description: $color__white;
 
 .color__rating-tweeter {
   background-color: $color__rating-tweeter;
-}
-
-.font-old-parapgraph {
-  color: $color__old-paragraph;
 }

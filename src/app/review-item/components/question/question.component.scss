@@ -1,62 +1,113 @@
 @use '../../../../assets/scss/colors' as colors;
 @use '../../../../assets/scss/fonts' as fonts;
 
-.question {
-  padding-bottom: 50px;
-  margin-bottom: 50px;
-  border-bottom: 4px dashed gray;
+:host {
+  display: block;
 
-  &.none-border {
+  &:not(:last-of-type) {
+    // padding-bottom: 50px;
+    border-bottom: 4px dashed colors.$color__spacer;
+  }
+
+  &:not(:first-of-type) {
+    margin-top: 50px;
+  }
+}
+
+.question {
+  margin-bottom: 50px;
+
+  &.no-border {
     border: none;
     margin: 0;
   }
 
-  &-hint-container {
+  &__hint-container {
     display: flex;
     margin-bottom: 20px;
   }
 
-  &-info-container {
+  &__hint-icon {
     display: flex;
-    margin-bottom: 20px;
-  }
-
-  .icon-wrap {
+    justify-content: center;
     color: colors.$color__neon-blue;
-    margin-right: 10px;
+    margin-right: 4px;
+    width: 20px;
   }
 
-  .large-text {
+  &__title {
     font-size: 21px;
     font-weight: bold;
+    margin-bottom: 12px;
   }
 
-  .medium-text {
+  &__content {
     font-size: 18px;
+    margin-bottom: 20px;
   }
 
-  .small-text {
+  &__hint {
+    flex: 1;
     font-size: 16px;
     color: grey;
   }
 }
 
-.child-question-container {
-  margin-top: 50px;
-  margin-left: 27px;
-  background-color: #eee;
-  padding: 5px 30px;
+.child-question {
+  margin-top: 30px;
+  margin-left: 30px;
+  background-color: colors.$color__tile-background;
+  padding: 30px;
 }
 
-mat-radio-group {
+.mat-radio-group {
   margin-top: 40px !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &:not(.readonly) ::ng-deep .mat-radio-button.last-item {
+    .mat-radio-outer-circle {
+      border-color: colors.$color__bittersweet !important;
+    }
+
+    .mat-radio-inner-circle {
+      background-color: transparent;
+
+      &:before,
+      &:after {
+        position: absolute;
+        left: 6px;
+        content: ' ';
+        height: 16px;
+        width: 4px;
+        background-color: colors.$color__bittersweet;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .option,
+    .option .mat-icon {
+      color: colors.$color__bittersweet;
+    }
+  }
 }
 
-mat-radio-button {
+.mat-radio-button {
   width: 15px;
+
+  &.last-item {
+    margin-top: 30px;
+  }
+
+  ::ng-deep .mat-ripple-element {
+    background-color: colors.$color__mysterious-blue !important;
+  }
 }
 
 mat-radio-button + mat-radio-button {
@@ -67,25 +118,13 @@ mat-icon {
   cursor: pointer;
 }
 
-.not-last-item {
-  font-weight: bold;
-}
-
-.last-item {
-  color: red;
-
-  & * {
-    width: 100px;
-  }
-}
-
-.readonly ::ng-deep {
+.mat-radio-group ::ng-deep {
   .mat-radio-outer-circle {
-    border-color: colors.$color__neon-blue !important;
+    border-color: colors.$color__mysterious-blue !important;
   }
 
   .mat-radio-inner-circle {
-    background-color: colors.$color__neon-blue;
+    background-color: colors.$color__mysterious-blue;
   }
 }
 
@@ -138,15 +177,5 @@ mat-icon {
     align-items: center;
     justify-content: center;
     color: white;
-  }
-
-  .green {
-    background-color: green;
-  }
-
-  .red {
-    background-color: red;
-    //todo move somewhere
-    margin-left: -8px;
   }
 }
