@@ -122,7 +122,11 @@ app-case-details {
     &__container {
       display: flex;
       flex-direction: column;
-      margin-bottom: 380px;
+      margin-bottom: 230px;
+
+      @media only screen and (min-width: 480px) {
+        margin-bottom: 380px;
+      }
     }
 
     &__text {
@@ -179,6 +183,10 @@ app-case-details {
         display: flex;
         flex-direction: column;
         gap: 16px;
+
+        .mat-checkbox ::ng-deep .mat-checkbox-label {
+          white-space: initial;
+        }
       }
     }
   }
@@ -214,7 +222,11 @@ app-case-details {
 
     &--legal {
       flex-direction: row;
-      justify-content: flex-end;
+      justify-content: center;
+
+      @media only screen and (min-width: 480px) {
+        justify-content: flex-end;
+      }
     }
 
     .button--reject {

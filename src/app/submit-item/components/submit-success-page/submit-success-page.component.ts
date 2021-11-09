@@ -57,11 +57,6 @@ export class SubmitSuccessPageComponent {
     }
   }
 
-  copy() {
-    navigator.clipboard.writeText(this.marketingWording);
-    this.snackBar.open('Text wurde in die Zwischenablage kopiert!', '', { duration: 3000 });
-  }
-
   private loadOpenItems(): void {
     this.itemsService.getOpenItems().then((openCases) => {
       this.cases = openCases.items;

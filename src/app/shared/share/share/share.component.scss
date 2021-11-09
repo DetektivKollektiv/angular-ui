@@ -1,4 +1,4 @@
-@use '../../../../assets/scss/colors' as *;
+@use '../../../../assets/scss/colors' as colors;
 
 :host {
   .top {
@@ -23,13 +23,13 @@
       align-items: center;
 
       font-size: 14px;
-      color: $color__old-paragraph;
+      color: colors.$color__old-paragraph;
       margin: 0 0 30px;
       padding: 15px 5px 15px 15px;
       border-radius: 30px;
-      border: solid 1px $color__spacer;
+      border: solid 1px colors.$color__spacer;
       max-width: 585px;
-      background-color: $color__tag-background;
+      background-color: colors.$color__tag-background;
 
       i {
         margin: 0 10px 0 20px;
@@ -43,36 +43,5 @@
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-
-    &__link {
-      a {
-        width: 30px;
-        height: 30px;
-        text-decoration: none;
-        margin: 1px 15px 8px 0;
-        font-size: 18px;
-        display: flex;
-        color: $color__white;
-        justify-content: center;
-        align-items: center;
-        border-radius: 4px;
-      }
-
-      &.link-icon a {
-        background-color: $color__neon-blue;
-      }
-      &.envelope-icon a {
-        background-color: $color__purple;
-      }
-      &.twitter-icon a {
-        background-color: $color__rating-tweeter;
-      }
-      &.facebook-icon a {
-        background-color: $color__rating-facebook;
-      }
-      &.instagram-icon a {
-        background-color: $color__bittersweet;
-      }
-    }
   }
 }

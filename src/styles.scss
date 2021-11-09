@@ -1,6 +1,5 @@
-@use './assets/scss/fonts' as fonts;
-@use './assets/scss/buttons';
-@use './assets/scss/colors' as *;
+@import './assets/scss/buttons';
+@import './assets/scss/initializer';
 
 @import './theme';
 @import '~ngx-sharebuttons/themes/default/default-theme';
@@ -11,7 +10,7 @@
 
 * {
   // font-family: Effra medium, sans-serif;
-  @include fonts.font__effra--regular;
+  @include font__effra--regular;
   box-sizing: border-box;
 }
 
@@ -27,7 +26,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $color__case-card;
 }
 
 /* Handle */
@@ -101,12 +100,12 @@ body {
 }
 
 h1 {
-  @include fonts.font__effra--medium;
+  @include font__effra--medium;
   line-height: 70px;
   // color: mat-color($custom-theme-accent);
 
   span.alt {
-    @include fonts.font__effra--medium;
+    @include font__effra--medium;
     line-height: 70px;
     font-size: 40px;
     font-size: max(1.8vw, 12px);
@@ -115,17 +114,17 @@ h1 {
 }
 
 h2 {
-  @include fonts.font__effra--medium;
+  @include font__effra--medium;
   margin: 0;
 }
 
 h3 {
-  @include fonts.font__effra--medium;
+  @include font__effra--medium;
   margin: 0;
 }
 
 p {
-  @include fonts.font__effra--regular;
+  @include font__effra--regular;
   font-size: max(0.7vw, 14px);
   line-height: max(1vw, 22px);
 }
@@ -401,7 +400,7 @@ header.header {
 }
 
 .mono-font {
-  @include fonts.font__pt-mono;
+  @include font__pt-mono;
 }
 
 .bold-weight {
@@ -484,7 +483,7 @@ header.header {
   align-items: center;
   justify-content: center;
   color: white;
-  @include fonts.font__pt-mono--bold;
+  @include font__pt-mono--bold;
   font-size: 20px;
   margin: 0 5px;
 }

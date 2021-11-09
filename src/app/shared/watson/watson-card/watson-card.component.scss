@@ -1,5 +1,5 @@
-@use '../../../../assets/scss/colors' as *;
-@use '../../../../assets/scss/fonts' as *;
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
 
 :host {
   .watson {
@@ -14,8 +14,8 @@
 
     &__wrapper {
       display: flex;
-      background-color: $color__watson-background;
-      box-shadow: 0px 3px 20px $color__watson-background-shadow;
+      background-color: colors.$color__watson-background;
+      box-shadow: 0px 3px 20px colors.$color__watson-background-shadow;
       border-radius: 30px;
       padding: 10px 20px 20px 10px;
     }
@@ -32,7 +32,7 @@
       margin-right: 10px;
       min-width: 32px;
       height: 32px;
-      background-color: $color__bittersweet;
+      background-color: colors.$color__bittersweet;
       border-radius: 50%;
 
       img {
@@ -44,21 +44,21 @@
       margin-top: 10px;
 
       h3 {
-        @include font__effra--bold;
+        @include fonts.font__effra--bold;
         font-size: 14px;
       }
 
       p {
-        @include font__effra--regular;
+        @include fonts.font__effra--regular;
         font-size: 14px;
         margin: 4px 0;
       }
     }
 
     &__fact {
-      @include font__effra--regular;
+      @include fonts.font__effra--regular;
       font-size: 14px;
-      color: $color__bittersweet;
+      color: colors.$color__bittersweet;
 
       &:hover {
         text-decoration: none;
@@ -76,7 +76,7 @@
 
       button {
         cursor: pointer;
-        border: 1px solid $color__watson-background;
+        border: 1px solid colors.$color__watson-background;
         display: flex;
         align-items: center;
         gap: 4px;
@@ -100,7 +100,7 @@
 
     &__hide {
       align-self: flex-end;
-      @include font__effra--regular;
+      @include fonts.font__effra--regular;
       font-size: 14px;
       margin-top: 10px;
       margin-right: 22px;

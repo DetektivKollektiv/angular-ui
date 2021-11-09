@@ -1,4 +1,4 @@
-@use '../../../../assets/scss/colors' as *;
+@use '../../../../assets/scss/colors' as colors;
 
 :host {
   display: block;
@@ -36,17 +36,17 @@
       button {
         padding: 5px 15px;
         border-radius: 15px;
-        background-color: $color__purple;
+        background-color: colors.$color__purple;
         color: white;
         border: none;
         font-weight: bold;
-        border: 2px solid $color__purple;
+        border: 2px solid colors.$color__purple;
         cursor: pointer;
 
         &:hover {
           background-color: white;
-          color: $color__purple;
-          border: 2px solid $color__purple;
+          color: colors.$color__purple;
+          border: 2px solid colors.$color__purple;
         }
       }
     }

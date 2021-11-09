@@ -1,24 +1,26 @@
-@use '../../../../assets/scss/fonts' as *;
-@use '../../../../assets/scss/colors' as *;
+@use '../../../../assets/scss/fonts' as fonts;
+@use '../../../../assets/scss/colors' as colors;
 
 .icon-with-content {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   &--bittersweet {
-    --icon-color: #{$color__bittersweet};
+    --icon-color: #{colors.$color__bittersweet};
   }
 
   &--neon-blue {
-    --icon-color: #{$color__neon-blue};
+    --icon-color: #{colors.$color__neon-blue};
   }
 
   &--purple {
-    --icon-color: #{$color__purple};
+    --icon-color: #{colors.$color__purple};
   }
 
   &__heading {
     font-size: 21px;
-    @include font__effra--bold;
+    @include fonts.font__effra--bold;
   }
 
   &__content {
@@ -28,7 +30,11 @@
 
   &__icon {
     max-width: 125px;
-    margin-right: 20px;
+    align-self: center;
+
+    @media only screen and (min-width: 480px) {
+      align-self: flex-start;
+    }
   }
 
   &__icon i {
@@ -36,12 +42,16 @@
     height: 100px;
     margin: 0px 10px -3px 0;
     padding: 12.9px 2.5px;
-    color: $color__white;
+    color: colors.$color__white;
     background-color: var(--icon-color);
     border-radius: 50%;
     font-size: 42px;
     justify-content: center;
     align-items: center;
     display: flex;
+  }
+
+  @media only screen and (min-width: 480px) {
+    flex-direction: row;
   }
 }

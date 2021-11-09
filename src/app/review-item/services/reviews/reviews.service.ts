@@ -29,21 +29,19 @@ export class ReviewsService implements IReviewService {
    *
    * @param id - the id of the review to get
    */
-  public async getReview(id: string): Promise<Review> {
-    try {
-      const response = await API.get('review_service', `${this.reviewsUrl}/${id}`, {
+  public getReview(id: string): Observable<Review> {
+    return from(
+      API.get('review_service', `${this.reviewsUrl}/${id}`, {
         response: true
-      });
-
-      switch (response.code) {
-        case 200:
-          return response.data;
-        default:
-          break;
-      }
-    } catch (error) {
-    } finally {
-    }
+      }).then((response) => {
+        switch (response.code) {
+          case 200:
+            return response.data;
+          default:
+            break;
+        }
+      })
+    );
   }
 
   /**
@@ -51,24 +49,22 @@ export class ReviewsService implements IReviewService {
    *
    * @param item_id - the id of the item for which to create a review
    */
-  public async createReview(item_id: string): Promise<Review> {
-    try {
-      const response = await API.post('review_service', this.reviewsUrl, {
+  public createReview(item_id: string): Observable<Review> {
+    return from(
+      API.post('review_service', this.reviewsUrl, {
         response: true,
         body: {
           item_id
         }
-      });
-
-      switch (response.status) {
-        case 201:
-          return response.data;
-        default:
-          break;
-      }
-    } catch (error) {
-    } finally {
-    }
+      }).then((response) => {
+        switch (response.status) {
+          case 201:
+            return response.data;
+          default:
+            break;
+        }
+      })
+    );
   }
 
   /**
@@ -76,24 +72,22 @@ export class ReviewsService implements IReviewService {
    *
    * @param review - the review to update
    */
-  public async updateReview(review: Review): Promise<void> {
-    try {
-      const response = await API.put('review_service', this.reviewsUrl, {
+  public updateReview(review: Review): Observable<void> {
+    return from(
+      API.put('review_service', this.reviewsUrl, {
         response: true,
         body: review
-      });
-    } catch (error) {
-    } finally {
-    }
+      })
+    );
   }
 }
 
 export interface IReviewService {
   getOpenReview(): Observable<Review>;
 
-  getReview(id: string): Promise<Review>;
+  getReview(id: string): Observable<Review>;
 
-  createReview(item_id: string): Promise<Review>;
+  createReview(item_id: string): Observable<Review>;
 
-  updateReview(review: Review): Promise<void>;
+  updateReview(review: Review): Observable<void>;
 }

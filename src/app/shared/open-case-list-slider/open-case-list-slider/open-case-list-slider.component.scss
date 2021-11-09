@@ -1,3 +1,5 @@
+@use '../../../../assets/scss/colors' as colors;
+
 .case-header {
   font-weight: bold;
   text-align: center;
@@ -18,13 +20,13 @@
 .skeleton-container {
   display: flex;
   flex-direction: column;
-  background-color: #f1f1f1;
+  background-color: colors.$color__case-card;
   padding: 10px 20px 20px;
   margin: 20px 0;
   width: 100vw;
+  border-radius: 25px;
 
   @media only screen and (min-width: 1024px) {
-    border-radius: 25px;
     width: unset;
   }
 
