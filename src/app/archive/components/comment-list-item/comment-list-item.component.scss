@@ -1,0 +1,22 @@
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment {
+  &__date {
+    @include fonts.font__effra--regular;
+    font-size: 14px;
+    color: colors.$color__old-paragraph;
+    margin-left: 8px;
+  }
+
+  &__content {
+    white-space: pre; // respect newlines /n
+    @include fonts.font__effra--regular;
+    font-size: 16px;
+  }
+}

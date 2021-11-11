@@ -9,6 +9,7 @@ import {LoaderModule} from '../shared/loader/loader.module';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../shared/material/material.module';
 import { DeleteUserDialogComponent } from './dialogs/delete-user-dialog/delete-user-dialog.component';
+import { MenuDialogComponent } from './dialogs/menu-dialog/menu.component';
 import {FormsModule} from '@angular/forms';
 
 
@@ -19,7 +20,8 @@ import {FormsModule} from '@angular/forms';
     HeaderComponent,
     CommunityGuidelinesComponent,
     ImprintComponent,
-    DeleteUserDialogComponent
+    DeleteUserDialogComponent,
+    MenuDialogComponent
   ],
   exports: [
     FooterComponent,

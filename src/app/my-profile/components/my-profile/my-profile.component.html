@@ -1,0 +1,110 @@
+<div class="my-profile-page responsive-100">
+  <div class="top-section standard-content-container-width section">
+    <div class="overview-section">
+      <div *ngIf="userLoaded" class="user-name">
+        <div class="avatar">
+          {{user.name[0]}}
+        </div>
+        {{user.name}}
+      </div>
+      <div class="user-name-explain">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
+      </div>
+    </div>
+  </div>
+  <div class="middle-section standard-content-container-width section">
+    <div class="left-side side">
+      <div  class="left-side-title">
+        Level <span *ngIf="userLoaded">{{user.level}}</span> - <span *ngIf="userLoaded">{{user.level_description}}</span>
+      </div>
+      <div class="ranking-container">
+        <div class="scored-case ranking-content">
+          <h2 *ngIf="userLoaded" class="mark font__rating-orange">{{user.solved_cases_total < 10 ? "0" : ""}}{{user.solved_cases_total}}</h2>
+          <span class="mark-explain">Bewertete Fälle</span>
+        </div>
+        <div class="rated-cases-today ranking-content">
+          <h2 *ngIf="userLoaded" class="mark font__rating-orange">{{user.solved_cases_today < 10 ? "0" : ""}}{{user.solved_cases_today}}</h2>
+          <span class="mark-explain">Bewertete Fälle heute</span>
+        </div>
+        <div class="rank-overall ranking-content">
+          <h2 *ngIf="userLoaded" class="mark font__supernova">{{user.total_rank < 10 ? "0" : ""}}{{user.total_rank}}</h2>
+          <span class="mark-explain">Rang insgesamt</span>
+        </div>
+        <div class="rank-at-your-level ranking-content">
+          <h2 *ngIf="userLoaded" class="mark font__purple">{{user.level_rank < 10 ? "0" : ""}}{{user.level_rank}}</h2>
+          <span class="mark-explain">Rang auf  deinem Level</span>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress">
+          <mat-progress-bar
+            class="example-margin"
+            [value]="40"
+          >
+          </mat-progress-bar>
+          <div *ngIf="userLoaded">{{user.experience_points * 100}} / {{(user.experience_points + user.exp_needed) * 100}}XP</div>
+        </div>
+        <div class="level-title">
+          <span>Level</span><span *ngIf="userLoaded">{{user.level}}</span>
+        </div>
+      </div>
+      <div class="image-container"></div>
+    </div>
+    <div class="right-side side">
+      <div class="right-side-title">
+        Deine abgeschlossenen Fälle
+      </div>
+      <div class="right-side-explain">
+        Hier siehst du alle Fälle, bei denen du beteiligt warst und die abgeschlossen sind. Es müssen erst alle bearbeitende Detektive den Fall abschließen, damit er hier sichtbar wird.
+        Fälle, die du hier siehst, sind offen für Diskussion.
+      </div>
+      <div class="marks-container">
+        <app-score-list [scores]="items"></app-score-list>
+      </div>
+    </div>
+  </div>
+  <div class="standard-content-container-width section">
+    <div style="width: 100%;" >
+      <app-open-case-list-slider *ngIf="cases" [cases]="cases"></app-open-case-list-slider>
+    </div>
+  </div>
+    <div class="solved-case-section">
+    <div class="main-container standard-content-container-width section">
+      <div class="title font-bold font-mono">
+        In gelösten Fällen stöbern
+      </div>
+      <app-solve-score-list [scores]="topTenScores"></app-solve-score-list>
+      <a class="view-more-btn font-bold">
+        Weitere gelöste Fälle ansehen
+      </a>
+    </div>
+  </div>
+  <div class="account-details-section standard-content-container-width section">
+    <div class="title font-bold">
+      Deine Kontodaten
+    </div>
+    <p class="explain">
+      Hier siehst du die Daten, mit denen du dich registriert hast.<br/>
+      Außerdem kannst du dein Passwort ändern
+    </p>
+    <div class="font-mono font-bold">E-Mail-Adresse</div>
+    <p class="font-mono"><i class="far fa-envelope"></i>&nbsp;e@mail.not</p>
+    <div class="font-mono font-bold">Nutzername</div>
+    <p class="font-mono"><i class="far fa-user"></i>&nbsp;John Doe</p>
+  </div>
+  <div class="delete-account-section">
+    <div class="standard-content-container-width section">
+      <div class="title font-bold">
+        Dein Konto löschen
+      </div>
+      <p class="explain">
+        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen.<br>
+        Deine Bewertungen und Kommentare bleiben erhalten, aber dein Nutzername und Kürzel werden  entfernt.<br>
+        Stattdessen steht dort dann "deaktiviert".
+      </p>
+      <a class="delete-account-btn font-bold">
+        <i class="far fa-trash-alt"></i>&nbsp;Benutzerkonto löschen
+      </a>
+    </div>
+  </div>
+</div>

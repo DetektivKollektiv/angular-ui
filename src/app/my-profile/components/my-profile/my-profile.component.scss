@@ -1,0 +1,284 @@
+@import "../../../../assets/scss/_initializer.scss";
+
+.my-profile-page {
+  overflow-x: hidden;
+  width: 100vw;
+
+  .top-section {
+    .overview-section{
+      width: 100%;
+
+      .user-name {
+        display: flex;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+
+        @media only screen and (min-width: 480px) {
+          font-size: 56px;
+        }
+
+        .avatar {
+          border-radius: 50%;
+          width: _b__rem(64px);
+          height: _b__rem(64px);
+          background-color: $color__purple;
+          color: white;
+          margin: 0 _b__rem(6px) 0 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 40px;
+        }
+
+        &-explain {
+          line-height: 24px;
+        }
+      }
+
+      @media only screen and (min-width: 480px) {
+        width: 60%;
+      }
+    }
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-bottom: 80px;
+
+
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+    }
+
+    @media only screen and (min-width: 1350px) {
+      margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+    }
+  }
+
+  .middle-section {
+    .side {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 20px;
+
+      @media only screen and (min-width: 480px) {
+        width: 50%;
+      }
+    }
+    .left-side {
+      .left-side-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+
+        @media only screen and (min-width: 480px) {
+          text-align: left;
+          font-size: 32px;
+        }
+      }
+
+      .ranking-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 30px;
+        background-color: #eee;
+        border-radius: 24px;
+        margin-top: 16px;
+
+        .ranking-content {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          margin: 10px;
+
+          @media only screen and (min-width: 480px) {
+            width: 40%;
+          }
+
+          .mark {
+            font-family: PT MONO;
+            margin-right: 16px;
+          }
+        }
+      }
+
+      .progress-container {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+
+        .progress {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          div {
+            font-size: 12px;
+          }
+        }
+
+        .level-title {
+          margin: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+
+    .right-side {
+      &-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+
+        @media only screen and (min-width: 480px) {
+          text-align: left;
+          font-size: 32px;
+        }
+      }
+
+      &-explain {
+        margin: 16px 0;
+      }
+    }
+  }
+
+  .solved-case-section {
+    width: 100%;
+    background-color: $color__mysterious-blue;
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .title {
+        font-size: 24px;
+        text-align: center;
+        color: white;
+        margin-top: 40px;
+        margin-bottom: 20px;
+
+        @media only screen and (min-width: 480px) {
+          font-size: 40px;
+        }
+      }
+
+      app-solve-score-list {
+        display: flex;
+        justify-content: center;
+      }
+
+      .view-more-btn {
+        margin-top: 20px;
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: $color__purple;
+        color: white;
+        border-radius: 24px;
+        cursor: pointer;
+        border: 2px solid $color__purple;
+
+        &:hover {
+          background-color: white;
+          color: $color__purple;
+
+        }
+      }
+    }
+
+  }
+
+  .account-details-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+
+    .title {
+      font-size: 24px;
+      text-align: center;
+
+      @media only screen and (min-width: 480px) {
+        font-size: 40px;
+      }
+    }
+
+    .explain {
+      text-align: center;
+      font-size: 18px;
+    }
+  }
+
+  .delete-account-section {
+    background-color: #ffeceb;
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 24px;
+
+      .title {
+        font-size: 24px;
+        text-align: center;
+
+        @media only screen and (min-width: 480px) {
+          font-size: 40px;
+        }
+      }
+
+      .explain {
+        text-align: center;
+        font-size: 18px;
+      }
+
+      .delete-account-btn {
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        border-radius: 24px;
+        cursor: pointer;
+        border: 2px solid black;
+
+        &:hover {
+          background-color: white;
+          color: black;
+
+        }
+      }
+    }
+  }
+}
+
+// .font-mono {
+//   font-family: PT MONO;
+// }
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font__rating-orange {
+  color: $color__rating-orange;
+}
+
+.font__supernova {
+  color: $color__supernova;
+}
+
+.font__purple {
+  color: $color__purple;
+}

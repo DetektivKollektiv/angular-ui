@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+@mixin _headline--effra {
+	font-family: "Effra", sans-serif;
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0;
+	color: $color__mysterious-blue;
+}
+
+@mixin _headline--pt-mono {
+	font-family: "PT Mono", sans-serif;
+	font-weight: 700;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0;
+	color: $color__mysterious-blue;
+}
+
+@mixin headline-1--effra {
+	@include _headline--effra;
+	@include _b__font-size-rem(68px);
+}
+
+@mixin headline-2--effra {
+	@include _headline--effra;
+	@include _b__font-size-rem(36px);
+}
+
+@mixin headline-3--effra {
+	@include _headline--effra;
+	@include _b__font-size-rem(21px);
+}
+
+@mixin headline-4--effra {
+	@include _headline--effra;
+	@include _b__font-size-rem(18px);
+}
+
+@mixin headline-1--pt-mono {
+	@include _headline--pt-mono;
+	@include _b__font-size-rem(68px);
+}
+
+@mixin headline-2--pt-mono {
+	@include _headline--pt-mono;
+	@include _b__font-size-rem(36px);
+}
+
+@mixin headline-3--pt-mono {
+	@include _headline--pt-mono;
+	@include _b__font-size-rem(21px);
+}
+
+@mixin headline-4--pt-mono {
+	@include _headline--pt-mono;
+	@include _b__font-size-rem(18px);
+}
+
+@mixin paragraph {
+	@include font__effra--regular;
+	@include _b__font-size-rem(16px);
+
+	line-height: 1.5;
+}
+
+@mixin border-radius {
+	border-radius: _b__rem(30px);
+}
+
+@mixin tile {
+	@include border-radius;
+
+	background-color: $color__tile-background;
+	color: $color__tile-color;
+	padding: _b__rem(20px);
+}
+
+@mixin tile-animated {
+	@include tile;
+
+	transform: scale(1);
+	transition: all 0.1s;
+
+	&:hover,
+	&:focus,
+	&:active {
+		transform: scale(1.02);
+
+		box-shadow: _b__rem(3px) _b__rem(3px) _b__rem(30px) $color__shadow;
+	}
+}
+
+@mixin large-tile {
+	@include border-radius;
+
+	background-color: $color__tile-background;
+	color: $color__tile-color;
+	padding: _b__rem(30px);
+}
+
+@mixin fontawesome(
+	$unicode,
+	$font-weight: "regular",
+	$pseudo-element: "before"
+) {
+	@if (str-length($unicode) == 0) {
+		@error "Mixin fontaweseome-before was called without icon";
+	}
+
+	@if ($font-weight == "solid") {
+		&::#{$pseudo-element} {
+			@include font__fontawesome--solid;
+			//prettier-ignore
+			content: #{"\"\\"}#{$unicode + "\""};
+		}
+	} @else {
+		&::#{$pseudo-element} {
+			@include font__fontawesome--regular;
+			//prettier-ignore
+			content: #{"\"\\"}#{$unicode + "\""};
+		}
+	}
+}

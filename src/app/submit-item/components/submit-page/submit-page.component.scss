@@ -1,0 +1,363 @@
+@import '../../../../assets/scss/_initializer.scss';
+
+.submit-page {
+  overflow-x: hidden;
+  width: 100vw;
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      width: 600px;
+      padding: 80px 20px 40px;
+      margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+    }
+
+    @media only screen and (min-width: 1350px) {
+      width: 767px;
+      margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+    }
+
+    .overview-section {
+      span > i {
+        color: $color__old-paragraph;
+        font-size: small;
+      }
+      h1 {
+        @include font__effra--bold;
+        margin-bottom: 20px;
+
+        @media only screen and (min-width: 480px) {
+          font-size: 68px;
+        }
+      }
+      span.submit-text {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .section-of-questions {
+    margin: auto;
+
+    @media only screen and (min-width: 1024px) {
+      margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+    }
+
+    @media only screen and (min-width: 1350px) {
+      margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+    }
+  }
+
+  $middle-section-margin-bottom: 40px;
+
+  .middle-section {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .middle-section-container {
+      display: flex;
+      flex-direction: column;
+      padding: 0 20px 0;
+      margin-top: 20px;
+      position: relative;
+
+      h2 {
+        @include font__pt-mono--bold;
+        font-size: 36px;
+      }
+
+      .field-container p {
+        @include font__pt-mono--bold;
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+
+      .form-select {
+        width: 100%;
+        font-size: 18px;
+      }
+
+      .textarea {
+        width: 100%;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 12px;
+        font-size: 18px;
+
+        &:focus {
+          border: 1px solid grey;
+        }
+      }
+
+      .lady-detective-svg-container {
+        position: absolute;
+        right: -484px;
+        display: none;
+        // the -24 is  because theres a weird svg thing in the middle...
+        bottom: calc(#{-$middle-section-margin-bottom} - 24px);
+        z-index: 5;
+
+        @media only screen and (min-width: 1350px) {
+          display: block;
+        }
+      }
+
+      @media only screen and (min-width: 480px) {
+        padding: 20px;
+        margin-bottom: 20px;
+        margin-top: 40px;
+
+        .form-select {
+          width: 50%;
+        }
+      }
+
+      @media only screen and (min-width: 1024px) {
+        margin-bottom: $middle-section-margin-bottom;
+        margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+        width: 600px;
+      }
+
+      @media only screen and (min-width: 1350px) {
+        margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+        width: 767px;
+      }
+    }
+  }
+
+  .chunky-border {
+    // position: absolute;
+    // left: 0;
+    // bottom: -275px;
+    // background-image: linear-gradient(to top,#53407b 10%, transparent 50%);
+
+    // display: none;
+    // @media only screen and (min-width: 1024px) {
+    //   display: block;
+    // }
+
+    // background: white;
+    // this linear gradient is just a hack because the svg had some strip of empty space at the bottom, or something like that
+    background-image: linear-gradient(to top, #53407b 10%, transparent 50%);
+    // background-image: linear-gradient(to top, transparent 10%,white 35%);
+  }
+
+  .bottom-section {
+    background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    h2,
+    h3,
+    p,
+    div {
+      color: white;
+    }
+
+    .bottom-section-content-container {
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      padding: 0 20px 20px;
+      width: 100%;
+      max-width: 100vw;
+      color: white;
+      position: relative;
+
+      h2 {
+        @include font__effra--bold;
+        font-size: 36px;
+      }
+
+      h3 {
+        @include font__pt-mono--bold;
+        font-size: 16px;
+        margin-top: 30px;
+        margin-bottom: 12px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      @media only screen and (min-width: 480px) {
+        padding: 20px;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        padding-top: 50px;
+        width: 600px;
+        margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+      }
+
+      @media only screen and (min-width: 1350px) {
+        width: 767px;
+        margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+      }
+
+      .mat-divider {
+        border-top-color: white;
+      }
+
+      .option-container {
+        margin-bottom: 40px;
+
+        .radio-container {
+          mat-radio-group {
+            display: flex;
+            flex-direction: column;
+
+            mat-radio-button {
+              margin: 5px 0;
+            }
+          }
+        }
+
+        input:not(:last-child) {
+          margin-bottom: 15px;
+        }
+
+        .text-input {
+          padding: 10px 15px;
+          width: 40%;
+          border: 1px solid grey;
+          border-radius: 10px;
+
+          &:focus {
+            border: 1px solid grey;
+          }
+        }
+
+        .other-source-input {
+          margin-top: 4px;
+        }
+      }
+
+      .notify-container {
+        margin: 40px 0;
+
+        .text-input {
+          padding: 10px 15px;
+          width: 40%;
+          border: 1px solid grey;
+          border-radius: 10px;
+
+          &:focus {
+            border: 1px solid grey;
+          }
+        }
+      }
+
+      .email-container {
+        width: 40%;
+        position: relative;
+
+        input {
+          padding: 10px 15px;
+          width: 100%;
+          border: 1px solid grey;
+          border-radius: 10px;
+
+          &:focus {
+            border: 1px solid grey;
+          }
+
+          &.ng-invalid.ng-touched {
+            border-color: red;
+            color: red;
+          }
+        }
+
+        .icon {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      .submit-check-container {
+        margin: 40px 0;
+
+        .mat-checkbox ~ .mat-checkbox {
+          margin-top: 0.5rem;
+        }
+      }
+
+      .legal-button-container {
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        @media only screen and (max-width: 480px) {
+          justify-content: center;
+        }
+
+        .button-group {
+          width: 178px;
+          height: 42px;
+          font-weight: bold;
+          font-size: 17px;
+
+          &.abort-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            color: grey;
+            text-decoration-line: none;
+          }
+
+          &.submit-button {
+            border-radius: 20px;
+            background-color: $color__neon-blue;
+            color: white;
+            border: 2px solid $color__neon-blue;
+            cursor: pointer;
+
+            &:hover {
+              background-color: white;
+              color: $color__neon-blue;
+            }
+            &:disabled {
+              border: none;
+              opacity: 0.7;
+
+              &:hover {
+                background-color: $color__neon-blue;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+
+      p {
+        color: white;
+      }
+    }
+
+    .wrap-mat-radio-label {
+      white-space: normal;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      .responsive-100 {
+        width: 100% !important;
+      }
+    }
+  }
+}

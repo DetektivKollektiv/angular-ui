@@ -1,0 +1,97 @@
+<div class="review-page standard-content-container-width" *ngIf="case$ | async as case">
+  <section class="top">
+    <app-case-details [case]="case">
+      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
+    </app-case-details>
+    <app-user-experience-bubble-list [userExperienceBubbles]="userExperienceBubbles"></app-user-experience-bubble-list>
+  </section>
+
+  <app-question-carousel [questions]="questionPrompts">
+    <div class="flag question-container-action"><i class="fas fa-flag"></i>Fall melden</div>
+  </app-question-carousel>
+
+  <section class="bottom">
+    <div class="facts">
+      <app-edgy-background></app-edgy-background>
+
+      <div class="facts__content">
+        <app-case-facts [case]="case" [factCheck]="factCheck"></app-case-facts>
+      </div>
+    </div>
+
+    <div class="overview">
+      <h2>Die Fallbearbeitung</h2>
+      <div class="overview__container" *ngIf="!isOpenReview; else processing">
+        <div class="overview__text">
+          Im Tatbestand siehst du alle für den Fall relevanten Informationen. Weiterer Hilfreicher Text...… Lorem ipsum dolor sit amet,
+          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etLorem ipsum dolor sit amet, consetetur sadipscing
+          elitr. Möchtest du diesen Fall annehmen?
+        </div>
+        <div class="button-container">
+          <button appButton (click)="accept()">
+            <i class="fas fa-check"></i>
+            <span>Fall annehmen</span>
+          </button>
+          <button appButton mode="reject" routerLink="/">Fall ablehnen</button>
+        </div>
+      </div>
+      <div class="overview__image">
+        <img src="assets/images/illustrations/undraw_newspaper_k-72-w.svg" />
+      </div>
+    </div>
+  </section>
+</div>
+
+<ng-template #processing>
+  <div class="overview__container">
+    <app-question
+      *ngFor="let question of showQuestions; let i = index"
+      [question]="question"
+      [index]="i"
+      [questions]="questions"
+      (valueChange)="updateReview()"
+    ></app-question>
+    <div class="comments">
+      <h2>Fallbewertungskommentar</h2>
+      <p class="explain">
+        Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens sichtbar
+        sein.
+      </p>
+      <app-comment-input
+        [user]="user$ | async"
+        [comment]="review.comment"
+        (commentSubmitted)="commentChange($event)"
+        [authenticated]="true"
+        [instantChanges]="true"
+      ></app-comment-input>
+    </div>
+    <div class="tags">
+      <h2>Schlagwörter</h2>
+      <p class="explain">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua.
+      </p>
+      <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
+    </div>
+    <div class="legal">
+      <h2>Rechtliche Angaben</h2>
+      <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
+      <div class="legal__container">
+        <mat-checkbox [(ngModel)]="isPolicyChecked" (ngModelChange)="validateReview()">
+          <div class="option">
+            <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
+          </div>
+        </mat-checkbox>
+        <mat-checkbox [(ngModel)]="isConditionChecked" (ngModelChange)="validateReview()">
+          <div class="option">
+            <span>Ich stimme den Nutzungsbedingungen zu</span>
+          </div>
+        </mat-checkbox>
+      </div>
+      <div class="button-container button-container--legal">
+        <a appButton routerLink="/" mode="reject">Abbrechen</a>
+        <button appButton (click)="closeReview()" [disabled]="!isReviewValid">Lösung einreichen</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

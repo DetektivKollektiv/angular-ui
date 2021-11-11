@@ -1,50 +1,78 @@
-<div class="archive">
-  <h1>Archiv</h1>
-  <app-archive-toolbar>
-  </app-archive-toolbar>
+<div class="archive-page standard-content-container-width">
+  <div class="top-section">
+    <div class="overview-section">
+      <app-breadcrumb></app-breadcrumb>
+      <h1>Gelöste Fälle</h1>
+      <div>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+        est Lorem ipsum dolor sit amet.
+      </div>
+    </div>
+    <app-rating-legend></app-rating-legend>
+  </div>
 
-  <table mat-table [dataSource]="items" multiTemplateDataRows class="mat-elevation-z8">
-    <ng-container matColumnDef="content">
-      <th mat-header-cell *matHeaderCellDef> Inhalt </th>
-      <td mat-cell *matCellDef="let item"> {{item.content}} </td>
-    </ng-container>
+  <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
 
-    <ng-container matColumnDef="open_timestamp">
-      <th mat-header-cell *matHeaderCellDef> Eingegangen </th>
-      <td mat-cell *matCellDef="let item"> {{item.open_timestamp | date}} </td>
-    </ng-container>
+  <div class="bottom-section" id="archive-bottom-section">
+    <!-- the stuff below, is the old page, i will delete later. -->
+    <div class="archive-list-setting">
+      <mat-form-field *ngIf="filter$ | async as filter" class="search-input mat-form-field--alt" appearance="fill">
+        <mat-label>Fälle durchsuchen</mat-label>
+        <mat-chip-list #chipList class="tags-chip-list tags-chip-list--neon-blue">
+          <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true" (removed)="remove(keyword)">
+            {{ keyword }}
+            <mat-icon matChipRemove>cancel</mat-icon>
+          </mat-chip>
+          <input
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="true"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-list>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
 
-    <ng-container matColumnDef="close_timestamp">
-      <th mat-header-cell *matHeaderCellDef> Geschlossen </th>
-      <td mat-cell *matCellDef="let item"> {{item.close_timestamp | date}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="result_score">
-      <th mat-header-cell *matHeaderCellDef> Vertrauensindex </th>
-      <td mat-cell *matCellDef="let item">
-        <app-result-score [score]="item.result_score" [mode]="resultScoreMode"></app-result-score>
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="expandedDetail">
-      <td mat-cell *matCellDef="let item" [attr.colspan]="displayedColumns.length">
-        <div class="item-detail" [@detailExpand]="item == expandedItem ? 'expanded' : 'collapsed'">
-          <app-archive-details [item]="item"></app-archive-details>
+      <div class="archive-list-options">
+        <div class="archive-list-option">
+          <span class="bold-weight">Filter</span>
+          <span
+            class="archive-list-option__btn archive-list-option__btn--menu"
+            (click)="archiveListFilterOpened = !archiveListFilterOpened"
+            cdkOverlayOrigin
+            #archiveListFilter="cdkOverlayOrigin"
+            >anzeigen</span
+          >
+          <span class="archive-list-option__btn archive-list-option__btn--dialog" (click)="openFilterDialog()">anzeigen</span>
+          <i class="far" [ngClass]="!archiveListFilterOpened ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
         </div>
-      </td>
-    </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let item; columns: displayedColumns;" class="item-row" id="{{item.id}}"
-      [class.expanded-row]="expandedItem === item" (click)="expandedItem = expandedItem === item ? null : item">
-    </tr>
-    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
-    <tr class="mat-row" *matNoDataRow>
-      <td class="mat-cell" class="no-data-cell" [attr.colspan]="displayedColumns.length">Leider wurden mit diesen
-        Filtern
-        keine
-        Einträge gefunden.
-      </td>
-    </tr>
-  </table>
+        <div class="archive-list-option" *ngIf="sort$ | async as sort">
+          <span class="archive-list-option__btn archive-list-option__btn--menu">Sortiert nach:</span>
+          <span class="bold-weight archive-list-option__trigger" [matMenuTriggerFor]="archiveListOrderMenu">{{
+            sort.by | caseSortBy
+          }}</span>
+          <i
+            class="archive-list-option__trigger far"
+            [ngClass]="sort.order === 'desc' ? 'fa-sort-size-down' : 'fa-sort-size-up'"
+            (click)="changeSortOrder()"
+          ></i>
+        </div>
+
+        <mat-menu #archiveListOrderMenu="matMenu">
+          <button mat-menu-item *ngFor="let value of caseSortByValues" (click)="changeSortBy(value)">{{ value | caseSortBy }}</button>
+        </mat-menu>
+      </div>
+    </div>
+    <app-archive-list [archives]="items$ | async" (pageChanged)="onListPageChanged()"></app-archive-list>
+  </div>
 </div>
+
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="archiveListFilter" [cdkConnectedOverlayOpen]="archiveListFilterOpened">
+  <app-archive-list-filter
+    (apply)="onApplyFilter($event)"
+    (closed)="archiveListFilterOpened = false"
+    class="mat-elevation-z4"
+  ></app-archive-list-filter>
+</ng-template>

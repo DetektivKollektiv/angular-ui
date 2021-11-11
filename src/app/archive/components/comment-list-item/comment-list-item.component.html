@@ -1,0 +1,4 @@
+<app-detective-item [detective]="comment.detective" class="comment">
+  <span appDetectiveItemSuffix class="comment__date">{{ comment.timestamp | date: 'dd.MM.yyyy' }}</span>
+  <div appDetectiveItemContent class="comment__content">{{ comment.comment }}</div>
+</app-detective-item>

@@ -1,0 +1,117 @@
+<div class="archive-details-page standard-content-container-width">
+  <section class="top">
+    <app-case-details *ngIf="case" [case]="case">
+      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
+    </app-case-details>
+  </section>
+
+  <app-question-carousel [questions]="archiveQuestions">
+    <div class="flag question-container-action"><i class="fas fa-flag"></i>Fall melden</div>
+  </app-question-carousel>
+
+  <section class="bottom">
+    <div class="facts">
+      <app-edgy-background></app-edgy-background>
+
+      <div class="facts__content">
+        <app-case-facts *ngIf="case" [case]="case"></app-case-facts>
+      </div>
+      <div class="back-btn" routerLink="/archive">
+        <i class="far fa-arrow-left"></i>
+        <div class="back-btn__text">
+          <span class="small">Zurück zur</span>
+          <span>Übersicht</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="overview" #overview>
+      <h2 class="overview__title mono-font">Fallabschlussbericht</h2>
+      <app-case-result-card [case]="detailItem$ | async"></app-case-result-card>
+
+      <div class="overview__archive-detail">
+        <app-review-responses [loading]="(detailItem$ | async) === null"></app-review-responses>
+      </div>
+
+      <div class="date-info" *ngIf="case">
+        <div class="date-info__duration">Der Fall war {{ caseDuration$ | async }} Tage aktiv.</div>
+        <div class="date-info__closing-date"><i class="far fa-calendar-check"></i>{{ case.close_timestamp | date: 'dd.MM.yyyy' }}</div>
+      </div>
+
+      <div class="tags" *ngIf="case?.warning_tags?.length">
+        <div class="tags__title">Folgendes trifft auf den Fall zu</div>
+        <div class="tags__content">
+          <app-tag-icon *ngFor="let tag of case.warning_tags" [tag]="tag.text" styleClass="empty" [iconClass]="tag.icon"></app-tag-icon>
+        </div>
+      </div>
+
+      <div class="detectives">
+        <div class="detectives__title">Ermittelnde Detektive</div>
+        <app-detective-list [detectives]="detectives$ | async" [loading]="(detailItem$ | async) === null"></app-detective-list>
+      </div>
+      <div class="comments" *ngIf="case">
+        <div class="comments__title">Fallbewertungskommentare</div>
+        <app-comment-list [comments]="reviewComments" *ngIf="reviewComments$ | async as reviewComments"></app-comment-list>
+      </div>
+
+      <div class="processing">
+        <div class="collapsible-toolbar">
+          <span class="collapsible-toolbar__title">Fallbearbeitung</span>
+          <span class="collapsible-toolbar__toggle" (click)="isProcessingCollapsed = !isProcessingCollapsed">{{
+            isProcessingCollapsed ? 'einblenden' : 'ausblenden'
+          }}</span>
+          <i class="far" [ngClass]="isProcessingCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+        </div>
+        <div *ngIf="!isProcessingCollapsed" class="processing__body">
+          <app-question
+            *ngFor="let question of displayedQuestions; let i = index"
+            [question]="question"
+            [displayOnly]="true"
+            [index]="i"
+            [questions]="allQuestions"
+          ></app-question>
+        </div>
+      </div>
+
+      <div class="discussion" id="archive-details-discussion-section">
+        <div class="collapsible-toolbar">
+          <span class="collapsible-toolbar__title">Communitydiskussion</span>
+          <ng-container *ngIf="authenticated$ | async">
+            <span class="collapsible-toolbar__toggle" (click)="isDiscussionCollapsed = !isDiscussionCollapsed">{{
+              isDiscussionCollapsed ? 'einblenden' : 'ausblenden'
+            }}</span>
+            <i class="far" [ngClass]="isDiscussionCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+          </ng-container>
+        </div>
+
+        <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async)">
+          <div
+            *ngIf="communityComments$ | async as communityComments"
+            class="discussion__comments"
+            [class.discussion__comments--loading]="commentsLoading"
+          >
+            <app-comment-list [comments]="communityComments | slice: 0:communityCommentsCount"></app-comment-list>
+
+            <div *ngIf="communityCommentsCount <= communityComments.length" class="discussion__more">
+              <button (click)="communityCommentsCount = communityCommentsCount + 10">Mehr Kommentare laden</button>
+            </div>
+          </div>
+          <mat-progress-spinner *ngIf="commentsLoading" class="discussion__spinner" color="accent" mode="indeterminate">
+          </mat-progress-spinner>
+        </div>
+        <app-comment-input
+          [user]="user"
+          (commentSubmitted)="onPostComment($event)"
+          [authenticated]="authenticated$ | async"
+        ></app-comment-input>
+      </div>
+      <div class="back-btn back-btn--responsive" routerLink="/archive">
+        <i class="far fa-arrow-left"></i>
+        <div class="back-btn__text">
+          <span class="small">Zurück zur</span>
+          <span>Übersicht</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

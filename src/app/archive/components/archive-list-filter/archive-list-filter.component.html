@@ -1,0 +1,41 @@
+<div class="options-menu" (click)="$event.stopPropagation()" *ngIf="filterData$ | async as filterData">
+  <div class="options-menu__entry">
+    <h3>Einreichungszeitraum</h3>
+    <mat-form-field>
+      <mat-label>Wähle einen Zeitraum</mat-label>
+      <mat-date-range-input [rangePicker]="openTimestampPicker">
+        <input matStartDate placeholder="Von" [(ngModel)]="filterData.startDate" />
+        <input matEndDate placeholder="Bis" [(ngModel)]="filterData.endDate" />
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="openTimestampPicker"></mat-datepicker-toggle>
+      <mat-date-range-picker #openTimestampPicker></mat-date-range-picker>
+      <button
+        *ngIf="filterData.startDate || filterData.endDate"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="filterData.startDate = null; filterData.endDate = null"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="options-menu__entry">
+    <h3>Vertrauensindex</h3>
+    <div class="options-menu__input">
+      <span>Min:</span>
+      <mat-slider class="w-100-p" [thumbLabel]="true" [max]="filterData.maxValue" [(ngModel)]="filterData.minValue"></mat-slider>
+      <span>{{ filterData.minValue }}</span>
+    </div>
+    <div class="options-menu__input">
+      <span>Max:</span>
+      <mat-slider class="w-100-p" [thumbLabel]="true" [min]="filterData.minValue" [(ngModel)]="filterData.maxValue"></mat-slider>
+      <span>{{ filterData.maxValue }}</span>
+    </div>
+  </div>
+  <div class="options-menu__buttons">
+    <button class="button button--neon-blue" (click)="onApply(filterData)">Anwenden</button>
+    <button class="button button--neon-blue button--hallow" (click)="onClose()">Schließen</button>
+  </div>
+</div>

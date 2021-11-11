@@ -5,9 +5,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { FormBuilder } from '@angular/forms';
 import { SubmitItemService } from '../../services/submit-item.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { LoaderModule } from '../../../shared/loader/loader.module';
-import { MaterialModule } from '../../../shared/material/material.module';
-import { HelperModule } from '../../../shared/helper/helper.module';
+import { LoaderModule } from '@shared/loader/loader.module';
+import { MaterialModule } from '@shared/material/material.module';
+import { HelperModule } from '@shared/helper/helper.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 describe('SubmitComponent', () => {

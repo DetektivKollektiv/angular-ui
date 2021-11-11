@@ -1,0 +1,23 @@
+<li class="item">
+  <div class="item__score" [class.item__score--full]="showContent" [routerLink]="link">
+    <h2 [ngClass]="case.result_score | ratingColor" class="mono-font">
+      {{ case.result_score | ratingScore }}
+    </h2>
+  </div>
+  <div class="item__content">
+    <h2 class="item__received" [routerLink]="link">{{ case.id | caseId }}</h2>
+    <div *ngIf="showContent" class="case-content case-content--inner">{{ case.content | textOverflow: 500 }}</div>
+    <div class="item__info">
+      <span class="received-txt"
+        ><small><i class="far fa-calendar-alt"></i>{{ case.open_timestamp | date }}</small></span
+      >
+      <span class="closed"
+        ><small><i class="far fa-calendar-check"></i>{{ case.close_timestamp | date }}</small></span
+      >
+      <span class="confidence-index"
+        ><small><i class="far fa-comment-alt-lines"></i>{{ case.discussion_comments?.length || 0 }}</small></span
+      >
+    </div>
+  </div>
+</li>
+<div *ngIf="showContent" class="case-content case-content--outer">{{ case.content | textOverflow: 500 }}</div>

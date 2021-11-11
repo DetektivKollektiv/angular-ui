@@ -4,11 +4,22 @@
 
 # codetekt Frontend
 
+
+## Setup
+
+This project uses Husky to add a pre-commit hook, that runs the linter
+If you want to commit without running the hook, add --no-verify.
+you may need to run `husky install` during setup
+`yarn husky install`
+or
+`npx husky install`
+
+
+
+## Development server
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
 Angular based frontend for the [codetekt](https://codetekt.org) website.
-
----
 
 ## Tech Stack
 
@@ -40,6 +51,13 @@ Run `ng lint` to run linting via ESLint.
 - [Cypress](https://www.cypress.io/)
 - [Amplify Framework](https://aws.amazon.com/de/amplify/)
 
+### to run just until first failure
+`yarn test -b`
+
+### to run just one test
+`yarn test --test-path-pattern=/src/app/archive/components/archive/archive.component.spec.ts`
+
+## Running end-to-end tests
 ---
 
 ## License

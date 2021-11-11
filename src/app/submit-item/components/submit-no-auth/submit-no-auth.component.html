@@ -1,0 +1,41 @@
+<div class="info">
+  <div class="info__header">
+    <i class="far fa-siren-on bold-weight"></i>
+    <span class="bold-weight">Du bist nicht eingeloggt.</span>
+  </div>
+  <p class="info__text">
+    Melde dich an oder logge dich ein, um deine Erfahrungspunkte zu erhalten, einen Titel, Schlagwörter oder einen Kommentar zu diesem Fall
+    zu hinterlassen.
+  </p>
+</div>
+<form class="login-container" #loginForm="ngForm" (ngSubmit)="onLogin()">
+  <div class="login-container__input">
+    <p class="mono-font bold-weight">E-Mail-Adresse oder Nutzername</p>
+    <input type="email" class="responsive-100" [(ngModel)]="loginFormData.email" name="email" required />
+    <mat-icon class="icon">mail_outline</mat-icon>
+  </div>
+  <div class="login-container__input">
+    <p class="mono-font bold-weight">Passwort</p>
+    <input type="password" class="responsive-100" [(ngModel)]="loginFormData.password" name="password" required />
+  </div>
+  <div class="login-container__buttons">
+    <p>&nbsp;</p>
+    <button type="submit" class="button button--neon-blue" [disabled]="loginForm.invalid">
+      <i class="far fa-lock-open"></i>
+      Anmelden
+    </button>
+    <p class="bold-weight" routerLink="/forgot-password">Passwort vergessen?</p>
+  </div>
+</form>
+<div class="divider">
+  <mat-divider></mat-divider>
+</div>
+<div class="register-container">
+  <div class="register-container__content">
+    <p>Du hast keinen Account und möchtest die Welt zu einem besseren Ort machen?</p>
+    <button class="button button--bittersweet button--hallow button--hallow--bittersweet" routerLink="/register">
+      <i class="fas fa-user-cowboy"></i>
+      <span>Detektiv werden</span>
+    </button>
+  </div>
+</div>

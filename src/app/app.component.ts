@@ -25,15 +25,5 @@ export class AppComponent {
     this.userService.user$.subscribe((user) => {
       this.user = user;
     });
-
-    if(window.innerWidth <= 1000){
-      this.dialog.open(MobileDialogComponent, {
-        position: {
-          top: '50px',
-          left: '50px'
-        },
-        width: '300px',
-      });
-    }
   }
 }

@@ -1,16 +1,2 @@
 <app-loader></app-loader>
-<div class="main">
-  <app-header></app-header>
-  <div class="body">
-    <div class="profile-wrapper">
-      <app-profile *ngIf="user"></app-profile>
-    </div>
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-    <div class="profile-wrapper2">
-    </div>
-    <app-high-score-sidebar *ngIf="user"></app-high-score-sidebar>
-  </div>
-  <app-footer></app-footer>
-</div>
+<router-outlet></router-outlet>

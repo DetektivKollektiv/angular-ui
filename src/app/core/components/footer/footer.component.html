@@ -1,22 +1,94 @@
 <footer class="footer">
-  <div class="container">
-    <p>codetekt © 2021</p>
-    <ul>
-      <li>
-        <a href="https://info.codetekt.org/" target="_blank">Über codetekt</a>
-      </li>
-      <li>
-        <a [routerLink]="['terms']">Nutzungsbedingungen</a>
-      </li>
-      <li>
-        <a href="https://info.codetekt.org/datenschutzerklaerung/">Datenschutz</a>
-      </li>
-      <li>
-        <a href="https://info.codetekt.org/impressum/" target="_blank">Impressum</a>
-      </li>
-      <li>
-        <a [routerLink]="['issues']">Kontakt</a>
-      </li>
-    </ul>
-  </div>
-</footer>
+
+    <nav class="navigation-footer">
+
+      <div class="navigation-footer__chapter">
+
+        <h3 class="navigation-footer__chapter-headline">Detektive</h3>
+
+        <ul class="navigation-footer__list">
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Detektiv werden!" [routerLink]="['/register']">Detektiv werden!</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Fall einreichen" [routerLink]="['/submit']">Fall einreichen</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Offene Fälle" [routerLink]="['/#']">Offene Fälle</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Archiv" [routerLink]="['/archive']">Archiv</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="navigation-footer__chapter">
+
+        <h3 class="navigation-footer__chapter-headline">codetekt</h3>
+
+        <ul class="navigation-footer__list">
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Über uns" [routerLink]="['/about']">Über uns</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Das Team" [routerLink]="['/#']">Das Team</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Die Kriterien" [routerLink]="['/#']">Die Kriterien</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Ein Detektiv sein" [routerLink]="['/#']">Ein Detektiv sein</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Wir sind gemeinnützig" [routerLink]="['/#']">Wir sind gemeinnützig</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="navigation-footer__chapter">
+
+        <h3 class="navigation-footer__chapter-headline">Kontakt</h3>
+
+        <ul class="navigation-footer__list">
+          <li class="navigation-footer__item">
+            <a href="mailto:info@codetekt.org" class="navigation-footer__link" title="E-Mail senden an: info@codetekt.org" [routerLink]="['/#']">info@codetekt.org</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Twitter" [routerLink]="['/#']">Twitter</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Facebook" [routerLink]="['/#']">Facebook</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Signal Messanger" [routerLink]="['/#']">Signal Messanger</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="LinkedIn" [routerLink]="['/#']">LinkedIn</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="navigation-footer__chapter">
+
+        <h3 class="navigation-footer__chapter-headline">Rechtliches</h3>
+
+        <ul class="navigation-footer__list">
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Impressumg" [routerLink]="['/#']">Impressumg</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Datenschutz" [routerLink]="['/#']">Datenschutz</a>
+          </li>
+          <li class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Cookie-Richtlinie" [routerLink]="['/#']">Cookie-Richtlinie</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </nav>
+
+  </footer>

@@ -1,0 +1,299 @@
+@import './_initializer.scss';
+
+/* these were the old styles */
+button.button-primary {
+  background-color: $color__neon-blue;
+  border-color: $color__neon-blue;
+  color: $color__white;
+
+  // background: mat-color($custom-theme-accent) 0 0% no-repeat padding-box;
+  // box-shadow: 0 1px 3px #00000029;
+  // border: none;
+  // border-radius: 5px;
+  // width: max(8vw, 120px);
+  // height: max(3.5vh, 40px);
+  // color: #4a4a4a;
+  // cursor: pointer;
+  // font-size: max(0.7vw, 14px);
+  // line-height: 26px;
+  // font-family: Effra regular, sans-serif;
+  // margin-top: 16px;
+  // margin-bottom: 16px;
+}
+
+button.button-primary:hover {
+  // background: rgba(255, 204, 0, 0.5);
+  background-color: $color__neon-blue--focus;
+}
+
+button.button-primary:focus {
+  // background: rgba(255, 204, 0, 0.5);
+  background-color: $color__neon-blue--focus;
+  outline: none;
+}
+
+button.button-primary:disabled {
+  background: lightgray;
+  cursor: default;
+}
+
+button.button-primary:disabled:hover {
+  background: lightgray;
+  cursor: default;
+}
+
+button.button-outline {
+  background: transparent;
+  // border: 1px solid mat-color($custom-theme-accent);
+  border-radius: 5px;
+  opacity: 1;
+  width: 12em;
+  height: 4em;
+  // color: mat-color($custom-theme-accent);
+  cursor: pointer;
+}
+
+button.button-outline:hover {
+  background: rgba(255, 204, 0, 0.15);
+}
+
+button.button-outline:focus {
+  outline: none;
+}
+
+button.button-flat {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  opacity: 1;
+  width: 150px;
+  height: 48px;
+  color: #4a4a4a;
+  cursor: pointer;
+}
+
+button.button-flat:hover {
+  color: #616161;
+}
+
+button.button-flat:focus {
+  border: none;
+  outline: none;
+}
+
+button.button-flat:disabled {
+  cursor: default;
+}
+/*/END these were the old styles */
+
+.button {
+  $parent: &;
+
+  @include font__effra--bold;
+  @include border-radius;
+  @include _b__font-size-rem(16px);
+
+  border: _b__rem(2px) solid $color__mysterious-blue;
+  padding: _b__rem(12px) _b__rem(24px);
+  border-color: $color__mysterious-blue;
+  color: $color__mysterious-blue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  &::before {
+    margin: 0 _b__rem(6px) 0 0;
+  }
+
+  &:disabled {
+    // border: none;
+    opacity: 0.7;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: white;
+    text-decoration: none;
+  }
+
+  @at-root a#{$parent} {
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  &--reject {
+    text-decoration: none;
+    color: $color__old-paragraph;
+    justify-content: center;
+    border: none;
+    background: none;
+    @include font__effra--regular;
+
+    &:hover {
+      background-color: transparent !important;
+      color: $color__old-paragraph;
+    }
+  }
+
+  &--bittersweet {
+    background-color: $color__bittersweet;
+    border-color: $color__bittersweet;
+    color: $color__white;
+
+    &:hover:not(:disabled) {
+      color: $color__bittersweet;
+    }
+  }
+
+  &--neon-blue {
+    background-color: $color__neon-blue;
+    border-color: $color__neon-blue;
+    color: $color__white;
+
+    &:hover:not(:disabled) {
+      color: $color__neon-blue;
+    }
+  }
+
+  &--mysterious-blue {
+    background-color: $color__mysterious-blue;
+    border-color: $color__mysterious-blue;
+    color: $color__white;
+
+    &:hover:not(:disabled) {
+      color: $color__mysterious-blue;
+    }
+  }
+
+  &--supernova {
+    background-color: $color__supernova;
+    border-color: $color__supernova;
+    color: $color__mysterious-blue;
+
+    &:hover:not(:disabled) {
+      color: $color__supernova;
+    }
+  }
+
+  &--white {
+    background-color: $color__white;
+    border-color: $color__white;
+    color: $color__mysterious-blue;
+  }
+
+  &--hallow {
+    background-color: transparent;
+
+    &:hover:not(:disabled) {
+      background-color: transparent;
+    }
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+    }
+
+    &--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
+  &--gentle {
+    @include font__effra--bold;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background-color: transparent;
+    }
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+    }
+
+    &#{$parent}--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
+  &--subtle {
+    @include font__effra--medium;
+
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background-color: transparent;
+    }
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+    }
+
+    &#{$parent}--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
+  &--disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  &--medium {
+    padding: _b__rem(9px) _b__rem(18px);
+  }
+
+  &--small {
+    @include _b__font-size-rem(14px);
+
+    padding: _b__rem(5px) _b__rem(14px);
+
+    &::before {
+      margin: 0 _b__rem(4px) 0 0;
+    }
+  }
+}
