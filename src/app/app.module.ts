@@ -12,6 +12,7 @@ import { ForgotPasswordPageModule } from './forgot-password-page/forgot-password
 import { RegisterPageModule } from './authentication-pages/components/register-page/register-page.module';
 import { ConfirmEmailPageModule } from './confirm-email-page/confirm-email-page.module';
 import { SetPasswordPageModule } from './authentication-pages/components/set-password-page/set-password-page.module';
+import { BreadcrumbModule } from './shared/breadcrumb/breadcrumb.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoaderModule } from './shared/loader/loader.module';
@@ -38,6 +39,7 @@ import { AboutComponent } from './about/about.component';
 import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
 import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { FaqPageComponent } from './faq-page/faq-page.component';
+import { FaqBlockComponent } from './faq-block/faq-block.component';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -45,7 +47,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent, AboutComponent, FaqPageComponent],
+  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent, AboutComponent, FaqPageComponent, FaqBlockComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -61,6 +63,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReviewItemModule,
     MyFileModule,
     IssuesModule,
+    BreadcrumbModule,
     UserExperienceBubbleListModule,
     TranslateModule.forRoot({
       loader: {

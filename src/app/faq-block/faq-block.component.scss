@@ -1,0 +1,38 @@
+@import '../../assets/scss/initializer';
+
+.faqblock {
+  padding-top: 20px;
+
+  .question {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  .answer {
+    margin-bottom: 20px;
+  }
+
+  .collapsible-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+
+    i {
+      margin-left: 10px;
+      font-size: 13px;
+    }
+
+    &__title,
+    &__toggle {
+      @include font__effra--bold;
+    }
+
+    &__toggle {
+      color: #aaa;
+      cursor: pointer;
+    }
+  }
+}

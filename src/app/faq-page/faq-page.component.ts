@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BreadcrumbLink} from '@shared/breadcrumb/model/breadcrumb-link.interface';
+
 
 @Component({
   selector: 'app-faq-page',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FaqPageComponent implements OnInit {
 
-  constructor() { }
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'FAQ', link: '/faq'}];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

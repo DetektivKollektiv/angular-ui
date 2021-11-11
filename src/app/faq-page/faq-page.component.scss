@@ -1,8 +1,31 @@
-.body {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 100px;
-  font-weight: bold;
+@import '../../assets/scss/initializer';
+
+//todo@cba copied from archive-page
+.faq-page {
+  margin: auto;
+
+  .top-section {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+    padding: 20px;
+
+    @media only screen and (min-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      grid-template-columns: 5fr 4fr;
+      padding: 80px 20px;
+
+      app-rating-legend {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (min-width: 1350px) {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
 }
