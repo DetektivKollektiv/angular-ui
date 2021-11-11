@@ -4,7 +4,7 @@
       <div class="top-section standard-content-container-width">
         <div class="overview-section">
           <app-breadcrumb></app-breadcrumb>
-          <h1><span class="alt">Fall einreichen.</span></h1>
+          <h1>Fall einreichen</h1>
           <div>
             <span class="submit-text">
               Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf Fall absenden
@@ -23,14 +23,14 @@
 
       <div class="middle-section responsive-100">
         <div class="middle-section-container">
-          <h2 class="mono-font bold-weight">Dein Fall</h2>
+          <h2>Dein Fall</h2>
           <p>
             Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein. Gibt es diesen Fall bereits, erhältst du das Ergebnis
             sofort. Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich
             prüfen.
           </p>
-          <div>
-            <p class="mono-font bold-weight">Um welche Form von Medium handelt es sich?*</p>
+          <div class="field-container">
+            <p>Um welche Form von Medium handelt es sich?*</p>
             <mat-form-field class="form-select responsive-100">
               <mat-select [(ngModel)]="form.item_type_id" name="item_type_id" required>
                 <mat-option *ngFor="let itemType of itemTypes$ | async" [value]="itemType.id">
@@ -39,9 +39,9 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <div>
-            <p class="mono-font bold-weight">Bitte gib hier den Inhalt ein*</p>
-            <textarea class="textarea" rows="10" [(ngModel)]="form.content" name="content" required></textarea>
+          <div class="field-container">
+            <p>Bitte gib hier den Inhalt ein*</p>
+            <textarea class="textarea" rows="5" [(ngModel)]="form.content" name="content" required></textarea>
           </div>
 
           <div class="lady-detective-svg-container">
@@ -81,13 +81,13 @@
       <!-- <div class="bottom-background"></div> -->
       <div class="bottom-section-content-container standard-content-container-width">
         <div class="option-container">
-          <h2 class="bold-weight">Optionale Angaben</h2>
+          <h2>Optionale Angaben</h2>
           <p>
             Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben. Das hilft uns dabei, die Ausbreitung von
             Falschinformationen besser zu untersuchen.
           </p>
           <div class="radio-container">
-            <p class="mono-font bold-weight">Wie hat dich diese Information erreicht?</p>
+            <h3>Wie hat dich diese Information erreicht?</h3>
             <mat-radio-group [(ngModel)]="form.source" name="source">
               <mat-radio-button *ngFor="let source of itemSources" [value]="source">
                 <span class="wrap-mat-radio-label">{{ source | itemSource }}</span>
@@ -101,9 +101,9 @@
               name="other_source"
             />
           </div>
-          <p class="mono-font bold-weight">Wie oft hast du diese Information erhalten?</p>
+          <h3 class="mono-font bold-weight">Wie oft hast du diese Information erhalten?</h3>
           <input type="text" class="text-input responsive-100" [(ngModel)]="form.frequency" name="frequency" />
-          <p class="mono-font bold-weight">Wann hat dich diese Information das erste Mal erreicht?</p>
+          <h3 class="mono-font bold-weight">Wann hat dich diese Information das erste Mal erreicht?</h3>
           <input
             type="date"
             class="text-input responsive-100"
@@ -114,12 +114,12 @@
         </div>
         <mat-divider></mat-divider>
         <div class="notify-container">
-          <h2 class="bold-weight">Möchtest du benachrichtigt werden?</h2>
+          <h2>Möchtest du benachrichtigt werden?</h2>
           <p>
             Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum Fall gibt. Wenn nicht, dann siehst du den Fall nach Abschluss
             im Archiv.
           </p>
-          <p class="mono-font bold-weight">E-Mail-Adresse</p>
+          <h3>E-Mail-Adresse</h3>
           <div class="email-container responsive-100">
             <input type="email" [(ngModel)]="form.mail" name="mail" email />
             <mat-icon class="icon">mail_outline</mat-icon>
@@ -127,7 +127,7 @@
         </div>
         <mat-divider></mat-divider>
         <div class="submit-check-container">
-          <h2 class="bold-weight">Rechtliche Angaben</h2>
+          <h2>Rechtliche Angaben</h2>
           <p>
             Zum Abschluss der Einreichung, hinterlasse uns bitte deine E-Mail-Adresse und bestätigte die Datenschutzerklärung und die
             Nutzungsbedingungen.
@@ -144,8 +144,8 @@
           </mat-checkbox>
         </div>
         <div class="legal-button-container">
-          <a routerLink="/" class="abort-button button-group">Abbrechen</a>
-          <button type="submit" class="submit-button button-group" [disabled]="submitForm.invalid">Fall einreichen</button>
+          <a appButton mode="reject" routerLink="/">Abbrechen</a>
+          <button appButton type="submit" [disabled]="submitForm.invalid">Fall einreichen</button>
         </div>
       </div>
     </div>

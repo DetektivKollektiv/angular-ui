@@ -1,134 +1,97 @@
-<div class="review-page">
-  <div class="top-section standard-content-container-width">
-    <app-case-details *ngIf="case" [case]="case">
-      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+<div class="review-page standard-content-container-width" *ngIf="case$ | async as case">
+  <section class="top">
+    <app-case-details [case]="case">
+      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
     <app-user-experience-bubble-list [userExperienceBubbles]="userExperienceBubbles"></app-user-experience-bubble-list>
-  </div>
-  <div class="questions-section standard-content-container-width">
-    <div class="questions-swiper-container">
-      <!-- <app-questions-swiper></app-questions-swiper> -->
-    </div>
-    <div class="questions-section--list">
-      <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{ 'z-index': 'unset' }">
-        <div class="carousel-cell question" *ngFor="let q of questionPrompts; let i = index">
-          <div class="question--icon" [ngStyle]="{ 'background-color': q.background }"><i class="{{ q.icon }}"></i></div>
-          <div class="question--title">{{ q.title }}</div>
-          <div class="question--description questions-section-quote">{{ q.description }}</div>
-        </div>
-      </carousel>
-    </div>
-  </div>
-  <div class="bottom-section standard-content-container-width">
-    <div class="case-details--tatbestand" *ngIf="!!reviewSituation">
-      <div class="review-situation">
-        <h2 class="review-situation--title">{{ reviewSituation.title }}</h2>
-        <div class="review-situation--text">
-          <i class="fas fa-quote-left"></i>
-          <div [innerHTML]="reviewSituation.text"></div>
+  </section>
 
-          <i class="fas fa-quote-right"></i>
-        </div>
+  <app-question-carousel [questions]="questionPrompts">
+    <div class="flag question-container-action"><i class="fas fa-flag"></i>Fall melden</div>
+  </app-question-carousel>
+
+  <section class="bottom">
+    <div class="facts">
+      <app-edgy-background></app-edgy-background>
+
+      <div class="facts__content">
+        <app-case-facts [case]="case" [factCheck]="factCheck"></app-case-facts>
       </div>
-      <div class="links-section">
-        <h3>Hinterlegte und entdeckte Links</h3>
-        <div *ngIf="case && case['urls']">
-          <span *ngFor="let url of case.urls" class="{{ 'link-icon' + (!!url.is_safe ? 'gray-link' : '') }} ">
-            <a href="{{ url.url }}">
-              <i class="far fa-external-link-square-alt"></i>
-              {{ url.url }}
-            </a>
-          </span>
-        </div>
-      </div>
-      <div class="tags-section">
-        <h3>Tags</h3>
-        <ul *ngIf="case && case.hasOwnProperty('tags')">
-          <li *ngFor="let tag of case.tags">{{ tag }}</li>
-        </ul>
-      </div>
-      <div class="background-info-section">
-        <h3>Hintergrundinformationen</h3>
-        <ul>
-          <span *ngIf="case && case['open_timestamp']" class="link-icon"
-            ><li><i class="far fa-calendar-alt"></i>{{ case.open_timestamp }}</li></span
-          >
-          <span class="link-icon"
-            ><li><i class="fal fa-user"></i>Anonym</li></span
-          >
-        </ul>
-      </div>
-      <app-watson *ngIf="factCheck"></app-watson>
     </div>
-    <div *ngIf="showQuestionaire" class="case-details--questionnaire">
-      <h1>questionaire!</h1>
-    </div>
-    <div *ngIf="!showQuestionaire" class="case-details--accept-case">
-      <h1>Die Fallbearbeitung</h1>
-      <div *ngIf="!caseAccepted">
-        <div>
+
+    <div class="overview">
+      <h2>Die Fallbearbeitung</h2>
+      <div class="overview__container" *ngIf="!isOpenReview; else processing">
+        <div class="overview__text">
           Im Tatbestand siehst du alle für den Fall relevanten Informationen. Weiterer Hilfreicher Text...… Lorem ipsum dolor sit amet,
           consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etLorem ipsum dolor sit amet, consetetur sadipscing
           elitr. Möchtest du diesen Fall annehmen?
         </div>
         <div class="button-container">
-          <button class="accept-case-button case-button" (click)="accept()"><i class="fas fa-check"></i>&nbsp;Fall annehmen</button>
-          <a href="" class="reject-case-button case-button">Fall ablehnen</a>
+          <button appButton (click)="accept()">
+            <i class="fas fa-check"></i>
+            <span>Fall annehmen</span>
+          </button>
+          <button appButton mode="reject" routerLink="/">Fall ablehnen</button>
         </div>
       </div>
-      <div *ngIf="caseAccepted">
-        <div *ngFor="let question of showQuestions; let i = index">
-          <app-question [question]="question" [index]="i" [questions]="questions" (valueChange)="updateReview()"></app-question>
-        </div>
-        <div class="case-evaluation-comment-container case-process-container">
-          <p class="large-font">Fallbewertungskommentar</p>
-          <p class="explain">
-            Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens
-            sichtbar sein.
-          </p>
-          <div class="userinfo">
-            <div class="userprofile__bubble" style="background-color: #722ed1">
-              {{ userInfo.name[0].toUpperCase() }}
-            </div>
-            {{ userInfo.name }}
-          </div>
-          <div class="input-container padding-left">
-            <input type="text" (focusout)="commentChange()" [(ngModel)]="comment" />
-          </div>
-        </div>
-        <div class="tags-container case-process-container">
-          <p class="large-font">Schlagwörter</p>
-          <p class="explain">
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua.
-          </p>
-          <!--          <div class="input-container">
-              <input type="text" (focusout)="submitTags()">
-            </div> -->
+      <div class="overview__image">
+        <img src="assets/images/illustrations/undraw_newspaper_k-72-w.svg" />
+      </div>
+    </div>
+  </section>
+</div>
 
-          <app-tags-question [review]="review" [itemId]="caseId" #tags> </app-tags-question>
-        </div>
-        <div class="legal-information-container case-process-container">
-          <p class="large-font">Rechtliche Angaben</p>
-          <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
-          <div class="radio-container">
-            <mat-checkbox class="example-margin" (change)="agreePolicy($event)">
-              <div class="option">
-                <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
-              </div>
-            </mat-checkbox>
-            <mat-checkbox class="example-margin" (change)="agreeCondition($event)">
-              <div class="option">
-                <span>Ich stimme den Nutzungsbedingungen zu</span>
-              </div>
-            </mat-checkbox>
+<ng-template #processing>
+  <div class="overview__container">
+    <app-question
+      *ngFor="let question of showQuestions; let i = index"
+      [question]="question"
+      [index]="i"
+      [questions]="questions"
+      (valueChange)="updateReview()"
+    ></app-question>
+    <div class="comments">
+      <h2>Fallbewertungskommentar</h2>
+      <p class="explain">
+        Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens sichtbar
+        sein.
+      </p>
+      <app-comment-input
+        [user]="user$ | async"
+        [comment]="review.comment"
+        (commentSubmitted)="commentChange($event)"
+        [authenticated]="true"
+        [instantChanges]="true"
+      ></app-comment-input>
+    </div>
+    <div class="tags">
+      <h2>Schlagwörter</h2>
+      <p class="explain">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua.
+      </p>
+      <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
+    </div>
+    <div class="legal">
+      <h2>Rechtliche Angaben</h2>
+      <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
+      <div class="legal__container">
+        <mat-checkbox [(ngModel)]="isPolicyChecked" (ngModelChange)="validateReview()">
+          <div class="option">
+            <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
           </div>
-          <div class="legal-button-container">
-            <a href="" class="abort-button button-group">Abbrechen</a>
-            <button class="submit-button button-group" (click)="closeReview()" [disabled]="buttonStatus">Lösung einreichen</button>
+        </mat-checkbox>
+        <mat-checkbox [(ngModel)]="isConditionChecked" (ngModelChange)="validateReview()">
+          <div class="option">
+            <span>Ich stimme den Nutzungsbedingungen zu</span>
           </div>
-        </div>
+        </mat-checkbox>
+      </div>
+      <div class="button-container button-container--legal">
+        <a appButton routerLink="/" mode="reject">Abbrechen</a>
+        <button appButton (click)="closeReview()" [disabled]="!isReviewValid">Lösung einreichen</button>
       </div>
     </div>
   </div>
-</div>
+</ng-template>

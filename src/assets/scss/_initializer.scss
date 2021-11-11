@@ -50,19 +50,6 @@ $_b__settings-default: (
   align-items: center;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  @include font__pt-mono--bold;
-  font-size: 20px;
-  margin: 0 5px;
-}
-
 .full-width-input {
   width: 100;
 }

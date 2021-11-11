@@ -11,4 +11,5 @@ export interface Review {
   finish_timestamp: string;
   questions: Question[];
   comment: string;
+  tags?: string[];
 }

@@ -16,7 +16,6 @@
   @media only screen and (min-width: 480px) {
     flex-direction: row;
     align-items: center;
-    gap: 0;
   }
 
   &__content {
@@ -74,7 +73,7 @@
         width: 360px;
       }
 
-      .question--icon {
+      &__icon {
         width: 42px;
         height: 42px;
         margin: 10px 10px -3px 0;
@@ -90,7 +89,7 @@
         display: flex;
       }
 
-      .question--title {
+      &__title {
         width: 320px;
         height: 18px;
         margin: 16px 0 14px;
@@ -100,7 +99,8 @@
         text-align: center;
         color: var(--dark-indigo);
       }
-      .question--description {
+
+      &__description {
         font-family: Effra medium, Effra regular, sans-serif;
         width: 320px;
         height: 35px;

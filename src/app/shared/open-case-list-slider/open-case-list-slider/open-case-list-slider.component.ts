@@ -1,16 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { input } from 'aws-amplify';
+import { Component, Input } from '@angular/core';
+import { from } from 'rxjs';
+import { Item } from '../../../model/item';
+import { ItemsService } from '../../../review-item/services/items/items.service';
 
 @Component({
   selector: 'app-open-case-list-slider',
   templateUrl: './open-case-list-slider.component.html',
-  styleUrls: ['./open-case-list-slider.component.scss'],
+  styleUrls: ['./open-case-list-slider.component.scss']
 })
-export class OpenCaseListSliderComponent implements OnInit {
-  @Input() cases: any[];
+export class OpenCaseListSliderComponent {
+  @Input() cases: Item[];
 
-  constructor() { }
+  reviewItems$ = from(this.itemsService.getOpenItems());
 
-  ngOnInit(): void { }
-
+  constructor(private itemsService: ItemsService) {}
 }

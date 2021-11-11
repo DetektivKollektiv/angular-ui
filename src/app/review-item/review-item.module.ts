@@ -20,10 +20,20 @@ import { OpenReviewDialogComponent } from './components/open-review-dialog/open-
 import { SwiperModule } from 'swiper/angular';
 import { CaseDetailsModule } from '@shared/case-details/case-details.module';
 import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
-import { WatsonComponent } from './components/watson/watson.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { PipesModule } from '@shared/pipes/pipes.module';
+import { QuestionCarouselModule } from '@shared/question-carousel/question-carousel.module';
+import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
+import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
+import { ButtonModule } from '@shared/button/button.module';
+import { CommentInputModule } from '@shared/comment-input/comment-input.module';
+import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
+import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
+import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-case-list-slider.module';
+import { ShareModule } from '@shared/share/share.module';
+import { IconWithContentModule } from '@shared/icon-with-content/icon-with-content.module';
+import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
 
 @NgModule({
   declarations: [
@@ -34,9 +44,9 @@ import { PipesModule } from '@shared/pipes/pipes.module';
     ReviewProcessComponent,
     ReviewQuestionComponent,
     ReviewSummaryComponent,
+    ReviewSuccessPageComponent,
     OpenReviewDialogComponent,
-    ReviewPageComponent,
-    WatsonComponent
+    ReviewPageComponent
   ],
   exports: [ReviewComponent, QuestionComponent],
   imports: [
@@ -52,7 +62,17 @@ import { PipesModule } from '@shared/pipes/pipes.module';
     IvyCarouselModule,
     CaseDetailsModule,
     BreadcrumbModule,
-    PipesModule
+    PipesModule,
+    QuestionCarouselModule,
+    EdgyBackgroundModule,
+    CaseFactsModule,
+    ButtonModule,
+    CommentInputModule,
+    CaseListItemModule,
+    OpenCaseListSliderModule,
+    ShareModule,
+    IconWithContentModule,
+    SolvedCasesModule
   ],
   providers: [
     ReviewsService,

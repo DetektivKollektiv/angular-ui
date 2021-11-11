@@ -1,11 +1,12 @@
 @use '../../../../assets/scss/fonts' as fonts;
-@import '../../../../assets/scss/_initializer.scss';
+@use '../../../../assets/scss/colors' as colors;
+// @import '../../../../assets/scss/_initializer.scss';
 
 :host {
   width: 100%;
 
   .strong {
-    @include font__effra--bold;
+    @include fonts.font__effra--bold;
   }
 }
 
@@ -33,8 +34,7 @@ app-case-details {
   }
 
   .flag {
-    color: $color__bittersweet;
-    margin-right: 20px;
+    color: colors.$color__bittersweet;
 
     i {
       margin-right: 8px;
@@ -63,8 +63,8 @@ app-case-details {
 
   .facts {
     width: 100%;
-    background-color: $color__tile-background;
     margin-left: 0;
+    margin-top: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -72,6 +72,19 @@ app-case-details {
     @media only screen and (min-width: 1024px) {
       width: calc(50% + 40px);
       margin-left: -40px;
+    }
+
+    &__bg {
+      position: absolute;
+      top: -20px;
+      bottom: 0;
+      left: -20px;
+      right: -20px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     &__content {
@@ -90,6 +103,10 @@ app-case-details {
   }
 
   .overview {
+    @media only screen and (min-width: 1024px) {
+      margin-top: 20px;
+    }
+
     &__title {
       margin: 20px 0;
       font-weight: 700;
@@ -128,7 +145,7 @@ app-case-details {
       margin-top: 40px;
 
       &__title {
-        @include font__effra--medium;
+        @include fonts.font__effra--medium;
         font-size: 18px;
         margin-bottom: 8px;
       }
@@ -153,7 +170,7 @@ app-case-details {
       margin-top: 40px;
 
       &__title {
-        @include font__effra--bold;
+        @include fonts.font__effra--bold;
         font-size: 21px;
         margin-bottom: 20px;
       }
@@ -161,14 +178,16 @@ app-case-details {
 
     .processing {
       margin-top: 40px;
+
+      &__body {
+        margin-top: 20px;
+      }
     }
 
     .discussion {
-      &--border {
-        border-top: 4px dashed $color__spacer;
-        padding-top: 40px;
-        margin-top: 40px;
-      }
+      border-top: 4px dashed colors.$color__spacer;
+      padding-top: 40px;
+      margin-top: 40px;
 
       .collapsible-toolbar {
         margin-bottom: 20px;
@@ -195,17 +214,17 @@ app-case-details {
         button {
           padding: 5px 15px;
           border-radius: 15px;
-          background-color: $color__purple;
+          background-color: colors.$color__purple;
           color: white;
           border: none;
           font-weight: bold;
-          border: 2px solid $color__purple;
+          border: 2px solid colors.$color__purple;
           cursor: pointer;
 
           &:hover {
             background-color: white;
-            color: $color__purple;
-            border: 2px solid $color__purple;
+            color: colors.$color__purple;
+            border: 2px solid colors.$color__purple;
           }
         }
       }
@@ -219,7 +238,10 @@ app-case-details {
 
       app-comment-input {
         margin-top: 40px;
-        margin-left: 20px;
+
+        @media only screen and (min-width: 1024px) {
+          margin-bottom: 100px;
+        }
       }
     }
   }
@@ -237,7 +259,7 @@ app-case-details {
 
     &__title,
     &__toggle {
-      @include font__effra--bold;
+      @include fonts.font__effra--bold;
     }
 
     &__toggle {
@@ -251,6 +273,7 @@ app-case-details {
     margin-left: 40px;
     margin-bottom: 40px;
     cursor: pointer;
+    position: relative;
 
     &--responsive {
       @media only screen and (min-width: 1024px) {
@@ -260,7 +283,7 @@ app-case-details {
 
     i {
       font-size: 42px;
-      color: $color__bittersweet;
+      color: colors.$color__bittersweet;
       margin-right: 14px;
     }
 

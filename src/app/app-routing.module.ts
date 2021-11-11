@@ -6,7 +6,7 @@ import { HomeComponent } from './home/components/home/home.component';
 import { SubmitComponent } from './submit-item/components/submit/submit.component';
 import { SubmitPageComponent } from './submit-item/components/submit-page/submit-page.component';
 import { SubmitSuccessPageComponent } from './submit-item/components/submit-success-page/submit-success-page.component';
-import { ReviewSuccessPageComponent } from './review-success-page/components/review-success-page/review-success-page.component';
+import { ReviewSuccessPageComponent } from './review-item/components/review-success-page/review-success-page.component';
 
 import { ReviewComponent } from './review-item/components/review/review.component';
 import { ReviewPageComponent } from './review-item/components/review-page/review-page.component';
@@ -50,25 +50,13 @@ const routes: Routes = [
       },
       {
         path: 'review/success',
-        component: ReviewSuccessPageComponent
+        component: ReviewSuccessPageComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'review',
-        component: ReviewComponent,
-        canActivate: [AuthGuard],
-        canDeactivate: [UnsavedChangesGuard]
-      },
-      {
-        path: 'reviews/:id',
         component: ReviewPageComponent,
-        canActivate: [AuthGuard],
-        canDeactivate: [UnsavedChangesGuard]
-      },
-      {
-        path: 'reviews',
-        component: ReviewPageComponent
-        // canActivate: [AuthGuard],
-        // canDeactivate: [UnsavedChangesGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'profile',
