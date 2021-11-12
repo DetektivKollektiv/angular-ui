@@ -13,7 +13,7 @@ interface Faq {
 export class FaqBlockComponent implements OnInit {
 
   @Input() headline: string;
-  @Input() file: string;
+  @Input() json: string;
 
   // todo@cba fix the hard coded toggles
   toggle = [false, false];
@@ -24,8 +24,8 @@ export class FaqBlockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    import('src/assets/data/' + this.file).then(data => {
-      this.faq = data;
+    import('src/assets/data/' + this.json).then(data => {
+      this.faq = data.default;
     });
   }
 
