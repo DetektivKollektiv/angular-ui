@@ -1,10 +1,46 @@
 [
   {
     "question": "Was ist codetekt e.V.?",
-    "answer": "codetekt ist ein gemeinnütziger Verein."
+    "answer": "codetekt ist ein gemeinnütziger Verein. Unser Ziel ist es, eine Bewegung gegen Desinformation zu schaffen. Dazu haben wir eine Plattform entwickelt, auf der jede*r die Vertrauenswürdigkeit von digitalen Informationen überprüfen lassen kann. Auch über die Plattform hinaus engagieren wir uns gegen Desinformationen, bespielsweise durch das Anbieten von Workshops, Aufklärungsarbeit auf Social Media und Kooperationsprojekte mit anderen Initiativen"
   },
   {
-    "question": "Ich bin die Frage 2",
-    "answer": "Ich bin die Antwort 2"
+    "question": "Was ist unsere Mission?",
+    "answer": "Wir wollen es allen ermöglichen, die Vertrauenswürdigkeit digitaler Nachrichten überprüfen zu lassen, um unglaubwürdige Inhalte zu entlarven und Medienkompetenz zu stärken – für eine resiliente und gut informierte Gesellschaft."
+  },
+  {
+    "question": "Welche Lösung für die Bekämpfung von Falschinformationen bieten wir?",
+    "answer": "Ein Kollektiv ehrenamtlicher Detektiv*innen, das motiviert durch kreative, spieltypische Elemente und Gemeinschaftssinn die Vertrauenswürdigkeit digitaler Nachrichten ermittelt – objektiv, transparent und für alle kostenlos zugänglich. Von der Gesellschaft für die Gesellschaft."
+  },
+  {
+    "question": "Kann ich mich auch mit einbringen?",
+    "answer": "Aber natürlich! Wir suchen insbesondere Unterstützung im Bereich Social Media, UX/UI Design. Aber auch, wenn du ein anderes Profil hast, schreib uns eine Nachricht an <a href='mailto:info@codetekt.org'>info@codetekt.org</a>"
+  },
+  {
+    "question": "Was ist der Prozess für die Überprüfung von Inhalten auf der Plattform?",
+    "answer": "Wir haben einen vierstufigen Prozess für die Verifizierung von Inhalten entwickelt<ul><li><b>Stufe 1:</b> Unkompliziertes und schnelles Einreichen der Inhalte (Fälle) an das codetekt über die Plattform oder den Messenger Bot. Registrierung auf der Plattform für Einreichende (Klient*innen) keine Voraussetzung.</li><li><b>Stufe 2:</b> Zufälliges Verteilen der Inhalte auf registrierte Detektiv*innen der Community, um Einflussnahme durch <a href='https://de.wikipedia.org/wiki/Troll_(Netzkultur)'>Trolle</a> zu verhindern. Detektiv*innen erhalten pro bearbeitetem Fall Punkte, mit denen sie in höhere Level mit neuen Funktionalitäten aufsteigen.</li><li><b>Stufe 3:</b> Selbstständige Bearbeitung der Inhalte im mehrstufigen Peer Review Prozess durch die Gemeinschaft und anhand eines Fragenkatalogs.</li><li><b>Stufe 4:</b> Veröffentlichung des Vertrauens-Index basierend auf der Arbeit von mehreren Detektiv*innen, Archivierung der Fälle für die Öffentlichkeit, und Zurückspielen des Ergebnisses an die Klienten aus Stufe 1.</li></ul>"
+  },
+  {
+    "question": "Wie werden wir finanziert?",
+    "answer": "Wir suchen aktuell nach Finanzierungsmöglichkeiten, die es uns erlauben, unsere Plattform weiterhin unabhängig aufzubauen, zu entwickeln und zu skalieren."
+  },
+  {
+    "question": "Welche Werte vertreten wir?",
+    "answer": "Für unsere Arbeit und den Aufbau der Plattform sind vier Werte von besonderer Bedeutung: <p><b>Gemeinschaft:</b> Wir setzen bei der Entlarvung von nicht-vertrauenswürdigen Inhalten und Falschinformationen auf die Community und nicht auf Technologien wie maschinelles Lernen. Diese sehen wir als unterstützende Instrumente, die im Auswertungsprozess von Inhalten zusätzlich zur Hilfe gezogen werden können.</p><p><b>Objektivität:</b> codetekt ist eine unabhängige Organisation, die eigenständig strategische Entscheidungen bzgl. Ausrichtung, Entwicklung und Struktur der Plattform und Organisation trifft.</p><p><b>Transparenz:</b> Damit wir gegen die Verfasser*innen von Falschinformationen eine für alle Nutzer*innen, Partner*innen und Stakeholder glaubwürdige Lösung entgegenstellen können, setzen wir auf Transparenz. Unser Ziel ist es, alle Entwicklungen und Prozesse innerhalb der Plattform so offen und transparent wie möglich in der Öffentlichkeit zu kommunizieren. Das schließt potenzielle Funder, aber auch interne Strukturen ein.</p><p><b>Empowerment:</b> Wir wollen einen Mehrwert für die Gesellschaft leisten, indem wir es allen unkompliziert, schnell und kostenlos ermöglichen, Inhalte auf ihre Vertrauenswürdigkeit überprüfen zu lassen. Damit leisten wir einen Beitrag für die Befähigung der Gesellschaft bei der Identifizierung von Falschinformationen.</p>"
+  },
+  {
+    "question": "Muss man sich für die Nutzung der Plattform registrieren?",
+    "answer": "Das Einreichen von Fällen zur Überprüfung durch die Community oder auch das Besuchen der öffentlich zugänglichen Inhalte – wie das Archiv – erfordert keine Anmeldung. Möchtest du aktiv mithelfen, potenzielle Falschinformationen zu entlarven und Teil der codetekt Community werden, dann musst du dich unter Angabe deiner Email-Adresse und einem Nutzernamen registrieren."
+  },
+  {
+    "question": "Ist die Nutzung von codetekt kostenpflichtig?",
+    "answer": "Nein! Das Besuchen und die Nutzung der Plattform – einschließlich das Einreichen von Fällen oder die Nutzung des Archivs – ist kostenlos."
+  },
+  {
+    "question": "Wer steckt hinter codetekt?",
+    "answer": "Wir sind ein <a href='/team'>Projektteam</a>, das sich während des deutschen WirVsVirus-Hackathons im März 2020 gegründet hat und seitdem ehrenamtlich an einer Lösung gegen unglaubwürdige Nachrichten im Web oder in verschlüsselten Messaging Apps arbeitet. Das Team arbeitet dezentral und virtuell aus Deutschland und Benin.\n"
+  },
+  {
+    "question": "Nutzt ihr künstliche Intelligenz auf eurer Plattform?",
+    "answer": "Wir setzen bei der Entlarvung von nicht-vertrauenswürdigen Inhalten auf die Community und nicht auf Technologien wie maschinelles Lernen. Diese sehen wir als unterstützende Instrumente, die im Auswertungsprozess von Inhalten zusätzlich zur Hilfe gezogen werden können. Unseren Detektiv*innen wird beispielsweise mit Hilfe von künstlicher Intelligenz Ergebnisse von Fakt-Checking Organisationen vorgelegt. Ob der/die Detektiv*in das in die eigene Bewertung einfließen lässt, bleibt jedoch immer ihnen überlassen."
   }
 ]
