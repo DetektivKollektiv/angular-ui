@@ -1,8 +1,19 @@
 @import '../../assets/scss/initializer';
 
-//todo@cba copied from archive-page
 .faq-page {
   margin: auto;
+
+  .overview-section {
+    h1 {
+      font-size: 52px;
+      font-weight: 700;
+      color: #4a4a4a;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
 
   .top-section {
     display: grid;
@@ -11,21 +22,5 @@
     gap: 20px;
     padding: 20px;
 
-    @media only screen and (min-width: 480px) {
-      grid-template-columns: 1fr;
-    }
-
-    @media only screen and (min-width: 1024px) {
-      grid-template-columns: 5fr 4fr;
-      padding: 80px 20px;
-
-      app-rating-legend {
-        width: 100%;
-      }
-    }
-
-    @media only screen and (min-width: 1350px) {
-      grid-template-columns: 3fr 2fr;
-    }
   }
 }

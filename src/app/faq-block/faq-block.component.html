@@ -4,10 +4,10 @@
     <div *ngFor="let item of faq;let index=index;">
       <div class="collapsible-toolbar">
         <span class="collapsible-toolbar__title question">{{item.question}}</span>
-        <span class="collapsible-toolbar__toggle" (click)="toggle[index] = !toggle[index]">{{toggle[index] ? 'einblenden' : 'ausblenden'}}</span>
+        <span class="collapsible-toolbar__toggle" (click)="toggle[index] = !toggle[index]">{{toggle[index] ? 'ausblenden' : 'einblenden'}}</span>
         <i class="far" [ngClass]="toggle[index] ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
       </div>
-      <div *ngIf="toggle[index]" id="faqAnswer{{index+1}}" class="answer">{{item.answer}}</div>
+      <div *ngIf="toggle[index]" id="faqAnswer{{index+1}}" class="answer" [innerHTML]="item.answer"></div>
     </div>
   </div>
 </div>

@@ -3,15 +3,41 @@
 .faqblock {
   padding-top: 20px;
 
+  h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
   .question {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     margin-top: 14px;
     margin-bottom: 14px;
   }
 
   .answer {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+
+    ::ng-deep {
+      line-height: 150%;
+
+      /** Possible markup inside answers */
+      b {
+        font-weight: bold;
+      }
+
+      i {
+        font-style: italic;
+      }
+
+      ul {
+        margin-left: 20px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
   }
 
   .collapsible-toolbar {
@@ -21,7 +47,6 @@
     font-size: 18px;
 
     i {
-      margin-left: 10px;
       font-size: 13px;
     }
 

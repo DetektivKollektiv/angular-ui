@@ -15,8 +15,7 @@ export class FaqBlockComponent implements OnInit {
   @Input() headline: string;
   @Input() json: string;
 
-  // todo@cba fix the hard coded toggles
-  toggle = [false, false];
+  toggle = [];
 
   faq: Faq[];
 
