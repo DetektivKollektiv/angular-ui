@@ -81,7 +81,7 @@ export class SetPasswordFormComponent implements OnInit {
     this.authService
       .forgotPasswordSubmit(
         this.formControls.username.value,
-        this.formControls.code.value,
+        this.formControls.code.value.replace(/\s/g,''),
         this.formControls.password.value
       )
       .then(() => {
