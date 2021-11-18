@@ -15,13 +15,20 @@
 
         <ul class="navigation-main__list">
           <li class="navigation-main__item">
+            <a href="javascript:;" title="Fall einreichen"
+              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/submit']">
+              <i class="fas fa-typewriter"></i>              
+              Fall einreichen
+            </a>
+          </li>
+          <li class="navigation-main__item">
+            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+          </li>
+          <li class="navigation-main__item">
             <a [routerLink]="['/about']" class="navigation-main__link" title="Über uns">Über uns</a>
           </li>
           <li class="navigation-main__item">
             <a  class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
-          </li>
-          <li class="navigation-main__item">
-            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
             <a [routerLink]="['/register']" title=""
