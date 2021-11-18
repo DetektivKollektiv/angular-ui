@@ -58,7 +58,7 @@
             <a href="javascript:;" class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
           </li>
           <li class="navigation-main__item">
-            <div class="userprofile">
+            <div class="userprofile" [routerLink]="['/']">
               <div class="userprofile__content">
                 <div class="userprofile__name-wrapper">
                   <div class="userprofile__award userprofile__award--gold"></div>
@@ -80,7 +80,7 @@
             <div class="navigation-flyout">
               <ul class="navigation-flyout__list">
                 <li class="navigation-flyout__item">
-                  <a href="javascript:;" class="navigation-flyout__link" title="Profil" [routerLink]="['/my-file']">Profil</a>
+                  <a href="javascript:;" class="navigation-flyout__link" title="Profil" [routerLink]="['/']">Profil</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a (click)="logout()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
