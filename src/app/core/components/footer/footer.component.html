@@ -7,14 +7,14 @@
         <h3 class="navigation-footer__chapter-headline">Detektive</h3>
 
         <ul class="navigation-footer__list">
-          <li class="navigation-footer__item">
+          <li *ngIf="!authenticated" class="navigation-footer__item">
             <a class="navigation-footer__link" title="Detektiv werden!" [routerLink]="['/register']">Detektiv werden!</a>
+          </li>
+          <li *ngIf="authenticated" class="navigation-footer__item">
+            <a class="navigation-footer__link" title="Offene Fälle" [routerLink]="['/#']">Fall bearbeiten</a>
           </li>
           <li class="navigation-footer__item">
             <a class="navigation-footer__link" title="Fall einreichen" [routerLink]="['/submit']">Fall einreichen</a>
-          </li>
-          <li class="navigation-footer__item">
-            <a class="navigation-footer__link" title="Offene Fälle" [routerLink]="['/#']">Offene Fälle</a>
           </li>
           <li class="navigation-footer__item">
             <a class="navigation-footer__link" title="Archiv" [routerLink]="['/archive']">Archiv</a>
