@@ -1,0 +1,42 @@
+@import '../../../../assets/scss/initializer';
+
+.imprint-page {
+  margin: auto;
+
+  .overview-section {
+    h1 {
+      font-size: 52px;
+      font-weight: 700;
+      color: #4a4a4a;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #4a4a4a;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #8989a2;
+      margin-top: 25px;
+      margin-bottom: 8px;
+    }
+    
+    p {
+      font-size: 16px;
+      color: #8989a2;
+      margin-top: 0px;
+    }
+  }
+
+  .top-section {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+    padding: 20px;
+
+  }
+}

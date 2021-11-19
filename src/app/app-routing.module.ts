@@ -32,6 +32,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
+import { ImprintComponent } from './core/components/imprint/imprint.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
         path: 'my-profile',
         component: MyProfileComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'imprint',
+        component: ImprintComponent
       },
       { path: '', component: HomeComponent }
     ]

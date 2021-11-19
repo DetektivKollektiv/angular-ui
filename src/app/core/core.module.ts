@@ -11,6 +11,7 @@ import {MaterialModule} from '../shared/material/material.module';
 import { DeleteUserDialogComponent } from './dialogs/delete-user-dialog/delete-user-dialog.component';
 import { MenuDialogComponent } from './dialogs/menu-dialog/menu.component';
 import {FormsModule} from '@angular/forms';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 
 
 
@@ -33,7 +34,8 @@ import {FormsModule} from '@angular/forms';
     LoaderModule,
     RouterModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    BreadcrumbModule
   ]
 })
 export class CoreModule { }
