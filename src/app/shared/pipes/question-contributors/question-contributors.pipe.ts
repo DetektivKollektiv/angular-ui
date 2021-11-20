@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Detective } from '../../model/detective';
-import { ItemReviewQuestion } from '../../model/Item-review-question';
+import { Detective } from '../../../model/detective';
+import { ItemReviewQuestion } from '../../../model/Item-review-question';
 
 @Pipe({
   name: 'questionContributors'

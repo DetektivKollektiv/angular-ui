@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { RatingService } from '../../services/rating.service';
+import { RatingService } from '../../../services/rating.service';
 
 @Pipe({
   name: 'ratingScore'
