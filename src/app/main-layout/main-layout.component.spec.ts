@@ -20,7 +20,7 @@ describe('MainLayoutComponent', () => {
       ],
       providers: [
         { provide: AuthService, useClass: MockAuthService }
-      ],      
+      ],
     })
     .compileComponents();
   });

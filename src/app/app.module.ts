@@ -28,7 +28,6 @@ import { IssuesModule } from './issues/issues.module';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { environment } from 'src/environments/environment';
-import { BreadcrumbModule } from './shared/breadcrumb/breadcrumb.module';
 
 import 'hammerjs';
 import { HelperModule } from './shared/helper/helper.module';
@@ -81,8 +80,7 @@ export function createTranslateLoader(http: HttpClient) {
     HelperModule,
     OpenCaseListSliderModule,
     HomeModule,
-    MyProfileModule,
-    BreadcrumbModule
+    MyProfileModule
   ],
   bootstrap: [AppComponent],
 })
