@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input } from '@angular/core';
+import { Component, AfterViewInit, Input, OnDestroy } from '@angular/core';
 import SwiperCore, { Navigation, Pagination, A11y, Swiper } from 'swiper/core';
 import { Item } from '../../../model/item';
 
@@ -8,7 +8,7 @@ SwiperCore.use([Navigation, Pagination, A11y]);
   templateUrl: './case-swiper.component.html',
   styleUrls: ['./case-swiper.component.scss']
 })
-export class CasesSwiperComponent implements AfterViewInit {
+export class CasesSwiperComponent implements AfterViewInit, OnDestroy {
   @Input() cases: Item[];
   swiper: Swiper;
 
@@ -19,26 +19,20 @@ export class CasesSwiperComponent implements AfterViewInit {
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
-      }
-      // breakpoints: {
-      //   1024: {
-      //       slidesPerView: 1,
-      //       spaceBetween: 40,
-      //   },
-      //   768: {
-      //       slidesPerView: 1,
-      //       spaceBetween: 30,
-      //   },
-      //   640: {
-      //       slidesPerView: 1,
-      //       spaceBetween: 20,
-      //   },
-      //   320: {
-      //       slidesPerView: 1,
-      //       spaceBetween: 10,
-      //   }
-      // }
+      },
+      loop: true
     });
+
+    this.swiper.on('click', (swiper, event) => {
+      // workaround for not clickable reject button on loop
+      if (swiper.isEnd && (event.target as HTMLElement).className === 'reject-button') {
+        swiper.slideNext();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.swiper.destroy();
   }
 
   slideNext() {
