@@ -4,18 +4,26 @@
     <!-- Slides -->
     <div class="swiper-slide" *ngFor="let case of cases; let i = index">
       <div class="case">
-        <p class="case__header">{{ case.id | caseId }}</p>
-        <div class="case__content">
-          <div class="case__text">
-            {{ case.content | textOverflow: 300 }}
+        <div class="case__arrow">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="case__container">
+          <p class="case__header">{{ case.id | caseId }}</p>
+          <div class="case__content">
+            <div class="case__text">
+              {{ case.content | textOverflow: 300 }}
+            </div>
+            <div class="case__buttons">
+              <a appButton routerLink="/review" [state]="{ item: case, isOpenReview: false }">
+                <i class="far fa-clipboard-list-check"></i>
+                <span>Fall ansehen</span>
+              </a>
+              <a class="reject-button" (click)="slideNext()">Fall ablehnen</a>
+            </div>
           </div>
-          <div class="case__buttons">
-            <a appButton routerLink="/review" [state]="{ item: case, isOpenReview: false }">
-              <i class="far fa-clipboard-list-check"></i>
-              <span>Fall ansehen</span>
-            </a>
-            <a class="reject-button" (click)="slideNext()">Fall ablehnen</a>
-          </div>
+        </div>
+        <div class="case__arrow">
+          <i class="fas fa-chevron-right"></i>
         </div>
       </div>
     </div>

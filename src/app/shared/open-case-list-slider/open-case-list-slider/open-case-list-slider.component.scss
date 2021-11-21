@@ -23,7 +23,7 @@
   background-color: colors.$color__case-card;
   padding: 10px 20px 20px;
   margin: 20px 0;
-  width: 100vw;
+  width: calc(100vw - 30px);
   border-radius: 25px;
 
   @media only screen and (min-width: 1024px) {
