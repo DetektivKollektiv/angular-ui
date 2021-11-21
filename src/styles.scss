@@ -385,6 +385,10 @@ header.header {
   max-width: unset !important;
 }
 
+.mat-radio-button:not(.mat-radio-disabled).cdk-program-focused .mat-radio-persistent-ripple {
+  opacity: 0 !important;
+}
+
 .breadcrumb {
   font-size: 14px;
   color: #8989a2;
