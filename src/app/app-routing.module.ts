@@ -33,6 +33,7 @@ import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layo
 import { AboutComponent } from './about/about.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
 import { ImprintComponent } from './core/components/imprint/imprint.component';
+import { PrivacyStatementComponent } from './core/components/privacy-statement/privacy-statement.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,10 @@ const routes: Routes = [
       {
         path: 'imprint',
         component: ImprintComponent
+      },
+      {
+        path: 'privacy-statement',
+        component: PrivacyStatementComponent
       },
       { path: '', component: HomeComponent }
     ]
