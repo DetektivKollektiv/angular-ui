@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ItemReviewQuestion } from '../../../model/Item-review-question';
 
 @Component({
@@ -7,7 +8,7 @@ import { ItemReviewQuestion } from '../../../model/Item-review-question';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent implements OnInit, OnDestroy {
   @Input() question: ItemReviewQuestion;
   @Input() questions: ItemReviewQuestion[];
   @Input() index: number;
@@ -25,21 +26,14 @@ export class QuestionComponent implements OnInit {
   questionForm: FormControl;
 
   private alphbt = 'abcdefghijklmnopqrstuvwxyz';
+  private formSubscription: Subscription;
 
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     const index = this.parentIndex === -1 ? `${this.index + 1}` : `${this.parentIndex + 1}${this.alphbt[this.index]}`;
     this.title = `Frage ${index}`;
-    if (this.parentFormGroup) {
-      this.questionForm = this.formBuilder.control(this.question.answer_value, Validators.required);
-      this.parentFormGroup.addControl(this.question.question_id, this.questionForm);
-
-      this.questionForm.valueChanges.pipe().subscribe((value) => {
-        this.question.answer_value = value;
-        this.onQuestionValueChange(value);
-      });
-    }
+    this.handleQuestionForm();
 
     this.isShowChild = false;
 
@@ -47,7 +41,13 @@ export class QuestionComponent implements OnInit {
     this.showChildQuestions(this.question.answer_value);
   }
 
-  addChildQuestions() {
+  ngOnDestroy(): void {
+    if (this.formSubscription) {
+      this.formSubscription.unsubscribe();
+    }
+  }
+
+  addChildQuestions(): void {
     const hasChildren = this.question.max_children > 0;
     if (!hasChildren) {
       return;
@@ -62,7 +62,7 @@ export class QuestionComponent implements OnInit {
     });
   }
 
-  showChildQuestions(value) {
+  showChildQuestions(value): void {
     if (value === null || value === undefined) {
       return;
     }
@@ -83,8 +83,22 @@ export class QuestionComponent implements OnInit {
     });
   }
 
-  onQuestionValueChange(e: number) {
+  onQuestionValueChange(e: number): void {
     this.valueChange.emit();
     this.showChildQuestions(e);
+  }
+
+  private handleQuestionForm(): void {
+    if (!this.parentFormGroup) {
+      return;
+    }
+
+    this.questionForm = this.formBuilder.control(this.question.answer_value, Validators.required);
+    this.parentFormGroup.addControl(this.question.question_id, this.questionForm);
+
+    this.formSubscription = this.questionForm.valueChanges.pipe().subscribe((value) => {
+      this.question.answer_value = value;
+      this.onQuestionValueChange(value);
+    });
   }
 }
