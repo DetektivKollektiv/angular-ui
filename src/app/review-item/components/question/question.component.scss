@@ -41,6 +41,12 @@
     margin-bottom: 12px;
   }
 
+  &__error {
+    color: colors.$color__warn;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
   &__content {
     font-size: 18px;
     margin-bottom: 20px;

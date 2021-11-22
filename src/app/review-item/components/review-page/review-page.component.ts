@@ -17,6 +17,7 @@ import { EMPTY, from, Observable, of } from 'rxjs';
 import { switchMap, mapTo, tap } from 'rxjs/operators';
 import { ReviewItems } from '../../model/review-items';
 import { Question } from '../../model/question';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-review-page',
@@ -43,7 +44,6 @@ export class ReviewPageComponent implements OnInit {
   finished = false;
   isPolicyChecked = false;
   isConditionChecked = false;
-  isReviewValid = false;
   reviewChanged = false;
 
   questionPrompts = [
@@ -82,6 +82,8 @@ export class ReviewPageComponent implements OnInit {
 
   public factCheck: Factcheck = null;
 
+  reviewForm: FormGroup;
+
   private routerState: { [key: string]: any };
 
   constructor(
@@ -91,9 +93,15 @@ export class ReviewPageComponent implements OnInit {
     private snackBar: MatSnackBar,
     private loader: LoaderService,
     private router: Router,
-    private factCheckService: FactCheckService
+    private factCheckService: FactCheckService,
+    private formBuilder: FormBuilder
   ) {
     this.routerState = this.router.getCurrentNavigation().extras?.state;
+
+    this.reviewForm = this.formBuilder.group({
+      legal: [false, Validators.requiredTrue],
+      policy: [false, Validators.requiredTrue]
+    });
   }
 
   ngOnInit(): void {
@@ -117,6 +125,11 @@ export class ReviewPageComponent implements OnInit {
   }
 
   closeReview() {
+    if (this.reviewForm.invalid) {
+      this.handleInvalidForm();
+      return;
+    }
+
     this.review.status = ReviewState[ReviewState.closed];
 
     this.reviewsService.updateReview(this.review).subscribe(() => {
@@ -132,7 +145,6 @@ export class ReviewPageComponent implements OnInit {
 
   updateReview() {
     this.reviewsService.updateReview(this.review);
-    this.validateReview();
     this.reviewChanged = true;
   }
 
@@ -147,24 +159,6 @@ export class ReviewPageComponent implements OnInit {
   onTagsChanged(tags: string[]) {
     this.review.tags = tags?.length ? tags : null;
     this.updateReview();
-  }
-
-  validateReview() {
-    const allQuestionsAnswered = this.questions
-      .filter((question) => !question.parent_question_id)
-      .every(
-        (question) =>
-          question.answer_value !== null &&
-          (!question.max_children ||
-            this.questions
-              .filter((q) => q.parent_question_id === question.question_id)
-              .filter(
-                (childQuestion) => childQuestion.lower_bound <= question.answer_value && childQuestion.upper_bound >= question.answer_value
-              )
-              .every((childQuestion) => childQuestion.answer_value !== null))
-      );
-
-    this.isReviewValid = allQuestionsAnswered && this.isPolicyChecked && this.isConditionChecked;
   }
 
   private getFactCheck(id: string): void {
@@ -199,6 +193,20 @@ export class ReviewPageComponent implements OnInit {
     this.review = review;
     this.questions = review.questions;
     this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
-    this.validateReview();
+  }
+
+  private handleInvalidForm() {
+    this.reviewForm.markAllAsTouched();
+    this.snackBar.open(
+      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast und der Datenschutzerklärung, sowie den Nutzungsbedingungen zugestimmt hast.',
+      '',
+      { duration: 5000 }
+    );
+    const unansweredQuestion = this.questions.find((question) => question.answer_value === null);
+    const el: HTMLElement = document.getElementById(unansweredQuestion.question_id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 70;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   }
 }
