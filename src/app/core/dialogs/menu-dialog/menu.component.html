@@ -18,11 +18,11 @@
     <div *ngIf="!authState.isLoggedIn">
       <div class="menu-top-strip">
         <div class="menu-top-strip-item-container">
-          <div class="around-button">
+          <div>
             <a (click)="navigate('register')" title=""
-              class="button button--bittersweet button--hallow main-button main-button--detective navigation-flyout__link third-theme-color ">
-              <i class="fas fa-user-cowboy"></i> <span>Detektiv werden</span>
-            </a>
+              class="button button--bittersweet button--hallow main-button main-button--detective navigation-flyout__link third-theme-color around-button">
+              <i class="fas fa-user-cowboy"></i> <span>Detektiv*in werden</span>
+          </a>
           </div>
           <div>
             <a class="main-link login-button" title="Login" (click)="navigate('login')">Login</a>
@@ -30,12 +30,12 @@
         </div>
       </div>
       <div class="navigation-main__item active-link">
-        <a href="javascript:;" title="" class="button button--bittersweet button--gentle main-button main-button--typewriter main-link red-color" (click)="navigate('submit')">
+        <a  title="" class="button button--bittersweet button--gentle main-button main-button--typewriter main-link red-color" (click)="navigate('submit')">
           <i class="fas fa-typewriter"></i>Fall einreichen
         </a>
       </div>
 
-      <div class="active-link"><a href="javascript:;" class="main-link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a></div>
+      <div class="active-link"><a  class="main-link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a></div>
 
       <div>
         <div style="width: 100%;">
@@ -68,12 +68,9 @@
                 {{user.name[0].toUpperCase()}}
               </div>
               <div class="userprofile__content">
-                <div class="userprofile__name-wrapper">
                   <div class="userprofile__name">
                     {{user.name}}
                   </div>
-                  <div class="userprofile__award userprofile__award--gold"></div>
-                </div>
                 <div class="userprofile__title">
                   {{user.level_description}}
                 </div>
@@ -92,13 +89,17 @@
         </div>
 
       </div>
+      <!-- TODO: Hier weitermachen -->
       <div class="navigation-main__item active-link">
-        <a href="javascript:;" title="" class="button button--bittersweet button--gentle main-button main-button--typewriter main-link red-color" (click)="navigate('submit')">
-          <i class="fas fa-typewriter"></i>Fall einreichen
+        <a  title="Fall bearbeiten" class="button button--bittersweet button--gentle main-button main-button--typewriter main-link red-color" (click)="navigate('')">
+          <i class="fas fa-clipboard-list-check"></i>Fall bearbeiten
         </a>
       </div>
       <div class="navigation-main__item active-link">
-        <a href="javascript:;" class="main-link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a>
+        <a  class="main-link" title="Fall einreichen" (click)="navigate('submit')">Fall einreichen</a>
+      </div>
+      <div class="navigation-main__item active-link">
+        <a  class="main-link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a>
       </div>
 
       <div>
