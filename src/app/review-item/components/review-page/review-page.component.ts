@@ -18,6 +18,7 @@ import { switchMap, mapTo, tap } from 'rxjs/operators';
 import { ReviewItems } from '../../model/review-items';
 import { Question } from '../../model/question';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-review-page',
@@ -94,7 +95,8 @@ export class ReviewPageComponent implements OnInit {
     private loader: LoaderService,
     private router: Router,
     private factCheckService: FactCheckService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private viewportScroller: ViewportScroller
   ) {
     this.routerState = this.router.getCurrentNavigation().extras?.state;
 
@@ -191,7 +193,8 @@ export class ReviewPageComponent implements OnInit {
 
   private initReview(review: Review) {
     this.review = review;
-    this.questions = review.questions;
+    this.questions = [...review.questions];
+    this.questions.sort((q1, q2) => q1.question_id.localeCompare(q2.question_id));
     this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
   }
 
@@ -202,11 +205,12 @@ export class ReviewPageComponent implements OnInit {
       '',
       { duration: 5000 }
     );
-    const unansweredQuestion = this.questions.find((question) => question.answer_value === null);
-    const el: HTMLElement = document.getElementById(unansweredQuestion.question_id);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+    const unansweredQuestion = this.questions
+      .filter((question) => question.answer_value === null)
+      .find((question) => document.getElementById(question.question_id));
+    if (unansweredQuestion) {
+      this.viewportScroller.setOffset([0, 80]);
+      this.viewportScroller.scrollToAnchor(unansweredQuestion.question_id);
     }
   }
 }

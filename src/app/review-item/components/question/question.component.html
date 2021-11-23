@@ -1,8 +1,13 @@
-<div class="question" [class.no-border]="isChild" [attr.id]="question.question_id">
+<div
+  class="question"
+  [class.no-border]="isChild"
+  [class.error-border]="questionForm.invalid && questionForm.touched"
+  [attr.id]="question.question_id"
+>
+  <div class="question__error" *ngIf="questionForm.invalid && questionForm.touched">Du hast diese Frage noch nicht beantwortet.</div>
   <div class="question__title">
     {{ title }}
   </div>
-  <div class="question__error" *ngIf="questionForm.invalid && questionForm.touched">Du hast diese Frage noch nicht beantwortet.</div>
   <div class="question__content">{{ question.content }}</div>
 
   <div class="question__hint-container">
