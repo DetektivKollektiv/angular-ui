@@ -1,0 +1,3 @@
+<div class="bar" *ngIf="user$ | async as user">
+  <div class="bar-fill" [style.width]="(user.experience_points / (user.experience_points + user.exp_needed)) * 100 + '%'"></div>
+</div>

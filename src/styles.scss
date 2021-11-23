@@ -487,3 +487,17 @@ header.header {
   font-size: 20px;
   margin: 0 5px;
 }
+
+.text {
+  &--bittersweet {
+    color: $color__bittersweet;
+  }
+
+  &--purple {
+    color: $color__purple;
+  }
+
+  &--rating-orange {
+    color: $color__rating-orange;
+  }
+}

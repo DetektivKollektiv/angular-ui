@@ -1,52 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { Item } from 'src/app/model/item';
-import { ArchiveState } from 'src/app/archive/state/archive.state';
-import { UserService } from 'src/app/core/services/user/user.service';
-import { ItemsService } from 'src/app/review-item/services/items/items.service';
-import { User } from 'src/app/core/model/user';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
+import { DeleteUserDialogComponent } from '../../../core/dialogs/delete-user-dialog/delete-user-dialog.component';
+import { UserService } from '../../../core/services/user/user.service';
+import { Globals } from '@shared/helper/globals/globals';
 
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })
-export class MyProfileComponent implements OnInit {
-  @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
-  public items: Item[];
-  public user: User;
-  public userName: string;
-  public userLoaded = true;
-  public topTenScores: Item[];
-  public cases: any[];
+export class MyProfileComponent {
+  user$ = this.userService.user$;
+  authState$ = this.authService.auth$;
 
-  constructor(
-    private userService: UserService,
-    private itemsService: ItemsService,
-  ) { }
+  page = 1;
 
-  ngOnInit(): void {
-    this.userService.user$.subscribe((user: User) => {
-      if (user) {
-        this.userLoaded = true;
-      } else {
-        this.userLoaded = false;
+  constructor(private userService: UserService, private authService: AuthService, private router: Router, private dialog: MatDialog) {}
+
+  deleteAccount(): void {
+    const dialogRef = this.dialog.open(DeleteUserDialogComponent, Globals.dialogData);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.authService
+          .signOut(true)
+          .then(() => this.router.navigate(['/']))
+          .catch();
       }
-
-      this.user = user;
     });
-
-    this.items$.subscribe((items) => {
-      this.items = items;
-      this.topTenScores = items.splice(0, 10);
-    });
-
-    this.itemsService
-      .getOpenItems()
-      .then((openCases) => {
-        this.cases = openCases.items;
-      });
   }
-
 }

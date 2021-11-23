@@ -1,284 +1,319 @@
-@import "../../../../assets/scss/_initializer.scss";
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
 
-.my-profile-page {
-  overflow-x: hidden;
-  width: 100vw;
+:host {
+  width: 100%;
+}
 
-  .top-section {
-    .overview-section{
-      width: 100%;
+.standard-content-container-width {
+  @media only screen and (min-width: 1024px) {
+    min-width: 1024px;
+  }
+}
 
-      .user-name {
-        display: flex;
-        align-items: center;
-        font-size: 40px;
-        font-weight: bold;
+.profile-page {
+  margin: auto;
 
-        @media only screen and (min-width: 480px) {
-          font-size: 56px;
-        }
-
-        .avatar {
-          border-radius: 50%;
-          width: _b__rem(64px);
-          height: _b__rem(64px);
-          background-color: $color__purple;
-          color: white;
-          margin: 0 _b__rem(6px) 0 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 40px;
-        }
-
-        &-explain {
-          line-height: 24px;
-        }
-      }
-
-      @media only screen and (min-width: 480px) {
-        width: 60%;
-      }
-    }
+  section {
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
-  .section {
+  .top {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    padding-bottom: 80px;
+    gap: 20px;
 
-
-    @media only screen and (min-width: 480px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    @media only screen and (min-width: 1024px) {
-      margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
-    }
-
-    @media only screen and (min-width: 1350px) {
-      margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
-    }
-  }
-
-  .middle-section {
-    .side {
+    .overview {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      padding: 20px;
+      gap: 20px;
 
-      @media only screen and (min-width: 480px) {
-        width: 50%;
-      }
-    }
-    .left-side {
-      .left-side-title {
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-
-        @media only screen and (min-width: 480px) {
-          text-align: left;
-          font-size: 32px;
-        }
-      }
-
-      .ranking-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 30px;
-        background-color: #eee;
-        border-radius: 24px;
-        margin-top: 16px;
-
-        .ranking-content {
-          display: flex;
-          align-items: center;
-          width: 100%;
-          margin: 10px;
-
-          @media only screen and (min-width: 480px) {
-            width: 40%;
-          }
-
-          .mark {
-            font-family: PT MONO;
-            margin-right: 16px;
-          }
-        }
-      }
-
-      .progress-container {
+      &__user {
         display: flex;
         align-items: center;
-        margin: 10px;
 
-        .progress {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          div {
-            font-size: 12px;
-          }
-        }
-
-        .level-title {
-          margin: 5px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-      }
-    }
-
-    .right-side {
-      &-title {
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-
-        @media only screen and (min-width: 480px) {
-          text-align: left;
-          font-size: 32px;
+        .avatar {
+          font-size: 45px;
+          width: 72px;
+          height: 72px;
+          background-color: colors.$color__purple;
         }
       }
 
-      &-explain {
-        margin: 16px 0;
+      &__user-name {
+        @include fonts.font__effra--bold;
+        font-size: 68px;
+      }
+
+      &__intro {
+        font-size: 18px;
+
+        @media only screen and (min-width: 768px) {
+          max-width: 600px;
+        }
       }
     }
   }
 
-  .solved-case-section {
-    width: 100%;
-    background-color: $color__mysterious-blue;
+  .user {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    gap: 40px;
 
-    .main-container {
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    h2 {
+      @include fonts.font__effra--bold;
+      font-size: 26px;
+
+      @media only screen and (min-width: 480px) {
+        font-size: 28px;
+      }
+    }
+
+    &__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-basis: 100%;
+
+      img {
+        margin-top: 30px;
+        height: 400px;
+        max-width: 80vw;
+      }
+    }
+
+    &__stats-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-wrap: wrap;
+      background-color: colors.$color__case-card;
+      padding: 30px;
+      border-radius: 25px;
+      margin: 0 20px;
+
+      @media only screen and (min-width: 480px) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      @media only screen and (min-width: 768px) {
+        margin: 0;
+      }
+    }
+
+    &__stats-entry {
+      display: flex;
+      align-items: center;
+      @include fonts.font__effra--regular;
+      font-size: 18px;
+      flex-basis: 45%;
+      margin-left: 40px;
+
+      .count {
+        @include fonts.font__pt-mono--bold;
+        font-size: 32px;
+        margin-right: 12px;
+      }
+
+      @media only screen and (min-width: 480px) {
+        margin-left: 0;
+      }
+    }
+
+    &__xp {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &__xp-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+
+      app-user-xp-bar {
+        display: flex;
+        align-items: flex-end;
+        height: 12px;
+      }
+    }
+
+    &__xp-level {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 4px;
+      font-size: 14px;
+      flex-basis: 40px;
 
-      .title {
-        font-size: 24px;
-        text-align: center;
-        color: white;
-        margin-top: 40px;
-        margin-bottom: 20px;
-
-        @media only screen and (min-width: 480px) {
-          font-size: 40px;
-        }
+      span {
+        font-size: 14px;
       }
 
-      app-solve-score-list {
-        display: flex;
-        justify-content: center;
-      }
-
-      .view-more-btn {
-        margin-top: 20px;
-        text-decoration: none;
-        padding: 10px 20px;
-        background-color: $color__purple;
-        color: white;
-        border-radius: 24px;
-        cursor: pointer;
-        border: 2px solid $color__purple;
-
-        &:hover {
-          background-color: white;
-          color: $color__purple;
-
-        }
+      .level {
+        @include fonts.font__pt-mono--bold;
       }
     }
 
+    &__cases {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-basis: 100%;
+    }
+
+    &__cases-intro,
+    &__cases-none {
+      font-size: 18px;
+    }
+
+    &__cases-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__case-pagination {
+      display: flex;
+      justify-content: center;
+    }
   }
 
-  .account-details-section {
+  .solved-cases {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    margin-top: 60px;
+    width: 100vw;
+    position: relative;
+
+    app-solved-cases {
+      padding: 40px 0;
+    }
+
+    &__bg {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .account {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 24px;
+    gap: 10px;
+    margin-top: 80px;
 
-    .title {
-      font-size: 24px;
-      text-align: center;
-
-      @media only screen and (min-width: 480px) {
-        font-size: 40px;
-      }
+    h2 {
+      @include fonts.font__effra--bold;
+      font-size: 36px;
     }
 
-    .explain {
+    &__intro {
       text-align: center;
       font-size: 18px;
+      margin-bottom: 20px;
+      max-width: 500px;
     }
-  }
 
-  .delete-account-section {
-    background-color: #ffeceb;
-    div {
+    &__info {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 24px;
+      gap: 10px;
+    }
 
-      .title {
-        font-size: 24px;
-        text-align: center;
+    &__info-title {
+      @include fonts.font__pt-mono--bold;
+      font-size: 16px;
+    }
 
-        @media only screen and (min-width: 480px) {
-          font-size: 40px;
-        }
-      }
+    &__info-data {
+      font-size: 16px;
+      margin-bottom: 30px;
 
-      .explain {
-        text-align: center;
-        font-size: 18px;
-      }
-
-      .delete-account-btn {
-        text-decoration: none;
-        padding: 10px 20px;
-        background-color: black;
-        color: white;
-        border-radius: 24px;
-        cursor: pointer;
-        border: 2px solid black;
-
-        &:hover {
-          background-color: white;
-          color: black;
-
-        }
+      span {
+        margin-right: 10px;
       }
     }
   }
-}
 
-// .font-mono {
-//   font-family: PT MONO;
-// }
+  .delete-account {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100vw;
+    position: relative;
 
-.font-bold {
-  font-weight: bold;
-}
+    h2 {
+      margin-bottom: 20px;
+      @include fonts.font__effra--bold;
+      font-size: 36px;
+    }
 
-.font__rating-orange {
-  color: $color__rating-orange;
-}
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px auto 0;
+      padding: 40px 0;
+    }
 
-.font__supernova {
-  color: $color__supernova;
-}
+    &__bg {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
 
-.font__purple {
-  color: $color__purple;
+    &__intro {
+      margin-bottom: 30px;
+      font-size: 18px;
+      max-width: 660px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    &__btn {
+      background-color: black;
+      color: white;
+      border: 2px solid black;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+
+      span {
+        margin-right: 10px;
+      }
+    }
+
+    &__image {
+      display: none;
+      position: absolute;
+      right: -20px;
+      width: 300px;
+
+      @media only screen and (min-width: 1024px) {
+        display: block;
+      }
+
+      @media only screen and (min-width: 1350px) {
+        right: 80px;
+      }
+    }
+  }
 }

@@ -12,15 +12,16 @@ import { ScoreListItemComponent } from './components/score-list-item/score-list-
 import { CaseListModule } from '@shared/case-list/case-list.module';
 import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-case-list-slider.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { UserXpModule } from '@shared/user-xp/user-xp.module';
+import { LeadingZerosPipe } from './pipes/leading-zeros.pipe';
+import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
+import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
+import { ButtonModule } from '@shared/button/button.module';
 
-registerLocaleData(localeDE, 'de')    ;
+registerLocaleData(localeDE, 'de');
 @NgModule({
-  declarations: [
-    MyProfileComponent,
-    ScoreListComponent,
-    ScoreListItemComponent,
-    SolveScoreListComponent
-  ],
+  declarations: [MyProfileComponent, ScoreListComponent, ScoreListItemComponent, SolveScoreListComponent, LeadingZerosPipe],
   imports: [
     CommonModule,
     HelperModule,
@@ -28,10 +29,15 @@ registerLocaleData(localeDE, 'de')    ;
     NgxPaginationModule,
     CaseListModule,
     OpenCaseListSliderModule,
+    BreadcrumbModule,
+    UserXpModule,
+    CaseListItemModule,
+    SolvedCasesModule,
+    ButtonModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
-    { provide: LOCALE_ID, useValue: 'de' },
-  ],
+    { provide: LOCALE_ID, useValue: 'de' }
+  ]
 })
 export class MyProfileModule {}
