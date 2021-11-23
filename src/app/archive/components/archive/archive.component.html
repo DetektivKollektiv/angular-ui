@@ -35,13 +35,9 @@
       </mat-form-field>
 
       <div class="archive-list-options">
-        <div class="archive-list-option">
+        <div class="archive-list-option" (click)="archiveListFilterOpened = !archiveListFilterOpened">
           <span class="bold-weight">Filter</span>
-          <span
-            class="archive-list-option__btn archive-list-option__btn--menu"
-            (click)="archiveListFilterOpened = !archiveListFilterOpened"
-            cdkOverlayOrigin
-            #archiveListFilter="cdkOverlayOrigin"
+          <span class="archive-list-option__btn archive-list-option__btn--menu" cdkOverlayOrigin #archiveListFilter="cdkOverlayOrigin"
             >anzeigen</span
           >
           <span class="archive-list-option__btn archive-list-option__btn--dialog" (click)="openFilterDialog()">anzeigen</span>

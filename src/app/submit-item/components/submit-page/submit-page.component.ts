@@ -22,28 +22,22 @@ export class SubmitPageComponent {
 
   questionPrompts: QuestionPrompt[] = [
     {
-      title: 'Woran erkenne ich eine gute Quelle?',
-      description: 'Hier haben wir alles zusammengefasst um dir zu helfen gute Quellen zu erkennen',
+      title: 'Was kann ich als Fall einreichen?',
+      description: 'Du kann sowohl Online-Zeitungsartikel als auch textbasierte (Kurz-) Nachrichten wie WhatsApp-Nachrichten einreichen.',
       background: 'color__bittersweet',
       icon: 'fal fa-question-circle'
     },
     {
-      title: 'Die Quelle ist nicht mehr abrufbar. Was kann ich tun?',
-      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+      title: 'Wie reiche ich einen Fall ein?',
+      description: 'Fülle einfach das Formular auf dieser Seite aus und klicke unten auf "Fall einreichen".',
       background: 'color__neon-blue',
       icon: 'fal fa-plus'
     },
     {
-      title: 'Kann ich den Fall abgeben?',
-      description: 'Ja, das geht. Hier erfährst du wie.',
+      title: 'Gibt es diesen Fall bereits?',
+      description: 'Schon gelöste Fälle kannst du im <a href="/archive" target="_blank">Archiv</a> ansehen.',
       background: 'color__purple',
       icon: 'fal fa-archive'
-    },
-    {
-      title: 'Eine weitere Frage??',
-      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-      background: 'color__bittersweet',
-      icon: 'fal fa-meteor'
     }
   ];
 
