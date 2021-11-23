@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ForgotPasswordFormComponent } from './forgot-password-form.component';
 import { MaterialModule } from '@shared/material/material.module';
 import { RouterTestingModule } from '@angular/router/testing';

@@ -1,15 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ImprintComponent } from './imprint.component';
+import { PrivacyStatementComponent } from './privacy-statement.component';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('ImprintComponent', () => {
-  let component: ImprintComponent;
-  let fixture: ComponentFixture<ImprintComponent>;
+
+
+describe('PrivacyStatementComponent', () => {
+  let component: PrivacyStatementComponent;
+  let fixture: ComponentFixture<PrivacyStatementComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ImprintComponent ],
+      declarations: [ PrivacyStatementComponent ],
       imports: [
         BreadcrumbModule,
         RouterTestingModule.withRoutes([]),
@@ -19,7 +21,7 @@ describe('ImprintComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ImprintComponent);
+    fixture = TestBed.createComponent(PrivacyStatementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
