@@ -35,6 +35,7 @@ registerLocaleData(localeDE, 'de');
     SolvedCasesModule,
     ButtonModule
   ],
+  exports: [MyProfileComponent],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
     { provide: LOCALE_ID, useValue: 'de' }

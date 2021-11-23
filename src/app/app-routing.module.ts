@@ -31,6 +31,7 @@ import { AboutComponent } from './about/about.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
 import { ImprintComponent } from './core/components/imprint/imprint.component';
 import { PrivacyStatementComponent } from './core/components/privacy-statement/privacy-statement.component';
+import { LandingPageComponent } from './static-pages/landing-page/landing-page.component';
 
 const routes: Routes = [
   {
@@ -69,11 +70,11 @@ const routes: Routes = [
         path: 'archive',
         component: ArchiveComponent
       },
-      {
-        path: 'my-profile',
-        component: MyProfileComponent,
-        canActivate: [AuthGuard]
-      },
+      // {
+      //   path: 'my-profile',
+      //   component: MyProfileComponent,
+      //   canActivate: [AuthGuard]
+      // },
       {
         path: 'imprint',
         component: ImprintComponent
@@ -82,7 +83,7 @@ const routes: Routes = [
         path: 'privacy-statement',
         component: PrivacyStatementComponent
       },
-      { path: '', component: HomeComponent }
+      { path: '', component: LandingPageComponent }
     ]
   },
   {
