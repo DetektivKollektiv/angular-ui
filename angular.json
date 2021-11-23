@@ -150,13 +150,7 @@
         },
         "test": {
           "builder": "@angular-builders/jest:run",
-          "options": {
-            "polyfills": "src/polyfills.ts",
-            "tsconfig": "tsconfig.spec.json",
-            "assets": ["src/favicon.ico", "src/logo_16x16.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
-            "scripts": []
-          }
+          "options": {}
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",

@@ -3,9 +3,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { LoaderModule } from './shared/loader/loader.module';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from './shared/auth/auth-service/auth.service';
 import { MockAuthService } from '../test/mocks/mock-auth.service';
 import { HeaderComponent } from './core/components/header/header.component';
@@ -17,23 +14,9 @@ import { HighscoresModule } from './highscores/highscores.module';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        LoaderModule,
-        MaterialModule,
-        RouterTestingModule,
-        TranslateModule.forRoot(),
-        ProfileModule,
-        HighscoresModule
-      ],
-      declarations: [
-        AppComponent,
-        FooterComponent,
-        HeaderComponent
-      ],
-      providers: [
-        { provide: AuthService, useClass: MockAuthService }
-      ]
-
+      imports: [LoaderModule, MaterialModule, RouterTestingModule, TranslateModule.forRoot(), ProfileModule, HighscoresModule],
+      declarations: [AppComponent, FooterComponent, HeaderComponent],
+      providers: [{ provide: AuthService, useClass: MockAuthService }]
     }).compileComponents();
   }));
 

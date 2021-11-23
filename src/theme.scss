@@ -31,8 +31,8 @@ $mat-my-yellow: (
     A100: $dark-primary-text,
     A200: $dark-primary-text,
     A400: $dark-primary-text,
-    A700: $dark-primary-text,
-  ),
+    A700: $dark-primary-text
+  )
 );
 
 $mat-my-purple: (
@@ -64,8 +64,8 @@ $mat-my-purple: (
     A100: $dark-primary-text,
     A200: $dark-primary-text,
     A400: $dark-primary-text,
-    A700: $dark-primary-text,
-  ),
+    A700: $dark-primary-text
+  )
 );
 
 $mat-my-coral: (
@@ -97,10 +97,9 @@ $mat-my-coral: (
     A100: $dark-primary-text,
     A200: $dark-primary-text,
     A400: $dark-primary-text,
-    A700: $dark-primary-text,
-  ),
+    A700: $dark-primary-text
+  )
 );
-
 
 $mat-my-julian-test: (
   50: #5f38fa,
@@ -131,15 +130,13 @@ $mat-my-julian-test: (
     A100: $dark-primary-text,
     A200: $dark-primary-text,
     A400: $dark-primary-text,
-    A700: $dark-primary-text,
-  ),
+    A700: $dark-primary-text
+  )
 );
 
 $custom-theme-primary: mat-palette($mat-gray);
 // $custom-theme-accent: mat-palette($mat-my-yellow);
 $custom-theme-accent: mat-palette($mat-my-julian-test);
-
-
 
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent);
 
