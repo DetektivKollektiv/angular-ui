@@ -15,7 +15,8 @@ import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-cas
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxsModule } from '@ngxs/store';
 import { ArchiveState } from '../../../archive/state/archive.state';
-
+import { ArchiveService } from '../../../archive/services/archive.service';
+import { MockArchiveService } from '@mocks/mock-archive.service';
 
 describe('MyProfileComponent', () => {
   let component: MyProfileComponent;
@@ -23,24 +24,20 @@ describe('MyProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        MyProfileComponent,
-        ScoreListComponent,
-        SolveScoreListComponent,
-        ScoreListItemComponent,
-      ],
+      declarations: [MyProfileComponent, ScoreListComponent, SolveScoreListComponent, ScoreListItemComponent],
       imports: [
         MaterialModule,
         RouterTestingModule,
         FormsModule,
         OpenCaseListSliderModule,
         NgxPaginationModule,
-        NgxsModule.forRoot([ArchiveState]),
+        NgxsModule.forRoot([ArchiveState])
       ],
       providers: [
         { provide: AuthService, useClass: MockAuthService },
         { provide: UserService, useClass: MockUserService },
-      ],
+        { provide: ArchiveService, useClass: MockArchiveService }
+      ]
     }).compileComponents();
   }));
 

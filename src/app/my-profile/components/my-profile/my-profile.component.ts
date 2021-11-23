@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
+import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { Item } from 'src/app/model/item';
-import { ArchiveState } from 'src/app/archive/state/archive.state';
-import { UserService } from 'src/app/core/services/user/user.service';
-import { ItemsService } from 'src/app/review-item/services/items/items.service';
-import { User } from 'src/app/core/model/user';
+import { Item } from '../../../model/item';
+import { ArchiveState } from '../../../archive/state/archive.state';
+import { UserService } from '../../../core/services/user/user.service';
+import { ItemsService } from '../../../review-item/services/items/items.service';
+import { User } from '../../../core/model/user';
 
 @Component({
   selector: 'app-my-profile',
@@ -21,10 +21,7 @@ export class MyProfileComponent implements OnInit {
   public topTenScores: Item[];
   public cases: any[];
 
-  constructor(
-    private userService: UserService,
-    private itemsService: ItemsService,
-  ) { }
+  constructor(private userService: UserService, private itemsService: ItemsService) {}
 
   ngOnInit(): void {
     this.userService.user$.subscribe((user: User) => {
@@ -42,11 +39,8 @@ export class MyProfileComponent implements OnInit {
       this.topTenScores = items.splice(0, 10);
     });
 
-    this.itemsService
-      .getOpenItems()
-      .then((openCases) => {
-        this.cases = openCases.items;
-      });
+    this.itemsService.getOpenItems().then((openCases) => {
+      this.cases = openCases.items;
+    });
   }
-
 }

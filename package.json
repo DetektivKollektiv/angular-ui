@@ -4,19 +4,19 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "ng": "ng",
+    "ng": "nx",
     "start": "ng serve",
     "build": "ng build",
     "build:dev": "ng build --configuration=dev && compodoc -p tsconfig.json -d dist/documentation",
     "build:qa": "ng build --configuration=qa && compodoc -p tsconfig.json -d dist/documentation",
     "build:prod": "ng build --configuration=production && compodoc -p tsconfig.json -d dist/documentation",
-    "test": "ng test",
-    "test:headless": "ng test --watch=false",
+    "test": "ng test ",
+    "test:headless": "ng test --ci",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "e2e": "ng e2e",
     "e2e:ci": "start-server-and-test start http://localhost:4200 cy:run",
-    "compodoc": "npx compodoc -p tsconfig.json -d dist/documentation"
+    "compodoc": "compodoc -p tsconfig.json -d dist/documentation"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +32,6 @@
     "@angular/platform-browser": "^11.2.4",
     "@angular/platform-browser-dynamic": "^11.2.4",
     "@angular/router": "^11.2.4",
-    "@briebug/jest-schematic": "^3.1.0",
     "@fortawesome/angular-fontawesome": "^0.8.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
@@ -59,7 +58,7 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-builders/jest": "10.0.1",
+    "@angular-builders/jest": "13.0.0",
     "@angular-devkit/architect": "~0.1100.1",
     "@angular-devkit/build-angular": "^0.1102.3",
     "@angular-devkit/core": "^11.2.3",
@@ -79,7 +78,7 @@
     "@cypress/webpack-preprocessor": "5.5.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/jest": "26.0.19",
+    "@types/jest": "27.0.3",
     "@types/node": "^12.12.38",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/eslint-plugin-tslint": "^4.16.1",
@@ -94,7 +93,7 @@
     "husky": "^7.0.2",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
-    "jest": "26.6.3",
+    "jest": "27.3.1",
     "ng-packagr": "^11.0.0",
     "start-server-and-test": "^1.11.6",
     "ts-loader": "8.0.12",
