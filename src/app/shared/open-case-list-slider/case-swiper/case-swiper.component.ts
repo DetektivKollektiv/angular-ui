@@ -24,9 +24,17 @@ export class CasesSwiperComponent implements AfterViewInit, OnDestroy {
     });
 
     this.swiper.on('click', (swiper, event) => {
-      // workaround for not clickable reject button on loop
-      if (swiper.isEnd && (event.target as HTMLElement).className === 'reject-button') {
+      // workaround for not clickable buttons on loop
+      if (!swiper.isBeginning && !swiper.isEnd) {
+        return;
+      }
+      if ((event.target as HTMLElement).classList.contains('slide-next')) {
         swiper.slideNext();
+        return;
+      }
+      if ((event.target as HTMLElement).classList.contains('slide-prev')) {
+        swiper.slidePrev();
+        return;
       }
     });
   }
@@ -37,5 +45,9 @@ export class CasesSwiperComponent implements AfterViewInit, OnDestroy {
 
   slideNext() {
     this.swiper.slideNext();
+  }
+
+  slidePrev() {
+    this.swiper.slidePrev();
   }
 }

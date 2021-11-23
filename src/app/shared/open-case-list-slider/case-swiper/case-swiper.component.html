@@ -4,8 +4,8 @@
     <!-- Slides -->
     <div class="swiper-slide" *ngFor="let case of cases">
       <div class="case">
-        <div class="case__arrow">
-          <i class="fas fa-chevron-left"></i>
+        <div class="case__arrow" (click)="slidePrev()">
+          <i class="fas fa-chevron-left slide-prev"></i>
         </div>
         <div class="case__container">
           <p class="case__header">{{ case.id | caseId }}</p>
@@ -18,12 +18,12 @@
                 <i class="far fa-clipboard-list-check"></i>
                 <span>Fall ansehen</span>
               </a>
-              <a class="reject-button" (click)="slideNext()">Fall ablehnen</a>
+              <a class="reject-button slide-next" (click)="slideNext()">Fall ablehnen</a>
             </div>
           </div>
         </div>
-        <div class="case__arrow">
-          <i class="fas fa-chevron-right"></i>
+        <div class="case__arrow" (click)="slideNext()">
+          <i class="fas fa-chevron-right slide-next"></i>
         </div>
       </div>
     </div>
