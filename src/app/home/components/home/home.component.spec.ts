@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-case-list-slider.module';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { MockAuthService } from '@mocks/mock-auth.service';
+
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;

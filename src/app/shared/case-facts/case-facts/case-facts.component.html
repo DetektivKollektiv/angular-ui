@@ -13,7 +13,7 @@
   <h3 class="mono-font">Hinterlegte und entdeckte Links</h3>
   <div class="links__list" *ngIf="case.urls?.length">
     <span *ngFor="let url of case.urls" class="links__icon" [class.gray-link]="!url.is_safe">
-      <a href="{{ url.url }}">
+      <a href="{{ url.url }}" target="_blank">
         <i class="far" [ngClass]="url.is_safe ? 'fa-external-link-square-alt' : 'fa-info-square'"></i>
         {{ url.url }}
       </a>
