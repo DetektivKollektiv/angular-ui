@@ -32,18 +32,30 @@
       &__user {
         display: flex;
         align-items: center;
+        gap: 15px;
 
         .avatar {
-          font-size: 45px;
-          width: 72px;
-          height: 72px;
+          font-size: 32px;
+          width: 48px;
+          height: 48px;
           background-color: colors.$color__purple;
+
+          @media only screen and (min-width: 480px) {
+            font-size: 45px;
+
+            width: 72px;
+            height: 72px;
+          }
         }
       }
 
       &__user-name {
         @include fonts.font__effra--bold;
-        font-size: 68px;
+        font-size: 48px;
+
+        @media only screen and (min-width: 480px) {
+          font-size: 68px;
+        }
       }
 
       &__intro {
@@ -84,7 +96,7 @@
 
       img {
         margin-top: 30px;
-        height: 400px;
+        height: 280px;
         max-width: 80vw;
       }
     }
@@ -186,6 +198,10 @@
       display: flex;
       justify-content: center;
     }
+  }
+
+  .open-cases {
+    padding: 0;
   }
 
   .solved-cases {
