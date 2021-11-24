@@ -59,7 +59,7 @@ export class LoginFormComponent implements OnInit {
     this.authService
       .signIn(this.formControls.username.value, this.formControls.password.value)
       .then(() => {
-        this.router.navigate(['/my-profile']);
+        this.router.navigate(['/']);
       })
       .catch((reason: OperationResult<any>) => {
         if (reason.payload?.code === 'UserNotConfirmedException') {
