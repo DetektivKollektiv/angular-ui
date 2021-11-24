@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MaterialModule } from 'src/app/shared/material/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 
 import { OpenReviewDialogComponent } from './open-review-dialog.component';
 
@@ -10,7 +10,7 @@ describe('OpenReviewDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [OpenReviewDialogComponent],
-      imports: [MaterialModule],
+      imports: [MaterialModule]
     }).compileComponents();
   });
 

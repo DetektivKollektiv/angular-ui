@@ -1,11 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialModule } from 'src/app/shared/material/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 
-
 import { ProfilePictureComponent } from './profile-picture.component';
-import { User } from 'src/app/core/model/user';
+import { User } from '../../../core/model/user';
 
 describe('ProfilePictureComponent', () => {
   let component: ProfilePictureComponent;
@@ -14,7 +13,7 @@ describe('ProfilePictureComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ProfilePictureComponent],
-      imports: [MaterialModule, RouterTestingModule, FormsModule],
+      imports: [MaterialModule, RouterTestingModule, FormsModule]
     }).compileComponents();
   });
 
