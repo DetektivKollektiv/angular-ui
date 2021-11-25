@@ -4,7 +4,7 @@ import { User } from '../../../core/model/user';
 import { Router } from '@angular/router';
 import { AuthState } from '@shared/auth/model/auth-state';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
-import { globals } from 'src/environments/globals';
+import { globals } from '../../../../environments/globals';
 
 @Component({
   selector: 'app-profile',
@@ -18,15 +18,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public hideMessageBadge: boolean;
   public hideFileBadge: boolean;
 
-  constructor(
-    private router: Router,
-    private userService: UserService,
-    private authService: AuthService,
-
-  ) { }
+  constructor(private router: Router, private userService: UserService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.userService.user$.subscribe(value => {
+    this.userService.user$.subscribe((value) => {
       if (value) {
         this.user = value;
         this.hideMessageBadge = true;
@@ -38,13 +33,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-  }
+  ngOnDestroy(): void {}
 
   navigate(url: string) {
-    this.router.navigateByUrl(url)
-      .then()
-      .catch();
+    this.router.navigateByUrl(url).then().catch();
   }
 
   logout(): void {
@@ -52,11 +44,12 @@ export class ProfileComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.authService.signOut()
+    this.authService
+      .signOut()
       .then(() => this.router.navigate(['/dashboard']))
       .catch();
   }
-  openSignal(): void{
-    window.open(globals.signalLink,'_blank');
+  openSignal(): void {
+    window.open(globals.signalLink, '_blank');
   }
 }

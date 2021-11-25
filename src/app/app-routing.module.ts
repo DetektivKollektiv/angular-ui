@@ -31,8 +31,10 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
-import { FaqPageComponent } from './faq/components/faq-page/faq-page.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
+import { ImprintComponent } from './core/components/imprint/imprint.component';
+import { PrivacyStatementComponent } from './core/components/privacy-statement/privacy-statement.component';
+import {FaqPageComponent} from "./faq/components/faq-page/faq-page.component";
 
 const routes: Routes = [
   {
@@ -81,9 +83,14 @@ const routes: Routes = [
         component: FaqPageComponent
       },
       {
-        path: '',
-        component: HomeComponent
-      }
+        path: 'imprint',
+        component: ImprintComponent
+      },
+      {
+        path: 'privacy-statement',
+        component: PrivacyStatementComponent
+      },
+      { path: '', component: HomeComponent }
     ]
   },
   {

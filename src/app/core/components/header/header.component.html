@@ -15,18 +15,25 @@
 
         <ul class="navigation-main__list">
           <li class="navigation-main__item">
+            <a title="Fall einreichen"
+              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/submit']">
+              <i class="fas fa-typewriter"></i>
+              Fall einreichen
+            </a>
+          </li>
+          <li class="navigation-main__item">
+            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+          </li>
+          <li class="navigation-main__item">
             <a [routerLink]="['/about']" class="navigation-main__link" title="Über uns">Über uns</a>
           </li>
           <li class="navigation-main__item">
             <a  class="navigation-main__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
           </li>
           <li class="navigation-main__item">
-            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
-          </li>
-          <li class="navigation-main__item">
             <a [routerLink]="['/register']" title=""
               class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
-              <i class="fas fa-user-cowboy"></i>Detektiv werden
+              <i class="fas fa-user-cowboy"></i>Detektiv*in werden
             </a>
           </li>
           <li class="navigation-main__item">
@@ -42,20 +49,23 @@
 
         <ul class="navigation-main__list">
           <li class="navigation-main__item">
-            <a href="javascript:;" title=""
-              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/submit']">
-              <i class="fas fa-typewriter"></i>
-              Fall einreichen
+            <a  title=""
+              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/']">
+              <i class="fas fa-clipboard-list-check"></i>
+              Fall bearbeiten
             </a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="FAQ" [routerLink]="['/about']">FAQ</a>
+            <a  class="navigation-main__link" title="Fall einreichen" [routerLink]="['/submit']">Fall einreichen</a>
           </li>
           <li class="navigation-main__item">
-            <a href="javascript:;" class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+            <a  class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
-            <div class="userprofile">
+            <a  class="navigation-main__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
+          </li>
+          <li class="navigation-main__item">
+            <div class="userprofile" [routerLink]="['/']">
               <div class="userprofile__content">
                 <div class="userprofile__name-wrapper">
                   <div class="userprofile__award userprofile__award--gold"></div>
@@ -69,7 +79,7 @@
               </div>
 
               <div class="userprofile__bubble" style="background-color: #722ED1;">
-                J
+                {{ user.name[0].toUpperCase() }}
               </div>
 
               <div class="userprofile__flyout-call"></div>
@@ -77,7 +87,7 @@
             <div class="navigation-flyout">
               <ul class="navigation-flyout__list">
                 <li class="navigation-flyout__item">
-                  <a href="javascript:;" class="navigation-flyout__link" title="Profil" [routerLink]="['/my-file']">Profil</a>
+                  <a  class="navigation-flyout__link" title="Profil" [routerLink]="['/']">Profil</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a (click)="logout()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>

@@ -2,7 +2,7 @@ import { CdkStepper } from '@angular/cdk/stepper';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { PipesModule } from '@shared/pipes/pipes.module';
-import { MaterialModule } from 'src/app/shared/material/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 import { Question } from '../../model/question';
 import { QuestionComponent } from '../question/question.component';
 
