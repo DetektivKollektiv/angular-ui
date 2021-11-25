@@ -5,12 +5,18 @@
 
   &__profile {
     display: flex;
+    flex-grow: 1;
+
+    .avatar {
+      flex: 0 0 40px;
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-grow: 1;
     margin-left: 5px;
   }
 

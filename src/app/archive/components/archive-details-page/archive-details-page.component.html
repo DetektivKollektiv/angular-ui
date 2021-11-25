@@ -6,7 +6,7 @@
   </section>
 
   <app-question-carousel [questions]="archiveQuestions">
-    <div class="flag question-container-action"><i class="fas fa-flag"></i>Fall melden</div>
+    <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
   </app-question-carousel>
 
   <section class="bottom">

@@ -1,0 +1,52 @@
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
+
+h1 {
+  @include fonts.font__effra--bold;
+  font-size: 32px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+
+  @include fonts.font__pt-mono--regular;
+  font-size: 14px;
+  color: colors.$color__old-paragraph;
+  margin: 0 0 30px;
+  padding: 15px 5px 15px 15px;
+  border-radius: 30px;
+  border: solid 1px colors.$color__spacer;
+  max-width: 585px;
+  background-color: colors.$color__tag-background;
+  word-break: break-word;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+
+  &__intro {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 12px;
+    font-size: 18px;
+    resize: vertical;
+
+    &:focus {
+      border: 1px solid grey;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

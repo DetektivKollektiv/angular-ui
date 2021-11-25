@@ -17,6 +17,8 @@ import { EMPTY, from, Observable, of } from 'rxjs';
 import { switchMap, mapTo, tap } from 'rxjs/operators';
 import { ReviewItems } from '../../model/review-items';
 import { Question } from '../../model/question';
+import { ReportItemService } from '../../../core/services/report-item/report-item.service';
+import { ReportItemDialogData } from '../../../core/services/report-item/report-item-dialog-data';
 
 @Component({
   selector: 'app-review-page',
@@ -91,7 +93,8 @@ export class ReviewPageComponent implements OnInit {
     private snackBar: MatSnackBar,
     private loader: LoaderService,
     private router: Router,
-    private factCheckService: FactCheckService
+    private factCheckService: FactCheckService,
+    private reportItemService: ReportItemService
   ) {
     this.routerState = this.router.getCurrentNavigation().extras?.state;
   }
@@ -165,6 +168,11 @@ export class ReviewPageComponent implements OnInit {
       );
 
     this.isReviewValid = allQuestionsAnswered && this.isPolicyChecked && this.isConditionChecked;
+  }
+
+  onReportCase(): void {
+    const data: ReportItemDialogData = { type: 'case', itemId: this.case.id, content: this.case.content };
+    this.reportItemService.openReportItemDialog(data);
   }
 
   private getFactCheck(id: string): void {
