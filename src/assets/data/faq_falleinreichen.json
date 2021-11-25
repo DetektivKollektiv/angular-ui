@@ -1,10 +1,6 @@
 [
   {
-    "question": "Ein FAQ Punkt",
-    "answer": "Lorem ipsum"
-  },
-  {
-    "question": "Ein FAQ Punkt",
-    "answer": "Lorem ipsum"
+    "question": "Was ist der Prozess für die Überprüfung von Inhalten auf der Plattform?",
+    "answer": "Wir haben einen vierstufigen Prozess für die Verifizierung von Inhalten entwickelt<ul><li><b>Stufe 1:</b> Unkompliziertes und schnelles Einreichen der Inhalte (Fälle) an das codetekt über die Plattform oder den Messenger Bot. Registrierung auf der Plattform für Einreichende (Klient*innen) keine Voraussetzung.</li><li><b>Stufe 2:</b> Zufälliges Verteilen der Inhalte auf registrierte Detektiv*innen der Community, um Einflussnahme durch <a href='https://de.wikipedia.org/wiki/Troll_(Netzkultur)'>Trolle</a> zu verhindern. Detektiv*innen erhalten pro bearbeitetem Fall Punkte, mit denen sie in höhere Level mit neuen Funktionalitäten aufsteigen.</li><li><b>Stufe 3:</b> Selbstständige Bearbeitung der Inhalte im mehrstufigen Peer Review Prozess durch die Gemeinschaft und anhand eines Fragenkatalogs.</li><li><b>Stufe 4:</b> Veröffentlichung des Vertrauens-Index basierend auf der Arbeit von mehreren Detektiv*innen, Archivierung der Fälle für die Öffentlichkeit, und Zurückspielen des Ergebnisses an die Klienten aus Stufe 1.</li></ul>"
   }
 ]
