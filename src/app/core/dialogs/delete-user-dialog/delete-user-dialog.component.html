@@ -1,6 +1,6 @@
 <h1>Account löschen</h1>
 <p>
-  Schade, dass du deinen Account bei codetekt löschen willst.<br/>
+  Schade, dass du deinen Account bei codetekt löschen willst.<br />
   Wenn du willst, kannst du uns hier den Grund nennen, aus dem du deinen Account löschen willst.
 </p>
 <mat-radio-group [formControl]="deleteReasonFormControl">
@@ -10,9 +10,9 @@
   <mat-radio-button value="4">Sonstiges:</mat-radio-button>
 </mat-radio-group>
 <mat-form-field>
-  <input [formControl]="otherFormControl" placeholder="Sonstiges" matInput>
+  <input [formControl]="otherFormControl" placeholder="Sonstiges" matInput />
 </mat-form-field>
 <div class="button-group">
-  <button class="button-primary" (click)="delete()">Account löschen</button>
-  <button class="button-flat" [mat-dialog-close]="false">Account nicht löschen</button>
+  <button appButton class="button-primary" (click)="delete()">Account löschen</button>
+  <button appButton mode="reject" [mat-dialog-close]="false">Account nicht löschen</button>
 </div>

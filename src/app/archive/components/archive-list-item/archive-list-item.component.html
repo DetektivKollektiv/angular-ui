@@ -1,5 +1,5 @@
 <li class="item">
-  <app-case-list-item [case]="case" [showContent]="true" class="item__case" [link]="'/archive/' + case.id"></app-case-list-item>
+  <app-case-list-item [case]="case" [showContent]="true" class="item__case"></app-case-list-item>
   <div class="item__more">
     <div class="item__tags">
       <app-tag-icon *ngFor="let tag of case.tags | slice: 0:tagsCount" [tag]="tag"></app-tag-icon>

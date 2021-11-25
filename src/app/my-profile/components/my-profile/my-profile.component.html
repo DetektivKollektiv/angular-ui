@@ -1,110 +1,122 @@
-<div class="my-profile-page responsive-100">
-  <div class="top-section standard-content-container-width section">
-    <div class="overview-section">
-      <div *ngIf="userLoaded" class="user-name">
-        <div class="avatar">
-          {{user.name[0]}}
-        </div>
-        {{user.name}}
+<div class="profile-page" *ngIf="user$ | async as user">
+  <section class="top standard-content-container-width">
+    <app-breadcrumb></app-breadcrumb>
+    <div class="overview">
+      <div class="overview__user">
+        <div class="avatar">{{ user.name[0].toUpperCase() }}</div>
+        <div class="overview__user-name">{{ user.name }}</div>
       </div>
-      <div class="user-name-explain">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est.
+      <div class="overview__intro">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
+        est.
       </div>
     </div>
-  </div>
-  <div class="middle-section standard-content-container-width section">
-    <div class="left-side side">
-      <div  class="left-side-title">
-        Level <span *ngIf="userLoaded">{{user.level}}</span> - <span *ngIf="userLoaded">{{user.level_description}}</span>
+  </section>
+
+  <section class="user standard-content-container-width">
+    <div class="user__stats">
+      <h2>Level {{ user.level }} - {{ user.level_description }}</h2>
+      <div class="user__stats-card">
+        <div class="user__stats-entry">
+          <div class="count text--bittersweet">{{ user.solved_cases_total | leadingZeros }}</div>
+          <div>Bewertete Fälle</div>
+        </div>
+        <div class="user__stats-entry">
+          <div class="count text--bittersweet">{{ user.solved_cases_today | leadingZeros }}</div>
+          <div>Bewertete Fälle heute</div>
+        </div>
+        <div class="user__stats-entry">
+          <div class="count text--rating-orange">{{ user.solved_cases_total | leadingZeros }}</div>
+          <div>Rang insgesamt</div>
+        </div>
+        <div class="user__stats-entry">
+          <div class="count text--purple">{{ user.solved_cases_total | leadingZeros }}</div>
+          <div>Rang auf deinem Level</div>
+        </div>
       </div>
-      <div class="ranking-container">
-        <div class="scored-case ranking-content">
-          <h2 *ngIf="userLoaded" class="mark font__rating-orange">{{user.solved_cases_total < 10 ? "0" : ""}}{{user.solved_cases_total}}</h2>
-          <span class="mark-explain">Bewertete Fälle</span>
+      <div class="user__xp">
+        <div class="user__xp-progress">
+          <app-user-xp-bar></app-user-xp-bar>
+          <app-user-xp-score></app-user-xp-score>
         </div>
-        <div class="rated-cases-today ranking-content">
-          <h2 *ngIf="userLoaded" class="mark font__rating-orange">{{user.solved_cases_today < 10 ? "0" : ""}}{{user.solved_cases_today}}</h2>
-          <span class="mark-explain">Bewertete Fälle heute</span>
-        </div>
-        <div class="rank-overall ranking-content">
-          <h2 *ngIf="userLoaded" class="mark font__supernova">{{user.total_rank < 10 ? "0" : ""}}{{user.total_rank}}</h2>
-          <span class="mark-explain">Rang insgesamt</span>
-        </div>
-        <div class="rank-at-your-level ranking-content">
-          <h2 *ngIf="userLoaded" class="mark font__purple">{{user.level_rank < 10 ? "0" : ""}}{{user.level_rank}}</h2>
-          <span class="mark-explain">Rang auf  deinem Level</span>
+        <div class="user__xp-level">
+          <span>Level</span>
+          <span class="level">{{ user.level + 1 }}</span>
         </div>
       </div>
-      <div class="progress-container">
-        <div class="progress">
-          <mat-progress-bar
-            class="example-margin"
-            [value]="40"
+      <img src="assets/images/illustrations/undraw_super_woman_dv-0-y.svg" />
+    </div>
+    <div class="user__cases">
+      <h2>Deine abgeschlossenen Fälle</h2>
+      <div class="user__cases-intro">
+        Hier siehst du alle Fälle, bei denen du beteiligt warst und die abgeschlossen sind. Es müssen erst alle bearbeitende Detektive den
+        Fall abschließen, damit er hier sichtbar wird. Fälle, die du hier siehst, sind offen für Diskussion.
+      </div>
+      <div class="user__cases-list" *ngIf="user.closed_items.length">
+        <app-case-list-item
+          class="user__case-item"
+          *ngFor="
+            let closedItem of user.closed_items
+              | paginate
+                : {
+                    itemsPerPage: 4,
+                    currentPage: page,
+                    totalItems: user.closed_items.length
+                  }
+          "
+          [case]="closedItem"
+        ></app-case-list-item>
+        <div class="user__case-pagination">
+          <pagination-controls
+            [maxSize]="11"
+            [responsive]="true"
+            previousLabel=""
+            nextLabel=""
+            (pageChange)="page = $event"
+            *ngIf="page > 0"
           >
-          </mat-progress-bar>
-          <div *ngIf="userLoaded">{{user.experience_points * 100}} / {{(user.experience_points + user.exp_needed) * 100}}XP</div>
-        </div>
-        <div class="level-title">
-          <span>Level</span><span *ngIf="userLoaded">{{user.level}}</span>
+          </pagination-controls>
         </div>
       </div>
-      <div class="image-container"></div>
-    </div>
-    <div class="right-side side">
-      <div class="right-side-title">
-        Deine abgeschlossenen Fälle
-      </div>
-      <div class="right-side-explain">
-        Hier siehst du alle Fälle, bei denen du beteiligt warst und die abgeschlossen sind. Es müssen erst alle bearbeitende Detektive den Fall abschließen, damit er hier sichtbar wird.
-        Fälle, die du hier siehst, sind offen für Diskussion.
-      </div>
-      <div class="marks-container">
-        <app-score-list [scores]="items"></app-score-list>
+      <div *ngIf="!user.closed_items.length" class="user__cases-none">
+        Noch gibt es keine abgeschlossenen Fälle, an denen du beteiligt warst.
       </div>
     </div>
-  </div>
-  <div class="standard-content-container-width section">
-    <div style="width: 100%;" >
-      <app-open-case-list-slider *ngIf="cases" [cases]="cases"></app-open-case-list-slider>
+  </section>
+
+  <section class="open-cases standard-content-container-width" id="open-cases">
+    <app-open-case-list-slider></app-open-case-list-slider>
+  </section>
+
+  <section class="solved-cases">
+    <img class="solved-cases__bg" src="assets/images/profile_solved_cases-bg.svg" alt="solved cases background" />
+    <app-solved-cases [expand]="false" class="solved-cases--invert"></app-solved-cases>
+  </section>
+
+  <section class="account standard-content-container-width">
+    <h2>Deine Kontodaten</h2>
+    <div class="account__intro">Hier siehst du die Daten, mit denen du dich registriert hast. Außerdem kannst du dein Passwort ändern</div>
+    <div class="account__info" *ngIf="authState$ | async as authState">
+      <div class="account__info-title">E-Mail-Adresse</div>
+      <div class="account__info-data"><span class="far fa-envelope"></span>{{ authState.email }}</div>
+      <div class="account__info-title">Nutzername</div>
+      <div class="account__info-data"><span class="far fa-user"></span> {{ authState.username }}</div>
     </div>
-  </div>
-    <div class="solved-case-section">
-    <div class="main-container standard-content-container-width section">
-      <div class="title font-bold font-mono">
-        In gelösten Fällen stöbern
+  </section>
+
+  <section class="delete-account">
+    <img class="delete-account__bg" src="assets/images/profile_delete_account-bg.svg" alt="delete account background" />
+    <div class="delete-account__wrapper standard-content-container-width">
+      <img class="delete-account__image" src="assets/images/illustrations/undraw_windy_day_x-63-l.svg" />
+      <h2>Dein Konto löschen</h2>
+      <div class="delete-account__intro">
+        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen. Deine Bewertungen und Kommentare bleiben erhalten, aber
+        dein Nutzername und Kürzel werden entfernt. Stattdessen steht dort dann "deaktiviert".
       </div>
-      <app-solve-score-list [scores]="topTenScores"></app-solve-score-list>
-      <a class="view-more-btn font-bold">
-        Weitere gelöste Fälle ansehen
-      </a>
+      <button appButton class="delete-account__btn" (click)="deleteAccount()">
+        <span class="far fa-trash-alt"></span> Benutzerkonto löschen
+      </button>
     </div>
-  </div>
-  <div class="account-details-section standard-content-container-width section">
-    <div class="title font-bold">
-      Deine Kontodaten
-    </div>
-    <p class="explain">
-      Hier siehst du die Daten, mit denen du dich registriert hast.<br/>
-      Außerdem kannst du dein Passwort ändern
-    </p>
-    <div class="font-mono font-bold">E-Mail-Adresse</div>
-    <p class="font-mono"><i class="far fa-envelope"></i>&nbsp;e@mail.not</p>
-    <div class="font-mono font-bold">Nutzername</div>
-    <p class="font-mono"><i class="far fa-user"></i>&nbsp;John Doe</p>
-  </div>
-  <div class="delete-account-section">
-    <div class="standard-content-container-width section">
-      <div class="title font-bold">
-        Dein Konto löschen
-      </div>
-      <p class="explain">
-        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen.<br>
-        Deine Bewertungen und Kommentare bleiben erhalten, aber dein Nutzername und Kürzel werden  entfernt.<br>
-        Stattdessen steht dort dann "deaktiviert".
-      </p>
-      <a class="delete-account-btn font-bold">
-        <i class="far fa-trash-alt"></i>&nbsp;Benutzerkonto löschen
-      </a>
-    </div>
-  </div>
+  </section>
 </div>

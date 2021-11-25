@@ -7,6 +7,13 @@ import { Question } from '../../model/question';
 import { QuestionComponent } from '../question/question.component';
 
 import { ReviewQuestionComponent } from './review-question.component';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-question',
+  template: '<div></div>'
+})
+export class MockQuestionsComponent extends QuestionComponent {}
 
 describe('ReviewQuestionComponent', () => {
   let component: ReviewQuestionComponent;
@@ -14,7 +21,7 @@ describe('ReviewQuestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReviewQuestionComponent, QuestionComponent],
+      declarations: [ReviewQuestionComponent, MockQuestionsComponent],
       imports: [MaterialModule, FormsModule, PipesModule],
       providers: [{ provide: CdkStepper, useValue: {} }]
     }).compileComponents();
@@ -26,6 +33,7 @@ describe('ReviewQuestionComponent', () => {
 
     component.question = { options: [] } as Question;
     component.childQuestions = [];
+    component.index = 0;
 
     fixture.detectChanges();
   });

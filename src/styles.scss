@@ -384,6 +384,24 @@ header.header {
   max-width: unset !important;
 }
 
+.mat-radio-button:not(.mat-radio-disabled).cdk-program-focused .mat-radio-persistent-ripple {
+  opacity: 0 !important;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #8989a2;
+
+  &__link {
+    cursor: pointer;
+  }
+
+  span,
+  i ~ i {
+    margin-left: 4px;
+  }
+}
+
 .mono-font {
   @include font__pt-mono;
 }
@@ -471,4 +489,18 @@ header.header {
   @include font__pt-mono--bold;
   font-size: 20px;
   margin: 0 5px;
+}
+
+.text {
+  &--bittersweet {
+    color: $color__bittersweet;
+  }
+
+  &--purple {
+    color: $color__purple;
+  }
+
+  &--rating-orange {
+    color: $color__rating-orange;
+  }
 }
