@@ -31,7 +31,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
 import { AboutComponent } from './about/about.component';
-import { FaqPageComponent } from './faq-page/faq-page.component';
+import { FaqPageComponent } from './faq/components/faq-page/faq-page.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
 
 const routes: Routes = [
@@ -76,7 +76,14 @@ const routes: Routes = [
         component: MyProfileComponent,
         canActivate: [AuthGuard]
       },
-      { path: '', component: HomeComponent }
+      {
+        path: 'faq',
+        component: FaqPageComponent
+      },
+      {
+        path: '',
+        component: HomeComponent
+      }
     ]
   },
   {
@@ -115,7 +122,6 @@ const routes: Routes = [
   { path: 'my-file', component: MyFileComponent, canActivate: [AuthGuard] },
   { path: 'issues', component: IssuesComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'faq', component: FaqPageComponent },
   {
     path: '**',
     redirectTo: '',

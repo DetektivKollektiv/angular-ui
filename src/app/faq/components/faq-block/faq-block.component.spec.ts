@@ -1,6 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FaqBlockComponent } from './faq-block.component';
+import {FaqBlockComponent} from './faq-block.component';
+import {FaqItemComponent} from '../faq-item/faq-item.component';
 
 describe('FaqBlockComponent', () => {
   let component: FaqBlockComponent;
@@ -8,9 +9,9 @@ describe('FaqBlockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FaqBlockComponent ]
+      declarations: [FaqBlockComponent, FaqItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
