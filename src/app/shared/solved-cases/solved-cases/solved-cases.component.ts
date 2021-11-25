@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ArchiveService } from '../../../archive/services/archive.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { ArchiveService } from '../../../archive/services/archive.service';
   styleUrls: ['./solved-cases.component.scss']
 })
 export class SolvedCasesComponent implements OnInit {
+  @Input() expand = true;
+
   closedItems$ = this.archiveService.getClosedItems();
   closedItemCount = 10;
 

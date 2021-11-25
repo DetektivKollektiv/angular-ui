@@ -13,8 +13,7 @@ import { DeleteUserDialogComponent } from './dialogs/delete-user-dialog/delete-u
 import { MenuDialogComponent } from './dialogs/menu-dialog/menu.component';
 import { FormsModule } from '@angular/forms';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
-
-
+import { ButtonModule } from '@shared/button/button.module';
 
 @NgModule({
   declarations: [
@@ -26,18 +25,7 @@ import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
     DeleteUserDialogComponent,
     MenuDialogComponent
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    AuthModule,
-    LoaderModule,
-    RouterModule,
-    MaterialModule,
-    FormsModule,
-    BreadcrumbModule
-  ]
+  exports: [FooterComponent, HeaderComponent],
+  imports: [CommonModule, AuthModule, LoaderModule, RouterModule, MaterialModule, FormsModule, BreadcrumbModule, ButtonModule]
 })
-export class CoreModule { }
+export class CoreModule {}
