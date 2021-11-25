@@ -1,9 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-
-interface Faq {
-  question: string;
-  answer: string;
-}
+import {Component, OnInit, Input} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-faq-block',
@@ -15,16 +11,15 @@ export class FaqBlockComponent implements OnInit {
   @Input() headline: string;
   @Input() json: string;
 
-  toggle = [];
+  faq: any = [];
 
-  faq: Faq[];
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
-    import('src/assets/data/' + this.json).then(data => {
-      this.faq = data.default;
+    this.httpClient.get('assets/data/' + this.json).subscribe(data => {
+      this.faq = data;
     });
   }
 

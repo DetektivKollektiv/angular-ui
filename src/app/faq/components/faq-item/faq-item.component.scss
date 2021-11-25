@@ -1,0 +1,55 @@
+@import '../../../../assets/scss/initializer';
+
+
+.question {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.answer {
+  margin-bottom: 25px;
+
+  ::ng-deep {
+    line-height: 150%;
+
+    /** Possible markup inside answers */
+    b {
+      font-weight: bold;
+    }
+
+    i {
+      font-style: italic;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+.collapsible-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+
+  i {
+    font-size: 13px;
+  }
+
+  &__title,
+  &__toggle {
+    @include font__effra--bold;
+  }
+
+  &__toggle {
+    color: #aaa;
+    cursor: pointer;
+  }
+}
