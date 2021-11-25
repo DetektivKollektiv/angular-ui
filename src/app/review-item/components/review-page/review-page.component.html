@@ -43,13 +43,14 @@
 </div>
 
 <ng-template #processing>
-  <div class="overview__container">
+  <form [formGroup]="reviewForm" class="overview__container">
     <app-question
       *ngFor="let question of showQuestions; let i = index"
       [question]="question"
       [index]="i"
       [questions]="questions"
       (valueChange)="updateReview()"
+      [parentFormGroup]="reviewForm"
     ></app-question>
     <div class="comments">
       <h2>Fallbewertungskommentar</h2>
@@ -77,21 +78,21 @@
       <h2>Rechtliche Angaben</h2>
       <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
       <div class="legal__container">
-        <mat-checkbox [(ngModel)]="isPolicyChecked" (ngModelChange)="validateReview()">
+        <mat-checkbox formControlName="policy">
           <div class="option">
-            <span>Ich stimme den Bedingungen der Datenschutzerklärung zu</span>
+            <span>Ich stimme den Bedingungen der Datenschutzerklärung zu *</span>
           </div>
         </mat-checkbox>
-        <mat-checkbox [(ngModel)]="isConditionChecked" (ngModelChange)="validateReview()">
+        <mat-checkbox formControlName="legal">
           <div class="option">
-            <span>Ich stimme den Nutzungsbedingungen zu</span>
+            <span>Ich stimme den Nutzungsbedingungen zu *</span>
           </div>
         </mat-checkbox>
       </div>
       <div class="button-container button-container--legal">
         <a appButton routerLink="/" mode="reject">Abbrechen</a>
-        <button appButton (click)="closeReview()" [disabled]="!isReviewValid">Lösung einreichen</button>
+        <button type="submit" appButton (click)="closeReview()">Lösung einreichen</button>
       </div>
     </div>
-  </div>
+  </form>
 </ng-template>

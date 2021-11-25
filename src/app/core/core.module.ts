@@ -29,17 +29,6 @@ import { PipesModule } from '@shared/pipes/pipes.module';
     ReportItemDialogComponent
   ],
   exports: [FooterComponent, HeaderComponent],
-  imports: [
-    CommonModule,
-    AuthModule,
-    LoaderModule,
-    RouterModule,
-    MaterialModule,
-    FormsModule,
-    BreadcrumbModule,
-    ButtonModule,
-    PipesModule,
-    FormsModule
-  ]
+  imports: [CommonModule, AuthModule, LoaderModule, RouterModule, MaterialModule, FormsModule, BreadcrumbModule, ButtonModule, PipesModule]
 })
 export class CoreModule {}

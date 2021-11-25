@@ -188,6 +188,16 @@ app-case-details {
         .mat-checkbox ::ng-deep .mat-checkbox-label {
           white-space: initial;
         }
+
+        .mat-checkbox.ng-invalid.ng-touched {
+          ::ng-deep .mat-checkbox-frame {
+            border-color: colors.$color__warn;
+          }
+
+          .option {
+            color: colors.$color__warn;
+          }
+        }
       }
     }
   }
