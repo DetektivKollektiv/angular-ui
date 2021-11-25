@@ -17,6 +17,16 @@ import { NgxsModule } from '@ngxs/store';
 import { ArchiveState } from '../../../archive/state/archive.state';
 import { ArchiveService } from '../../../archive/services/archive.service';
 import { MockArchiveService } from '@mocks/mock-archive.service';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
+import { LeadingZerosPipe } from '../../pipes/leading-zeros.pipe';
+import { UserXpBarComponent } from '@shared/user-xp/user-xp-bar/user-xp-bar.component';
+import { UserXpScoreComponent } from '@shared/user-xp/user-xp-score/user-xp-score.component';
+import { CaseListItemComponent } from '@shared/case-list-item/case-list-item/case-list-item.component';
+import { SolvedCasesComponent } from '@shared/solved-cases/solved-cases/solved-cases.component';
+import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
+import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
+import { UserXpModule } from '@shared/user-xp/user-xp.module';
 
 describe('MyProfileComponent', () => {
   let component: MyProfileComponent;
@@ -24,13 +34,17 @@ describe('MyProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MyProfileComponent, ScoreListComponent, SolveScoreListComponent, ScoreListItemComponent],
+      declarations: [MyProfileComponent, ScoreListComponent, SolveScoreListComponent, ScoreListItemComponent, LeadingZerosPipe],
       imports: [
         MaterialModule,
         RouterTestingModule,
         FormsModule,
         OpenCaseListSliderModule,
         NgxPaginationModule,
+        BreadcrumbModule,
+        SolvedCasesModule,
+        CaseListItemModule,
+        UserXpModule,
         NgxsModule.forRoot([ArchiveState])
       ],
       providers: [
@@ -44,6 +58,7 @@ describe('MyProfileComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MyProfileComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
