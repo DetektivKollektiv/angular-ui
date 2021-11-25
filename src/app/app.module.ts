@@ -31,14 +31,16 @@ import {NgxsLoggerPluginModule} from '@ngxs/logger-plugin';
 import {environment} from 'src/environments/environment';
 
 import 'hammerjs';
-import {HelperModule} from './shared/helper/helper.module';
-import {MainLayoutComponent} from './main-layout/main-layout.component';
-import {FooterOnlyLayoutComponent} from './footer-only-layout/footer-only-layout.component';
-import {AuthenticationPageComponent} from './authentication-pages/components/authentication-page/authentication-page.component';
-import {AboutComponent} from './about/about.component';
-import {OpenCaseListSliderModule} from './shared/open-case-list-slider/open-case-list-slider.module';
-import {UserExperienceBubbleListModule} from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import {FaqModule} from './faq/faq.module';
+import { HelperModule } from './shared/helper/helper.module';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
+import { AuthenticationPageComponent } from './authentication-pages/components/authentication-page/authentication-page.component';
+import { AboutComponent } from './about/about.component';
+import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
+import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
+import { FaqModule } from './faq/faq.module';
+import { StaticPagesModule } from './static-pages/static-pages.module';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -69,23 +71,24 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient],
-      },
+        deps: [HttpClient]
+      }
     }),
     ProfileModule,
     HighscoresModule,
     NgxsModule.forRoot([], {
-      developmentMode: !environment.production,
+      developmentMode: !environment.production
     }),
     NgxsLoggerPluginModule.forRoot({
-      disabled: environment.production,
+      disabled: environment.production
     }),
     ArchiveModule,
     HelperModule,
     OpenCaseListSliderModule,
     HomeModule,
-    MyProfileModule
+    MyProfileModule,
+    StaticPagesModule
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

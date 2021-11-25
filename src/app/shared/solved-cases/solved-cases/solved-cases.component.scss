@@ -1,5 +1,20 @@
+@use '../../../../assets/scss/colors' as colors;
+
 :host {
   margin-top: 40px;
+
+  &.solved-cases--invert {
+    .title {
+      color: colors.$color__white;
+    }
+
+    app-case-list-item ::ng-deep {
+      h2,
+      .item__info {
+        color: colors.$color__white;
+      }
+    }
+  }
 
   .title {
     font-weight: 700;

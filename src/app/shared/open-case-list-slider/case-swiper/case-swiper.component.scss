@@ -10,13 +10,38 @@
     .swiper-wrapper {
       .case {
         display: flex;
-        justify-content: center;
+        align-items: center;
+        gap: 15px;
         max-width: 100vw;
-        flex-direction: column;
-        padding-bottom: 40px;
+        margin: 0 15px;
+        padding: 10px 10px;
         background-color: colors.$color__case-card;
-        padding: 10px 20px;
         border-radius: 25px;
+
+        @media only screen and (min-width: 1024px) {
+          padding: 10px 20px;
+        }
+
+        &__arrow i {
+          font-size: 20px;
+          color: colors.$color__old-paragraph;
+          cursor: pointer;
+
+          @media only screen and (min-width: 1024px) {
+            display: none;
+          }
+        }
+
+        &__container {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          flex-grow: 1;
+
+          @media only screen and (min-width: 1024px) {
+            margin: 0;
+          }
+        }
 
         &__header {
           font-weight: bold;
@@ -36,12 +61,19 @@
 
         &__text {
           flex: 1;
+          word-break: break-word;
         }
 
         &__buttons {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          align-items: center;
           justify-content: center;
+          gap: 20px;
+
+          @media only screen and (min-width: 480px) {
+            flex-direction: row;
+          }
 
           @media only screen and (min-width: 1024px) {
             flex-direction: column;
@@ -55,12 +87,6 @@
 
       .reject-button {
         cursor: pointer;
-        margin-left: 20px;
-        @media only screen and(min-width:1024px) {
-          margin-left: 0px;
-          margin-top: 20px;
-        }
-
         text-decoration: none;
         color: colors.$color__old-paragraph;
         display: flex;
@@ -81,7 +107,7 @@
   .swiper-button-prev,
   .swiper-button-next {
     display: none;
-    color: #ff7268;
+    color: colors.$color__bittersweet;
 
     i {
       font-size: 42px;
