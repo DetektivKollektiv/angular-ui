@@ -13,7 +13,7 @@ export class ArchiveListComponent {
   }
   set archives(items: Item[]) {
     this.items = items;
-    this.count = this.items.length;
+    this.count = this.items?.length || 0;
     this.page = 1;
   }
 

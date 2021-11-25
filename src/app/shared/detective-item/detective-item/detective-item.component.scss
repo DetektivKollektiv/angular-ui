@@ -5,6 +5,10 @@
 
   &__profile {
     display: flex;
+
+    .avatar {
+      flex: 1 0 40px;
+    }
   }
 
   &__content {

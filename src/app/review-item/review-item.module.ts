@@ -5,7 +5,7 @@ import { HelperModule } from '@shared/helper/helper.module';
 import { QuestionComponent } from './components/question/question.component';
 import { MaterialModule } from '@shared/material/material.module';
 import { LoaderModule } from '@shared/loader/loader.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UnsavedChangesModule } from '@shared/unsaved-changes/unsaved-changes.module';
 import { TagsQuestionComponent } from './components/tags-question/tags-question.component';
 import { ReviewsService } from './services/reviews/reviews.service';
@@ -72,7 +72,8 @@ import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
     OpenCaseListSliderModule,
     ShareModule,
     IconWithContentModule,
-    SolvedCasesModule
+    SolvedCasesModule,
+    ReactiveFormsModule
   ],
   providers: [
     ReviewsService,
