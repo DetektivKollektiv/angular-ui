@@ -15,6 +15,7 @@ describe('FaqItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(FaqItemComponent);
     component = fixture.componentInstance;
+    component.item = {question: 'Question', answer: 'Answer'};
     fixture.detectChanges();
   });
 
