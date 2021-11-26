@@ -80,7 +80,7 @@
           </div>
           <div class="sublinks__list">
             <div class="sublinks__list__item">
-              <a class="sublinks__list__link" title="Profil" (click)="navigate('my-profile')">Profil</a>
+              <a class="sublinks__list__link" title="Profil" (click)="navigate('')">Profil</a>
             </div>
             <div class="sublinks__list__item">
               <a (click)="logOut()" class="sublinks__list__item__link" title="Abmelden">Abmelden</a>
@@ -91,7 +91,7 @@
       </div>
       <!-- TODO: Hier weitermachen -->
       <div class="navigation-main__item active-link">
-        <a  title="Fall bearbeiten" class="button button--bittersweet button--gentle main-button main-button--typewriter main-link red-color" (click)="navigate('')">
+        <a  title="Fall bearbeiten" class="button button--bittersweet button--gentle main-button main-button--typewriter main-link red-color" (click)="navigate('', 'open-cases')">
           <i class="fas fa-clipboard-list-check"></i>Fall bearbeiten
         </a>
       </div>
