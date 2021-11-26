@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {BreadcrumbLink} from '@shared/breadcrumb/model/breadcrumb-link.interface';
+import { Component, OnInit } from '@angular/core';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 
 @Component({

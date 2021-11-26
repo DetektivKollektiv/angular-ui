@@ -1,7 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {FaqBlockComponent} from './faq-block.component';
-import {FaqItemComponent} from '../faq-item/faq-item.component';
+import { FaqBlockComponent } from './faq-block.component';
+import { FaqItemComponent } from '../faq-item/faq-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FaqBlockComponent', () => {
   let component: FaqBlockComponent;
@@ -9,7 +10,8 @@ describe('FaqBlockComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FaqBlockComponent, FaqItemComponent]
+      declarations: [FaqBlockComponent, FaqItemComponent],
+      imports: [HttpClientModule]
     })
       .compileComponents();
   });

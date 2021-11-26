@@ -1,10 +1,11 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {FaqPageComponent} from './faq-page.component';
-import {FaqBlockComponent} from '../faq-block/faq-block.component';
-import {FaqItemComponent} from '../faq-item/faq-item.component';
-import {BreadcrumbModule} from '@shared/breadcrumb/breadcrumb.module';
-import {RouterTestingModule} from '@angular/router/testing';
+import { FaqPageComponent } from './faq-page.component';
+import { FaqBlockComponent } from '../faq-block/faq-block.component';
+import { FaqItemComponent } from '../faq-item/faq-item.component';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FaqPageComponent', () => {
   let component: FaqPageComponent;
@@ -16,6 +17,7 @@ describe('FaqPageComponent', () => {
       imports: [
         BreadcrumbModule,
         RouterTestingModule.withRoutes([]),
+        HttpClientModule
       ],
     })
       .compileComponents();
