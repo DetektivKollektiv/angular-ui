@@ -1,6 +1,6 @@
-import {Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthState } from '@shared/auth/model/auth-state';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { UserService } from '../../services/user/user.service';
@@ -14,9 +14,8 @@ export interface DialogData {
 @Component({
   selector: 'app-menu-dialog',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  styleUrls: ['./menu.component.scss']
 })
-
 export class MenuDialogComponent implements OnInit {
   public authState: AuthState;
   public user: User;
@@ -27,7 +26,8 @@ export class MenuDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<MenuDialogComponent>,
     private authService: AuthService,
     private userService: UserService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
 
   ngOnInit(): void {
     this.authService.auth$.subscribe((authState: AuthState) => {
@@ -49,9 +49,13 @@ export class MenuDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  navigate(link): void {
-    this.dialogRef.close();
-    this.router.navigate(['/' + link]);
+  navigate(link: string, fragment?: string): void {
+    this.dialogRef.close({ route: true });
+    this.dialogRef.afterClosed().subscribe(({ route }) => {
+      if (route) {
+        this.router.navigate(['/' + link], { fragment });
+      }
+    });
   }
 
   logOut(): void {
@@ -59,7 +63,8 @@ export class MenuDialogComponent implements OnInit {
       return;
     }
 
-    this.authService.signOut()
+    this.authService
+      .signOut()
       .then(() => this.router.navigate(['/dashboard']))
       .catch();
   }

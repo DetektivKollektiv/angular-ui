@@ -64,7 +64,7 @@ export class IssuesComponent implements OnInit {
     this.loaderService.show();
     this.issueService
       .submitIssue(issue)
-      .then((_) => {
+      .subscribe((_) => {
         this.submitted = true;
         this.navigate('/');
         this.snackBar.open(
@@ -74,8 +74,7 @@ export class IssuesComponent implements OnInit {
             duration: 3000,
           }
         );
-      })
-      .catch((_) => {
+      }, (_) => {
         this.snackBar.open(
           'Deine Nachricht konnte nicht versendet werden. Versuch es später nochmal.',
           'Ok',
@@ -83,8 +82,7 @@ export class IssuesComponent implements OnInit {
             duration: 3000,
           }
         );
-      })
-      .finally(() => this.loaderService.hide());
+      }, () => this.loaderService.hide());
   }
   navigate(url: string) {
     this.router.navigateByUrl(url).then().catch();

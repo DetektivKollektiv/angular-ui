@@ -7,6 +7,13 @@
 }
 
 .comment {
+  &__suffix {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   &__date {
     @include fonts.font__effra--regular;
     font-size: 14px;
@@ -18,5 +25,17 @@
     white-space: pre-wrap; // respect newlines /n
     @include fonts.font__effra--regular;
     font-size: 16px;
+  }
+
+  &__report {
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 14px;
+    align-self: flex-end;
+    color: colors.$color__bittersweet;
+
+    i {
+      margin-right: 8px;
+    }
   }
 }

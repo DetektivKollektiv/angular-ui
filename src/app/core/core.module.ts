@@ -13,7 +13,9 @@ import { DeleteUserDialogComponent } from './dialogs/delete-user-dialog/delete-u
 import { MenuDialogComponent } from './dialogs/menu-dialog/menu.component';
 import { FormsModule } from '@angular/forms';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { ReportItemDialogComponent } from './dialogs/report-item-dialog/report-item-dialog.component';
 import { ButtonModule } from '@shared/button/button.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,10 @@ import { ButtonModule } from '@shared/button/button.module';
     ImprintComponent,
     PrivacyStatementComponent,
     DeleteUserDialogComponent,
-    MenuDialogComponent
+    MenuDialogComponent,
+    ReportItemDialogComponent
   ],
   exports: [FooterComponent, HeaderComponent],
-  imports: [CommonModule, AuthModule, LoaderModule, RouterModule, MaterialModule, FormsModule, BreadcrumbModule, ButtonModule]
+  imports: [CommonModule, AuthModule, LoaderModule, RouterModule, MaterialModule, FormsModule, BreadcrumbModule, ButtonModule, PipesModule]
 })
 export class CoreModule {}

@@ -1,0 +1,14 @@
+<form #form="ngForm">
+  <h1>{{ type }} melden</h1>
+  <div class="content">
+    {{ data.content | textOverflow: 300 }}
+  </div>
+  <div class="message">
+    <div class="message__intro">Erkläre uns hier kurz, warum du den {{ type }} meldest</div>
+    <textarea class="textarea" rows="5" [(ngModel)]="data.message" name="message" aria-label="message" required></textarea>
+  </div>
+  <div class="buttons">
+    <button appButton mode="reject" (click)="close()">Abbrechen</button>
+    <button appButton [disabled]="form.invalid" (click)="sendReport()">Absenden</button>
+  </div>
+</form>

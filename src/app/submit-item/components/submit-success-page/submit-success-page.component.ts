@@ -37,8 +37,6 @@ export class SubmitSuccessPageComponent {
   is_open_review: boolean;
   withEmail: boolean;
 
-  marketingWording = 'Ich habe gerade einen Fall bei codetekt eingereicht. Tritt auch du der Community gegen Falschinformationen bei!';
-
   constructor(
     private authService: AuthService,
     private itemsService: ItemsService,
