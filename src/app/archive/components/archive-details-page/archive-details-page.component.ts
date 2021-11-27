@@ -16,6 +16,8 @@ import { ItemReview } from '../../../model/item-review';
 import { ItemReviewQuestion } from '../../../model/Item-review-question';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { ViewportScroller } from '@angular/common';
+import { ReportItemService } from '../../../core/services/report-item/report-item.service';
+import { ReportItemDialogData } from '../../../core/services/report-item/report-item-dialog-data';
 
 @Component({
   selector: 'app-archive-details-page',
@@ -72,15 +74,6 @@ export class ArchiveDetailsPageComponent implements OnInit {
   allQuestions: any[] = [];
 
   commentsLoading = true;
-  //todo: change this somehow :)
-  // private colors = [
-  //   'color__rating-red',
-  //   'color__rating-tweeter',
-  //   'color__rating-light-green',
-  //   'color__rating-green',
-  //   'color__purple',
-  //   'color__supernova'
-  // ];
 
   constructor(
     private userService: UserService,
@@ -88,7 +81,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private route: ActivatedRoute,
     private store: Store,
     private authService: AuthService,
-    private viewportScroller: ViewportScroller
+    private viewportScroller: ViewportScroller,
+    private reportItemService: ReportItemService
   ) {}
 
   ngOnInit(): void {
@@ -113,6 +107,11 @@ export class ArchiveDetailsPageComponent implements OnInit {
     // offset of the navigation bar
     this.viewportScroller.setOffset([0, 70]);
     this.viewportScroller.scrollToAnchor('archive-details-discussion-section');
+  }
+
+  onReportCase(): void {
+    const data: ReportItemDialogData = { type: 'case', itemId: this.case.id, content: this.case.content };
+    this.reportItemService.openReportItemDialog(data);
   }
 
   private initCase(item: Item) {

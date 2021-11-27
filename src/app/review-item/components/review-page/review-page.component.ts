@@ -17,6 +17,8 @@ import { EMPTY, from, Observable, of } from 'rxjs';
 import { switchMap, mapTo, tap } from 'rxjs/operators';
 import { ReviewItems } from '../../model/review-items';
 import { Question } from '../../model/question';
+import { ReportItemService } from '../../../core/services/report-item/report-item.service';
+import { ReportItemDialogData } from '../../../core/services/report-item/report-item-dialog-data';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewportScroller } from '@angular/common';
 
@@ -95,6 +97,7 @@ export class ReviewPageComponent implements OnInit {
     private loader: LoaderService,
     private router: Router,
     private factCheckService: FactCheckService,
+    private reportItemService: ReportItemService,
     private formBuilder: FormBuilder,
     private viewportScroller: ViewportScroller
   ) {
@@ -161,6 +164,11 @@ export class ReviewPageComponent implements OnInit {
   onTagsChanged(tags: string[]) {
     this.review.tags = tags?.length ? tags : null;
     this.updateReview();
+  }
+
+  onReportCase(): void {
+    const data: ReportItemDialogData = { type: 'case', itemId: this.case.id, content: this.case.content };
+    this.reportItemService.openReportItemDialog(data);
   }
 
   private getFactCheck(id: string): void {
