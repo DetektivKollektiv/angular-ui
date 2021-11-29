@@ -9,7 +9,7 @@ describe('FooterComponent', () => {
   let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({      
+    await TestBed.configureTestingModule({
       declarations: [FooterComponent],
       imports: [RouterTestingModule],
       providers: [{ provide: AuthService, useClass: MockAuthService }]
