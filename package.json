@@ -86,7 +86,7 @@
     "babel-loader": "^8.2.2",
     "codelyzer": "^6.0.0",
     "cypress": "6.1.0",
-    "eslint": "^7.6.0",
+    "eslint": "7.21.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
     "eslint-plugin-prefer-arrow": "1.2.2",
