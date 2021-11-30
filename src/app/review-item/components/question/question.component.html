@@ -1,10 +1,12 @@
 <div
   class="question"
   [class.no-border]="isChild"
-  [class.error-border]="questionForm.invalid && questionForm.touched"
+  [class.error-border]="questionFormControl.invalid && questionFormControl.touched"
   [attr.id]="question.question_id"
 >
-  <div class="question__error" *ngIf="questionForm.invalid && questionForm.touched">Du hast diese Frage noch nicht beantwortet.</div>
+  <div class="question__error" *ngIf="questionFormControl.invalid && questionFormControl.touched">
+    Du hast diese Frage noch nicht beantwortet.
+  </div>
   <div class="question__title">
     {{ title }}
   </div>
@@ -59,7 +61,6 @@
         [parentIndex]="index"
         [index]="i"
         [displayOnly]="displayOnly"
-        (valueChange)="onQuestionValueChange($event)"
         [parentFormGroup]="parentFormGroup"
       ></app-question>
     </div>
@@ -67,7 +68,7 @@
 </div>
 
 <ng-template #review>
-  <mat-radio-group [formControl]="questionForm" class="option-container">
+  <mat-radio-group [formControl]="questionFormControl" class="option-container">
     <mat-radio-button
       *ngFor="let option of question.options | sort: 'value':'desc'"
       [value]="option.value"
