@@ -14,6 +14,10 @@
     h1 {
       font-size: 52px;
       font-weight: 700;
+      @media only screen and (max-width: 480px) {
+        font-size: 32px;
+        font-weight: 700;
+      }     
       color: $color__share-section-heading;
     }
     h3 {
@@ -40,7 +44,6 @@
       margin-top: 0px;
     }
     ul {
-      list-style-position: inside;
       list-style-type: square;
       font-size: 16px;
       color: $color__old-paragraph;
@@ -77,18 +80,15 @@
       @include font__effra--italic;
       font-size: 16px;
     }
-
     .privacy-content-table {
       width: 100%;
       font-size: 15px;
       text-align:left;
-      vertical-align: middle;
       margin-top: 15px;
       margin-bottom: 10px;
-    }    
-    .privacy-content-table thead tr th td {
-      text-align:left;  
+      td, th {
+        vertical-align:top;
+      }
     }
   }
-
 }

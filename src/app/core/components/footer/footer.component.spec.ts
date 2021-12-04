@@ -1,19 +1,20 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {FooterComponent} from './footer.component';
-import {RouterTestingModule} from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FooterComponent } from './footer.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from './../../../shared/auth/auth-service/auth.service';
+import { MockAuthService } from './../../../../test/mocks/mock-auth.service';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [FooterComponent],
       imports: [RouterTestingModule],
-      declarations: [FooterComponent]
-    })
-      .compileComponents();
-  }));
+      providers: [{ provide: AuthService, useClass: MockAuthService }]
+    }).compileComponents();
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FooterComponent);
