@@ -71,11 +71,6 @@ const routes: Routes = [
         path: 'archive',
         component: ArchiveComponent
       },
-      // {
-      //   path: 'my-profile',
-      //   component: MyProfileComponent,
-      //   canActivate: [AuthGuard]
-      // },
       {
         path: 'faq',
         component: FaqPageComponent
@@ -88,7 +83,8 @@ const routes: Routes = [
         path: 'privacy-statement',
         component: PrivacyStatementComponent
       },
-      { path: '', component: LandingPageComponent }
+      { path: '', component: LandingPageComponent },
+      { path: 'terms', component: CommunityGuidelinesComponent }
     ]
   },
   {
@@ -116,7 +112,6 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [{ path: '', component: ConfirmEmailPageComponent }]
   },
-  { path: 'terms', component: CommunityGuidelinesComponent },
   { path: 'issues', component: IssuesComponent },
   { path: 'about', component: AboutComponent },
   {

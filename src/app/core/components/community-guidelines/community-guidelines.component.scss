@@ -1,5 +1,17 @@
-.page-container {
-  display: flex;
-  width: 75%;
-  flex-direction: column;
+@import '../../../../assets/scss/initializer';
+
+
+.terms-container{
+  h1 {
+    font-size: 52px;
+    font-weight: 700;
+    color: $color__share-section-heading;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color__share-section-heading;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
 }
