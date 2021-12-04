@@ -294,6 +294,9 @@
         .mat-checkbox ~ .mat-checkbox {
           margin-top: 0.5rem;
         }
+        a {
+          color: $color__bittersweet;
+        }
       }
 
       .legal-button-container {
