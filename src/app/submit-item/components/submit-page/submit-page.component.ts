@@ -34,8 +34,8 @@ export class SubmitPageComponent {
       icon: 'fal fa-plus'
     },
     {
-      title: 'Gibt es diesen Fall bereits?',
-      description: 'Schon gelöste Fälle kannst du im <a href="/archive" target="_blank">Archiv</a> ansehen.',
+      title: 'Gibt es diesen Fall schon?',
+      description: 'Bereits gelöste Fälle kannst du im <a href="/archive" target="_blank">Archiv</a> ansehen.',
       background: 'color__purple',
       icon: 'fal fa-archive'
     }
