@@ -1,11 +1,19 @@
 @import '../../../../assets/scss/initializer';
 
+.terms-container {
+  @media only screen and (max-width: 480px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-.terms-container{
   h1 {
     font-size: 52px;
     font-weight: 700;
     color: $color__share-section-heading;
+    @media only screen and (max-width: 480px) {
+      font-size: 32px;
+      font-weight: 700;
+    }
   }
   h2 {
     font-size: 18px;
