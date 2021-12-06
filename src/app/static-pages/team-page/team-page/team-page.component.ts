@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import teamData from 'src/assets/data/member.json';
 import tagsData from 'src/assets/data/membertags.json';
-
-
+import { TagService } from './tag.service'
 interface Member {
   image: String;
   name: String;
@@ -17,7 +16,6 @@ interface TagInfo {
   tagname: String;
   color: String;
 }
-
 @Component({
   selector: 'app-team-page',
   templateUrl: './team-page.component.html',
@@ -25,11 +23,12 @@ interface TagInfo {
 })
 export class TeamPageComponent implements OnInit {
 
-
-  constructor() { }
+  constructor(public tagService: TagService) { }
   members: Member[] = teamData;
   tagsInfo: TagInfo[] = tagsData;
 
   ngOnInit(): void {}
+
+  //Hier war mal die Methode 
 
 }

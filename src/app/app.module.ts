@@ -39,6 +39,7 @@ import { AboutComponent } from './about/about.component';
 import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
 import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { FaqModule } from './faq/faq.module';
+import { TeamModule } from './static-pages/team-page/team.module'
 import { StaticPagesModule } from './static-pages/static-pages.module';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
@@ -64,6 +65,7 @@ export function createTranslateLoader(http: HttpClient) {
     MyFileModule,
     IssuesModule,
     FaqModule,
+    TeamModule,
     BreadcrumbModule,
     UserExperienceBubbleListModule,
     TranslateModule.forRoot({

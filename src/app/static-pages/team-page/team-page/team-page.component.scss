@@ -4,6 +4,9 @@
     width: 75%;
     flex-direction: column;
   }**/
+  :host{
+    width: 100%;
+  }
   .container-members{
     display: block;
     margin: 0 auto;
@@ -11,10 +14,14 @@
     h1, p{
       color: #160637;
     }
+    h1{
+      font-size: 52px;
+      font-weight: 700;
+    }
   }
   
   .masonryholder {
-    column-gap: 20px;
+    column-gap: 44px;
     @media screen and (max-width: 479px) {
       column-count: 1;
     }
@@ -38,7 +45,7 @@
     display: inline-block;
     background: #2A79E5;
     padding: 20px;
-    margin: 20px;
+    margin: 44px 0 0 0;
     width: auto;
     height: 470px;
     box-sizing: border-box;

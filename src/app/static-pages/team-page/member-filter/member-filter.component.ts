@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TagService } from 'src/app/static-pages/team-page/team-page/tag.service'
 
 @Component({
   selector: 'app-member-filter',
@@ -10,7 +11,7 @@ export class MemberFilterComponent implements OnInit {
   @Input() TAG;
   isCollapsed : boolean = false;  //umsetzen auf true!
   tagColor = 'TAG.color';
-  constructor() { }
+  constructor(public tagService: TagService) {}
 
   toggleCollapse(){
     this.isCollapsed = !this.isCollapsed;

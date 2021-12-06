@@ -13,7 +13,7 @@
 }
 .filter-content{
     background-color: #F8F8F8;
-    height: 143px;
+    height: 153px;
     position: relative;
     border-radius: 30px;
     padding: 0px 10px;
@@ -28,19 +28,19 @@ mat-chip {
 }
 .active{
     width: 50%;
-    height: 103px;
+    //height: 103px;
     float: left;
     //border: 1px solid grey;
 }
 .inactive{
     width: 50%;
-    height: 103px;
+    //height: 103px;
     float: right;
     padding: 0px 0px 0px 20px;
     //border: 1px solid grey;
 }
 .vl{
-    height: 103px;
+    height: auto;
     width: 2px;
     background: #DDDDDD;
     margin: 0 auto;
