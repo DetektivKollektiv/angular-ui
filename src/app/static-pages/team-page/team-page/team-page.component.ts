@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import teamData from 'src/assets/data/member.json';
 import tagsData from 'src/assets/data/membertags.json';
 
+
 interface Member {
   image: String;
   name: String;
@@ -30,8 +31,5 @@ export class TeamPageComponent implements OnInit {
   tagsInfo: TagInfo[] = tagsData;
 
   ngOnInit(): void {}
-
-  //hier eine Funktion -> bekommt member und 
-
 
 }

@@ -3,6 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "resolveJsonModule": true, //Leonie 06.12
+    "allowSyntheticDefaultImports": true,//Leonie 06.12
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
