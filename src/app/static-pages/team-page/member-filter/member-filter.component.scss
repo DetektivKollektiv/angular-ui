@@ -1,0 +1,52 @@
+.filter {
+    text-align: right;
+    h4, i{
+        color: #160637;
+        display: inline;
+        cursor: pointer;
+    }
+    p{
+        color: #8989A2;
+        display: inline;
+        cursor: pointer;
+    }
+}
+.filter-content{
+    background-color: #F8F8F8;
+    height: 143px;
+    position: relative;
+    border-radius: 30px;
+    padding: 0px 10px;
+    max-width: 1200px;
+    h4{
+       color: #160637; 
+    }
+}
+mat-chip {
+    background-color: green !important;
+    color: #ffffff !important;
+}
+.active{
+    width: 50%;
+    height: 103px;
+    float: left;
+    //border: 1px solid grey;
+}
+.inactive{
+    width: 50%;
+    height: 103px;
+    float: right;
+    padding: 0px 0px 0px 20px;
+    //border: 1px solid grey;
+}
+.vl{
+    height: 103px;
+    width: 2px;
+    background: #DDDDDD;
+    margin: 0 auto;
+    top: 20px;
+    bottom: 20px;
+    position: absolute;
+    left: 50%;
+}
+

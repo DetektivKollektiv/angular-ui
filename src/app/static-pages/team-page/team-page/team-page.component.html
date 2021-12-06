@@ -1,0 +1,27 @@
+<div class="page-container-column">
+    <div class="container-members">
+        <h1>Wir, das Team</h1>
+        <div>
+            <p>codetekt ist ein dezentrales Team, das sich der Herausforderung annimmt, eine Lösung gegen unglaubwürdige
+                Nachrichten im <br /> Web oder in verschlüsselten Messaging Apps zu entwickeln.</p>
+                <app-member-filter [TAG]="tagsInfo"></app-member-filter>
+            <div class="masonryholder">
+                <app-team-member *ngFor="let person of members" [MEM]="person"></app-team-member>
+
+                <div class="lastTile">
+                    <div>
+                        <!--<img src=/>-->
+                    </div>
+                    <div>
+                        <h3>Und du?</h3>
+                        <p>Zum Beitritt motivierender Text. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Esse
+                            magnam, quis dignissimos delectus ipsam repellendus unde repudiandae.</p>
+                        <button mat-raised-button class="BecomeDetective"><i class="fas fa-user-secret"></i> Detektiv
+                            werden</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
