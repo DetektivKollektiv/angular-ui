@@ -1,0 +1,51 @@
+    [
+    {
+        "id":1,
+        "tagname": "Q&A",
+        "color": "#CB0000"
+    },
+    {
+        "id":2,
+        "tagname": "Development",
+        "color": "#313131"
+    },
+    {
+        "id": 3,
+        "tagname": "Management",
+        "color": "#FA8338"
+    },
+    {
+        "id":4,
+        "tagname": "Workshop",
+        "color": "#009B60"
+    },
+    {
+        "id":5,
+        "tagname": "Communications",
+        "color": "#72B900"
+    },
+    {
+        "id":6,
+        "tagname": "Community",
+        "color": "#00ABB9"
+    },
+    {
+        "id":7,
+        "tagname": "Concept",
+        "color": "#7B00E5"
+    },
+    {
+        "id":8,
+        "tagname": "Design",
+        "color": "#007BA8"
+    },
+    {
+        "id":9,
+        "tagname": "CEO",
+        "color": "#C100AB"
+    }, {
+        "id":10,
+        "tagname": "Stakeholding",
+        "color": "#006FDD"
+    }
+]

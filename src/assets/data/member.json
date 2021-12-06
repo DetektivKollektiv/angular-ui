@@ -1,0 +1,138 @@
+[
+    {
+        "image": "assets/images/team/Anne2.jpg",
+        "name": "Anne",
+        "tags": [1, 2],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitnvidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Christian.jpg",
+        "name": "Christian",
+        "tags": [3, 4, 1],
+        "text": "Lorem ipsum dolor sit amet, consetettr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Daniel.jpg",
+        "name": "Daniel",
+        "tags": [1, 3, 4],
+        "text": "Bei codetekt engagiert sich Daniel ehrenamtlich im Bereich inhaltlicher Konzeption. Als Mitglied des Vorstands ist er Ansprechpartner für Personalthemen und die Strategie des Vereins. Was er besonders an coderekt schätzt ist die Community-basierte Herangehensweise, welche eine informierte und engagierte Gesellschaft als Teil der Lösung gegen Falschinformationen sieht.",
+        "linkL": "https://www.linkedin.com/in/daniel-weimert/",
+        "linkM": "daniel@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Dirk.jpg",
+        "name": "Dirk",
+        "tags": [2],
+        "text": "nonumy eirmod tempor invidunt ut labore et dolore magnaed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Fran.jpg",
+        "name": "Fran",
+        "tags": [1],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": "https://www.linkedin.com/in/franziskabormann/",
+        "linkM": "fran@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Hendrik.jpg",
+        "name": "Hendrik",
+        "tags": [1, 4],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Henning",
+        "tags": [4],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "henning@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Kristin2.jpg",
+        "name": "Kristin",
+        "tags": [3, 4],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed di invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "kristin@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Marie.jpg",
+        "name": "Marie",
+        "tags": [2, 3],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadi dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": "https://www.linkedin.com/in/marie-schroeter-b43b19137/",
+        "linkM": "marie@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Nadine.jpg",
+        "name": "Nadine",
+        "tags": [2],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempolabore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": "https://www.linkedin.com/in/nadine-wegner-5b8b6a134/",
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Niklas.jpg",
+        "name": "Niklas",
+        "tags": [1, 2],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": "https://www.linkedin.com/in/niklas-cornelius-kunz/",
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Patrick.jpg",
+        "name": "Patrick",
+        "tags": [1],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": "https://www.linkedin.com/in/patrick-m%C3%BCller-b88183127/",
+        "linkM": "patrick@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Sandro.jpg",
+        "name": "Sandro",
+        "tags": [3],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": "https://www.linkedin.com/in/sandro-gl%C3%BCck-667575159/",
+        "linkM": "sandro@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Sven.jpg",
+        "name": "Sven",
+        "tags": [3],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Theda2.jpg",
+        "name": "Theda",
+        "tags": [3],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadiy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Johanna",
+        "tags": [4],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing por invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Robin",
+        "tags": [2],
+        "text": "Lorem ipsum dolor sit amet, consetetur sadipscinunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    }
+]
