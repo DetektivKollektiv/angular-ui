@@ -27,7 +27,6 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
-import { AboutComponent } from './about/about.component';
 import { FaqPageComponent } from './faq/components/faq-page/faq-page.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
 import { ImprintComponent } from './core/components/imprint/imprint.component';
@@ -118,7 +117,6 @@ const routes: Routes = [
   },
   { path: 'terms', component: CommunityGuidelinesComponent },
   { path: 'issues', component: IssuesComponent },
-  { path: 'about', component: AboutComponent },
   {
     path: '**',
     redirectTo: '',

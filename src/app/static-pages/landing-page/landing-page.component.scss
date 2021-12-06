@@ -1,4 +1,69 @@
-.wrapper {
-  max-width: 600px;
-  padding: 40px;
+@use '../../../assets/scss/fonts' as fonts;
+@import '../../../assets/scss/colors';
+
+.section-heading {
+  @include fonts.font__pt-mono--bold;
+  font-size: 21px;
+  text-align: center;
+
+  &-supernova {
+    color: $color__supernova;
+  }
+
+  &-bittersweet {
+    color: $color__bittersweet;
+  }
+
+  &-purple {
+    color: $color__purple;
+  }
+}
+
+.section-sub-heading {
+  @include fonts.font__effra--bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+.section-text {
+  width: 580px;
+  text-align: center;
+  margin: auto;
+}
+
+.about-section {
+  .content {
+    width: 1240px;
+    .page-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .page-link-item {
+        width: 390px;
+        height: 385px;
+        border-radius: 30px;
+
+        &-purple {
+          background-color: rgba($color: $color__purple, $alpha: 0.2);
+        }
+        &-supernova {
+          background-color: rgba($color: $color__supernova, $alpha: 0.2);
+        }
+        &-bittersweet {
+          background-color: rgba($color: $color__bittersweet, $alpha: 0.2);
+        }
+
+        .title {
+          @include fonts.font__effra--bold;
+          font-size: 21px;
+          text-align: center;
+          margin-top: 58px;
+        }
+      }
+    }
+
+    .social-links {
+    }
+  }
 }
