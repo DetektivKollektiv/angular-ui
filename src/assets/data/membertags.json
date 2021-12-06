@@ -1,51 +1,42 @@
-    [
+[
     {
         "id":1,
-        "tagname": "Q&A",
+        "tagname": "Technik",
         "color": "#CB0000"
     },
     {
         "id":2,
-        "tagname": "Development",
+        "tagname": "Konzept",
         "color": "#313131"
     },
     {
         "id": 3,
-        "tagname": "Management",
+        "tagname": "Design",
         "color": "#FA8338"
     },
     {
         "id":4,
-        "tagname": "Workshop",
+        "tagname": "Social Media",
         "color": "#009B60"
     },
     {
         "id":5,
-        "tagname": "Communications",
+        "tagname": "Community",
         "color": "#72B900"
     },
     {
         "id":6,
-        "tagname": "Community",
+        "tagname": "Netzwerkarbeit",
         "color": "#00ABB9"
     },
     {
         "id":7,
-        "tagname": "Concept",
+        "tagname": "Bildung",
         "color": "#7B00E5"
     },
     {
         "id":8,
-        "tagname": "Design",
+        "tagname": "Strategie",
         "color": "#007BA8"
-    },
-    {
-        "id":9,
-        "tagname": "CEO",
-        "color": "#C100AB"
-    }, {
-        "id":10,
-        "tagname": "Stakeholding",
-        "color": "#006FDD"
     }
 ]
