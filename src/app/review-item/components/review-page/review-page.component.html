@@ -1,6 +1,6 @@
 <div class="review-page standard-content-container-width" *ngIf="case$ | async as case">
   <section class="top">
-    <app-case-details [case]="case">
+    <app-case-details [case]="case" [description]="description">
       <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
     <app-user-experience-bubble-list [userExperienceBubbles]="userExperienceBubbles"></app-user-experience-bubble-list>
@@ -23,9 +23,6 @@
       <h2>Die Fallbearbeitung</h2>
       <div class="overview__container" *ngIf="!isOpenReview; else processing">
         <div class="overview__text">
-          Im Tatbestand siehst du alle für den Fall relevanten Informationen. Weiterer Hilfreicher Text...… Lorem ipsum dolor sit amet,
-          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore etLorem ipsum dolor sit amet, consetetur sadipscing
-          elitr. Möchtest du diesen Fall annehmen?
         </div>
         <div class="button-container">
           <button appButton (click)="accept()">
@@ -44,48 +41,38 @@
 
 <ng-template #processing>
   <form [formGroup]="reviewForm" class="overview__container">
-    <app-question
-      *ngFor="let question of showQuestions; let i = index"
-      [question]="question"
-      [index]="i"
-      [questions]="questions"
-      (valueChange)="updateReview()"
-      [parentFormGroup]="reviewForm"
-    ></app-question>
+    <app-question *ngFor="let question of showQuestions; let i = index" [question]="question" [index]="i"
+      [questions]="questions" (valueChange)="updateReview()" [parentFormGroup]="reviewForm"></app-question>
     <div class="comments">
       <h2>Fallbewertungskommentar</h2>
       <p class="explain">
-        Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt deines Namens sichtbar
+        Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt
+        deines Namens sichtbar
         sein.
       </p>
-      <app-comment-input
-        [user]="user$ | async"
-        [comment]="review.comment"
-        (commentSubmitted)="commentChange($event)"
-        [authenticated]="true"
-        [instantChanges]="true"
-      ></app-comment-input>
+      <app-comment-input [user]="user$ | async" [comment]="review.comment" (commentSubmitted)="commentChange($event)"
+        [authenticated]="true" [instantChanges]="true"></app-comment-input>
     </div>
     <div class="tags">
       <h2>Schlagwörter</h2>
       <p class="explain">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-        erat, sed diam voluptua.
+        Gib hier bis zu drei Schlagwörter ein, die den Fall charkterisieren und bestätige sie mit Enter. Bitte nutze
+        objektive Begriffe, damit der Fall später für andere anhand der Schlagwörter einfach zu finden ist.
       </p>
       <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
     </div>
     <div class="legal">
       <h2>Rechtliche Angaben</h2>
-      <p class="explain">Zum Abschluss der bestätigte die Datenschutzerklärung und die Nutzungsbedingungen.</p>
+      <p class="explain">Bitte bestätige zum Abschluss die <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> und die <a href="/terms" target="_blank">Nutzungsbedingungen</a>.</p>
       <div class="legal__container">
         <mat-checkbox formControlName="policy">
           <div class="option">
-            <span>Ich stimme den Bedingungen der Datenschutzerklärung zu *</span>
+            <span>Ich stimme den Bedingungen der <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> zu.</span>
           </div>
         </mat-checkbox>
         <mat-checkbox formControlName="legal">
           <div class="option">
-            <span>Ich stimme den Nutzungsbedingungen zu *</span>
+            <span>Ich stimme den <a href="/terms" target="_blank">Nutzungsbedingungen</a> zu.</span>
           </div>
         </mat-checkbox>
       </div>
