@@ -1,5 +1,25 @@
-.page-container {
-  display: flex;
-  width: 75%;
-  flex-direction: column;
+@import '../../../../assets/scss/initializer';
+
+.terms-container {
+  @media only screen and (max-width: 480px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  h1 {
+    font-size: 52px;
+    font-weight: 700;
+    color: $color__share-section-heading;
+    @media only screen and (max-width: 480px) {
+      font-size: 32px;
+      font-weight: 700;
+    }
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color__share-section-heading;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
 }
