@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemsService } from '../../services/items/items.service';
 import { Item } from '../../../model/item';
@@ -13,7 +13,7 @@ import { globals } from 'src/environments/globals';
 import { FactCheckService } from '../../services/factchecks/fact-check.service';
 import { Factcheck } from '../../../model/factcheck';
 import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
-import { EMPTY, from, Observable, of } from 'rxjs';
+import { EMPTY, from, Observable, of, Subscription } from 'rxjs';
 import { switchMap, mapTo, tap } from 'rxjs/operators';
 import { ReviewItems } from '../../model/review-items';
 import { Question } from '../../model/question';
@@ -27,7 +27,7 @@ import { ViewportScroller } from '@angular/common';
   templateUrl: './review-page.component.html',
   styleUrls: ['./review-page.component.scss']
 })
-export class ReviewPageComponent implements OnInit {
+export class ReviewPageComponent implements OnInit, OnDestroy {
   case$ = from(this.itemsService.getOpenItems()).pipe(
     tap((reviewItems) => (this.isOpenReview = reviewItems.is_open_review)),
     switchMap((reviewItems) => (reviewItems.is_open_review ? this.loadReview(reviewItems) : this.getItemFromRouterState())),
@@ -43,11 +43,6 @@ export class ReviewPageComponent implements OnInit {
   review: Review;
   questions: Question[];
   showQuestions: Question[];
-
-  finished = false;
-  isPolicyChecked = false;
-  isConditionChecked = false;
-  reviewChanged = false;
 
   questionPrompts = [
     {
@@ -87,6 +82,7 @@ export class ReviewPageComponent implements OnInit {
   reviewForm: FormGroup;
 
   private routerState: { [key: string]: any };
+  private formSubscription: Subscription;
 
   constructor(
     private itemsService: ItemsService,
@@ -112,6 +108,10 @@ export class ReviewPageComponent implements OnInit {
     if (this.case?.id) {
       this.getFactCheck(this.case.id);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.formSubscription?.unsubscribe();
   }
 
   accept() {
@@ -149,7 +149,6 @@ export class ReviewPageComponent implements OnInit {
 
   updateReview() {
     this.reviewsService.updateReview(this.review);
-    this.reviewChanged = true;
   }
 
   commentChange(comment: string) {
@@ -203,6 +202,14 @@ export class ReviewPageComponent implements OnInit {
     this.questions = [...review.questions];
     this.questions.sort((q1, q2) => q1.question_id.localeCompare(q2.question_id));
     this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
+    this.showQuestions.forEach((question) => {
+      const questionControl = this.formBuilder.control(question.answer_value, Validators.required);
+      this.reviewForm.addControl(question.question_id, questionControl);
+    });
+
+    this.formSubscription = this.reviewForm.valueChanges.subscribe(() => {
+      this.updateReview();
+    });
   }
 
   private handleInvalidForm() {

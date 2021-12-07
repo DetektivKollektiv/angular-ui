@@ -41,8 +41,13 @@
 
 <ng-template #processing>
   <form [formGroup]="reviewForm" class="overview__container">
-    <app-question *ngFor="let question of showQuestions; let i = index" [question]="question" [index]="i"
-      [questions]="questions" (valueChange)="updateReview()" [parentFormGroup]="reviewForm"></app-question>
+    <app-question
+      *ngFor="let question of showQuestions; let i = index"
+      [question]="question"
+      [index]="i"
+      [questions]="questions"
+      [parentFormGroup]="reviewForm"
+    ></app-question>
     <div class="comments">
       <h2>Fallbewertungskommentar</h2>
       <p class="explain">
