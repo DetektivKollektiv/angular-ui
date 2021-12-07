@@ -188,6 +188,33 @@
     }
   }
 
+  &--inverted {
+    @include font__effra--medium;
+
+    border: 0;
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+      background-color: #f9f0ff;
+    }
+
+    &#{$parent}--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
   &--disabled {
     cursor: default;
     opacity: 0.5;

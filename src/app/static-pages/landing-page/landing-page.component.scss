@@ -23,6 +23,15 @@
   @include fonts.font__effra--bold;
   font-size: 36px;
   text-align: center;
+
+  &-white {
+    color: $color__white;
+  }
+}
+
+section {
+  width: 1240px;
+  margin: auto;
 }
 
 .section-text {
@@ -31,9 +40,123 @@
   margin: auto;
 }
 
+.intro-section {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .content {
+    width: 650px;
+    .title {
+      @include fonts.font__effra--bold;
+      font-size: 68px;
+      color: $color__mysterious-blue;
+    }
+    .paragraph {
+      @include fonts.font__effra--regular;
+      font-size: 18px;
+      color: $color__mysterious-blue;
+    }
+    .button-group {
+      align-items: flex-start;
+    }
+  }
+  .image {
+    width: 500px;
+    height: 377px;
+  }
+}
+
+.supporter-section {
+  margin-top: 140px;
+
+  .title {
+    @include fonts.font__pt-mono--bold;
+    font-size: 14px;
+    color: $color__mysterious-blue;
+  }
+
+  .supporters {
+    display: flex;
+    flex-direction: row;
+
+    .supporter-item {
+      background-color: $color__tile-background;
+      height: 70px;
+      width: 200px;
+      border-radius: 20px;
+      padding: 20px;
+
+      & + .supporter-item {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.result-section {
+  .results {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .result-item {
+      width: 324px;
+
+      h1 {
+        @include fonts.font__pt-mono--bold;
+        font-size: 68px;
+      }
+
+      .title-bittersweet {
+        color: $color__bittersweet;
+      }
+
+      .title-red {
+        color: $color__rating-red;
+      }
+
+      .title-orange {
+        color: $color__rating-orange;
+      }
+
+      h3 {
+        @include fonts.font__effra--bold;
+        font-size: 21px;
+        color: $color__mysterious-blue;
+      }
+
+      p {
+        @include fonts.font__effra--regular;
+        font-size: 18px;
+        color: $color__mysterious-blue;
+      }
+    }
+  }
+}
+
+.surrounding-section {
+  background-color: $color__mysterious-blue;
+
+  .item {
+    background-color: $color__white;
+    height: 620px;
+    width: 580px;
+    border-radius: 20px;
+
+    i {
+      color: $color__bittersweet;
+    }
+  }
+}
+
+.archive-section {
+}
+
 .about-section {
   .content {
-    width: 1240px;
     .page-links {
       display: flex;
       flex-direction: row;
