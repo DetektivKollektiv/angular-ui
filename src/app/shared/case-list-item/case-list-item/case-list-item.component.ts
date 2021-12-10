@@ -9,4 +9,5 @@ import { Item } from '../../../model/item';
 export class CaseListItemComponent {
   @Input() case: Item;
   @Input() showContent: boolean;
+  @Input() style: 'dark' | 'light' = 'dark';
 }

@@ -1,4 +1,4 @@
-<li class="item">
+<li [ngClass]="style === 'dark' ? 'item' : 'item-light'">
   <div class="item__score" [class.item__score--full]="showContent" [routerLink]="'/archive/' + case.id">
     <h2 [ngClass]="case.result_score | ratingColor" class="mono-font">
       {{ case.result_score | ratingScore }}

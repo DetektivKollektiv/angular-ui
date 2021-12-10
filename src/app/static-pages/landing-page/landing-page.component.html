@@ -1,164 +1,78 @@
 <app-my-profile *ngIf="loggedIn$ | async; else staticPage"></app-my-profile>
 
 <ng-template #staticPage>
-  <section class="intro-section">
-    <div class="content">
-      <h1 class="title">Gemeinsam gegen Falschinformationen!</h1>
-      <p class="paragraph">
-        Mit codetekt kannst Du digitale Inhalte (Fälle) auf ihre Vertrauenswürdigkeit prüfen lassen! Reiche einen Fall ein und lasse diesen
-        von der Community überprüfen oder löse selbst als Detektiv:in in der Community Fälle und lerne wie Du fragwürdige von
-        vertrauenswürdigen Inhalten unterscheiden kannst.
-      </p>
-      <div class="button-group">
-        <a [routerLink]="['/submit']" class="button button--bittersweet"><i class="far fa-typewriter"></i>Fall einreichen</a>
-        <a [routerLink]="['/review']" class="button button--neon-blue"><i class="far fa-user-cowboy"></i>Fall annehmen</a>
-        <a [routerLink]="['/archive']" class="button button--neon-blue button--inverted">
-          <i class="far fa-cabinet-filing"></i>
-          Gelöste Fälle ansehen
-        </a>
-      </div>
+  <div class="section-background">
+    <div class="section-container">
+      <app-intro-section></app-intro-section>
     </div>
-    <div class="image"></div>
-  </section>
-  <section class="supporter-section">
-    <p class="title">codetekt wird unterstützt von</p>
-    <div class="supporters">
-      <div class="supporter-item"></div>
-      <div class="supporter-item"></div>
-      <div class="supporter-item"></div>
-      <div class="supporter-item"></div>
-      <div class="supporter-item"></div>
-      <div class="supporter-item"></div>
-      <div class="supporter-item"></div>
-      <div class="supporter-item"></div>
+  </div>
+
+  <div class="section-background">
+    <div class="section-container">
+      <app-supporter-section></app-supporter-section>
     </div>
-  </section>
-  <section class="result-section">
-    <div class="content">
-      <p class="section-heading section-heading-purple">Die Auswirkungen</p>
-      <p class="section-sub-heading">Das bewirken Falschinformationen in der Gesellschaft</p>
-      <div class="results">
-        <div class="result-item">
-          <h1 class="title-bittersweet">6x</h1>
-          <h1>Klicks</h1>
-          <h3>Falschinformationen generieren viel Aufmerksamkeit</h3>
-          <p>
-            In Deutschland sind die Interaktionen auf Facebook mit "Junk News" sechs Mal höher im Vergleich mit professionell erstellten
-            Inhalten.
-          </p>
-        </div>
-        <div class="result-item">
-          <h1 class="title-red">81%</h1>
-          <h1>Gefahr</h1>
-          <h3>Falschinformationen sind eine Gefahr für die Demokratie</h3>
-          <p>In Name der Studie waren 81% der Befragten überzeugt, dass Falschinformationen eine Gefahr für die Demokratie darstellen.</p>
-        </div>
-        <div class="result-item">
-          <h1>Kosten</h1>
-          <h1 class="title-orange">81 Mrd.</h1>
-          <h3>Falschinformationen sind teuer</h3>
-          <p>
-            Der jährliche Schaden durch die Auswirkungen der sogenannten "Fake News" wird weltweit auf 81 Milliarden US-Dollar geschätzt.
-          </p>
-        </div>
-      </div>
+  </div>
+
+  <div class="section-background section-background-dots">
+    <div class="section-container">
+      <app-result-section></app-result-section>
     </div>
-  </section>
-  <section class="surrounding-section">
-    <div class="content">
-      <p class="section-heading section-heading-bittersweet">Falschinformationen in deiner Umgebung</p>
-      <p class="section-sub-heading section-sub-heading-white">Wie sicher bist du im Erkennen von Falschinformationen?</p>
-      <div>
-        <div class="item">
-          <i class="fas fa-person-to-portal"></i>
-          <h3>Wie sicher bist Du im erkennen von Falschinformationen?</h3>
-          <p>
-            Fast die Hälfte der Befragten waren sich unsicher beim erkennen von Falschnachrichten. Verlinkung der Studie Vodafone Stiftung.
-          </p>
-          <h3>Wenn Du an Falschnachrichten denkst?</h3>
-          <p>Denken 75% der Befragten an das Internet und 73% an eine betrügerische Absicht.</p>
-        </div>
-        <div class="item">
-          <i class="fas fa-person-from-portal"></i>
-          <h3>Bist du auch schon mal aktiv geworden gegen Falschinformationen?</h3>
-          <p>
-            Laut einer Studie sind 36% der Befragten schon mal aktiv geworden, wenn sie eine Falschinformation gesehen haben. Gemeldet haben
-            diese dann 19% an eine Plattform. Leider bekommen fast die Hälfte keine Rückmeldung zu ihrer Meldung.
-          </p>
-          <h3>Melden. Mitmachen. Feedback.</h3>
-          <p>
-            Melde uns nicht vertrauenswürdige Informationen und misch dich ein, indem du auf unserer Plattform hilfst, Informationen zu
-            überprüfen. Erhalte nach der vollständigen Überprüfung das Feedback der Community. 100% aktiv gegen Falschinformationen, 100%
-            gemeinsam mit der codetekt Community, 100% Feedback zurück bekommen.
-          </p>
-        </div>
-      </div>
+  </div>
+
+  <div class="section-background section-background-gradient">
+    <div class="section-container">
+      <app-surrounding-section></app-surrounding-section>
     </div>
-  </section>
-  <section>
-    <!--Lösung-->
-  </section>
-  <section>
-    <!--Prozess-->
-  </section>
-  <section class="archive-section">
-    <div class="content">
-      <p class="section-heading section-heading-supernova">Ausschnitt aus dem Archiv</p>
+  </div>
+
+  <div class="section-background">
+    <div class="section-container">
+      <app-solution-section></app-solution-section>
     </div>
-    <app-solved-cases></app-solved-cases>
-  </section>
-  <section class="about-section">
-    <!--Wer sind wir-->
-    <div class="content">
-      <p class="section-heading section-heading-bittersweet">Aber...</p>
-      <p class="section-sub-heading">Wer sind wir?</p>
-      <p class="section-text">
-        codetekt ist ein dezentrales Team, das sich der Herausforderung annimmt, eine Lösung gegen unglaubwürdige Nachrichten im Web oder in
-        verschlüsselten Messaging Apps zu entwickeln. Du willst mehr über uns und unseren Ansatz erfahren? Klick dich durch!
-      </p>
-      <div class="page-links">
-        <div class="page-link-item page-link-item-supernova">
-          <p class="title">Über codetekt</p>
-        </div>
-        <div class="page-link-item page-link-item-purple">
-          <p class="title">Das Team</p>
-        </div>
-        <div class="page-link-item page-link-item-bittersweet">
-          <p class="title">Unser trust-Checking Ansatz</p>
-        </div>
-      </div>
-      <div class="social-links">
-        <div>
-          <p>codetekt auf Facebook</p>
-        </div>
-        <div>
-          <p>codetekt auf Instagram</p>
-        </div>
-        <div>
-          <p>codetekt auf Twitter</p>
-        </div>
-        <div>
-          <p>codetekt auf Signal</p>
-        </div>
-      </div>
+  </div>
+
+  <div class="section-background">
+    <div class="section-container">
+      <app-process-section></app-process-section>
     </div>
-  </section>
-  <section>
-    <!--In Zahlen-->
-  </section>
-  <section>
-    <!--Unterstützer???-->
-  </section>
-  <section>
-    <!--Unterstützung-->
-  </section>
-  <section>
-    <!--Fern und Funk-->
-  </section>
-  <section>
-    <!--Call to action-->
-  </section>
-  <section>
-    <!--Newsletter-->
-  </section>
+  </div>
+
+  <div class="section-background section-background-mysterious-blue">
+    <div class="section-container">
+      <app-archive-section></app-archive-section>
+    </div>
+  </div>
+
+  <div class="section-background">
+    <div class="section-container">
+      <app-about-section></app-about-section>
+    </div>
+  </div>
+
+  <!--TODO: Add once API exists-->
+  <!-- <app-numbers-section class="section"></app-numbers-section> -->
+
+  <div class="section-background section-background-tile-background">
+    <div class="section-container">
+      <app-support-us-section class="section"></app-support-us-section>
+    </div>
+  </div>
+
+  <div class="section-background">
+    <div class="section-container">
+      <app-news-section></app-news-section>
+    </div>
+  </div>
+
+  <div class="section-background section-background-stars">
+    <div class="section-container">
+      <app-call-to-action-section></app-call-to-action-section>
+    </div>
+  </div>
+
+  <div class="section-background">
+    <div class="section-container">
+      <app-newsletter-section></app-newsletter-section>
+    </div>
+  </div>
 </ng-template>
