@@ -21,6 +21,8 @@ import { NewsSectionItemComponent } from './landing-page/sections/news-section/n
 import { SupportUsSectionComponent } from './landing-page/sections/support-us-section/support-us-section.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SupporterItemComponent } from './landing-page/sections/supporter-section/supporter-item/supporter-item.component';
+import { BreadcrumbComponent } from '@shared/breadcrumb/breadcrumb/breadcrumb.component';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,7 @@ import { SupporterItemComponent } from './landing-page/sections/supporter-sectio
     SupportUsSectionComponent,
     SupporterItemComponent
   ],
-  imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
   exports: [AboutComponent, SupportUsSectionComponent]
 })
 export class StaticPagesModule {}

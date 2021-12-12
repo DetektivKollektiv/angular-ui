@@ -62,6 +62,16 @@
     }
   }
 
+  &--purple {
+    background-color: $color__purple;
+    border-color: $color__purple;
+    color: $color__white;
+
+    &:hover:not(:disabled) {
+      color: $color__purple;
+    }
+  }
+
   &--neon-blue {
     background-color: $color__neon-blue;
     border-color: $color__neon-blue;

@@ -7,11 +7,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
 
-  @media screen and(min-width: $breakpoint-m) {
+  @media screen and(min-width: $breakpoint-s) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+    width: fit-content;
   }
 
   .grid-item {
@@ -22,10 +26,12 @@
     align-items: center;
     width: fit-content;
     padding: 16px;
+    width: 100%;
+    height: 100%;
+    max-width: 540px;
 
-    @media screen and(min-width: $breakpoint-m) {
-      height: 583px;
-      width: 620px;
+    @media screen and(min-width: $breakpoint-s) {
+      min-width: 400px;
     }
 
     &-alt {
