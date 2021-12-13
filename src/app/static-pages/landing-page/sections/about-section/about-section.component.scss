@@ -4,14 +4,18 @@
 @import '../../landing-page.component.scss';
 
 .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .links {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
     margin-top: 20px;
+    width: max-content;
 
-    @media screen and(min-width: $breakpoint-m) {
+    @media screen and(min-width: $breakpoint-s) {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       row-gap: 20px;
@@ -24,17 +28,13 @@
       border-radius: 30px;
       align-items: center;
       cursor: pointer;
-
-      width: 390px;
-      height: 385px;
-      @media screen and(min-width: $breakpoint-m) {
-      }
+      padding: 20px 20px;
+      width: 100%;
 
       .title {
         @include fonts.font__effra--bold;
         font-size: 21px;
         text-align: center;
-        margin-top: 58px;
       }
 
       &-purple {
@@ -70,10 +70,7 @@
       padding: 0 20px;
       gap: 10px;
       cursor: pointer;
-
-      width: 390px;
-      @media screen and(min-width: $breakpoint-m) {
-      }
+      width: 100%;
 
       p {
         @include fonts.font__effra--bold;
@@ -105,11 +102,6 @@
         i {
           color: #1da1f2;
         }
-      }
-
-      &-signal {
-        @extend .social-link-item;
-        grid-column: 2;
       }
 
       &:hover {

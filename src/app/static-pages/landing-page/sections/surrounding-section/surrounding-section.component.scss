@@ -37,6 +37,12 @@
       @include fonts.font__effra--regular;
       font-size: 18px;
       padding: 0;
+
+      .link {
+        i {
+          font-size: 14px;
+        }
+      }
     }
 
     .icon-bittersweet {

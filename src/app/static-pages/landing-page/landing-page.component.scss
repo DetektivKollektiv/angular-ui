@@ -15,27 +15,33 @@
   flex: 1 1 auto;
 
   &-mysterious-blue {
+    @extend .section-background;
     background-color: $color__mysterious-blue;
   }
 
   &-tile-background {
+    @extend .section-background;
     background-color: $color__tile-background;
   }
 
   &-stars {
+    @extend .section-background;
     background-image: url(/assets/images/backgrounds/stars-background.png);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 500px;
+    padding: 50px;
+    margin-top: -20px;
   }
 
   &-dots {
+    @extend .section-background;
     background-image: url(/assets/images/illustrations/dots-background.svg);
     background-size: cover;
     background-repeat: no-repeat;
   }
 
   &-gradient {
+    @extend .section-background;
     background-image: url(/assets/images/illustrations/blue-gradient-background.svg);
     background-size: cover;
     background-repeat: no-repeat;
