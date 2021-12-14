@@ -3,110 +3,109 @@
 @import '../../../../../assets/scss/variables';
 @import '../../landing-page.component.scss';
 
-.content {
+.links {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .links {
+  gap: 16px;
+  margin: 20px auto;
+  width: max-content;
+
+  @media screen and(min-width: $breakpoint-s) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+  }
+
+  .page-link-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    margin-top: 20px;
-    width: max-content;
+    border-radius: 30px;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 20px;
+    width: 100%;
 
-    @media screen and(min-width: $breakpoint-s) {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      row-gap: 20px;
+    .title {
+      @include fonts.font__effra--bold;
+      font-size: 21px;
+      text-align: center;
     }
 
-    .page-link-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 30px;
-      align-items: center;
-      cursor: pointer;
-      padding: 20px 20px;
-      width: 100%;
-
-      .title {
-        @include fonts.font__effra--bold;
-        font-size: 21px;
-        text-align: center;
-      }
-
-      &-purple {
-        background-color: rgba($color: $color__purple, $alpha: 0.2);
-
-        &:hover {
-          background-color: rgba($color: $color__purple, $alpha: 0.4);
-        }
-      }
-      &-supernova {
-        background-color: rgba($color: $color__supernova, $alpha: 0.2);
-
-        &:hover {
-          background-color: rgba($color: $color__supernova, $alpha: 0.4);
-        }
-      }
-      &-bittersweet {
-        background-color: rgba($color: $color__bittersweet, $alpha: 0.2);
-
-        &:hover {
-          background-color: rgba($color: $color__bittersweet, $alpha: 0.4);
-        }
-      }
-    }
-
-    .social-link-item {
-      background-color: $color__tile-background;
-      height: 62px;
-      border-radius: 20px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 0 20px;
-      gap: 10px;
-      cursor: pointer;
-      width: 100%;
-
-      p {
-        @include fonts.font__effra--bold;
-        color: $color__mysterious-blue;
-      }
-
-      i {
-        height: 24px;
-        width: 24px;
-        font-size: 24px;
-      }
-
-      &-facebook {
-        @extend .social-link-item;
-        i {
-          color: #3b5998;
-        }
-      }
-
-      &-instagram {
-        @extend .social-link-item;
-        i {
-          color: #ff7068;
-        }
-      }
-
-      &-twitter {
-        @extend .social-link-item;
-        i {
-          color: #1da1f2;
-        }
-      }
+    &-purple {
+      background-color: rgba($color: $color__purple, $alpha: 0.2);
 
       &:hover {
-        background-color: darken($color__tile-background, 5%);
+        background-color: rgba($color: $color__purple, $alpha: 0.4);
       }
+    }
+    &-supernova {
+      background-color: rgba($color: $color__supernova, $alpha: 0.2);
+
+      &:hover {
+        background-color: rgba($color: $color__supernova, $alpha: 0.4);
+      }
+    }
+    &-bittersweet {
+      background-color: rgba($color: $color__bittersweet, $alpha: 0.2);
+
+      &:hover {
+        background-color: rgba($color: $color__bittersweet, $alpha: 0.4);
+      }
+    }
+  }
+
+  .link {
+    text-decoration: none;
+  }
+
+  .social-link-item {
+    background-color: $color__tile-background;
+    height: 62px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 20px;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%;
+
+    p {
+      @include fonts.font__effra--bold;
+      color: $color__mysterious-blue;
+    }
+
+    i {
+      height: 24px;
+      width: 24px;
+      font-size: 24px;
+    }
+
+    &-facebook {
+      @extend .social-link-item;
+      i {
+        color: #3b5998;
+      }
+    }
+
+    &-instagram {
+      @extend .social-link-item;
+      i {
+        color: #ff7068;
+      }
+    }
+
+    &-twitter {
+      @extend .social-link-item;
+      i {
+        color: #1da1f2;
+      }
+    }
+
+    &:hover {
+      background-color: darken($color__tile-background, 5%);
     }
   }
 }
