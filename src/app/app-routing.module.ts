@@ -87,7 +87,9 @@ const routes: Routes = [
         path: 'about',
         component: AboutComponent
       },
-      { path: '', component: LandingPageComponent }
+      { path: '', component: LandingPageComponent },
+      { path: 'terms', component: CommunityGuidelinesComponent }
+
     ]
   },
   {
@@ -115,7 +117,6 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [{ path: '', component: ConfirmEmailPageComponent }]
   },
-  { path: 'terms', component: CommunityGuidelinesComponent },
   { path: 'issues', component: IssuesComponent },
   {
     path: '**',
