@@ -110,9 +110,30 @@ h1 {
     }
   }
 
-  .image {
-    width: 200px;
-    height: 200px;
+  .icon {
+    min-height: 150px;
+    min-width: 150px;
+    border-radius: 50%;
+    color: colors.$color__white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    &-supernova {
+      background-color: colors.$color__supernova;
+    }
+
+    &-bittersweet {
+      background-color: colors.$color__bittersweet;
+    }
+
+    &-neon-blue {
+      background-color: colors.$color__neon-blue;
+    }
+
+    &-mysterious-blue {
+      background-color: colors.$color__mysterious-blue;
+    }
   }
 
   .title {
