@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth-guard/auth.guard';
 import { ProfileComponent } from './profile/components/profile/profile.component';
 import { HomeComponent } from './home/components/home/home.component';
-import { SubmitComponent } from './submit-item/components/submit/submit.component';
 import { SubmitPageComponent } from './submit-item/components/submit-page/submit-page.component';
 import { SubmitSuccessPageComponent } from './submit-item/components/submit-success-page/submit-success-page.component';
 import { ReviewSuccessPageComponent } from './review-item/components/review-success-page/review-success-page.component';
@@ -39,7 +38,6 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: 'submit_old', component: SubmitComponent },
       {
         path: 'submit/success',
         component: SubmitSuccessPageComponent
@@ -89,7 +87,6 @@ const routes: Routes = [
       },
       { path: '', component: LandingPageComponent },
       { path: 'terms', component: CommunityGuidelinesComponent }
-
     ]
   },
   {
