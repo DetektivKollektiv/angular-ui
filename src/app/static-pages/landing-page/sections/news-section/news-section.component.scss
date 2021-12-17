@@ -1,0 +1,18 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@import '../../../../../assets/scss/colors';
+@import '../../../../../assets/scss/variables';
+@import '../../landing-page.component.scss';
+
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and(min-width: $breakpoint-s) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}

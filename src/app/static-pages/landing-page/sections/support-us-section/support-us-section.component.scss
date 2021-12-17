@@ -1,0 +1,84 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@import '../../../../../assets/scss/colors';
+@import '../../../../../assets/scss/variables';
+@import '../../landing-page.component.scss';
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a:hover{
+      text-decoration: none;
+  }
+
+  @media screen and(min-width: $breakpoint-s) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+    width: fit-content;
+  }
+
+  .grid-item {
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+    max-width: 540px;
+
+    @media screen and(min-width: $breakpoint-s) {
+      min-width: 400px;
+    }
+
+    &-alt {
+      background-color: $color__white;
+    }
+
+    .icon {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      color: $color__white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 42px;
+
+      &-supernova {
+        background-color: $color__supernova;
+      }
+
+      &-bittersweet {
+        background-color: $color__bittersweet;
+      }
+
+      &-neon-blue {
+        background-color: $color__neon-blue;
+      }
+
+      &-mysterious-blue {
+        background-color: $color__mysterious-blue;
+      }
+    }
+
+    .title {
+      @include fonts.font__effra--bold;
+      color: $color__mysterious-blue;
+      font-size: 21px;
+    }
+
+    .text {
+      @include fonts.font__effra--regular;
+      color: $color__mysterious-blue;
+      font-size: 18px;
+      width: 324px;
+    }
+  }
+}

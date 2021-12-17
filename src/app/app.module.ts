@@ -34,8 +34,6 @@ import 'hammerjs';
 import { HelperModule } from './shared/helper/helper.module';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
-import { AuthenticationPageComponent } from './authentication-pages/components/authentication-page/authentication-page.component';
-import { AboutComponent } from './about/about.component';
 import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
 import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { FaqModule } from './faq/faq.module';
@@ -48,7 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent, AboutComponent],
+  declarations: [AppComponent, MainLayoutComponent, FooterOnlyLayoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

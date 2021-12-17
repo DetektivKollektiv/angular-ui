@@ -12,14 +12,14 @@ export class RatingService {
       lower: -1,
       upper: 33,
       text: 'Dieser Fall ist nicht vertrauenswürdig',
-      info: 'Du solltest die Informationen in diesem Fall unbedingt mit Vorsicht behandeln.',
+      info: 'Es ist sehr wahrscheinlich, dass es sich hierbei um Falsch- order Desinformation handelt.',
       color: 'red'
     },
     {
       lower: 33,
       upper: 66,
       text: 'Dieser Fall ist eher nicht vertrauenswürdig',
-      info: 'Du solltest die Informationen in diesem Fall mit Vorsicht behandeln.',
+      info: 'Du solltest die Informationen in diesem Fall unbedingt mit großer Vorsicht behandeln.',
       color: 'orange'
     },
     {
@@ -33,7 +33,7 @@ export class RatingService {
       lower: 83,
       upper: 100,
       text: 'Dieser Fall ist vertrauenswürdig',
-      info: 'Du kannst den Informationen in diesem Fall uneingeschränkt vertrauen.',
+      info: 'Du kannst den Informationen in diesem Fall höchstwahrscheinlich vertrauen.',
       color: 'green'
     }
   ];

@@ -55,10 +55,25 @@ export class ArchiveDetailsPageComponent implements OnInit {
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
   archiveQuestions: any[] = [
     {
-      title: 'Wie errechnet sich der Score?',
-      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
+      title: 'Was bedeutet das Ergebnis?',
+      description:
+        'Der Score dient als grobe Orientierung. Vertraue diesem nicht blind, sondern befasse dich am besten selbst mit Fall.',
       background: 'color__neon-blue',
       icon: 'fal fa-chart-bar'
+    },
+    {
+      title: 'Was bedeuten die Tags?',
+      description:
+        'Die Tags dienen dazu, einen Fall zu kategorisieren und so über die Suche leichter auffindbar zu machen.',
+      background: 'color__bittersweet',
+      icon: 'fal fa-tags'
+    },
+    {
+      title: 'Kann ich kommentieren?',
+      description:
+        'Ja, unter "Communitydiskussion" können alle eingeloggten User den Fall kommentieren.',
+      background: 'color__purple',
+      icon: 'fal fa-comments'
     }
   ];
 

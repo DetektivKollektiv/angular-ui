@@ -7,9 +7,10 @@
         <div class="overview__user-name">{{ user.name }}</div>
       </div>
       <div class="overview__intro">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-        erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-        est.
+        Herzlich willkommen auf deinem persönlichen Dashboard. Hier findest du alle Informationen, die für dich
+        persönlich wichtig sind. Du findest hier deine persönlichen Statistiken, kannst deine gelösten Fälle ansehen,
+        neue Fälle bearbeiten, durchs Archiv stöbern und dein Profil verwalten. Scroll doch einfach mal nach unten und
+        probier alles selbst aus.
       </div>
     </div>
   </section>
@@ -50,13 +51,12 @@
     <div class="user__cases">
       <h2>Deine abgeschlossenen Fälle</h2>
       <div class="user__cases-intro">
-        Hier siehst du alle Fälle, bei denen du beteiligt warst und die abgeschlossen sind. Es müssen erst alle bearbeitende Detektive den
+        Hier siehst du alle Fälle, bei denen du beteiligt warst und die abgeschlossen sind. Es müssen erst alle
+        bearbeitende Detektive den
         Fall abschließen, damit er hier sichtbar wird. Fälle, die du hier siehst, sind offen für Diskussion.
       </div>
       <div class="user__cases-list" *ngIf="user.closed_items.length">
-        <app-case-list-item
-          class="user__case-item"
-          *ngFor="
+        <app-case-list-item class="user__case-item" *ngFor="
             let closedItem of user.closed_items
               | paginate
                 : {
@@ -64,18 +64,10 @@
                     currentPage: page,
                     totalItems: user.closed_items.length
                   }
-          "
-          [case]="closedItem"
-        ></app-case-list-item>
+          " [case]="closedItem"></app-case-list-item>
         <div class="user__case-pagination">
-          <pagination-controls
-            [maxSize]="11"
-            [responsive]="true"
-            previousLabel=""
-            nextLabel=""
-            (pageChange)="page = $event"
-            *ngIf="page > 0"
-          >
+          <pagination-controls [maxSize]="11" [responsive]="true" previousLabel="" nextLabel=""
+            (pageChange)="page = $event" *ngIf="page > 0">
           </pagination-controls>
         </div>
       </div>
@@ -96,7 +88,7 @@
 
   <section class="account standard-content-container-width">
     <h2>Deine Kontodaten</h2>
-    <div class="account__intro">Hier siehst du die Daten, mit denen du dich registriert hast. Außerdem kannst du dein Passwort ändern</div>
+    <div class="account__intro">Hier siehst du die Daten, mit denen du dich registriert hast.</div>
     <div class="account__info" *ngIf="authState$ | async as authState">
       <div class="account__info-title">E-Mail-Adresse</div>
       <div class="account__info-data"><span class="far fa-envelope"></span>{{ authState.email }}</div>
@@ -111,7 +103,8 @@
       <img class="delete-account__image" src="assets/images/illustrations/undraw_windy_day_x-63-l.svg" />
       <h2>Dein Konto löschen</h2>
       <div class="delete-account__intro">
-        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen. Deine Bewertungen und Kommentare bleiben erhalten, aber
+        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen. Deine Bewertungen und Kommentare
+        bleiben erhalten, aber
         dein Nutzername und Kürzel werden entfernt. Stattdessen steht dort dann "deaktiviert".
       </div>
       <button appButton class="delete-account__btn" (click)="deleteAccount()">
