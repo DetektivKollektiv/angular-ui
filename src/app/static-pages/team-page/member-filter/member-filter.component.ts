@@ -9,7 +9,7 @@ import { TagService } from 'src/app/static-pages/team-page/team-page/tag.service
 export class MemberFilterComponent implements OnInit {
   
   @Input() TAG;
-  isCollapsed : boolean = false;  //umsetzen auf true!
+  isCollapsed : boolean = true;  
   tagColor = 'TAG.color';
   constructor(public tagService: TagService) {}
 

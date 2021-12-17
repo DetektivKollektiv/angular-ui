@@ -43,7 +43,6 @@ export class TeamMemberComponent implements OnInit, OnChanges {
       }
     }this.displayStatus=false;
   }
-
 }
 
 

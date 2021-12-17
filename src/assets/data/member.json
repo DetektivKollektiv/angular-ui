@@ -2,8 +2,8 @@
     {
         "image": "assets/images/team/Anne2.jpg",
         "name": "Anne",
-        "tags": [1, 2],
-        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitnvidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "tags": [],
+        "text": "",
         "linkL": null, 
         "linkM": "info@codetekt.org"
     },
@@ -16,7 +16,15 @@
         "linkM": "info@codetekt.org"
     },
     {   
-        "image": "assets/images/team/Daniel.jpg",
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Christian",
+        "tags": [2, 7],
+        "text": "Christian interessiert sich vor allem für die philosophische Grundfrage 'Was kann ich wissen?'. Wahrheit hat für Ihn einen daher hohen Stellenwert. Sie ist die Grundlage für relevante Entscheidungen und zukunfsorientiere Konzepte jeglicher Art. Er beschäftigt sich daher gerne mit Informationsflüssen jeglicher Art sei es zwischenmenschliche Kommunikation, Argumentation oder OSINT. Christian möchte optimale Entscheidungsgrundlagen generieren und möchte anderen dabei ebenfalls helfen. PS. Christian möchte immer gerne alle Informationen berücksichtigen, somit fällt es Ihm schwer sich kurz zu fassen",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Daniel2.jpg",
         "name": "Daniel",
         "tags": [2, 8],
         "text": "Bei codetekt engagiert sich Daniel ehrenamtlich im Bereich inhaltlicher Konzeption. Als Mitglied des Vorstands ist er Ansprechpartner für Personalthemen und die Strategie des Vereins. Was er besonders an coderekt schätzt ist die Community-basierte Herangehensweise, welche eine informierte und engagierte Gesellschaft als Teil der Lösung gegen Falschinformationen sieht.",
@@ -56,6 +64,14 @@
         "linkM": "henning@codetekt.org"
     },
     {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Johanna",
+        "tags": [7],
+        "text": "Beruflich wie ehrenamtlich ist Johanna im Bereich der Demokratiepädagogik zu Hause. Aufgrund der gesellschaftlichen Sprengkraft von Falschinformationen engangiert sie sich bei codetekt im Bereich Bildung. Ihr Ziel ist es, Verständnishürden bei Thema Falschinformation ab zu bauen, um so möglichst viele Menschen für das Thema zu sensibilisieren.",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
         "image": "assets/images/team/Kristin2.jpg",
         "name": "Kristin",
         "tags": [6, 8],
@@ -74,8 +90,8 @@
     {   
         "image": "assets/images/team/Nadine.jpg",
         "name": "Nadine",
-        "tags": [2],
-        "text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempolabore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "tags": [],
+        "text": "",
         "linkL": "https://www.linkedin.com/in/nadine-wegner-5b8b6a134/",
         "linkM": "info@codetekt.org"
     },
@@ -96,6 +112,14 @@
         "linkM": "patrick@codetekt.org"
     },
     {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Robin",
+        "tags": [],
+        "text": "",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
         "image": "assets/images/team/Sandro.jpg",
         "name": "Sandro",
         "tags": [1],
@@ -104,9 +128,17 @@
         "linkM": "sandro@codetekt.org"
     },
     {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Simon",
+        "tags": [],
+        "text": "",
+        "linkL": null,
+        "linkM": "info@codetekt.org"
+    },
+    {   
         "image": "assets/images/team/Sven.jpg",
         "name": "Sven",
-        "tags": [],
+        "tags": [5,7],
         "text": "Nachdem Sven früher selbst von Verschwörungstheorien fasziniert war hat er jedoch auch schnell die negativen Folgen von willentlich manipulierten gesellschaftlichen Diskursen feststellen müssen. Bei codetekt widmet er sich daher dem Bereich der Wissensvermittlung im Bereich OSINT und Gegenmaßnahmen zu Desinformation.",
         "linkL": null, 
         "linkM": "info@codetekt.org"
@@ -116,22 +148,6 @@
         "name": "Theda",
         "tags": [1, 5],
         "text": "Theda interessiert sich dafür, wie aus Daten Wissen wird und was Information von Desinformation unterscheidet. Bei Codetekt arbeitet sie im Backend-Bereich des Technik-Teams und unterstützt das Community Building.",
-        "linkL": null, 
-        "linkM": "info@codetekt.org"
-    },
-    {   
-        "image": "assets/images/team/DefaultImage.png",
-        "name": "Johanna",
-        "tags": [7],
-        "text": "Beruflich wie ehrenamtlich ist Johanna im Bereich der Demokratiepädagogik zu Hause. Aufgrund der gesellschaftlichen Sprengkraft von Falschinformationen engangiert sie sich bei codetekt im Bereich Bildung. Ihr Ziel ist es, Verständnishürden bei Thema Falschinformation ab zu bauen, um so möglichst viele Menschen für das Thema zu sensibilisieren.",
-        "linkL": null, 
-        "linkM": "info@codetekt.org"
-    },
-    {   
-        "image": "assets/images/team/DefaultImage.png",
-        "name": "Robin",
-        "tags": [],
-        "text": "Lorem ipsum dolor sit amet, consetetur sadipscinunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
         "linkL": null, 
         "linkM": "info@codetekt.org"
     }

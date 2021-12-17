@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { TeamPageComponent  } from './team-page/team-page.component';
 import { TeamMemberComponent  } from './team-member/team-member.component';
 import { MemberFilterComponent } from './member-filter/member-filter.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -13,13 +15,13 @@ import { MemberFilterComponent } from './member-filter/member-filter.component';
     ],
     exports: [
         TeamPageComponent,
-
     ],
     imports: [
       CommonModule,
-      MaterialModule
+      MaterialModule,
+      BreadcrumbModule,
+      RouterModule
     ]
   })
   export class TeamModule{
-
   }

@@ -2,21 +2,22 @@
     <div class="columns">
         <div class="column">
             <div>
-                <img *ngIf=MEM.image src="{{MEM.image}}"/>
+                <img *ngIf=MEM.image src="{{MEM.image}}" />
             </div>
             <div>
                 <h3>{{MEM.name}}</h3>
-                <div class="filter-tag">
-                   <!-- <mat-chip-list *ngIf=MEM.tags><mat-chip *ngFor=" let tag of MEM.tags" selected="true">{{tag.id}}</mat-chip></mat-chip-list> -->
-                    <mat-chip *ngFor=" let tag of allTags">{{tag.tagname}}</mat-chip>
-                </div>
+                <!--<div class="filtertag" --IST FÜR DIE FILTERUNG!!>
+                    <mat-chip-list>
+                        <mat-chip *ngFor=" let tag of allTags">{{tag.tagname}} </mat-chip>
+                    </mat-chip-list>
+                </div>-->
                 <p>{{MEM.text}}</p>
             </div>
-            <div class="button">
-                <a class="icon" *ngIf=MEM.linkL href="{{MEM.linkL}}" title="LinkedIn von {{MEM.name}}">
+            <div class="contact-button">
+                <a class="icon linkL" *ngIf=MEM.linkL href="{{MEM.linkL}}" title="LinkedIn von {{MEM.name}}">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a class="icon" *ngIf=MEM.linkM href="mailto:{{MEM.linkM}}" title="E-Mail senden an {{MEM.name}}">
+                <a class="icon linkM" *ngIf=MEM.linkM href="mailto:{{MEM.linkM}}" title="E-Mail senden an {{MEM.name}}">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>

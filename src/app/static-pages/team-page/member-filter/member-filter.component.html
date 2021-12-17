@@ -13,7 +13,7 @@
         </div>
         <div class="vl"></div>
         <div class="inactive">
-            <h4>Inaktive Filter</h4>
+            <h4 class="bold-weight">Inaktive Filter</h4>
             <div class="filter-tag">
                 <mat-chip-list>
                     <mat-chip *ngFor="let tag of tagService.unselected_tags" (click)="tagService.select_tag(tag)">{{tag.tagname}}</mat-chip>

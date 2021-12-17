@@ -13,31 +13,33 @@
 }
 .filter-content{
     background-color: #F8F8F8;
-    height: 153px;
+    height: 143px;
     position: relative;
     border-radius: 30px;
     padding: 0px 10px;
     max-width: 1200px;
     h4{
        color: #160637; 
+       margin: 25px 0px 11px 0px;
+       height: 18px;
     }
 }
 mat-chip {
-    background-color: green !important;
+    background-color: #7B00E5 !important;
     color: #ffffff !important;
+    height: 29px !important;
 }
 .active{
     width: 50%;
     //height: 103px;
     float: left;
-    //border: 1px solid grey;
+    padding: 0px 0px 0px 20px;
 }
 .inactive{
     width: 50%;
     //height: 103px;
     float: right;
     padding: 0px 0px 0px 20px;
-    //border: 1px solid grey;
 }
 .vl{
     height: auto;

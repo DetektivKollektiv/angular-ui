@@ -24,11 +24,15 @@ export class TagService {
     this.selected_tags.push(int);
     var index = this.unselected_tags.indexOf(int);
     this.unselected_tags.splice(index, 1);
+    console.log("unaus:", this.unselected_tags)
+    console.log("aus:", this.selected_tags)
   }
   unselect_tag(int){
-    this.selected_tags.push(int);
+    this.unselected_tags.push(int);
     var index = this.selected_tags.indexOf(int);
     this.selected_tags.splice(index, 1);
+    console.log("unaus:", this.unselected_tags)
+    console.log("aus:", this.selected_tags)
   }
  
 }
