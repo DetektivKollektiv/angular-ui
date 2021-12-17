@@ -8,6 +8,7 @@ import { ArchiveService } from '../../../archive/services/archive.service';
 })
 export class SolvedCasesComponent implements OnInit {
   @Input() expand = true;
+  @Input() style: 'dark' | 'light' = 'dark';
 
   closedItems$ = this.archiveService.getClosedItems();
   closedItemCount = 10;

@@ -1,10 +1,11 @@
 <ng-container *ngIf="closedItems$ | async as closedItems">
-  <div class="title">In gelösten Fällen stöbern</div>
+  <div [ngClass]="style === 'dark' ? 'title' : 'title-light'">In gelösten Fällen stöbern</div>
   <div class="container">
     <app-case-list-item
       class="case-item"
       *ngFor="let closedItem of closedItems | slice: 0:closedItemCount"
       [case]="closedItem"
+      [style]="style"
     ></app-case-list-item>
   </div>
   <ng-container *ngIf="closedItemCount <= closedItems.length">

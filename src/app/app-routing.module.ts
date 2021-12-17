@@ -26,12 +26,12 @@ import { IssuesComponent } from './issues/components/issues/issues.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layout.component';
-import { AboutComponent } from './about/about.component';
 import { FaqPageComponent } from './faq/components/faq-page/faq-page.component';
 import { MyProfileComponent } from './my-profile/components/my-profile/my-profile.component';
 import { ImprintComponent } from './core/components/imprint/imprint.component';
 import { PrivacyStatementComponent } from './core/components/privacy-statement/privacy-statement.component';
 import { LandingPageComponent } from './static-pages/landing-page/landing-page.component';
+import { AboutComponent } from './static-pages/about/about.component';
 
 const routes: Routes = [
   {
@@ -81,6 +81,10 @@ const routes: Routes = [
         path: 'privacy-statement',
         component: PrivacyStatementComponent
       },
+      {
+        path: 'about',
+        component: AboutComponent
+      },
       { path: '', component: LandingPageComponent },
       { path: 'terms', component: CommunityGuidelinesComponent }
     ]
@@ -111,7 +115,6 @@ const routes: Routes = [
     children: [{ path: '', component: ConfirmEmailPageComponent }]
   },
   { path: 'issues', component: IssuesComponent },
-  { path: 'about', component: AboutComponent },
   {
     path: '**',
     redirectTo: '',
