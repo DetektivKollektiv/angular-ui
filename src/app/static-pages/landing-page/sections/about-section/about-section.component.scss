@@ -18,6 +18,7 @@
   }
 
   .page-link-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,6 +32,24 @@
       @include fonts.font__effra--bold;
       font-size: 21px;
       text-align: center;
+    }
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: darken($color__tile-background, 5%);
+      transition: 0.5s ease;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        opacity: 70%;
+      }
     }
 
     &-purple {
