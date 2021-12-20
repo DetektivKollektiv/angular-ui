@@ -1,0 +1,40 @@
+<div class="authentication-form-container">
+  <div class="authentication-form" [formGroup]="form">
+    <h2>Detektiv*in werden</h2>
+
+    <mat-error *ngIf="invalid">
+      {{signUpError}}
+    </mat-error>
+    <mat-form-field class="full-width-input">
+      <input matInput placeholder="Benutzername" formControlName="username" required>
+      <mat-error>
+        Bitte gib hier deinen gewünschten Benutzernamen ein.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput placeholder="E-Mail" formControlName="email" required>
+      <mat-error>
+        Bitte gib hier deine E-Mail Adresse ein.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput type="password" placeholder="Passwort" formControlName="password" required>
+      <mat-error *ngIf="formControls.password.invalid">
+        {{getErrorMessage()}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width-input">
+      <input matInput type="password" placeholder="Passwort bestätigen" formControlName="confirmPassword" required>
+      <mat-error *ngIf="formControls.confirmPassword.errors?.mustMatch">
+        Die eingegebenen Passwörter stimmen nicht überein.
+      </mat-error>
+      <mat-error *ngIf="formControls.confirmPassword.errors?.required">
+        Bitte bestätige hier dein Passwort.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="authentication-form--actions-container">
+    <button  class="button button--neon-blue" (click)="signUp()">Detektiv*in werden</button>
+  </div>
+</div>

@@ -1,17 +1,22 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ImprintComponent } from './imprint.component';
+import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ImprintComponent', () => {
   let component: ImprintComponent;
   let fixture: ComponentFixture<ImprintComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ImprintComponent ]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ImprintComponent ],
+      imports: [
+        BreadcrumbModule,
+        RouterTestingModule.withRoutes([]),
+      ],
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ImprintComponent);

@@ -1,0 +1,77 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@import '../../../../../assets/scss/colors';
+@import '../../../../../assets/scss/variables';
+@import '../../landing-page.component.scss';
+
+.content {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and(min-width: $breakpoint-m) {
+    flex-direction: row;
+  }
+
+  .text {
+    @media screen and(min-width: $breakpoint-m) {
+      width: 580px;
+    }
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and(min-width: $breakpoint-m) {
+    width: 580px;
+  }
+
+  .solution-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+
+    p {
+      @include fonts.font__pt-mono--bold;
+      color: $color__mysterious-blue;
+      font-size: 21px;
+    }
+  }
+
+  .circle {
+    @include fonts.font__effra--bold;
+    border-radius: 50%;
+    color: $color__white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-green {
+      height: 60px;
+      width: 60px;
+      background-color: $color__rating-green;
+      font-size: 38px;
+    }
+    &-blue {
+      height: 90px;
+      width: 90px;
+      background-color: $color__neon-blue;
+      font-size: 68px;
+    }
+    &-yellow {
+      height: 60px;
+      width: 60px;
+      background-color: $color__rating-orange;
+      font-size: 40px;
+    }
+    &-red {
+      height: 84px;
+      width: 84px;
+      background-color: $color__bittersweet;
+      font-size: 46px;
+    }
+  }
+}

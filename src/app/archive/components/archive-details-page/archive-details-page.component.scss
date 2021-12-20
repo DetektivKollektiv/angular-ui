@@ -1,0 +1,306 @@
+@use '../../../../assets/scss/fonts' as fonts;
+@use '../../../../assets/scss/colors' as colors;
+// @import '../../../../assets/scss/_initializer.scss';
+
+:host {
+  width: 100%;
+
+  .strong {
+    @include fonts.font__effra--bold;
+  }
+}
+
+app-case-details {
+  max-width: 746px;
+}
+
+.archive-details-page {
+  margin: auto;
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 20px;
+
+    @media only screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      padding: 80px 20px 40px;
+    }
+  }
+
+  .flag {
+    cursor: pointer;
+    color: colors.$color__bittersweet;
+
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 20px;
+
+    .overview {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      flex-direction: row;
+      margin-top: 40px;
+
+      .overview {
+        width: 50%;
+      }
+    }
+  }
+
+  .facts {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 1024px) {
+      width: calc(50% + 40px);
+      margin-left: -40px;
+    }
+
+    &__bg {
+      position: absolute;
+      top: -20px;
+      bottom: 0;
+      left: -20px;
+      right: -20px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__content {
+      flex-grow: 1;
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    app-case-facts {
+      position: sticky;
+      top: 90px;
+      display: block;
+      margin-right: 20px;
+      margin-left: 40px;
+    }
+  }
+
+  .overview {
+    @media only screen and (min-width: 1024px) {
+      margin-top: 20px;
+    }
+
+    &__title {
+      margin: 20px 0;
+      font-weight: 700;
+      font-size: 24px;
+
+      @media only screen and (min-width: 480px) {
+        font-size: max(2vw, 36px);
+      }
+    }
+
+    &__archive-detail {
+      margin-top: 20px;
+    }
+
+    .date-info {
+      margin-top: 20px;
+
+      div ~ div {
+        margin-top: 8px;
+      }
+
+      &__duration {
+        font-size: 16px;
+      }
+
+      &__closing-date {
+        font-size: 18px;
+
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .tags {
+      margin-top: 40px;
+
+      &__title {
+        @include fonts.font__effra--medium;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      &__content {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    .detectives {
+      margin-top: 40px;
+
+      &__title {
+        margin-bottom: 20px;
+        font-size: 21px;
+        font-weight: bold;
+      }
+    }
+
+    .comments {
+      margin-top: 40px;
+
+      &__title {
+        @include fonts.font__effra--bold;
+        font-size: 21px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .processing {
+      margin-top: 40px;
+
+      &__body {
+        margin-top: 20px;
+      }
+    }
+
+    .discussion {
+      border-top: 4px dashed colors.$color__spacer;
+      padding-top: 40px;
+      margin-top: 40px;
+
+      .collapsible-toolbar {
+        margin-bottom: 20px;
+      }
+
+      &__body {
+        position: relative;
+      }
+
+      &__comments {
+        display: flex;
+        flex-direction: column;
+
+        &--loading {
+          opacity: 0.3;
+        }
+      }
+
+      &__more {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+
+        button {
+          padding: 5px 15px;
+          border-radius: 15px;
+          background-color: colors.$color__purple;
+          color: white;
+          border: none;
+          font-weight: bold;
+          border: 2px solid colors.$color__purple;
+          cursor: pointer;
+
+          &:hover {
+            background-color: white;
+            color: colors.$color__purple;
+            border: 2px solid colors.$color__purple;
+          }
+        }
+      }
+
+      &__spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      app-comment-input {
+        margin-top: 40px;
+
+        @media only screen and (min-width: 1024px) {
+          margin-bottom: 100px;
+        }
+      }
+    }
+  }
+
+  .collapsible-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 21px;
+
+    i {
+      margin-left: 4px;
+      font-size: 16px;
+    }
+
+    &__title,
+    &__toggle {
+      @include fonts.font__effra--bold;
+    }
+
+    &__toggle {
+      color: #aaa;
+      cursor: pointer;
+    }
+  }
+
+  .back-btn {
+    display: flex;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    position: relative;
+
+    &--responsive {
+      @media only screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+
+    i {
+      font-size: 42px;
+      color: colors.$color__bittersweet;
+      margin-right: 14px;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        @include fonts.font__pt-mono--bold;
+        font-size: 18px;
+
+        &.small {
+          @include fonts.font__effra;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

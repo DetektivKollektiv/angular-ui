@@ -1,19 +1,17 @@
 <div class="container">
   <div class="top-elements">
     <app-profile-picture [user]="user"></app-profile-picture>
-    <hr class="separator">
+    <hr class="separator" />
     <table class="user-info-table">
       <tr>
-        <td class="user-info-categories">
-          Name
-        </td>
+        <td class="user-info-categories">Name</td>
         <td class="user-info-values">
-          {{user?.name}}
+          {{ user?.name }}
         </td>
       </tr>
       <tr>
         <td class="user-info-categories">Level</td>
-        <td class="user-info-values">{{user?.level_description}}</td>
+        <td class="user-info-values">{{ user?.level_description }}</td>
       </tr>
       <tr>
         <td class="user-info-categories">Exp</td>
@@ -23,38 +21,31 @@
       </tr>
     </table>
     <div class="profile-button-container">
-
-      <button class="button-flat-profile" (click)="navigate('my-file')">
-        <p>
-          Meine Akte
-        </p>
-        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideFileBadge">folder_open
-        </mat-icon>
+      <button class="button-flat-profile" (click)="navigate('')">
+        <p>Meine Akte</p>
+        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideFileBadge">folder_open </mat-icon>
       </button>
       <button class="button-flat-profile" (click)="navigate('issues')">
-        <p>
-          Kontakt
-        </p>
-        <mat-icon>contact_support
-        </mat-icon>
+        <p>Kontakt</p>
+        <mat-icon>contact_support </mat-icon>
       </button>
       <button class="button-flat-profile" matTooltip="Hier gibt es bald ein spannendes neues Feature zu entdecken :)">
         <p>Benachrichtigungen</p>
-        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideMessageBadge">mail_outline
-        </mat-icon>
+        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideMessageBadge">mail_outline </mat-icon>
       </button>
-      <button class="button-flat-profile" matTooltip="Klicke hier, um unserer Signal-Gruppe beizutreten und dich mit anderen Detektiv*innen auszutauschen." (click)="openSignal()">
+      <button
+        class="button-flat-profile"
+        matTooltip="Klicke hier, um unserer Signal-Gruppe beizutreten und dich mit anderen Detektiv*innen auszutauschen."
+        (click)="openSignal()"
+      >
         <p>Community Chat</p>
-        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideMessageBadge">question_answer
-        </mat-icon>
+        <mat-icon matBadge="2" matBadgeColor="warn" [matBadgeHidden]="hideMessageBadge">question_answer </mat-icon>
       </button>
     </div>
   </div>
   <div class="profile-button-container">
     <button class="button-flat-profile" (click)="logout()">
-      <p>
-        Abmelden
-      </p>
+      <p>Abmelden</p>
       <mat-icon class="profile-button-icons">input</mat-icon>
     </button>
   </div>

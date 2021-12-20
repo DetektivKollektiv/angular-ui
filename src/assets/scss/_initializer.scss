@@ -1,0 +1,55 @@
+@charset "utf-8";
+@import './../../../node_modules/@nirbos/bellerophon/_b.scss';
+@import './_reset.scss';
+// @import "./_icons.scss";
+@import url('https://codetekt-fontawesome.s3.eu-central-1.amazonaws.com/css/all.css');
+
+//Media Queries are not affected by the :root font-size-setting.
+$_b__settings-default: (
+  'em-browser-context': 16px,
+  'rem-browser-context': 16px,
+  'breakpoints': (
+    'print': 'print',
+    'small': 'screen and (max-width: #{_b__rem(479px)})',
+    'medium': 'screen and (min-width: #{_b__rem(480px)}) and (max-width: #{_b__rem(1023px)})',
+    'large': 'screen and (min-width: #{_b__rem(1024px)}) and (max-width: #{_b__rem(1239px)})',
+    'extralarge': 'screen and (min-width: #{_b__rem(1240px)})',
+    'min-medium': 'screen and (min-width: #{_b__rem(480px)})',
+    'min-large': 'screen and (min-width: #{_b__rem(1024px)})',
+    'max-medium': 'screen and (max-width: #{_b__rem(1023px)})',
+    'max-large': 'screen and (max-width: #{_b__rem(1239px)})',
+    'between-large-and-extralarge': 'screen and (min-width: #{_b__rem(1024px)}) and (max-width: #{_b__rem(1239px)})'
+  )
+);
+
+@import '_colors.scss';
+@import '_fonts.scss';
+@import '_mixins.scss';
+@import '_functions.scss';
+
+.standard-content-container-width {
+  // padding: 10px;
+  // width: calc(100% - 20px);
+  @media only screen and (min-width: 480px) {
+  }
+
+  @media only screen and (min-width: 1024px) {
+    width: 800px;
+    padding: 0;
+  }
+
+  // this number 1350  i just made up randomly
+  @media only screen and (min-width: 1350px) {
+    width: 1240px;
+  }
+}
+
+.normal-width-page-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-width-input {
+  width: 100;
+}

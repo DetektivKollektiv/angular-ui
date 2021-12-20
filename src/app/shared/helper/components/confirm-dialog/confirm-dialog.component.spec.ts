@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MaterialModule } from 'src/app/shared/material/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 
 import { ConfirmDialogComponent } from './confirm-dialog.component';
 
@@ -14,8 +14,8 @@ describe('ConfirmDialogComponent', () => {
       imports: [MaterialModule],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} },
-      ],
+        { provide: MatDialogRef, useValue: {} }
+      ]
     }).compileComponents();
   });
 

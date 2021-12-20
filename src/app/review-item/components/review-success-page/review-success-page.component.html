@@ -1,0 +1,67 @@
+<div class="glimmer">
+  <img src="assets/images/glimmer_and_stars.svg" />
+  <img src="assets/images/glimmer_and_stars.svg" />
+</div>
+
+<div class="review-success-page standard-content-container-width">
+  <section class="top">
+    <div class="overview">
+      <app-case-details [case]="case" [showDescription]="false">
+        <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+      </app-case-details>
+
+      <!-- no questions defined -->
+      <!-- <app-question-carousel [questions]="[]"> </app-question-carousel> -->
+
+      <div class="overview__content">
+        <div class="overview__left">
+          <app-icon-with-content color="bittersweet" icon="heart">
+            <span appIconWithContentHeader>Vielen Dank für's Lösen!</span>
+            <span>
+              Vielen Dank für das Lösen dieses Falls. Mit jedem Fall, den du bearbeitest trägst du dazu bei die
+              Verbreitung von Desinformation weiter einzudämmen! Mach doch gleich mit dem nächsten Fall weiter oder lass
+              deine Freunde auf Social Media wissen, dass du auf codetekt aktiv bist.
+            </span>
+          </app-icon-with-content>
+          <!-- <app-icon-with-content color="purple" icon="envelope-open-text">
+            <span appIconWithContentHeader>Wir informieren dich.</span>
+            <span> Wir melden uns per E-Mail, wenn es Neuigkeiten zu deinem Fall gibt. </span>
+          </app-icon-with-content> -->
+        </div>
+        <div class="overview__right xp" *ngIf="user$ | async as user">
+          <div class="xp__hero">
+            <img src="assets/images/illustrations/undraw_superhero_kguv.svg" />
+            <div class="xp__status">
+              <div class="xp__circle">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="xp__content">
+                <h3>Du hast Erfahrungspunkte erhalten!</h3>
+                <p>
+                  Mit dem Lösen dieses Falls hast du 100 Erfahrungspunkte erhalten. Dir fehlen noch {{ user.exp_needed *
+                  100 }}XP, dann
+                  steigst du ein weiteres Level auf.
+                </p>
+                <h4>Erfahrungspunkte erhalten</h4>
+                <div class="xp__bar">
+                  <div class="xp__bar-fill" [style.width]="user.progress + '%'"></div>
+                </div>
+                <div class="xp__score">
+                  <i class="fas fa-stars"></i>
+                  <span>{{ user.experience_points * 100 }} / {{ (user.experience_points + user.exp_needed) * 100 }} XP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="open-cases-swiper">
+    <app-open-case-list-slider></app-open-case-list-slider>
+  </section>
+  <section class="bottom">
+    <app-share></app-share>
+    <app-solved-cases></app-solved-cases>
+  </section>
+</div>

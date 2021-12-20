@@ -1,0 +1,49 @@
+@use '../../../../assets/scss/colors' as colors;
+
+:host {
+  margin-top: 40px;
+
+  &.solved-cases--invert {
+    .title {
+      color: colors.$color__white;
+    }
+
+    app-case-list-item ::ng-deep {
+      h2,
+      .item__info {
+        color: colors.$color__white;
+      }
+    }
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+
+    &-light {
+      @extend .title;
+      color: colors.$color__white;
+    }
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    @media only screen and (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .case-item {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  .btn {
+    margin: 20px auto 0;
+  }
+}

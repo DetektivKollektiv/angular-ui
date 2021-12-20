@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { API } from 'aws-amplify';
-import { Factcheck } from '../../model/factcheck';
+import { Factcheck } from '../../../model/factcheck';
 
 @Injectable({
   providedIn: 'root',

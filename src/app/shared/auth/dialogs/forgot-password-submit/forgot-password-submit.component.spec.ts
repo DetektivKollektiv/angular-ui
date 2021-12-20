@@ -22,7 +22,7 @@ describe('ForgotPasswordSubmitComponent', () => {
         {
           provide: MAT_DIALOG_DATA, useValue: {
             details: {
-              DeliveryMedium: 'SMS'
+              DeliveryMedium: 'SMS' //eslint-disable-line
             }
           }
         }

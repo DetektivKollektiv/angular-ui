@@ -1,0 +1,339 @@
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
+
+:host {
+  width: 100%;
+}
+
+.standard-content-container-width {
+  @media only screen and (min-width: 1024px) {
+    min-width: 1024px;
+  }
+}
+
+.profile-page {
+  margin: auto;
+
+  section {
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .overview {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      &__user {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .avatar {
+          font-size: 32px;
+          width: 48px;
+          height: 48px;
+          background-color: colors.$color__purple;
+
+          @media only screen and (min-width: 480px) {
+            font-size: 45px;
+
+            width: 72px;
+            height: 72px;
+          }
+        }
+      }
+
+      &__user-name {
+        @include fonts.font__effra--bold;
+        font-size: 48px;
+
+        @media only screen and (min-width: 480px) {
+          font-size: 68px;
+        }
+      }
+
+      &__intro {
+        font-size: 18px;
+
+        @media only screen and (min-width: 768px) {
+          max-width: 600px;
+        }
+      }
+    }
+  }
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    gap: 40px;
+
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    h2 {
+      @include fonts.font__effra--bold;
+      font-size: 26px;
+
+      @media only screen and (min-width: 480px) {
+        font-size: 28px;
+      }
+    }
+
+    &__stats {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-basis: 100%;
+
+      img {
+        margin-top: 30px;
+        height: 280px;
+        max-width: 80vw;
+      }
+    }
+
+    &__stats-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-wrap: wrap;
+      background-color: colors.$color__case-card;
+      padding: 30px;
+      border-radius: 25px;
+      margin: 0 20px;
+
+      @media only screen and (min-width: 480px) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      @media only screen and (min-width: 768px) {
+        margin: 0;
+      }
+    }
+
+    &__stats-entry {
+      display: flex;
+      align-items: center;
+      @include fonts.font__effra--regular;
+      font-size: 18px;
+      flex-basis: 45%;
+      margin-left: 40px;
+
+      .count {
+        @include fonts.font__pt-mono--bold;
+        font-size: 32px;
+        margin-right: 12px;
+      }
+
+      @media only screen and (min-width: 480px) {
+        margin-left: 0;
+      }
+    }
+
+    &__xp {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &__xp-progress {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+
+      app-user-xp-bar {
+        display: flex;
+        align-items: flex-end;
+        height: 12px;
+      }
+    }
+
+    &__xp-level {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 14px;
+      flex-basis: 40px;
+
+      span {
+        font-size: 14px;
+      }
+
+      .level {
+        @include fonts.font__pt-mono--bold;
+      }
+    }
+
+    &__cases {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-basis: 100%;
+    }
+
+    &__cases-intro,
+    &__cases-none {
+      font-size: 18px;
+    }
+
+    &__cases-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__case-pagination {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .open-cases {
+    padding: 0;
+  }
+
+  .solved-cases {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    margin-top: 60px;
+    width: 100vw;
+    position: relative;
+
+    app-solved-cases {
+      padding: 40px 0;
+
+      @media only screen and (min-width: 1024px) {
+        width: 800px;
+      }
+    }
+
+    &__bg {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 80px;
+
+    h2 {
+      @include fonts.font__effra--bold;
+      font-size: 36px;
+    }
+
+    &__intro {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+      max-width: 500px;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__info-title {
+      @include fonts.font__pt-mono--bold;
+      font-size: 16px;
+    }
+
+    &__info-data {
+      font-size: 16px;
+      margin-bottom: 30px;
+
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .delete-account {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100vw;
+    position: relative;
+
+    h2 {
+      margin-bottom: 20px;
+      @include fonts.font__effra--bold;
+      font-size: 36px;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 40px auto 0;
+      padding: 40px 0;
+    }
+
+    &__bg {
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__intro {
+      margin-bottom: 30px;
+      font-size: 18px;
+      max-width: 660px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    &__btn {
+      background-color: black;
+      color: white;
+      border: 2px solid black;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+
+      span {
+        margin-right: 10px;
+      }
+    }
+
+    &__image {
+      display: none;
+      position: absolute;
+      right: -20px;
+      width: 300px;
+
+      @media only screen and (min-width: 1024px) {
+        display: block;
+      }
+
+      @media only screen and (min-width: 1350px) {
+        right: 80px;
+      }
+    }
+  }
+}

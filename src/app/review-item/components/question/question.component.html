@@ -1,22 +1,83 @@
-<h4>{{question.content}}
-  <span *ngIf="question.hint">
-    <mat-icon [matTooltip]="question.hint" matTooltipPosition="above"> help
-    </mat-icon>
-  </span>
-  <span *ngIf="question.info">
-    <mat-icon [matTooltip]="question.info" matTooltipPosition="above"> info
-    </mat-icon>
-  </span>
-</h4>
+<div
+  class="question"
+  [class.no-border]="isChild"
+  [class.error-border]="questionFormControl.invalid && questionFormControl.touched"
+  [attr.id]="question.question_id"
+>
+  <div class="question__error" *ngIf="questionFormControl.invalid && questionFormControl.touched">
+    Du hast diese Frage noch nicht beantwortet.
+  </div>
+  <div class="question__title">
+    {{ title }}
+  </div>
+  <div class="question__content">{{ question.content }}</div>
 
-<mat-radio-group [(ngModel)]="question.answer_value" (change)="change()">
-  <mat-radio-button *ngFor="let option of question.options" [value]="option.value" [checked]="false"
-    [class.not-last-item]="option.value > 0" [class.last-item]="option.value == 0">
-    <div class="option">
-      <span>{{option.text}}</span>
-      <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above">
-        help
-      </mat-icon>
+  <div class="question__hint-container">
+    <div class="question__hint-icon"><i class="far fa-clipboard-check"></i></div>
+    <div class="question__hint">{{ question.hint }}</div>
+  </div>
+
+  <div class="question__hint-container">
+    <div class="question__hint-icon"><i class="far fa-info-circle"></i></div>
+    <div class="question__hint">{{ question.info }}</div>
+  </div>
+
+  <ng-container *ngIf="displayOnly; else review">
+    <mat-radio-group class="option-container readonly">
+      <mat-radio-button
+        [disabled]="true"
+        *ngFor="let option of question.options | sort: 'value':'desc'"
+        [value]="option.value"
+        [checked]="(option.value | questionContributors: question.question_id:questions).length > 0"
+      >
+        <div class="option">
+          {{ option.text }}
+          <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above"> help </mat-icon>
+          <div class="option__info" *ngIf="(option.value | questionContributors: question.question_id:questions).length">
+            <span class="option__percentage"
+              ><i class="fas fa-user-cowboy"></i>~{{ option.value | answerPercentage: question.question_id:questions }}%</span
+            >
+            <div class="option__contributors">
+              <div
+                class="avatar"
+                [style.background-color]="contributor.color"
+                *ngFor="let contributor of option.value | questionContributors: question.question_id:questions; let i = index"
+              >
+                {{ !contributor?.username ? '?' : contributor.username[0] }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-radio-button>
+    </mat-radio-group>
+  </ng-container>
+
+  <div class="child-question" *ngIf="isShowChild">
+    <div class="child-question__content" *ngFor="let childQuestion of visibleChildQuestions; let i = index">
+      <app-question
+        [question]="childQuestion"
+        [questions]="questions"
+        [isChild]="true"
+        [parentIndex]="index"
+        [index]="i"
+        [displayOnly]="displayOnly"
+        [parentFormGroup]="parentFormGroup"
+      ></app-question>
     </div>
-  </mat-radio-button>
-</mat-radio-group>
+  </div>
+</div>
+
+<ng-template #review>
+  <mat-radio-group [formControl]="questionFormControl" class="option-container">
+    <mat-radio-button
+      *ngFor="let option of question.options | sort: 'value':'desc'"
+      [value]="option.value"
+      [class.last-item]="option.value === 0"
+    >
+      <div class="option">
+        {{ option.text }}
+        <mat-icon matLine *ngIf="option.tooltip" [matTooltip]="option.tooltip" matTooltipPosition="above"> help </mat-icon>
+      </div>
+    </mat-radio-button>
+  </mat-radio-group>
+</ng-template>
