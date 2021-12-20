@@ -19,7 +19,7 @@
     padding: 0 20px;
   }
 
-  .top {
+  .top-section {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -42,7 +42,6 @@
 
           @media only screen and (min-width: 480px) {
             font-size: 45px;
-
             width: 72px;
             height: 72px;
           }
@@ -54,7 +53,7 @@
         font-size: 48px;
 
         @media only screen and (min-width: 480px) {
-          font-size: 68px;
+          font-size: 52px;
         }
       }
 
@@ -63,6 +62,14 @@
 
         @media only screen and (min-width: 768px) {
           max-width: 600px;
+        }
+        @media only screen and (min-width: 1024px) {
+          max-width: 800px;
+          // margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
+        }
+        @media only screen and (min-width: 1350px) {
+          max-width: 1000px;
+          // margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
         }
       }
     }
@@ -234,17 +241,20 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 80px;
+    margin-top: 40px;
 
     h2 {
       @include fonts.font__effra--bold;
       font-size: 36px;
+      @media only screen and (max-width: 480px) {
+        font-size: 24px;
+      }
     }
 
     &__intro {
+      padding: 10px 0px 10px 0px;
       text-align: center;
       font-size: 18px;
-      margin-bottom: 20px;
       max-width: 500px;
     }
 
@@ -262,7 +272,7 @@
 
     &__info-data {
       font-size: 16px;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
 
       span {
         margin-right: 10px;
@@ -271,7 +281,7 @@
   }
 
   .delete-account {
-    padding-top: 40px;
+    padding-top: 10px;
     padding-bottom: 40px;
     width: 100vw;
     position: relative;
@@ -280,6 +290,9 @@
       margin-bottom: 20px;
       @include fonts.font__effra--bold;
       font-size: 36px;
+      @media only screen and (max-width: 480px) {
+        font-size: 24px;
+      }
     }
 
     &__wrapper {
@@ -304,16 +317,26 @@
       max-width: 660px;
       text-align: center;
       z-index: 1;
+      .hint-italic {
+        @include fonts.font__effra--italic;
+        font-size: 18px;
+      }
+      @media only screen and (min-width: 768px) {
+        max-width: 600px;
+      }
+      @media only screen and (min-width: 1024px) {
+        max-width: 800px;
+      }      
     }
 
     &__btn {
-      background-color: black;
-      color: white;
-      border: 2px solid black;
+      background-color: colors.$color__black;
+      color: colors.$color__white;
+      border: 2px solid colors.$color__black;
 
       &:hover {
-        background-color: white;
-        color: black;
+        background-color: colors.$color__white;
+        color: colors.$color__black;
       }
 
       span {
@@ -330,7 +353,6 @@
       @media only screen and (min-width: 1024px) {
         display: block;
       }
-
       @media only screen and (min-width: 1350px) {
         right: 80px;
       }

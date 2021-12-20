@@ -106,11 +106,11 @@
   "reviewResult": {
     "details": {
       "first": "Unsere erfahreneren Detektive werden deine Ergebnisse nun überprüfen.",
-      "second": "Sobald der Peer Review Prozess abgeschlossen ist erhältst du deine Erfahrungspunkte."
+      "second": "Sobald der Peer Review Prozess abgeschlossen ist, erhältst du deine Erfahrungspunkte."
     },
     "nextCase": "Nächsten Fall lösen",
     "title": "Danke für deine Arbeit."
   },
-  "article": "Link zu Artikel",
+  "article": "Link zu einem Internet-Artikel",
   "claim": "Textnachricht / Aussage"
 }

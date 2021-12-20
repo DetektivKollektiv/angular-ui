@@ -14,51 +14,64 @@
       .section-of-questions {
         margin: auto;
         @media only screen and (min-width: 1024px) {
-          margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+          margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space
         }
 
         @media only screen and (min-width: 1350px) {
-          margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+          margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space
         }
       }
 
       .submit-success-description-section {
         display: flex;
         margin-top: 50px;
+        justify-content: space-between;
 
+        &__left {
+          width: 50%;
+        }
+        
         @media only screen and (max-width: 1349px) {
           flex-direction: column;
 
-          &__right {
-            order: 1;
-            margin-bottom: 40px;
-          }
-
           &__left {
-            order: 2;
+            width: 100%,
           }
         }
 
         &__right {
-          display: flex;
-          justify-content: center;
+          position: relative;
+          width: 50%;
 
-          img {
-            width: 80%;
+          .img-container {
+            position: absolute;
+            display: none;
 
-            @media only screen and (min-width: 480px) {
-              width: 350px;
+            right: 65px;
+            bottom: 5px;
+            z-index: 5;
+
+            @media only screen and (min-width: 1350px) {
+              display: block;
             }
 
-            @media only screen and (min-width: 1024px) {
-              margin-left: 100px;
-              width: 500px;
+            img {
+              width: 80%;
+
+              @media only screen and (min-width: 480px) {
+                width: 350px;
+              }
+
+              @media only screen and (min-width: 1024px) {
+                margin-left: 100px;
+                width: 500px;
+              }
             }
           }
         }
 
         p {
-          font-size: 18px;
+          font-size: 16px;
           line-height: 1.44;
           letter-spacing: normal;
           text-align: left;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Item } from '../../../model/item';
@@ -8,14 +8,17 @@ import { SubmitFormData } from '../../model/submit-form-data.interface';
 import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { SubmitItemService } from '../../services/submit-item.service';
 import { QuestionPrompt } from './../../model/question-prompt.interface';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-submit-page',
   templateUrl: './submit-page.component.html',
   styleUrls: ['./submit-page.component.scss'],
-  providers: []
+  providers: [],
+  encapsulation: ViewEncapsulation.None
 })
 export class SubmitPageComponent {
+
   itemTypes$ = this.itemTypesService.getItemTypes();
 
   itemSources: string[] = Object.values(ItemSources);
@@ -23,13 +26,15 @@ export class SubmitPageComponent {
   questionPrompts: QuestionPrompt[] = [
     {
       title: 'Was kann ich als Fall einreichen?',
-      description: 'Du kann sowohl Online-Zeitungsartikel als auch textbasierte (Kurz-) Nachrichten wie WhatsApp-Nachrichten einreichen.',
+      description: 'Du kannst Links zu Online-Artikeln, aber auch Text-Nachrichten aus Sozialen Medien ' +
+      'oder einem Messenger einreichen.',
       background: 'color__bittersweet',
       icon: 'fal fa-question-circle'
     },
     {
       title: 'Wie reiche ich einen Fall ein?',
-      description: 'Fülle einfach das Formular auf dieser Seite aus und klicke unten auf "Fall einreichen".',
+      description: 'Fülle das Formular auf dieser Seite aus. Bei Interesse kannst Du optionale Angaben machen. ' +
+      'Klicke am Ende auf "Fall einreichen".',
       background: 'color__neon-blue',
       icon: 'fal fa-plus'
     },

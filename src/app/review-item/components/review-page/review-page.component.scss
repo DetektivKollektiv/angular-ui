@@ -36,6 +36,10 @@ app-case-details {
   .explain {
     @include fonts.font__effra--regular;
     font-size: 18px;
+    .hint-italic {
+      @include fonts.font__effra--italic;
+      font-size: 18px;
+    }
   }
 
   .top {

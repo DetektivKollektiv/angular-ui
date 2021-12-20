@@ -7,10 +7,10 @@ export class ItemTypePipe implements PipeTransform {
   transform(id: string): string {
     switch (id) {
       case '1':
-        return 'Link zu einem Artikel';
+        return 'Link zu einem Internet-Artikel';
       case '2':
       default:
-        return 'Textnachricht / Aussage';
+        return 'Textnachricht oder Aussage';
     }
   }
 }

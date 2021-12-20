@@ -57,21 +57,21 @@ export class ArchiveDetailsPageComponent implements OnInit {
     {
       title: 'Was bedeutet das Ergebnis?',
       description:
-        'Der Score dient als grobe Orientierung. Vertraue diesem nicht blind, sondern befasse dich am besten selbst mit Fall.',
+        'Der Score dient als grobe Orientierung. Vertraue diesem nicht blind, sondern befasse dich am besten selbst mit dem Fall.',
       background: 'color__neon-blue',
       icon: 'fal fa-chart-bar'
     },
     {
       title: 'Was bedeuten die Tags?',
       description:
-        'Die Tags dienen dazu, einen Fall zu kategorisieren und so über die Suche leichter auffindbar zu machen.',
+        'Die Tags dienen dazu, einen Fall zu kategorisieren, damit er über die Suche leichter gefunden werden kann.',
       background: 'color__bittersweet',
       icon: 'fal fa-tags'
     },
     {
       title: 'Kann ich kommentieren?',
       description:
-        'Ja, unter "Communitydiskussion" können alle eingeloggten User den Fall kommentieren.',
+        'Ja, unter "Communitydiskussion" können alle angemeldeten User den Fall kommentieren.',
       background: 'color__purple',
       icon: 'fal fa-comments'
     }

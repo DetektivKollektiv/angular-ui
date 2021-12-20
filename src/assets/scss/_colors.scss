@@ -8,8 +8,13 @@ $color__supernova: #fac800;
 $color__mysterious-blue: #160637;
 
 $color__white: #ffffff;
+$color__grey: #808080;
+$color__black: #000000;
 $color__purple: #722ed1;
+$color__purple_gradient: #53407b;
 
+$color__page-content-background: #fbfbfb;
+$color__pagination-background: #dddddd;
 $color__tile-background: #f8f8f8;
 $color__tag-background: #efefef;
 $color__spacer: #cecece;
@@ -31,10 +36,15 @@ $color__select-border: #dcd4d4;
 $color__share-section-heading: #4a4a4a;
 
 $color__case-card: #f1f1f1;
+$color__scrollbar-thumb-background: #888888;
+$color__scrollbar-thumb-background-hover: #555555;
 
 $color__warn: #f44336;
 
 $color__shadow: rgba(22, 6, 55, 0.15);
+
+$color__select-panel-option-selected: rgba(7, 4, 4, 0.87);
+
 $color__link: $color__bittersweet;
 
 $color__header-background: $color__white;
