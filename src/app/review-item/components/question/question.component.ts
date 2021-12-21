@@ -79,6 +79,9 @@ export class QuestionComponent implements OnInit, OnDestroy {
   }
 
   private removeFormControl(question: ItemReviewQuestion) {
+    if (!this.parentFormGroup?.get(question.question_id)) {
+      return;
+    }
     question.answer_value = null;
     this.parentFormGroup.removeControl(question.question_id);
   }
