@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { Question } from '../../model/question';
 import { Review } from '../../model/review';
@@ -8,7 +14,7 @@ import { TagsQuestionComponent } from '../tags-question/tags-question.component'
 @Component({
   selector: 'app-review-process',
   templateUrl: './review-process.component.html',
-  styleUrls: ['./review-process.component.scss']
+  styleUrls: ['./review-process.component.scss'],
 })
 export class ReviewProcessComponent {
   @Input() public review: Review;
@@ -26,7 +32,9 @@ export class ReviewProcessComponent {
   }
 
   public getChildQuestions(parent_question_id: string): Question[] {
-    return this.review.questions.filter((q) => q.parent_question_id === parent_question_id);
+    return this.review.questions.filter(
+      (q) => q.parent_question_id === parent_question_id
+    );
   }
 
   public updateReview() {
@@ -36,7 +44,7 @@ export class ReviewProcessComponent {
   }
 
   public finishReview() {
-    // this.tagsComponent.submitTags();
+    this.tagsComponent.submitTags();
     this.reviewFinish.emit();
   }
 }

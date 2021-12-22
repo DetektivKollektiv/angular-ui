@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { API } from 'aws-amplify';
-import { ItemType } from '../../../model/item-type';
+import { ItemType } from '../../model/item-type';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { ItemType } from '../../../model/item-type';
 export class ItemTypesService {
   itemTypesUrl = '/itemTypes';
 
-  constructor() {}
+  constructor() { }
 
   public getItemTypes(): Promise<ItemType[]> {
     return API.get('submission_service', this.itemTypesUrl, {})

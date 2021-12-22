@@ -1,29 +1,4 @@
-@use '../../../../assets/scss/fonts' as fonts;
 @import '../../../../theme.scss';
-
-.page-container-column {
-  .top-section {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-
-    @media only screen and (min-width: 480px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    div {
-      flex: 50%;
-    }
-
-    .overview-section {
-      h1 > span {
-        font-size: 52px;
-        font-weight: bold;
-      }
-    }
-  }
-}
 
 mat-radio-group {
   display: flex;
@@ -39,8 +14,8 @@ mat-radio-button {
 }
 
 mat-panel-title {
-  @include fonts.font__effra--medium;
-  color: #4a4a4a;
+  font-family: Effra medium, sans-serif;
+  color: #4A4A4A;
 }
 
 mat-panel-title:hover {

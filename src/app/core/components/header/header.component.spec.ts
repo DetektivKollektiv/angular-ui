@@ -4,8 +4,8 @@ import {HeaderComponent} from './header.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TranslateModule} from '@ngx-translate/core';
 import {MockAuthService} from '../../../../test/mocks/mock-auth.service';
-import {AuthService} from '@shared/auth/auth-service/auth.service';
-import {MaterialModule} from '@shared/material/material.module';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
+import {MaterialModule} from '../../../shared/material/material.module';
 import {UserService} from '../../services/user/user.service';
 import {MockUserService} from '../../../../test/mocks/mock-user.service';
 

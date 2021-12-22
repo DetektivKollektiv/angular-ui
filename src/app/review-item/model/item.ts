@@ -10,6 +10,9 @@ export interface Item {
   open_reviews: number;
   locked_by_user: string;
   lock_timestamp: string;
-  tags?: string[];
-  urls?: string[];
+}
+
+export interface GetItemResponse {
+  is_open_review: boolean;
+  items: Item[];
 }

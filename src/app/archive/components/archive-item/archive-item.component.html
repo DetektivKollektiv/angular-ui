@@ -1,0 +1,37 @@
+<mat-card class="mat-elevation-z8">
+  <mat-card-title>Fall {{ index }} von
+    {{ length }}</mat-card-title>
+  <mat-card-content>
+    <h3>Inhalt</h3>
+    <p>{{ item.content }}</p>
+    <h3>Vertrauensindex</h3>
+    <p matLine>
+      <app-result-score [score]="item.result_score">
+      </app-result-score>
+    </p>
+    <table>
+      <tr>
+        <th>
+          <h3>Eingereicht am:</h3>
+        </th>
+        <th>
+          <h3>Gelöst am:</h3>
+        </th>
+      </tr>
+      <tr>
+        <td>{{ item.open_timestamp | date: "dd.MM.yyyy" }}</td>
+        <td>{{ item.close_timestamp | date: "dd.MM.yyyy" }}</td>
+      </tr>
+    </table>
+    <br />
+
+    <div class="tags" *ngIf="item.tags.length > 0">
+      <h3>Tags:</h3>
+      <mat-chip-list>
+        <mat-chip *ngFor="let tag of item.tags">
+          {{ tag }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-content>
+</mat-card>

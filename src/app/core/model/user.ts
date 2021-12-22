@@ -1,5 +1,3 @@
-import { Item } from '../../model/item';
-
 export interface User {
   id: string;
   name: string;
@@ -14,5 +12,4 @@ export interface User {
   solved_cases_today: number;
   exp_needed: number;
   sign_up_timestamp: string;
-  closed_items: Item[];
 }

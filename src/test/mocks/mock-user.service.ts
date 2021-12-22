@@ -3,10 +3,10 @@ import { of } from 'rxjs';
 import { User } from '../../app/core/model/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MockUserService {
-  readonly user$ = of({ level: 3, name: 'testuser', closed_items: [] } as User);
+  readonly user$ = of({level: 3, name:'testuser'} as User);
 
   constructor() {}
 

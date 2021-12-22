@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResultScoreComponent } from './result-score.component';
 import { expect, test } from '@jest/globals';
-import { MaterialModule } from '@shared/material/material.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 import { ResultScoreMode } from './result-score-mode';
 
 describe('ResultScoreComponent', () => {
@@ -13,7 +13,7 @@ describe('ResultScoreComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ResultScoreComponent],
-      imports: [MaterialModule]
+      imports: [MaterialModule],
     }).compileComponents();
   });
 
@@ -41,14 +41,19 @@ describe('ResultScoreComponent', () => {
     [3.39, 'eher vertrauenswürdig', 'rating-3'],
     [3.4, 'eher vertrauenswürdig', 'rating-3'],
     [3.5, 'vertrauenswürdig', 'rating-4'],
-    [4, 'vertrauenswürdig', 'rating-4']
-  ])('%#: %d should have text %s and class %s', (score: number, title: string, cssClass: string) => {
-    component.score = score;
-    component.mode = ResultScoreMode.bar;
-    fixture.detectChanges();
+    [4, 'vertrauenswürdig', 'rating-4'],
+  ])(
+    '%#: %d should have text %s and class %s',
+    (score: number, title: string, cssClass: string) => {
+      component.score = score;
+      component.mode = ResultScoreMode.bar;
+      fixture.detectChanges();
 
-    expect(element.querySelector('.fill').classList.contains(cssClass)).toBe(true);
+      expect(element.querySelector('.fill').classList.contains(cssClass)).toBe(
+        true
+      );
 
-    expect(component.title).toEqual(title);
-  });
+      expect(component.title).toEqual(title);
+    }
+  );
 });

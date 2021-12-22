@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Issue } from '../../model/issue';
-import { LoaderService } from '@shared/loader/service/loader.service';
+import { LoaderService } from '../../../shared/loader/service/loader.service';
 import { IssueService } from '../../services/issue.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Logger } from 'aws-amplify';
@@ -64,7 +64,7 @@ export class IssuesComponent implements OnInit {
     this.loaderService.show();
     this.issueService
       .submitIssue(issue)
-      .subscribe((_) => {
+      .then((_) => {
         this.submitted = true;
         this.navigate('/');
         this.snackBar.open(
@@ -74,7 +74,8 @@ export class IssuesComponent implements OnInit {
             duration: 3000,
           }
         );
-      }, (_) => {
+      })
+      .catch((_) => {
         this.snackBar.open(
           'Deine Nachricht konnte nicht versendet werden. Versuch es später nochmal.',
           'Ok',
@@ -82,7 +83,8 @@ export class IssuesComponent implements OnInit {
             duration: 3000,
           }
         );
-      }, () => this.loaderService.hide());
+      })
+      .finally(() => this.loaderService.hide());
   }
   navigate(url: string) {
     this.router.navigateByUrl(url).then().catch();

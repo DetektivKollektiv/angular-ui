@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import {FormControl} from '@angular/forms';
-import {AuthService} from '@shared/auth/auth-service/auth.service';
+import {AuthService} from '../../../shared/auth/auth-service/auth.service';
 import {UserService} from '../../services/user/user.service';
 import {UserDeleteReason} from '../../model/user-delete-reason';
 

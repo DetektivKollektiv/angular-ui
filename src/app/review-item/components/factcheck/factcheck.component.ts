@@ -6,7 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
-import { Factcheck } from '../../../model/factcheck';
+import { Factcheck } from '../../model/factcheck';
 import { FactCheckService } from '../../services/factchecks/fact-check.service';
 
 @Component({

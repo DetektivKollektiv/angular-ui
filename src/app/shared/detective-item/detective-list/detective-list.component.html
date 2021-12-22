@@ -1,6 +1,0 @@
-<ng-container *ngIf="!loading; else skeleton"></ng-container>
-<div *ngFor="let detective of detectives">
-  <app-detective-item [detective]="detective"></app-detective-item>
-</div>
-
-<ng-template #skeleton> loading... </ng-template>
