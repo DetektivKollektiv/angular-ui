@@ -1,6 +1,0 @@
-<div class="collapsible-toolbar">
-  <span class="collapsible-toolbar__title question">{{item.question}}</span>
-  <span class="collapsible-toolbar__toggle" (click)="show = !show">{{show ? 'ausblenden' : 'einblenden'}}</span>
-  <i class="far" [class]="show ? 'fa-chevron-down' : 'fa-chevron-right'"></i>
-</div>
-<div *ngIf="show" class="answer" [innerHTML]="item.answer"></div>

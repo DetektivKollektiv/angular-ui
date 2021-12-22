@@ -1,17 +1,11 @@
 <div *ngIf="!submitted; else finish" class="page-container-column">
-  <div class="top-section">
-    <div class="overview-section">
-      <h1><span class="alt">Fall einreichen.</span></h1>
-      <div>
-        Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung oder ein Link sein. Sobald du auf
-        Fall absenden klickst, prüfen wir, ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis.
-        Falls dein Fall neu ist, werden wir ihn sofort an die Detektiv*innen im Team weitergeben, die den Fall dann für
-        dich prüfen.
-      </div>
-    </div>
-    <div class="overview-right-section"></div>
+  <div class="heading">
+    <h1>Ein neuer Fall für codetekt? <span class="alt">Reiche ihn hier ein.</span></h1>
+    <p>Gib hier die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf
+      Fall absenden klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis.
+      Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für
+      dich prüfen.</p>
   </div>
-
   <div class="app-file-container">
     <app-file [heading]="'Fall einreichen'" subheading="Schritt {{stepper.selectedIndex + 1}} von 4">
       <mat-horizontal-stepper #stepper linear labelPosition="bottom" color="accent">
@@ -128,7 +122,7 @@
                 target="_blank" href="https://info.codetekt.org/datenschutzerklaerung">Datenschutzerklärung</a> zu
             </mat-checkbox>
             <mat-checkbox formControlName="termBox" class="checkbox"> Ich stimme den <a target="_blank"
-                routerLink="/terms">Nutzungsbedingungen</a>
+                routerLink="../terms">Nutzungsbedingungen</a>
               zu
             </mat-checkbox>
             <mat-checkbox class="secret-checkbox" formControlName="checkboxFormControl" tabindex="-1"

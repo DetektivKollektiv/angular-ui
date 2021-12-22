@@ -1,117 +1,31 @@
-<header class="header">
-  <div class="header__wrapper">
-    <div class="header__logo">
-
-      <a href="/" title="Startseite" class="logo">
-        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Startseite" class="logo__image" />
+<header class="main-header">
+  <div class="container">
+    <a class="mh-logo">
+      <a [routerLink]="['/']">
+        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="293">
       </a>
-
-    </div>
-
-    <div class="header__navigation-main">
-
-      <!-- Not logged in -->
-      <nav *ngIf="!authenticated" class="navigation-main">
-
-        <ul class="navigation-main__list">
-          <li class="navigation-main__item">
-            <a title="Fall einreichen"
-              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" [routerLink]="['/submit']">
-              <i class="fas fa-typewriter"></i>
-              Fall einreichen
-            </a>
-          </li>
-          <li class="navigation-main__item">
-            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
-          </li>
-          <li class="navigation-main__item">
-            <a [routerLink]="['/about']" class="navigation-main__link" title="Über uns">Über uns</a>
-          </li>
-          <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
-          </li>
-          <li class="navigation-main__item">
-            <a [routerLink]="['/register']" title=""
-              class="button button--bittersweet button--hallow navigation-main__button navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
-              <i class="fas fa-user-cowboy"></i>Detektiv*in werden
-            </a>
-          </li>
-          <li class="navigation-main__item">
-            <a class="navigation-main__link" title="Login" [routerLink]="['/login']">Login</a>
-          </li>
-        </ul>
-
-
-      </nav>
-
-      <!-- Logged in -->
-      <nav *ngIf="userLoaded" class="navigation-main">
-
-        <ul class="navigation-main__list">
-          <li class="navigation-main__item">
-            <a  title=""
-              class="button button--bittersweet button--gentle navigation-main__button navigation-main__button--typewriter navigation-main__link third-theme-color" routerLink="/" fragment="open-cases">
-              <i class="fas fa-clipboard-list-check"></i>
-              Fall bearbeiten
-            </a>
-          </li>
-          <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="Fall einreichen" [routerLink]="['/submit']">Fall einreichen</a>
-          </li>
-          <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
-          </li>
-          <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
-          </li>
-          <li class="navigation-main__item">
-            <div class="userprofile" [routerLink]="['/']">
-              <div class="userprofile__content">
-                <div class="userprofile__name-wrapper">
-                  <div class="userprofile__award userprofile__award--gold"></div>
-                  <div class="userprofile__name">
-                    {{user.name}}
-                  </div>
-                </div>
-                <div class="userprofile__title">
-                  {{user.level_description}}
-                </div>
-              </div>
-
-              <div class="userprofile__bubble" style="background-color: #722ED1;">
-                {{ user.name[0].toUpperCase() }}
-              </div>
-
-              <div class="userprofile__flyout-call"></div>
+    </a>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li *ngIf="!authState.isLoggedIn">
+          <button (click)="signUp()" class="button-flat">Detektiv*in werden</button>
+        </li>
+        <li *ngIf="!authState.isLoggedIn">
+          <button (click)="login()" class="button-outline">Einloggen</button>
+        </li>
+        <div *ngIf="userLoaded">
+          <button class="button-primary">
+            <div class="button-wrapper" [routerLink]="['/archive']">
+              <p>
+                Archiv
+              </p>
+              <mat-icon>
+                inventory_2
+              </mat-icon>
             </div>
-            <div class="navigation-flyout">
-              <ul class="navigation-flyout__list">
-                <li class="navigation-flyout__item">
-                  <a  class="navigation-flyout__link" title="Profil" [routerLink]="['/']">Profil</a>
-                </li>
-                <li class="navigation-flyout__item">
-                  <a (click)="logout()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="header__navigation-mobile">
-
-
-      <nav class="navigation-mobile">
-
-        <!-- <div class="navigation-mobile__call"></div> -->
-        <button mat-icon-button aria-label="hamburger-menu-button" (click)="openMenuDialog()" >
-          <mat-icon>menu</mat-icon>
-        </button>
-        <!-- Here be Overlay Stuff -->
-
-      </nav>
-    </div>
+          </button>
+        </div>
+      </ul>
+    </nav>
   </div>
-
 </header>

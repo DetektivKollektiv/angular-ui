@@ -7,7 +7,7 @@ const mock = () => {
     getItem: (key: string) => (key in storage ? storage[key] : null),
     setItem: (key: string, value: string) => (storage[key] = value || ''),
     removeItem: (key: string) => delete storage[key],
-    clear: () => (storage = {})
+    clear: () => (storage = {}),
   };
 };
 
@@ -18,14 +18,16 @@ window.BeforeUnloadEvent = function () {};
 Object.defineProperty(window, 'localStorage', { value: mock() });
 Object.defineProperty(window, 'sessionStorage', { value: mock() });
 Object.defineProperty(window, 'getComputedStyle', {
-  value: () => ['-webkit-appearance']
+  value: () => ['-webkit-appearance'],
 });
 
 Object.defineProperty(document.body.style, 'transform', {
-  value: () => ({
-    enumerable: true,
-    configurable: true
-  })
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true,
+    };
+  },
 });
 
 /* output shorter and more meaningful Zone error stack traces */

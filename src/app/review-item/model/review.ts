@@ -10,6 +10,4 @@ export interface Review {
   start_timestamp: string;
   finish_timestamp: string;
   questions: Question[];
-  comment: string;
-  tags?: string[];
 }

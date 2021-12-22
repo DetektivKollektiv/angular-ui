@@ -1,19 +1,13 @@
-import { CaseFilter } from '../model/case-filter';
-import { CaseSortBy, CaseSortOrder } from '../model/case-sort';
+import { Filter } from '../model/filter';
 
 export class FetchAllItems {
   static readonly type = '[Archive] Fetch All Items';
 }
 
-export class GetDetailItem {
-  static readonly type = '[Archive] Get Detail Item';
-  constructor(public id: string) {}
-}
-
 export class SetFilter {
   static readonly type = '[Archive] Set Filter';
 
-  constructor(public filter: CaseFilter) {}
+  constructor(public filter: Filter) {}
 }
 
 export class AddFilterKeyword {
@@ -52,23 +46,4 @@ export class SetEndDateFilter {
 
 export class RemoveFilterId {
   static readonly type = '[Archive] Remove Filter Id';
-}
-
-export class CreateComment {
-  static readonly type = '[Archive] Create Comment';
-  constructor(public itemId: string, public text: string, public user: string) {}
-}
-
-export class SetSortOrder {
-  static readonly type = '[Archive] Set Sort Order';
-  constructor(public order: CaseSortOrder) {}
-}
-
-export class ToggleSortOrder {
-  static readonly type = '[Archive] Toggle Sort Order';
-}
-
-export class SetSortBy {
-  static readonly type = '[Archive] Set Sort By';
-  constructor(public by: CaseSortBy) {}
 }

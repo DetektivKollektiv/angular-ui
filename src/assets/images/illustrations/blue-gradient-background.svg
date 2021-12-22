@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1128" viewBox="0 0 1920 1128">
-  <defs>
-    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="1.051" gradientTransform="matrix(-0.534, -0.845, 0.553, -0.35, 0.491, 1.098)" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#3e79b4"/>
-      <stop offset="1" stop-color="#160637"/>
-    </radialGradient>
-  </defs>
-  <rect id="Rechteck_744" data-name="Rechteck 744" width="1920" height="1128" fill="url(#radial-gradient)"/>
-</svg>

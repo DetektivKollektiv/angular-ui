@@ -3,7 +3,7 @@ import { API, Auth } from 'aws-amplify';
 import { User } from '../../model/user';
 import { LevelService } from '../level/level.service';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { AuthService } from '@shared/auth/auth-service/auth.service';
+import { AuthService } from '../../../shared/auth/auth-service/auth.service';
 import { UserDeleteReason } from '../../model/user-delete-reason';
 
 @Injectable({

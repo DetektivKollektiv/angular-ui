@@ -1,8 +1,5 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -26,10 +23,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "sourceMap": true,
-            "buildOptimizer": false,
-            "optimization": false,
-            "assets": ["src/favicon.ico", "src/logo_16x16.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/logo_16x16.ico",
+              "src/assets"
+            ],
             "styles": [
               "src/styles.scss",
               "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
@@ -150,12 +148,27 @@
         },
         "test": {
           "builder": "@angular-builders/jest:run",
-          "options": {}
+          "options": {
+            "polyfills": "src/polyfills.ts",
+            "tsconfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/logo_16x16.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         },
         "e2e": {
