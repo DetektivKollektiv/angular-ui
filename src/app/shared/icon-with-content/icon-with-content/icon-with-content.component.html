@@ -1,0 +1,11 @@
+<div class="icon-with-content__icon" *ngIf="icon">
+  <i class="fal" [ngClass]="'fa-' + icon"></i>
+</div>
+<div class="icon-with-content__text">
+  <h3 class="icon-with-content__heading">
+    <ng-content select="[appIconWithContentHeader]"></ng-content>
+  </h3>
+  <p class="icon-with-content__content">
+    <ng-content></ng-content>
+  </p>
+</div>

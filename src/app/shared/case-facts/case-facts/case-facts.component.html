@@ -1,0 +1,47 @@
+<section class="fact">
+  <h2 class="fact__title mono-font">Der Tatbestand</h2>
+  <div class="fact__text">
+    <i class="fas fa-quote-left"></i>
+    <div>{{ case.content | textOverflow: contentTextLength }}</div>
+    <button class="more-btn" *ngIf="contentTextLength < case.content.length" (click)="contentTextLength = case.content.length">
+      Alles anzeigen
+    </button>
+    <i class="fas fa-quote-right"></i>
+  </div>
+</section>
+<section class="links">
+  <h3 class="mono-font">Hinterlegte und entdeckte Links</h3>
+  <div class="links__list" *ngIf="case.urls?.length">
+    <span *ngFor="let url of case.urls" class="links__icon" [class.gray-link]="!url.is_safe">
+      <a href="{{ url.url }}" target="_blank">
+        <i class="far" [ngClass]="url.is_safe ? 'fa-external-link-square-alt' : 'fa-info-square'"></i>
+        {{ url.url }}
+      </a>
+    </span>
+  </div>
+  <div *ngIf="!case?.urls?.length">Keine Links hinterlegt</div>
+</section>
+<section class="tags">
+  <h3 class="mono-font">Tags</h3>
+  <div class="tags__list" *ngIf="case.tags?.length">
+    <app-tag-icon *ngFor="let tag of case.tags | slice: 0:maxTagsCount" [tag]="tag"></app-tag-icon>
+  </div>
+  <div *ngIf="!case?.tags?.length">Keine Tags hinterlegt</div>
+  <button class="more-btn" *ngIf="maxTagsCount < case.tags.length" (click)="maxTagsCount = case.tags.length">Alle Tags anzeigen</button>
+</section>
+<section class="background-info">
+  <h3 class="mono-font">Hintergrundinformationen</h3>
+  <div class="background-info__details">
+    <div *ngIf="case.open_timestamp" class="background-info__entry">
+      <i class="far fa-calendar-alt"></i>
+      {{ case.open_timestamp | date: 'dd.MM.yyyy' }}
+    </div>
+    <div class="background-info__entry">
+      <i class="far fa-user"></i>
+      Anonym
+    </div>
+  </div>
+</section>
+<section class="factcheck" *ngIf="factCheck">
+  <app-watson [factCheck]="factCheck" (closed)="factCheck = null"></app-watson>
+</section>

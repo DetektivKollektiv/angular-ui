@@ -1,0 +1,12 @@
+<svg id="Planet_einzeln" data-name="Planet einzeln" xmlns="http://www.w3.org/2000/svg" width="417.874" height="353.259" viewBox="0 0 417.874 353.259">
+  <ellipse id="Ellipse_450" data-name="Ellipse 450" cx="176.629" cy="176.629" rx="176.629" ry="176.629" transform="translate(39.696 0)" fill="#6c63ff"/>
+  <ellipse id="Ellipse_451" data-name="Ellipse 451" cx="25.975" cy="25.975" rx="25.975" ry="25.975" transform="translate(182.558 78.79)" opacity="0.2"/>
+  <ellipse id="Ellipse_452" data-name="Ellipse 452" cx="45.023" cy="45.023" rx="45.023" ry="45.023" transform="translate(163.51 233.774)" opacity="0.2"/>
+  <ellipse id="Ellipse_453" data-name="Ellipse 453" cx="11.256" cy="11.256" rx="11.256" ry="11.256" transform="translate(66.536 199.141)" opacity="0.2"/>
+  <ellipse id="Ellipse_454" data-name="Ellipse 454" cx="5.984" cy="5.984" rx="5.984" ry="5.984" transform="translate(262.214 59.727)" opacity="0.2"/>
+  <ellipse id="Ellipse_455" data-name="Ellipse 455" cx="7.792" cy="7.792" rx="7.792" ry="7.792" transform="translate(192.948 176.63)" opacity="0.2"/>
+  <ellipse id="Ellipse_456" data-name="Ellipse 456" cx="5.984" cy="5.984" rx="5.984" ry="5.984" transform="translate(340.294 136.106)" opacity="0.2"/>
+  <ellipse id="Ellipse_457" data-name="Ellipse 457" cx="8.643" cy="8.643" rx="8.643" ry="8.643" transform="translate(288.22 194.471)" opacity="0.2"/>
+  <ellipse id="Ellipse_458" data-name="Ellipse 458" cx="11.256" cy="11.256" rx="11.256" ry="11.256" transform="translate(95.974 93.509)" opacity="0.2"/>
+  <path id="Pfad_1631" data-name="Pfad 1631" d="M438.727,558.193a494.11,494.11,0,0,1-55.588-3.212c-55.505-6.3-106.7-21.2-144.144-41.94-37.905-21-57.3-45.581-54.617-69.226,1.86-16.381,17.694-31.044,48.4-44.824a1.732,1.732,0,0,1,1.418,3.161c-29.5,13.235-44.671,26.991-46.382,42.054-2.517,22.162,16.253,45.532,52.854,65.806,37.058,20.527,87.792,35.275,142.856,41.529S491.342,554.8,532.06,543.1c40.215-11.55,63.748-30.116,66.264-52.278,1.7-14.993-6.555-30.89-23.882-45.974a1.732,1.732,0,1,1,2.274-2.613c18.225,15.866,26.886,32.8,25.049,48.977-2.685,23.645-27.1,43.254-68.749,55.215C505.9,554.219,473.533,558.193,438.727,558.193Z" transform="translate(-184.133 -279.752)" fill="#fff"/>
+</svg>

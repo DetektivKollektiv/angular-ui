@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyFileComponent } from './my-file.component';
-import { MaterialModule } from '../../../shared/material/material.module';
-import { HelperModule } from '../../../shared/helper/helper.module';
+import { MaterialModule } from '@shared/material/material.module';
+import { HelperModule } from '@shared/helper/helper.module';
 import { UserService } from '../../../core/services/user/user.service';
 import { MockUserService } from '../../../../test/mocks/mock-user.service';
-import { AuthService } from 'src/app/shared/auth/auth-service/auth.service';
-import { MockAuthService } from 'src/test/mocks/mock-auth.service';
+import { AuthService } from '@shared/auth/auth-service/auth.service';
+import { MockAuthService } from '@mocks/mock-auth.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -21,8 +21,8 @@ describe('MyFileComponent', () => {
       providers: [
         { provide: UserService, useClass: MockUserService },
         { provide: AuthService, useClass: MockAuthService },
-        { provide: MatDialog, useValue: {} },
-      ],
+        { provide: MatDialog, useValue: {} }
+      ]
     }).compileComponents();
   });
 

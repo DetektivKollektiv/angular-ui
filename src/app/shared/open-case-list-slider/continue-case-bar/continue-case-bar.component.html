@@ -1,0 +1,16 @@
+<div class="info">
+  <div class="info__header">
+    <i class="far fa-lock-alt"></i>
+    <span class="bold-weight">Du hast bereits den Fall {{ item.id | caseId }} angenommen.</span>
+  </div>
+  <div class="info__content">
+    <div class="info__text">
+      Bitte schließe zuerst deinen angenommenen Fall ab. Sobald die Bearbeitung dieses Falls abgeschlossen ist, kannst du neue Fälle
+      annehmen.
+    </div>
+    <a appButton routerLink="/review" [state]="{ item: item, isOpenReview: true }">
+      <i class="far fa-clipboard-list-check"></i>
+      <span>Bearbeitung fortsetzen</span>
+    </a>
+  </div>
+</div>

@@ -33,6 +33,7 @@ export class AuthService {
         () => this.authState.next(initialAuthState)
       )
       .catch();
+
   }
 
   public signUp(
@@ -205,7 +206,7 @@ export class AuthService {
       isLoggedIn: true,
       id: '',
       username,
-      email: '',
+      email: user?.attributes?.email ?? '',
       idToken: '',
     });
   }

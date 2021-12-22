@@ -1,0 +1,15 @@
+<li class="item">
+  <app-case-list-item [case]="case" [showContent]="true" class="item__case"></app-case-list-item>
+  <div class="item__more">
+    <div class="item__tags">
+      <app-tag-icon *ngFor="let tag of case.tags | slice: 0:tagsCount" [tag]="tag"></app-tag-icon>
+      <app-tag-icon
+        *ngFor="let tag of case.warning_tags | slice: 0:warningTagsCount"
+        [tag]="tag.text"
+        styleClass="empty"
+        [iconClass]="tag.icon"
+      ></app-tag-icon>
+    </div>
+    <span class="item__details-btn" [routerLink]="'/archive/' + case.id">Details ansehen</span>
+  </div>
+</li>

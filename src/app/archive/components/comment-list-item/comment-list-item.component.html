@@ -1,0 +1,7 @@
+<app-detective-item [detective]="comment.detective" class="comment">
+  <span appDetectiveItemSuffix class="comment__suffix">
+    <div class="comment__date">{{ comment.timestamp | date: 'dd.MM.yyyy' }}</div>
+    <div class="comment__report" (click)="onReportComment()" matTooltip="Kommentar melden"><i class="fas fa-flag"></i></div>
+  </span>
+  <div appDetectiveItemContent class="comment__content">{{ comment.comment }}</div>
+</app-detective-item>

@@ -1,0 +1,15 @@
+@import '../../../../assets/scss/colors';
+
+.breadcrumb {
+  font-size: 14px;
+  color: $color__old-paragraph;
+
+  &__link {
+    cursor: pointer;
+  }
+
+  span,
+  i ~ i {
+    margin-left: 4px;
+  }
+}

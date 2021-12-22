@@ -1,0 +1,41 @@
+<div class="submit-success-page standard-content-container-width" *ngIf="authState$ | async">
+  <div class="top-section">
+    <div class="overview-section">
+      <app-case-details [case]="item" [showDescription]="false">
+        <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+      </app-case-details>
+
+      <div class="submit-success-description-section">
+        <div class="submit-success-description-section__left">
+          <app-icon-with-content color="bittersweet" icon="thumbs-up">
+            <span appIconWithContentHeader>Vielen Dank für's Einreichen!</span>
+            <span>
+              Vielen Dank für das Einreichen dieses Falls. Die Detektiv-Community kümmert sich jetzt darum!
+              Möchtest du nun selbst einige Fälle lösen?
+              Weiter unten siehst du Fälle, bei denen die Community noch deine Hilfe benötigt.
+            </span>
+          </app-icon-with-content>
+          <app-icon-with-content color="neon-blue" icon="envelope-open-text">
+            <span appIconWithContentHeader>{{ authenticated ? 'Wir informieren dich.' : 'Bitte bestätige deine E-Mail-Adresse.' }}</span>
+            <span *ngIf="authenticated">Wir melden uns per E-Mail, wenn es Neuigkeiten zu deinem Fall gibt.</span>
+            <span *ngIf="!authenticated">
+              Du hast eine E-Mail-Adresse angegeben, unter der wir dich informieren, wenn es Neuigkeiten zu deinem Fall gibt. Bitte
+              bestätige diese E-Mail einmalig. Um Spam zu vermeiden, werden wir keine Neuigkeiten an unbestätigte E-Mail-Adressen senden.
+            </span>
+          </app-icon-with-content>
+        </div>
+        <div class="submit-success-description-section__right">
+          <img src="assets/images/illustrations/undraw_searching_p5ux.svg" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="open-cases-swiper-section" *ngIf="authenticated">
+    <app-open-case-list-slider></app-open-case-list-slider>
+  </div>
+  <app-submit-no-auth *ngIf="!authenticated"></app-submit-no-auth>
+  <div class="bottom-section">
+    <app-share></app-share>
+    <app-solved-cases></app-solved-cases>
+  </div>
+</div>

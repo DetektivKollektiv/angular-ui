@@ -1,0 +1,23 @@
+<div class="collapse-container">
+  <ng-content select=".question-container-action"></ng-content>
+  <div class="collapse-container__content">
+    <i class="collapse-container__content__icon fas fa-life-ring"></i>
+    <span class="bold-weight">Hilfe zu dieser Seite</span>
+    <span class="collapse-container__content__btn" (click)="isCollapsed = !isCollapsed">{{ isCollapsed ? 'anzeigen' : 'ausblenden' }}</span>
+    <i class="far" [ngClass]="isCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
+  </div>
+</div>
+<div class="questions-section" *ngIf="!isCollapsed">
+  <div class="questions-swiper-container">
+    <app-questions-swiper [questions]="questions"> ></app-questions-swiper>
+  </div>
+  <div class="questions-section--list">
+    <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{ 'z-index': 'unset' }">
+      <div class="carousel-cell question" *ngFor="let q of questions; let i = index">
+        <div class="question__icon" [ngClass]="q.background" [style.background-color]="q.bgColor"><i class="{{ q.icon }}"></i></div>
+        <div class="question__title">{{ q.title }}</div>
+        <div class="question__description questions-section-quote" [innerHTML]="q.description"></div>
+      </div>
+    </carousel>
+  </div>
+</div>

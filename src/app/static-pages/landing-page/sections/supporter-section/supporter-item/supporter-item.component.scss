@@ -1,0 +1,13 @@
+@import '../../../../../../assets/scss/colors';
+.container {
+  background-color: $color__tile-background;
+  height: 70px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img{
+    max-height: 50px;
+  }
+}

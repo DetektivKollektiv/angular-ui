@@ -13,7 +13,9 @@
     "target": "es2015",
     "lib": ["es2018", "dom"],
     "paths": {
-      "lib": ["dist/lib/lib", "dist/lib"]
+      "lib": ["dist/lib/lib", "dist/lib"],
+      "@shared/*": ["src/app/shared/*"],
+      "@mocks/*": ["src/test/mocks/*"]
     }
   },
   "angularCompilerOptions": {

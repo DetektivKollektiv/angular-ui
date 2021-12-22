@@ -1,8 +1,15 @@
+@import './assets/scss/buttons';
+@import './assets/scss/initializer';
+
 @import './theme';
+
 @import '~ngx-sharebuttons/themes/default/default-theme';
+@import '~swiper/swiper-bundle';
+@import '~swiper/components/navigation/navigation';
+@import '~swiper/swiper-bundle';
 
 * {
-  font-family: Effra medium, Effra regular, sans-serif;
+  @include font__effra--regular;
   box-sizing: border-box;
 }
 
@@ -18,7 +25,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: $color__case-card;
 }
 
 /* Handle */
@@ -31,21 +38,73 @@
   background: #555;
 }
 
-html,
 body {
   height: 100%;
   min-height: 100%;
   margin: 0;
+  overflow-x: hidden;
+}
+
+.review-page .carousel .carousel-arrows .carousel-arrow {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  top: 42% !important;
+  width: 18px !important;
+  background-size: 60px !important;
+}
+
+.carousel .carousel-container .carousel-cell.question {
+  width: 350px !important;
+}
+
+.carousel .carousel-container .question--title {
+  width: 316px !important;
+}
+.carousel-arrows .carousel-arrow-disabled {
+  display: none;
+}
+
+.archive-page .carousel .carousel-arrows .carousel-arrow {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  top: 42% !important;
+  width: 18px !important;
+  background-size: 60px !important;
+}
+
+.carousel .carousel-arrows .carousel-arrow {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  top: 42% !important;
+  width: 18px !important;
+  background-size: 60px !important;
+}
+.review-situation--text {
+  word-wrap: break-word;
+
+  a {
+    color: $color__bittersweet;
+    text-decoration: none;
+  }
+
+  i.fas.fa-quote-left {
+    color: $color__bittersweet;
+  }
+
+  i.fas.fa-quote-right {
+    color: $color__bittersweet;
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 h1 {
-  font-family: Effra medium, sans-serif;
+  @include font__effra--medium;
   line-height: 70px;
-  font-size: max(2vw, 14px);
-  color: mat-color($custom-theme-accent);
+  // color: mat-color($custom-theme-accent);
 
   span.alt {
-    font-family: Effra medium, sans-serif;
+    @include font__effra--medium;
     line-height: 70px;
     font-size: 40px;
     font-size: max(1.8vw, 12px);
@@ -54,20 +113,31 @@ h1 {
 }
 
 h2 {
-  font-family: Effra medium, sans-serif;
+  @include font__effra--medium;
   margin: 0;
 }
 
 h3 {
-  font-family: Effra medium, sans-serif;
+  @include font__effra--medium;
   margin: 0;
 }
 
 p {
-  font-family: Effra regular, sans-serif;
+  @include font__effra--regular;
   font-size: max(0.7vw, 14px);
   line-height: max(1vw, 22px);
-  color: #4a4a4a;
+}
+
+h1,
+h2,
+h3,
+p,
+div {
+  color: $color__mysterious-blue;
+
+  &.invert {
+    color: white;
+  }
 }
 
 div.page-content {
@@ -110,87 +180,6 @@ div.button-group {
   align-items: center;
 }
 
-button.button-primary {
-  background: mat-color($custom-theme-accent) 0 0% no-repeat padding-box;
-  box-shadow: 0 1px 3px #00000029;
-  border: none;
-  border-radius: 5px;
-  width: max(8vw, 120px);
-  height: max(3.5vh, 40px);
-  color: #4a4a4a;
-  cursor: pointer;
-  font-size: max(0.7vw, 14px);
-  line-height: 26px;
-  font-family: Effra regular, sans-serif;
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
-button.button-primary:hover {
-  background: rgba(255, 204, 0, 0.5);
-}
-
-button.button-primary:focus {
-  background: rgba(255, 204, 0, 0.5);
-  outline: none;
-}
-
-button.button-primary:disabled {
-  background: lightgray;
-  cursor: default;
-}
-
-button.button-primary:disabled:hover {
-  background: lightgray;
-  cursor: default;
-}
-
-button.button-outline {
-  background: transparent;
-  border: 1px solid mat-color($custom-theme-accent);
-  border-radius: 5px;
-  opacity: 1;
-  width: 12em;
-  height: 4em;
-  color: mat-color($custom-theme-accent);
-  cursor: pointer;
-}
-
-button.button-outline:hover {
-  background: rgba(255, 204, 0, 0.15);
-}
-
-button.button-outline:focus {
-  outline: none;
-}
-
-button.button-flat {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background: transparent;
-  border: none;
-  border-radius: 5px;
-  opacity: 1;
-  width: 150px;
-  height: 48px;
-  color: #4a4a4a;
-  cursor: pointer;
-}
-
-button.button-flat:hover {
-  color: #616161;
-}
-
-button.button-flat:focus {
-  border: none;
-  outline: none;
-}
-
-button.button-flat:disabled {
-  cursor: default;
-}
-
 div.dialog-container {
   display: flex;
   flex-direction: column;
@@ -229,9 +218,7 @@ mat-icon {
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #fac800;
 }
-.yellow-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.yellow-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #fac800;
 }
 
@@ -242,9 +229,7 @@ mat-icon {
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #5f38fa;
 }
-.purple-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.purple-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #5f38fa;
 }
 
@@ -255,12 +240,267 @@ mat-icon {
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: #ff7268;
 }
-.coral-radio-button.mat-radio-button.mat-accent
-  .mat-radio-ripple
-  .mat-ripple-element {
+.coral-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: #ff7268;
 }
 
 .mat-tooltip {
   font-size: 15px !important;
+}
+
+.mat-chip-list.tags-chip-list {
+  &--neon-blue {
+    .mat-chip {
+      background-color: $color__neon-blue;
+      color: white;
+
+      .mat-chip-remove {
+        color: white;
+      }
+    }
+  }
+}
+
+.mat-form-field.mat-form-field--alt {
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+
+  .mat-form-field-flex {
+    border-radius: 30px;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+}
+
+.mat-slider {
+  .mat-slider-thumb,
+  .mat-slider-track-fill {
+    background-color: $color__neon-blue;
+  }
+
+  .mat-slider-thumb-label-text {
+    color: white;
+  }
+}
+
+.mat-snack-bar-container {
+  background-color: $color__watson-background;
+
+  .mat-simple-snackbar {
+    span {
+      color: white;
+    }
+  }
+}
+
+/*
+This made tooltips on /reviews/:id not work anymore
+*/
+// .cdk-overlay-pane {
+//   max-width: none !important;
+//   width: 100vw;
+//   height: 100vh;
+// }
+
+.swiper-container {
+  margin: 20px 0;
+}
+
+.no-padding-dialog-container .mat-dialog-container {
+  /* add your styles */
+  padding: 0;
+
+  /* not sure if this is the correct place to add this */
+  width: 100%;
+}
+header.header {
+  z-index: 9999 !important;
+}
+
+.carousel-container .carousel-cells {
+  width: 100% !important;
+}
+
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem !important;
+  background: #ddd !important;
+  color: black !important;
+  border-radius: 5px;
+}
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: white !important;
+}
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0 !important; /*click effect color change*/
+  background-color: white !important;
+}
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: white !important;
+}
+
+.radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-outer-circle {
+  border-color: white !important;
+}
+
+.submit-check-container .mat-checkbox.mat-accent {
+  .mat-checkbox-frame {
+    border: 1px solid white;
+  }
+
+  &.mat-checkbox-checked .mat-checkbox-background {
+    background-color: transparent;
+    border: 1px solid white;
+  }
+
+  .mat-checkbox-checkmark-path {
+    stroke: white !important;
+  }
+}
+
+.cdk-overlay-container {
+  z-index: 10000;
+}
+
+.mat-select-panel .mat-option.mat-selected {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.option-container {
+  .mat-radio-container,
+  .mat-radio-outer-circle,
+  .mat-radio-inner-circle {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.mat-menu-panel.archive-list-filter-menu {
+  max-width: unset !important;
+}
+
+.mat-radio-button:not(.mat-radio-disabled).cdk-program-focused .mat-radio-persistent-ripple {
+  opacity: 0 !important;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #8989a2;
+
+  &__link {
+    cursor: pointer;
+  }
+
+  span,
+  i ~ i {
+    margin-left: 4px;
+  }
+}
+
+.mono-font {
+  @include font__pt-mono;
+}
+
+.bold-weight {
+  font-weight: 700 !important;
+}
+
+.w-100-p {
+  width: 100%;
+}
+
+/* Skeleton loading animation styles */
+
+.skeleton {
+  opacity: 0.7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 0.8rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0.125rem;
+}
+
+.skeleton-text:last-child {
+  margin-bottom: 0;
+  width: 80%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+/* Rating colors */
+.rating-color {
+  &--red {
+    color: $color__rating-red;
+  }
+
+  &--orange {
+    color: $color__rating-orange;
+  }
+
+  &--light-green {
+    color: $color__rating-light-green;
+  }
+
+  &--green {
+    color: $color__rating-green;
+  }
+
+  &-bg--red {
+    background-color: $color__rating-red;
+  }
+
+  &-bg--orange {
+    background-color: $color__rating-orange;
+  }
+
+  &-bg--light-green {
+    background-color: $color__rating-light-green;
+  }
+
+  &-bg--green {
+    background-color: $color__rating-green;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  @include font__pt-mono--bold;
+  font-size: 20px;
+  margin: 0 5px;
+}
+
+.text {
+  &--bittersweet {
+    color: $color__bittersweet;
+  }
+
+  &--purple {
+    color: $color__purple;
+  }
+
+  &--rating-orange {
+    color: $color__rating-orange;
+  }
 }

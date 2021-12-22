@@ -1,0 +1,16 @@
+<div class="faq-page standard-content-container-width">
+  <div class="top-section">
+    <div class="overview-section">
+      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
+      <div>
+        <h1>FAQ</h1>
+        <p>Hier findest du eine Übersicht über die häufigsten gestellten Fragen.<br/>
+          Sollte dennoch etwas unklar werden, melde dich einfach bei uns unter <a href="mailto:info@codetekt.org">info@codetekt.org</a></p>
+      </div>
+
+      <app-faq-block headline="Allgemein" json="faq_allgemein.json"></app-faq-block>
+      <app-faq-block headline="Fall einreichen" json="faq_falleinreichen.json"></app-faq-block>
+      <app-faq-block headline="Fall lösen" json="faq_fallloesen.json"></app-faq-block>
+    </div>
+  </div>
+</div>

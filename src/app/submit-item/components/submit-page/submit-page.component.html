@@ -1,0 +1,135 @@
+<div class="submit-page responsive-100">
+  <form #submitForm="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div class="top-section standard-content-container-width">
+        <div class="overview-section">
+          <app-breadcrumb></app-breadcrumb>
+          <h1>Fall einreichen</h1>
+          <div>
+            <span class="submit-text">
+              Hier kannst du deinen Fall einreichen. Wenn der Fall bereits von unserer Detektiv-Community
+              gelöst wurde, erhältst du sofort das Ergebnis in Form des Vertrauens-Index. 
+              Andernfalls übergeben wir den Fall direkt an unsere Detektiv*innen.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-of-questions standard-content-container-width">
+        <app-question-carousel *ngIf="questionPrompts?.length" [questions]="questionPrompts"></app-question-carousel>
+      </div>
+
+      <!-- Middle Section -->
+
+      <div class="middle-section responsive-100">
+        <div class="middle-section-container">
+          <h2>Dein Fall</h2>
+          <p>
+            Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein. Gibt es diesen Fall bereits,
+            erhältst du das Ergebnis sofort. Falls dein Fall neu ist, werden wir ihn an unsere Detektiv*innen im Team
+            weitergeben, die den Fall dann für dich prüfen.
+          </p>
+          <div class="field-container">
+            <p>Um welche Form von Medium handelt es sich?*</p>
+            <mat-form-field class="form-select responsive-100">
+              <mat-select [(ngModel)]="form.item_type_id" name="item_type_id" required>
+                <mat-option *ngFor="let itemType of itemTypes$ | async" [value]="itemType.id">
+                  {{ itemType.id | itemType }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="field-container">
+            <p>Bitte gib hier den Inhalt ein*</p>
+            <textarea class="textarea" rows="5" [(ngModel)]="form.content" name="content" required></textarea>
+          </div>
+
+          <div class="lady-detective-svg-container">
+            <img src="assets/images/illustrations/lady-detective.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chunky-border">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1923.772"
+        height="113.786" viewBox="0 0 1923.772 113.786">
+        <defs>
+          <linearGradient id="linear-gradient" x1="0.588" y1="0.702" x2="0.588" y2="0.027"
+            gradientUnits="objectBoundingBox">
+            <!-- <stop offset="0" stop-color="#160637"/> -->
+            <stop offset="0" stop-color="#53407b" />
+
+            <stop offset="1" stop-color="#53407b" />
+          </linearGradient>
+        </defs>
+        <path id="Path_378" data-name="Path 378"
+          d="M4395.377,1693.926s224.637,18.6,231.41,16.161,320.229-24.692,320.229-24.692,342.286,38,350.569,38,378.752-13.31,378.752-13.31l438.737-61.962,204.076,61.962v51.824H4395.377Z"
+          transform="translate(-4395.377 -1648.125)" fill="url(#linear-gradient)" />
+      </svg>
+    </div>
+
+    <div class="bottom-section responsive-100">
+      <!-- <div class="bottom-background"></div> -->
+      <div class="bottom-section-content-container standard-content-container-width">
+        <div class="option-container">
+          <h2>Optionale Angaben</h2>
+          <p>
+            Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben. 
+            Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
+          </p>
+          <div class="radio-container">
+            <h3>Wie hat dich diese Information erreicht?</h3>
+            <mat-radio-group [(ngModel)]="form.source" name="source">
+              <mat-radio-button *ngFor="let source of itemSources" [value]="source">
+                <span class="wrap-mat-radio-label">{{ source | itemSource }}</span>
+              </mat-radio-button>
+            </mat-radio-group>
+            <input *ngIf="form.source === 'other'" [(ngModel)]="form.other_source"
+              class="other-source-input text-input responsive-100" type="text" name="other_source" />
+          </div>
+          <h3 class="mono-font bold-weight">Wie oft hast du diese Information erhalten?</h3>
+          <input type="text" class="text-input responsive-100" [(ngModel)]="form.frequency" name="frequency" />
+          <h3 class="mono-font bold-weight">Wann hat dich diese Information das erste Mal erreicht?</h3>
+          <input type="date" class="text-input responsive-100" [(ngModel)]="form.received_date"
+            ui-date-format="dd.mm.yyyy" name="received_date" />
+        </div>
+        <mat-divider></mat-divider>
+        <div class="notify-container">
+          <h2>Möchtest du benachrichtigt werden?</h2>
+          <p>
+            Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum Fall gibt. 
+            Wenn nicht, dann siehst du den Fall nach Abschluss im Archiv.
+          </p>
+          <h3>E-Mail-Adresse</h3>
+          <div class="email-container responsive-100">
+            <input type="email" [(ngModel)]="form.mail" name="mail" email />
+            <mat-icon class="icon">mail_outline</mat-icon>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="submit-check-container">
+          <h2>Rechtliche Angaben</h2>
+          <p>
+            Bitte bestätige unsere <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> und die
+            <a href="/terms" target="_blank">Nutzungsbedingungen</a>, um die Einreichung abzuschließen.
+          </p>
+          <mat-checkbox [(ngModel)]="form.policy" name="policy" required>
+            <div class="option">
+              <span class="wrap-mat-radio-label"> Ich stimme den Bedingungen der <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> zu</span>
+            </div>
+          </mat-checkbox>
+          <mat-checkbox [(ngModel)]="form.condition" name="condition" required>
+            <div class="option">
+              <span class="wrap-mat-radio-label"> Ich stimme den <a href="/terms" target="_blank">Nutzungsbedingungen</a> zu </span>
+            </div>
+          </mat-checkbox>
+        </div>
+        <div class="legal-button-container">
+          <a appButton mode="reject" routerLink="/">Abbrechen</a>
+          <button appButton type="submit" [disabled]="submitForm.invalid">Fall einreichen</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

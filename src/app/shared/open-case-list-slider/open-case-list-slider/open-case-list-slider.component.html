@@ -1,0 +1,17 @@
+<div class="case-header">
+  <p class="bold-weight">Diese Fälle benötigen deine Hilfe</p>
+</div>
+<ng-container *ngIf="reviewItems$ | async as reviewItems; else skeleton">
+  <app-cases-list-swiper *ngIf="!reviewItems.is_open_review" [cases]="reviewItems.items"></app-cases-list-swiper>
+  <app-continue-case-bar *ngIf="reviewItems.is_open_review" [item]="reviewItems.items[0]"></app-continue-case-bar>
+</ng-container>
+
+<ng-template #skeleton>
+  <div class="skeleton-container">
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text"></div>
+    <div class="skeleton skeleton-text"></div>
+  </div>
+</ng-template>
