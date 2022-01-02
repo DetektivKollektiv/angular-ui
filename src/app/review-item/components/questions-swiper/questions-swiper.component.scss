@@ -4,15 +4,11 @@
 
 
 .questions-swiper {
-  // width: 100%;
 
   .question {
     border-radius: 20px;
     background: colors.$color__tile-background;
-    // background:#b3aeae;
     height: auto;
-    // margin-left: 5px;
-    // margin-right: 1.5%;
     padding: 10px 15px 10px;
     display: flex;
     justify-content: center;
@@ -27,7 +23,6 @@
         height: 42px;
         margin: 10px 10px -3px 0;
         padding: 12.9px 2.5px;
-        // background-color: #68a8ff;
         color: colors.$color__white;
         border-radius: 30px;
         font-family: 'Font Awesome 5 Pro';
@@ -40,7 +35,6 @@
 
       &__title {
         @include fonts.font__effra--bold;
-        // width: 320px;
         height: 18px;
         margin: 16px 0 14px;
         font-size: 16px;

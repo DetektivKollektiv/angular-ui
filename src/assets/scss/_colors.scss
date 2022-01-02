@@ -12,6 +12,8 @@ $color__grey: #808080;
 $color__black: #000000;
 $color__purple: #722ed1;
 $color__purple_gradient: #53407b;
+$color__gold: #be9843;
+$color__green: #3a9832;
 
 $color__page-content-background: #fbfbfb;
 $color__pagination-background: #dddddd;
@@ -20,6 +22,7 @@ $color__tag-background: #efefef;
 $color__spacer: #cecece;
 $color__old-paragraph: #8989a2;
 $color__accordion-border: #f4f7f6;
+$color__user_input_border: #765dab;
 
 $color__rating-red: #d10e00;
 $color__rating-orange: #ffa700;
@@ -132,6 +135,14 @@ $color__badge-description: $color__white;
 
 .color__supernova {
   background-color: $color__supernova;
+}
+
+.color__gold {
+  background-color: $color__gold;
+}
+
+.color__green {
+  background-color: $color__green;
 }
 
 .color__rating-red {

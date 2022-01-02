@@ -1,5 +1,6 @@
 @use '../../../../assets/scss/colors' as colors;
 @use '../../../../assets/scss/fonts' as fonts;
+@import '../../../../assets/scss/variables';
 
 :host {
   width: 100%;
@@ -65,11 +66,9 @@
         }
         @media only screen and (min-width: 1024px) {
           max-width: 800px;
-          // margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
         }
         @media only screen and (min-width: 1350px) {
-          max-width: 1000px;
-          // margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
+          max-width: 1200px;
         }
       }
     }
@@ -245,9 +244,10 @@
 
     h2 {
       @include fonts.font__effra--bold;
-      font-size: 36px;
-      @media only screen and (max-width: 480px) {
-        font-size: 24px;
+      font-size: 24px;
+      
+      @media only screen and (min-width: $breakpoint-xs) {
+        font-size:36px;
       }
     }
 
@@ -289,9 +289,10 @@
     h2 {
       margin-bottom: 20px;
       @include fonts.font__effra--bold;
-      font-size: 36px;
-      @media only screen and (max-width: 480px) {
-        font-size: 24px;
+      font-size: 24px;
+      
+      @media screen and (min-width: $breakpoint-xs) {
+        font-size: 36px;
       }
     }
 

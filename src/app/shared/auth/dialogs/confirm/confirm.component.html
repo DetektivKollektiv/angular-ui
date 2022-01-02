@@ -1,6 +1,6 @@
 <div class="dialog-container">
   <div mat-dialog-title>
-    <h2>Verifiziere deine E-Mail Adresse</h2>
+    <h2>Verifiziere deine E-Mail-Adresse</h2>
     <button mat-icon-button [mat-dialog-close]="closeResult">
       <mat-icon>close</mat-icon>
     </button>
@@ -11,13 +11,13 @@
       {{title}}
     </p>
     <mat-error *ngIf="confirmationInvalid">
-      Dein Benutzername oder der Code sind nicht korrekt.
+      Dein Anmeldename oder der Code ist nicht korrekt.
       Versichere dich, dass die eingegebenen Daten korrekt sind.
     </mat-error>
     <mat-form-field class="full-width-input">
       <input matInput placeholder="Dein Benutzername" formControlName="username" required>
       <mat-error>
-        Bitte gib hier deinen Benutzername ein.
+        Bitte gib hier deinen Anmeldenamen ein.
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width-input">

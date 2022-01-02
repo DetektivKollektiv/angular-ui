@@ -46,7 +46,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
 
   questionPrompts = [
     {
-      title: 'Ein Link funktioniert nicht mehr. Was soll ich tun?',
+      title: 'Ein Link funktioniert nicht mehr?',
       description: 'Wenn sich der Fall nicht mehr bearbeiten lässt, dann sende uns eine Nachricht über "Fall melden".',
       bgColor: '#3a9832',
       icon: 'fal fa-link'
@@ -59,7 +59,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Was tun bei einem technischen Fehler?',
-      description: 'Schreib bitte eine Mail an <a href="mailto:support@codetekt.org" target="_blank">support@codetekt.org</a> - Wir helfen dir weiter oder beheben den Fehler.',
+      description: 'Schreib bitte eine E-Mail an unser <a href="mailto:support@codetekt.org" target="_blank">Support-Team</a>. Wir helfen dir weiter oder beheben den Fehler.',
       bgColor: '#8f1fff',
       icon: 'fal fa-bug'
     }
@@ -215,7 +215,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   private handleInvalidForm() {
     this.reviewForm.markAllAsTouched();
     this.snackBar.open(
-      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast und der Datenschutzerklärung, sowie den Nutzungsbedingungen zugestimmt hast.',
+      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet und der Datenschutzerklärung sowie den Nutzungsbedingungen zugestimmt hast.',
       '',
       { duration: 5000 }
     );

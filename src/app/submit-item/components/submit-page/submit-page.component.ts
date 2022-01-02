@@ -25,6 +25,13 @@ export class SubmitPageComponent {
 
   questionPrompts: QuestionPrompt[] = [
     {
+      title: 'Wie reiche ich einen Fall ein?',
+      description: 'Fülle das Formular auf dieser Seite aus. Bei Interesse kannst Du optionale Angaben machen. ' +
+      'Klicke am Ende auf "Fall einreichen".',
+      background: 'color__neon-blue',
+      icon: 'fal fa-plus'
+    },
+    {
       title: 'Was kann ich als Fall einreichen?',
       description: 'Du kannst Links zu Online-Artikeln, aber auch Text-Nachrichten aus Sozialen Medien ' +
       'oder einem Messenger einreichen.',
@@ -32,11 +39,11 @@ export class SubmitPageComponent {
       icon: 'fal fa-question-circle'
     },
     {
-      title: 'Wie reiche ich einen Fall ein?',
-      description: 'Fülle das Formular auf dieser Seite aus. Bei Interesse kannst Du optionale Angaben machen. ' +
-      'Klicke am Ende auf "Fall einreichen".',
-      background: 'color__neon-blue',
-      icon: 'fal fa-plus'
+      title: 'Kann ich einen Video-Beitrag einreichen?',
+      description: 'Videos können nur mit unverhältnismäßig hohem Aufwand bearbeitet und analysiert werden, ' +
+      'du kannst deshalb Videos zur Zeit nicht als Fall einreichen.',
+      background: 'color__gold',
+      icon: 'fal fa-video-slash'
     },
     {
       title: 'Gibt es diesen Fall schon?',
@@ -46,9 +53,6 @@ export class SubmitPageComponent {
     }
   ];
 
-  /**
-   * The form data. Filled with initial values.
-   */
   form: SubmitFormData = {
     item_type_id: '1',
     content: null,

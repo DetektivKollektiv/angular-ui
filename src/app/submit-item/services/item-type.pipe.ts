@@ -7,7 +7,7 @@ export class ItemTypePipe implements PipeTransform {
   transform(id: string): string {
     switch (id) {
       case '1':
-        return 'Link zu einem Internet-Artikel';
+        return 'Link zu einem Online-Artikel';
       case '2':
       default:
         return 'Textnachricht oder Aussage';

@@ -73,12 +73,28 @@ body {
   background-size: 60px !important;
 }
 
+.archive-page .carousel .carousel-arrows .carousel-arrow-next {
+  left: 98% !important;
+}
+
+.archive-page .carousel .carousel-arrows .carousel-arrow-prev {
+  left: -40px !important;
+}
+
 .carousel .carousel-arrows .carousel-arrow {
   background-color: unset !important;
   box-shadow: unset !important;
-  top: 42% !important;
+  top: 42% !important;  
   width: 18px !important;
   background-size: 60px !important;
+}
+
+.carousel .carousel-arrows .carousel-arrow-next {
+  left: 100% !important;
+}
+
+.carousel .carousel-arrows .carousel-arrow-prev {
+  left: -40px !important;
 }
 
 .review-situation--text {

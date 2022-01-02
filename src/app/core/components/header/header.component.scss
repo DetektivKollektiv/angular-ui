@@ -42,10 +42,6 @@
   }
 }
 
-// does this navigation-main stuff get used somewhere else?
-// is it worth putting in another file somewhere
-// yes, header.component.html still uses these classes
-
 .navigation-main {
   $parent: &;
 

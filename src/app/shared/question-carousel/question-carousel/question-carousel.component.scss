@@ -45,7 +45,7 @@
 
 .questions-section {
   margin: 20px 0 10px 0;
-  .questions-section__list {
+  &__list {
     display: none;
 
     @media only screen and (min-width: 1024px) {
@@ -138,6 +138,14 @@
 
   .color__purple {
     background-color: colors.$color__purple !important;
+  }
+
+  .color__gold {
+    background-color: colors.$color__gold !important;
+  }
+
+  .color__green {
+    background-color: colors.$color__green !important;
   }
 
  }
