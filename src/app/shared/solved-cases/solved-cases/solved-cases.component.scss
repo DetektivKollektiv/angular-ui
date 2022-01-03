@@ -21,6 +21,11 @@
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
+
+    &-light {
+      @extend .title;
+      color: colors.$color__white;
+    }
   }
 
   .container {

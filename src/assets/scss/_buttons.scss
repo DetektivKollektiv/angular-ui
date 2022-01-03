@@ -62,6 +62,16 @@
     }
   }
 
+  &--purple {
+    background-color: $color__purple;
+    border-color: $color__purple;
+    color: $color__white;
+
+    &:hover:not(:disabled) {
+      color: $color__purple;
+    }
+  }
+
   &--neon-blue {
     background-color: $color__neon-blue;
     border-color: $color__neon-blue;
@@ -169,6 +179,33 @@
 
     &#{$parent}--neon-blue {
       color: $color__neon-blue;
+    }
+
+    &#{$parent}--bittersweet {
+      color: $color__bittersweet;
+    }
+
+    &#{$parent}--mysterious-blue {
+      color: $color__mysterious-blue;
+    }
+
+    &#{$parent}--supernova {
+      color: $color__supernova;
+    }
+
+    &#{$parent}--white {
+      color: $color__white;
+    }
+  }
+
+  &--inverted {
+    @include font__effra--medium;
+
+    border: 0;
+
+    &#{$parent}--neon-blue {
+      color: $color__neon-blue;
+      background-color: #f9f0ff;
     }
 
     &#{$parent}--bittersweet {

@@ -26,6 +26,13 @@
   display: flex;
   margin: 10px 0;
 
+  &-light {
+    list-style: none;
+    display: flex;
+    margin: 10px 0;
+    color: colors.$color__white;
+  }
+
   p {
     margin: unset;
   }
@@ -77,6 +84,7 @@
   }
 
   &__content {
+    color: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,10 +93,12 @@
   }
 
   &__received {
+    color: inherit;
     font-size: 21px;
   }
 
   &__info {
+    color: inherit;
     display: flex;
     gap: 10px;
     flex-flow: row wrap;

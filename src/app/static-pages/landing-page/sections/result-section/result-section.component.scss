@@ -1,0 +1,54 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@import '../../../../../assets/scss/colors';
+@import '../../../../../assets/scss/variables';
+@import '../../landing-page.component.scss';
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and(min-width: $breakpoint-m) {
+    justify-content: space-between;
+    margin-top: 90px;
+    flex-direction: row;
+  }
+
+  .result-item {
+    width: 324px;
+
+    h1 {
+      @include fonts.font__pt-mono--bold;
+      font-size: 48px;
+      line-height: initial;
+
+      @media screen and(min-width: $breakpoint-l) {
+        font-size: 68px;
+      }
+    }
+
+    .title-bittersweet {
+      color: $color__bittersweet;
+    }
+
+    .title-red {
+      color: $color__rating-red;
+    }
+
+    .title-orange {
+      color: $color__rating-orange;
+    }
+
+    h3 {
+      @include fonts.font__effra--bold;
+      font-size: 21px;
+      color: $color__mysterious-blue;
+    }
+
+    p {
+      @include fonts.font__effra--regular;
+      font-size: 18px;
+      color: $color__mysterious-blue;
+    }
+  }
+}
