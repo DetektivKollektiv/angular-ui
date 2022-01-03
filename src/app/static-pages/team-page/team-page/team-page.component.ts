@@ -19,11 +19,9 @@ export class TeamPageComponent implements OnInit {
   ngOnInit(): void {
      this.httpClient.get<TagInfo[]>('assets/data/membertags.json').subscribe(data =>{
       this.tagsInfo = data;
-      console.log(this.tagsInfo);
     });
     this.httpClient.get<Member[]>('assets/data/member.json').subscribe(data =>{
       this.members = data;
-      console.log(this.members);
     });
 
   }

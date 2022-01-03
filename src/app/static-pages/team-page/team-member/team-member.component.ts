@@ -8,7 +8,7 @@ import { Member } from 'src/app/model/member';
   styleUrls: ['./team-member.component.scss']
 })
 
-export class TeamMemberComponent implements OnInit, OnChanges {
+export class TeamMemberComponent implements OnInit {
 
   @Input() member: Member;
   @Input() membertag: TagInfo[];
@@ -25,6 +25,7 @@ export class TeamMemberComponent implements OnInit, OnChanges {
       this.allTags.push(tagobject);
     });
   }
+  /** alter Ansatz für Filterung
   ngOnChanges(changes: SimpleChanges): void {
     const displayS = changes.displayStatus;
     for (const tag in this.member.tags) {
@@ -32,7 +33,7 @@ export class TeamMemberComponent implements OnInit, OnChanges {
         this.displayStatus = true;
       }
     } this.displayStatus = false;
-  }
+  }*/
 }
 
 
