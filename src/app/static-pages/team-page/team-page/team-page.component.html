@@ -4,25 +4,24 @@
         <h1>Wir, das Team</h1>
         <p>codetekt ist ein dezentrales Team, das sich der Herausforderung annimmt, eine Lösung gegen
             unglaubwürdige Nachrichten im Web oder in verschlüsselten Messaging Apps zu entwickeln.</p>
-        <!--<app-member-filter [TAG]="tagsInfo"></app-member-filter> --IST FÜR DIE FILTERUNG!!-->
+        <app-member-filter [membertag]="tagsInfo"></app-member-filter><!-- --IST FÜR DIE FILTERUNG!!-->
         <div class="masonryholder">
-            <app-team-member *ngFor="let person of members" [MEM]="person"></app-team-member>
+            <app-team-member *ngFor="let person of members" [member]="person" [membertag]="tagsInfo"></app-team-member>
             <div class="lastTile">
                 <div>
                     <img src="assets/images/undraw_people_tax5.svg">
                 </div>
                 <div>
                     <h3>Und du?</h3>
-                    <p>Du willst Teil unseres Team werden und uns beim Aufbau einer Gemeinschaft gegen
+                    <p>Du willst Teil unseres Teams werden und uns beim Aufbau einer Gemeinschaft gegen
                         Falschinformationen unterstützen? Dann schreiben uns einfach eine kurze Mail. Wir melden uns bei
-                        dir und vereinbaren
-                        einen Termin zum gegenseitigen Kennenlernen!</p>
-                    <button mat-raised-button class="BecomeDetective">
-                        <a href="mailto:info@codetekt.org?subject=Unterst%C3%BCtzungsanfrage%20codetekt"
-                            title="Anfrage an Codetekt">
+                        dir und vereinbaren einen Termin zum gegenseitigen Kennenlernen!</p>
+                    <a href="mailto:info@codetekt.org?subject=Unterst%C3%BCtzungsanfrage%20codetekt"
+                        title="Anfrage an Codetekt">
+                        <button class="button button--white">
                             <i class="fas fa-user-cowboy"></i> Anfrage senden
-                        </a>
-                    </button>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

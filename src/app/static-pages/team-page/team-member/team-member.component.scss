@@ -1,3 +1,5 @@
+@use '../../../../assets/scss/fonts' as fonts;
+
 .element-titel {
   color: #160637;
   padding: 0 0 10px 0;
@@ -10,8 +12,14 @@
   border-radius: 30px;
   height: auto;
   margin: 0 0 25px;
+  p{
+    font-size: 16px;
+  }
+  h3 {
+    @include fonts.font__pt-mono--bold;
+  }
   @media screen and (max-width: 479px) {
-    width: 250px;
+    width: 100%;
   }
   @media screen and (min-width: 480px) and (max-width: 783px) {
     width: 260px;
@@ -23,7 +31,7 @@
     width: 260px;    
   }
   @media screen and (min-width: 1350px) {
-    width: 310px;    
+    width: 310px;   
   }
 }
 .icon {
@@ -53,13 +61,18 @@
   margin-bottom: 15px;
 } 
 mat-chip{
-  display: flex;
-  flex-direction: row;
+  background: #F8F8F8 !important;
+  color: #160637!important;
+  border: 0.5px solid #160637 !important;
+  margin: 1px !important;
+  padding: 0px 5px !important;
+}
+mat-chip-list{
+  text-align: center !important;
 }
 .filtertag{
-  text-align: center;
   font-size: 12px;
   margin: 5px;
-  background: #F8F8F8;
-  color: #160637;
+  display: flex;
+  justify-content: center;
 }

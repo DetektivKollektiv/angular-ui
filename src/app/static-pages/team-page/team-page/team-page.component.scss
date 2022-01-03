@@ -1,12 +1,12 @@
 @import '../../../../assets/scss/initializer';
+@import '../../../../assets/scss/buttons';
 
 .team-page{
-  
   margin: auto;
   .teampage-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 10px;
     padding: 20px;
     h1 {
       font-size: 52px;
@@ -41,30 +41,35 @@
   height: auto;
   box-sizing: border-box;
   border-radius: 30px;
-  color: #ffffff;
   text-align: center;
-    img{
-      width: 180px;
-      height: auto;
-    }
-    @media screen and (max-width: 479px) {
-      width: 250px;
-    }
-    @media screen and (min-width: 480px) and (max-width: 783px) {
-      width: 260px;
-    }
-    @media screen and (min-width: 784px) and (max-width: 1023px) {
-      width: 310px;
-    }
-    @media screen and (min-width: 1024px) {
-      width: 260px;    
-    }
-    @media screen and (min-width: 1350px) {
-      width: 310px;    
+  p, h3{
+    color: white;
+  }
+  img{
+    width: 200px;
+    height: auto;
+    transform: translate(0%, -15px)
+  }
+  @media screen and (max-width: 479px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 480px) and (max-width: 783px) {
+    width: 260px;
+  }
+  @media screen and (min-width: 784px) and (max-width: 1023px) {
+    width: 310px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 260px;    
+  }
+  @media screen and (min-width: 1350px) {
+    width: 310px;    
+  }
+  .button {
+    margin: 0 auto;
+    i, a {
+      color: #2A79E5;
     }
   }
-  .BecomeDetective {
-    background: #FFFFFF;
-    color: #2A79E5;
-  }
+}
 }

@@ -1,21 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { TagService } from './tag.service';
 
-import teamData from 'src/assets/data/member.json';
-import tagsData from 'src/assets/data/membertags.json';
-import { TagService } from './tag.service'
-interface Member {
-  image: String;
-  name: String;
-  text: String;
-  linkL: String;
-  linkM: String;
-  tags: number[];
-}
-interface TagInfo {
-  id: number;
-  tagname: String;
-  color: String;
-}
+import {Member} from 'src/app/model/member';
+import {TagInfo} from 'src/app/model/membertags';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-team-page',
   templateUrl: './team-page.component.html',
@@ -23,12 +11,21 @@ interface TagInfo {
 })
 export class TeamPageComponent implements OnInit {
 
-  constructor(public tagService: TagService) { }
-  members: Member[] = teamData;
-  tagsInfo: TagInfo[] = tagsData;
+  members: Member[] = [];
+  tagsInfo: TagInfo[];
 
-  ngOnInit(): void {}
+  constructor(public tagService: TagService, private httpClient: HttpClient) { }
 
-  //Hier war mal die Methode 
+  ngOnInit(): void {
+     this.httpClient.get<TagInfo[]>('assets/data/membertags.json').subscribe(data =>{
+      this.tagsInfo = data;
+      console.log(this.tagsInfo);
+    });
+    this.httpClient.get<Member[]>('assets/data/member.json').subscribe(data =>{
+      this.members = data;
+      console.log(this.members);
+    });
+
+  }
 
 }

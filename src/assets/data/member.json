@@ -1,6 +1,6 @@
 [
     {
-        "image": "assets/images/team/Anne2.jpg",
+        "image": "assets/images/team/Anne.jpg",
         "name": "Anne",
         "tags": [],
         "text": "",
@@ -24,7 +24,7 @@
         "linkM": "info@codetekt.org"
     },
     {   
-        "image": "assets/images/team/Daniel2.jpg",
+        "image": "assets/images/team/Daniel.jpg",
         "name": "Daniel",
         "tags": [2, 8],
         "text": "Bei codetekt engagiert sich Daniel ehrenamtlich im Bereich inhaltlicher Konzeption. Als Mitglied des Vorstands ist er Ansprechpartner für Personalthemen und die Strategie des Vereins. Was er besonders an coderekt schätzt ist die Community-basierte Herangehensweise, welche eine informierte und engagierte Gesellschaft als Teil der Lösung gegen Falschinformationen sieht.",
@@ -72,7 +72,7 @@
         "linkM": "info@codetekt.org"
     },
     {   
-        "image": "assets/images/team/Kristin2.jpg",
+        "image": "assets/images/team/Kristin.jpg",
         "name": "Kristin",
         "tags": [6, 8],
         "text": "Kristin vernetzt codetekt mit Organisationen und schafft Synergien um bestehende und neue Projekte voranzutreiben. Ihre Hauptaufgabe besteht darin, Funding und Spenden zu generieren und im Hintergrund das daily Business zu händeln. Kristin schätzt die Wichtigkeit niedrigschwellig gegen Falschinformationen vorzugehen, um die in einer Demokratie unabdingbare Meinungsbildung zu ermöglichen.",
@@ -83,7 +83,7 @@
         "image": "assets/images/team/Marie.jpg",
         "name": "Marie",
         "tags": [2, 3],
-        "text": "Lorem ipsum dolor sit amet, consetetur sadi dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elit",
+        "text": "",
         "linkL": "https://www.linkedin.com/in/marie-schroeter-b43b19137/",
         "linkM": "marie@codetekt.org"
     },
@@ -144,7 +144,7 @@
         "linkM": "info@codetekt.org"
     },
     {   
-        "image": "assets/images/team/Theda2.jpg",
+        "image": "assets/images/team/Theda.jpg",
         "name": "Theda",
         "tags": [1, 5],
         "text": "Theda interessiert sich dafür, wie aus Daten Wissen wird und was Information von Desinformation unterscheidet. Bei Codetekt arbeitet sie im Backend-Bereich des Technik-Teams und unterstützt das Community Building.",

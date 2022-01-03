@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import tagsData from 'src/assets/data/membertags.json'
+import tagsData from 'src/assets/data/membertags.json';
 
-interface TagInfo{
-  id: number;
-  tagname: String; 
-  color: String; 
-}
+import {TagInfo} from 'src/app/model/membertags';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,23 +19,13 @@ export class TagService {
 
   select_tag(int){
     this.selected_tags.push(int);
-    var index = this.unselected_tags.indexOf(int);
+    const index = this.unselected_tags.indexOf(int);
     this.unselected_tags.splice(index, 1);
-    console.log("unaus:", this.unselected_tags)
-    console.log("aus:", this.selected_tags)
   }
   unselect_tag(int){
     this.unselected_tags.push(int);
-    var index = this.selected_tags.indexOf(int);
+    const index = this.selected_tags.indexOf(int);
     this.selected_tags.splice(index, 1);
-    console.log("unaus:", this.unselected_tags)
-    console.log("aus:", this.selected_tags)
   }
- 
-}
 
- /**
-   * inaktive Filter = erst einmal alle Tags 
-   * aktive Filter sind nur die ausgewählten 
-   * selected_tags geben die Filterung vor wo selected_tag == tag aus Member
-   */
+}

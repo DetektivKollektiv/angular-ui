@@ -1,7 +1,7 @@
 <div class="member-filter">
-    <h4 class="filter"><h4 class="bold-weight"> Filter </h4><p *ngIf="isCollapsed" (click)="toggleCollapse()">einblenden <i class="fas fa-angle-down"></i></p> 
+    <div class="filter"><h4 class="bold-weight"> Filter </h4><p *ngIf="isCollapsed" (click)="toggleCollapse()">einblenden <i class="fas fa-angle-down"></i></p> 
         <p *ngIf="!isCollapsed" (click)="toggleCollapse()">ausblenden <i class="fas fa-angle-up"></i></p>
-    </h4>
+    </div>
     <div class="filter-content" *ngIf="!isCollapsed">
         <div class="active">
             <h4 class="bold-weight">Aktive Filter</h4>

@@ -6,6 +6,7 @@ import { TeamPageComponent  } from './team-page/team-page.component';
 import { TeamMemberComponent  } from './team-member/team-member.component';
 import { MemberFilterComponent } from './member-filter/member-filter.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
       CommonModule,
       MaterialModule,
       BreadcrumbModule,
-      RouterModule
+      RouterModule,
+      HttpClientModule
     ]
   })
   export class TeamModule{

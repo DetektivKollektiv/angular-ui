@@ -2,13 +2,13 @@
     text-align: right;
     h4, i{
         color: #160637;
-        display: inline;
         cursor: pointer;
+        display: inline;
     }
     p{
         color: #8989A2;
-        display: inline;
         cursor: pointer;
+        display: inline;
     }
 }
 .filter-content{
@@ -25,9 +25,11 @@
     }
 }
 mat-chip {
-    background-color: #7B00E5 !important;
-    color: #ffffff !important;
-    height: 29px !important;
+    background: #F8F8F8 !important;
+    color: #160637!important;
+    border: 0.5px solid #160637 !important;
+    margin: 1px !important;
+    padding: 0px 5px !important;
 }
 .active{
     width: 50%;
