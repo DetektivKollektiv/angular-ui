@@ -68,7 +68,6 @@ h1 {
   }
 
   .image {
-    margin-top: 16px;
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -84,13 +83,11 @@ h1 {
 
   .text {
     @include fonts.font__effra--regular;
-    color: colors.$color__mysterious-blue;
     max-width: 580px;
     font-size: 18px;
 
     &-bold {
       @include fonts.font__effra--bold;
-      color: colors.$color__mysterious-blue;
     }
   }
 }
