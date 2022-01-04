@@ -1,6 +1,7 @@
 @use '../../../../assets/scss/fonts' as fonts;
 @import '../../../../assets/scss/initializer';
 @import '../../../../assets/scss/buttons';
+@import '../../../../assets/scss/colors';
 
 .team-page{
   margin: auto;
@@ -37,14 +38,14 @@
 
   .lastTile {
   display: inline-block;
-  background: #2A79E5;
+  background: $color__blue;
   padding: 0px 20px 20px;
   height: auto;
   box-sizing: border-box;
   border-radius: 30px;
   text-align: center;
   p, h3{
-    color: white;
+    color: $color__white;
   }
   h3{
      @include fonts.font__pt-mono--bold;
