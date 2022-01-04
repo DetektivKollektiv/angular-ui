@@ -1,0 +1,59 @@
+@use '../../../../assets/scss/fonts' as fonts;
+@import '../../../../assets/scss/colors';
+
+.filter {
+    text-align: right;
+    h4, i{
+        color: $color__mysterious-blue;
+        cursor: pointer;
+        display: inline;
+    }
+    p{
+        color: $color__old-paragraph;
+        cursor: pointer;
+        display: inline;
+    }
+}
+.filter-content{
+    background-color: $color__tile-background;
+    height: 143px;
+    position: relative;
+    border-radius: 30px;
+    padding: 0px 10px;
+    max-width: 1200px;
+    h4{
+       color: $color__mysterious-blue; 
+       margin: 25px 0px 11px 0px;
+       height: 18px;
+    }
+}
+mat-chip {
+    background: $color__tile-background !important;
+    color: $color__mysterious-blue !important;
+    border: 0.5px solid $color__mysterious-blue !important;
+    margin: 1px !important;
+    padding: 0px 5px !important;
+}
+.active{
+    width: 50%;
+    //height: 103px;
+    float: left;
+    padding: 0px 0px 0px 20px;
+}
+.inactive{
+    width: 50%;
+    //height: 103px;
+    float: right;
+    padding: 0px 0px 0px 20px;
+}
+.vl{
+    height: auto;
+    width: 2px;
+    background: $color__old-paragraph;
+    margin: 0 auto;
+    top: 20px;
+    bottom: 20px;
+    position: absolute;
+    left: 50%;
+}
+

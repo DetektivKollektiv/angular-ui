@@ -1,0 +1,154 @@
+[
+    {
+        "image": "assets/images/team/Anne.jpg",
+        "name": "Anne",
+        "tags": [],
+        "text": "",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Christian.jpg",
+        "name": "Christian",
+        "tags": [1],
+        "text": "Nach seinem Informatik Studium beschäftigt er sich beruflich sowohl mit Content Management System wie auch mit B2BShop Lösungen. Bei codetekt reizen ihn sowohl die Technologien wie auch die Zusammenarbeit mit engagierten Personen aus verschiedensten Disziplinen. Privat macht Christian die Wälder und Berge als Läufer unsicher und kümmert sich ums seine Familie.",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Christian",
+        "tags": [2, 7],
+        "text": "Christian interessiert sich vor allem für die philosophische Grundfrage 'Was kann ich wissen?'. Wahrheit hat für Ihn einen daher hohen Stellenwert. Sie ist die Grundlage für relevante Entscheidungen und zukunfsorientiere Konzepte jeglicher Art. Er beschäftigt sich daher gerne mit Informationsflüssen jeglicher Art sei es zwischenmenschliche Kommunikation, Argumentation oder OSINT. Christian möchte optimale Entscheidungsgrundlagen generieren und möchte anderen dabei ebenfalls helfen. PS. Christian möchte immer gerne alle Informationen berücksichtigen, somit fällt es Ihm schwer sich kurz zu fassen",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Daniel.jpg",
+        "name": "Daniel",
+        "tags": [2, 8],
+        "text": "Bei codetekt engagiert sich Daniel ehrenamtlich im Bereich inhaltlicher Konzeption. Als Mitglied des Vorstands ist er Ansprechpartner für Personalthemen und die Strategie des Vereins. Was er besonders an coderekt schätzt ist die Community-basierte Herangehensweise, welche eine informierte und engagierte Gesellschaft als Teil der Lösung gegen Falschinformationen sieht.",
+        "linkL": "https://www.linkedin.com/in/daniel-weimert/",
+        "linkM": "daniel@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Dirk.jpg",
+        "name": "Dirk",
+        "tags": [1],
+        "text": "Dirk hat einen wissenschaftlichen Hintergrund und glaubt daher an die Notwendigkeit von kritisch-rationalen Diskursen für gesellschaftlichen Erkenntnisgewinn. Er engagiert sich bei codetekt, um die Diskurse vor gezielter Desinformation zu schützen. Im Backend unterstützt er mit 'Machine Learning' Methoden die Automatisierung von Routinetätigkeiten.",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Fran.jpg",
+        "name": "Fran",
+        "tags": [8],
+        "text": "Für Fran stellen Falschinformationen eine der größten Gefahren für die Demokratie und den gesellschaftlichen Zusammenhalt dar. Als Mitglied des Vorstandes beschäftigt sie sich mit Strategie und Funding und hilft so, den auf Transparenz und Gemeinschaft basierten Ansatz von codetekt weiterzuentwickeln.",
+        "linkL": "https://www.linkedin.com/in/franziskabormann/",
+        "linkM": "fran@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Hendrik.jpg",
+        "name": "Hendrik",
+        "tags": [1],
+        "text": "Studiert Medieninformatik und kümmert sich im Tech-Team um Frontend-Geschichten. In seiner Freizeit kehrt er dem Digitalen den Rücken und beschäftigt sich mit Analogfotografie. An der Vereinsarbeit schätzt er insbesondere die Vielfalt der Aufgaben, den Austausch mit anderen Mitgliedern und die Möglichkeit, sich für die Gesellschaft einbringen zu können.",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Henning",
+        "tags": [3, 4, 5],
+        "text": "Als Designer und Infografiker legt Henning großen Wert auf authentische Kommunikation und die korrekte Darstellung von Sachverhalten. Bei codetekt widmet er sich der Organisation der Social Media-Kanäle und der Koordination des Design-Teams.",
+        "linkL": null, 
+        "linkM": "henning@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Johanna",
+        "tags": [7],
+        "text": "Beruflich wie ehrenamtlich ist Johanna im Bereich der Demokratiepädagogik zu Hause. Aufgrund der gesellschaftlichen Sprengkraft von Falschinformationen engangiert sie sich bei codetekt im Bereich Bildung. Ihr Ziel ist es, Verständnishürden bei Thema Falschinformation ab zu bauen, um so möglichst viele Menschen für das Thema zu sensibilisieren.",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Kristin.jpg",
+        "name": "Kristin",
+        "tags": [6, 8],
+        "text": "Kristin vernetzt codetekt mit Organisationen und schafft Synergien um bestehende und neue Projekte voranzutreiben. Ihre Hauptaufgabe besteht darin, Funding und Spenden zu generieren und im Hintergrund das daily Business zu händeln. Kristin schätzt die Wichtigkeit niedrigschwellig gegen Falschinformationen vorzugehen, um die in einer Demokratie unabdingbare Meinungsbildung zu ermöglichen.",
+        "linkL": null, 
+        "linkM": "kristin@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Marie.jpg",
+        "name": "Marie",
+        "tags": [2, 3],
+        "text": "",
+        "linkL": "https://www.linkedin.com/in/marie-schroeter-b43b19137/",
+        "linkM": "marie@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Nadine.jpg",
+        "name": "Nadine",
+        "tags": [],
+        "text": "",
+        "linkL": "https://www.linkedin.com/in/nadine-wegner-5b8b6a134/",
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Niklas.jpg",
+        "name": "Niklas",
+        "tags": [1],
+        "text": "Niklas ist teil des Tech-Teams und trägt hauptsächlich zur Entwicklung unseres Frontends bei. Als Softwareentwickler interessiert er sich dafür, digitale Technologien zu nutzen, um einen positiven gesellschaftlichen Impact zu erzielen. Niklas liebt es zu reisen und Sprachen zu lernen.",
+        "linkL": "https://www.linkedin.com/in/niklas-cornelius-kunz/",
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Patrick.jpg",
+        "name": "Patrick",
+        "tags": [1, 6, 8],
+        "text": "Nachdem in seinem privaten Umfeld eine Falschnachricht kursierte, wollte Patrick etwas dagegen tun. Bei codetekt koordiniert er die Produktentwicklungsaktivitäten und versucht dabei die Fäden zwischen Konzeption, Design und technischer Umsetzung zusammenzuhalten, sodass am Ende digitale Produkte mit hoher Nutzendenfreundlichkeit entstehen.",
+        "linkL": "https://www.linkedin.com/in/patrick-m%C3%BCller-b88183127/",
+        "linkM": "patrick@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Robin",
+        "tags": [],
+        "text": "",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Sandro.jpg",
+        "name": "Sandro",
+        "tags": [1],
+        "text": "Sandro übernimmt zwei sehr gegensätzliche Aufgaben bei codetekt. Im Vorstand ist er für die Verwaltung der Finanzen zuständig, während er im Tech-Team zwischen der Entwicklung von Backend und Frontend wechselt.",
+        "linkL": "https://www.linkedin.com/in/sandro-gl%C3%BCck-667575159/",
+        "linkM": "sandro@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/DefaultImage.png",
+        "name": "Simon",
+        "tags": [],
+        "text": "",
+        "linkL": null,
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Sven.jpg",
+        "name": "Sven",
+        "tags": [5,7],
+        "text": "Nachdem Sven früher selbst von Verschwörungstheorien fasziniert war hat er jedoch auch schnell die negativen Folgen von willentlich manipulierten gesellschaftlichen Diskursen feststellen müssen. Bei codetekt widmet er sich daher dem Bereich der Wissensvermittlung im Bereich OSINT und Gegenmaßnahmen zu Desinformation.",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    },
+    {   
+        "image": "assets/images/team/Theda.jpg",
+        "name": "Theda",
+        "tags": [1, 5],
+        "text": "Theda interessiert sich dafür, wie aus Daten Wissen wird und was Information von Desinformation unterscheidet. Bei Codetekt arbeitet sie im Backend-Bereich des Technik-Teams und unterstützt das Community Building.",
+        "linkL": null, 
+        "linkM": "info@codetekt.org"
+    }
+]
