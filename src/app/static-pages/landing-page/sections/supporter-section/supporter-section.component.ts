@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 export interface Supporter {
   image: string;
@@ -11,6 +11,7 @@ export interface Supporter {
   styleUrls: ['./supporter-section.component.scss']
 })
 export class SupporterSectionComponent implements OnInit {
+  @Input() withHeadline = true;
   supporters: Supporter[];
   constructor(private httpClient: HttpClient) {}
 

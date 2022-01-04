@@ -45,6 +45,6 @@ import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
     SupporterItemComponent
   ],
   imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
-  exports: [AboutComponent, SupportUsSectionComponent]
+  exports: [AboutComponent, SupportUsSectionComponent, SupporterSectionComponent]
 })
 export class StaticPagesModule {}
