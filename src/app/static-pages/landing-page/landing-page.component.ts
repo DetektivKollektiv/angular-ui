@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { map } from 'rxjs/operators';
 
@@ -8,7 +9,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
-  loggedIn$ = this.authService.auth$.pipe(map((authState) => authState.isLoggedIn));
-
-  constructor(private authService: AuthService) {}
+  loggedIn$ = this.authService.auth$.pipe(map((authState) => authState.isLoggedIn && this.router.url !== '/landingpage'));
+  constructor(private authService: AuthService, private router: Router) {
+  }
 }

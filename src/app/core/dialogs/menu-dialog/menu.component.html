@@ -39,23 +39,17 @@
 
       <div>
         <div style="width: 100%;">
-          <p class="main-link">Über uns</p>
+        <a class="main-link" title="Über codetekt" (click)="navigate('/')">Über codetekt</a>
           <div class="child-links-list">
-            <div class="child-link active-link"><a title="about" (click)="navigate('/about')">Über codetekt</a></div>
-            <div class="child-link active-link">Das Team</div>
-            <div class="child-link active-link">Gemeinnützigkeit</div>
+            <div class="child-link active-link"><a title="Der Verein" (click)="navigate('/about')">Der Verein</a></div>
+            <div class="child-link active-link"><a title="Das Team" (click)="navigate('/team')">Das Team</a></div>
+            <div class="child-link active-link"><a title="FAQ" (click)="navigate('/faq')">FAQ</a></div>
+            <div class="child-link active-link"><a href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+              title="Spenden" target="_blank">Spenden</a></div>
           </div>
         </div>
       </div>
-      <div>
-        <div style="width: 100%;">
-          <p class="main-link">Hilfe</p>
-          <div class="child-links-list">
-            <div class="child-link active-link"><a title="faq" (click)="navigate('/faq')">FAQ</a></div>
-            <div class="child-link active-link">Die Kriterien</div>
-          </div>
-        </div>
-      </div>
+
     </div>
     <!-- Logged in -->
     <div *ngIf="userLoaded" class="authenticated">
@@ -89,7 +83,6 @@
         </div>
 
       </div>
-      <!-- TODO: Hier weitermachen -->
       <div class="navigation-main__item active-link">
         <a  title="Fall bearbeiten" class="button button--bittersweet button--gentle main-button main-button--typewriter main-link red-color" (click)="navigate('', 'open-cases')">
           <i class="fas fa-clipboard-list-check"></i>Fall bearbeiten
@@ -102,18 +95,16 @@
         <a  class="main-link" title="Gelöste Fälle" (click)="navigate('archive')">Gelöste Fälle</a>
       </div>
 
-      <div>
-        <div style="width: 100%;">
-          <p class="main-link">Hilfe</p>
-          <div class="child-links-list">
-            <div class="child-link active-link">FAQ</div>
-            <div class="child-link active-link">Die Kriterien</div>
-          </div>
-        </div>
+      <a class="main-link" title="Über codetekt" (click)="navigate('/')">Über codetekt</a>
+      <div class="child-links-list">
+        <div class="child-link active-link"><a title="Der Verein" (click)="navigate('/about')">Der Verein</a></div>
+        <div class="child-link active-link"><a title="Das Team" (click)="navigate('/team')">Das Team</a></div>
+        <div class="child-link active-link"><a title="FAQ" (click)="navigate('/faq')">FAQ</a></div>
+        <div class="child-link active-link"><a href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+          title="Spenden" target="_blank">Spenden</a></div>
       </div>
 
 
-    </div>
   </div>
   <div>
 

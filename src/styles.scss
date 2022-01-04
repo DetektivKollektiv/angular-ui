@@ -504,3 +504,8 @@ header.header {
     color: $color__rating-orange;
   }
 }
+
+.mat-dialog-content{
+  max-height: none !important;
+  margin: 0 !important
+}
