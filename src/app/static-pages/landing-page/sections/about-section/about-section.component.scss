@@ -3,6 +3,18 @@
 @import '../../../../../assets/scss/variables';
 @import '../../landing-page.component.scss';
 
+.text {  
+  max-width: 580px;
+  @media screen and(min-width: $breakpoint-l) {
+    max-width: 800px;
+  }
+  
+  font-size: 18px;  
+  text-align: center;
+  line-height: normal;
+  margin: auto;    
+}
+
 .links {
   display: flex;
   flex-direction: column;

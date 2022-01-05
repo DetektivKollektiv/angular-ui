@@ -6,6 +6,10 @@
 
 .supporters {
 
+  @media screen and(min-width: $breakpoint-l) {    
+    padding: 0 0 30px 0;
+  }  
+
   .supporter-group {
     display: flex;
     flex-direction: row;

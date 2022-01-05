@@ -19,11 +19,6 @@
     background-color: colors.$color__mysterious-blue;
   }
 
-  &-grey {
-    @extend .section-background;
-    background-color: colors.$color__page-content-background;    
-  }
-
   &-tile-background {
     @extend .section-background;
     background-color: colors.$color__tile-background;
@@ -40,7 +35,6 @@
 
   &-dots {
     @extend .section-background;
-    background-color: colors.$color__page-content-background;
     background-image: url(/assets/images/illustrations/dots-background.svg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -60,13 +54,13 @@
 
   @media screen and (min-width: $breakpoint-l) {
     width: 1240px;
-    padding: 30px 0;    
+    padding: 80px 0;
   }
 
   &-small {
     @media screen and (min-width: $breakpoint-l) {
       width: 1240px;
-      padding: 20px 0;    
+      padding: 20px 0;
     }
   }
 }
@@ -87,6 +81,10 @@
 
   &-purple {
     color: colors.$color__purple;
+  }
+
+  &-grey {
+    color: colors.$color__grey;
   }
 }
 

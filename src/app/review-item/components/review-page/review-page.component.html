@@ -52,7 +52,7 @@
       <h2>Fallbewertungskommentar</h2>
       <p class="explain">
         Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben?
-        Dieser wird nach Abschluss des Falls mit deinem Nutzernamen sichtbar sein.
+        Dieser wird nach Abschluss des Falls mit deinem Anmeldenamen sichtbar sein.
       </p>
       <app-comment-input [user]="user$ | async" [comment]="review.comment" (commentSubmitted)="commentChange($event)"
         [authenticated]="true" [instantChanges]="true"></app-comment-input>

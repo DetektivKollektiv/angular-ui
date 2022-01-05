@@ -18,34 +18,34 @@
     color: colors.$color__mysterious-blue;
     text-align: center;
 
-      &__icon {
-        width: 42px;
-        height: 42px;
-        margin: 10px 10px -3px 0;
-        padding: 12.9px 2.5px;
-        color: colors.$color__white;
-        border-radius: 30px;
-        font-family: 'Font Awesome 5 Pro';
-        font-weight: 900;
-        font-size: 23px;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-      }
+    &__icon {
+      width: 42px;
+      height: 42px;
+      margin: 10px 10px -3px 0;
+      padding: 12.9px 2.5px;
+      color: colors.$color__white;
+      border-radius: 30px;
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 900;
+      font-size: 23px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
 
-      &__title {
-        @include fonts.font__effra--bold;
-        height: 18px;
-        margin: 16px 0 14px;
-        font-size: 16px;
-      }
+    &__title {
+      @include fonts.font__effra--bold;
+      height: 18px;
+      margin: 16px 0 14px;
+      font-size: 16px;
+    }
 
-      &__description {
-        @include fonts.font__effra--regular;
-        width: 320px;
-        height: 35px;
-        margin: 14px 0 18px;
-        font-size: 14px;
+    &__description {
+      @include fonts.font__effra--regular;
+      width: 320px;
+      height: 35px;
+      margin: 14px 0 18px;
+      font-size: 14px;
     }
   }
 }
