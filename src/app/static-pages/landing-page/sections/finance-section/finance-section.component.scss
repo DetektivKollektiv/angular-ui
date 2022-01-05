@@ -57,27 +57,21 @@
     }   
 
     .title {
+      text-align: center;
       @include fonts.font__effra--bold;
-      color: $color__mysterious-blue;
-      font-size: 21px;
+      font-size: 21px;      
     }
   
     .text {
+      text-align: center;
       @include fonts.font__effra--regular;
-      color: $color__mysterious-blue;
       font-size: 18px;
     }
 
     .button {
       width: fit-content;
-        
-      &-left {
-        align-self: flex-start;
-      }
+      align-self: center; 
 
-      &-right {
-        align-self: flex-end;
-      }        
     }
   }
 }
