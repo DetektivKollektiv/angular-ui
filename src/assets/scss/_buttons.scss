@@ -102,6 +102,17 @@
     }
   }
 
+  &--blue {
+    background-color: $color__blue;
+    border-color: $color__white;
+    color: $color__white;
+
+    &:hover:not(:disabled) {
+      color: $color__blue;
+      border-color: $color__blue;
+    }
+  }
+
   &--white {
     background-color: $color__white;
     border-color: $color__white;

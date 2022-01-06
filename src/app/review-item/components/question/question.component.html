@@ -1,10 +1,10 @@
 <div
   class="question"
   [class.no-border]="isChild"
-  [class.error-border]="questionFormControl.invalid && questionFormControl.touched"
+  [class.error-border]="questionFormControl?.invalid && questionFormControl?.touched"
   [attr.id]="question.question_id"
 >
-  <div class="question__error" *ngIf="questionFormControl.invalid && questionFormControl.touched">
+  <div class="question__error" *ngIf="questionFormControl?.invalid && questionFormControl?.touched">
     Du hast diese Frage noch nicht beantwortet.
   </div>
   <div class="question__title">
