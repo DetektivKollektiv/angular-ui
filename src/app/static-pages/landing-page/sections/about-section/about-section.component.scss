@@ -1,7 +1,19 @@
 @use '../../../../../assets/scss/fonts' as fonts;
-@import '../../../../../assets/scss/colors';
+@use '../../../../../assets/scss/colors' as colors;
 @import '../../../../../assets/scss/variables';
 @import '../../landing-page.component.scss';
+
+.text {  
+  max-width: 580px;
+  @media screen and(min-width: $breakpoint-l) {
+    max-width: 800px;
+  }
+  
+  font-size: 18px;  
+  text-align: center;
+  line-height: normal;
+  margin: auto;    
+}
 
 .links {
   display: flex;
@@ -14,7 +26,8 @@
   @media screen and(min-width: $breakpoint-s) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    row-gap: 20px;
+    column-gap: 30px;
+    row-gap: 30px;
   }
 
   .page-link-item {
@@ -40,7 +53,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: darken($color__tile-background, 5%);
+      background: darken(colors.$color__tile-background, 5%);
       transition: 0.5s ease;
       opacity: 0;
       display: flex;
@@ -53,24 +66,24 @@
     }
 
     &-purple {
-      background-color: rgba($color: $color__purple, $alpha: 0.2);
+      background-color: rgba($color: colors.$color__purple, $alpha: 0.2);
 
       &:hover {
-        background-color: rgba($color: $color__purple, $alpha: 0.4);
+        background-color: rgba($color: colors.$color__purple, $alpha: 0.4);
       }
     }
     &-supernova {
-      background-color: rgba($color: $color__supernova, $alpha: 0.2);
+      background-color: rgba($color: colors.$color__supernova, $alpha: 0.2);
 
       &:hover {
-        background-color: rgba($color: $color__supernova, $alpha: 0.4);
+        background-color: rgba($color: colors.$color__supernova, $alpha: 0.4);
       }
     }
     &-bittersweet {
-      background-color: rgba($color: $color__bittersweet, $alpha: 0.2);
+      background-color: rgba($color: colors.$color__bittersweet, $alpha: 0.2);
 
       &:hover {
-        background-color: rgba($color: $color__bittersweet, $alpha: 0.4);
+        background-color: rgba($color: colors.$color__bittersweet, $alpha: 0.4);
       }
     }
   }
@@ -80,7 +93,7 @@
   }
 
   .social-link-item {
-    background-color: $color__tile-background;
+    background-color: colors.$color__tile-background;
     height: 62px;
     border-radius: 20px;
     display: flex;
@@ -92,8 +105,8 @@
     width: 100%;
 
     p {
-      @include fonts.font__effra--bold;
-      color: $color__mysterious-blue;
+      @include fonts.font__effra--medium;
+      font-size: 18px;
     }
 
     i {
@@ -105,26 +118,26 @@
     &-facebook {
       @extend .social-link-item;
       i {
-        color: #3b5998;
+        color: colors.$color__rating-facebook;
       }
     }
 
     &-instagram {
       @extend .social-link-item;
       i {
-        color: #ff7068;
+        color: colors.$color__bittersweet;
       }
     }
 
     &-twitter {
       @extend .social-link-item;
       i {
-        color: #1da1f2;
+        color: colors.$color__rating-tweeter;
       }
     }
 
     &:hover {
-      background-color: darken($color__tile-background, 5%);
+      background-color: darken(colors.$color__tile-background, 5%);
     }
   }
 }

@@ -51,9 +51,8 @@
     <div class="comments">
       <h2>Fallbewertungskommentar</h2>
       <p class="explain">
-        Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben? Dieser wird nach Abschluss des Falls mitsamt
-        deines Namens sichtbar
-        sein.
+        Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben?
+        Dieser wird nach Abschluss des Falls mit deinem Anmeldenamen sichtbar sein.
       </p>
       <app-comment-input [user]="user$ | async" [comment]="review.comment" (commentSubmitted)="commentChange($event)"
         [authenticated]="true" [instantChanges]="true"></app-comment-input>
@@ -61,7 +60,7 @@
     <div class="tags">
       <h2>Schlagwörter</h2>
       <p class="explain">
-        Gib hier bis zu drei Schlagwörter ein, die den Fall charkterisieren und bestätige sie mit Enter. Bitte nutze
+        Gib hier bis zu drei Schlagwörter ein, die den Fall kennzeichnen und bestätige sie mit <span class="hint-italic">Enter</span>. Bitte verwende möglichst
         objektive Begriffe, damit der Fall später für andere anhand der Schlagwörter einfach zu finden ist.
       </p>
       <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>

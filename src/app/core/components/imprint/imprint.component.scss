@@ -3,39 +3,37 @@
 .imprint-page {
   margin: auto;
 
+  .top-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
   .overview-section {
     h1 {
+      color: $color__share-section-heading;
       font-size: 52px;
       font-weight: 700;
-      color: $color__share-section-heading;
     }
     h3 {
+      color: $color__share-section-heading;
       font-size: 16px;
       font-weight: 600;
-      color: $color__share-section-heading;
       margin-top: 25px;
       margin-bottom: 25px;
     }
     h4 {
+      color: $color__old-paragraph;
       font-size: 16px;
       font-weight: 700;
-      color: $color__old-paragraph;
       margin-top: 25px;
       margin-bottom: 8px;
-    }    
+    }
     p {
-      font-size: 16px;
       color: $color__old-paragraph;
+      font-size: 16px;
       margin-top: 0px;
     }
-  }
-
-  .top-section {
-    display: grid;
-    grid-template-columns: 1fr;
-
-    gap: 20px;
-    padding: 20px;
-
   }
 }

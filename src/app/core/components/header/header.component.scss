@@ -42,8 +42,6 @@
   }
 }
 
-// does this navigation-main stuff get used somewhere else?
-// is it worth putting in another file somewhere
 .navigation-main {
   $parent: &;
 
@@ -65,6 +63,17 @@
     &:last-child {
       margin: 0;
     }
+
+    &:hover {
+      .navigation-flyout {
+        display: block;
+      }
+    }
+    &:active {
+      .navigation-flyout {
+        display: block;
+      }
+    }
   }
 
   &__link {
@@ -82,12 +91,7 @@
       text-decoration: none;
     }
   }
-  &__button--detective {
-    
-  }
 }
-
-
 
 // todo: move this somewhere more appropriate
 //_userprofile.scss
@@ -162,8 +166,6 @@
   }
 }
 
-
-
 //_navigation-flyout.scss
 
 .navigation-flyout {
@@ -202,19 +204,6 @@
   }
 }
 
-//TODO DEV
-.navigation-main__item {
-  &:hover {
-    .navigation-flyout {
-      display: block;
-    }
-  }
-  &:active {
-    .navigation-flyout {
-      display: block;
-    }
-  }
-}
 
 .navigation-mobile {
   $parent: &;
@@ -231,20 +220,20 @@
   //TODO DEV
   //Here be Overlay Stuff
 }
-$light-reddish1: #ff7268;
+
 .third-theme-color {
-  color: $light-reddish1;
+  color: $color__bittersweet;
 }
 
 
 // todo: move to its own component
 .around-button {
-  border: 1px solid #ff7269;
+  border: 1px solid $color__bittersweet;
   padding: 5px 10px;
   border-radius: 15px;
   &:hover {
-    background-color: #ff7269;
-    color: white;
+    background-color: $color__bittersweet;
+    color: $color__white;
   }
 }
 

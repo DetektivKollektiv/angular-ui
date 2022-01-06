@@ -10,8 +10,10 @@
 
 h1 {
   @include fonts.font__effra--bold;
-  font-size: 68px;
-  color: colors.$color__mysterious-blue;
+  font-size: 46px;
+  @media only screen and (min-width: 480px) {
+    font-size: 52px;
+  }
   margin-top: 16px;
 }
 
@@ -22,6 +24,10 @@ h1 {
   flex: 1 1 auto;
   width: 100%;
   padding: 16px;
+
+  .standard-content-container-width {
+    margin-left: 20px;
+  }
 
   &-tile {
     @extend .background;
@@ -62,7 +68,6 @@ h1 {
   }
 
   .image {
-    margin-top: 16px;
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -78,14 +83,17 @@ h1 {
 
   .text {
     @include fonts.font__effra--regular;
-    color: colors.$color__mysterious-blue;
     max-width: 580px;
     font-size: 18px;
 
     &-bold {
       @include fonts.font__effra--bold;
-      color: colors.$color__mysterious-blue;
     }
+  }
+}
+.about-section {
+  @media screen and(min-width: 800px) {
+    margin-top:-60px;
   }
 }
 
@@ -134,6 +142,10 @@ h1 {
     &-mysterious-blue {
       background-color: colors.$color__mysterious-blue;
     }
+
+    &-purple {
+      background-color: colors.$color__purple;
+    }
   }
 
   .title {
@@ -150,7 +162,7 @@ h1 {
 }
 
 .team-section {
-  margin: 100px 0;
+  margin: 60px 0 30px 0;
 
   .team {
     width: 100%;
@@ -186,7 +198,7 @@ h1 {
 }
 
 .supporter-section {
-  margin: 100px 0;
+  margin: 60px 0 30px 0;
 }
 
 .planets {
@@ -293,73 +305,10 @@ h1 {
   }
 }
 
-.finance {
-  margin: 100px 0;
-  .top-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 900px;
-    margin: auto;
-
-    .image {
-      width: 100%;
-      max-width: 500px;
-    }
-  }
-
-  .grid-section {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-
-    @media screen and(min-width: 800px) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 16px;
-    }
-
-    .grid-item {
-      display: flex;
-      flex-direction: row;
-      gap: 16px;
-
-      .icon {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        font-size: 42px;
-        color: colors.$color__white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-
-        &-bittersweet {
-          @extend .icon;
-          background-color: colors.$color__bittersweet;
-        }
-
-        &-purple {
-          @extend .icon;
-          background-color: colors.$color__purple;
-        }
-      }
-
-      .text {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .button {
-          width: fit-content;
-        }
-      }
-    }
-  }
+.finance-section {
+  margin: 40px 0;
 }
 
-.support-us-section {
-  margin: 100px 0;
+.support-us-special-section {
+  margin: 40px 0;
 }

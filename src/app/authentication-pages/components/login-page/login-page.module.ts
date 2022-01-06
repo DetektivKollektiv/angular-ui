@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AuthModule } from '@shared/auth/auth.module';
 import { AuthenticationPageModule } from '../authentication-page/authentication-page.module';
 
