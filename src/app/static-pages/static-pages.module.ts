@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SupporterItemComponent } from './landing-page/sections/supporter-section/supporter-item/supporter-item.component';
 import { BreadcrumbComponent } from '@shared/breadcrumb/breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { TrustCheckingPageComponent } from './trust-checking/trust-checking-page/trust-checking-page.component';
+import { TrustCheckingCriterionComponent } from './trust-checking/components/trust-checking-criterion/trust-checking-criterion.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
     NewsletterSectionComponent,
     NewsSectionItemComponent,
     SupportUsSectionComponent,
-    SupporterItemComponent
+    SupporterItemComponent,
+    TrustCheckingPageComponent,
+    TrustCheckingCriterionComponent
   ],
   imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
   exports: [AboutComponent, SupportUsSectionComponent]

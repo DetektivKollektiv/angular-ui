@@ -1,0 +1,41 @@
+@import '../../../../../assets/scss/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .top-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: $color__tile-background;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 0 15px;
+    .extension-menu{
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+  }
+  .extended-section {
+    display: flex;
+    padding: 0 15px;
+    flex-direction: column;
+    border: solid;
+    border-color: $color__tile-background;
+    border-radius: 15px;
+    border-width: 5px;
+  }
+  .tag-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 5px;
+    border-radius: 15px;
+    padding: 0 15px;
+  }
+}
