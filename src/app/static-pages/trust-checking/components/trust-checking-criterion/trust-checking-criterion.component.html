@@ -1,23 +1,21 @@
 <div class="container">
     <div class="top-section">
-        <p>{{ criterion.title }}</p>
-        <div (click)="extend_collapse()">
-            <div *ngIf="!extended" class="extension-menu">
-                <p>Einblenden</p>
-                <i class="far fa-chevron-down"></i>
-            </div>
-            <div *ngIf="extended" class="extension-menu">
-                <p>Ausblenden</p>
-                <i class="far fa-chevron-up"></i>
-            </div>
+        <div class="headline">
+            <i [class]="criterion.icon"></i>
+            <p>{{ criterion.title }}</p>
         </div>
+
+        <div class="extension-menu" (click)="extended=!extended">
+            <p>{{extended ? 'ausblenden' : 'einblenden'}}</p>
+            <i [class]="extended ? 'far fa-chevron-up' : 'far fa-chevron-down'"></i>
+        </div>
+
     </div>
     <div *ngIf="extended" class="extended-section">
         <p>{{criterion.description }}</p>
-        <div class="tag-container" [style.background-color]="criterion.tag_bg_color"
-            [style.color]="criterion.tag_text_color">
-            <i [class]="criterion.icon"></i>
-            <p>{{criterion.tag_text}}</p>
+        <div class="tag-container" [style.background-color]="background_color" [style.color]="criterion.text_color">
+            <i [class]="criterion.icon" [style.color]="criterion.text_color"></i>
+            <p [style.color]="criterion.text_color">{{criterion.tag_text}}</p>
         </div>
     </div>
 </div>

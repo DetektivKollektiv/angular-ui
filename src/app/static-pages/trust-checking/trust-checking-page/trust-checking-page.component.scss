@@ -1,11 +1,16 @@
-@use '../../../assets/scss/fonts' as fonts;
-@use '../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
+@use '../../../../assets/scss/colors' as colors;
+@import '../../../../assets/scss/variables';
+
 
 h1 {
   @include fonts.font__effra--bold;
-  font-size: 68px;
-  color: colors.$color__mysterious-blue;
-  margin-top: 16px;
+  font-size: 36px;
+  line-height: initial;
+
+  @media screen and(min-width: $breakpoint-l) {
+    font-size: 52px;
+  }
 }
 .section-background {
   width: 100vw;
@@ -15,6 +20,11 @@ h1 {
   display: flex;
   flex: 1 1 auto;
 
+  padding: 0 10px;
+  @media screen and(min-width: 800px) {
+    padding: 0;
+  }
+
   app-breadcrumb {
     align-self: flex-start;
   }
@@ -23,7 +33,11 @@ h1 {
     background-image: url(/assets/images/backgrounds/grey-edgy-background.svg);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 100px 0;
+    padding: 100px 10px;
+    @media screen and(min-width: 800px) {
+      padding: 100px 0;
+    }
+  
     margin-top: -20px;
   }
 }
@@ -75,6 +89,35 @@ h1 {
   }
 }
 
+.section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 25px 0;
+
+  .section-heading {
+    @include fonts.font__pt-mono--bold;
+    font-size: 21px;
+    text-align: center;
+    // line-height: 0px;
+  
+    &-supernova {
+      color: colors.$color__supernova;
+    }
+  }
+  .section-sub-heading {
+    @include fonts.font__effra--bold;
+    font-size: 30px;
+    text-align: center;
+    // line-height: 0px;  
+  
+    @media screen and (min-width: $breakpoint-m) {
+      font-size: 36px;
+    }
+  }
+}
+
 .about-snippet {
   display: flex;
   flex-direction: column;
@@ -96,29 +139,12 @@ h1 {
     }
   }
 
-  .icon {
-    min-height: 150px;
-    min-width: 150px;
-    border-radius: 50%;
-    color: colors.$color__white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 75px;
-    &-supernova {
-      background-color: colors.$color__supernova;
-    }
+  .illustration {
 
-    &-bittersweet {
-      background-color: colors.$color__bittersweet;
-    }
-
-    &-neon-blue {
-      background-color: colors.$color__neon-blue;
-    }
-
-    &-mysterious-blue {
-      background-color: colors.$color__mysterious-blue;
+    img{
+      max-height: 150px;
+      max-width: 150px;
+  
     }
   }
 

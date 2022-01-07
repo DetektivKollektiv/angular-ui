@@ -1,3 +1,4 @@
+@use '../../../../../assets/scss/fonts' as fonts;
 @import '../../../../../assets/scss/colors';
 
 .container {
@@ -12,12 +13,27 @@
     border-radius: 15px;
     box-sizing: border-box;
     padding: 0 15px;
-    .extension-menu{
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        align-items: center;
+
+    .headline {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      p {
+        font-weight: bold;
+      }
+    }
+
+    .extension-menu {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      p {
+        color: #aaa;
+        font-weight: bold;
+      }
     }
   }
   .extended-section {
@@ -28,6 +44,13 @@
     border-color: $color__tile-background;
     border-radius: 15px;
     border-width: 5px;
+    white-space: pre-line;
+    p {
+      font-weight: bold;
+      @include fonts.font__effra--regular;
+      color: $color__mysterious-blue;
+      font-size: 18px;
+    }
   }
   .tag-container {
     display: flex;
@@ -37,5 +60,6 @@
     margin: 20px 5px;
     border-radius: 15px;
     padding: 0 15px;
+   
   }
 }

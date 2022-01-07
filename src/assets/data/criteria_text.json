@@ -3,48 +3,42 @@
         "title":"Quelle",
         "description":"Wird im Artikel/in der Nachricht die Originalquelle genannt? Vergleiche den Artikel/die Nachricht mit dieser Originalquelle. Suche nach der exakten Überschrift des Artikels/ Textes auf Google, indem Du Anführungszeichen benutzt, um die Originalquelle zu finden. Beispiel: “COVID-19 – Die Todesrate steigt” Weist der Artikel/die Nachricht grammatische Fehler auf? Lass den Text per Google Translate wortwörtlich in andere Sprachen übersetzen und suche die Überschriften oder Paragraphen mit Anführungszeichen um die Originalquelle zu finden.",
         "tag_text":"Fehlerhafte Quellen",
-        "icon":"far fa-arrow-left",
-        "tag_bg_color":"grey",
-        "tag_text_color":"black"
+        "icon":"fas fa-unlink",
+        "text_color":"rgba(108, 99, 255, 1)"
     },
     {
-        "title":"Quelle",
-        "description":"Wird im Artikel/in der Nachricht die Originalquelle genannt? Vergleiche den Artikel/die Nachricht mit dieser Originalquelle. Suche nach der exakten Überschrift des Artikels/ Textes auf Google, indem Du Anführungszeichen benutzt, um die Originalquelle zu finden. Beispiel: “COVID-19 – Die Todesrate steigt” Weist der Artikel/die Nachricht grammatische Fehler auf? Lass den Text per Google Translate wortwörtlich in andere Sprachen übersetzen und suche die Überschriften oder Paragraphen mit Anführungszeichen um die Originalquelle zu finden.",
-        "tag_text":"Fehlerhafte Quellen",
-        "icon":"far fa-arrow-left",
-        "tag_bg_color":"grey",
-        "tag_text_color":"black"
+        "title":"Inhalt",
+        "description":"Passt der Inhalt des Artikels/der Nachricht zur Überschrift? Berichten verlässliche Medien über das Thema und tun sie dies mit ähnlichem Fazit? Auf der sicheren Seite bist du, wenn du Abgleiche mit öffentlich-rechtlichen Medien machst. \n Wurde der Artikel/Text bereits von Fact-Checking Organisationen wie Correctiv oder Faktenfinder aufgegriffen und berichtigt?",
+        "tag_text":"Fehlender Kontext",
+        "icon":"far fa-newspaper",
+        "text_color":"rgba(255, 114, 104, 1)"
     },
     {
-        "title":"Quelle",
-        "description":"Wird im Artikel/in der Nachricht die Originalquelle genannt? Vergleiche den Artikel/die Nachricht mit dieser Originalquelle. Suche nach der exakten Überschrift des Artikels/ Textes auf Google, indem Du Anführungszeichen benutzt, um die Originalquelle zu finden. Beispiel: “COVID-19 – Die Todesrate steigt” Weist der Artikel/die Nachricht grammatische Fehler auf? Lass den Text per Google Translate wortwörtlich in andere Sprachen übersetzen und suche die Überschriften oder Paragraphen mit Anführungszeichen um die Originalquelle zu finden.",
-        "tag_text":"Fehlerhafte Quellen",
-        "icon":"far fa-arrow-left",
-        "tag_bg_color":"grey",
-        "tag_text_color":"black"
+        "title":"Zitate",
+        "description":"Schau dir die Zitate im Artikel/Text an. Wer hat diese geäußert? Handelt es sich um Expert*innen auf dem speziellen Gebiet? Wurden die Zitate woanders aufgegriffen und womöglich in einem anderen Kontext gebraucht? Vergleiche die Aussagen mit öffentlich zugänglichen Studien und anerkannten Expert*innen im jeweiligen Gebiet. Untersuche, ob es Zitaten von mehreren Expert*innen gibt und ob unterschiedliche Sichtweisen beleuchtet werden.",
+        "tag_text":"Fehlerhafte Zitate",
+        "icon":"fad fa-quote-left",
+        "text_color":"rgba(250, 200, 0, 1)"
     },
     {
-        "title":"Quelle",
-        "description":"Wird im Artikel/in der Nachricht die Originalquelle genannt? Vergleiche den Artikel/die Nachricht mit dieser Originalquelle. Suche nach der exakten Überschrift des Artikels/ Textes auf Google, indem Du Anführungszeichen benutzt, um die Originalquelle zu finden. Beispiel: “COVID-19 – Die Todesrate steigt” Weist der Artikel/die Nachricht grammatische Fehler auf? Lass den Text per Google Translate wortwörtlich in andere Sprachen übersetzen und suche die Überschriften oder Paragraphen mit Anführungszeichen um die Originalquelle zu finden.",
-        "tag_text":"Fehlerhafte Quellen",
-        "icon":"far fa-arrow-left",
-        "tag_bg_color":"grey",
-        "tag_text_color":"black"
+        "title":"Bilder / Videos",
+        "description":"Nutze Reverse Image Search, um zu sehen, ob Fotos in Artikeln oder Nachrichten echt sind und nicht aus anderen Kontexten gegriffen sind. Dies kann auch für Profilbilder in den sozialen Medien wiederholt werden, um sicherzugehen, dass Profilbilder nicht gestohlen sind. Ein Tool dafür ist Tineye.\nNutze Reverse Video Search wie oben, indem du Screenshots der Videos mit Hilfe der Reverse Image Search verifiziert.",
+        "tag_text":"Fehlerhafte Bilder",
+        "icon":"far fa-file-image",
+        "text_color":"rgba(250, 200, 0, 1)"
     },
     {
-        "title":"Quelle",
-        "description":"Wird im Artikel/in der Nachricht die Originalquelle genannt? Vergleiche den Artikel/die Nachricht mit dieser Originalquelle. Suche nach der exakten Überschrift des Artikels/ Textes auf Google, indem Du Anführungszeichen benutzt, um die Originalquelle zu finden. Beispiel: “COVID-19 – Die Todesrate steigt” Weist der Artikel/die Nachricht grammatische Fehler auf? Lass den Text per Google Translate wortwörtlich in andere Sprachen übersetzen und suche die Überschriften oder Paragraphen mit Anführungszeichen um die Originalquelle zu finden.",
-        "tag_text":"Fehlerhafte Quellen",
-        "icon":"far fa-arrow-left",
-        "tag_bg_color":"grey",
-        "tag_text_color":"black"
+        "title":"Online-Präsenz",
+        "description":"Achte auf die URLs. Manche Webseiten imitieren bereits bekannte Medien. Beispiel: ABCnews.com vs. ABCnews.com.co.\nBei Artikeln: Achte auf die Qualität des Logos und Designs des Mediums.",
+        "tag_text":"Mangelhafte Grammatik",
+        "icon":"far fa-browser",
+        "text_color":"rgba(108, 99, 255, 1)"
     },
     {
-        "title":"Quelle",
-        "description":"Wird im Artikel/in der Nachricht die Originalquelle genannt? Vergleiche den Artikel/die Nachricht mit dieser Originalquelle. Suche nach der exakten Überschrift des Artikels/ Textes auf Google, indem Du Anführungszeichen benutzt, um die Originalquelle zu finden. Beispiel: “COVID-19 – Die Todesrate steigt” Weist der Artikel/die Nachricht grammatische Fehler auf? Lass den Text per Google Translate wortwörtlich in andere Sprachen übersetzen und suche die Überschriften oder Paragraphen mit Anführungszeichen um die Originalquelle zu finden.",
-        "tag_text":"Fehlerhafte Quellen",
-        "icon":"far fa-arrow-left",
-        "tag_bg_color":"grey",
-        "tag_text_color":"black"
+        "title":"Eigentümer*innen",
+        "description":"Achte auf die Besitzer*innen und Geldgeber*innen der Webseite des Mediums mit dem betreffenden Artikel. Gibt es einen Verdacht auf staatliche Einflüsse oder starken politischen Bias? Recherchiere die Quelle des Artikels/Textes. Ist es ein*e bekannte*r Journalist*in, Autor*in? Ist es eine Person, die du persönlich kennst? Kannst du im Falle einer weitergeleiteten Nachricht die Weiterleitungskette nachvollziehen?",
+        "tag_text":"Medium nicht unabhängig",
+        "icon":"far fa-funnel-dollar",
+        "text_color":"rgba(255, 114, 104, 1)"
     }
 ]
