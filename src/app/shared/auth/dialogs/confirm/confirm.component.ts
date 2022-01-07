@@ -12,7 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./confirm.component.scss']
 })
 export class ConfirmComponent implements OnInit {
-  public title = 'Bei deiner Registrierung haben wir dir einen Code zugeschickt. Gib ihn hier ein um deine E-Mail Adresse zu verifizieren.';
+  public title = 'Bei deiner Registrierung haben wir dir einen Code zugeschickt. Gib ihn hier ein um deine E-Mail-Adresse zu verifizieren.';
 
   public confirmForm: FormGroup;
   public confirmationInvalid: boolean;

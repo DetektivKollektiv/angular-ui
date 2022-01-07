@@ -19,8 +19,10 @@
   }
 
   &__heading {
-    font-size: 21px;
-    @include fonts.font__effra--bold;
+    span {
+      font-size: 18px;
+    @include fonts.font__pt-mono--bold;
+    }
   }
 
   &__content {

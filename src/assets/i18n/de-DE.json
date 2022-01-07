@@ -1,8 +1,8 @@
 {
   "snack": {
     "login": {
-      "message": "Dazu musst du dich einloggen.",
-      "action": "Einloggen"
+      "message": "Dazu musst du dich anmelden.",
+      "action": "Anmelden"
     }
   },
   "button": {
@@ -11,21 +11,21 @@
     }
   },
   "checkItem": {
-    "details": "Gib im Formular unten die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf Absenden klickst, prüfen wir ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis. Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich prüfen.",
+    "details": "Gib im Formular unten die Details zu deinem Fall ein. Das kann entweder eine Behauptung sein, oder ein Link. Sobald du auf Absenden klickst, prüfen wir, ob wir diesen Fall schon bearbeitet haben. Dann erhältst du sofort ein Ergebnis. Falls dein Fall neu ist, werden wir ihn sofort an unser Team von Detektiven weitergeben, die den Fall dann für dich prüfen.",
     "form": {
       "details": {
         "label": "Details",
-        "placeholder": "Gib hier die Details deines Falls ein..."
+        "placeholder": "Gib hier die Details deines Falls ein ..."
       },
       "submit": "Absenden"
     },
-    "title": "Ein neuer Fall fürs DetectiveCollective?"
+    "title": "Ein neuer Fall für codetekt?"
   },
   "checkResultCreated": {
     "details": {
-      "first": "Unsere Detektive werden deinen Fall nun unter die Lupe nehmen.",
+      "first": "Unsere Detektiv*innen werden deinen Fall nun unter die Lupe nehmen.",
       "second": "Sobald ein Ergebnis vorliegt werden wir dich benachrichtigen.",
-      "third": "Vielen Dank, dass du das DetectiveCollective beauftragt hast."
+      "third": "Vielen Dank, dass du codetekt beauftragt hast."
     },
     "title": "Wir haben deinen Fall aufgenommen!"
   },
@@ -34,7 +34,7 @@
       "first": "Zu deinem Fall liegen bereits Informationen in unserer Kartei.",
       "second": "Bisher haben {{good}} von {{total}} Detektiv*innen diese Aussage als vertrauenswürdig markiert."
     },
-    "title": "Das kommt uns bekannt vor..."
+    "title": "Das kommt uns bekannt vor ..."
   },
   "dashboard": {
     "button": {
@@ -42,10 +42,10 @@
       "listItems": "Alle Fälle anzeigen",
       "reviewItem": "Einen Fall lösen"
     },
-    "question": "Möchtest du einen neuen Fall einstellen oder lieber versuchen einen der Fälle in unserer Kartei aufzuklären?",
+    "question": "Möchtest du einen neuen Fall einstellen oder lieber versuchen, einen der Fälle in unserer Kartei aufzuklären?",
     "title": {
-      "auth": "Willkommen beim DetectiveCollective, {{value}}!",
-      "noauth": "Willkommen beim DetectiveCollective!"
+      "auth": "Willkommen bei codetekt, {{value}}!",
+      "noauth": "Willkommen bei codetekt!"
     },
     "hint": {
       "title": "Du kannst uns auch Fälle über unseren WhatsApp Chat Bot einreichen.",
@@ -54,7 +54,7 @@
   },
   "header": {
     "login": {
-      "label": "Einloggen"
+      "label": "Anmelden"
     },
     "logout": {
       "label": "Abmelden"
@@ -72,17 +72,17 @@
       "label": "Passwort bestätigen"
     },
     "email": {
-      "label": "E-Mail Adresse"
+      "label": "E-Mail-Adresse"
     },
     "label": {
-      "login": "Einloggen",
+      "login": "Anmelden",
       "register": "Registrieren"
     },
     "password": {
       "label": "Passwort"
     },
     "username": {
-      "label": "Benutzername"
+      "label": "Anmeldename"
     }
   },
   "reviewItem": {
@@ -92,7 +92,7 @@
         "true": "Vertrauenswürdig"
       },
       "remarks": {
-        "details": "Notiere hier wie du zu deiner Entscheidung kommst...",
+        "details": "Notiere hier, wie du zu deiner Entscheidung kommst ...",
         "label": "Anmerkungen"
       },
       "source": {
@@ -101,16 +101,16 @@
       }
     },
     "statement": "Behauptung:",
-    "title": "Lieber Detektiv, löse bitte folgenden Fall."
+    "title": "Liebe/r Detektiv*in, löse bitte folgenden Fall."
   },
   "reviewResult": {
     "details": {
-      "first": "Unsere erfahreneren Detektive werden deine Ergebnisse nun überprüfen.",
-      "second": "Sobald der Peer Review Prozess abgeschlossen ist erhältst du deine Erfahrungspunkte."
+      "first": "Unsere erfahreneren Detektiv*innen werden deine Ergebnisse nun überprüfen.",
+      "second": "Sobald der Peer Review Prozess abgeschlossen ist, erhältst du deine Erfahrungspunkte."
     },
     "nextCase": "Nächsten Fall lösen",
     "title": "Danke für deine Arbeit."
   },
-  "article": "Link zu Artikel",
-  "claim": "Textnachricht / Aussage"
+  "article": "Link zu einem Online-Artikel",
+  "claim": "Textnachricht oder Aussage"
 }

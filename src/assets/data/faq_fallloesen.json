@@ -1,10 +1,10 @@
 [
   {
     "question": "Kann ich mich benachrichtigen lassen?",
-    "answer": "Du bekommst eine E-Mail sobald dein Fall gelöst wurde."
+    "answer": "Ja! Dafür musst du beim Einreichen des Falls deine E-Mail-Adresse angeben. Wir schreiben dir dann, sobald dein Fall gelöst wurde."
   },
   {
-    "question": "Wie erfahre ich ob und mit welcher Bewertung der Fall abgeschlossen wurde?",
-    "answer": "Wenn ein Fall abgeschlossen ist, wird eine E-Mail mit der Bewertung und dem Link auf den gelösten Fall verschickt."
+    "question": "Wie erfahre ich, ob und mit welcher Bewertung mein Fall abgeschlossen wurde?",
+    "answer": "Sobald dein Fall abgeschlossen ist, schicken wir dir eine E-Mail mit der Bewertung und dem Link zum gelösten Fall - vorausgesetzt, du hast beim Einreichen deine E-Mail-Adresse angegeben. Du kannst außerdem jederzeit im Archiv nach deinem Fall suchen und erfahren, ob er bereits gelöst wurde. Falls ja, siehst du dann den Ergebnis-Score in der Form des codetekt Vertrauens-Index."
   }
 ]

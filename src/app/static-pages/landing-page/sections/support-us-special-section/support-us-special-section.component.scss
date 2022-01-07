@@ -61,7 +61,7 @@
 
       &-bittersweet {
         background-color: colors.$color__bittersweet;
-      } 
+      }
 
       &-purple {
         background-color: colors.$color__purple;
@@ -76,14 +76,14 @@
       @include fonts.font__effra--bold;
       font-size: 21px;
     }
-
+   
     .text {
       @include fonts.font__effra--regular;
       font-size: 18px;
       margin-top: 0px;
       width: 380px;
       hyphens: manual;
-    }    
+    }
   }
 
   .hover-purple {
