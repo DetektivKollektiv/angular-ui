@@ -93,7 +93,7 @@ export class RegisterFormComponent implements OnInit {
         switch (result.payload.code) {
           case 'UsernameExistsException':
             this.signUpError =
-              'Ein Nutzer mit diesem Namen existiert bereits. Verwende bitte einen anderen Namen.';
+              'Eine Nutzer*in mit diesem Namen existiert bereits. Verwende bitte einen anderen Namen.';
             break;
           default:
             this.signUpError =

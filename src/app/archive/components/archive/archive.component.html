@@ -3,22 +3,24 @@
     <div class="overview-section">
       <app-breadcrumb></app-breadcrumb>
       <h1>Gelöste Fälle</h1>
-      <div>
-        Hier siehst du eine Kurzübersicht über alle Fälle, deren Bearbeitung abgeschlossen ist. Der Vertrauensindex
-        liegt zwischen 0 und 100. Je höher er ist, desto vertrauenswürdiger ist der Inhalt. Klicke auf einen einzelnen
-        Fall, um mehr Details zu erhalten.
-      </div>
+      <p>
+        Hier siehst du eine Übersicht aller Fälle, deren Bearbeitung abgeschlossen ist.
+        Der Vertrauensindex liegt zwischen 0 und 100 - je höher der Index, desto vertrauenswürdiger der Inhalt.
+        Sieh dir via Klick auf einen Fall die Details an.
+      </p>
     </div>
     <app-rating-legend></app-rating-legend>
   </div>
 
-  <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
+  <div class="section-of-questions standard-content-container-width">
+    <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
+  </div>  
 
   <div class="bottom-section" id="archive-bottom-section" *ngIf="items$ | async as archiveItems">
     <!-- the stuff below, is the old page, i will delete later. -->
     <div class="archive-list-setting">
       <mat-form-field *ngIf="filter$ | async as filter" class="search-input mat-form-field--alt" appearance="fill">
-        <mat-label>Fälle durchsuchen</mat-label>
+        <mat-label>Archiv durchsuchen</mat-label>
         <mat-chip-list #chipList class="tags-chip-list tags-chip-list--neon-blue">
           <mat-chip *ngFor="let keyword of filter.keywords" [selectable]="false" [removable]="true"
             (removed)="remove(keyword)">

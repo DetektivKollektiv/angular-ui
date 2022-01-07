@@ -1,0 +1,78 @@
+@use '../../../../assets/scss/fonts' as fonts;
+@import '../../../../assets/scss/colors';
+
+.element-titel {
+  color: $color__mysterious-blue;
+  padding: 0 0 10px 0;
+}
+.row-member{
+  display: inline-block;
+  background: $color__tile-background;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  height: auto;
+  margin: 0 0 25px;
+  p{
+    font-size: 16px;
+  }
+  h3 {
+    @include fonts.font__pt-mono--bold;
+  }
+  @media screen and (max-width: 479px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 480px)  {
+    width: 260px;
+  }
+  @media screen and (min-width: 784px)  {
+    width: 310px;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 260px;    
+  }
+  @media screen and (min-width: 1350px) {
+    width: 310px;   
+  }
+}
+.icon {
+  color: white;
+  width: 25px;
+  height: 25px;
+  padding: 2px 5px;
+  margin-right: 5px;
+  border-radius: 20%;
+  text-align: center;
+  &.linkL{
+    background-color: $color__neon-blue;
+  }
+  &.linkM {
+    background-color: $color__bittersweet;
+  }
+}
+.column{
+  text-align: center;
+}
+.column img{
+  object-fit: cover;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+} 
+mat-chip{
+  background: #F8F8F8 !important;
+  color: $color__mysterious-blue !important;
+  border: 0.5px solid $color__mysterious-blue !important;
+  margin: 1px !important;
+  padding: 0px 5px !important;
+}
+mat-chip-list{
+  text-align: center !important;
+}
+.filtertag{
+  font-size: 12px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}

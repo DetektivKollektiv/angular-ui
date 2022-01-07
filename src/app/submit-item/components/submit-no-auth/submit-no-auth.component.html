@@ -1,16 +1,16 @@
 <div class="info">
   <div class="info__header">
     <i class="far fa-siren-on bold-weight"></i>
-    <span class="bold-weight">Du bist nicht eingeloggt.</span>
+    <span class="bold-weight">Du bist nicht angemeldet.</span>
   </div>
   <p class="info__text">
-    Melde dich an oder logge dich ein, um deine Erfahrungspunkte zu erhalten, einen Titel, Schlagwörter oder einen Kommentar zu diesem Fall
+    Melde dich an oder registriere dich, um Erfahrungspunkte zu erhalten, einen Titel, Schlagwörter oder einen Kommentar zu diesem Fall
     zu hinterlassen.
   </p>
 </div>
 <form class="login-container" #loginForm="ngForm" (ngSubmit)="onLogin()">
   <div class="login-container__input">
-    <p class="mono-font bold-weight">E-Mail-Adresse oder Nutzername</p>
+    <p class="mono-font bold-weight">E-Mail-Adresse oder Anmeldename</p>
     <input type="email" class="responsive-100" [(ngModel)]="loginFormData.email" name="email" required />
     <mat-icon class="icon">mail_outline</mat-icon>
   </div>
@@ -32,7 +32,7 @@
 </div>
 <div class="register-container">
   <div class="register-container__content">
-    <p>Du hast keinen Account und möchtest die Welt zu einem besseren Ort machen?</p>
+    <p>Du hast noch keinen Zugang und möchtest die Welt zu einem besseren Ort machen?</p>
     <button class="button button--bittersweet button--hallow button--hallow--bittersweet" routerLink="/register">
       <i class="fas fa-user-cowboy"></i>
       <span>Detektiv*in werden</span>

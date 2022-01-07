@@ -11,24 +11,20 @@
   some of the scss here might be uneeded..
 */
 
-$light-reddish1: #ff7268;
-$light-grey1: #F8F8F8;
-
 // todo: move to its own component
 .around-button {
-  border: 1px solid #ff7269;
+  border: 1px solid $color__bittersweet;
   padding: 15px;
   border-radius: 15px;
+  color: $color__white;
 
   i {
     margin-right: 7px;
   }
 
-  span {}
-
   &:hover {
-    background-color: #ff7269;
-    color: white;
+    background-color: $color__supernova;
+    color: $color__bittersweet;
   }
 }
 
@@ -42,15 +38,11 @@ $light-grey1: #F8F8F8;
     min-height: 4.375rem;
     width: 100%;
     z-index: 10000;
-
-    .cancel-btn-container {}
   }
-
-  .menu-dialog-content.main-section {}
 
   .menu-top-strip {
     min-height: 77px;
-    background-color: $light-grey1;
+    background-color: $color__tile-background;
     margin-bottom: 20px;
     width: 100vw;
     display: flex;
@@ -59,7 +51,7 @@ $light-grey1: #F8F8F8;
 
     .menu-top-strip-item-container {
       height: 77px;
-      background-color: $light-grey1;
+      background-color: $color__tile-background;
       width: 100%;
       display: flex;
       flex-direction: row;
@@ -69,13 +61,23 @@ $light-grey1: #F8F8F8;
   }
 
   .third-theme-color {
-    color: $light-reddish1;
+    color: $color__bittersweet;
   }
-  .around-button {
-    // padding: 10px;
-    padding: 15px;
-    margin-right: 10px;
 
+  .around-button {
+    border: 1px solid $color__bittersweet;
+    padding: 15px;
+    border-radius: 15px;
+    color: $color__white;
+  
+    i {
+      margin-right: 7px;
+    }
+
+    &:hover {
+      background-color: $color__supernova;
+      color: $color__bittersweet;
+    }
   }
 
   .main-section {
@@ -113,7 +115,7 @@ $light-grey1: #F8F8F8;
       cursor: pointer;
     }
     &.red-color {
-      color: $light-reddish1;
+      color: $color__bittersweet;
     }
   }
 
@@ -304,7 +306,5 @@ $light-grey1: #F8F8F8;
 }
 
 .active-link:hover {
-  background-color: #e1e1e1;
+  background-color: $color__tag-background;
 }
-
-

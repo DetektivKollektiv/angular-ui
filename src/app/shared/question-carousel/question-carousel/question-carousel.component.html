@@ -11,8 +11,8 @@
   <div class="questions-swiper-container">
     <app-questions-swiper [questions]="questions"> ></app-questions-swiper>
   </div>
-  <div class="questions-section--list">
-    <carousel [cellWidth]="360" arrowsTheme="light" [ngStyle]="{ 'z-index': 'unset' }">
+  <div class="questions-section__list">
+    <carousel [cellWidth]="360" [margin]="10" [cellsToShow]="3" [arrowsOutside]="true" [arrowsTheme]="'light'" [ngStyle]="{ 'z-index': 'unset' }">
       <div class="carousel-cell question" *ngFor="let q of questions; let i = index">
         <div class="question__icon" [ngClass]="q.background" [style.background-color]="q.bgColor"><i class="{{ q.icon }}"></i></div>
         <div class="question__title">{{ q.title }}</div>

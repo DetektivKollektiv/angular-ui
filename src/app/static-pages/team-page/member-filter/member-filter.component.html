@@ -1,0 +1,24 @@
+<div class="member-filter">
+    <div class="filter"><h4 class="bold-weight"> Filter </h4><p *ngIf="isCollapsed" (click)="toggleCollapse()">einblenden <i class="fas fa-angle-down"></i></p> 
+        <p *ngIf="!isCollapsed" (click)="toggleCollapse()">ausblenden <i class="fas fa-angle-up"></i></p>
+    </div>
+    <div class="filter-content" *ngIf="!isCollapsed">
+        <div class="active">
+            <h4 class="bold-weight">Aktive Filter</h4>
+            <div class="filter-tag">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let tag of tagService.selected_tags" (click)="tagService.unselect_tag(tag)">{{tag.tagname}}</mat-chip>
+                </mat-chip-list> 
+            </div>
+        </div>
+        <div class="vl"></div>
+        <div class="inactive">
+            <h4 class="bold-weight">Inaktive Filter</h4>
+            <div class="filter-tag">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let tag of tagService.unselected_tags" (click)="tagService.select_tag(tag)">{{tag.tagname}}</mat-chip>
+                </mat-chip-list>  
+            </div>
+        </div>
+    </div>
+</div>

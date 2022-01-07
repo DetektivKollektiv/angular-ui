@@ -25,13 +25,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 800px;
     margin: auto;
 
     &__header {
       display: flex;
       align-items: center;
-      font-size: 21px;
+      font-size: 16px;
 
       i {
         color: colors.$color__bittersweet;
@@ -43,8 +42,6 @@
     }
 
     &__text {
-      margin-left: 20px;
-      margin-right: 20px;
       text-align: center;
     }
   }
@@ -64,17 +61,17 @@
       input {
         padding: 10px 15px;
         width: 40%;
-        border: 1px solid grey;
+        border: 1px solid $color__grey;
         border-radius: 10px;
         width: 100%;
 
         &:focus {
-          border: 1px solid grey;
+          border: 1px solid $color__grey;
         }
 
         &.ng-invalid.ng-touched {
-          border-color: red;
-          color: red;
+          border-color: $color__warn;
+          color: $color__warn;
         }
       }
 

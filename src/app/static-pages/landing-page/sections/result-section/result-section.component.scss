@@ -1,7 +1,11 @@
 @use '../../../../../assets/scss/fonts' as fonts;
-@import '../../../../../assets/scss/colors';
+@use '../../../../../assets/scss/colors' as colors;
 @import '../../../../../assets/scss/variables';
 @import '../../landing-page.component.scss';
+
+.section-heading {
+  margin-top: 20px;
+}
 
 .results {
   display: flex;
@@ -10,7 +14,7 @@
 
   @media screen and(min-width: $breakpoint-m) {
     justify-content: space-between;
-    margin-top: 90px;
+    margin-top: 30px;
     flex-direction: row;
   }
 
@@ -19,36 +23,51 @@
 
     h1 {
       @include fonts.font__pt-mono--bold;
-      font-size: 48px;
+      font-size: 36px;
       line-height: initial;
 
       @media screen and(min-width: $breakpoint-l) {
-        font-size: 68px;
+        font-size: 48px;
       }
     }
 
     .title-bittersweet {
-      color: $color__bittersweet;
+      color: colors.$color__bittersweet;
     }
 
     .title-red {
-      color: $color__rating-red;
+      color: colors.$color__rating-red;
     }
 
     .title-orange {
-      color: $color__rating-orange;
+      color: colors.$color__rating-orange;
     }
 
     h3 {
       @include fonts.font__effra--bold;
       font-size: 21px;
-      color: $color__mysterious-blue;
+      color: colors.$color__mysterious-blue;
     }
 
     p {
       @include fonts.font__effra--regular;
       font-size: 18px;
-      color: $color__mysterious-blue;
+      color: colors.$color__mysterious-blue;
     }
-  }
+
+    .hint-italic {
+      @include font__effra--italic;
+      &-bold {
+        @extend .hint-italic;
+        font-weight: 700;
+      }
+    }
+
+    a:hover,
+    a:focus,
+    a:active,
+    a:visited {
+      text-decoration: none;
+    }
+  }  
 }

@@ -1,8 +1,8 @@
-@import '../../../../assets/scss/colors';
+@use '../../../../assets/scss/fonts' as fonts;
+@use '../../../../assets/scss/colors' as colors;
 
 :host {
-  display: block;
-  margin: 20px 0;
+  display: block;  
 }
 
 .collapse-container {
@@ -10,12 +10,13 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: 16px;
-  margin-right: 20px;
+  gap: 16px;  
+  margin: 0 20px 20px 0;
 
   @media only screen and (min-width: 480px) {
     flex-direction: row;
     align-items: center;
+    margin: 0 20px 0 0;
   }
 
   &__content {
@@ -23,7 +24,7 @@
     align-items: center;
 
     &__icon {
-      color: $color__neon-blue;
+      color: colors.$color__neon-blue;
       margin-right: 4px;
     }
 
@@ -32,7 +33,7 @@
     }
 
     &__btn {
-      color: #8989a2;
+      color: colors.$color__old-paragraph;
       cursor: pointer;
     }
 
@@ -43,8 +44,8 @@
 }
 
 .questions-section {
-  margin-top: 20px;
-  .questions-section--list {
+  margin: 20px 0 10px 0;
+  &__list {
     display: none;
 
     @media only screen and (min-width: 1024px) {
@@ -58,16 +59,19 @@
     }
 
     .question {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
       border-radius: 20px;
-      background: #f8f8f8;
+      background: colors.$color__tile-background;
+      color: colors.$color__mysterious-blue;
       height: auto;
       margin-left: 5px;
       margin-right: 1.5%;
-      padding: 10px 15px 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      padding: 10px 15px;
+      text-align: center;
 
       @media only screen and (min-width: 1024px) {
         width: 360px;
@@ -78,8 +82,8 @@
         height: 42px;
         margin: 10px 10px -3px 0;
         padding: 12.9px 2.5px;
-        background-color: #68a8ff;
-        color: white;
+        background-color: colors.$color__neon-blue;
+        color: colors.$color__white;
         border-radius: 30px;
         font-family: 'Font Awesome 5 Pro';
         font-weight: 900;
@@ -90,24 +94,19 @@
       }
 
       &__title {
+        @include fonts.font__effra--bold;
         width: 320px;
         height: 18px;
         margin: 16px 0 14px;
-        font-family: Effra medium, Effra regular, sans-serif;
-        font-size: 18px;
-        font-weight: bold;
-        text-align: center;
-        color: var(--dark-indigo);
+        font-size: 16px;
       }
 
       &__description {
-        font-family: Effra medium, Effra regular, sans-serif;
+        @include fonts.font__effra--regular;
         width: 320px;
         height: 35px;
-        margin: 14px 0 18px;
-        font-size: 16px;
-        text-align: center;
-        color: var(--dark-indigo);
+        margin-bottom: 18px;
+        font-size: 14px;
       }
 
       .carousel.carousel-container.carousel-cells {
@@ -122,27 +121,31 @@
 
   .questions-swiper-container {
     display: block;
-    // width: 100%;
-    // max-width: 100%;
     max-width: 100vw;
+
     @media only screen and (min-width: 1024px) {
       display: none;
     }
   }
 
   .color__bittersweet {
-    background-color: $color__bittersweet !important;
+    background-color: colors.$color__bittersweet !important;
   }
 
   .color__neon {
-    background-color: $color__neon-blue !important;
+    background-color: colors.$color__neon-blue !important;
   }
 
   .color__purple {
-    background-color: $color__purple !important;
+    background-color: colors.$color__purple !important;
   }
 
-  .color__bittersweet {
-    background-color: $color__bittersweet !important;
+  .color__gold {
+    background-color: colors.$color__gold !important;
   }
-}
+
+  .color__green {
+    background-color: colors.$color__green !important;
+  }
+
+ }
