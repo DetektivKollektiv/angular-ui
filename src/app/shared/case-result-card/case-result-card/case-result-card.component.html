@@ -1,10 +1,10 @@
 <ng-container *ngIf="case; else skeleton">
-  <div class="score" [ngClass]="'rating-color--' + (case.result_score | ratingColor)">{{ case.result_score | ratingScore }}</div>
+  <div class="score" [ngClass]="'rating-color--' + (case.result_score | ratingColor)">{{ case.result_score }}</div>
   <div class="description">
     <div class="description__header">{{ title }}</div>
     <div class="description__content">
       Dieser Fall ist von <span class="strong">{{ case.users.length }}</span> Detektiven mit
-      <span class="strong">{{ case.result_score | ratingScore }}</span> von <span class="strong">100</span> Punkten bewertet worden.
+      <span class="strong">{{ case.result_score }}</span> von <span class="strong">100</span> Punkten bewertet worden.
       {{ infoText }}
     </div>
   </div>

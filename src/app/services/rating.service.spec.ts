@@ -16,25 +16,18 @@ describe('RatingService', () => {
 
   test.each([
     { score: 0, expectedColor: 'red' },
-    { score: 0.6, expectedColor: 'red' },
-    { score: 1.32, expectedColor: 'red' },
-    { score: 1.36, expectedColor: 'orange' },
-    { score: 2.64, expectedColor: 'orange' },
-    { score: 2.68, expectedColor: 'light-green' },
-    { score: 3.32, expectedColor: 'light-green' },
-    { score: 3.36, expectedColor: 'green' },
-    { score: 4, expectedColor: 'green' },
+    { score: 1, expectedColor: 'red' },
+    { score: 33, expectedColor: 'red' },
+    { score: 34, expectedColor: 'orange' },
+    { score: 66, expectedColor: 'orange' },
+    { score: 67, expectedColor: 'light-green' },
+    { score: 83, expectedColor: 'light-green' },
+    { score: 84, expectedColor: 'green' },
+    { score: 100, expectedColor: 'green' },
     { score: null, expectedColor: 'red' }
   ])('should return $expectedColor for score of $score', ({ score, expectedColor }) => {
     expect(service.getColorForScore(score)).toBe(expectedColor);
   });
 
-  test.each([
-    { result: 0, expectedScore: 0 },
-    { result: 1, expectedScore: 25 },
-    { result: 1.5, expectedScore: 38 },
-    { result: 3.33, expectedScore: 83 }
-  ])('should convert result $result to $expectedScore', ({ result, expectedScore }) => {
-    expect(service.convertResultScoreToScore(result)).toBe(expectedScore);
-  });
+
 });
