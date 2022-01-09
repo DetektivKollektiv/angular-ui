@@ -21,7 +21,7 @@ h1 {
   flex: 1 1 auto;
 
   padding: 0 10px;
-  @media screen and(min-width: 800px) {
+  @media screen and(min-width: 1024px) {
     padding: 0;
   }
 
@@ -162,6 +162,9 @@ h1 {
 }
 .criteria-grid {
   @media screen and(min-width: 800px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media screen and(min-width: 1024px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 

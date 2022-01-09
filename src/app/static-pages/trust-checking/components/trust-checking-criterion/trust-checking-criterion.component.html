@@ -13,9 +13,9 @@
     </div>
     <div *ngIf="extended" class="extended-section">
         <p>{{criterion.description }}</p>
-        <div class="tag-container" [style.background-color]="background_color" [style.color]="criterion.text_color">
-            <i [class]="criterion.icon" [style.color]="criterion.text_color"></i>
-            <p [style.color]="criterion.text_color">{{criterion.tag_text}}</p>
+        <div class="tag-container" [ngClass]="criterion.colorClass">
+            <i [class]="criterion.icon"></i>
+            <p>{{criterion.tag_text}}</p>
         </div>
     </div>
 </div>

@@ -3,5 +3,5 @@ export interface TrustCheckingCriterion {
     description: string;
     tag_text: string;
     icon: string;
-    text_color: string;
+    colorClass: string;
 }
