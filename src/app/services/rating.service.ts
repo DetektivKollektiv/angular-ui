@@ -5,7 +5,6 @@ import { RatingBound } from './model/rating-bound';
   providedIn: 'root'
 })
 export class RatingService {
-  private factor = 25;
 
   private bounds: RatingBound[] = [
     {
@@ -38,30 +37,20 @@ export class RatingService {
     }
   ];
 
-  convertResultScoreToScore(resultScore: number): number {
-    return Math.round(resultScore * this.factor);
-  }
-
-  convertScoreToResultScore(score: number) {
-    return score / this.factor;
-  }
 
   getTitleForScore(resultScore: number): string {
-    const score = this.convertResultScoreToScore(resultScore);
 
-    return this.bounds.find((b) => this.isInBounds(b, score)).text;
+    return this.bounds.find((b) => this.isInBounds(b, resultScore)).text;
   }
 
   getInfoTextForScore(resultScore: number): string {
-    const score = this.convertResultScoreToScore(resultScore);
 
-    return this.bounds.find((b) => this.isInBounds(b, score)).info;
+    return this.bounds.find((b) => this.isInBounds(b, resultScore)).info;
   }
 
   getColorForScore(resultScore: number): string {
-    const score = this.convertResultScoreToScore(resultScore);
 
-    return this.bounds.find((b) => this.isInBounds(b, score)).color;
+    return this.bounds.find((b) => this.isInBounds(b, resultScore)).color;
   }
 
   private isInBounds(bound: RatingBound, score: number): boolean {

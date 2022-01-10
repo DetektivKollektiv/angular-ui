@@ -17,7 +17,7 @@ export class ArchiveListFilterComponent {
   @Output() apply = new EventEmitter<CaseFilter>();
   @Output() closed = new EventEmitter<void>();
 
-  filterData$ = this.filter$.pipe(map((filter) => ({ ...filter, minValue: filter.minValue * 25, maxValue: filter.maxValue * 25 })));
+  filterData$ = this.filter$.pipe(map((filter) => ({ ...filter, minValue: filter.minValue, maxValue: filter.maxValue})));
 
   constructor(@Optional() private dialogRef: MatDialogRef<ArchiveListFilterComponent>) {}
 
