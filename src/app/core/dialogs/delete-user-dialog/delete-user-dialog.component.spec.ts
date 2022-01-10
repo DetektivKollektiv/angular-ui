@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DeleteUserDialogComponent} from './delete-user-dialog.component';
 import {MatDialogRef} from '@angular/material/dialog';
@@ -12,8 +12,8 @@ describe('DeleteUserDialogComponent', () => {
   let component: DeleteUserDialogComponent;
   let fixture: ComponentFixture<DeleteUserDialogComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         MaterialModule
       ],
@@ -25,7 +25,7 @@ describe('DeleteUserDialogComponent', () => {
       ]
     })
       .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DeleteUserDialogComponent);
