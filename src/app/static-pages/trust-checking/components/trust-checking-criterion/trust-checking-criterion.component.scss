@@ -1,0 +1,80 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@import '../../../../../assets/scss/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .top-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: $color__tile-background;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 0 15px;
+
+    .headline {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      p {
+        font-weight: bold;
+      }
+    }
+
+    .extension-menu {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      p {
+        color: #aaa;
+        font-weight: bold;
+      }
+    }
+  }
+  .extended-section {
+    display: flex;
+    padding: 0 15px;
+    flex-direction: column;
+    border: solid;
+    border-color: $color__tile-background;
+    border-radius: 15px;
+    border-width: 5px;
+    white-space: pre-line;
+    p {
+      font-weight: bold;
+      @include fonts.font__effra--regular;
+      color: $color__mysterious-blue;
+      font-size: 18px;
+    }
+  }
+  .tag-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 5px;
+    border-radius: 15px;
+    padding: 0 15px;
+   &-red{
+    background-color: rgba(255, 114, 104, 0.1);
+    color: rgba(255, 114, 104, 1);
+   }
+   &-yellow{
+    background-color: rgba(250, 200, 0, 0.1);
+    color: rgba(250, 200, 0, 1);
+   }
+   &-blue{
+    background-color: rgba(108, 99, 255, 0.1);
+    color: rgba(108, 99, 255, 1);
+   }
+   p{
+     color: inherit;
+     font-weight: bold;
+   }
+  }
+}

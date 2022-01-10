@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="top-section">
+        <div class="headline">
+            <i [class]="criterion.icon"></i>
+            <p>{{ criterion.title }}</p>
+        </div>
+
+        <div class="extension-menu" (click)="extended=!extended">
+            <p>{{extended ? 'ausblenden' : 'einblenden'}}</p>
+            <i [class]="extended ? 'far fa-chevron-up' : 'far fa-chevron-down'"></i>
+        </div>
+
+    </div>
+    <div *ngIf="extended" class="extended-section">
+        <p>{{criterion.description }}</p>
+        <div class="tag-container" [ngClass]="criterion.colorClass">
+            <i [class]="criterion.icon"></i>
+            <p>{{criterion.tag_text}}</p>
+        </div>
+    </div>
+</div>
