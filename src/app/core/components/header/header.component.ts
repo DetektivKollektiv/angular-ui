@@ -113,8 +113,8 @@ export class HeaderComponent implements OnInit {
         if (result.success) {
           this.snackBar
             .open(
-              'Dein Account wurde erfolgreich erstellt, du kannst dich nun einloggen.',
-              'Einloggen',
+              'Dein Zugang wurde erfolgreich erstellt, du kannst dich nun anmelden.',
+              'Anmelden',
               {
                 verticalPosition: 'top',
                 duration: 3000,
