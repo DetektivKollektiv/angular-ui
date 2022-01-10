@@ -43,6 +43,7 @@
     @media only screen and (min-width: 1024px) {
       margin-left: calc((100vw - 600px) / 3.4); //  ~ 1/3 of extra space
       width: 1200px;
+      padding: 20px 0 20px 40px;
     }
     @media only screen and (min-width: 1350px) {
       margin-left: calc((100vw - 767px) / 3.4); //  ~ 1/3 of extra space
@@ -97,40 +98,66 @@
       .form-select {
         width: 85%;
         font-size: 16px;
-
-        @media only screen and (min-width: 480px) {      
+        margin-top: 10px;
+        @media only screen and (min-width: 480px) {
           width: 41%;
-        } 
+        }
+      }
 
-        .mat-form-field-underline {
-          background-color: $color__user_input_border !important;
-          transform: scaleY(1.4);
+      .mat-form-field:not(.mat-form-field-has-label) .mat-form-field-infix {
+        border-top-width: 0;        
+      }
+
+      .mat-select-placeholder {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        color: $color__placeholder;
+        transition: none;
+      }
+
+      .mat-form-field-outline {
+        .mat-form-field-outline-start {
+          min-width: 10px;
+          color: $color__select-border;
+          border-radius: 10px 0 0 10px;
+          border-width: 2px 2px 2px 2px;
         }
 
-        .mat-form-field-ripple {
-          background-color: $color__user_input_border;
-          transform: scaleY(0.5);
+        .mat-form-field-outline-end {
+          color: $color__select-border;
+          border-radius: 0 10px 10px 0;
+          border-width: 2px 2px 2px 2px;
         }
+      }
 
-        .mat-select-arrow {
-          color: $color__user_input_border;
+      .mat-form-field-outline-thick {
+        .mat-form-field-outline-start {
+          min-width: 10px;
+          background-color: rgba($color: $color__user-input-border, $alpha: 0.1);
+          color: $color__select-border;
+          border-radius: 10px 0 0 10px;
+          border-width: 2px 2px 2px 2px;
         }
-
-        .mat-select-min-line {
-          color: $color__purple_gradient;
+        .mat-form-field-outline-end {
+          background-color: rgba($color: $color__user-input-border, $alpha: 0.1);
+          color: $color__select-border;
+          border-radius: 0 10px 10px 0;
+          border-width: 2px 2px 2px 2px;
         }
       }    
   
       .textarea {
         width: 100%;
-        border-radius: 10px;
-        padding: 15px;
         margin-top: 10px;
-        font-size: 16px;
+        padding: 15px;
+        $color: $color__select-border;
+        border-radius: 10px;
+        border-width: 2.5px 2px 2px 2.5px;
 
-        border: 2px solid $color__user_input_border;
-        border-top-width: 5px;
-        border-left-width: 5px;
+        &:hover {
+          background-color: rgba($color: $color__user-input-border, $alpha: 0.1);
+        }
 
         &:focus {
           border: 2px solid $color__user_input_border;

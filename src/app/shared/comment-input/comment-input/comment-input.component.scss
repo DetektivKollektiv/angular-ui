@@ -22,9 +22,13 @@
       padding: 16px;
       resize: vertical;
       font-size: 16px;
+      
+      &:hover {
+        background-color: rgba($color: colors.$color__user-input-border, $alpha: 0.1);
+      }
 
       &:focus {
-        border: 1px solid;
+        border: 2px solid colors.$color__user_input_border;
       }
     }
 

@@ -12,7 +12,7 @@ h1 {
 
   @include fonts.font__pt-mono--regular;
   font-size: 14px;
-  color: colors.$color__old-paragraph;
+  color: colors.$color__purple;
   margin: 0 0 30px;
   padding: 15px 5px 15px 15px;
   border-radius: 30px;
@@ -37,11 +37,16 @@ h1 {
     padding: 15px;
     margin-top: 12px;
     font-size: 18px;
-    resize: vertical;
+    resize: vertical;    
+
+    &:hover {
+      background-color: rgba($color: colors.$color__user-input-border, $alpha: 0.1);
+    }
 
     &:focus {
-      border: 1px solid grey;
+      border: 2px solid colors.$color__user_input_border;
     }
+
   }
 }
 

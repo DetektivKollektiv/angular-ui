@@ -54,7 +54,7 @@ export class SubmitPageComponent {
   ];
 
   form: SubmitFormData = {
-    item_type_id: '1',
+    item_type_id: null,
     content: null,
     source: null,
     other_source: null,
