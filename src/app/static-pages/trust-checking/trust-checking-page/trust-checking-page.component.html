@@ -54,8 +54,7 @@
         <div class="section-head">
             <p class="section-heading section-heading-supernova">Unser Prozess</p>
             <p class="section-sub-heading">Von der Falleinreichung bis zum gelösten Fall</p>
-          </div>
-          
+        </div>
         <div class="about-snippet">
             <div class="illustration">
                 <img src="assets/images/illustrations/planet_yellow.svg">
@@ -143,7 +142,8 @@
 
 <div class="section-background">
     <div class="standard-content-container-width criteria-grid">
-        <app-trust-checking-criterion *ngFor="let criterion of tcCriteria" [criterion]="criterion"></app-trust-checking-criterion>
-
+        <!-- Create component in grid for every object in content file (criteria_text.json) -->
+        <app-trust-checking-criterion *ngFor="let criterion of tcCriteria" [criterion]="criterion">
+        </app-trust-checking-criterion>
     </div>
 </div>
