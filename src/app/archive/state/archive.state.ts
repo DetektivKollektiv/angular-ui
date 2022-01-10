@@ -31,8 +31,8 @@ import { CaseSort, CaseSortBy, CaseSortOrder } from '../model/case-sort';
     detailItem: null,
     filter: {
       keywords: [],
-      maxValue: 4,
-      minValue: 1
+      maxValue: 100,
+      minValue: 0
     },
     sort: { by: CaseSortBy.OPEN_TIMESTAMP, order: CaseSortOrder.DESC }
   }
