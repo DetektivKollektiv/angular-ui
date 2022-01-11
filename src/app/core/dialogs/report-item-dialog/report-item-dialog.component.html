@@ -5,7 +5,7 @@
   </div>
   <div class="message">
     <div class="message__intro">Erkläre uns hier kurz, warum du den {{ type }} meldest</div>
-    <textarea class="textarea" rows="5" [(ngModel)]="data.message" placeholder="Inhalt eingeben" onclick="this.placeholder=''" name="message" aria-label="message" required></textarea>
+    <textarea class="textarea" rows="5" [(ngModel)]="data.message" placeholder="Inhalt eingeben" name="message" aria-label="message" required></textarea>
   </div>
   <div class="buttons">
     <button appButton mode="reject" (click)="close()">Abbrechen</button>

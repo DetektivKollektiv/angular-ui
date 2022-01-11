@@ -105,7 +105,11 @@
       }
 
       .mat-form-field:not(.mat-form-field-has-label) .mat-form-field-infix {
-        border-top-width: 0;        
+        border-top-width: 0;    
+      }
+
+      .mat-select-arrow-wrapper .mat-select-arrow {        
+        margin-top: 13px;
       }
 
       .mat-select-placeholder {
@@ -120,45 +124,28 @@
         .mat-form-field-outline-start {
           min-width: 10px;
           color: $color__select-border;
+          border-color: $color__select-border;
           border-radius: 10px 0 0 10px;
           border-width: 2px 2px 2px 2px;
         }
 
         .mat-form-field-outline-end {
           color: $color__select-border;
+          border-color: $color__select-border;
           border-radius: 0 10px 10px 0;
           border-width: 2px 2px 2px 2px;
         }
-      }
-
-      .mat-form-field-outline-thick {
-        .mat-form-field-outline-start {
-          min-width: 10px;
-          background-color: rgba($color: $color__user-input-border, $alpha: 0.1);
-          color: $color__select-border;
-          border-radius: 10px 0 0 10px;
-          border-width: 2px 2px 2px 2px;
-        }
-        .mat-form-field-outline-end {
-          background-color: rgba($color: $color__user-input-border, $alpha: 0.1);
-          color: $color__select-border;
-          border-radius: 0 10px 10px 0;
-          border-width: 2px 2px 2px 2px;
-        }
-      }    
+      }  
   
       .textarea {
         width: 100%;
         margin-top: 10px;
         padding: 15px;
+        font-size: 16px;
         $color: $color__select-border;
+        border-color: $color__select_border;        
         border-radius: 10px;
-        border-width: 2.5px 2px 2px 2.5px;
-
-        &:hover {
-          background-color: rgba($color: $color__user-input-border, $alpha: 0.1);
-        }
-
+      
         &:focus {
           border: 2px solid $color__user_input_border;
         }

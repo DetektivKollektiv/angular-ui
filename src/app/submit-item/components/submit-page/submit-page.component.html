@@ -41,7 +41,7 @@
           </div>
           <div class="field-container">
             <p *ngIf="form.item_type_id === null">
-              Bitte gib hier <span class="display-item-type">einen Link/ Textnachricht oder Aussage</span> ein*
+              Bitte gib hier <span class="display-item-type">einen Link / Textnachricht oder Aussage</span> ein*
             </p>
             <p *ngIf="form.item_type_id === '1' ">
             Bitte gib hier <span class="display-item-type">den {{ form.item_type_id | itemType }}</span> ein*
@@ -49,7 +49,7 @@
             <p *ngIf="form.item_type_id === '2' ">
               Bitte gib hier <span class="display-item-type">eine {{ form.item_type_id | itemType }}</span> ein*
             </p>
-            <textarea class="textarea" [(ngModel)]="form.content" rows="5" placeholder="Hier Inhalt eingeben" onfocus="this.placeholder=''" onblur="this.placeholder='Hier Inhalt eingeben'" name="content" required></textarea>
+            <textarea class="textarea" [(ngModel)]="form.content" rows="5" placeholder="Hier Inhalt eingeben" name="content" required></textarea>
           </div>
           <div class="lady-detective-svg-container">
             <img src="assets/images/illustrations/lady-detective.svg" />
