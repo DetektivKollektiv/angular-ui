@@ -33,6 +33,7 @@ import { PrivacyStatementComponent } from './core/components/privacy-statement/p
 import { LandingPageComponent } from './static-pages/landing-page/landing-page.component';
 import { TeamPageComponent } from './static-pages/team-page/team-page/team-page.component';
 import { AboutComponent } from './static-pages/about/about.component';
+import { TrustCheckingPageComponent } from './static-pages/trust-checking/trust-checking-page/trust-checking-page.component';
 
 const routes: Routes = [
   {
@@ -92,7 +93,8 @@ const routes: Routes = [
       },
       { path: '', component: LandingPageComponent },
       { path: 'landingpage', component: LandingPageComponent },
-      { path: 'terms', component: CommunityGuidelinesComponent }
+      { path: 'terms', component: CommunityGuidelinesComponent },
+      { path: 'trust-checking', component: TrustCheckingPageComponent }
     ]
   },
   {

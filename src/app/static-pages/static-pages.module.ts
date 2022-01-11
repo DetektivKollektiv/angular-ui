@@ -24,6 +24,8 @@ import { SupportUsSpecialSectionComponent } from './landing-page/sections/suppor
 import { HttpClientModule } from '@angular/common/http';
 import { SupporterItemComponent } from './landing-page/sections/supporter-section/supporter-item/supporter-item.component';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { TrustCheckingPageComponent } from './trust-checking/trust-checking-page/trust-checking-page.component';
+import { TrustCheckingCriterionComponent } from './trust-checking/components/trust-checking-criterion/trust-checking-criterion.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +46,10 @@ import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
     NewsSectionItemComponent,
     FinanceSectionComponent,
     SupportUsSectionComponent,
-    SupportUsSpecialSectionComponent,
-    SupporterItemComponent
+    SupporterItemComponent,
+    TrustCheckingPageComponent,
+    TrustCheckingCriterionComponent,
+    SupportUsSpecialSectionComponent
   ],
   imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
   exports: [AboutComponent, SupportUsSectionComponent, SupporterSectionComponent]
