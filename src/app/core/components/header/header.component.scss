@@ -31,6 +31,9 @@
     @include _b__respond-to("min-large") {
       display: flex;
     }
+    .button{
+      border-radius: 0;
+    }
   }
 
   &__navigation-mobile {
@@ -83,7 +86,10 @@
     color: $color__navigation-main-link;
     padding: _b__rem(6px) 0;
     display: inline-block;
-
+    border: 2px solid transparent;
+    &:hover{
+      border-bottom: 2px solid currentColor;
+    }
     &,
     &:hover,
     &:focus,
@@ -166,7 +172,6 @@
   }
 }
 
-//_navigation-flyout.scss
 
 .navigation-flyout {
   $parent: &;
@@ -189,11 +194,16 @@
 
   &__link {
     @include font__effra;
-    @include _b__font-size-rem(15px);
+    @include _b__font-size-rem(18px);
 
     color: $color__navigation-flyout-link;
-    padding: _b__rem(4px) 0;
+    padding: _b__rem(2px) 0;
+    margin: _b__rem(2px) 0;
     display: inline-block;
+    border: 2px solid transparent;
+    &:hover{
+      border-bottom: 2px solid currentColor;
+    }
 
     &:hover,
     &:focus,
