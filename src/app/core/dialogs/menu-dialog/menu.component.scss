@@ -78,8 +78,8 @@
       background-color: $color__supernova;
       color: $color__bittersweet;
     }
-  }
-
+  }  
+  
   .main-section {
     padding: 0;
     display: flex;
@@ -111,7 +111,6 @@
     &:hover,
     &:focus,
     &:active {
-      text-decoration: none;
       cursor: pointer;
     }
     &.red-color {
@@ -276,8 +275,6 @@
     &:hover,
     &:focus,
     &:active {
-      text-decoration: none;
-      background-color: #c0c0c0;
       cursor: pointer;
     }
   }
@@ -306,6 +303,3 @@
   }
 }
 
-.active-link:hover {
-  background-color: $color__tag-background;
-}
