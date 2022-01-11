@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -12,13 +12,13 @@ import { ProfileModule } from './profile/profile.module';
 import { HighscoresModule } from './highscores/highscores.module';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [LoaderModule, MaterialModule, RouterTestingModule, TranslateModule.forRoot(), ProfileModule, HighscoresModule],
       declarations: [AppComponent, FooterComponent, HeaderComponent],
       providers: [{ provide: AuthService, useClass: MockAuthService }]
     }).compileComponents();
-  }));
+  });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);

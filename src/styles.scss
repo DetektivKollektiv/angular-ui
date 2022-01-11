@@ -38,6 +38,40 @@
   background: $color__scrollbar-thumb-background-hover;
 }
 
+/* placeholder */
+
+textarea::-webkit-input-placeholder {   /* WebKit, Blink, Edge */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+textarea:-moz-placeholder {             /* Mozilla Firefox 4 to 18 */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+textarea::-moz-placeholder {            /* Mozilla Firefox 19+ */
+  $color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+textarea:-ms-input-placeholder {        /* Internet Explorer 10-11 */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+textarea:placeholder-shown {            /* Standard Pseudo-class */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+} 
+
 body {
   height: 100%;
   min-height: 100%;
