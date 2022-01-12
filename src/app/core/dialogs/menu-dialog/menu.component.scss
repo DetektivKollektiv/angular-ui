@@ -11,23 +11,6 @@
   some of the scss here might be uneeded..
 */
 
-// todo: move to its own component
-.around-button {
-  border: 1px solid $color__bittersweet;
-  padding: 15px;
-  border-radius: 15px;
-  color: $color__white;
-
-  i {
-    margin-right: 7px;
-  }
-
-  &:hover {
-    background-color: $color__supernova;
-    color: $color__bittersweet;
-  }
-}
-
 .menu-dialog {
   .menu-dialog-header {
     padding: 0 1rem;
@@ -68,15 +51,14 @@
     border: 1px solid $color__bittersweet;
     padding: 15px;
     border-radius: 15px;
-    color: $color__white;
   
     i {
       margin-right: 7px;
     }
 
     &:hover {
-      background-color: $color__supernova;
-      color: $color__bittersweet;
+      background-color: $color__bittersweet;
+      color: $color__white;
     }
   }  
   
@@ -302,4 +284,3 @@
     padding: _b__rem(8px) _b__rem(10px);
   }
 }
-
