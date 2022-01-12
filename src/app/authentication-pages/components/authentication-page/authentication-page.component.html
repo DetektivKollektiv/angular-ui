@@ -31,7 +31,7 @@
         </div>
         <div *ngIf=" loginCTA === 'login' " >
             <p class="login_form_buttom_text">
-                Du hast schon einen Account und möchtest Dich anmelden?
+                Du hast schon einen Zugang und möchtest Dich anmelden?
             </p>
 
             <div class="registration_call_to_action_button">
@@ -55,7 +55,7 @@
             <div class="partner-logo-section">
                 <h3>Unsere Partner</h3>
                 <div class="social_image">
-                    <img src="assets/logo/social_image.png" width="100%">
+                    <app-supporter-section [withHeadline]="false"></app-supporter-section>
                 </div>
                 <div class="paragraph">
                     <h3>Rechtliches</h3>

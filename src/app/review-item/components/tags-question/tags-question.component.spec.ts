@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { UserService } from '../../../core/services/user/user.service';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
@@ -16,8 +16,8 @@ describe('TagsQuestionComponent', () => {
   let component: TagsQuestionComponent;
   let fixture: ComponentFixture<TagsQuestionComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [TagsQuestionComponent],
       imports: [RouterTestingModule, MaterialModule, LoaderModule, CommonModule, HelperModule, UnsavedChangesModule],
       providers: [
@@ -25,7 +25,7 @@ describe('TagsQuestionComponent', () => {
         { provide: UserService, useClass: MockUserService }
       ]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TagsQuestionComponent);

@@ -23,10 +23,25 @@
             <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
-            <a [routerLink]="['/about']" class="navigation-main__link" title="Über uns">Über uns</a>
-          </li>
-          <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
+            <a class="navigation-main__link" title="FAQ" [routerLink]="['/landingpage']">Über codetekt</a>
+            <div class="navigation-flyout">
+              <ul class="navigation-flyout__list">
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Der Verein" [routerLink]="['/about']">Der Verein</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Das Team" [routerLink]="['/team']">Das Team</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link"
+                    href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+                    title="Spenden" target="_blank">Spenden</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="navigation-main__item">
             <a [routerLink]="['/register']" title="Detektiv*in werden"
@@ -53,13 +68,31 @@
             </a>
           </li>
           <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="Fall einreichen" [routerLink]="['/submit']">Fall einreichen</a>
+            <a class="navigation-main__link" title="Fall einreichen" [routerLink]="['/submit']">Fall einreichen</a>
           </li>
           <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
-            <a  class="navigation-main__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
+            <a class="navigation-main__link" title="FAQ" [routerLink]="['/landingpage']">Über codetekt</a>
+            <div class="navigation-flyout">
+              <ul class="navigation-flyout__list">
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Der Verein" [routerLink]="['/about']">Der Verein</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Das Team" [routerLink]="['/team']">Das Team</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link"
+                    href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+                    title="Spenden" target="_blank">Spenden</a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="navigation-main__item">
             <div class="userprofile" [routerLink]="['/']">
@@ -84,7 +117,7 @@
             <div class="navigation-flyout">
               <ul class="navigation-flyout__list">
                 <li class="navigation-flyout__item">
-                  <a  class="navigation-flyout__link" title="Profil" [routerLink]="['/']">Profil</a>
+                  <a class="navigation-flyout__link" title="Profil" [routerLink]="['/']">Profil</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a (click)="logout()" class="navigation-flyout__link" title="Abmelden">Abmelden</a>
@@ -102,7 +135,7 @@
       <nav class="navigation-mobile">
 
         <!-- <div class="navigation-mobile__call"></div> -->
-        <button mat-icon-button aria-label="hamburger-menu-button" (click)="openMenuDialog()" >
+        <button mat-icon-button aria-label="hamburger-menu-button" (click)="openMenuDialog()">
           <mat-icon>menu</mat-icon>
         </button>
         <!-- Here be Overlay Stuff -->
