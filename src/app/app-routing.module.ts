@@ -92,6 +92,7 @@ const routes: Routes = [
         component: AboutComponent
       },
       { path: '', component: LandingPageComponent },
+      { path: 'landingpage', component: LandingPageComponent },
       { path: 'terms', component: CommunityGuidelinesComponent },
       { path: 'trust-checking', component: TrustCheckingPageComponent }
     ]

@@ -52,6 +52,6 @@ import { TrustCheckingCriterionComponent } from './trust-checking/components/tru
     SupportUsSpecialSectionComponent
   ],
   imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
-  exports: [AboutComponent, SupportUsSectionComponent, SupportUsSpecialSectionComponent]
+  exports: [AboutComponent, SupportUsSectionComponent, SupporterSectionComponent]
 })
 export class StaticPagesModule {}

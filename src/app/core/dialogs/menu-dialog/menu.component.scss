@@ -78,8 +78,8 @@
       background-color: $color__supernova;
       color: $color__bittersweet;
     }
-  }
-
+  }  
+  
   .main-section {
     padding: 0;
     display: flex;
@@ -95,7 +95,7 @@
 
   .main-link {
     @include font__effra--bold;
-    @include _b__font-size-rem(18px);
+    @include _b__font-size-rem(22px);
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -111,7 +111,6 @@
     &:hover,
     &:focus,
     &:active {
-      text-decoration: none;
       cursor: pointer;
     }
     &.red-color {
@@ -127,8 +126,8 @@
 
   .child-link {
     font-weight: normal;
-    margin-top: 20px;
-    @include _b__font-size-rem(15px);
+    margin-top: 15px;
+    @include _b__font-size-rem(20px);
   }
 
   .login-button {
@@ -148,11 +147,12 @@
         .sublinks {
           &__list {
             margin-top: 5px;
-
             &__item {
               margin-top: 10px;
               text-align: center;
-              &__link {}
+              &__link {
+                @include _b__font-size-rem(20px);
+              }
             }
           }
 
@@ -219,22 +219,22 @@
 
   &__name {
     @include font__effra--bold;
-    @include _b__font-size-rem(18px);
+    @include _b__font-size-rem(22px);
 
     color: $color__mysterious-blue;
   }
 
   &__title {
     @include font__effra--regular;
-    @include _b__font-size-rem(12px);
+    @include _b__font-size-rem(16px);
 
     color: $color__old-paragraph;
   }
 
   &__bubble {
     border-radius: 50%;
-    width: _b__rem(32px);
-    height: _b__rem(32px);
+    width: _b__rem(35px);
+    height: _b__rem(35px);
     color: $color__white;
     margin: 0 _b__rem(6px) 0 0;
     display: flex;
@@ -275,8 +275,6 @@
     &:hover,
     &:focus,
     &:active {
-      text-decoration: none;
-      background-color: #c0c0c0;
       cursor: pointer;
     }
   }
@@ -305,6 +303,3 @@
   }
 }
 
-.active-link:hover {
-  background-color: $color__tag-background;
-}
