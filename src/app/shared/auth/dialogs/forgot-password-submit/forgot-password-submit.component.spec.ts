@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ForgotPasswordSubmitComponent} from './forgot-password-submit.component';
 import {AuthService} from '../../auth-service/auth.service';
@@ -10,8 +10,8 @@ describe('ForgotPasswordSubmitComponent', () => {
   let component: ForgotPasswordSubmitComponent;
   let fixture: ComponentFixture<ForgotPasswordSubmitComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
         MaterialModule
       ],
@@ -29,7 +29,7 @@ describe('ForgotPasswordSubmitComponent', () => {
       ]
     })
       .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ForgotPasswordSubmitComponent);

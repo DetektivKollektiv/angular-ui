@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyProfileComponent } from './my-profile.component';
 import { MaterialModule } from '@shared/material/material.module';
@@ -18,12 +18,7 @@ import { ArchiveState } from '../../../archive/state/archive.state';
 import { ArchiveService } from '../../../archive/services/archive.service';
 import { MockArchiveService } from '@mocks/mock-archive.service';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
-import { PipesModule } from '@shared/pipes/pipes.module';
 import { LeadingZerosPipe } from '../../pipes/leading-zeros.pipe';
-import { UserXpBarComponent } from '@shared/user-xp/user-xp-bar/user-xp-bar.component';
-import { UserXpScoreComponent } from '@shared/user-xp/user-xp-score/user-xp-score.component';
-import { CaseListItemComponent } from '@shared/case-list-item/case-list-item/case-list-item.component';
-import { SolvedCasesComponent } from '@shared/solved-cases/solved-cases/solved-cases.component';
 import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
 import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
 import { UserXpModule } from '@shared/user-xp/user-xp.module';
@@ -32,8 +27,8 @@ describe('MyProfileComponent', () => {
   let component: MyProfileComponent;
   let fixture: ComponentFixture<MyProfileComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [MyProfileComponent, ScoreListComponent, SolveScoreListComponent, ScoreListItemComponent, LeadingZerosPipe],
       imports: [
         MaterialModule,
@@ -53,7 +48,7 @@ describe('MyProfileComponent', () => {
         { provide: ArchiveService, useClass: MockArchiveService }
       ]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MyProfileComponent);
