@@ -1,49 +1,61 @@
 @use '../../../../assets/scss/fonts' as fonts;
 @use '../../../../assets/scss/colors' as colors;
 @import '../../../../assets/scss/variables';
+@import '../../landing-page/landing-page.component.scss';
 
-
-h1 {
-  @include fonts.font__effra--bold;
-  font-size: 36px;
-  line-height: initial;
-
-  @media screen and(min-width: $breakpoint-l) {
-    font-size: 52px;
-  }
-}
 .section-background {
-  width: 100vw;
-  background-color: colors.$color__white;
-  justify-content: center;
+  width: 100vw;  
 
   display: flex;
   flex: 1 1 auto;
+  justify-content: center;
 
-  padding: 0 10px;
-  @media screen and(min-width: 1024px) {
+  background-color: colors.$color__white;  
+
+  margin-left: 10px;
+  padding: 0 30px 0 10px;
+
+  @media screen and(min-width: $breakpoint-m) {
+    margin-left: 20px;
     padding: 0;
   }
 
   app-breadcrumb {
     align-self: flex-start;
   }
+
   &-grey-edges {
     @extend .section-background;
     background-image: url(/assets/images/backgrounds/grey-edgy-background.svg);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 100px 10px;
-    @media screen and(min-width: 800px) {
-      padding: 100px 0;
-    }
-  
+
     margin-top: -20px;
+    padding: 100px 30px 70px 10px;
+
+    @media screen and(min-width: $breakpoint-s) {      
+      margin: -15px 0 0 0;
+      padding: 80px 0;
+    }
   }
 }
+
 .intro {
   display: flex;
   flex-direction: column;
+
+  margin-top: 16px;
+
+  h1 {
+    @include fonts.font__effra--bold;
+    font-size: 36px;
+    line-height: initial;
+  
+    @media screen and(min-width: $breakpoint-l) {
+      font-size: 52px;
+    }    
+  }
+
   &-info {
     display: flex;
     flex-direction: column;
@@ -54,38 +66,47 @@ h1 {
       gap: 16px;
     }
   }
+
   .image {
     margin-top: 16px;
     align-self: center;
 
     &-mobile {
       width: 80%;
-      @media screen and(min-width: 800px) {
+      @media screen and(min-width: $breakpoint-s) {
         display: none;
       }
     }
     &-desktop {
       display: none;
-      @media screen and(min-width: 800px) {
+      @media screen and(min-width: $breakpoint-s) {
         display: flex;
-        width: 50%;
-        max-height: 500px;
+        width: 40%;
+        max-height: 450px;
         order: 1;
       }
     }
   }
 }
-.text {
-  @include fonts.font__effra--regular;
-  color: colors.$color__mysterious-blue;
-  font-size: 18px;
 
-  &-bold {
-    @include fonts.font__effra--bold;
-    color: colors.$color__mysterious-blue;
+.text {
+  font-size: 18px;
+  
+  &-intro {
+    max-width: 650px;
+
+    @media screen and (min-width: $breakpoint-m) {
+      max-width: 1100px;
+    }
   }
+ 
   &-narrow {
-    max-width: 580px;
+    font-size: 16px;
+    max-width: 650px;
+
+    @media only screen and (min-width: $breakpoint-m) {
+      max-width: 680px;
+    }
   }
 }
 
@@ -96,26 +117,13 @@ h1 {
   text-align: center;
   padding: 25px 0;
 
-  .section-heading {
-    @include fonts.font__pt-mono--bold;
-    font-size: 21px;
-    text-align: center;
-    // line-height: 0px;
   
-    &-supernova {
-      color: colors.$color__supernova;
-    }
-  }
-  .section-sub-heading {
-    @include fonts.font__effra--bold;
-    font-size: 30px;
-    text-align: center;
-    // line-height: 0px;  
-  
-    @media screen and (min-width: $breakpoint-m) {
-      font-size: 36px;
-    }
-  }
+}
+
+.section-heading-grey {
+  @include fonts.font__pt-mono--bold;
+  font-size: 21px; 
+  color: colors.$color__grey;
 }
 
 .about-snippet {
@@ -126,7 +134,7 @@ h1 {
   margin: auto;
   margin-top: 20px;
 
-  @media screen and(min-width: 800px) {
+  @media screen and(min-width: $breakpoint-m) {
     flex-direction: row;
     gap: 40px;
   }
@@ -134,17 +142,24 @@ h1 {
   &-alt {
     @extend .about-snippet;
 
-    @media screen and(min-width: 800px) {
+    @media screen and(min-width: $breakpoint-m) {
       flex-direction: row-reverse;
     }
   }
 
   .illustration {
+    img {
+      max-height: 100px;
+      max-width: 100px;
+    }
+    padding-bottom: 12px;
 
-    img{
-      max-height: 150px;
-      max-width: 150px;
-  
+    @media screen and(min-width: $breakpoint-m) {
+      padding-bottom: 0;      
+      img {
+        max-height: 150px;
+        max-width: 150px;
+      }
     }
   }
 
@@ -156,10 +171,10 @@ h1 {
   }
 
   .text {
-    @include fonts.font__effra--regular;
     font-size: 18px;
   }
 }
+
 .criteria-grid {
   @media screen and(min-width: 800px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));

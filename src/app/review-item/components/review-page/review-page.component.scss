@@ -36,10 +36,6 @@ app-case-details {
   .explain {
     @include fonts.font__effra--regular;
     font-size: 18px;
-    .hint-italic {
-      @include fonts.font__effra--italic;
-      font-size: 18px;
-    }
   }
 
   .top {
@@ -55,7 +51,7 @@ app-case-details {
     }
 
     @media only screen and (min-width: 1024px) {
-      padding: 80px 20px 40px;
+      padding: 20px 20px 40px;
       gap: 40px;
     }
   }

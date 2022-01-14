@@ -55,14 +55,6 @@
       color: colors.$color__mysterious-blue;
     }
 
-    .hint-italic {
-      @include font__effra--italic;
-      &-bold {
-        @extend .hint-italic;
-        font-weight: 700;
-      }
-    }
-
     a:hover,
     a:focus,
     a:active,
