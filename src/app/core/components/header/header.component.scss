@@ -58,7 +58,6 @@
     list-style-type: none;
     margin: 0 _b__rem(30px) 0 0;
     position: relative;
-
     &--no-spacing {
       margin: 0;
     }
@@ -177,7 +176,7 @@
   $parent: &;
 
   position: absolute;
-  width: 100%;
+  width: fit-content;
   padding: _b__rem(10px) 0 0 0;
   z-index: 100;
   display: none;

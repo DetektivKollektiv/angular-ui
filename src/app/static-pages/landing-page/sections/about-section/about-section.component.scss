@@ -47,24 +47,6 @@
       text-align: center;
     }
 
-    &-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: darken(colors.$color__tile-background, 5%);
-      transition: 0.5s ease;
-      opacity: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        opacity: 70%;
-      }
-    }
-
     &-purple {
       background-color: rgba($color: colors.$color__purple, $alpha: 0.2);
 
