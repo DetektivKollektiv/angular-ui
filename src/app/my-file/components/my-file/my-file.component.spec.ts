@@ -9,6 +9,7 @@ import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { MockAuthService } from '@mocks/mock-auth.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatDialog } from '@angular/material/dialog';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 describe('MyFileComponent', () => {
   let component: MyFileComponent;
@@ -17,7 +18,7 @@ describe('MyFileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MyFileComponent],
-      imports: [MaterialModule, HelperModule, RouterTestingModule],
+      imports: [MaterialModule, HelperModule, RouterTestingModule, PipesModule],
       providers: [
         { provide: UserService, useClass: MockUserService },
         { provide: AuthService, useClass: MockAuthService },
@@ -29,6 +30,7 @@ describe('MyFileComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MyFileComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 

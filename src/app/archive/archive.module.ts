@@ -35,6 +35,7 @@ import { ReviewResponsesComponent } from './components/review-responses/review-r
 import { DetectiveItemModule } from '@shared/detective-item/detective-item.module';
 import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
 import { CommentInputModule } from '@shared/comment-input/comment-input.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -72,7 +73,8 @@ registerLocaleData(localeDE, 'de');
     CaseResultCardModule,
     DetectiveItemModule,
     EdgyBackgroundModule,
-    CommentInputModule
+    CommentInputModule,
+    PipesModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },

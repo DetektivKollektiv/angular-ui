@@ -34,7 +34,7 @@
   <div class="background-info__details">
     <div *ngIf="case.open_timestamp" class="background-info__entry">
       <i class="far fa-calendar-alt"></i>
-      {{ case.open_timestamp | date: 'dd.MM.yyyy' }}
+      {{ case.open_timestamp | extendedDate }}
     </div>
     <div class="background-info__entry">
       <i class="far fa-user"></i>
