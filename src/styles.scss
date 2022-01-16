@@ -79,6 +79,14 @@ body {
   overflow-x: hidden;
 }
 
+*.hint-italic {
+  @include font__effra--italic;
+  &-bold {
+    @extend .hint-italic;
+    font-weight: 700;
+  }
+}
+
 .review-page .carousel .carousel-arrows .carousel-arrow {
   background-color: unset !important;
   box-shadow: unset !important;

@@ -47,7 +47,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   questionPrompts = [
     {
       title: 'Ein Link funktioniert nicht mehr?',
-      description: 'Wenn sich der Fall nicht mehr bearbeiten lässt, dann sende uns eine Nachricht über "Fall melden".',
+      description: 'Wenn sich der Fall nicht mehr bearbeiten lässt, sende uns bitte eine Nachricht über "Fall melden".',
       bgColor: '#3a9832',
       icon: 'fal fa-link'
     },
@@ -66,9 +66,9 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   ];
 
   description =
-    'Im Tatbestand unten links siehst du alle für den Fall relevanten Informationen. Mache dich zunächst kurz mit dem ' +
+    'Im Tatbestand unten siehst du alle für den Fall relevanten Informationen. Mache dich zunächst mit dem ' +
     'Fall vertraut und überlege, ob du ihn wirklich bearbeiten willst. Wenn du dich dazu entschlossen hast, ' +
-    'klicke bitte rechts auf "Fall annehmen" und starte mit deiner Beurteilung.';
+    'klicke bitte rechts auf "Fall annehmen" und starte Deine Bewertung.';
 
   // 100 XP is always static
   userExperienceBubbles = [

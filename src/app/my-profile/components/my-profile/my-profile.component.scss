@@ -318,10 +318,7 @@
       max-width: 660px;
       text-align: center;
       z-index: 1;
-      .hint-italic {
-        @include fonts.font__effra--italic;
-        font-size: 18px;
-      }
+     
       @media only screen and (min-width: 768px) {
         max-width: 600px;
       }
