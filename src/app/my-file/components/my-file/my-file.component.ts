@@ -21,10 +21,6 @@ export class MyFileComponent implements OnInit {
     this.userService.user$.subscribe((value) => {
       if (value) {
         this.user = value;
-
-        // Safari timestamp fix
-        // TODO: Remove when format is adapted in API
-        this.user.sign_up_timestamp = this.user.sign_up_timestamp.replace(/\s/g, 'T');
       }
     });
   }

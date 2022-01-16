@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>codetekt</title>
+    <link rel="icon" type="image/x-icon" href="logo_16x16.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: auto !important;
+        min-width: 525px;
+      }
+
+      header {
+        height: 70px;
+        width: 100%;
+        max-width: 1340px;
+        padding: 8px;
+      }
+
+      footer {
+        width: 100%;
+        background-color: #160637;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 16px 8px;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .header-image {
+        width: 200px;
+      }
+
+      .main {
+        flex: 1 1 auto;
+        height: 100%;
+        width: 100%;
+        max-width: 1340px;
+        display: flex;
+        padding: 8px;
+        flex-direction: column;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        order: 2;
+        max-width: 700px;
+      }
+
+      .heading {
+        font-size: 52px;
+        margin-bottom: 32px;
+      }
+
+      .intro {
+        margin-bottom: 32px;
+      }
+
+      .warning {
+        font-weight: bold;
+        margin-bottom: 64px;
+        font-size: 18px;
+      }
+
+      .browser-hint {
+        margin-bottom: 16px;
+      }
+
+      .browser-list {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .browser-list__item {
+        background-color: #160637;
+        color: #fff;
+        padding: 8px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex: 1 1 0px;
+        margin: 8px;
+      }
+
+      .image {
+        order: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .navigation-footer {
+        width: 100%;
+        max-width: 1340px;
+      }
+
+      .navigation-footer__item {
+        list-style-type: none;
+      }
+
+      .navigation-footer__chapter-headline {
+        margin-bottom: 16px;
+      }
+
+      @media only screen and (min-width: 1024px) {
+        .main {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+        .image {
+          display: block;
+          order: 2;
+        }
+
+        .content {
+          order: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img class="header-image" src="/assets/logo/codetekt_V2_rgb@4x.png" />
+    </header>
+    <div class="main">
+      <div class="content">
+        <h1 class="heading">Gemeinsam gegen Falschinformationen</h1>
+        <p class="intro">
+          Bei codetekt kannst du digitale Informationen auf ihre Vertrauenswürdigkeit prüfen lassen. Reiche einen Fall ein und lasse diesen
+          von der codetekt Community prüfen oder werde selbst Detektiv*in. Beim Lösen der Fälle kannst du deine Recherche-Fähigkeiten
+          verbessern und vom Einsteiger- zum Expertenlevel aufsteigen.
+        </p>
+        <p class="warning">
+          Leider ist unsere Seite nicht mit deinem Internet Browser kompatibel. Nutze bitte einen der unterstützten Internet Browser.
+        </p>
+        <p class="browser-hint">Wir testen unsere Seite mit folgenden Browsern:</p>
+        <div class="browser-list">
+          <div class="browser-list__item">
+            <p>Microsoft Edge</p>
+          </div>
+          <div class="browser-list__item">
+            <p>Google Chrome</p>
+          </div>
+          <div class="browser-list__item">
+            <p>Apple Safari</p>
+          </div>
+          <div class="browser-list__item">
+            <p>Mozilla Firefox</p>
+          </div>
+          <div class="browser-list__item">
+            <p>Opera</p>
+          </div>
+          <div class="browser-list__item">
+            <p>Brave</p>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        <img src="assets/images/illustrations/title.svg" />
+      </div>
+    </div>
+    <footer class="footer">
+      <nav class="navigation-footer">
+        <div class="navigation-footer__chapter">
+          <h3 class="navigation-footer__chapter-headline">Kontakt</h3>
+          <ul class="navigation-footer__list">
+            <li class="navigation-footer__item">
+              <a
+                href="mailto:info@codetekt.org"
+                class="navigation-footer__link"
+                title="E-Mail senden an: info@codetekt.org"
+                [routerLink]="['/#']"
+                >info@codetekt.org</a
+              >
+            </li>
+            <li class="navigation-footer__item">
+              <a href="https://www.instagram.com/codetekt/" target="_blank" class="navigation-footer__link" title="Instagram">Instagram</a>
+            </li>
+            <li class="navigation-footer__item">
+              <a href="https://twitter.com/codetekt" target="_blank" class="navigation-footer__link" title="Twitter">Twitter</a>
+            </li>
+            <li class="navigation-footer__item">
+              <a
+                href="https://www.facebook.com/Codetekt-eV-107861294837625"
+                target="_blank"
+                class="navigation-footer__link"
+                title="Facebook"
+                >Facebook</a
+              >
+            </li>
+            <li class="navigation-footer__item">
+              <a href="https://www.linkedin.com/company/69506989" target="_blank" class="navigation-footer__link" title="LinkedIn"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+  </body>
+</html>

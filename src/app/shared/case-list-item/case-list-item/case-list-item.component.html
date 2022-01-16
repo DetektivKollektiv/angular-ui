@@ -9,10 +9,10 @@
     <div *ngIf="showContent" class="case-content case-content--inner">{{ case.content | textOverflow: 500 }}</div>
     <div class="item__info">
       <span class="received-txt"
-        ><small><i class="far fa-calendar-alt"></i>{{ case.open_timestamp | date }}</small></span
+        ><small><i class="far fa-calendar-alt"></i>{{ case.open_timestamp | extendedDate }}</small></span
       >
       <span class="closed"
-        ><small><i class="far fa-calendar-check"></i>{{ case.close_timestamp | date }}</small></span
+        ><small><i class="far fa-calendar-check"></i>{{ case.close_timestamp | extendedDate }}</small></span
       >
       <span class="confidence-index"
         ><small><i class="far fa-comment-alt-lines"></i>{{ case.discussion_comments?.length || 0 }}</small></span
