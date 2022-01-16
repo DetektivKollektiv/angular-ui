@@ -1,62 +1,54 @@
 @import '../../../../assets/scss/_initializer.scss';
 
 .submit-page {
-  overflow-x: hidden;
   width: 100vw;
 
   .top-section {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 20px 0px 10px;
 
     @media only screen and (min-width: 480px) {
       flex-direction: row;
       justify-content: space-between;
+      padding-left: 40px;
     }
-
     @media only screen and (min-width: 1024px) {
-      width: 600px;
-      padding: 80px 20px 40px;
-      margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+      width: 800px;
+      margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
     }
-
     @media only screen and (min-width: 1350px) {
-      width: 767px;
-      margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+      width: 1200px;
+      margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
     }
 
     .overview-section {
-      span > i {
-        color: $color__old-paragraph;
-        font-size: small;
-      }
       h1 {
         @include font__effra--bold;
-        margin-bottom: 20px;
-
-        @media only screen and (min-width: 480px) {
-          font-size: 68px;
-        }
+        font-size: 52px;
       }
-      span.submit-text {
+      p {
+        @include font__effra--regular;
         font-size: 18px;
+        margin-top: 5px;
       }
     }
   }
 
   .section-of-questions {
     margin: auto;
-
-    @media only screen and (min-width: 1024px) {
-      margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
+    @media only screen and (min-width: 480px) {
+      padding-left: 40px;
     }
-
+    @media only screen and (min-width: 1024px) {
+      margin-left: calc((100vw - 600px) / 3.4); //  ~ 1/3 of extra space
+      width: 1200px;
+      padding: 20px 0 20px 40px;
+    }
     @media only screen and (min-width: 1350px) {
-      margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+      margin-left: calc((100vw - 767px) / 3.4); //  ~ 1/3 of extra space
     }
   }
-
-  $middle-section-margin-bottom: 40px;
 
   .middle-section {
     width: 100%;
@@ -68,13 +60,33 @@
     .middle-section-container {
       display: flex;
       flex-direction: column;
-      padding: 0 20px 0;
-      margin-top: 20px;
+      padding: 0px 20px 0px 20px;
       position: relative;
+
+      @media only screen and (min-width: 480px) {
+        padding-left: 40px;
+      }
+      @media only screen and (min-width: 1024px) {
+        width: 600px;
+        margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
+      }
+      @media only screen and (min-width: 1350px) {
+        width: 740px;
+        margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
+      }
 
       h2 {
         @include font__pt-mono--bold;
         font-size: 36px;
+      }
+      
+      p {
+        font-size: 18px;
+      }
+
+      .display-item-type {
+        @include font__pt-mono--bold;
+        color: $color__purple_gradient;
       }
 
       .field-container p {
@@ -84,54 +96,71 @@
       }
 
       .form-select {
-        width: 100%;
-        font-size: 18px;
+        width: 85%;
+        font-size: 16px;
+        margin-top: 10px;
+        @media only screen and (min-width: 480px) {
+          width: 41%;
+        }
       }
 
+      .mat-form-field:not(.mat-form-field-has-label) .mat-form-field-infix {
+        border-top-width: 0;    
+      }
+
+      .mat-select-arrow-wrapper .mat-select-arrow {        
+        margin-top: 13px;
+      }
+
+      .mat-select-placeholder {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        color: $color__placeholder;
+        transition: none;
+      }
+
+      .mat-form-field-outline {
+        .mat-form-field-outline-start {
+          min-width: 10px;
+          color: $color__select-border;
+          border-color: $color__select-border;
+          border-radius: 10px 0 0 10px;
+          border-width: 2px 2px 2px 2px;
+        }
+
+        .mat-form-field-outline-end {
+          color: $color__select-border;
+          border-color: $color__select-border;
+          border-radius: 0 10px 10px 0;
+          border-width: 2px 2px 2px 2px;
+        }
+      }  
+  
       .textarea {
         width: 100%;
-        border-radius: 10px;
+        margin-top: 10px;
         padding: 15px;
-        margin-top: 12px;
-        font-size: 18px;
-
+        font-size: 16px;
+        $color: $color__select-border;
+        border-color: $color__select_border;        
+        border-radius: 10px;
+      
         &:focus {
-          border: 1px solid grey;
+          border: 2px solid $color__user_input_border;
         }
       }
 
       .lady-detective-svg-container {
         position: absolute;
-        right: -484px;
         display: none;
-        // the -24 is  because theres a weird svg thing in the middle...
-        bottom: calc(#{-$middle-section-margin-bottom} - 24px);
+        right: -450px;
+        bottom: -55px;
         z-index: 5;
 
         @media only screen and (min-width: 1350px) {
           display: block;
         }
-      }
-
-      @media only screen and (min-width: 480px) {
-        padding: 20px;
-        margin-bottom: 20px;
-        margin-top: 40px;
-
-        .form-select {
-          width: 50%;
-        }
-      }
-
-      @media only screen and (min-width: 1024px) {
-        margin-bottom: $middle-section-margin-bottom;
-        margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
-        width: 600px;
-      }
-
-      @media only screen and (min-width: 1350px) {
-        margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
-        width: 767px;
       }
     }
   }
@@ -149,72 +178,71 @@
 
     // background: white;
     // this linear gradient is just a hack because the svg had some strip of empty space at the bottom, or something like that
-    background-image: linear-gradient(to top, #53407b 10%, transparent 50%);
+    background-image: linear-gradient(to top, $color__purple_gradient 10%, transparent 50%);
     // background-image: linear-gradient(to top, transparent 10%,white 35%);
+    svg {
+      width: 100vw;
+      height: 100%;
+      transform: translate(0, 5px) ;
+    }
   }
 
   .bottom-section {
-    background-image: linear-gradient(to top, $color__mysterious-blue 29%, #53407b 99%);
+    background-image: linear-gradient(to top, $color__mysterious-blue 29%, $color__purple_gradient 99%);
     display: flex;
     flex-direction: column;
-    width: 100%;
 
     h2,
     h3,
     p,
     div {
-      color: white;
+      color: $color__white;
     }
 
     .bottom-section-content-container {
       display: flex;
       flex-direction: column;
-      // align-items: center;
-      padding: 0 20px 20px;
-      width: 100%;
+      padding: 0px 20px 0px 20px;
       max-width: 100vw;
-      color: white;
+      color: $color__white;
       position: relative;
 
-      h2 {
-        @include font__effra--bold;
-        font-size: 36px;
+      @media only screen and (min-width: 480px) {
+        padding-left: 40px;
+      }
+      @media only screen and (min-width: 1024px) {
+        width: 600px;
+        margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
+      }
+      @media only screen and (min-width: 1350px) {
+        width: 767px;
+        margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
       }
 
+      h2 {
+        @include font__effra--medium;
+        font-size: 28px;
+      }
       h3 {
         @include font__pt-mono--bold;
         font-size: 16px;
-        margin-top: 30px;
         margin-bottom: 12px;
       }
-
       p {
-        font-size: 18px;
-      }
-
-      @media only screen and (min-width: 480px) {
-        padding: 20px;
-      }
-
-      @media only screen and (min-width: 1024px) {
-        padding-top: 50px;
-        width: 600px;
-        margin-left: calc((100vw - 600px) / 4); // 1/4 of extra space space
-      }
-
-      @media only screen and (min-width: 1350px) {
-        width: 767px;
-        margin-left: calc((100vw - 767px) / 4); // 1/4 of extra space space
+        font-size: 16px;
       }
 
       .mat-divider {
-        border-top-color: white;
+        border-top-color: $color__white;
       }
 
       .option-container {
-        margin-bottom: 40px;
+        margin-bottom: 25px;
 
         .radio-container {
+          font-size: 14px;
+          margin-bottom: 15px;
+
           mat-radio-group {
             display: flex;
             flex-direction: column;
@@ -232,11 +260,11 @@
         .text-input {
           padding: 10px 15px;
           width: 40%;
-          border: 1px solid grey;
+          border: 1px solid $color__grey;
           border-radius: 10px;
 
           &:focus {
-            border: 1px solid grey;
+            border: 1px solid $color__grey;
           }
         }
 
@@ -246,18 +274,7 @@
       }
 
       .notify-container {
-        margin: 40px 0;
-
-        .text-input {
-          padding: 10px 15px;
-          width: 40%;
-          border: 1px solid grey;
-          border-radius: 10px;
-
-          &:focus {
-            border: 1px solid grey;
-          }
-        }
+        margin: 25px 0;
       }
 
       .email-container {
@@ -267,16 +284,16 @@
         input {
           padding: 10px 15px;
           width: 100%;
-          border: 1px solid grey;
+          border: 1px solid $color__grey;
           border-radius: 10px;
 
           &:focus {
-            border: 1px solid grey;
+            border: 1px solid $color__grey;
           }
 
           &.ng-invalid.ng-touched {
-            border-color: red;
-            color: red;
+            border-color: $color__warn;
+            color: $color__warn;
           }
         }
 
@@ -289,8 +306,8 @@
       }
 
       .submit-check-container {
-        margin: 40px 0;
-
+        margin: 25px 0;
+ 
         .mat-checkbox ~ .mat-checkbox {
           margin-top: 0.5rem;
         }
@@ -300,56 +317,28 @@
       }
 
       .legal-button-container {
-        margin: 40px 0;
+        margin: 25px 0;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        justify-content: space-between;
 
-        @media only screen and (max-width: 480px) {
-          justify-content: center;
-        }
+        .button-reject {
+          display: flex;
+          justify-content: flex-start;
+          text-decoration: none;    
+          color: $color__select-border;
+          border: 1px solid $color__neon-blue;
+          background-color: $color__mysterious-blue;
 
-        .button-group {
-          width: 178px;
-          height: 42px;
-          font-weight: bold;
-          font-size: 17px;
-
-          &.abort-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent;
-            color: grey;
-            text-decoration-line: none;
-          }
-
-          &.submit-button {
-            border-radius: 20px;
-            background-color: $color__neon-blue;
-            color: white;
-            border: 2px solid $color__neon-blue;
-            cursor: pointer;
-
-            &:hover {
-              background-color: white;
-              color: $color__neon-blue;
-            }
-            &:disabled {
-              border: none;
-              opacity: 0.7;
-
-              &:hover {
-                background-color: $color__neon-blue;
-                color: white;
-              }
-            }
+          &:hover {
+            background-color: $color__select-border;
+            color: $color__neon-blue;
           }
         }
       }
 
       p {
-        color: white;
+        color: $color__white;
       }
     }
 

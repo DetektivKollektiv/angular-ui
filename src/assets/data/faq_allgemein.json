@@ -1,46 +1,46 @@
 [
   {
     "question": "Was ist codetekt e.V.?",
-    "answer": "codetekt ist ein gemeinnütziger Verein. Unser Ziel ist es, eine Bewegung gegen Desinformation zu schaffen. Dazu haben wir eine Plattform entwickelt, auf der jede*r die Vertrauenswürdigkeit von digitalen Informationen überprüfen lassen kann. Auch über die Plattform hinaus engagieren wir uns gegen Desinformationen, bspw. durch das Anbieten von Workshops, Aufklärungsarbeit auf Social Media und Kooperationsprojekte mit anderen Initiativen."
+    "answer": "codetekt ist ein gemeinnütziger Verein mit dem Ziel, der Verbreitung von Desinformation etwas entgegenzusetzen. Dazu haben wir eine Plattform entwickelt, auf der jede*r die Vertrauenswürdigkeit von digitalen Informationen überprüfen lassen kann. Wir engagieren uns auch über die Plattform hinaus: durch Workshop-Angebote, Aufklärungsarbeit auf Social Media und Kooperationsprojekte mit anderen Initiativen."
   },
   {
-    "question": "Wie ist codetekt e.V. entstanden und wer steckt dahinter?",
-    "answer": "Wir sind ein Projektteam aus momentan 22 Personen, das sich während des deutschen WirVsVirus-Hackathons im März 2020 gegründet hat und seitdem ehrenamtlich an einer Lösung gegen unglaubwürdige Nachrichten im Web oder in verschlüsselten Messaging Apps arbeitet. Das Team arbeitet dezentral und virtuell aus Deutschland und Benin."
+    "question": "Wie ist codetekt e.V. entstanden und wer engagiert sich da?",
+    "answer": "Wir sind ein Projektteam mit momentan 22 Personen. Die Gründung geht auf den Hackathon <a href='https://wirvsvirus.org/' target='_blank'>WirVsVirus</a> im März 2020 zurück. Seitdem arbeiten wir ehrenamtlich an einer Lösung, zweifelhafte Nachrichten im Web oder in verschlüsselten Messaging Apps aufzudecken. Das Team arbeitet dezentral und virtuell deutschlandweit und darüber hinaus."
   },
   {
-    "question": "Kann ich mich auch mit einbringen?",
-    "answer": "Aber natürlich! Wir suchen nach Unterstützung aller Art. Du kannst bei uns in den Bereichen Design, Social Media, Redaktion, Programmierung, Workshops, politische Bildung, Fundraising oder Kommunikation aktiv werden. Melde dich bei uns, wenn du Lust hast, deine Skills einzusetzen und auszubauen oder was ganz Neues zu lernen und dich für eine gute Sache einzusetzen. Wir freuen uns, von dir zu hören! Schreib uns eine Nachricht an  <a href='mailto:info@codetekt.org'>info@codetekt.org</a>"
+    "question": "Kann ich mich auch einbringen?",
+    "answer": "Aber natürlich! Wir suchen nach Unterstützung aller Art. Du kannst bei uns in den Bereichen Design, Social Media, Redaktion, Programmierung, Workshops, politische Bildung, Fundraising oder Kommunikation aktiv werden. Hast Du Lust, deine Skills einzusetzen und auszubauen oder etwas ganz Neues zu lernen? Möchtest du dich für eine gute Sache einsetzen? Dann schreib uns eine Nachricht an <a href='mailto:info@codetekt.org'>info@codetekt.org</a> . Wir freuen uns, von dir zu hören!"
   },
   {
-    "question": "Was ist unsere Mission?",
-    "answer": "Wir wollen eine Bewegung gegen Desinformationen schaffen und allen Bürger*innen ermöglichen, unglaubwürdige Inhalte zu entlarven und ihre Medienkompetenz zu stärken – für eine resiliente und gut informierte Gesellschaft."
+    "question": "Wofür setzen wir uns ein?",
+    "answer": "Wir wollen mehr Aufmerksamkeit für das Thema Desinformation schaffen und Medienkompetenz im öffentlichen Leben stärken. Alle Bürger*innen sollen auf unkomplizierte Weise die Möglichkeit haben, zweifelhafte Informationen als solche zu erkennen – für eine resiliente und gut informierte Gesellschaft!"
   },
   {
-    "question": "Welche Lösung für die Bekämpfung von Falschinformationen bieten wir?",
-    "answer": "Auf unserer Plattform ermittelt ein Kollektiv ehrenamtlicher Detektiv*innen, motiviert durch kreative, spieltypische Elemente und Gemeinschaftssinn die Vertrauenswürdigkeit digitaler Nachrichten – objektiv, transparent und für alle kostenlos zugänglich. Von der Gesellschaft für die Gesellschaft. Neben unserer Plattform arbeiten wir auch an zusätzlichen Angeboten wie Workshops, Social Media-Inhalten und Kooperationsprojekten."
+    "question": "Welche Lösungen bieten wir an, um Desinformation etwas entgegenzusetzen?",
+    "answer": "Unsere Plattform nutzt kreative und spieltypische Elemente, jede*r kann Fälle zur Prüfung einreichen oder sich selbst an der Lösung eines Falls beteiligen. Im Team ermitteln die Detektiv*innen die Vertrauenswürdigkeit der eingereichten Nachrichten. Neben unserer Plattform arbeiten wir an zusätzlichen Angeboten: Workshops, Community-Aufbau und Info-Aktionen auf Social Media."
   },
   {
     "question": "Ist die Nutzung von codetekt kostenpflichtig?",
-    "answer": "Nein! Das Besuchen und die Nutzung der Plattform – einschließlich das Einreichen von Fällen oder die Nutzung des Archivs – ist kostenlos."
+    "answer": "Nein! Das Besuchen und die Nutzung der Plattform ist kostenlos. Unser Angebot soll möglichst niederschwellig sein: jede*r kann Fälle einreichen, bei der Lösung mitmachen oder das Archiv der bereits gelösten Fälle nutzen. "
   },
   {
     "question": "Nutzt ihr künstliche Intelligenz auf eurer Plattform?",
-    "answer": "Wir setzen bei der Entlarvung von nicht-vertrauenswürdigen Inhalten auf die Community und nicht auf Technologien wie maschinelles Lernen. Diese sehen wir als unterstützende Instrumente, die im Auswertungsprozess von Inhalten zusätzlich zur Hilfe gezogen werden können. Unseren Detektiv*innen wird beispielsweise mit Hilfe von künstlicher Intelligenz Ergebnisse von Fakt-Checking Organisationen vorgelegt. Ob der/die Detektiv*in das in die eigene Bewertung einfließen lässt, bleibt jedoch immer ihnen überlassen.\n"
+    "answer": "Wir setzen beim Erkennen nicht-vertrauenswürdiger Inhalte auf die Community und nicht auf Technologien wie maschinelles Lernen. Diese sehen wir als unterstützende Instrumente, die im Auswertungsprozess von Inhalten zusätzlich zum Einsatz kommen können. Ein Beispiel: nach der Einreichung eines Falles suchen auf KI basierende Methoden, ob es bereits Recherchen von Fakt-Checking Redaktionen zu dem Thema gibt. Falls ja, wird dieses Ergebnis den Detektiv*innen angezeigt. Alle, die den Fall bearbeiten, können selbst entscheiden, ob dies in die individuelle Bewertung einfließt.\n"
   },
   {
     "question": "Welche Werte vertreten wir?",
-    "answer": "Für unsere Arbeit und den Aufbau der Plattform sind vier Werte von besonderer Bedeutung: <p><b>Gemeinschaft:</b> Wir setzen bei der Entlarvung von nicht-vertrauenswürdigen Inhalten und Falschinformationen auf die Community und nicht auf Technologien wie maschinelles Lernen. Diese sehen wir als unterstützende Instrumente, die im Auswertungsprozess von Inhalten zusätzlich zur Hilfe gezogen werden können.</p><p><b>Objektivität:</b> codetekt ist eine unabhängige Organisation, die eigenständig strategische Entscheidungen bzgl. Ausrichtung, Entwicklung und Struktur der Plattform und Organisation trifft.</p><p><b>Transparenz:</b> Damit wir gegen die Verfasser*innen von Falschinformationen eine für alle Nutzer*innen, Partner*innen und Stakeholder glaubwürdige Lösung entgegenstellen können, setzen wir auf Transparenz. Unser Ziel ist es, alle Entwicklungen und Prozesse innerhalb der Plattform so offen und transparent wie möglich in der Öffentlichkeit zu kommunizieren. Das schließt potenzielle Funder, aber auch interne Strukturen ein.</p><p><b>Empowerment:</b> Wir wollen einen Mehrwert für die Gesellschaft leisten, indem wir es allen unkompliziert, schnell und kostenlos ermöglichen, Inhalte auf ihre Vertrauenswürdigkeit überprüfen zu lassen. Damit leisten wir einen Beitrag für die Befähigung der Gesellschaft bei der Identifizierung von Falschinformationen.</p>"
+    "answer": "Für unsere Arbeit und den Aufbau der Plattform sind vier Werte von besonderer Bedeutung: <p><b>Gemeinschaft:</b> Wir setzen beim Aufdecken von Desinformation auf die Community, dh auf die gemeinsame, nicht nur von einem Einzelnen getroffene Bewertung eines Falls.</p><p><b>Objektivität:</b> codetekt ist eine unabhängige Organisation, die eigenständig strategische Entscheidungen in Bezug auf Ausrichtung, Konzept, Entwicklung und die interne Struktur trifft.</p><p><b>Transparenz:</b> Um der Verbreitung von Desinformation eine für alle Nutzer*innen, Partner*innen und Stakeholder stimmige Lösung entgegensetzen zu können, ist Transparenz für uns besonders wichtig. Wir wollen alle Entwicklungen und Prozesse beim Aufbau unserer Plattform so offen wie möglich in der Öffentlichkeit kommunizieren. Das schließt potenzielle Förderer, aber auch interne Strukturen ein.</p><p><b>Empowerment:</b> Wir wollen einen Mehrwert für alle schaffen mit einem unkomplizierten, schnellen und kostenlosen 'Trust-Checking'-Angebot. Damit leisten wir einen Beitrag zur Medienkompetenz in der Gesellschaft beim Identifizieren von Desinformation.</p>"
   },
   {
     "question": "Muss man sich für die Nutzung der Plattform registrieren?",
-    "answer": "Das Einreichen von Fällen zur Überprüfung durch die Community oder auch das Besuchen der öffentlich zugänglichen Inhalte – wie das Archiv – erfordert keine Anmeldung. Möchtest du aktiv mithelfen, potenzielle Falschinformationen zu entlarven und Teil der codetekt Community werden, dann musst du dich unter Angabe deiner Email-Adresse und einem Benutzer*innennamen registrieren."
+    "answer": "Das Einreichen von Fällen zur Überprüfung durch die Community sowie der Besuch öffentlich zugänglicher Inhalte, z.B. des Archivs, erfordert keine Anmeldung. Möchtest du aktiv mithelfen, potenzielle Falschinformationen aufzudecken und Teil der codetekt Community werden, dann musst du dich mit deiner E-Mail-Adresse und einem Anmeldenamen registrieren."
   },
   {
     "question": "Wie schützt ihr Euch vor beabsichtigten falschen Bewertungen der Fälle?",
-    "answer": "Durch zufälliges Verteilen der Inhalte auf registrierte Detektiv*innen der Community und einen mehrstufigen Peer Review Prozess."
+    "answer": "Durch zufälliges Verteilen der Fälle auf registrierte Detektiv*innen und durch einen mehrstufigen Peer Review Prozess."
   },
   {
     "question": "Wie finanziert ihr Euch?",
-    "answer": "Wir suchen aktuell nach Finanzierungsmöglichkeiten, die es uns erlauben, unsere Plattform weiterhin unabhängig aufzubauen, zu entwickeln und zu skalieren."
+    "answer": "Als gemeinnütziger Verein tragen wir uns über Spenden und Förderungen. Wir suchen fortlaufend nach Finanzierungsmöglichkeiten, die es uns erlauben, die Plattform sowie unsere anderen Angebote weiterhin unabhängig zu entwickeln und zu skalieren."
   }
 ]

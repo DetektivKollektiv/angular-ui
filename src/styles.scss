@@ -30,19 +30,61 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: $color__scrollbar-thumb-background;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: $color__scrollbar-thumb-background-hover;
 }
+
+/* placeholder */
+
+textarea::-webkit-input-placeholder {   /* WebKit, Blink, Edge */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+textarea:-moz-placeholder {             /* Mozilla Firefox 4 to 18 */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+textarea::-moz-placeholder {            /* Mozilla Firefox 19+ */
+  $color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+textarea:-ms-input-placeholder {        /* Internet Explorer 10-11 */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+textarea:placeholder-shown {            /* Standard Pseudo-class */
+  color: $color__placeholder;
+  font-size: 16px;
+  font-weight: 400;
+} 
 
 body {
   height: 100%;
   min-height: 100%;
   margin: 0;
   overflow-x: hidden;
+}
+
+*.hint-italic {
+  @include font__effra--italic;
+  &-bold {
+    @extend .hint-italic;
+    font-weight: 700;
+  }
 }
 
 .review-page .carousel .carousel-arrows .carousel-arrow {
@@ -60,6 +102,7 @@ body {
 .carousel .carousel-container .question--title {
   width: 316px !important;
 }
+
 .carousel-arrows .carousel-arrow-disabled {
   display: none;
 }
@@ -72,13 +115,30 @@ body {
   background-size: 60px !important;
 }
 
+.archive-page .carousel .carousel-arrows .carousel-arrow-next {
+  left: 98% !important;
+}
+
+.archive-page .carousel .carousel-arrows .carousel-arrow-prev {
+  left: -40px !important;
+}
+
 .carousel .carousel-arrows .carousel-arrow {
   background-color: unset !important;
   box-shadow: unset !important;
-  top: 42% !important;
+  top: 42% !important;  
   width: 18px !important;
   background-size: 60px !important;
 }
+
+.carousel .carousel-arrows .carousel-arrow-next {
+  left: 100% !important;
+}
+
+.carousel .carousel-arrows .carousel-arrow-prev {
+  left: -40px !important;
+}
+
 .review-situation--text {
   word-wrap: break-word;
 
@@ -108,7 +168,7 @@ h1 {
     line-height: 70px;
     font-size: 40px;
     font-size: max(1.8vw, 12px);
-    color: #4a4a4a;
+    color: $color__share-section-heading;
   }
 }
 
@@ -136,12 +196,12 @@ div {
   color: $color__mysterious-blue;
 
   &.invert {
-    color: white;
+    color: $color__white;
   }
 }
 
 div.page-content {
-  background: #fbfbfb;
+  background: $color__page-content-background;
   height: 100%;
   width: 100%;
   display: flex;
@@ -207,41 +267,41 @@ div.dialog-container {
 }
 
 mat-icon {
-  color: #4a4a4a;
+  color: $color__share-section-heading;
 }
 /* TODO: Use colors from theme instead of manually configuring */
 
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: #fac800;
+  background-color: $color__supernova;
 }
 
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
-  border-color: #fac800;
+  border-color: $color__supernova;
 }
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-  background-color: #fac800;
+  background-color: $color__supernova;
 }
 
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: #5f38fa;
+  background-color: $color__neon-blue;
 }
 
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
-  border-color: #5f38fa;
+  border-color: $color__neon-blue;
 }
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-  background-color: #5f38fa;
+  background-color: $color__neon-blue;
 }
 
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: #ff7268;
+  background-color: $color__bittersweet;
 }
 
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
-  border-color: #ff7268;
+  border-color: $color__bittersweet;
 }
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-  background-color: #ff7268;
+  background-color: $color__bittersweet;
 }
 
 .mat-tooltip {
@@ -252,10 +312,10 @@ mat-icon {
   &--neon-blue {
     .mat-chip {
       background-color: $color__neon-blue;
-      color: white;
+      color: $color__white;
 
       .mat-chip-remove {
-        color: white;
+        color: $color__white;
       }
     }
   }
@@ -282,7 +342,7 @@ mat-icon {
   }
 
   .mat-slider-thumb-label-text {
-    color: white;
+    color: $color__white;
   }
 }
 
@@ -291,7 +351,7 @@ mat-icon {
 
   .mat-simple-snackbar {
     span {
-      color: white;
+      color: $color__white;
     }
   }
 }
@@ -326,40 +386,40 @@ header.header {
 
 .ngx-pagination .current {
   padding: 0.1875rem 0.625rem !important;
-  background: #ddd !important;
-  color: black !important;
+  background: $color__pagination-background !important;
+  color: $color__black !important;
   border-radius: 5px;
 }
 
 .radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: white !important;
+  background-color: $color__white !important;
 }
 
 .radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   opacity: 0 !important; /*click effect color change*/
-  background-color: white !important;
+  background-color: $color__white !important;
 }
 
 .radio-container .mat-radio-group .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: white !important;
+  border-color: $color__white !important;
 }
 
 .radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-outer-circle {
-  border-color: white !important;
+  border-color: $color__white !important;
 }
 
 .submit-check-container .mat-checkbox.mat-accent {
   .mat-checkbox-frame {
-    border: 1px solid white;
+    border: 1px solid $color__white;
   }
 
   &.mat-checkbox-checked .mat-checkbox-background {
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid $color__white;
   }
 
   .mat-checkbox-checkmark-path {
-    stroke: white !important;
+    stroke: $color__white !important;
   }
 }
 
@@ -390,7 +450,7 @@ header.header {
 
 .breadcrumb {
   font-size: 14px;
-  color: #8989a2;
+  color: $color__old-paragraph;
 
   &__link {
     cursor: pointer;
@@ -485,7 +545,7 @@ header.header {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: $color__white;
   @include font__pt-mono--bold;
   font-size: 20px;
   margin: 0 5px;
@@ -503,4 +563,9 @@ header.header {
   &--rating-orange {
     color: $color__rating-orange;
   }
+}
+
+.mat-dialog-content{
+  max-height: none !important;
+  margin: 0 !important
 }

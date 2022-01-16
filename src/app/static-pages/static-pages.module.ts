@@ -18,11 +18,14 @@ import { NewsSectionComponent } from './landing-page/sections/news-section/news-
 import { CallToActionSectionComponent } from './landing-page/sections/call-to-action-section/call-to-action-section.component';
 import { NewsletterSectionComponent } from './landing-page/sections/newsletter-section/newsletter-section.component';
 import { NewsSectionItemComponent } from './landing-page/sections/news-section/news-section-item/news-section-item.component';
+import { FinanceSectionComponent } from './landing-page/sections/finance-section/finance-section.component';
 import { SupportUsSectionComponent } from './landing-page/sections/support-us-section/support-us-section.component';
+import { SupportUsSpecialSectionComponent } from './landing-page/sections/support-us-special-section/support-us-special-section.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SupporterItemComponent } from './landing-page/sections/supporter-section/supporter-item/supporter-item.component';
-import { BreadcrumbComponent } from '@shared/breadcrumb/breadcrumb/breadcrumb.component';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { TrustCheckingPageComponent } from './trust-checking/trust-checking-page/trust-checking-page.component';
+import { TrustCheckingCriterionComponent } from './trust-checking/components/trust-checking-criterion/trust-checking-criterion.component';
 
 @NgModule({
   declarations: [
@@ -41,10 +44,14 @@ import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
     CallToActionSectionComponent,
     NewsletterSectionComponent,
     NewsSectionItemComponent,
+    FinanceSectionComponent,
     SupportUsSectionComponent,
-    SupporterItemComponent
+    SupporterItemComponent,
+    TrustCheckingPageComponent,
+    TrustCheckingCriterionComponent,
+    SupportUsSpecialSectionComponent
   ],
   imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
-  exports: [AboutComponent, SupportUsSectionComponent]
+  exports: [AboutComponent, SupportUsSectionComponent, SupporterSectionComponent]
 })
 export class StaticPagesModule {}

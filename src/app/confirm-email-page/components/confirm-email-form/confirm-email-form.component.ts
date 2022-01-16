@@ -29,7 +29,8 @@ import { SignupResult } from '@shared/auth/model/signup-result';
 export class ConfirmEmailFormComponent implements OnInit {
   public form: FormGroup;
   public invalid: boolean;
-  public title = 'Bei deiner Registrierung haben wir dir einen Code zugeschickt. Gib ihn hier ein um deine E-Mail Adresse zu verifizieren.';
+  public title = 'Bei deiner Registrierung haben wir dir einen Code zugeschickt. ' +
+                 'Gib ihn hier ein, um deine E-Mail Adresse zu verifizieren.';
 
   closeResult = {
     success: true

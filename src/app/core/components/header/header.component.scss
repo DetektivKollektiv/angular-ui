@@ -31,6 +31,9 @@
     @include _b__respond-to("min-large") {
       display: flex;
     }
+    .button--gentle{
+      border-radius: 0;
+    }
   }
 
   &__navigation-mobile {
@@ -42,8 +45,6 @@
   }
 }
 
-// does this navigation-main stuff get used somewhere else?
-// is it worth putting in another file somewhere
 .navigation-main {
   $parent: &;
 
@@ -57,13 +58,23 @@
     list-style-type: none;
     margin: 0 _b__rem(30px) 0 0;
     position: relative;
-
     &--no-spacing {
       margin: 0;
     }
 
     &:last-child {
       margin: 0;
+    }
+
+    &:hover {
+      .navigation-flyout {
+        display: block;
+      }
+    }
+    &:active {
+      .navigation-flyout {
+        display: block;
+      }
     }
   }
 
@@ -74,7 +85,10 @@
     color: $color__navigation-main-link;
     padding: _b__rem(6px) 0;
     display: inline-block;
-
+    border: 2px solid transparent;
+    &:hover{
+      border-bottom: 2px solid currentColor;
+    }
     &,
     &:hover,
     &:focus,
@@ -82,12 +96,7 @@
       text-decoration: none;
     }
   }
-  &__button--detective {
-    
-  }
 }
-
-
 
 // todo: move this somewhere more appropriate
 //_userprofile.scss
@@ -163,14 +172,11 @@
 }
 
 
-
-//_navigation-flyout.scss
-
 .navigation-flyout {
   $parent: &;
 
   position: absolute;
-  width: 100%;
+  width: fit-content;
   padding: _b__rem(10px) 0 0 0;
   z-index: 100;
   display: none;
@@ -187,11 +193,16 @@
 
   &__link {
     @include font__effra;
-    @include _b__font-size-rem(15px);
+    @include _b__font-size-rem(18px);
 
     color: $color__navigation-flyout-link;
-    padding: _b__rem(4px) 0;
+    padding: _b__rem(2px) 0;
+    margin: _b__rem(2px) 0;
     display: inline-block;
+    border: 2px solid transparent;
+    &:hover{
+      border-bottom: 2px solid currentColor;
+    }
 
     &:hover,
     &:focus,
@@ -202,19 +213,6 @@
   }
 }
 
-//TODO DEV
-.navigation-main__item {
-  &:hover {
-    .navigation-flyout {
-      display: block;
-    }
-  }
-  &:active {
-    .navigation-flyout {
-      display: block;
-    }
-  }
-}
 
 .navigation-mobile {
   $parent: &;
@@ -231,20 +229,20 @@
   //TODO DEV
   //Here be Overlay Stuff
 }
-$light-reddish1: #ff7268;
+
 .third-theme-color {
-  color: $light-reddish1;
+  color: $color__bittersweet;
 }
 
 
 // todo: move to its own component
 .around-button {
-  border: 1px solid #ff7269;
+  border: 1px solid $color__bittersweet;
   padding: 5px 10px;
   border-radius: 15px;
   &:hover {
-    background-color: #ff7269;
-    color: white;
+    background-color: $color__bittersweet;
+    color: $color__white;
   }
 }
 

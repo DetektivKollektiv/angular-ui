@@ -1,16 +1,17 @@
 <div class="submit-page responsive-100">
   <form #submitForm="ngForm" (ngSubmit)="onSubmit()">
+    <!-- Top Section -->
     <div>
-      <div class="top-section standard-content-container-width">
+      <div class="top-section">
         <div class="overview-section">
           <app-breadcrumb></app-breadcrumb>
           <h1>Fall einreichen</h1>
           <div>
-            <span class="submit-text">
-              Hier kannst du deinen Fall einreichen. Wenn der Fall bereits von unserer Detektiv-Community
-              gelöst wurde, erhältst du sofort das Ergebnis in Form des Vertrauens-Index. 
+            <p>
+              Wenn es etwas gibt, was du gerne prüfen lassen möchtest, kannst Du es hier einreichen. 
+              Wenn die Detektiv-Community diesen Fall bereits gelöst hat, erhältst du sofort das Ergebnis in Form des codetekt Vertrauens-Index.
               Andernfalls übergeben wir den Fall direkt an unsere Detektiv*innen.
-            </span>
+            </p>
           </div>
         </div>
       </div>
@@ -20,19 +21,18 @@
       </div>
 
       <!-- Middle Section -->
-
       <div class="middle-section responsive-100">
         <div class="middle-section-container">
           <h2>Dein Fall</h2>
           <p>
-            Wenn es etwas gibt, was du gerne prüfen möchtest, trage es hier ein. Gibt es diesen Fall bereits,
-            erhältst du das Ergebnis sofort. Falls dein Fall neu ist, werden wir ihn an unsere Detektiv*innen im Team
-            weitergeben, die den Fall dann für dich prüfen.
+            Was kann ein Fall sein? 
+            Es könnte eine Behauptung sein, die du im Gespräch gehört hast, ein Online-Artikel, Posts aus Sozialen Medien
+            oder einem Messenger.
           </p>
           <div class="field-container">
-            <p>Um welche Form von Medium handelt es sich?*</p>
-            <mat-form-field class="form-select responsive-100">
-              <mat-select [(ngModel)]="form.item_type_id" name="item_type_id" required>
+            <p>Um welchen Medien-Typ geht es?*</p>
+            <mat-form-field class="form-select responsive-100" appearance="outline">             
+              <mat-select [(ngModel)]="form.item_type_id" name="item_type_id" placeholder="Hier wählen" title="Medientyp" required>               
                 <mat-option *ngFor="let itemType of itemTypes$ | async" [value]="itemType.id">
                   {{ itemType.id | itemType }}
                 </mat-option>
@@ -40,26 +40,32 @@
             </mat-form-field>
           </div>
           <div class="field-container">
-            <p>Bitte gib hier den Inhalt ein*</p>
-            <textarea class="textarea" rows="5" [(ngModel)]="form.content" name="content" required></textarea>
+            <p *ngIf="form.item_type_id === null">
+              Bitte gib hier <span class="display-item-type">einen Link / Textnachricht oder Aussage</span> ein*
+            </p>
+            <p *ngIf="form.item_type_id === '1' ">
+            Bitte gib hier <span class="display-item-type">den {{ form.item_type_id | itemType }}</span> ein*
+            </p>
+            <p *ngIf="form.item_type_id === '2' ">
+              Bitte gib hier <span class="display-item-type">eine {{ form.item_type_id | itemType }}</span> ein*
+            </p>
+            <textarea class="textarea" [(ngModel)]="form.content" rows="5" placeholder="Hier Inhalt eingeben" name="content" required></textarea>
           </div>
-
           <div class="lady-detective-svg-container">
             <img src="assets/images/illustrations/lady-detective.svg" />
           </div>
         </div>
       </div>
     </div>
-
+    
+    <!-- Bottom Section -->
     <div class="chunky-border">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1923.772"
-        height="113.786" viewBox="0 0 1923.772 113.786">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+        width="1923.772" height="113.786" viewBox="0 0 1923.772 113.786" preserveAspectRatio="none">
         <defs>
           <linearGradient id="linear-gradient" x1="0.588" y1="0.702" x2="0.588" y2="0.027"
             gradientUnits="objectBoundingBox">
-            <!-- <stop offset="0" stop-color="#160637"/> -->
             <stop offset="0" stop-color="#53407b" />
-
             <stop offset="1" stop-color="#53407b" />
           </linearGradient>
         </defs>
@@ -70,12 +76,11 @@
     </div>
 
     <div class="bottom-section responsive-100">
-      <!-- <div class="bottom-background"></div> -->
-      <div class="bottom-section-content-container standard-content-container-width">
+      <div class="bottom-section-content-container">
         <div class="option-container">
           <h2>Optionale Angaben</h2>
           <p>
-            Du kannst uns noch freiwillig einige zusätzliche Informationen zu deinem Fall geben. 
+            Du kannst uns freiwillig einige zusätzliche Informationen zu deinem Fall geben.<br/>
             Das hilft uns dabei, die Ausbreitung von Falschinformationen besser zu untersuchen.
           </p>
           <div class="radio-container">
@@ -88,9 +93,9 @@
             <input *ngIf="form.source === 'other'" [(ngModel)]="form.other_source"
               class="other-source-input text-input responsive-100" type="text" name="other_source" />
           </div>
-          <h3 class="mono-font bold-weight">Wie oft hast du diese Information erhalten?</h3>
+          <h3>Wie oft hast du diese Information erhalten?</h3>
           <input type="text" class="text-input responsive-100" [(ngModel)]="form.frequency" name="frequency" />
-          <h3 class="mono-font bold-weight">Wann hat dich diese Information das erste Mal erreicht?</h3>
+          <h3>Wann hat dich diese Information zum ersten Mal erreicht?</h3>
           <input type="date" class="text-input responsive-100" [(ngModel)]="form.received_date"
             ui-date-format="dd.mm.yyyy" name="received_date" />
         </div>
@@ -98,7 +103,7 @@
         <div class="notify-container">
           <h2>Möchtest du benachrichtigt werden?</h2>
           <p>
-            Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum Fall gibt. 
+            Wenn du möchtest, melden wir uns bei dir, wenn es Neuigkeiten zum Fall gibt.<br/>
             Wenn nicht, dann siehst du den Fall nach Abschluss im Archiv.
           </p>
           <h3>E-Mail-Adresse</h3>
@@ -124,9 +129,9 @@
               <span class="wrap-mat-radio-label"> Ich stimme den <a href="/terms" target="_blank">Nutzungsbedingungen</a> zu </span>
             </div>
           </mat-checkbox>
-        </div>
+        </div>        
         <div class="legal-button-container">
-          <a appButton mode="reject" routerLink="/">Abbrechen</a>
+          <a appButton mode="reject" class="button-reject" routerLink="/">Abbrechen</a>
           <button appButton type="submit" [disabled]="submitForm.invalid">Fall einreichen</button>
         </div>
       </div>

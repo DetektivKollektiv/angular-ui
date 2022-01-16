@@ -35,7 +35,7 @@
 
       <div class="date-info" *ngIf="case">
         <div class="date-info__duration">Der Fall war {{ caseDuration$ | async }} Tage aktiv.</div>
-        <div class="date-info__closing-date"><i class="far fa-calendar-check"></i>{{ case.close_timestamp | date: 'dd.MM.yyyy' }}</div>
+        <div class="date-info__closing-date"><i class="far fa-calendar-check"></i>{{ case.close_timestamp | extendedDate }}</div>
       </div>
 
       <div class="tags" *ngIf="case?.warning_tags?.length">

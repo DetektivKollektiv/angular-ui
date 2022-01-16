@@ -1,5 +1,5 @@
 <div class="profile-page" *ngIf="user$ | async as user">
-  <section class="top standard-content-container-width">
+  <section class="top-section standard-content-container-width">
     <app-breadcrumb></app-breadcrumb>
     <div class="overview">
       <div class="overview__user">
@@ -7,10 +7,11 @@
         <div class="overview__user-name">{{ user.name }}</div>
       </div>
       <div class="overview__intro">
-        Herzlich willkommen auf deinem persönlichen Dashboard. Hier findest du alle Informationen, die für dich
-        persönlich wichtig sind. Du findest hier deine persönlichen Statistiken, kannst deine gelösten Fälle ansehen,
-        neue Fälle bearbeiten, durchs Archiv stöbern und dein Profil verwalten. Scroll doch einfach mal nach unten und
-        probier alles selbst aus.
+        Herzlich willkommen auf deinem Dashboard mit allen Informationen, die für dich wichtig sind.
+        Hier siehst du dein aktuelles Level, persönliche Statistiken und deine Zugangsdaten.
+        Du kannst die von Dir gelösten Fälle ansehen, neue Fälle bearbeiten und im Archiv der bereits gelösten Fälle stöbern.
+        Unten findest du Vorschläge für Fälle, die deine Hilfe benötigen.
+        Viel Spaß beim Ausprobieren!
       </div>
     </div>
   </section>
@@ -51,9 +52,9 @@
     <div class="user__cases">
       <h2>Deine abgeschlossenen Fälle</h2>
       <div class="user__cases-intro">
-        Hier siehst du alle Fälle, bei denen du beteiligt warst und die abgeschlossen sind. Es müssen erst alle
-        bearbeitende Detektive den
-        Fall abschließen, damit er hier sichtbar wird. Fälle, die du hier siehst, sind offen für Diskussion.
+        Hier siehst du alle abgeschlossenen Fälle, bei denen du beteiligt warst.
+        Ein Fall ist erst dann abgeschlossen und hier sichtbar, wenn ausreichend viele Bewertungen im codetekt Peer Review Verfahren vorliegen.
+        Fälle, die du hier siehst, sind offen für die Diskussion.
       </div>
       <div class="user__cases-list" *ngIf="user.closed_items.length">
         <app-case-list-item class="user__case-item" *ngFor="
@@ -87,12 +88,12 @@
   </section>
 
   <section class="account standard-content-container-width">
-    <h2>Deine Kontodaten</h2>
+    <h2>Deine Zugangsdaten</h2>
     <div class="account__intro">Hier siehst du die Daten, mit denen du dich registriert hast.</div>
     <div class="account__info" *ngIf="authState$ | async as authState">
       <div class="account__info-title">E-Mail-Adresse</div>
       <div class="account__info-data"><span class="far fa-envelope"></span>{{ authState.email }}</div>
-      <div class="account__info-title">Nutzername</div>
+      <div class="account__info-title">Anmeldename</div>
       <div class="account__info-data"><span class="far fa-user"></span> {{ authState.username }}</div>
     </div>
   </section>
@@ -101,14 +102,14 @@
     <img class="delete-account__bg" src="assets/images/profile_delete_account-bg.svg" alt="delete account background" />
     <div class="delete-account__wrapper standard-content-container-width">
       <img class="delete-account__image" src="assets/images/illustrations/undraw_windy_day_x-63-l.svg" />
-      <h2>Dein Konto löschen</h2>
+      <h2>Deine Zugangsdaten löschen</h2>
       <div class="delete-account__intro">
-        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen. Deine Bewertungen und Kommentare
-        bleiben erhalten, aber
-        dein Nutzername und Kürzel werden entfernt. Stattdessen steht dort dann "deaktiviert".
+        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen. 
+        Deine Bewertungen und Kommentare bleiben erhalten, aber dein Anmeldename und Kürzel werden entfernt. 
+        Stattdessen steht dort der Hinweis <span class="hint-italic">deaktiviert</span>.
       </div>
       <button appButton class="delete-account__btn" (click)="deleteAccount()">
-        <span class="far fa-trash-alt"></span> Benutzerkonto löschen
+        <span class="far fa-trash-alt"></span> Konto löschen
       </button>
     </div>
   </section>

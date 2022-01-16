@@ -1,19 +1,19 @@
-@use '../../../../../assets/scss/fonts' as fonts;
-@import '../../../../../assets/scss/colors';
+@import '../../landing-page.component.scss';
 
 :host {
   width: 100%;
 }
 
-.title {
-  @include fonts.font__pt-mono--bold;
-  font-size: 14px;
-  color: $color__mysterious-blue;
-}
-
 .supporters {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 16px;
+
+  @media screen and(min-width: $breakpoint-l) {    
+    padding: 0 0 30px 0;
+  }  
+
+  .supporter-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 }

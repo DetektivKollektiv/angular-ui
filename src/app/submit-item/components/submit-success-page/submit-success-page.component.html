@@ -9,23 +9,26 @@
         <div class="submit-success-description-section__left">
           <app-icon-with-content color="bittersweet" icon="thumbs-up">
             <span appIconWithContentHeader>Vielen Dank für's Einreichen!</span>
-            <span>
+            <p>
               Vielen Dank für das Einreichen dieses Falls. Die Detektiv-Community kümmert sich jetzt darum!
               Möchtest du nun selbst einige Fälle lösen?
               Weiter unten siehst du Fälle, bei denen die Community noch deine Hilfe benötigt.
-            </span>
+            </p>
           </app-icon-with-content>
           <app-icon-with-content color="neon-blue" icon="envelope-open-text">
             <span appIconWithContentHeader>{{ authenticated ? 'Wir informieren dich.' : 'Bitte bestätige deine E-Mail-Adresse.' }}</span>
-            <span *ngIf="authenticated">Wir melden uns per E-Mail, wenn es Neuigkeiten zu deinem Fall gibt.</span>
-            <span *ngIf="!authenticated">
-              Du hast eine E-Mail-Adresse angegeben, unter der wir dich informieren, wenn es Neuigkeiten zu deinem Fall gibt. Bitte
-              bestätige diese E-Mail einmalig. Um Spam zu vermeiden, werden wir keine Neuigkeiten an unbestätigte E-Mail-Adressen senden.
-            </span>
+            <span *ngIf="authenticated">Wir melden uns per E-Mail, wenn es Nachrichten zu deinem Fall gibt.</span>
+            <p *ngIf="!authenticated">
+              Du hast eine E-Mail-Adresse angegeben, unter der wir dich informieren, wenn es Nachrichten zu deinem Fall gibt.
+              Um Spam zu vermeiden, werden wir keine Nachrichten an unbestätigte E-Mail-Adressen senden.
+              Deshalb schicken wir Dir einmalig via E-Mail einen Link mit der Bitte um Bestätigung.
+            </p>
           </app-icon-with-content>
         </div>
         <div class="submit-success-description-section__right">
-          <img src="assets/images/illustrations/undraw_searching_p5ux.svg" />
+          <div class="img-container">
+            <img src="assets/images/illustrations/undraw_searching_p5ux.svg" />
+          </div>
         </div>
       </div>
     </div>

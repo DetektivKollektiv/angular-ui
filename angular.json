@@ -29,7 +29,7 @@
             "sourceMap": true,
             "buildOptimizer": false,
             "optimization": false,
-            "assets": ["src/favicon.ico", "src/logo_16x16.ico", "src/assets"],
+            "assets": ["src/favicon.ico", "src/logo_16x16.ico", "src/assets", "src/unsupported.html"],
             "styles": [
               "src/styles.scss",
               "node_modules/roboto-fontface/css/roboto/roboto-fontface.css",

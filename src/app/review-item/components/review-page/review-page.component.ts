@@ -46,29 +46,29 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
 
   questionPrompts = [
     {
-      title: 'Ein Link funktioniert nicht mehr. Was soll ich tun?',
-      description: 'Wenn sich der Fall nicht mehr bearbeiten lässt, dann sende uns eine Nachricht über "Fall melden".',
+      title: 'Ein Link funktioniert nicht mehr?',
+      description: 'Wenn sich der Fall nicht mehr bearbeiten lässt, sende uns bitte eine Nachricht über "Fall melden".',
       bgColor: '#3a9832',
       icon: 'fal fa-link'
     },
     {
       title: 'Kann ich die Bearbeitung abbrechen?',
-      description: 'Nein, du kannst aber einfach zwei Stunden warten und dann wieder neue Fälle annehmen.',
+      description: 'Nein, du kannst aber zwei Stunden warten. Dann wird der Fall automatisch abgebrochen und du kannst wieder neue Fälle annehmen.',
       bgColor: '#be9843',
       icon: 'fal fa-hands-helping'
     },
     {
       title: 'Was tun bei einem technischen Fehler?',
-      description: 'Schreib einfach eine Mail an <a href="mailto:support@codetekt.org" target="_blank">support@codetekt.org</a> - Wir helfen dir weiter oder beheben den Fehler.',
+      description: 'Schreib bitte eine E-Mail an unser <a href="mailto:support@codetekt.org" target="_blank">Support-Team</a>. Wir helfen dir weiter oder beheben den Fehler.',
       bgColor: '#8f1fff',
       icon: 'fal fa-bug'
     }
   ];
 
   description =
-    'Im Tatbestand unten links siehst du alle für den Fall relevanten Informationen. Mache dich zunächst kurz mit dem ' +
-    'Fall vertraut und überlege, ob du ihn wirklich bearbeiten willst. Wenn du dich dazu entschlossen hast, den ' +
-    'Fall zu bearbeiten, dann klicke rechts auf "Fall annehmen" und starte mit deiner Beurteilung.';
+    'Im Tatbestand unten siehst du alle für den Fall relevanten Informationen. Mache dich zunächst mit dem ' +
+    'Fall vertraut und überlege, ob du ihn wirklich bearbeiten willst. Wenn du dich dazu entschlossen hast, ' +
+    'klicke bitte rechts auf "Fall annehmen" und starte Deine Bewertung.';
 
   // 100 XP is always static
   userExperienceBubbles = [
@@ -215,7 +215,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   private handleInvalidForm() {
     this.reviewForm.markAllAsTouched();
     this.snackBar.open(
-      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast und der Datenschutzerklärung, sowie den Nutzungsbedingungen zugestimmt hast.',
+      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet und der Datenschutzerklärung sowie den Nutzungsbedingungen zugestimmt hast.',
       '',
       { duration: 5000 }
     );

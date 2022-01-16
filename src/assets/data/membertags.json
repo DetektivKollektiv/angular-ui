@@ -1,0 +1,42 @@
+[
+    {
+        "id":1,
+        "tagname": "Technik",
+        "color": "#CB0000"
+    },
+    {
+        "id":2,
+        "tagname": "Konzept",
+        "color": "#313131"
+    },
+    {
+        "id": 3,
+        "tagname": "Design",
+        "color": "#FA8338"
+    },
+    {
+        "id":4,
+        "tagname": "Social Media",
+        "color": "#009B60"
+    },
+    {
+        "id":5,
+        "tagname": "Community",
+        "color": "#72B900"
+    },
+    {
+        "id":6,
+        "tagname": "Netzwerkarbeit",
+        "color": "#00ABB9"
+    },
+    {
+        "id":7,
+        "tagname": "Bildung",
+        "color": "#7B00E5"
+    },
+    {
+        "id":8,
+        "tagname": "Strategie",
+        "color": "#007BA8"
+    }
+]

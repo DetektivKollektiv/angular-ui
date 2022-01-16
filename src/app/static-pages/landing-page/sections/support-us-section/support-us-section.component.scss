@@ -1,5 +1,5 @@
 @use '../../../../../assets/scss/fonts' as fonts;
-@import '../../../../../assets/scss/colors';
+@use '../../../../../assets/scss/colors' as colors;
 @import '../../../../../assets/scss/variables';
 @import '../../landing-page.component.scss';
 
@@ -7,16 +7,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  a:hover{
-      text-decoration: none;
+
+  a:hover,
+  a:focus,
+  a:active,
+  a:visited {
+    text-decoration: none;
   }
 
   @media screen and(min-width: $breakpoint-s) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
+    grid-template-rows: 1fr 1.1fr;
+    column-gap: 20pxs;
+    align-items: stretch;
     margin: auto;
     width: fit-content;
   }
@@ -25,7 +29,7 @@
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: fit-content;
     padding: 16px;
@@ -37,8 +41,8 @@
       min-width: 400px;
     }
 
-    &-alt {
-      background-color: $color__white;
+    &-bg-white {
+      background-color: colors.$color__white;
     }
 
     .icon {
@@ -52,33 +56,57 @@
       font-size: 42px;
 
       &-supernova {
-        background-color: $color__supernova;
+        background-color: colors.$color__supernova;
       }
 
       &-bittersweet {
-        background-color: $color__bittersweet;
+        background-color: colors.$color__bittersweet;
+      } 
+
+      &-purple {
+        background-color: colors.$color__purple;
       }
 
-      &-neon-blue {
-        background-color: $color__neon-blue;
-      }
-
-      &-mysterious-blue {
-        background-color: $color__mysterious-blue;
+      &-gold {
+        background-color: colors.$color__gold;
       }
     }
 
     .title {
       @include fonts.font__effra--bold;
-      color: $color__mysterious-blue;
       font-size: 21px;
     }
 
     .text {
       @include fonts.font__effra--regular;
-      color: $color__mysterious-blue;
       font-size: 18px;
-      width: 324px;
+      margin-top: 0px;
+      width: 380px;
+      hyphens: manual;
+    }    
+  }
+
+  .hover-purple {
+    &:hover {
+      background-color: rgba($color: colors.$color__purple, $alpha: 0.2);
+    }
+  }
+
+  .hover-supernova {
+    &:hover {
+      background-color: rgba($color: colors.$color__supernova, $alpha: 0.2);
+    }
+  }
+
+  .hover-gold {
+    &:hover {
+      background-color: rgba($color: colors.$color__gold, $alpha: 0.2);
+    }
+  }
+
+  .hover-bittersweet {
+    &:hover {
+      background-color: rgba($color: colors.$color__bittersweet, $alpha: 0.2);
     }
   }
 }

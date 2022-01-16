@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
 import { MaterialModule } from '@shared/material/material.module';
@@ -14,8 +14,8 @@ describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [ProfileComponent, ProfilePictureComponent],
       imports: [MaterialModule, RouterTestingModule, FormsModule],
       providers: [
@@ -23,7 +23,7 @@ describe('ProfileComponent', () => {
         { provide: UserService, useClass: MockUserService },
       ],
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProfileComponent);

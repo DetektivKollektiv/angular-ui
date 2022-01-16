@@ -5,7 +5,7 @@ import { AuthModule } from '@shared/auth/auth.module';
 import { MaterialModule } from '@shared/material/material.module';
 import { CaseListModule } from '@shared/case-list/case-list.module';
 import { AuthenticationPageComponent } from './authentication-page.component';
-
+import { StaticPagesModule } from 'src/app/static-pages/static-pages.module';
 @NgModule({
     declarations: [AuthenticationPageComponent],
     exports: [
@@ -15,7 +15,8 @@ import { AuthenticationPageComponent } from './authentication-page.component';
         MaterialModule,
         CaseListModule,
         AuthModule,
-        RouterModule
+        RouterModule,
+        StaticPagesModule
 	],
 })
 

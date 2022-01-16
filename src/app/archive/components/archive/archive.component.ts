@@ -26,27 +26,37 @@ export class ArchiveComponent {
   public archiveQuestions: any[] = [
     {
       title: 'Wann sehe ich etwas im Archiv?',
-      description: 'Hier kommt einiges zusammen. Genaue Details findest du hier.',
-      background: 'color__bittersweet',
+      description: 'Jeder abgeschlossene - von den Detektiv*innen im Peer Review final bearbeitete - Fall '
+      + 'wird ins Archiv gestellt und ist hier zu sehen.',
+      background: 'color__neon-blue',
       icon: 'fal fa-eye'
     },
     {
+      title: 'Wieviele Detektiv*innen lösen einen Fall?',
+      description: 'Um den Fall abzuschließen, müssen sich 8 Detektiv*innen beteiligen, '
+      + 'jede*r erstellt unabhängig voneinander eine eigene Bewertung.',
+      background: 'color__bittersweet',
+      icon: 'fal fa-user-cowboy'
+    },
+    {
+      title: 'Was ist ein Peer Review?',
+      description: 'Im codetekt Peer Review werden 4 Paare gebildet, dazu gehört jeweils ein*e Detektiv*in '
+      + 'mit mehr bzw. weniger Erfahrung.',
+      background: 'color__green',
+      icon: 'fal fa-user-crown'
+    },
+    {
       title: 'Wie errechnet sich der Score?',
-      description: 'Eine Anleitung für genau solche Fälle findest du auf dieser Seite.',
-      background: 'color__neon-blue',
+      description: 'Der Gesamtscore ist der Durchschnitt aller Einzelbewertungen im Peer Review Verfahren. ',
+      background: 'color__gold',
       icon: 'fal fa-chart-bar'
     },
     {
-      title: 'Eine weitere Frage?',
-      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-      background: 'color__purple',
-      icon: 'fal fa-leaf'
-    },
-    {
-      title: 'Eine weitere Frage?',
-      description: 'Und hier ein weiterer Beschreibungstext, der erklärt, was mich beim Klick darauf erwartet.',
-      background: 'color__bittersweet',
-      icon: 'fal fa-leaf'
+      title: 'Wie entsteht die Einzelbewertung?',
+      description: 'Die Einzelbewertung ergibt sich aus dem Durchschnitt aller Punkte, die ein*e Detektiv*in '
+      + 'bei der Beantwortung der Fragen zu einem Fall erzielt. ',
+      background: 'color__neon-blue',
+      icon: 'fal fa-chart-bar'
     }
   ];
 

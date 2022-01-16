@@ -7,13 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="logo_16x16.ico" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.typekit.net/rzc3gzn.css" />
   </head>
   <body>
-    <app-root></app-root>
+    <script type="text/javascript">
+      var msie = /msie\s|trident/i.test(window.navigator.userAgent);
+      if (msie) {
+        window.location.href = './unsupported.html';
+      } else {
+        var root = document.createElement('app-root');
+        document.body.appendChild(root);
+      }
+    </script>
   </body>
 </html>

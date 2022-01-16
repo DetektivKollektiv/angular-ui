@@ -27,6 +27,7 @@
     &--actions-container {
       display: flex;
       flex-flow: column nowrap;
+      row-gap: 15px;
 
       .button {
         display: flex;

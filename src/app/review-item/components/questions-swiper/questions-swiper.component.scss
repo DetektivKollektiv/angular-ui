@@ -1,40 +1,29 @@
+@use '../../../../assets/scss/fonts' as fonts;
+@use '../../../../assets/scss/colors' as colors;
 @import '~swiper/swiper-bundle';
-@import "../../../../assets/scss/_colors.scss";
 
 
 .questions-swiper {
-  // width: 100%;
-}
-.question {
-  // width: 360px;
-  background: green;
-  padding: 20px;
-  
-  &--description {
-    // width: 50px;
-  }
-}
 
-.question {
-  border-radius: 20px;
-  background:#f8f8f8;
-  //background:#b3aeae;
-  height: auto;
-  // margin-left: 5px;
-  // margin-right: 1.5%;
-  padding: 10px 15px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  .question {
+    border-radius: 20px;
+    background: colors.$color__tile-background;
+    height: auto;
+    padding: 10px 15px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-    .question--icon {
+    color: colors.$color__mysterious-blue;
+    text-align: center;
+
+    &__icon {
       width: 42px;
       height: 42px;
       margin: 10px 10px -3px 0;
       padding: 12.9px 2.5px;
-      // background-color: #68a8ff;
-      color: white;
+      color: colors.$color__white;
       border-radius: 30px;
       font-family: 'Font Awesome 5 Pro';
       font-weight: 900;
@@ -44,27 +33,19 @@
       display: flex;
     }
 
-
-
-
-    .question--title{
-      // width: 320px;
+    &__title {
+      @include fonts.font__effra--bold;
       height: 18px;
       margin: 16px 0 14px;
-      font-family: Effra medium, Effra regular, sans-serif;
-      font-size: 18px;
-      font-weight: bold;
-      text-align: center;
-      color: var(--dark-indigo);
+      font-size: 16px;
     }
-    .question--description{
-      font-family: Effra medium, Effra regular, sans-serif;
+
+    &__description {
+      @include fonts.font__effra--regular;
       width: 320px;
       height: 35px;
       margin: 14px 0 18px;
-      font-size: 16px;
-      text-align: center;
-      color: var(--dark-indigo);
+      font-size: 14px;
     }
-
+  }
 }

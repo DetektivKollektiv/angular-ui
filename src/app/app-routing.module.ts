@@ -31,7 +31,9 @@ import { MyProfileComponent } from './my-profile/components/my-profile/my-profil
 import { ImprintComponent } from './core/components/imprint/imprint.component';
 import { PrivacyStatementComponent } from './core/components/privacy-statement/privacy-statement.component';
 import { LandingPageComponent } from './static-pages/landing-page/landing-page.component';
+import { TeamPageComponent } from './static-pages/team-page/team-page/team-page.component';
 import { AboutComponent } from './static-pages/about/about.component';
+import { TrustCheckingPageComponent } from './static-pages/trust-checking/trust-checking-page/trust-checking-page.component';
 
 const routes: Routes = [
   {
@@ -82,11 +84,17 @@ const routes: Routes = [
         component: PrivacyStatementComponent
       },
       {
+        path: 'team',
+        component: TeamPageComponent
+      },
+      {
         path: 'about',
         component: AboutComponent
       },
       { path: '', component: LandingPageComponent },
-      { path: 'terms', component: CommunityGuidelinesComponent }
+      { path: 'landingpage', component: LandingPageComponent },
+      { path: 'terms', component: CommunityGuidelinesComponent },
+      { path: 'trust-checking', component: TrustCheckingPageComponent }
     ]
   },
   {
