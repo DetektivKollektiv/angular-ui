@@ -14,12 +14,12 @@
 
   <div class="question__hint-container">
     <div class="question__hint-icon"><i class="far fa-clipboard-check"></i></div>
-    <div class="question__hint">{{ question.hint }}</div>
+    <div class="question__hint" [innerHTML]="question.hint"></div>
   </div>
 
   <div class="question__hint-container">
     <div class="question__hint-icon"><i class="far fa-info-circle"></i></div>
-    <div class="question__hint">{{ question.info }}</div>
+    <div class="question__hint" [innerHTML]="question.info"></div>
   </div>
 
   <ng-container *ngIf="displayOnly; else review">

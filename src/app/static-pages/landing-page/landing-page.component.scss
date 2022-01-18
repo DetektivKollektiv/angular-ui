@@ -58,6 +58,7 @@
   }
 
   &-small {
+    padding: 20px; 
     @media screen and (min-width: $breakpoint-l) {
       width: 1240px;
       padding: 20px 0;
