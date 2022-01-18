@@ -1,5 +1,6 @@
 @use '../../../assets/scss/fonts' as fonts;
 @use '../../../assets/scss/colors' as colors;
+@import '../../../assets/scss/variables';
 
 :host {
   width: 100vw;
@@ -10,7 +11,7 @@
 
 h1 {
   @include fonts.font__effra--bold;
-  font-size: 46px;
+  font-size: 40px;
   @media only screen and (min-width: 480px) {
     font-size: 52px;
   }
@@ -119,14 +120,24 @@ h1 {
   }
 
   .icon {
-    min-height: 150px;
-    min-width: 150px;
+    min-height: 100px;
+    min-width: 100px;
     border-radius: 50%;
     color: colors.$color__white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 75px;
+    font-size: 50px;
+    margin-bottom: 12px;
+    
+
+    @media screen and(min-width: $breakpoint-m) {      
+      min-height: 150px;
+      min-width: 150px;
+      font-size: 75px;
+    }
+
+
     &-supernova {
       background-color: colors.$color__supernova;
     }

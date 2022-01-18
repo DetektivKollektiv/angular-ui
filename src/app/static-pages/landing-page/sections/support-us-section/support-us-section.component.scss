@@ -36,13 +36,16 @@
     width: 100%;
     height: 100%;
     max-width: 540px;
+    background-color: colors.$color__white;
 
     @media screen and(min-width: $breakpoint-s) {
       min-width: 400px;
     }
 
-    &-bg-white {
-      background-color: colors.$color__white;
+    &-bg-alt {
+      @media screen and(min-width: $breakpoint-s) {
+        background-color: colors.$color__tile-background;
+      }
     }
 
     .icon {
@@ -81,8 +84,11 @@
       @include fonts.font__effra--regular;
       font-size: 18px;
       margin-top: 0px;
-      width: 380px;
+      text-align:center;
       hyphens: manual;
+      @media screen and(min-width: $breakpoint-s) {
+        width: 380px;        
+      }
     }    
   }
 
