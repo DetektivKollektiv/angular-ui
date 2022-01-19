@@ -84,8 +84,8 @@
           </ng-container>
         </div>
 
-        <div *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length == 0">
-          Es gibt noch keine Kommentare zum Fall, sei der Erste ...
+        <div class="discussion__empty" *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length == 0">
+           Zu diesem Fall gibt es noch keinen Kommentar, schreibe den ersten ...
         </div>
         <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async) && (communityComments$ | async)?.length > 0">
           <div

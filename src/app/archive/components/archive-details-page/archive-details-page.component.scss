@@ -198,6 +198,10 @@ app-case-details {
         position: relative;
       }
 
+      &__empty {
+        font-size: 18px;
+      }
+
       &__comments {
         display: flex;
         flex-direction: column;
