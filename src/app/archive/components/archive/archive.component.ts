@@ -90,7 +90,7 @@ export class ArchiveComponent {
 
   onApplyFilter(caseFilter: CaseFilter) {
     const { minValue, maxValue, ...filter } = caseFilter;
-    this.store.dispatch(new SetFilter({ ...filter, minValue: minValue / 25, maxValue: maxValue / 25 }));
+    this.store.dispatch(new SetFilter({ ...filter, minValue, maxValue }));
     this.archiveListFilterOpened = false;
   }
 
