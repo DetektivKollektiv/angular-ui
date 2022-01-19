@@ -76,7 +76,7 @@
       <div class="discussion" id="archive-details-discussion-section">
         <div class="collapsible-toolbar">
           <span class="collapsible-toolbar__title">Communitydiskussion</span>
-          <ng-container *ngIf="authenticated$ | async">
+          <ng-container *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length > 0">
             <span class="collapsible-toolbar__toggle" (click)="isDiscussionCollapsed = !isDiscussionCollapsed">{{
               isDiscussionCollapsed ? 'einblenden' : 'ausblenden'
             }}</span>
@@ -84,7 +84,10 @@
           </ng-container>
         </div>
 
-        <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async)">
+        <div class="discussion__empty" *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length == 0">
+           Zu diesem Fall gibt es noch keinen Kommentar, schreibe den ersten ...
+        </div>
+        <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async) && (communityComments$ | async)?.length > 0">
           <div
             *ngIf="communityComments$ | async as communityComments"
             class="discussion__comments"
