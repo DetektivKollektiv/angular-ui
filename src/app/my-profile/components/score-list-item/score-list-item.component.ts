@@ -18,7 +18,7 @@ export class ScoreListItemComponent implements OnInit {
   constructor(private ratingService: RatingService) {}
 
   ngOnInit(): void {
-    this.result_score = Math.ceil(this.case.result_score * 25);
+    this.result_score = Math.ceil(this.case.result_score);
 
     this.color = this.ratingService.getColorForScore(this.result_score);
 

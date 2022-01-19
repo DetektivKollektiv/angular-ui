@@ -98,10 +98,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   ) {
     this.routerState = this.router.getCurrentNavigation().extras?.state;
 
-    this.reviewForm = this.formBuilder.group({
-      legal: [false, Validators.requiredTrue],
-      policy: [false, Validators.requiredTrue]
-    });
+    this.reviewForm = this.formBuilder.group({});
   }
 
   ngOnInit(): void {

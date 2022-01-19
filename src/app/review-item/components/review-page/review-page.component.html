@@ -66,20 +66,6 @@
       <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
     </div>
     <div class="legal">
-      <h2>Rechtliche Angaben</h2>
-      <p class="explain">Bitte bestätige zum Abschluss die <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> und die <a href="/terms" target="_blank">Nutzungsbedingungen</a>.</p>
-      <div class="legal__container">
-        <mat-checkbox formControlName="policy">
-          <div class="option">
-            <span>Ich stimme den Bedingungen der <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> zu.</span>
-          </div>
-        </mat-checkbox>
-        <mat-checkbox formControlName="legal">
-          <div class="option">
-            <span>Ich stimme den <a href="/terms" target="_blank">Nutzungsbedingungen</a> zu.</span>
-          </div>
-        </mat-checkbox>
-      </div>
       <div class="button-container button-container--legal">
         <a appButton routerLink="/" mode="reject">Abbrechen</a>
         <button type="submit" appButton (click)="closeReview()">Lösung einreichen</button>
