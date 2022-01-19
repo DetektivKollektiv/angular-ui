@@ -93,7 +93,7 @@ h1 {
 }
 .about-section {
   @media screen and(min-width: 800px) {
-    margin-top:-60px;
+    margin-top: -60px;
   }
 }
 
@@ -262,6 +262,7 @@ h1 {
 
       p {
         margin: 0;
+        font-size: 14px;
       }
 
       @media screen and(min-width: 800px) {
