@@ -15,13 +15,20 @@
               Weiter unten siehst du Fälle, bei denen die Community noch deine Hilfe benötigt.
             </p>
           </app-icon-with-content>
-          <app-icon-with-content color="neon-blue" icon="envelope-open-text">
-            <span appIconWithContentHeader>{{ authenticated ? 'Wir informieren dich.' : 'Bitte bestätige deine E-Mail-Adresse.' }}</span>
-            <span *ngIf="authenticated">Wir melden uns per E-Mail, wenn es Nachrichten zu deinem Fall gibt.</span>
-            <p *ngIf="!authenticated">
-              Du hast eine E-Mail-Adresse angegeben, unter der wir dich informieren, wenn es Nachrichten zu deinem Fall gibt.
-              Um Spam zu vermeiden, werden wir keine Nachrichten an unbestätigte E-Mail-Adressen senden.
-              Deshalb schicken wir Dir einmalig via E-Mail einen Link mit der Bitte um Bestätigung.
+          <app-icon-with-content color="neon-blue" icon="{{withEmail ? 'envelope-open-text': 'cabinet-filing'}}">
+            <!-- <span appIconWithContentHeader>{{ authenticated ? 'Wir informieren dich.' : 'Bitte bestätige deine E-Mail-Adresse.' }}</span> -->
+            <span appIconWithContentHeader>{{withEmail ? 'Bitte bestätige deine E-Mail-Adresse.': 
+              'Ergebnisse bald im Archiv'}}</span>
+            <!-- <span *ngIf="authenticated">Wir melden uns per E-Mail, wenn es Nachrichten zu deinem Fall gibt.</span> -->
+            <p *ngIf="withEmail">
+              Du hast eine E-Mail-Adresse angegeben, unter der wir dich informieren, wenn es Nachrichten
+              zu deinem Fall gibt. Um Spam zu vermeiden, werden wir keine Nachrichten an unbestätigte E-Mail-Adressen
+              senden. Deshalb schicken wir Dir einmalig via E-Mail einen Link mit der Bitte um Bestätigung.
+            </p>
+            <p *ngIf="!withEmail">Da du keine E-Mail-Adresse angegeben hast, können wir dich nicht informieren, wenn der
+              Fall gelöst wurde.
+              Schau doch einfach ab und zu in unserem <a href="/archive" target="_blank">Archiv</a> vorbei. Sobald dein
+              Fall gelöst wurde, findest du dort die Bewertung.
             </p>
           </app-icon-with-content>
         </div>
