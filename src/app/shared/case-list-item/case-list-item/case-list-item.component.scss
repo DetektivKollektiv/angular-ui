@@ -3,6 +3,7 @@
 :host {
   @media only screen and (min-width: 480px) {
     .case-content.case-content--inner {
+      color:inherit;
       display: block;
       max-width: 650px;
     }
@@ -11,6 +12,10 @@
   @media only screen and (max-width: 479px) {
     .case-content.case-content--outer {
       display: block;
+      color:inherit;
+      &-light{
+        color: colors.$color__white;
+      }
     }
   }
 }
