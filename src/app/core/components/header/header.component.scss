@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 @import "../../../../assets/scss/_initializer.scss";
 
 .no-padding-dialog-container {
@@ -94,7 +93,15 @@
     &:focus,
     &:active {
       text-decoration: none;
-    }
+    }   
+  }
+
+  .color-red {
+    color: $color__bittersweet;
+  }
+
+  .color-blue {
+    color: $color__neon-blue;
   }
 }
 
@@ -122,7 +129,6 @@
   }
 
   &__award {
-    // @include fontawesome("f5a2");
     @include _b__font-size-rem(16px);
 
     margin: 0 _b__rem(4px) 0 0;
@@ -166,11 +172,9 @@
   }
 
   &__flyout-call {
-    // @include fontawesome("f078");
     @include _b__font-size-rem(12px);
   }
 }
-
 
 .navigation-flyout {
   $parent: &;
@@ -218,7 +222,6 @@
   $parent: &;
 
   &__call {
-    // @include fontawesome("f0c9");
     @include _b__font-size-rem(24px);
 
     cursor: pointer;
