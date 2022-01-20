@@ -6,6 +6,7 @@ $color__neon-blue--focus: lighten($color__neon-blue, 5);
 
 $color__supernova: #fac800;
 $color__mysterious-blue: #160637;
+$color__dark-blue: #190279;
 
 $color__white: #ffffff;
 $color__grey: #808080;
@@ -16,6 +17,7 @@ $color__purple_gradient: #53407b;
 $color__gold: #be9843;
 $color__green: #3a9832;
 $color__blue: #2A79E5;
+$color__celestial_stone: #52C2C4;
 
 $color__page-content-background: #fbfbfb;
 $color__pagination-background: #dddddd;
@@ -123,6 +125,10 @@ $color__badge: $color__mysterious-blue;
 $color__badge-icon: $color__white;
 $color__badge-headline: $color__white;
 $color__badge-description: $color__white;
+
+// $color__charity: $color__dark-blue;
+// $color__charity: $color__spacer;
+$color__charity: $color__mysterious-blue;
 
 .color__bittersweet {
   background-color: $color__bittersweet;
