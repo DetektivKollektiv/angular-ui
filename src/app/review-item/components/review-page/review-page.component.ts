@@ -68,7 +68,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   description =
     'Im Tatbestand unten siehst du alle für den Fall relevanten Informationen. Mache dich zunächst mit dem ' +
     'Fall vertraut und überlege, ob du ihn wirklich bearbeiten willst. Wenn du dich dazu entschlossen hast, ' +
-    'klicke bitte rechts auf "Fall annehmen" und starte Deine Bewertung.';
+    'klicke bitte auf "Fall bearbeiten" und starte Deine Bewertung.';
 
   // 100 XP is always static
   userExperienceBubbles = [
