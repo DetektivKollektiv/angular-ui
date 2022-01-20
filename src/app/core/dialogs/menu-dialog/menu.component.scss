@@ -60,19 +60,13 @@
       background-color: $color__bittersweet;
       color: $color__white;
     }
-  }  
+  }
   
   .main-section {
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .main-button {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
   }
 
   .main-link {
@@ -95,8 +89,15 @@
     &:active {
       cursor: pointer;
     }
-    &.red-color {
+
+    &--red {
+      @extend .main-link;
       color: $color__bittersweet;
+    }
+
+    &--blue {
+      @extend .main-link;
+      color: $color__neon-blue;
     }
   }
 
@@ -110,6 +111,14 @@
     font-weight: normal;
     margin-top: 15px;
     @include _b__font-size-rem(20px);
+    
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a:visited {
+      color: $color__navigation-main-link;
+    }    
   }
 
   .login-button {
@@ -137,7 +146,6 @@
               }
             }
           }
-
         }
       }
     }
@@ -181,7 +189,6 @@
   }
 
   &__award {
-    // @include fontawesome("f5a2");
     @include _b__font-size-rem(16px);
 
     margin: 0 _b__rem(4px) 0 0;
@@ -225,62 +232,6 @@
   }
 
   &__flyout-call {
-    // @include fontawesome("f078");
     @include _b__font-size-rem(12px);
-  }
-}
-
-// todo: is this used at all??
-.navigation-flyout {
-  $parent: &;
-  padding-left: 2rem;
-
-
-  &__list {
-    padding: _b__rem(10px) _b__rem(16px);
-    border-radius: _b__rem(10px);
-  }
-
-  &__item {
-    list-style-type: none;
-  }
-
-  &__link {
-    @include font__effra;
-    @include _b__font-size-rem(15px);
-
-    color: $color__navigation-flyout-link;
-    padding: _b__rem(4px);
-    display: inline-block;
-    width: 100%;
-
-    &:hover,
-    &:focus,
-    &:active {
-      cursor: pointer;
-    }
-  }
-}
-
-// causing issues
-
-// .mat-dialog-content {
-//   overflow: unset;
-// }
-
-// .cdk-overlay-pane.no-padding-dialog-container .mat-dialog-content {
-//   margin: 0 !important;
-// }
-
-.navigation-mobile {
-  $parent: &;
-
-  &__call {
-    // @include fontawesome("f0c9");
-    @include _b__font-size-rem(24px);
-
-    cursor: pointer;
-    color: $color__navigation-mobile-call;
-    padding: _b__rem(8px) _b__rem(10px);
   }
 }
