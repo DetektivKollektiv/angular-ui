@@ -130,7 +130,7 @@
         border-color: $color__select_border;        
         border-radius: 10px;
         @media only screen and (min-width: 1350px) {
-          width: 100%;
+          width: 50%;
         }
         &:focus {
           border: 2px solid $color__user_input_border;
