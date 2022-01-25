@@ -175,6 +175,11 @@ app-case-details {
         font-size: 21px;
         margin-bottom: 20px;
       }
+
+      &__empty {
+        font-size: 18px;
+        font-style: italic;
+      }
     }
 
     .processing {
