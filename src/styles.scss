@@ -70,7 +70,7 @@ textarea:placeholder-shown {            /* Standard Pseudo-class */
   color: $color__placeholder;
   font-size: 16px;
   font-weight: 400;
-} 
+}
 
 body {
   height: 100%;
@@ -126,7 +126,7 @@ body {
 .carousel .carousel-arrows .carousel-arrow {
   background-color: unset !important;
   box-shadow: unset !important;
-  top: 42% !important;  
+  top: 42% !important;
   width: 18px !important;
   background-size: 60px !important;
 }
@@ -446,20 +446,6 @@ header.header {
 
 .mat-radio-button:not(.mat-radio-disabled).cdk-program-focused .mat-radio-persistent-ripple {
   opacity: 0 !important;
-}
-
-.breadcrumb {
-  font-size: 14px;
-  color: $color__old-paragraph;
-
-  &__link {
-    cursor: pointer;
-  }
-
-  span,
-  i ~ i {
-    margin-left: 4px;
-  }
 }
 
 .mono-font {
