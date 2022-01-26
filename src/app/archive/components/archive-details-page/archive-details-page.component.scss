@@ -175,11 +175,6 @@ app-case-details {
         font-size: 21px;
         margin-bottom: 20px;
       }
-
-      &__empty {
-        font-size: 18px;
-        font-style: italic;
-      }
     }
 
     .processing {
@@ -188,6 +183,11 @@ app-case-details {
       &__body {
         margin-top: 20px;
       }
+    }
+
+    .empty-hint {
+      font-size: 18px;
+      font-style: italic;
     }
 
     .discussion {
@@ -201,11 +201,6 @@ app-case-details {
 
       &__body {
         position: relative;
-      }
-
-      &__empty {
-        font-size: 18px;
-        font-style: italic;
       }
 
       &__comments {

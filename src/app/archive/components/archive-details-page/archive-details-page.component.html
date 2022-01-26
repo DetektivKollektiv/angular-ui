@@ -51,7 +51,7 @@
       </div>
       <div class="comments" *ngIf="case">
         <div class="comments__title">Fallbewertungskommentare</div>
-        <div class="comments__empty" *ngIf="(reviewComments$ | async)?.length == 0">Es wurden keine Kommentare abgegeben.</div>
+        <div class="empty-hint" *ngIf="(reviewComments$ | async)?.length == 0">Es wurden keine Kommentare abgegeben.</div>
         <app-comment-list [comments]="reviewComments" *ngIf="reviewComments$ | async as reviewComments"></app-comment-list>
       </div>
 
@@ -85,7 +85,7 @@
           </ng-container>
         </div>
 
-        <div class="discussion__empty" *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length == 0">
+        <div class="empty-hint" *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length == 0">
            Zu diesem Fall gibt es noch keinen Kommentar, schreibe den ersten ...
         </div>
         <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async) && (communityComments$ | async)?.length > 0">
