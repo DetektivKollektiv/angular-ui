@@ -9,7 +9,7 @@ import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interfa
 })
 export class FaqPageComponent implements OnInit {
 
-  breadcrumbLinks: BreadcrumbLink[] = [{label: 'FAQ', link: '/faq'}];
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'FAQ'}];
 
   constructor() {
   }

@@ -1,7 +1,7 @@
 <div class="review-page standard-content-container-width" *ngIf="case$ | async as case">
   <section class="top">
     <app-case-details [case]="case" [description]="description">
-      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
+      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
     <app-user-experience-bubble-list [userExperienceBubbles]="userExperienceBubbles"></app-user-experience-bubble-list>
   </section>

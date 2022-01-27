@@ -37,7 +37,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
 
   user$ = this.userService.user$;
 
-  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fall lösen', link: '/reviews' }];
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Fall lösen'}];
   case: Item;
   isOpenReview: boolean;
   review: Review;

@@ -15,7 +15,7 @@ import { Item } from '../../../model/item';
 export class ReviewSuccessPageComponent {
   user$ = this.userService.user$;
 
-  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fall lösen', link: '/reviews' }];
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Fall lösen'}];
 
   case: Item;
 

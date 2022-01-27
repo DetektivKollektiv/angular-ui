@@ -4,6 +4,7 @@ import { TagService } from './tag.service';
 import {Member} from 'src/app/model/member';
 import {TagInfo} from 'src/app/model/membertags';
 import { HttpClient } from '@angular/common/http';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 @Component({
   selector: 'app-team-page',
   templateUrl: './team-page.component.html',
@@ -13,6 +14,8 @@ export class TeamPageComponent implements OnInit {
 
   members: Member[] = [];
   tagsInfo: TagInfo[];
+
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Das Team'}];
 
   constructor(public tagService: TagService, private httpClient: HttpClient) { }
 

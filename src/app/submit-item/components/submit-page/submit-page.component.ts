@@ -9,6 +9,7 @@ import { ItemTypesService } from '../../services/item-types/item-types.service';
 import { SubmitItemService } from '../../services/submit-item.service';
 import { QuestionPrompt } from './../../model/question-prompt.interface';
 import { ViewEncapsulation } from '@angular/core';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-submit-page',
@@ -64,6 +65,8 @@ export class SubmitPageComponent {
     policy: false,
     condition: false
   };
+
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Fall einreichen'}];
 
   constructor(
     private submitItemService: SubmitItemService,

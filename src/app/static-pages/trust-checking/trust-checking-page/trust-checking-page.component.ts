@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TrustCheckingCriterion } from 'src/app/model/trust-checking-criterion';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 @Component({
   selector: 'app-trust-checking-page',
   templateUrl: './trust-checking-page.component.html',
@@ -9,6 +10,8 @@ import { TrustCheckingCriterion } from 'src/app/model/trust-checking-criterion';
 export class TrustCheckingPageComponent implements OnInit {
 
   tcCriteria: TrustCheckingCriterion[] = [];
+
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Trust-Checking'}];
 
   constructor(private httpclient: HttpClient) { }
 
