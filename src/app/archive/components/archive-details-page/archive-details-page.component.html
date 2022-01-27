@@ -51,7 +51,7 @@
       </div>
       <div class="comments" *ngIf="case">
         <div class="comments__title">Fallbewertungskommentare</div>
-        <div class="empty-hint" *ngIf="(reviewComments$ | async)?.length == 0">Es wurden keine Kommentare abgegeben.</div>
+        <div class="empty-hint" *ngIf="(reviewComments$ | async)?.length == 0">Während der Fallbewertung haben die Detektiv*innen keine Kommentare hinterlegt.</div>
         <app-comment-list [comments]="reviewComments" *ngIf="reviewComments$ | async as reviewComments"></app-comment-list>
       </div>
 
