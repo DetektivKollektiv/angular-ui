@@ -12,17 +12,6 @@
 
   background-color: colors.$color__white;
 
-  padding: 0 20px;
-
-  @media screen and(min-width: $breakpoint-m) {
-    margin-left: 20px;
-    padding: 0;
-  }
-
-  app-breadcrumb {
-    align-self: flex-start;
-  }
-
   &-grey-edges {
     @extend .section-background;
     background-image: url(/assets/images/backgrounds/grey-edgy-background.svg);
@@ -43,7 +32,7 @@
   display: flex;
   flex-direction: column;
 
-  margin-top: 16px;
+  padding: 20px;
 
   h1 {
     @include fonts.font__effra--bold;

@@ -18,7 +18,7 @@ export class MyProfileComponent {
 
   page = 1;
 
-  breadcrumbLinks: BreadcrumbLink[] = [];
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Dashboard'}];
 
   constructor(private userService: UserService, private authService: AuthService, private router: Router, private dialog: MatDialog) {}
 
