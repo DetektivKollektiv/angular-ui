@@ -14,10 +14,10 @@
 
   <div class="section-of-questions standard-content-container-width">
     <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
-  </div>
+  </div>  
 
   <div class="bottom-section" id="archive-bottom-section" *ngIf="items$ | async as archiveItems">
-     <!-- the stuff below, is the old page, i will delete later. -->
+    <!-- the stuff below, is the old page, i will delete later. -->
     <div class="archive-list-setting">
       <mat-form-field *ngIf="filter$ | async as filter" class="search-input mat-form-field--alt" appearance="fill">
         <mat-label>Archiv durchsuchen</mat-label>
@@ -58,7 +58,6 @@
         </mat-menu>
       </div>
     </div>
-
     <app-archive-list [archives]="archiveItems" (pageChanged)="onListPageChanged()"></app-archive-list>
 
     <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="archiveListFilter"

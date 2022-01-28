@@ -6,11 +6,12 @@
   .top-section {
     display: flex;
     flex-direction: column;
+    padding: 20px 20px 0px 10px;
     margin: auto;
-    padding: 20px;
     @media only screen and (min-width: 480px) {
       flex-direction: row;
       justify-content: space-between;
+      padding-left: 40px;
     }
 
     .overview-section {
@@ -28,6 +29,9 @@
 
   .section-of-questions {
     margin: auto;
+    @media only screen and (min-width: 480px) {
+      padding-left: 40px;
+    }
   }
 
   .middle-section {
@@ -40,9 +44,20 @@
     .middle-section-container {
       display: flex;
       flex-direction: column;
+      padding: 0px 20px 0px 20px;
       position: relative;
       margin: auto;
-      padding: 0px 20px;
+      @media only screen and (min-width: 480px) {
+        padding-left: 40px;
+      }
+      // @media only screen and (min-width: 1024px) {
+      //   width: 600px;
+      //   margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
+      // }
+      // @media only screen and (min-width: 1350px) {
+      //   width: 740px;
+      //   margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
+      // }
 
       h2 {
         @include font__pt-mono--bold;
@@ -126,7 +141,7 @@
         position: absolute;
         display: none;
         right: 0;
-        bottom: -65px;
+        bottom: -100px;
         z-index: 5;
 
         @media only screen and (min-width: 1350px) {
@@ -173,10 +188,23 @@
     .bottom-section-content-container {
       display: flex;
       flex-direction: column;
+      padding: 0px 20px 0px 20px;
+      max-width: 100vw;
+      color: $color__white;
       position: relative;
       margin:auto;
-      padding: 0px 20px;
-      color: $color__white;
+
+      @media only screen and (min-width: 480px) {
+        padding-left: 40px;
+      }
+      // @media only screen and (min-width: 1024px) {
+      //   width: 600px;
+      //   margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
+      // }
+      // @media only screen and (min-width: 1350px) {
+        // width: 767px;
+        // margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
+      // }
 
       h2 {
         @include font__effra--medium;
@@ -192,7 +220,6 @@
       }
 
       .mat-divider {
-        width: 50%;
         border-top-color: $color__white;
       }
 
@@ -269,20 +296,10 @@
         margin: 25px 0;
  
         .mat-checkbox ~ .mat-checkbox {
-          display: block;
           margin-top: 0.5rem;
         }
         a {
           color: $color__bittersweet;
-        }
-
-        .wrap-mat-checkbox {
-          display:flex;
-          justify-content: flex-start;
-        }
-
-        .checkbox-label {
-          padding-left:10px;
         }
       }
 
@@ -309,12 +326,6 @@
 
       p {
         color: $color__white;
-      }
-
-      .narrow {
-        @media only screen and (min-width: 1024px) {
-          width: 50%;
-        }
       }
     }
 

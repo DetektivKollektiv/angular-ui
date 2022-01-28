@@ -1,5 +1,6 @@
 @use '../../../../assets/scss/fonts' as fonts;
 @use '../../../../assets/scss/colors' as colors;
+// @import '../../../../assets/scss/_initializer.scss';
 
 :host {
   width: 100%;
@@ -16,21 +17,20 @@ app-case-details {
 .archive-details-page {
   margin: auto;
 
-  .top-section {
+  .top {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin:auto;
-    padding: 20px 20px 0 20px;
+    padding: 20px;
 
     @media only screen and (min-width: 480px) {
       flex-direction: row;
       justify-content: space-between;
     }
-  }
 
-  .section-of-questions {
-    margin:auto;    
+    @media only screen and (min-width: 1024px) {
+      padding: 80px 20px 40px;
+    }
   }
 
   .flag {
@@ -42,11 +42,10 @@ app-case-details {
     }
   }
 
-  .bottom-section {
+  .bottom {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin:auto;
     padding: 0 20px;
 
     .overview {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-intro-section',
@@ -7,8 +6,6 @@ import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interfa
   styleUrls: ['./intro-section.component.scss']
 })
 export class IntroSectionComponent implements OnInit {
-
-  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Überblick'}];
 
   constructor() { }
 

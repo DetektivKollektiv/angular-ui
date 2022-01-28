@@ -2,33 +2,21 @@
 @import '../../../../assets/scss/initializer';
 @import '../../../../assets/scss/buttons';
 @import '../../../../assets/scss/colors';
-@import '../../../../assets/scss/_variables';
 
 .team-page{
-  .intro {   
+  margin: auto;
+  .teampage-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
     padding: 20px;
     h1 {
       font-size: 52px;
       font-weight: 700;
     }
     p {
-      font-size: 18px;
+      font-size: 16px;
     }
-
-    @media only screen and (min-width: $breakpoint-m) {
-      max-width: 900px;    
-    }
-    
-    @media only screen and (min-width: $breakpoint-l) {
-      max-width: 1100px;    
-    }   
-  }
-  
-  .teampage-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 20px;   
   }
 }
 .masonryholder {

@@ -1,17 +1,15 @@
-<div class="archive-details-page">
-  <section class="top-section standard-content-container-width">
+<div class="archive-details-page standard-content-container-width">
+  <section class="top">
     <app-case-details *ngIf="case" [case]="case">
       <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
   </section>
 
-  <section class="section-of-questions standard-content-container-width">
-    <app-question-carousel [questions]="archiveQuestions">
-      <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
-    </app-question-carousel>
-  </section>
+  <app-question-carousel [questions]="archiveQuestions">
+    <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
+  </app-question-carousel>
 
-  <section class="bottom-section standard-content-container-width">
+  <section class="bottom">
     <div class="facts">
       <app-edgy-background></app-edgy-background>
 

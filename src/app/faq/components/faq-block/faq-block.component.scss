@@ -1,12 +1,11 @@
-@use    '../../../../assets/scss/colors' as colors;
 @import '../../../../assets/scss/initializer';
 
 .faqblock {
-  padding-top: 15px;
+  padding-top: 20px;
 
   h2 {
-    font-size: 32px;
-    color: $color__share-section-heading;
-
+    font-size: 2em;
+    margin-bottom: 10px;
   }
+
 }

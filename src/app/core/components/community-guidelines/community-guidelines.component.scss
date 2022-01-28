@@ -1,45 +1,25 @@
-@use    '../../../../assets/scss/colors' as colors;
 @import '../../../../assets/scss/initializer';
-@import '../../../../assets/scss/_variables';
 
-  .terms-container {
-  
-    display:flex;
-    flex-direction: column;
-    justify-items: flex-start;
-    padding: 20px;
+.terms-container {
+  @media only screen and (max-width: 480px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-    h1 {
+  h1 {
+    font-size: 52px;
+    font-weight: 700;
+    color: $color__share-section-heading;
+    @media only screen and (max-width: 480px) {
       font-size: 32px;
       font-weight: 700;
-      color: $color__share-section-heading;
-      @media only screen and (min-width: $breakpoint-xs) {
-        font-size: 52px;
-        font-weight: 700;
-      }
     }
-
-    h2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: $color__share-section-heading;
-      margin-top: 25px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: colors.$color__old-paragraph;
-      font-size: 16px;
-    }
-
-    @media only screen and (min-width: $breakpoint-m) {
-      max-width: 1000px;
-      padding-left: 0;
-    }
-    
-    @media only screen and (min-width: $breakpoint-l) {
-      max-width: 1200px;
-      padding-left: 0;
-    }
-  }  
-
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color__share-section-heading;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+}
