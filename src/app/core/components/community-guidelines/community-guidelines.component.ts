@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-community-guidelines',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community-guidelines.component.scss']
 })
 export class CommunityGuidelinesComponent implements OnInit {
+
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Nutzungsbedingungen'}];
 
   constructor() { }
 

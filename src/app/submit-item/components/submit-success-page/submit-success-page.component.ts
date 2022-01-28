@@ -15,7 +15,7 @@ import { Item } from '../../../model/item';
   providers: []
 })
 export class SubmitSuccessPageComponent {
-  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fall einreichen', link: '/submit' }];
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Fall einreichen'}];
 
   item: Item;
 

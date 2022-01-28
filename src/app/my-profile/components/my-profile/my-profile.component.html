@@ -1,6 +1,6 @@
 <div class="profile-page" *ngIf="user$ | async as user">
   <section class="top-section standard-content-container-width">
-    <app-breadcrumb></app-breadcrumb>
+    <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     <div class="overview">
       <div class="overview__user">
         <div class="avatar">{{ user.name[0].toUpperCase() }}</div>
