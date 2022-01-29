@@ -1,5 +1,6 @@
 @use '../../../../assets/scss/fonts' as fonts;
 @use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/variables' as var;
 
 :host {
   width: 100%;
@@ -21,11 +22,12 @@ app-case-details {
     flex-wrap: wrap;
     flex-direction: column;
     margin:auto;
-    padding: 20px 20px 0 20px;
+    padding: 20px;
 
-    @media only screen and (min-width: 480px) {
+    @media only screen and (min-width: var.$breakpoint-xs) {
       flex-direction: row;
       justify-content: space-between;
+      padding: 20px 20px 0 20px;
     }
   }
 

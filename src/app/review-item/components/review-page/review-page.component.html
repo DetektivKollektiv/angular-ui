@@ -6,9 +6,11 @@
     <app-user-experience-bubble-list [userExperienceBubbles]="userExperienceBubbles"></app-user-experience-bubble-list>
   </section>
 
-  <app-question-carousel [questions]="questionPrompts">
-    <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
-  </app-question-carousel>
+  <div class="section-of-questions standard-content-container-width">
+    <app-question-carousel [questions]="questionPrompts">
+      <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
+    </app-question-carousel>
+  </div>
 
   <section class="bottom">
     <div class="facts">
