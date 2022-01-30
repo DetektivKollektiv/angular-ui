@@ -19,14 +19,14 @@
       </a>
     </span>
   </div>
-  <div *ngIf="!case?.urls?.length">Keine Links hinterlegt</div>
+  <div class="hint-italic" *ngIf="!case?.urls?.length">Keine Links hinterlegt</div>
 </section>
 <section class="tags">
   <h3 class="mono-font">Tags</h3>
   <div class="tags__list" *ngIf="case.tags?.length">
     <app-tag-icon *ngFor="let tag of case.tags | slice: 0:maxTagsCount" [tag]="tag"></app-tag-icon>
   </div>
-  <div *ngIf="!case?.tags?.length">Keine Tags hinterlegt</div>
+  <div class="hint-italic" *ngIf="!case?.tags?.length">Keine Tags hinterlegt</div>
   <button class="more-btn" *ngIf="maxTagsCount < case.tags.length" (click)="maxTagsCount = case.tags.length">Alle Tags anzeigen</button>
 </section>
 <section class="background-info">
