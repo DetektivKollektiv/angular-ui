@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
@@ -8,9 +9,11 @@ import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interfa
 })
 export class IntroSectionComponent implements OnInit {
 
+  withBreadcrumbs = (this.router.url === '/landingpage') ? true : false;
+
   breadcrumbLinks: BreadcrumbLink[] = [{label: 'Überblick'}];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
