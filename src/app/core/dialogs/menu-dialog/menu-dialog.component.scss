@@ -35,19 +35,6 @@
     background-color: colors.$color__tile-background;
     padding: 20px 0;
 
-    .sublinksxx {
-      &__list {
-        // margin-top: 5px;
-        &__item {
-          margin-top: 5px;
-          text-align: center;
-          &__link {
-            font-size: 20px;
-          }
-        }
-      }
-    }
-
     .sublinks {
       &__item-link {
         margin-top: 5px;
@@ -55,7 +42,6 @@
         font-size: 20px;
       }
     }
-
   }
 
   .menu-container {
