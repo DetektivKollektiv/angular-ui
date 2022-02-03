@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ShareItem } from '../model/share-item';
 
@@ -7,8 +7,11 @@ import { ShareItem } from '../model/share-item';
   templateUrl: './share.component.html',
   styleUrls: ['./share.component.scss']
 })
-export class ShareComponent {
-  marketingWording = 'Ich habe gerade einen Fall bei codetekt eingereicht. Tritt auch du der Community gegen Falschinformationen bei!';
+
+export class ShareComponent implements OnInit {
+
+  @Input() trigger: string;
+  marketingWording: string;
 
   shareItems: ShareItem[] = [
     { type: 'link', url: 'https://codetekt.org/', faIcon: 'far fa-link' },
@@ -35,5 +38,16 @@ export class ShareComponent {
   copy() {
     navigator.clipboard.writeText(this.marketingWording);
     this.snackBar.open('Der Text wurde in die Zwischenablage kopiert!', '', { duration: 3000 });
+  }
+
+  ngOnInit(): void {
+    if (this.trigger === 'ReviewSuccess') {
+      this.marketingWording = 'Ich habe gerade einen Fall bei codetekt gelöst.'
+      + 'Wäre die Community gegen Falschinformationen auch etwas für Dich?';
+    }
+    if (this.trigger === 'SubmitSuccess') {
+      this.marketingWording = 'Ich habe gerade einen Fall bei codetekt eingereicht.'
+      + 'Wäre die Community gegen Falschinformationen auch etwas für Dich?';
+    }
   }
 }

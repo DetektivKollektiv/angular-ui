@@ -66,9 +66,9 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   ];
 
   description =
-    'Im Tatbestand unten siehst du alle für den Fall relevanten Informationen. Mache dich zunächst mit dem ' +
-    'Fall vertraut und überlege, ob du ihn wirklich bearbeiten willst. Wenn du dich dazu entschlossen hast, ' +
-    'klicke bitte auf "Fall bearbeiten" und starte Deine Bewertung.';
+    'Im "Tatbestand" siehst du alle für den Fall relevanten Informationen. Mach dich zunächst mit dem ' +
+    'Fall vertraut und überlege, ob du ihn bearbeiten möchtest. Wenn du dich dazu entschlossen hast, ' +
+    'klick bitte auf "Fall bearbeiten" und starte Deine Bewertung.';
 
   // 100 XP is always static
   userExperienceBubbles = [
@@ -212,7 +212,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   private handleInvalidForm() {
     this.reviewForm.markAllAsTouched();
     this.snackBar.open(
-      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet und der Datenschutzerklärung sowie den Nutzungsbedingungen zugestimmt hast.',
+      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast.',
       '',
       { duration: 5000 }
     );
