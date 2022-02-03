@@ -11,7 +11,7 @@ export class IntroSectionComponent implements OnInit {
 
   withBreadcrumbs = (this.router.url === '/landingpage') ? true : false;
 
-  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Überblick'}];
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Überblick', homelink: true}];
 
   constructor(private router: Router) { }
 
