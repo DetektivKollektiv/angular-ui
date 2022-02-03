@@ -71,9 +71,9 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
     'klicke bitte auf "Fall bearbeiten" und starte Deine Bewertung.';
 
   description_review =
-    'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen genau durch und bewerte sie gründlich. ' +
-    'Zu jeder Aussage gibt es eine Erklärung und einen Tipp, welche dir bei der Bewertung helfen. ' +
-    'Passt eine Aussage nicht zu dem Fall, dann wähle "Kriterium nicht anwendbar" aus.';
+    'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig. ' +
+    'Zu jeder Aussage gibt es eine Erläuterung und einen Tipp. Beides kann Dir dabei helfen, die am besten geeignete Antwort zu finden. ' +
+    'Passt eine Aussage nicht zu dem Fall, dann wähle "Kriterium nicht anwendbar".';
   // 100 XP is always static
   userExperienceBubbles = [
     { iconName: 'star', color: '#fac800', text: '100XP', subText: 'Erfahrung', gridColor: '#160637' }
@@ -184,7 +184,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   }
 
   private navigateOnNoReview(): Observable<never> {
-    this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit dem Review zu beginnen', '', {
+    this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit der Bearbeitung zu beginnen', '', {
       duration: 5000
     });
     this.router.navigate(['/']);
