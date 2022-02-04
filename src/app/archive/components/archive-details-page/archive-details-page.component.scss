@@ -1,6 +1,6 @@
 @use '../../../../assets/scss/fonts' as fonts;
 @use '../../../../assets/scss/colors' as colors;
-// @import '../../../../assets/scss/_initializer.scss';
+@use '../../../../assets/scss/variables' as var;
 
 :host {
   width: 100%;
@@ -17,20 +17,22 @@ app-case-details {
 .archive-details-page {
   margin: auto;
 
-  .top {
+  .top-section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    margin:auto;
     padding: 20px;
 
-    @media only screen and (min-width: 480px) {
+    @media only screen and (min-width: var.$breakpoint-xs) {
       flex-direction: row;
       justify-content: space-between;
+      padding: 20px 20px 0 20px;
     }
+  }
 
-    @media only screen and (min-width: 1024px) {
-      padding: 80px 20px 40px;
-    }
+  .section-of-questions {
+    margin:auto;    
   }
 
   .flag {
@@ -42,10 +44,11 @@ app-case-details {
     }
   }
 
-  .bottom {
+  .bottom-section {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    margin:auto;
     padding: 0 20px;
 
     .overview {

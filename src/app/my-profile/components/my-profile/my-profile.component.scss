@@ -23,6 +23,7 @@
   .top-section {
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
     gap: 20px;
 
     .overview {
@@ -51,7 +52,7 @@
 
       &__user-name {
         @include fonts.font__effra--bold;
-        font-size: 48px;
+        font-size: 36px;
 
         @media only screen and (min-width: 480px) {
           font-size: 52px;
@@ -245,7 +246,7 @@
     h2 {
       @include fonts.font__effra--bold;
       font-size: 24px;
-      
+
       @media only screen and (min-width: $breakpoint-xs) {
         font-size:36px;
       }
@@ -290,7 +291,7 @@
       margin-bottom: 20px;
       @include fonts.font__effra--bold;
       font-size: 24px;
-      
+
       @media screen and (min-width: $breakpoint-xs) {
         font-size: 36px;
       }
@@ -318,13 +319,13 @@
       max-width: 660px;
       text-align: center;
       z-index: 1;
-     
+
       @media only screen and (min-width: 768px) {
         max-width: 600px;
       }
       @media only screen and (min-width: 1024px) {
         max-width: 800px;
-      }      
+      }
     }
 
     &__btn {

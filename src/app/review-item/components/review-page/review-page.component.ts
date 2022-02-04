@@ -216,7 +216,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   private handleInvalidForm() {
     this.reviewForm.markAllAsTouched();
     this.snackBar.open(
-      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet und der Datenschutzerklärung sowie den Nutzungsbedingungen zugestimmt hast.',
+      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast.',
       '',
       { duration: 5000 }
     );

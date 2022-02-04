@@ -1,6 +1,7 @@
 <span class="breadcrumb">
-  <i class="far fa-home breadcrumb__link" routerLink="/"></i>
-  <i class="fal fa-greater-than"></i>
+  <i class="far fa-home breadcrumb__link" routerLink="/" *ngIf="!homelink"></i>
+  <i class="fal fa-greater-than" *ngIf="!homelink"></i>
+  <i class="far fa-home" *ngIf="homelink"></i>
   <ng-container *ngFor="let breadcrumbLink of links; let last = last">
     <span class="breadcrumb__link" *ngIf="!last" [routerLink]="breadcrumbLink.link">{{ breadcrumbLink.label }}</span>
     <i class="fal fa-greater-than" *ngIf="!last"></i>

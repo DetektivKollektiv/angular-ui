@@ -16,10 +16,10 @@
       <div class="overview__content">
         <div class="overview__left">
           <app-icon-with-content color="bittersweet" icon="heart">
-            <span appIconWithContentHeader>Vielen Dank für's Lösen!</span>
+            <span appIconWithContentHeader>Vielen Dank ...</span>
             <span>
-              Vielen Dank für das Lösen dieses Falls. 
-              Jeder bearbeitete Fall trägt dazu bei, die Verbreitung von Desinformation weiter einzudämmen!
+              ... für das Lösen dieses Falls!
+              Jeder bearbeitete Fall trägt dazu bei, die Verbreitung von Falsch&shy;informationen einzudämmen!
               Mach doch gleich mit dem nächsten Fall weiter oder lass deine Freunde auf Social Media wissen, dass du auf codetekt aktiv bist.
             </span>
           </app-icon-with-content>
@@ -38,8 +38,8 @@
               <div class="xp__content">
                 <h3>Du hast Erfahrungspunkte erhalten!</h3>
                 <p>
-                  Mit dem Lösen dieses Falls hast du 100 Erfahrungspunkte erhalten. 
-                  Dir fehlen noch {{ user.exp_needed * 100 }}XP, dann steigst du in ein höheres Level auf.
+                  Mit dem Lösen dieses Falls hast du 100 Erfahrungs&shy;punkte erhalten.
+                  Dir fehlen noch {{ user.exp_needed * 100 }}XP bis zum nächsten Level.
                 </p>
                 <h4>Erfahrungspunkte erhalten</h4>
                 <div class="xp__bar">
@@ -60,7 +60,7 @@
     <app-open-case-list-slider></app-open-case-list-slider>
   </section>
   <section class="bottom">
-    <app-share></app-share>
+    <app-share trigger="ReviewSuccess"></app-share>
     <app-solved-cases></app-solved-cases>
   </section>
 </div>
