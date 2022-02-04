@@ -27,13 +27,28 @@
         </div>
       </div>
     </div>
+    <div class="swiper-slide" *ngIf="!cases">
+      <div class="case">
+        <div class="case__container">
+          <p class="case__header hint-italic">Du hast alle Fälle bearbeitet!</p>
+          <div class="case__content">
+            <div class="case__text hint-italic">
+              Schau gerne später wieder vorbei - sobald neue Fälle eingereicht werden,
+                die du bearbeiten kannst, werden sie hier angezeigt.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- If we need navigation buttons -->
-<div class="swiper-button-prev">
-  <i class="fas fa-arrow-left"></i>
-</div>
-<div class="swiper-button-next">
-  <i class="fas fa-arrow-right"></i>
-</div>
+<ng-container *ngIf="cases">
+  <div class="swiper-button-prev">
+    <i class="fas fa-arrow-left"></i>
+  </div>
+  <div class="swiper-button-next">
+    <i class="fas fa-arrow-right"></i>
+  </div>
+</ng-container>
