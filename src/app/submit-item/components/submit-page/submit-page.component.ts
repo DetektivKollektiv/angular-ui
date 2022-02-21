@@ -10,7 +10,6 @@ import { SubmitItemService } from '../../services/submit-item.service';
 import { QuestionPrompt } from './../../model/question-prompt.interface';
 import { ViewEncapsulation } from '@angular/core';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
-
 @Component({
   selector: 'app-submit-page',
   templateUrl: './submit-page.component.html',

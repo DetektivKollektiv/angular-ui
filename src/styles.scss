@@ -410,16 +410,16 @@ header.header {
 
 .submit-check-container .mat-checkbox.mat-accent {
   .mat-checkbox-frame {
-    border: 1px solid $color__white;
+    border: 1px solid;
   }
 
   &.mat-checkbox-checked .mat-checkbox-background {
     background-color: transparent;
-    border: 1px solid $color__white;
+    border: 1px solid;
   }
 
   .mat-checkbox-checkmark-path {
-    stroke: $color__white !important;
+    stroke: $color__black !important;
   }
 }
 
