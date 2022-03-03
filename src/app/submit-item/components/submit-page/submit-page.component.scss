@@ -51,6 +51,10 @@
         font-size: 36px;
       }
 
+      .sub-headline{
+        font-size: 24px;
+      }
+
       p {
         font-size: 18px;
         max-width: 600px;
@@ -64,7 +68,7 @@
       .field-container p {
         @include font__pt-mono--bold;
         font-size: 16px;
-        margin-bottom: 0;
+        margin: 0;
       }
 
       .form-select {
@@ -126,7 +130,7 @@
         }
       }
       .notify-container {
-        margin: 25px 0;
+        
         h3 {
           @include font__pt-mono--bold;
           font-size: 16px;
@@ -137,7 +141,9 @@
       .email-container {
         width: 40%;
         position: relative;
-
+        @media only screen and (max-width: 1024px) {
+          width: 100%;
+        }
         input {
           padding: 10px 15px;
           width: 100%;
