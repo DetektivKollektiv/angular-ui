@@ -23,7 +23,7 @@
     @extend .section-background;
     background-color: colors.$color__tile-background;
     padding: 40px 0;
-    clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+    clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%); // polygon(0 0, 100% 0, 100% 95%, 0% 100%);
   }
 
   &-stars {

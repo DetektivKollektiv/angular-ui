@@ -80,9 +80,9 @@
           background-color: colors.$color__social-media-linkedin;
         }
 
-        &-signal {
+        &-facebook {
           @extend .social-media-icon;
-          background-color: colors.$color__social-media-signal;
+          background-color: colors.$color__social-media-facebook;
         }
 
         &:hover {
