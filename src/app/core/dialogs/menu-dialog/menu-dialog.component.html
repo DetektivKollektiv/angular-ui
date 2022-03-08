@@ -1,0 +1,116 @@
+<div class="menu-dialog">
+
+  <div mat-dialog-header class="menu-dialog-header">
+    <div>
+      <a (click)="navigate('')" title="Dashboard">
+        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Dashboard" />
+      </a>
+    </div>
+    <div>
+      <button mat-icon-button aria-label="menu-dialog-cancel-button" (click)="onCancel()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-dialog-content>
+    <!-- Not logged in-->
+    <div *ngIf="!authState.isLoggedIn">
+      <div class="top-container">
+        <div>
+          <a class="button button--bittersweet button--hallow third-theme-color around-button"
+            (click)="navigate('register')"
+            title="Detektiv*in werden">
+            <i class="fas fa-user-cowboy"></i> <span>Detektiv*in werden</span>
+          </a>
+        </div>
+        <div>
+          <a class="main-link login-button" (click)="navigate('login')" title="Login">Login</a>
+        </div>
+      </div>
+      <div class="menu-container">
+        <div>
+          <a class="main-link--red"
+            (click)="navigate('submit')"
+            title="Fall einreichen">
+            <i class="fas fa-typewriter"></i>&nbsp;Fall einreichen
+          </a>
+        </div>
+        <div>
+          <a class="main-link" (click)="navigate('archive')" title="Gelöste Fälle">Gelöste Fälle</a>
+        </div>
+        <div>
+          <div style="width: 100%;">
+            <a class="main-link" title="Über codetekt" (click)="navigate('/')">Über codetekt</a>
+            <div class="child-links-list">
+              <div class="child-link "><a (click)="navigate('about')" title="Der Verein">Der Verein</a></div>
+              <div class="child-link "><a (click)="navigate('team')" title="Das Team">Das Team</a></div>
+              <div class="child-link "><a (click)="navigate('trust-checking')" title="Trust-Checking">Trust&#8209;Checking</a></div>
+              <div class="child-link "><a (click)="navigate('faq')" title="FAQ">FAQ</a></div>
+              <div class="child-link ">
+                <a href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+                  title="Spenden"
+                  target="_blank">Spenden
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logged in -->
+    <div *ngIf="userLoaded">
+
+      <div class="profile-container">
+        <div class="profile">
+          <div class="profile__bubble" >{{user.name[0].toUpperCase()}}</div>
+
+          <div class="profile__business-card">
+            <div class="profile__name">{{user.name}}</div>
+            <div class="profile__title">{{user.level_description}}</div>
+          </div>
+        </div>
+
+        <div class="sublinks">
+          <div class="sublinks__item-link">
+            <a title="Profil" (click)="navigate('')">Profil</a>
+          </div>
+          <div class="sublinks__item-link">
+            <a (click)="logOut()" title="Abmelden">Abmelden</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-container">
+        <div>
+          <a class="main-link--blue" (click)="navigate('', 'open-cases')" title="Fall bearbeiten">
+            <i class="fas fa-clipboard-list-check"></i>&nbsp;Fall bearbeiten
+          </a>
+        </div>
+        <div>
+          <a class="main-link" (click)="navigate('submit')" title="Fall einreichen">
+            <!--i class="fas fa-typewriter"></i-->Fall einreichen
+          </a>
+        </div>
+        <div>
+          <a class="main-link" (click)="navigate('archive')" title="Gelöste Fälle">Gelöste Fälle</a>
+        </div>
+        <a class="main-link" (click)="navigate('landingpage')" title="Über codetekt">Über codetekt</a>
+        <div class="child-links-list">
+          <div class="child-link"><a (click)="navigate('about')" title="Der Verein">Der Verein</a></div>
+          <div class="child-link"><a (click)="navigate('team')" title="Das Team">Das Team</a></div>
+          <div class="child-link"><a (click)="navigate('trust-checking')" title="Trust-checking">Trust&#8209;Checking</a></div>
+          <div class="child-link"><a (click)="navigate('faq')" title="FAQ">FAQ</a></div>
+          <div class="child-link">
+            <a href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+              title="Spenden"
+              target="_blank">Spenden
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+</div>

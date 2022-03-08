@@ -22,6 +22,8 @@
   &-tile-background {
     @extend .section-background;
     background-color: colors.$color__tile-background;
+    padding: 40px 0;
+    clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%); // polygon(0 0, 100% 0, 100% 95%, 0% 100%);
   }
 
   &-stars {
@@ -46,6 +48,17 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
+
+  &-colorful {
+    @extend .section-background;
+    background: center;
+    background-image: url(/assets/images/backgrounds/geordanna-cordero-5NE6mX0WVfQ-unsplash.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+    padding: 40px 0;
+    margin-top: -60px;
+  }
 }
 
 .section-container {
@@ -58,7 +71,7 @@
   }
 
   &-small {
-    padding: 20px; 
+    padding: 20px;
     @media screen and (min-width: $breakpoint-l) {
       width: 1240px;
       padding: 20px 0;
@@ -93,7 +106,7 @@
   @include fonts.font__effra--bold;
   font-size: 30px;
   text-align: center;
-  line-height: initial;  
+  line-height: initial;
 
   @media screen and (min-width: $breakpoint-m) {
     font-size: 36px;
@@ -114,7 +127,7 @@
 }
 
 .section-text {
-  font-size: 18px;  
+  font-size: 18px;
   max-width: 580px;
   text-align: center;
   line-height: normal;

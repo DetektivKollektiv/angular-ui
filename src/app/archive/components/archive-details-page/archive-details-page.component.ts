@@ -52,7 +52,8 @@ export class ArchiveDetailsPageComponent implements OnInit {
 
   authenticated$ = this.authService.auth$.pipe(map((authState) => authState.isLoggedIn));
 
-  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }];
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle', link: '/archive' }, {label: 'Detail'}];
+
   archiveQuestions: any[] = [
     {
       title: 'Was bedeutet das Ergebnis?',

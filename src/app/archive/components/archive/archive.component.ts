@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
 import { CaseSort, CaseSortBy } from '../../model/case-sort';
 import { ViewportScroller } from '@angular/common';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-archive',
@@ -64,6 +65,8 @@ export class ArchiveComponent {
   public resultScoreMode = ResultScoreMode.bar;
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Gelöste Fälle'}];
 
   archiveListFilterOpened = false;
 

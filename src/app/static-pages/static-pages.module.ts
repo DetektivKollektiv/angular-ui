@@ -26,6 +26,7 @@ import { SupporterItemComponent } from './landing-page/sections/supporter-sectio
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { TrustCheckingPageComponent } from './trust-checking/trust-checking-page/trust-checking-page.component';
 import { TrustCheckingCriterionComponent } from './trust-checking/components/trust-checking-criterion/trust-checking-criterion.component';
+import { SocialMediaSectionComponent } from './landing-page/sections/social-media-section/social-media-section.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TrustCheckingCriterionComponent } from './trust-checking/components/tru
     SupporterItemComponent,
     TrustCheckingPageComponent,
     TrustCheckingCriterionComponent,
-    SupportUsSpecialSectionComponent
+    SupportUsSpecialSectionComponent,
+    SocialMediaSectionComponent
   ],
   imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
   exports: [AboutComponent, SupportUsSectionComponent, SupporterSectionComponent]

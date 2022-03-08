@@ -1,0 +1,181 @@
+@charset "utf-8";
+@use    '../../../../assets/scss/colors' as colors;
+@import "../../../../assets/scss/_initializer.scss";
+
+.menu-dialog {
+
+  .menu-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 10vh;
+    z-index: 10000;
+    padding: 0 10px;
+  }
+
+  .mat-dialog-content {
+    max-height: 80vh;
+    padding: 0 0 50px 0;
+  }
+
+  .top-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: colors.$color__tile-background;
+    margin-bottom: 15px;
+    padding: 15px;
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: colors.$color__tile-background;
+    padding: 20px 0;
+
+    .sublinks {
+      &__item-link {
+        margin-top: 5px;
+        text-align: center;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .third-theme-color {
+    color: colors.$color__bittersweet;
+  }
+
+  .around-button {
+    border: 1px solid colors.$color__bittersweet;
+    padding: 15px;
+    border-radius: 15px;
+
+    i {
+      margin-right: 7px;
+    }
+
+    &:hover {
+      background-color: colors.$color__bittersweet;
+      color: $color__white;
+    }
+  }
+
+  .main-link {
+    @include font__effra--bold;
+    display: flex;
+    justify-content: center;
+    color: colors.$color__navigation-main-link;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 40px 0 0 0;
+    padding: 0;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      cursor: pointer;
+    }
+
+    &--red {
+      @extend .main-link;
+      color: colors.$color__bittersweet;
+    }
+
+    &--blue {
+      @extend .main-link;
+      color: colors.$color__neon-blue;
+    }
+  }
+
+  .child-links-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .child-link {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 15px;
+
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a:visited {
+      color: colors.$color__navigation-main-link;
+    }
+  }
+
+  .login-button {
+    margin-top: 0;
+  }
+
+  // todo: move this somewhere more appropriate
+  //_userprofile.scss
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    &__business-card {
+      margin: 0 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    &__award {
+      font-size: 16px;
+      margin: 0 4px 0 0;
+
+      &--gold {
+        color: colors.$color__userprofile-award-gold;
+      }
+
+      &--silver {
+        color: colors.$color__userprofile-award-silver;
+      }
+
+      &--bronze {
+        color: colors.$color__userprofile-award-bronze;
+      }
+    }
+
+    &__name {
+      font-size: 22px;
+      font-weight: 700;
+      color: colors.$color__mysterious-blue;
+    }
+
+    &__title {
+      font-size: 18px;
+      color: colors.$color__old-paragraph;
+    }
+
+    &__bubble {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      background-color: colors.$color__purple;
+      color: colors.$color__white;
+      margin: 0 6px 0 0;
+    }
+  }
+
+}
