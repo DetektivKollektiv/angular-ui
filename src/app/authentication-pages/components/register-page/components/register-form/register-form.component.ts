@@ -27,6 +27,7 @@ export class RegisterFormComponent implements OnInit {
   public closeResult = {
     success: false,
   } as SignupResult;
+  public email_subscription=false;
 
   constructor(
     private router: Router,
@@ -71,6 +72,7 @@ export class RegisterFormComponent implements OnInit {
 
 
   public signUp(): void {
+    console.log(this.email_subscription);
     if (this.form.invalid) {
       return;
     }
@@ -83,7 +85,8 @@ export class RegisterFormComponent implements OnInit {
       .signUp(
         this.formControls.username.value,
         this.formControls.password.value,
-        this.formControls.email.value
+        this.formControls.email.value,
+        this.email_subscription? '1' : '0'
       )
       .then(() => {
         this.router.navigate(['/login'], { queryParams: { username: this.formControls.username.value  } });
