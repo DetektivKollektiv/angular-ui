@@ -72,7 +72,6 @@ export class RegisterFormComponent implements OnInit {
 
 
   public signUp(): void {
-    console.log(this.email_subscription);
     if (this.form.invalid) {
       return;
     }
