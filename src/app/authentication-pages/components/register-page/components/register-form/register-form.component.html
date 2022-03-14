@@ -32,8 +32,10 @@
         Bitte bestätige hier dein Passwort.
       </mat-error>
     </mat-form-field>
+    <mat-checkbox [(ngModel)]="email_subscription" [ngModelOptions]="{standalone: true}">
+      Ich möchte E-Mail Benachrichtigungen von codetekt erhalten.
+    </mat-checkbox>
   </div>
-
   <div class="authentication-form--actions-container">
     <button  class="button button--neon-blue" (click)="signUp()">Detektiv*in werden</button>
   </div>
