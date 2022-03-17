@@ -1,0 +1,63 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
+@use '../../../../../assets/scss/variables' as variables;
+
+h1 {
+  @include fonts.font__effra--bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+h2 {
+  @include fonts.font__effra--bold;
+  font-size: 21px;
+
+  @media screen and(min-width: variables.$breakpoint-xs) {
+    text-align: end;
+  }
+}
+
+p {
+  @include fonts.font__effra--regular;
+  font-size: 16px;
+  color: colors.$color__old-paragraph;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    gap: 36px;
+    max-width: 760px;
+
+    @media screen and(min-width: variables.$breakpoint-xs) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+
+      .image {
+        align-self: flex-start;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          align-self: flex-end;
+        }
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+
+      &-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+    }
+  }
+}

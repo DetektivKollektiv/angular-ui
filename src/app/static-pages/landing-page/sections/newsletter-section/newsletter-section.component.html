@@ -1,0 +1,31 @@
+<h1>Newsletter</h1>
+
+<div class="wrapper">
+  <div class="content">
+    <div class="text">
+      <img class="image" height="110" src="assets/images/illustrations/undraw_Mailbox_re_dvds.svg" alt="Briefkasten" />
+      <h2>Bleib' auf dem Laufenden</h2>
+      <p>Erhalte News, Events, Download-Tipps und vieles mehr. Direkt von codetekt!</p>
+    </div>
+
+    <form [formGroup]="form" #formDirective="ngForm" class="form" (ngSubmit)="subscribe(formDirective)">
+      <mat-form-field>
+        <mat-label>E-Mail-Adresse *</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error>Bitte gib deine E-Mail Adresse ein.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Vorname</mat-label>
+        <input matInput formControlName="firstname" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nachname</mat-label>
+        <input matInput formControlName="lastname" />
+      </mat-form-field>
+      <div class="form-actions">
+        <button class="button button--neon-blue" type="submit" [disabled]="form.invalid">Newsletter abonnieren</button>
+        <p>* Pflichtfeld</p>
+      </div>
+    </form>
+  </div>
+</div>
