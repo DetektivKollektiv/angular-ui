@@ -22,7 +22,7 @@ import { IconWithContentModule } from '@shared/icon-with-content/icon-with-conte
 import { ShareModule } from '../shared/share/share.module';
 import { SolvedCasesModule } from '../shared/solved-cases/solved-cases.module';
 import { CaseDetailsModule } from '../shared/case-details/case-details.module';
-
+import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
 @NgModule({
   declarations: [SubmitComponent, SubmitPageComponent, SubmitSuccessPageComponent, ItemTypePipe, ItemSourcePipe, SubmitNoAuthComponent],
   imports: [
@@ -42,7 +42,8 @@ import { CaseDetailsModule } from '../shared/case-details/case-details.module';
     IconWithContentModule,
     ShareModule,
     SolvedCasesModule,
-    CaseDetailsModule
+    CaseDetailsModule,
+    EdgyBackgroundModule
   ]
 })
 export class SubmitItemModule {}

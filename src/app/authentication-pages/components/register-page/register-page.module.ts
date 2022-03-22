@@ -9,6 +9,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { RouterModule } from '@angular/router';
         AuthenticationPageModule,
         AuthModule,
         MaterialModule,
-        RouterModule
+        RouterModule,
+        FormsModule
     ],
 })
 
