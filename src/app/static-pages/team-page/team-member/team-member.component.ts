@@ -9,31 +9,19 @@ import { Member } from 'src/app/model/member';
 })
 
 export class TeamMemberComponent implements OnInit {
-
   @Input() member: Member;
-  @Input() membertag: TagInfo[];
-
   displayStatus: boolean;
   allTags: TagInfo[] = [];
   constructor(public tagService: TagService) {
     this.displayStatus = true;
   }
   ngOnInit(): void {
-    console.log(this.membertag);
     this.member.tags.forEach(element => {
-      const tagobject = this.membertag.find(tag => tag.id === element);
+      const tagobject = this.tagService.allTags.find(tag => tag.id === element);
+      console.log(tagobject);
       this.allTags.push(tagobject);
     });
   }
-  /** alter Ansatz für Filterung
-  ngOnChanges(changes: SimpleChanges): void {
-    const displayS = changes.displayStatus;
-    for (const tag in this.member.tags) {
-      if (tag in this.tagService.selected_tags) {
-        this.displayStatus = true;
-      }
-    } this.displayStatus = false;
-  }*/
 }
 
 

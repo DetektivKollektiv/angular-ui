@@ -6,18 +6,17 @@
             </div>
             <div>
                 <h3>{{member.name}}</h3>
-               <!--<div class="filtertag">   --IST FÜR DIE FILTERUNG!!
-                    <mat-chip-list>
-                        <mat-chip *ngFor=" let tag of allTags">{{tag?.tagname}} </mat-chip>
-                    </mat-chip-list>
-                </div>-->
+                <div class="filtertags">
+                    <app-tag-icon *ngFor=" let tag of allTags" [tag]="tag?.tagname" [backgroundColor]="tag?.color" ></app-tag-icon>
+                </div>
                 <p>{{member.text}}</p>
             </div>
             <div class="contact-button">
                 <a class="icon linkL" *ngIf=member.linkL href="{{member.linkL}}" title="LinkedIn von {{member.name}}">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a class="icon linkM" *ngIf=member.linkM href="mailto:{{member.linkM}}" title="E-Mail senden an {{member.name}}">
+                <a class="icon linkM" *ngIf=member.linkM href="mailto:{{member.linkM}}"
+                    title="E-Mail senden an {{member.name}}">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>

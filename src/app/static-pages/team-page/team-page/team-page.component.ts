@@ -1,29 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { TagService } from './tag.service';
-
-import {Member} from 'src/app/model/member';
-import {TagInfo} from 'src/app/model/membertags';
+import { TagInfo } from 'src/app/model/membertags';
+import { Member } from 'src/app/model/member';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { updateLocale } from 'moment';
 @Component({
   selector: 'app-team-page',
   templateUrl: './team-page.component.html',
   styleUrls: ['./team-page.component.scss']
 })
-export class TeamPageComponent implements OnInit {
+export class TeamPageComponent {
 
-  members: Member[] = [];
-  tagsInfo: TagInfo[];
-
-  constructor(public tagService: TagService, private httpClient: HttpClient) { }
-
-  ngOnInit(): void {
-     this.httpClient.get<TagInfo[]>('assets/data/membertags.json').subscribe(data =>{
-      this.tagsInfo = data;
-    });
-    this.httpClient.get<Member[]>('assets/data/member.json').subscribe(data =>{
-      this.members = data;
-    });
-
-  }
+  constructor(public tagService: TagService) { }
 
 }

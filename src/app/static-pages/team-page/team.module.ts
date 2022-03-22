@@ -7,6 +7,7 @@ import { TeamMemberComponent  } from './team-member/team-member.component';
 import { MemberFilterComponent } from './member-filter/member-filter.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { TagIconModule } from '@shared/tag-icon/tag-icon.module';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
       MaterialModule,
       BreadcrumbModule,
       RouterModule,
-      HttpClientModule
+      HttpClientModule,
+      TagIconModule
     ]
   })
   export class TeamModule{
