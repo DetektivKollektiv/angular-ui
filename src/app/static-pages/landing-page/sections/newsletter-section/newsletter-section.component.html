@@ -4,8 +4,14 @@
   <div class="content">
     <div class="text">
       <img class="image" height="110" src="assets/images/illustrations/undraw_Mailbox_re_dvds.svg" alt="Briefkasten" />
-      <h2>Bleib' auf dem Laufenden</h2>
-      <p>Erhalte News, Events, Download-Tipps und vieles mehr. Direkt von codetekt!</p>
+      <h2 class="heading">Bleib' auf dem Laufenden</h2>
+      <p class="description">
+        Abonniere unseren Newsletter, um über alle wichtigen Entwicklungen rund um unsere Trust-Checking Plattform und den Verein codetekt
+        e.V. informiert zu werden!
+      </p>
+      <p class="data-privacy">
+        Durch das Abonnement des Newsletters stimmst du der <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> zu.
+      </p>
     </div>
 
     <form [formGroup]="form" #formDirective="ngForm" class="form" (ngSubmit)="subscribe(formDirective)">

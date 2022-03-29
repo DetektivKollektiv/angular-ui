@@ -8,21 +8,6 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  @include fonts.font__effra--bold;
-  font-size: 21px;
-
-  @media screen and(min-width: variables.$breakpoint-xs) {
-    text-align: end;
-  }
-}
-
-p {
-  @include fonts.font__effra--regular;
-  font-size: 16px;
-  color: colors.$color__old-paragraph;
-}
-
 .wrapper {
   display: flex;
   justify-content: center;
@@ -40,11 +25,37 @@ p {
       display: flex;
       flex-direction: column;
 
-      .image {
-        align-self: flex-start;
+      .heading {
+        @include fonts.font__effra--bold;
+        font-size: 21px;
 
         @media screen and(min-width: variables.$breakpoint-xs) {
-          align-self: flex-end;
+          text-align: end;
+        }
+      }
+
+      .description {
+        @include fonts.font__effra--regular;
+        font-size: 16px;
+        color: colors.$color__old-paragraph;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          text-align: end;
+        }
+      }
+
+      .data-privacy {
+        @include fonts.font__effra--regular;
+        font-size: 14px;
+        color: colors.$color__old-paragraph;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          text-align: end;
+        }
+
+        a {
+          cursor: pointer;
+          color: colors.$color__mysterious-blue;
         }
       }
     }
@@ -57,6 +68,15 @@ p {
         display: flex;
         flex-direction: row;
         gap: 16px;
+      }
+
+      .image {
+        align-self: flex-start;
+        margin-top: -20px;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          align-self: flex-end;
+        }
       }
     }
   }
