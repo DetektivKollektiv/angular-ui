@@ -1,10 +1,6 @@
 @use "../../../../assets/scss/fonts" as fonts;
 @import "../../../../assets/scss/colors";
 
-.element-titel {
-  color: $color__mysterious-blue;
-  padding: 0 0 10px 0;
-}
 .row-member {
   display: inline-block;
   background: $color__tile-background;
@@ -12,7 +8,7 @@
   box-sizing: border-box;
   border-radius: 30px;
   height: auto;
-  margin: 0 0 25px;
+  margin: 10px 0;
   p {
     font-size: 16px;
     margin: 8px 0;
@@ -33,7 +29,7 @@
     width: 260px;
   }
   @media screen and (min-width: 1350px) {
-    width: 310px;
+    width: 355px;
   }
 }
 .icon {

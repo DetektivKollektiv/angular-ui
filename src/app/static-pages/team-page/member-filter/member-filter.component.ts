@@ -13,8 +13,8 @@ export class MemberFilterComponent implements OnInit {
 
   @Input() selectedTags: TagInfo[];
   @Input() unselectedTags: TagInfo[];
-  selectedIcon = 'fa-light fa-circle-check';
-  isCollapsed = false;
+  unselectedColor= '#DCDCDC';
+  isCollapsed = true;
   constructor(public tagService: TagService, private httpClient: HttpClient) { }
 
   toggleCollapse() {

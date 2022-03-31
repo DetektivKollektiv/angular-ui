@@ -3,18 +3,11 @@
         <p *ngIf="!isCollapsed" (click)="toggleCollapse()">ausblenden <i class="fas fa-angle-up"></i></p>
     </div>
     <div class="filter-content" *ngIf="!isCollapsed">
-        <div class="active">
-            <h4 class="bold-weight">Aktive Filter</h4>
-            <div class="filtertags">
-                <app-tag-icon *ngFor="let tag of tagService.selectedTags" (click)="tagService.unselect_tag(tag)" [tag]="tag?.tagname" [backgroundColor]="tag?.color" iconClass="fal fa-check-circle"></app-tag-icon>
-            </div>
+        <h4 class="bold-weight">Filtermöglichkeiten</h4>
+        <div class="filtertags">
+            <app-tag-icon *ngFor="let tag of tagService.selectedTags" (click)="tagService.unselect_tag(tag)" [tag]="tag?.tagname" [backgroundColor]="tag?.color" iconClass="fal fa-check-circle"></app-tag-icon>
+            <app-tag-icon *ngFor="let tag of tagService.unselectedTags" (click)="tagService.select_tag(tag)" [tag]="tag?.tagname" [backgroundColor]=unselectedColor iconClass="fal fa-circle"></app-tag-icon>
         </div>
-        <div class="vl"></div>
-        <div class="inactive">
-            <h4 class="bold-weight">Inaktive Filter</h4>
-            <div class="filtertags">
-                <app-tag-icon *ngFor="let tag of tagService.unselectedTags" (click)="tagService.select_tag(tag)" [tag]="tag?.tagname" [backgroundColor]="tag?.color" iconClass="fal fa-circle"></app-tag-icon>
-            </div>
-        </div>
+        <h4 class="reset" (click)="tagService.showMember()">Filter zurücksetzen</h4>
     </div>
 </div>

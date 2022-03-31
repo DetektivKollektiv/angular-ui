@@ -4,7 +4,7 @@
         <h1>Wir, das Team</h1>
         <p>codetekt ist ein dezentrales Team, das sich der Herausforderung annimmt, eine Lösung gegen
             unglaubwürdige Nachrichten im Web oder in verschlüsselten Messaging Apps zu entwickeln.</p>
-        <app-member-filter [selectedTags]="tagService.selectedTags" [unselectedTags]="tagService.unselectedTags"></app-member-filter> <!--IST FÜR DIE FILTERUNG!!-->
+        <app-member-filter [selectedTags]="tagService.selectedTags" [unselectedTags]="tagService.unselectedTags"></app-member-filter>
         <div class="masonryholder">
             <app-team-member *ngFor="let person of tagService.membersToDisplay" [member]="person"></app-team-member>
             <div class="lastTile">

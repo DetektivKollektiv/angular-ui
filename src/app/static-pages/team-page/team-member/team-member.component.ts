@@ -12,13 +12,13 @@ export class TeamMemberComponent implements OnInit {
   @Input() member: Member;
   displayStatus: boolean;
   allTags: TagInfo[] = [];
+  tagCheck: boolean;
   constructor(public tagService: TagService) {
     this.displayStatus = true;
   }
   ngOnInit(): void {
     this.member.tags.forEach(element => {
       const tagobject = this.tagService.allTags.find(tag => tag.id === element);
-      console.log(tagobject);
       this.allTags.push(tagobject);
     });
   }

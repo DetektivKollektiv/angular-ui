@@ -4,12 +4,13 @@
 @import "../../../../assets/scss/colors";
 
 .team-page {
-  margin: auto;
   .teampage-container {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; 
     gap: 10px;
-    padding: 20px;
+    padding: 0 _b__rem(16px);
+    max-width: _b__rem(1240px);
+    margin: 0 auto;
     h1 {
       font-size: 52px;
       font-weight: 700;
@@ -17,67 +18,67 @@
     p {
       font-size: 16px;
     }
-  }
-}
-.masonryholder {
-  @media only screen and (max-width: 479px) {
-    column-count: 1;
-  }
-  @media only screen and (min-width: 480px) and (max-width: 1023px) {
-    column-count: 2;
-  }
-  @media only screen and (min-width: 1024px) {
-    width: 800px;
-    padding: 0;
-    column-count: 3;
-  }
-  @media only screen and (min-width: 1350px) {
-    width: 1240px;
-    column-count: 3;
-  }
-
-  .lastTile {
-    display: inline-block;
-    background: $color__blue;
-    padding: 0px 20px 20px;
-    height: auto;
-    box-sizing: border-box;
-    border-radius: 30px;
-    text-align: center;
-    p,
-    h3 {
-      color: $color__white;
-    }
-    h3 {
-      @include fonts.font__pt-mono--bold;
-    }
-    img {
-      width: 200px;
-      height: auto;
-      transform: translate(0%, -15px);
-    }
-    @media screen and (max-width: 479px) {
-      width: 100%;
-    }
-    @media screen and (min-width: 480px) and (max-width: 783px) {
-      width: 260px;
-    }
-    @media screen and (min-width: 784px) and (max-width: 1023px) {
-      width: 310px;
-    }
-    @media screen and (min-width: 1024px) {
-      width: 260px;
-    }
-    @media screen and (min-width: 1350px) {
-      width: 310px;
-    }
-    a {
-      text-decoration: none;
-    }
-    .button {
-      display: center;
-      justify-content: center;
-      margin: 0 auto;
+    .masonryholder {
+      @media only screen and (max-width: 479px) {
+        column-count: 1;
+      }
+      @media only screen and (min-width: 480px) and (max-width: 1023px) {
+        column-count: 2;
+      }
+      @media only screen and (min-width: 1024px) {
+        padding: 0;
+        column-count: 3;
+      }
+      @media only screen and (min-width: 1350px) {
+        padding: 0;
+        max-width: 1240px;
+        column-count: 3;
+      }
+      .lastTile {
+        display: inline-block;
+        background: $color__blue;
+        padding: 0px 20px 20px;
+        height: auto;
+        margin: 20px 0 0;
+        box-sizing: border-box;
+        border-radius: 30px;
+        text-align: center;
+        p,
+        h3 {
+          color: $color__white;
+        }
+        h3 {
+          @include fonts.font__pt-mono--bold;
+        }
+        img {
+          width: 200px;
+          height: auto;
+          transform: translate(0%, -15px);
+        }
+        @media screen and (max-width: 479px) {
+          width: 100%;
+        }
+        @media screen and (min-width: 480px) and (max-width: 783px) {
+          width: 260px;
+        }
+        @media screen and (min-width: 784px) and (max-width: 1023px) {
+          width: 310px;
+        }
+        @media screen and (min-width: 1024px) {
+          width: 260px;
+        }
+        @media screen and (min-width: 1350px) {
+          width: 355px;
+        }
+        a {
+          text-decoration: none;
+        }
+        .button {
+          display: center;
+          justify-content: center;
+          margin: 0 auto;
+        }
+      }
     }
   }
 }
