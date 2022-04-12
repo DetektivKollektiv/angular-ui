@@ -4,10 +4,14 @@
         <h1>Wir, das Team</h1>
         <p>codetekt ist ein dezentrales Team, das sich der Herausforderung annimmt, eine Lösung gegen
             unglaubwürdige Nachrichten im Web oder in verschlüsselten Messaging Apps zu entwickeln.</p>
-        <app-member-filter [selectedTags]="tagService.selectedTags" [unselectedTags]="tagService.unselectedTags"></app-member-filter>
-        <div class="masonryholder">
-            <app-team-member *ngFor="let person of tagService.membersToDisplay" [member]="person"></app-team-member>
-            <div class="lastTile">
+        <app-member-filter [selectedTags]="tagService.selectedTags" [unselectedTags]="tagService.unselectedTags">
+        </app-member-filter>
+        <ngx-masonry [options]="masonryOption" [ordered]="true" class="masonryholder">
+            <!-- TODO: Make sure, the order is correct when removing filters (masonry.reloadItems()) -->
+            <app-team-member ngxMasonryItem class="masonryItem" *ngFor="let person of tagService.membersToDisplay"
+                [member]="person"></app-team-member>
+            <!-- TODO: Make sure "lastTile" is at the end of masonry -->
+            <div ngxMasonryItem class="masonryItem lastTile">
                 <div>
                     <img src="assets/images/undraw_people_tax5.svg">
                 </div>
@@ -24,6 +28,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+            <div class="gutter-sizer"></div>
+        </ngx-masonry>
     </div>
 </div>

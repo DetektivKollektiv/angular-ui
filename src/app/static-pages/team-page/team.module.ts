@@ -8,6 +8,7 @@ import { MemberFilterComponent } from './member-filter/member-filter.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { TagIconModule } from '@shared/tag-icon/tag-icon.module';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { TagIconModule } from '@shared/tag-icon/tag-icon.module';
       BreadcrumbModule,
       RouterModule,
       HttpClientModule,
-      TagIconModule
+      TagIconModule,
+      NgxMasonryModule
     ]
   })
   export class TeamModule{

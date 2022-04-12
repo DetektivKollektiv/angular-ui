@@ -19,20 +19,22 @@
       font-size: 16px;
     }
     .masonryholder {
-      @media only screen and (max-width: 479px) {
-        column-count: 1;
+      .gutter-sizer{
+        width:2%
       }
-      @media only screen and (min-width: 480px) and (max-width: 1023px) {
-        column-count: 2;
-      }
-      @media only screen and (min-width: 1024px) {
-        padding: 0;
-        column-count: 3;
-      }
-      @media only screen and (min-width: 1350px) {
-        padding: 0;
-        max-width: 1240px;
-        column-count: 3;
+      max-width: 1240px;
+      .masonryItem{
+        @media only screen and (max-width: 479px) {
+          width:100%;
+        }
+        @media only screen and (min-width: 480px) and (max-width: 1023px) {
+          width:48%;
+        }
+        @media only screen and (min-width: 1024px) {
+          width:32%;
+          padding: 0;
+        }
+ 
       }
       .lastTile {
         display: inline-block;
@@ -54,21 +56,6 @@
           width: 200px;
           height: auto;
           transform: translate(0%, -15px);
-        }
-        @media screen and (max-width: 479px) {
-          width: 100%;
-        }
-        @media screen and (min-width: 480px) and (max-width: 783px) {
-          width: 260px;
-        }
-        @media screen and (min-width: 784px) and (max-width: 1023px) {
-          width: 310px;
-        }
-        @media screen and (min-width: 1024px) {
-          width: 260px;
-        }
-        @media screen and (min-width: 1350px) {
-          width: 355px;
         }
         a {
           text-decoration: none;

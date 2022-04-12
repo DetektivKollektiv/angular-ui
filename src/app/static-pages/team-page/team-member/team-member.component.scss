@@ -7,6 +7,7 @@
   padding: 20px 10px;
   box-sizing: border-box;
   border-radius: 30px;
+  width: 100%;
   height: auto;
   margin: 10px 0;
   p {
@@ -16,22 +17,7 @@
   h3 {
     @include fonts.font__pt-mono--bold;
   }
-  @media screen and (max-width: 479px) {
-    width: 100%;
   }
-  @media screen and (min-width: 480px) {
-    width: 260px;
-  }
-  @media screen and (min-width: 784px) {
-    width: 310px;
-  }
-  @media screen and (min-width: 1024px) {
-    width: 260px;
-  }
-  @media screen and (min-width: 1350px) {
-    width: 355px;
-  }
-}
 .icon {
   color: white;
   width: 25px;
