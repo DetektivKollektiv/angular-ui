@@ -5,15 +5,18 @@
 }
 
 .supporters {
-
-  @media screen and(min-width: $breakpoint-l) {    
+  @media screen and(min-width: $breakpoint-l) {
     padding: 0 0 30px 0;
-  }  
+  }
 
   .supporter-group {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
+    @media screen and(min-width: $breakpoint-l) {
+      width: 70%;
+      margin: auto;
+    }
   }
 }
