@@ -7,10 +7,8 @@
         <app-member-filter [selectedTags]="tagService.selectedTags" [unselectedTags]="tagService.unselectedTags">
         </app-member-filter>
         <ngx-masonry [options]="masonryOption" [ordered]="true" class="masonryholder">
-            <!-- TODO: Make sure, the order is correct when removing filters (masonry.reloadItems()) -->
-            <app-team-member ngxMasonryItem class="masonryItem" *ngFor="let person of tagService.membersToDisplay"
+            <app-team-member ngxMasonryItem [prepend]="true" class="masonryItem" *ngFor="let person of tagService.membersToDisplay.reverse()"
                 [member]="person"></app-team-member>
-            <!-- TODO: Make sure "lastTile" is at the end of masonry -->
             <div ngxMasonryItem class="masonryItem lastTile">
                 <div>
                     <img src="assets/images/undraw_people_tax5.svg">
