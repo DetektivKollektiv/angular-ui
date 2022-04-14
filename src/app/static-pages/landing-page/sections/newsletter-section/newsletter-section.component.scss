@@ -25,6 +25,14 @@ h1 {
       display: flex;
       flex-direction: column;
 
+      .image {
+        align-self: center;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          align-self: flex-end;
+        }
+      }
+
       .heading {
         @include fonts.font__effra--bold;
         font-size: 21px;
@@ -43,26 +51,22 @@ h1 {
           text-align: end;
         }
       }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
 
       .data-privacy {
         @include fonts.font__effra--regular;
         font-size: 14px;
         color: colors.$color__old-paragraph;
 
-        @media screen and(min-width: variables.$breakpoint-xs) {
-          text-align: end;
-        }
-
         a {
           cursor: pointer;
           color: colors.$color__mysterious-blue;
         }
       }
-    }
-
-    .form {
-      display: flex;
-      flex-direction: column;
 
       &-actions {
         display: flex;

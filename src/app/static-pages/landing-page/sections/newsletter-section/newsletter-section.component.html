@@ -9,9 +9,6 @@
         Abonniere unseren Newsletter, um über alle wichtigen Entwicklungen rund um unsere Trust-Checking Plattform und den Verein codetekt
         e.V. informiert zu werden!
       </p>
-      <p class="data-privacy">
-        Durch das Abonnement des Newsletters stimmst du der <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> zu.
-      </p>
     </div>
 
     <form [formGroup]="form" #formDirective="ngForm" class="form" (ngSubmit)="subscribe(formDirective)">
@@ -28,6 +25,9 @@
         <mat-label>Nachname</mat-label>
         <input matInput formControlName="lastname" />
       </mat-form-field>
+      <p class="data-privacy">
+        Durch das Abonnement des Newsletters stimmst du der <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> zu.
+      </p>
       <div class="form-actions">
         <button class="button button--neon-blue" type="submit" [disabled]="form.invalid">Newsletter abonnieren</button>
         <p>* Pflichtfeld</p>
