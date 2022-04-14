@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
 import { CaseSort, CaseSortBy } from '../../model/case-sort';
 import { ViewportScroller } from '@angular/common';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-archive',
@@ -65,6 +66,8 @@ export class ArchiveComponent {
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Gelöste Fälle'}];
+
   archiveListFilterOpened = false;
 
   caseSortByValues: string[] = Object.values(CaseSortBy);
@@ -90,7 +93,7 @@ export class ArchiveComponent {
 
   onApplyFilter(caseFilter: CaseFilter) {
     const { minValue, maxValue, ...filter } = caseFilter;
-    this.store.dispatch(new SetFilter({ ...filter, minValue: minValue / 25, maxValue: maxValue / 25 }));
+    this.store.dispatch(new SetFilter({ ...filter, minValue, maxValue }));
     this.archiveListFilterOpened = false;
   }
 

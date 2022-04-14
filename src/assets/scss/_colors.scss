@@ -3,9 +3,11 @@
 $color__bittersweet: #ff7268;
 $color__neon-blue: #5f38fa;
 $color__neon-blue--focus: lighten($color__neon-blue, 5);
+$color__neon-blue--inverted: #f9f0ff;
 
 $color__supernova: #fac800;
 $color__mysterious-blue: #160637;
+$color__dark-blue: #190279;
 
 $color__white: #ffffff;
 $color__grey: #808080;
@@ -15,7 +17,8 @@ $color__purple: #722ed1;
 $color__purple_gradient: #53407b;
 $color__gold: #be9843;
 $color__green: #3a9832;
-$color__blue: #2A79E5;
+$color__blue: #2a79e5;
+$color__celestial_stone: #52c2c4;
 
 $color__page-content-background: #fbfbfb;
 $color__pagination-background: #dddddd;
@@ -123,6 +126,16 @@ $color__badge: $color__mysterious-blue;
 $color__badge-icon: $color__white;
 $color__badge-headline: $color__white;
 $color__badge-description: $color__white;
+
+// $color__charity: $color__dark-blue;
+// $color__charity: $color__spacer;
+$color__charity: $color__mysterious-blue;
+
+$color__social-media-twitter: #1da1f2;
+$color__social-media-instagram: #ff7068;
+$color__social-media-linkedin: #0077b5;
+$color__social-media-signal: #3976ef;
+$color__social-media-facebook: #166fe5;
 
 .color__bittersweet {
   background-color: $color__bittersweet;

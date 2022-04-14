@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth/auth-guard/auth.guard';
 import { ProfileComponent } from './profile/components/profile/profile.component';
-import { HomeComponent } from './home/components/home/home.component';
 import { SubmitPageComponent } from './submit-item/components/submit-page/submit-page.component';
 import { SubmitSuccessPageComponent } from './submit-item/components/submit-success-page/submit-success-page.component';
 import { ReviewSuccessPageComponent } from './review-item/components/review-success-page/review-success-page.component';

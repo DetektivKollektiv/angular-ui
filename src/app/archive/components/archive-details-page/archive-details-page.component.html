@@ -1,15 +1,17 @@
-<div class="archive-details-page standard-content-container-width">
-  <section class="top">
+<div class="archive-details-page">
+  <section class="top-section standard-content-container-width">
     <app-case-details *ngIf="case" [case]="case">
-      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
+      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
   </section>
 
-  <app-question-carousel [questions]="archiveQuestions">
-    <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
-  </app-question-carousel>
+  <section class="section-of-questions standard-content-container-width">
+    <app-question-carousel [questions]="archiveQuestions">
+      <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
+    </app-question-carousel>
+  </section>
 
-  <section class="bottom">
+  <section class="bottom-section standard-content-container-width">
     <div class="facts">
       <app-edgy-background></app-edgy-background>
 
@@ -46,11 +48,12 @@
       </div>
 
       <div class="detectives">
-        <div class="detectives__title">Ermittelnde Detektive</div>
+        <div class="detectives__title">Ermittelnde Detektiv*innen</div>
         <app-detective-list [detectives]="detectives$ | async" [loading]="(detailItem$ | async) === null"></app-detective-list>
       </div>
       <div class="comments" *ngIf="case">
         <div class="comments__title">Fallbewertungskommentare</div>
+        <div class="hint-italic" *ngIf="(reviewComments$ | async)?.length == 0">Die Detektiv*innen haben diesen Fall nicht kommentiert.</div>
         <app-comment-list [comments]="reviewComments" *ngIf="reviewComments$ | async as reviewComments"></app-comment-list>
       </div>
 
@@ -76,7 +79,7 @@
       <div class="discussion" id="archive-details-discussion-section">
         <div class="collapsible-toolbar">
           <span class="collapsible-toolbar__title">Communitydiskussion</span>
-          <ng-container *ngIf="authenticated$ | async">
+          <ng-container *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length > 0">
             <span class="collapsible-toolbar__toggle" (click)="isDiscussionCollapsed = !isDiscussionCollapsed">{{
               isDiscussionCollapsed ? 'einblenden' : 'ausblenden'
             }}</span>
@@ -84,7 +87,10 @@
           </ng-container>
         </div>
 
-        <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async)">
+        <div class="hint-italic" *ngIf="(authenticated$ | async) && (communityComments$ | async)?.length == 0">
+           Zu diesem Fall gibt es noch keinen Kommentar, schreibe den ersten ...
+        </div>
+        <div class="discussion__body" *ngIf="!isDiscussionCollapsed && (authenticated$ | async) && (communityComments$ | async)?.length > 0">
           <div
             *ngIf="communityComments$ | async as communityComments"
             class="discussion__comments"

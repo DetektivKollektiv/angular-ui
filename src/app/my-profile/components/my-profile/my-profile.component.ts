@@ -5,6 +5,7 @@ import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { DeleteUserDialogComponent } from '../../../core/dialogs/delete-user-dialog/delete-user-dialog.component';
 import { UserService } from '../../../core/services/user/user.service';
 import { Globals } from '@shared/helper/globals/globals';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
 @Component({
   selector: 'app-my-profile',
@@ -16,6 +17,8 @@ export class MyProfileComponent {
   authState$ = this.authService.auth$;
 
   page = 1;
+
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Dashboard', homelink: true}];
 
   constructor(private userService: UserService, private authService: AuthService, private router: Router, private dialog: MatDialog) {}
 

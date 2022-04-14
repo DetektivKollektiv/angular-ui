@@ -1,3 +1,4 @@
+@use '../../../../assets/scss/colors' as colors;
 @import '../../../../assets/scss/initializer';
 
 .faq-page {
@@ -7,11 +8,11 @@
     h1 {
       font-size: 52px;
       font-weight: 700;
-      color: #4a4a4a;
+      color: colors.$color__share-section-heading;
     }
 
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
   }
 

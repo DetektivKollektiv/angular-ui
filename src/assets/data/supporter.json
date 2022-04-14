@@ -9,15 +9,18 @@
     "image": "assets/images/supporter/anstossdemokratie.png"
   },
   {
-    "image": "assets/images/supporter/betterplacelab.png"
+    "image": "assets/images/supporter/dda.png"
   },
   {
-    "image": "assets/images/supporter/dda.png"
+    "image": "assets/images/supporter/mimikama.png"
   },
   {
     "image": "assets/images/supporter/send.png"
   },
   {
     "image": "assets/images/supporter/updatedeutschland.svg"
+  },
+  {
+    "image": "assets/images/supporter/betterplacelab.png"
   }
 ]

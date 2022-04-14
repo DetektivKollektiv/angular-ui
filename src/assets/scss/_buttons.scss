@@ -216,7 +216,8 @@
 
     &#{$parent}--neon-blue {
       color: $color__neon-blue;
-      background-color: #f9f0ff;
+      background-color: $color__neon-blue--inverted;
+      border-color: $color__neon-blue--inverted;
     }
 
     &#{$parent}--bittersweet {

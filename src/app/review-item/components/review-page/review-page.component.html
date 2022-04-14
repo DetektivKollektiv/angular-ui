@@ -1,14 +1,16 @@
 <div class="review-page standard-content-container-width" *ngIf="case$ | async as case">
   <section class="top">
-    <app-case-details [case]="case" [description]="description">
-      <app-breadcrumb class="breadcrumb" [links]="breadcrumbLinks"></app-breadcrumb>
+    <app-case-details [case]="case" [description]="!isOpenReview ? description_intro : description_review">
+      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     </app-case-details>
     <app-user-experience-bubble-list [userExperienceBubbles]="userExperienceBubbles"></app-user-experience-bubble-list>
   </section>
 
-  <app-question-carousel [questions]="questionPrompts">
-    <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
-  </app-question-carousel>
+  <div class="section-of-questions standard-content-container-width">
+    <app-question-carousel [questions]="questionPrompts">
+      <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
+    </app-question-carousel>
+  </div>
 
   <section class="bottom">
     <div class="facts">
@@ -27,7 +29,7 @@
         <div class="button-container">
           <button appButton (click)="accept()">
             <i class="fas fa-check"></i>
-            <span>Fall annehmen</span>
+            <span>Fall bearbeiten</span>
           </button>
           <button appButton mode="reject" routerLink="/">Fall ablehnen</button>
         </div>
@@ -66,20 +68,6 @@
       <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
     </div>
     <div class="legal">
-      <h2>Rechtliche Angaben</h2>
-      <p class="explain">Bitte bestätige zum Abschluss die <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> und die <a href="/terms" target="_blank">Nutzungsbedingungen</a>.</p>
-      <div class="legal__container">
-        <mat-checkbox formControlName="policy">
-          <div class="option">
-            <span>Ich stimme den Bedingungen der <a href="/privacy-statement" target="_blank">Datenschutzerklärung</a> zu.</span>
-          </div>
-        </mat-checkbox>
-        <mat-checkbox formControlName="legal">
-          <div class="option">
-            <span>Ich stimme den <a href="/terms" target="_blank">Nutzungsbedingungen</a> zu.</span>
-          </div>
-        </mat-checkbox>
-      </div>
       <div class="button-container button-container--legal">
         <a appButton routerLink="/" mode="reject">Abbrechen</a>
         <button type="submit" appButton (click)="closeReview()">Lösung einreichen</button>

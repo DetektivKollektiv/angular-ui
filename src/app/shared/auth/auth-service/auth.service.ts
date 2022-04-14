@@ -39,10 +39,11 @@ export class AuthService {
   public signUp(
     username: string,
     password: string,
-    email: string
+    email: string,
+    email_subscription: string = '0'
   ): Promise<OperationResult<any>> {
     return new Promise<OperationResult<any>>((resolve, reject) => {
-      Auth.signUp({ username, password, attributes: { email } })
+      Auth.signUp({ username, password, attributes: { email, 'custom:mail_subscription': email_subscription } })
         .then((value) => {
           resolve({
             success: true,

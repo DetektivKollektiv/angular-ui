@@ -37,7 +37,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
 
   user$ = this.userService.user$;
 
-  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fall lösen', link: '/reviews' }];
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Fall lösen'}];
   case: Item;
   isOpenReview: boolean;
   review: Review;
@@ -65,11 +65,15 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
     }
   ];
 
-  description =
+  description_intro =
     'Im Tatbestand unten siehst du alle für den Fall relevanten Informationen. Mache dich zunächst mit dem ' +
     'Fall vertraut und überlege, ob du ihn wirklich bearbeiten willst. Wenn du dich dazu entschlossen hast, ' +
-    'klicke bitte rechts auf "Fall annehmen" und starte Deine Bewertung.';
+    'klicke bitte auf "Fall bearbeiten" und starte Deine Bewertung.';
 
+  description_review =
+    'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig. ' +
+    'Zu jeder Aussage gibt es eine Erläuterung und einen Tipp. Beides kann Dir dabei helfen, die am besten geeignete Antwort zu finden. ' +
+    'Passt eine Aussage nicht zu dem Fall, dann wähle "Kriterium nicht anwendbar".';
   // 100 XP is always static
   userExperienceBubbles = [
     { iconName: 'star', color: '#fac800', text: '100XP', subText: 'Erfahrung', gridColor: '#160637' }
@@ -98,10 +102,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   ) {
     this.routerState = this.router.getCurrentNavigation().extras?.state;
 
-    this.reviewForm = this.formBuilder.group({
-      legal: [false, Validators.requiredTrue],
-      policy: [false, Validators.requiredTrue]
-    });
+    this.reviewForm = this.formBuilder.group({});
   }
 
   ngOnInit(): void {
@@ -183,7 +184,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   }
 
   private navigateOnNoReview(): Observable<never> {
-    this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit dem Review zu beginnen', '', {
+    this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit der Bearbeitung zu beginnen', '', {
       duration: 5000
     });
     this.router.navigate(['/']);
@@ -215,7 +216,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   private handleInvalidForm() {
     this.reviewForm.markAllAsTouched();
     this.snackBar.open(
-      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet und der Datenschutzerklärung sowie den Nutzungsbedingungen zugestimmt hast.',
+      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast.',
       '',
       { duration: 5000 }
     );

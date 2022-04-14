@@ -4,7 +4,7 @@
 
       <div class="navigation-footer__chapter">
 
-        <h3 class="navigation-footer__chapter-headline">Detektive</h3>
+        <h3 class="navigation-footer__chapter-headline">Aktion</h3>
 
         <ul class="navigation-footer__list">
           <li *ngIf="!authenticated" class="navigation-footer__item">
@@ -17,7 +17,7 @@
             <a class="navigation-footer__link" title="Fall einreichen" [routerLink]="['/submit']">Fall einreichen</a>
           </li>
           <li class="navigation-footer__item">
-            <a class="navigation-footer__link" title="Archiv" [routerLink]="['/archive']">Archiv gelöster Fälle</a>
+            <a class="navigation-footer__link" title="Archiv" [routerLink]="['/archive']">Gelöste Fälle ansehen</a>
           </li>
         </ul>
 
@@ -26,10 +26,12 @@
       <div class="navigation-footer__chapter">
 
         <h3 class="navigation-footer__chapter-headline">codetekt</h3>
-
+        <li class="navigation-footer__item">
+          <a class="navigation-footer__link" title="Überblick" [routerLink]="['/landingpage']">Überblick</a>
+        </li>
         <ul class="navigation-footer__list">
           <li class="navigation-footer__item">
-            <a class="navigation-footer__link" title="Über uns" [routerLink]="['/about']">Über uns</a>
+            <a class="navigation-footer__link" title="Über uns" [routerLink]="['/about']">Der Verein</a>
           </li>
           <li class="navigation-footer__item">
             <a class="navigation-footer__link" title="Das Team" [routerLink]="['/team']">Das Team</a>
@@ -39,7 +41,7 @@
           </li>
           <li class="navigation-footer__item">
             <a class="navigation-footer__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
-          </li>
+          </li>          
         </ul>
       </div>
 

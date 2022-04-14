@@ -1,8 +1,8 @@
 <div class="section-background">
     <div class="standard-content-container-width">
-        <app-breadcrumb></app-breadcrumb>
 
         <div class="intro">
+            <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
             <h1>Das codetekt Trust-Checking</h1>
             <img class="image image-mobile" src="assets/images/illustrations/trust-checking.svg" />
             <p class="text text-intro">
@@ -14,25 +14,21 @@
                 <img class="image image-desktop" src="assets/images/illustrations/trust-checking.svg" />
                 <div>
                     <p class="section-heading-grey">Unterschied zum Fact-Checking</p>
-                    <p class="text text-narrow">                       
-                        <span class="hint-italic">Fact-Checking</span> überprüft Behauptungen in Bezug auf die zugrunde liegenden Fakten. 
-                        Um den Wahrheitsgehalt einer Nachricht zu beurteilen, braucht es meist umfangreiche Expertise in einem bestimmen Bereich,
-                        viel Zeit und eine journalistische Ausbildung.<br/>                        
-                        Beim codetekt <span class="hint-italic">Trust-Checking</span> geht es nicht um "wahr oder falsch".
-                        Die Datenlage kann sich in dynamischen Situationen, zum Beispiel zu Zeiten einer Pandemie, schnell ändern.
-                        Die codetekt Community beurteilt die Vertrauenswürdigkeit von Nachrichten und Online-Artikeln
-                        auf der Basis bewährter journalistischer Qualitätskriterien, die wie eine Checkliste genutzt werden können.                        
+                    <p class="text text-narrow">
+                        <span class="hint-italic">Fact-Checking</span> prüft Behauptungen über Fakten. Um den Wahrheitsgehalt von Aussagen zu beurteilen, 
+                        braucht es umfangreiche Expertise, Zeit und gegebenenfalls eine journalistische Ausbildung. Das Fazit dieser Analyse: "wahr, falsch oder teilweise falsch".<br/>
+                        Beim codetekt <span class="hint-italic">Trust-Checking</span> geht es dagegen um die Vertrauenswürdigkeit von Nachrichten und Online-Artikeln
+                        auf der Basis bewährter journalistischer Qualitätskriterien.
+                        Das Fazit dieser Analyse: eine Skala von "wenig" bis "sehr vertrauenswürdig".                   
                     </p>
                     <p class="section-heading-grey">Mit Trust-Checking gegen Falschinformationen</p>
                     <p class="text text-narrow">
-                        Fehlende Quellenangaben, falsche Zitate und unpassende Bilder machen eine Information bereits ohne
-                        umfangreiches Prüfen der Fakten weniger vertrauenswürdig. Mit diesen und weiteren Trust-Checking Kriterien
-                        wollen wir jede*n in die Lage versetzen, selbst die Glaubwürdigkeit von Informationen schnell
-                        und möglichst objektiv einzuschätzen.<br/>
-                        Keines dieser Kriterien allein macht den finalen Vertrauensindex einer Nachricht aus, auch nicht eine Einzelbewertung.
-                        Erst die kollektive Beurteilung eines Falls mit denselben Kriterien gibt am Ende Auskunft über
-                        die Vertrauenswürdigkeit einer Information. Mehr über diesen Prozess findest du weiter unten.
-                        Let's codetekt!
+                        Fehlende Quellenangaben, falsche Zitate und unpassende Bilder machen eine Information auch ohne umfangreiches
+                        Prüfen der Fakten weniger vertrauenswürdig. Mit diesen und weiteren Kriterien wollen wir jede*n in die Lage versetzen,
+                        selbst die Glaubwürdigkeit von Informationen schnell und möglichst objektiv einzuschätzen.
+                        Keines dieser Kriterien allein macht den Vertrauensindex einer Nachricht aus, auch nicht eine Einzelbewertung.
+                        Erst die kollektive Beurteilung eines Falls mit denselben Kriterien gibt am Ende Auskunft über 
+                        die Vertrauenswürdigkeit einer Information. Let's codetekt!
                     </p>
                 </div>
             </div>
@@ -82,7 +78,7 @@
                 </p>
                 <p class="text">
                     Hat ein*e Detektiv*in einen Fall angenommen, startet die Bearbeitung mit Fragen, die auf einer Zustimmungsskala beantwortet werden können.
-                    Die 7-8 Fragen werden nach dem Zufallsprinzip aus einem Katalog von insgesamt 12 Fragen gestellt, 
+                    Die 7-8 Fragen werden nach dem Zufallsprinzip aus einem Katalog von insgesamt 15 Fragen gestellt, 
                     sie unterscheiden sich leicht nach der Art des Falls (Textnachricht oder Online-Artikel). 
                     Neben den Antworten können die Detektiv*innnen auch einen Kommentar zum Fall hinterlassen.
                 </p>

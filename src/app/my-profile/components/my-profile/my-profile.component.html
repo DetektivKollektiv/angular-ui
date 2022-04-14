@@ -1,13 +1,13 @@
 <div class="profile-page" *ngIf="user$ | async as user">
   <section class="top-section standard-content-container-width">
-    <app-breadcrumb></app-breadcrumb>
+    <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     <div class="overview">
       <div class="overview__user">
         <div class="avatar">{{ user.name[0].toUpperCase() }}</div>
         <div class="overview__user-name">{{ user.name }}</div>
       </div>
       <div class="overview__intro">
-        Herzlich willkommen auf deinem Dashboard mit allen Informationen, die für dich wichtig sind.
+        Herzlich willkommen auf deinem Dashboard mit allen wichtigen Informationen.
         Hier siehst du dein aktuelles Level, persönliche Statistiken und deine Zugangsdaten.
         Du kannst die von Dir gelösten Fälle ansehen, neue Fälle bearbeiten und im Archiv der bereits gelösten Fälle stöbern.
         Unten findest du Vorschläge für Fälle, die deine Hilfe benötigen.
@@ -72,7 +72,7 @@
           </pagination-controls>
         </div>
       </div>
-      <div *ngIf="!user.closed_items.length" class="user__cases-none">
+      <div *ngIf="!user.closed_items.length" class="hint-italic">
         Noch gibt es keine abgeschlossenen Fälle, an denen du beteiligt warst.
       </div>
     </div>
@@ -84,7 +84,7 @@
 
   <section class="solved-cases">
     <img class="solved-cases__bg" src="assets/images/profile_solved_cases-bg.svg" alt="solved cases background" />
-    <app-solved-cases [expand]="false" class="solved-cases--invert"></app-solved-cases>
+    <app-solved-cases [expand]="false" [style]="'light'" class="solved-cases--invert"></app-solved-cases>
   </section>
 
   <section class="account standard-content-container-width">

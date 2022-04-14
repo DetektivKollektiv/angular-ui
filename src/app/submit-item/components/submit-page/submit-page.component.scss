@@ -6,23 +6,15 @@
   .top-section {
     display: flex;
     flex-direction: column;
-    padding: 20px 20px 0px 10px;
-
+    margin: auto;
+    padding: 20px;
     @media only screen and (min-width: 480px) {
       flex-direction: row;
       justify-content: space-between;
-      padding-left: 40px;
-    }
-    @media only screen and (min-width: 1024px) {
-      width: 800px;
-      margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
-    }
-    @media only screen and (min-width: 1350px) {
-      width: 1200px;
-      margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
     }
 
     .overview-section {
+      max-width: 600px;
       h1 {
         @include font__effra--bold;
         font-size: 52px;
@@ -37,17 +29,6 @@
 
   .section-of-questions {
     margin: auto;
-    @media only screen and (min-width: 480px) {
-      padding-left: 40px;
-    }
-    @media only screen and (min-width: 1024px) {
-      margin-left: calc((100vw - 600px) / 3.4); //  ~ 1/3 of extra space
-      width: 1200px;
-      padding: 20px 0 20px 40px;
-    }
-    @media only screen and (min-width: 1350px) {
-      margin-left: calc((100vw - 767px) / 3.4); //  ~ 1/3 of extra space
-    }
   }
 
   .middle-section {
@@ -56,32 +37,27 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: $color__tile-background;
 
     .middle-section-container {
       display: flex;
       flex-direction: column;
-      padding: 0px 20px 0px 20px;
       position: relative;
-
-      @media only screen and (min-width: 480px) {
-        padding-left: 40px;
-      }
-      @media only screen and (min-width: 1024px) {
-        width: 600px;
-        margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
-      }
-      @media only screen and (min-width: 1350px) {
-        width: 740px;
-        margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
-      }
+      margin: auto;
+      padding: 0px 20px;
 
       h2 {
         @include font__pt-mono--bold;
         font-size: 36px;
       }
-      
+
+      .sub-headline{
+        font-size: 24px;
+      }
+
       p {
         font-size: 18px;
+        max-width: 600px;
       }
 
       .display-item-type {
@@ -92,7 +68,7 @@
       .field-container p {
         @include font__pt-mono--bold;
         font-size: 16px;
-        margin-bottom: 0;
+        margin: 0;
       }
 
       .form-select {
@@ -105,10 +81,10 @@
       }
 
       .mat-form-field:not(.mat-form-field-has-label) .mat-form-field-infix {
-        border-top-width: 0;    
+        border-top-width: 0;
       }
 
-      .mat-select-arrow-wrapper .mat-select-arrow {        
+      .mat-select-arrow-wrapper .mat-select-arrow {
         margin-top: 13px;
       }
 
@@ -135,152 +111,39 @@
           border-radius: 0 10px 10px 0;
           border-width: 2px 2px 2px 2px;
         }
-      }  
-  
+      }
+
       .textarea {
         width: 100%;
         margin-top: 10px;
+        margin-bottom: 25px;
         padding: 15px;
         font-size: 16px;
         $color: $color__select-border;
-        border-color: $color__select_border;        
+        border-color: $color__select_border;
         border-radius: 10px;
-      
+        @media only screen and (min-width: 1350px) {
+          width: 50%;
+        }
         &:focus {
           border: 2px solid $color__user_input_border;
         }
       }
-
-      .lady-detective-svg-container {
-        position: absolute;
-        display: none;
-        right: -450px;
-        bottom: -55px;
-        z-index: 5;
-
-        @media only screen and (min-width: 1350px) {
-          display: block;
-        }
-      }
-    }
-  }
-
-  .chunky-border {
-    // position: absolute;
-    // left: 0;
-    // bottom: -275px;
-    // background-image: linear-gradient(to top,#53407b 10%, transparent 50%);
-
-    // display: none;
-    // @media only screen and (min-width: 1024px) {
-    //   display: block;
-    // }
-
-    // background: white;
-    // this linear gradient is just a hack because the svg had some strip of empty space at the bottom, or something like that
-    background-image: linear-gradient(to top, $color__purple_gradient 10%, transparent 50%);
-    // background-image: linear-gradient(to top, transparent 10%,white 35%);
-    svg {
-      width: 100vw;
-      height: 100%;
-      transform: translate(0, 5px) ;
-    }
-  }
-
-  .bottom-section {
-    background-image: linear-gradient(to top, $color__mysterious-blue 29%, $color__purple_gradient 99%);
-    display: flex;
-    flex-direction: column;
-
-    h2,
-    h3,
-    p,
-    div {
-      color: $color__white;
-    }
-
-    .bottom-section-content-container {
-      display: flex;
-      flex-direction: column;
-      padding: 0px 20px 0px 20px;
-      max-width: 100vw;
-      color: $color__white;
-      position: relative;
-
-      @media only screen and (min-width: 480px) {
-        padding-left: 40px;
-      }
-      @media only screen and (min-width: 1024px) {
-        width: 600px;
-        margin-left: calc((100vw - 600px) / 3.4); // ~ 1/3 of extra space
-      }
-      @media only screen and (min-width: 1350px) {
-        width: 767px;
-        margin-left: calc((100vw - 767px) / 3.4); // ~ 1/3 of extra space
-      }
-
-      h2 {
-        @include font__effra--medium;
-        font-size: 28px;
-      }
-      h3 {
-        @include font__pt-mono--bold;
-        font-size: 16px;
-        margin-bottom: 12px;
-      }
-      p {
-        font-size: 16px;
-      }
-
-      .mat-divider {
-        border-top-color: $color__white;
-      }
-
-      .option-container {
-        margin-bottom: 25px;
-
-        .radio-container {
-          font-size: 14px;
-          margin-bottom: 15px;
-
-          mat-radio-group {
-            display: flex;
-            flex-direction: column;
-
-            mat-radio-button {
-              margin: 5px 0;
-            }
-          }
-        }
-
-        input:not(:last-child) {
-          margin-bottom: 15px;
-        }
-
-        .text-input {
-          padding: 10px 15px;
-          width: 40%;
-          border: 1px solid $color__grey;
-          border-radius: 10px;
-
-          &:focus {
-            border: 1px solid $color__grey;
-          }
-        }
-
-        .other-source-input {
-          margin-top: 4px;
-        }
-      }
-
       .notify-container {
-        margin: 25px 0;
+        
+        h3 {
+          @include font__pt-mono--bold;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
       }
 
       .email-container {
         width: 40%;
         position: relative;
-
+        @media only screen and (max-width: 1024px) {
+          width: 100%;
+        }
         input {
           padding: 10px 15px;
           width: 100%;
@@ -307,49 +170,51 @@
 
       .submit-check-container {
         margin: 25px 0;
- 
+
         .mat-checkbox ~ .mat-checkbox {
+          display: block;
           margin-top: 0.5rem;
         }
         a {
           color: $color__bittersweet;
+        }
+
+        .wrap-mat-checkbox {
+          display: flex;
+          justify-content: flex-start;
+        }
+
+        .checkbox-label {
+          padding-left: 10px;
         }
       }
 
       .legal-button-container {
         margin: 25px 0;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .button-reject {
-          display: flex;
-          justify-content: flex-start;
-          text-decoration: none;    
-          color: $color__select-border;
-          border: 1px solid $color__neon-blue;
-          background-color: $color__mysterious-blue;
-
-          &:hover {
-            background-color: $color__select-border;
-            color: $color__neon-blue;
-          }
+        justify-content: flex-end;
+      }
+      .narrow {
+        @media only screen and (min-width: 1024px) {
+          width: 50%;
         }
       }
-
-      p {
-        color: $color__white;
+      .mat-divider {
+        width: 50%;
       }
-    }
 
-    .wrap-mat-radio-label {
-      white-space: normal;
-    }
+      .lady-detective-svg-container {
+        position: absolute;
+        display: none;
+        right: 50px;
+        top: 50px;
+        z-index: 5;
 
-    @media only screen and (max-width: 1024px) {
-      .responsive-100 {
-        width: 100% !important;
+        @media only screen and (min-width: 1350px) {
+          display: block;
+        }
       }
     }
   }
+
 }
