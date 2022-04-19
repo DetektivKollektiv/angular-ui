@@ -15,9 +15,9 @@
         <app-member-filter [selectedTags]="tagService.selectedTags" [unselectedTags]="tagService.unselectedTags">
         </app-member-filter>
         <ngx-masonry [options]="masonryOption" [ordered]="true" class="masonryholder">
-            <app-team-member ngxMasonryItem [prepend]="true" class="masonryItem"
+            <app-team-member ngxMasonryItem [prepend]="true" class="masonry-item"
                 *ngFor="let person of tagService.membersToDisplay.reverse()" [member]="person"></app-team-member>
-            <div ngxMasonryItem class="masonryItem lastTile">
+            <div ngxMasonryItem class="masonry-item last-tile">
                 <div>
                     <img src="assets/images/undraw_people_tax5.svg">
                 </div>

@@ -51,22 +51,22 @@
         width:2%
       }
       max-width: 1240px;
-      .masonryItem{
+      .masonry-item{
         margin: 10px 0;
 
         @media only screen and (max-width: 479px) {
           width:100%;
         }
-        @media only screen and (min-width: 480px) and (max-width: 1023px) {
+        @media only screen and (min-width: 480px) and (max-width: 1400px) {
           width:48%;
         }
-        @media only screen and (min-width: 1024px) {
+        @media only screen and (min-width: 1401px) {
           width:32%;
           padding: 0;
         }
  
       }
-      .lastTile {
+      .last-tile {
         display: inline-block;
         background: $color__blue;
         padding: 0px 20px 20px;
