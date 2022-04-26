@@ -1,0 +1,13 @@
+<!-- <div *ngFor="let user of leaderboard?.top_users | slice:0:3">{{user.name}}</div> -->
+<div class="slider-container">
+    <div class="arrow-icon fas fa-arrow-left"></div>
+    <div class="leaderboard-container">
+        <div class="subheading">Die aktivsten Detektiv*innen insgesamt</div>
+        <div class="leaderboard">
+            <app-leaderboard-element [user]="leaderboard?.top_users[1]" [rank]="2"></app-leaderboard-element>
+            <app-leaderboard-element [user]="leaderboard?.top_users[0]" [rank]="1"></app-leaderboard-element>
+            <app-leaderboard-element [user]="leaderboard?.top_users[2]" [rank]="3"></app-leaderboard-element>
+        </div>
+    </div>
+    <div class="arrow-icon fas fa-arrow-right"></div>
+</div>

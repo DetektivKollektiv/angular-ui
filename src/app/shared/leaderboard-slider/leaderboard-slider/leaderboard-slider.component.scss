@@ -1,0 +1,29 @@
+@use '../../../../assets/scss/colors' as colors;
+
+.slider-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .leaderboard-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: colors.$color__case-card;
+    padding: 20px;
+    border-radius: 25px;
+
+    .leaderboard {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .arrow-icon {
+    font-size: 42px;
+    color: colors.$color__bittersweet;
+    cursor: pointer;
+    margin: 10px;
+  }
+}

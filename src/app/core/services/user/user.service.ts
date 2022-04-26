@@ -5,23 +5,24 @@ import { LevelService } from '../level/level.service';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { UserDeleteReason } from '../../model/user-delete-reason';
+import { Leaderboard } from '../../model/leaderboard';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UserService {
   public readonly user$: Observable<User>;
+  public readonly leaderboard$: Observable<Leaderboard>;
   private readonly user: BehaviorSubject<User>;
+  private readonly leaderboard: BehaviorSubject<Leaderboard>;
 
   private serviceBasePath = 'user_service';
 
-  constructor(
-    private levelService: LevelService,
-    private authService: AuthService
-  ) {
+  constructor(private levelService: LevelService, private authService: AuthService) {
     this.user = new BehaviorSubject<User>({} as User);
+    this.leaderboard = new BehaviorSubject<Leaderboard>({} as Leaderboard);
     this.user$ = this.user.asObservable();
-
+    this.leaderboard$ = this.leaderboard.asObservable();
     this.authService.isLoggedIn$.subscribe((value) => {
       if (value) {
         this.updateUser();
@@ -53,5 +54,10 @@ export class UserService {
         .then((users: User[]) => resolve(users))
         .catch()
     );
+  }
+  public getLeaderboard(): Promise<Leaderboard> {
+    return API.get(this.serviceBasePath, '/ranking', {})
+    .then((leaderboard: Leaderboard) => leaderboard)
+    .catch();
   }
 }
