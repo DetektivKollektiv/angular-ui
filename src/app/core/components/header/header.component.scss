@@ -1,5 +1,6 @@
 @charset "utf-8";
-@import "../../../../assets/scss/_initializer.scss";
+@use '../../../../assets/scss/colors' as colors;
+@import '../../../../assets/scss/_initializer.scss';
 
 .no-padding-dialog-container {
   padding: 0;
@@ -27,10 +28,10 @@
   &__navigation-main {
     display: none;
 
-    @include _b__respond-to("min-large") {
+    @include _b__respond-to('min-large') {
       display: flex;
     }
-    .button--gentle{
+    .button--gentle {
       border-radius: 0;
     }
   }
@@ -38,7 +39,7 @@
   &__navigation-mobile {
     display: flex;
 
-    @include _b__respond-to("min-large") {
+    @include _b__respond-to('min-large') {
       display: none;
     }
   }
@@ -85,7 +86,7 @@
     padding: _b__rem(6px) 0;
     display: inline-block;
     border: 2px solid transparent;
-    &:hover{
+    &:hover {
       border-bottom: 2px solid currentColor;
     }
     &,
@@ -93,7 +94,7 @@
     &:focus,
     &:active {
       text-decoration: none;
-    }   
+    }
   }
 
   .color-red {
@@ -204,7 +205,7 @@
     margin: _b__rem(2px) 0;
     display: inline-block;
     border: 2px solid transparent;
-    &:hover{
+    &:hover {
       border-bottom: 2px solid currentColor;
     }
 
@@ -216,7 +217,6 @@
     }
   }
 }
-
 
 .navigation-mobile {
   $parent: &;
@@ -237,7 +237,6 @@
   color: $color__bittersweet;
 }
 
-
 // todo: move to its own component
 .around-button {
   border: 1px solid $color__bittersweet;
@@ -253,5 +252,36 @@
   padding: 15px;
   i {
     margin-right: 7px;
+  }
+}
+
+.message-bar {
+  background-color: colors.$color__supernova;
+  display: flex;
+  justify-content: center;
+
+  .message-container {
+    padding: 0 _b__rem(16px);
+    width: 100%;
+    max-width: _b__rem(1240px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: $color__mysterious-blue;
+    a {
+      display: flex;
+      flex-direction: row;
+    }
+    p {
+      text-decoration: underline;
+      cursor: pointer;
+      color: $color__mysterious-blue;
+      font-size: 1.125rem;
+    }
+    i {
+      cursor: pointer;
+      margin-left: 5px;
+    }
   }
 }
