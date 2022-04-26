@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
@@ -22,6 +22,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Input() messageBarOpen = true;
   public authState: AuthState;
   public user: User;
   public authenticated = false;
