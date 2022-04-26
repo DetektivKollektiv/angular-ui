@@ -21,12 +21,14 @@ import { NewsSectionItemComponent } from './landing-page/sections/news-section/n
 import { FinanceSectionComponent } from './landing-page/sections/finance-section/finance-section.component';
 import { SupportUsSectionComponent } from './landing-page/sections/support-us-section/support-us-section.component';
 import { SupportUsSpecialSectionComponent } from './landing-page/sections/support-us-special-section/support-us-special-section.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { SupporterItemComponent } from './landing-page/sections/supporter-section/supporter-item/supporter-item.component';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { TrustCheckingPageComponent } from './trust-checking/trust-checking-page/trust-checking-page.component';
 import { TrustCheckingCriterionComponent } from './trust-checking/components/trust-checking-criterion/trust-checking-criterion.component';
 import { SocialMediaSectionComponent } from './landing-page/sections/social-media-section/social-media-section.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '@shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,17 @@ import { SocialMediaSectionComponent } from './landing-page/sections/social-medi
     SupportUsSpecialSectionComponent,
     SocialMediaSectionComponent
   ],
-  imports: [CommonModule, RouterModule, MyProfileModule, SolvedCasesModule, HttpClientModule, BreadcrumbModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MyProfileModule,
+    SolvedCasesModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    BreadcrumbModule,
+    FormsModule,
+    MaterialModule
+  ],
   exports: [AboutComponent, SupportUsSectionComponent, SupporterSectionComponent]
 })
 export class StaticPagesModule {}
