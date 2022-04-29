@@ -18,9 +18,9 @@ export class LeaderboardElementComponent implements OnInit {
 
   ngOnInit(): void {
     switch(this.rank){
-      case 1: this.height='100px';this.medalColorClass='goldMedal';break;
-      case 2: this.height='80px';this.medalColorClass='silverMedal';break;
-      case 3: this.height='60px';this.medalColorClass='bronzeMedal';break;
+      case 1: this.height='70px';this.medalColorClass='goldMedal';break;
+      case 2: this.height='55px';this.medalColorClass='silverMedal';break;
+      case 3: this.height='40px';this.medalColorClass='bronzeMedal';break;
     }
   }
 

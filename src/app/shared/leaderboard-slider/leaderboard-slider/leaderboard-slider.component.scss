@@ -1,29 +1,57 @@
 @use '../../../../assets/scss/colors' as colors;
 
-.slider-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+:host {
+  display: block;
+  position: relative; // so that the arrows can be positioned from it
+  .swiper-container {
+    max-width: 100vw;
 
-  .leaderboard-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: colors.$color__case-card;
-    padding: 20px;
-    border-radius: 25px;
-
-    .leaderboard {
+    .swiper-wrapper {
       display: flex;
       flex-direction: row;
+      align-items: center;
+
+      .leaderboard-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: colors.$color__case-card;
+        padding: 20px;
+        border-radius: 25px;
+
+        .subheading {
+          font-size: 21px;
+        }
+
+        .leaderboard {
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 15px;
+        }
+      }
     }
   }
+  .swiper-button-prev {
+    left: -60px;
+  }
 
-  .arrow-icon {
-    font-size: 42px;
+  .swiper-button-next {
+    right: -40px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
     color: colors.$color__bittersweet;
-    cursor: pointer;
-    margin: 10px;
+
+    i {
+      font-size: 42px;
+    }
+    &:after {
+      display: none; // hide the default arrows from swiperjs
+    }
+    @media only screen and (min-width: 1024px) {
+      display: block;
+    }
   }
 }

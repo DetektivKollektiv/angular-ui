@@ -1,13 +1,29 @@
-<!-- <div *ngFor="let user of leaderboard?.top_users | slice:0:3">{{user.name}}</div> -->
-<div class="slider-container">
-    <div class="arrow-icon fas fa-arrow-left"></div>
-    <div class="leaderboard-container">
-        <div class="subheading">Die aktivsten Detektiv*innen insgesamt</div>
-        <div class="leaderboard">
-            <app-leaderboard-element [user]="leaderboard?.top_users[1]" [rank]="2"></app-leaderboard-element>
-            <app-leaderboard-element [user]="leaderboard?.top_users[0]" [rank]="1"></app-leaderboard-element>
-            <app-leaderboard-element [user]="leaderboard?.top_users[2]" [rank]="3"></app-leaderboard-element>
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" *ngFor="let con of content">
+            <div class="leaderboard-container">
+                <div class="subheading font-bold">{{ con['headline'] }}</div>
+                <div class="leaderboard">
+                    <app-leaderboard-element *ngIf="con['users'][1]" [user]="con['users'][1]" [rank]="2">
+                    </app-leaderboard-element>
+                    <app-leaderboard-element *ngIf="con['users'][0]" [user]="con['users'][0]" [rank]="1">
+                    </app-leaderboard-element>
+                    <app-leaderboard-element *ngIf="con['users'][2]" [user]="con['users'][2]" [rank]="3">
+                    </app-leaderboard-element>
+                </div>
+                <a class="button button--neon-blue" href="/leaderboard">
+                    <i class="fas fa-trophy"></i>
+                    <span>Zur Rangliste</span>
+                </a>
+            </div>
         </div>
     </div>
-    <div class="arrow-icon fas fa-arrow-right"></div>
+</div>
+
+<div class="arrow-icon swiper-button-prev" (click)="slide(false)">
+    <i class="fas fa-arrow-left"></i>
+</div>
+<div class="arrow-icon swiper-button-next" (click)="slide(true)">
+    <i class="fas fa-arrow-right"></i>
 </div>
