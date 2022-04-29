@@ -8,5 +8,6 @@ import { Component, Input } from '@angular/core';
 export class TagIconComponent {
   @Input() tag: string;
   @Input() styleClass: string;
+  @Input() backgroundColor: string;
   @Input() iconClass = '';
 }
