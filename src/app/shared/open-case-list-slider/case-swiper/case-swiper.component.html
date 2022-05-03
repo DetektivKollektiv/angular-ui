@@ -1,8 +1,8 @@
 <div class="swiper-container">
   <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
+  <swiper #swiper [slidesPerView]="1" [spaceBetween]="50" [loop]="true">
     <!-- Slides -->
-    <div class="swiper-slide" *ngFor="let case of cases">
+    <ng-template swiperSlide *ngFor="let case of cases">
       <div class="case">
         <div class="case__arrow" (click)="slidePrev()">
           <i class="fas fa-chevron-left slide-prev"></i>
@@ -26,7 +26,7 @@
           <i class="fas fa-chevron-right slide-next"></i>
         </div>
       </div>
-    </div>
+    </ng-template>
     <div class="swiper-slide" *ngIf="!cases">
       <div class="case">
         <div class="case__container">
@@ -40,15 +40,15 @@
         </div>
       </div>
     </div>
-  </div>
+  </swiper>
 </div>
 
 <!-- If we need navigation buttons -->
 <ng-container *ngIf="cases">
-  <div class="swiper-button-prev">
+  <div class="swiper-button-prev" (click)="slidePrev()">
     <i class="fas fa-arrow-left"></i>
   </div>
-  <div class="swiper-button-next">
+  <div class="swiper-button-next" (click)="slideNext()">
     <i class="fas fa-arrow-right"></i>
   </div>
 </ng-container>
