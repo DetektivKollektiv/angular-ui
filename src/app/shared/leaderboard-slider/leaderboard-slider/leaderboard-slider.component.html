@@ -1,8 +1,8 @@
 <div class="leaderboard-swiper-container">
-    <swiper #swiper [slidesPerView]="1" [spaceBetween]="50" [loop]="true">
+    <swiper #leaderboardSwiper [slidesPerView]="1" [spaceBetween]="50" [loop]="true" [loopedSlides]="3">
         <ng-template swiperSlide *ngFor="let con of content">
             <div class="leaderboard-container">
-                <div class="arrow" (click)="slide(false)">
+                <div class="arrow" (click)="slidePrev()">
                     <i class="fas fa-chevron-left"></i>
                 </div>
                 <div class="content-container">
@@ -20,7 +20,7 @@
                         <span>Zur Rangliste</span>
                     </a>
                 </div>
-                <div class="arrow" (click)="slide(true)">
+                <div class="arrow" (click)="slideNext()">
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
@@ -28,10 +28,10 @@
     </swiper>
 </div>
 
-<div class="swiper-button-prev" (click)="slide(false)">
+<div class="swiper-button-prev" (click)="slidePrev()">
     <i class="fas fa-arrow-left"></i>
 </div>
-<div class="swiper-button-next" (click)="slide(true)">
+<div class="swiper-button-next" (click)="slideNext()">
     <i class="fas fa-arrow-right"></i>
 </div>
 

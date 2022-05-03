@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, NgZone, OnInit, ViewChild } from '@angular/core';
 import { Leaderboard } from 'src/app/core/model/leaderboard';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { SwiperComponent } from 'swiper/angular';
@@ -9,7 +9,7 @@ import { SwiperComponent } from 'swiper/angular';
   styleUrls: ['./leaderboard-slider.component.scss']
 })
 export class LeaderboardSliderComponent implements OnInit {
-  @ViewChild('swiper', {static: false}) swiper?: SwiperComponent;
+  @ViewChild('leaderboardSwiper', {static: false}) swiper?: SwiperComponent;
   leaderboard: Leaderboard;
   content = [];
 
@@ -35,11 +35,10 @@ export class LeaderboardSliderComponent implements OnInit {
     });
   }
 
-  slide(next: boolean) {
-    if (next) {
-      this.swiper.swiperRef.slideNext();
-    } else {
-      this.swiper.swiperRef.slidePrev();
-    }
+  slideNext() {
+    this.swiper.swiperRef.slideNext();
+  }
+  slidePrev() {
+    this.swiper.swiperRef.slidePrev();
   }
 }
