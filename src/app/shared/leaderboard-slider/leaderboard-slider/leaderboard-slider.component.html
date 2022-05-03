@@ -1,29 +1,38 @@
-<div class="swiper-container">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let con of content">
+<div class="leaderboard-swiper-container">
+    <swiper #swiper [slidesPerView]="1" [spaceBetween]="50" [loop]="true">
+        <ng-template swiperSlide *ngFor="let con of content">
             <div class="leaderboard-container">
-                <div class="subheading font-bold">{{ con['headline'] }}</div>
-                <div class="leaderboard">
-                    <app-leaderboard-element *ngIf="con['users'][1]" [user]="con['users'][1]" [rank]="2">
-                    </app-leaderboard-element>
-                    <app-leaderboard-element *ngIf="con['users'][0]" [user]="con['users'][0]" [rank]="1">
-                    </app-leaderboard-element>
-                    <app-leaderboard-element *ngIf="con['users'][2]" [user]="con['users'][2]" [rank]="3">
-                    </app-leaderboard-element>
+                <div class="arrow" (click)="slide(false)">
+                    <i class="fas fa-chevron-left"></i>
                 </div>
-                <a class="button button--neon-blue" href="/leaderboard">
-                    <i class="fas fa-trophy"></i>
-                    <span>Zur Rangliste</span>
-                </a>
+                <div class="content-container">
+                    <div class="subheading font-bold">{{ con['headline'] }}</div>
+                    <div class="leaderboard">
+                        <app-leaderboard-element *ngIf="con['users'][1]" [user]="con['users'][1]" [rank]="2">
+                        </app-leaderboard-element>
+                        <app-leaderboard-element *ngIf="con['users'][0]" [user]="con['users'][0]" [rank]="1">
+                        </app-leaderboard-element>
+                        <app-leaderboard-element *ngIf="con['users'][2]" [user]="con['users'][2]" [rank]="3">
+                        </app-leaderboard-element>
+                    </div>
+                    <a class="button button--neon-blue" href="/leaderboard">
+                        <i class="fas fa-trophy"></i>
+                        <span>Zur Rangliste</span>
+                    </a>
+                </div>
+                <div class="arrow" (click)="slide(true)">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
-        </div>
-    </div>
+        </ng-template>
+    </swiper>
 </div>
 
-<div class="arrow-icon swiper-button-prev" (click)="slide(false)">
+<div class="swiper-button-prev" (click)="slide(false)">
     <i class="fas fa-arrow-left"></i>
 </div>
-<div class="arrow-icon swiper-button-next" (click)="slide(true)">
+<div class="swiper-button-next" (click)="slide(true)">
     <i class="fas fa-arrow-right"></i>
 </div>
+
+

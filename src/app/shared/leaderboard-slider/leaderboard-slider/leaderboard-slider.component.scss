@@ -3,22 +3,32 @@
 :host {
   display: block;
   position: relative; // so that the arrows can be positioned from it
-  .swiper-container {
+
+  .leaderboard-swiper-container {
+    position: relative;
     max-width: 100vw;
 
-    .swiper-wrapper {
+    .leaderboard-container {
       display: flex;
       flex-direction: row;
       align-items: center;
 
-      .leaderboard-container {
+      max-width: 100vw;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      background-color: colors.$color__case-card;
+      padding: 20px;
+      border-radius: 25px;
+      text-align: center;
+
+      .content-container {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: colors.$color__case-card;
-        padding: 20px;
-        border-radius: 25px;
 
         .subheading {
           font-size: 21px;
@@ -26,8 +36,24 @@
 
         .leaderboard {
           display: flex;
-          flex-direction: row;
           margin-bottom: 15px;
+          flex-direction: column;
+          align-items: center;
+          @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            align-items: flex-end;
+          }
+          app-leaderboard-element {
+            margin-top: 5px;
+          }
+        }
+      }
+
+      .arrow i{
+        font-size: 20px;
+        color: colors.$color__old-paragraph;
+        @media only screen and (min-width: 1024px) {
+          display: none;
         }
       }
     }
@@ -41,17 +67,16 @@
   }
   .swiper-button-prev,
   .swiper-button-next {
-    display: none;
-    color: colors.$color__bittersweet;
-
-    i {
-      font-size: 42px;
-    }
+    display:none;
     &:after {
       display: none; // hide the default arrows from swiperjs
     }
     @media only screen and (min-width: 1024px) {
       display: block;
+      color: colors.$color__bittersweet;
+      i {
+        font-size: 42px;
+      }
     }
   }
 }
