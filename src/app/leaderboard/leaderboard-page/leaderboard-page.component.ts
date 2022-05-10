@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 import { Leaderboard } from 'src/app/core/model/leaderboard';
 import { UserService } from 'src/app/core/services/user/user.service';
 import Swiper from 'swiper';
@@ -17,6 +18,9 @@ export class LeaderboardPageComponent implements OnInit {
   prevIndex = 2;
   leaderboard: Leaderboard;
   content = [];
+
+  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Leaderboard'}];
+
 
   constructor(private user_service: UserService) {}
 

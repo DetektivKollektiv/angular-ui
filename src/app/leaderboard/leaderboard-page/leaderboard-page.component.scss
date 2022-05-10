@@ -23,6 +23,7 @@
       @include font__effra--bold;
       font-size: 40px;
       line-height: normal;
+      margin: 0.5rem 0;
       @media only screen and (min-width: $breakpoint-s) {
         max-width: 65%;
         font-size: 52px;
