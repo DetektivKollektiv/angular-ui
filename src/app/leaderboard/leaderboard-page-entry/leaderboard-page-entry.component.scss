@@ -1,5 +1,7 @@
 @use '../../../assets/scss/colors' as colors;
 @import '../../../assets/scss/_initializer.scss';
+@import '../../../assets/scss/variables';
+
 
 .container {
   display: flex;
@@ -63,6 +65,9 @@
       .user-name {
         @include font__effra--bold;
         font-size: 20px;
+        max-width: 45vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .level {
         @include font__effra--regular;
@@ -72,6 +77,11 @@
   }
   .points {
     @include font__effra--regular;
-    font-size: 30px;
+    font-size: 20px;
+    min-width: fit-content;
+
+    @media only screen and (min-width: $breakpoint-s) {
+      font-size: 30px;
+    }
   }
 }
