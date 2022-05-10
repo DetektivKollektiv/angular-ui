@@ -1,0 +1,77 @@
+@use '../../../assets/scss/colors' as colors;
+@import '../../../assets/scss/_initializer.scss';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 15px;
+  &.gold {
+    background-color: colors.$color__gold-background;
+    .left-side {
+      .ranking {
+        background-color: colors.$color__gold-medal;
+      }
+    }
+  }
+  &.silver {
+    background-color: colors.$color__silver-background;
+    .left-side {
+      .ranking {
+        background-color: colors.$color__silver-medal;
+      }
+    }
+  }
+  &.bronze {
+    background-color: colors.$color__bronze-background;
+    .left-side {
+      .ranking {
+        background-color: colors.$color__bronze-medal;
+      }
+    }
+  }
+  &.default {
+    background-color: colors.$color__tile-background;
+    .left-side {
+      .ranking {
+        background-color: colors.$color__tag-background;
+      }
+    }
+  }
+  .left-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .ranking {
+      @include font__effra--bold;
+      color: white;
+      font-size: 30px;
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+      text-align: center;
+      margin-right: 20px;
+    }
+    .user-container {
+      display: flex;
+      flex-direction: column;
+      padding-left: 5px;
+      .user-name {
+        @include font__effra--bold;
+        font-size: 20px;
+      }
+      .level {
+        @include font__effra--regular;
+        font-size: 15px;
+      }
+    }
+  }
+  .points {
+    @include font__effra--regular;
+    font-size: 30px;
+  }
+}

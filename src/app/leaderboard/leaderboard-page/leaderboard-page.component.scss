@@ -1,0 +1,101 @@
+@use '../../../assets/scss/colors' as colors;
+@import '../../../assets/scss/_initializer.scss';
+@import '../../../assets/scss/variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  padding: 0 5px;
+  @media only screen and (min-width: $breakpoint-s) {
+    padding: 0;
+  }
+  .header-section {
+    display: flex;
+    flex-direction: column;
+    @media only screen and (min-width: $breakpoint-s) {
+      flex-direction: row;
+    }
+
+    justify-content: space-between;
+    align-items: center;
+    p {
+      @include font__effra--bold;
+      font-size: 40px;
+      line-height: normal;
+      @media only screen and (min-width: $breakpoint-s) {
+        max-width: 65%;
+        font-size: 52px;
+      }
+    }
+    .medal-container {
+      .silver {
+        font-size: 50px;
+        @media only screen and (min-width: $breakpoint-xl) {
+          font-size: 100px;
+        }
+        color: colors.$color__silver-medal;
+      }
+      .gold {
+        font-size: 75px;
+        @media only screen and (min-width: $breakpoint-xl) {
+          font-size: 150px;
+        }
+        color: colors.$color__gold-medal;
+        margin: 0 10px;
+      }
+      .bronze {
+        font-size: 50px;
+        @media only screen and (min-width: $breakpoint-xl) {
+          font-size: 100px;
+        }
+        color: colors.$color__bronze-medal;
+      }
+    }
+  }
+  .menu-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .category-headline {
+      @include font__pt-mono--bold;
+      font-size: 20px;
+      max-width: 70%;
+      text-align: center;
+      @media only screen and (min-width: $breakpoint-s) {
+        font-size: 30px;
+        max-width: 50%;
+      }
+    }
+    .arrow-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 200px;
+      cursor: pointer;
+      i {
+        color: colors.$color__bittersweet;
+        font-size: 42px;
+      }
+      span {
+        flex-direction: row;
+        display: none;
+        @media only screen and (min-width: 480px) {
+          display: block;
+        }
+
+        @include font__pt-mono--bold;
+      }
+    }
+  }
+  .leaderboard-section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    .leaderboard-entry {
+      margin-top: 10px;
+    }
+  }
+}

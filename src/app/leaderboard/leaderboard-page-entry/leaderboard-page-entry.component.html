@@ -1,0 +1,11 @@
+<div class="container" [ngClass]="colorClass">
+    <div class="left-side">
+        <div class="ranking">{{ this.rank }}</div>
+        <div class="user-container">
+            <div class="user-name">{{this.user.name}}</div>
+            <div class="level">{{this.user.level_description}}</div>
+        </div>
+    </div>
+    <div class="points">{{this.user.experience_points * 100}} Pkt
+    </div>
+</div>
