@@ -20,15 +20,15 @@ export class LeaderboardSliderComponent implements OnInit {
       this.leaderboard = leaderboard;
       this.content = [
         {
-          headline: 'Top Codetektiv*innen insgesamt',
+          headline: 'Top Detektiv*innen insgesamt',
           users: this.leaderboard.top_users
         },
         {
-          headline: 'Top Codetektiv*innen auf deinem Level',
+          headline: 'Top Detektiv*innen auf deinem Level',
           users: this.leaderboard.top_users_by_level
         },
         {
-          headline: 'Top Newcomer Codetektiv*innen',
+          headline: 'Top Newcomer Detektiv*innen',
           users: this.leaderboard.top_users_by_period
         }
       ];

@@ -39,11 +39,17 @@
           }
           app-leaderboard-element {
             margin-top: 5px;
+
+            &.first {
+              @media only screen and (max-width: 768px) {
+                order: -1;
+              }
+            }
           }
         }
       }
 
-      .arrow i{
+      .arrow i {
         font-size: 20px;
         color: colors.$color__old-paragraph;
         @media only screen and (min-width: 1024px) {
@@ -63,7 +69,7 @@
 
   .swiper-button-prev,
   .swiper-button-next {
-    display:none;
+    display: none;
     &:after {
       display: none; // hide the default arrows from swiperjs
     }
