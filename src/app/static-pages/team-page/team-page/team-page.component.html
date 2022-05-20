@@ -3,24 +3,29 @@
     <div class="intro">
         <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
         <h1>Wir, das Team</h1>
-        <p>codetekt ist ein Team, das dezentral deutschlandweit und darüber hinaus arbeitet. 
-        Die Aufgabe: Strategien zum Erkennen und Eindämmen von Falschinformationen entwickeln. 
-        Eine Lösung ist unsere Plattform <a class="link" href="https://codetekt.org" target="_blank">codetekt.org</a>
-        zur Bewertung der Vertrauenswürdigkeit von Online-Artikeln und Nachrichten aus Sozialen Medien oder Messenger Apps.            
+        <p>codetekt ist ein Team, das dezentral deutschlandweit und darüber hinaus arbeitet.
+            Die Aufgabe: Strategien zum Erkennen und Eindämmen von Falschinformationen entwickeln.
+            Eine Lösung ist unsere Plattform <a class="link" href="https://codetekt.org"
+                target="_blank">codetekt.org</a>
+            zur Bewertung der Vertrauenswürdigkeit von Online-Artikeln und Nachrichten aus Sozialen Medien oder
+            Messenger Apps.
         </p>
     </div>
     <div class="teampage-container">
-        <!--<app-member-filter [membertag]="tagsInfo"></app-member-filter> --IST FÜR DIE FILTERUNG!!-->
-        <div class="masonryholder">
-            <app-team-member *ngFor="let person of members" [member]="person" [membertag]="tagsInfo"></app-team-member>
-            <div class="lastTile">
+        <app-member-filter [selectedTags]="tagService.selectedTags" [unselectedTags]="tagService.unselectedTags">
+        </app-member-filter>
+        <ngx-masonry [options]="masonryOption" [ordered]="true" class="masonryholder">
+            <app-team-member ngxMasonryItem [prepend]="true" class="masonry-item"
+                *ngFor="let person of tagService.membersToDisplay.reverse()" [member]="person"></app-team-member>
+            <div ngxMasonryItem class="masonry-item last-tile">
                 <div>
                     <img src="assets/images/undraw_people_tax5.svg">
                 </div>
                 <div>
                     <h3>Und du?</h3>
-                    <p>Du willst Teil unseres Teams werden und uns beim Aufbau einer Community gegen
-                        Falschinformationen unterstützen? Dann schreib uns gerne eine E-Mail. Wir melden uns bei
+                    <p>Du willst Teil unseres Teams werden und uns beim Aufbau einer Gemeinschaft gegen
+                        Falschinformationen unterstützen? Dann schreib uns einfach eine kurze Mail. Wir melden uns
+                        bei
                         dir und vereinbaren einen Termin zum gegenseitigen Kennenlernen!</p>
                     <a href="mailto:info@codetekt.org?subject=Unterst%C3%BCtzungsanfrage%20codetekt"
                         title="Anfrage an Codetekt">
@@ -30,6 +35,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+            <div class="gutter-sizer"></div>
+        </ngx-masonry>
     </div>
 </div>

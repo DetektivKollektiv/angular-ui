@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TagInfo } from 'src/app/model/membertags';
 import { TagService } from 'src/app/static-pages/team-page/team-page/tag.service';
+import { TagInfo } from 'src/app/model/membertags';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-member-filter',
@@ -9,12 +11,13 @@ import { TagService } from 'src/app/static-pages/team-page/team-page/tag.service
 })
 export class MemberFilterComponent implements OnInit {
 
-  @Input() membertag: TagInfo[];
+  @Input() selectedTags: TagInfo[];
+  @Input() unselectedTags: TagInfo[];
+  unselectedColor= '#DCDCDC';
   isCollapsed = true;
-  tagColor = 'membertag.color';
-  constructor(public tagService: TagService) {}
+  constructor(public tagService: TagService, private httpClient: HttpClient) { }
 
-  toggleCollapse(){
+  toggleCollapse() {
     this.isCollapsed = !this.isCollapsed;
   }
   ngOnInit(): void {
