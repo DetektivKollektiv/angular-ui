@@ -2,7 +2,6 @@
 @import '../../../assets/scss/_initializer.scss';
 @import '../../../assets/scss/variables';
 
-
 .container {
   display: flex;
   flex-direction: row;
@@ -75,13 +74,19 @@
       }
     }
   }
-  .points {
+  .points-mobile {
     @include font__effra--regular;
     font-size: 20px;
     min-width: fit-content;
-
     @media only screen and (min-width: $breakpoint-s) {
-      font-size: 30px;
+    display: none;
+    }
+  }
+  .points-desktop {
+    display: none;
+    @media only screen and (min-width: $breakpoint-s) {
+      display: block;
+      font-size: 25px;
     }
   }
 }

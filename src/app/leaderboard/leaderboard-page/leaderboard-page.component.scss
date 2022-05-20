@@ -98,4 +98,11 @@
       margin-top: 10px;
     }
   }
+  .placeholder {
+    text-align: center;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 15px;
+    background-color: colors.$color__tile-background;
+  }
 }

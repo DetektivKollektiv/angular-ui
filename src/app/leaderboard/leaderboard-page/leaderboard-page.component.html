@@ -26,6 +26,7 @@
                 <app-leaderboard-page-entry *ngFor="let user of con['users']; index as i" class="leaderboard-entry"
                     [user]="user" [rank]="i + 1"></app-leaderboard-page-entry>
             </div>
+            <div class="placeholder" *ngIf="con['users']?.length == 0">Dieses Leaderboard ist leider gerade leer. Schau doch später nochmal vorbei! :)</div>
         </ng-template>
     </swiper>
 </div>
