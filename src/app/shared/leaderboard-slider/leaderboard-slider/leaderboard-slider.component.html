@@ -1,41 +1,38 @@
 <div class="leaderboard-swiper-container">
-    <swiper #leaderboardSwiper [slidesPerView]="1" [spaceBetween]="50" [loop]="true" [loopedSlides]="3">
-        <ng-template swiperSlide *ngFor="let category of leaderboard">
-            <div class="leaderboard-container">
-                <div class="arrow" (click)="slidePrev()">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="content-container">
-                    <div class="subheading font-bold">{{ category?.headline }}</div>
-                    <div class="leaderboard">
-                        <app-leaderboard-element *ngIf="category['users'][1]" [user]="category['users'][1]" [rank]="2">
-                        </app-leaderboard-element>
-                        <app-leaderboard-element *ngIf="category['users'][0]" [user]="category['users'][0]" [rank]="1" class="first">
-                        </app-leaderboard-element>
-                        <app-leaderboard-element *ngIf="category['users'][2]" [user]="category['users'][2]" [rank]="3">
-                        </app-leaderboard-element>
-                    </div>
-                    <div class="placeholder" *ngIf="category['users'].length == 0">
-                        Dieses Leaderboard ist leider gerade leer. <br> Schau doch später nochmal vorbei! :)
-                    </div>
-                    <a class="button button--neon-blue" href="/leaderboard">
-                        <i class="fas fa-trophy"></i>
-                        <span>Zur Rangliste</span>
-                    </a>
-                </div>
-                <div class="arrow" (click)="slideNext()">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
-        </ng-template>
-    </swiper>
+  <swiper #leaderboardSwiper [slidesPerView]="1" [spaceBetween]="50" [loop]="true" [loopedSlides]="3">
+    <ng-template swiperSlide *ngFor="let category of leaderboard">
+      <div class="leaderboard-container">
+        <div class="arrow" (click)="slidePrev()">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="content-container">
+          <div class="subheading font-bold">{{ category?.headline }}</div>
+          <div class="leaderboard">
+            <app-leaderboard-element *ngIf="category['users'][1]" [user]="category['users'][1]" [rank]="2"> </app-leaderboard-element>
+            <app-leaderboard-element *ngIf="category['users'][0]" [user]="category['users'][0]" [rank]="1" class="first">
+            </app-leaderboard-element>
+            <app-leaderboard-element *ngIf="category['users'][2]" [user]="category['users'][2]" [rank]="3"> </app-leaderboard-element>
+          </div>
+          <div class="placeholder" *ngIf="category['users'].length == 0">
+            Diese Rangliste ist leider gerade leer. <br />
+            Schau doch später nochmal vorbei! :)
+          </div>
+          <a class="button button--neon-blue" href="/leaderboard">
+            <i class="fas fa-trophy"></i>
+            <span>Zur Rangliste</span>
+          </a>
+        </div>
+        <div class="arrow" (click)="slideNext()">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
 </div>
 
 <div class="swiper-button-prev" (click)="slidePrev()">
-    <i class="fas fa-arrow-left"></i>
+  <i class="fas fa-arrow-left"></i>
 </div>
 <div class="swiper-button-next" (click)="slideNext()">
-    <i class="fas fa-arrow-right"></i>
+  <i class="fas fa-arrow-right"></i>
 </div>
-
-
