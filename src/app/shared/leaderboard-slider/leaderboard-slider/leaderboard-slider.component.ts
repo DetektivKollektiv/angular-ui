@@ -1,5 +1,5 @@
 import { Component, Input, NgZone, OnInit, ViewChild } from '@angular/core';
-import { Leaderboard } from 'src/app/core/model/leaderboard';
+import { LeaderboardCategory } from 'src/app/core/model/leaderboard';
 import { UserService } from 'src/app/core/services/user/user.service';
 import { SwiperComponent } from 'swiper/angular';
 
@@ -9,30 +9,19 @@ import { SwiperComponent } from 'swiper/angular';
   styleUrls: ['./leaderboard-slider.component.scss']
 })
 export class LeaderboardSliderComponent implements OnInit {
-  @ViewChild('leaderboardSwiper', {static: false}) swiper?: SwiperComponent;
-  leaderboard: Leaderboard;
-  content = [];
+  @ViewChild('leaderboardSwiper', { static: false }) swiper?: SwiperComponent;
+  leaderboard?;
 
-  constructor(private user_service: UserService) {}
+  constructor(private user_service: UserService) {
+    user_service.getLeaderboard().then((leaderboard: [LeaderboardCategory]) => {
+      this.leaderboard = leaderboard;
+    });
+  }
 
   ngOnInit(): void {
-    this.user_service.getLeaderboard().then((leaderboard: Leaderboard) => {
-      this.leaderboard = leaderboard;
-      this.content = [
-        {
-          headline: 'Top Detektiv*innen insgesamt',
-          users: this.leaderboard.top_users
-        },
-        {
-          headline: 'Top Detektiv*innen auf deinem Level',
-          users: this.leaderboard.top_users_by_level
-        },
-        {
-          headline: 'Top Newcomer Detektiv*innen',
-          users: this.leaderboard.top_users_by_period
-        }
-      ];
-    });
+    // this.user_service.getLeaderboard().then((leaderboard: [LeaderboardCategory]) => {
+    //   this.leaderboard = leaderboard;
+    // });
   }
 
   slideNext() {
