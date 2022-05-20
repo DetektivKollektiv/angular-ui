@@ -10,23 +10,23 @@
         </div>
     </div>
     <swiper #leaderboardPageSwiper [slidesPerView]="1" [spaceBetween]="50" [loop]="true" [loopedSlides]="3" (activeIndexChange)="calculateIndexes()">
-        <ng-template swiperSlide *ngFor="let con of content">
+        <ng-template swiperSlide *ngFor="let category of leaderboard">
             <div class="menu-section">
                 <div class="arrow-container" (click)="slidePrev()">
                     <i class="fas fa-arrow-left"></i>
-                    <span>{{ content[prevIndex]['headline'] }}</span>
+                    <span>{{ leaderboard[prevIndex]['headline'] }}</span>
                 </div>
-                <div class="category-headline">{{con['headline']}}</div>
+                <div class="category-headline">{{category['headline']}}</div>
                 <div class="arrow-container" (click)="slideNext()">
                     <i class="fas fa-arrow-right"></i>
-                    <span>{{ content[nextIndex]['headline'] }}</span>
+                    <span>{{ leaderboard[nextIndex]['headline'] }}</span>
                 </div>
             </div>
             <div class="leaderboard-section">
-                <app-leaderboard-page-entry *ngFor="let user of con['users']; index as i" class="leaderboard-entry"
+                <app-leaderboard-page-entry *ngFor="let user of category['users']; index as i" class="leaderboard-entry"
                     [user]="user" [rank]="i + 1"></app-leaderboard-page-entry>
             </div>
-            <div class="placeholder" *ngIf="con['users']?.length == 0">Dieses Leaderboard ist leider gerade leer. Schau doch später nochmal vorbei! :)</div>
+            <div class="placeholder" *ngIf="category['users']?.length == 0">Dieses Leaderboard ist leider gerade leer. Schau doch später nochmal vorbei! :)</div>
         </ng-template>
     </swiper>
 </div>

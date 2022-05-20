@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
-import { Leaderboard } from 'src/app/core/model/leaderboard';
+import { LeaderboardCategory } from 'src/app/core/model/leaderboard';
 import { UserService } from 'src/app/core/services/user/user.service';
 import Swiper from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
@@ -11,40 +11,22 @@ import { SwiperComponent } from 'swiper/angular';
   styleUrls: ['./leaderboard-page.component.scss']
 })
 export class LeaderboardPageComponent implements OnInit {
-  @ViewChild('leaderboardPageSwiper', {static: false}) swiper?: SwiperComponent;
+  @ViewChild('leaderboardPageSwiper', { static: false }) swiper?: SwiperComponent;
   @Input() currentIndex = 0;
 
   nextIndex = 1;
   prevIndex = 2;
-  leaderboard: Leaderboard;
-  content = [];
+  leaderboard = [];
 
-  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Leaderboard'}];
-
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Leaderboard' }];
 
   constructor(private user_service: UserService) {}
 
   ngOnInit(): void {
-    this.user_service.getLeaderboard().then((leaderboard: Leaderboard) => {
-      this.leaderboard = leaderboard;
-      this.content = [
-        {
-          headline: 'Top Detektiv*innen insgesamt',
-          users: this.leaderboard.top_users
-        },
-        {
-          headline: 'Top Detektiv*innen auf deinem Level',
-          users: this.leaderboard.top_users_by_level
-        },
-        {
-          headline: 'Top Newcomer Detektiv*innen',
-          users: this.leaderboard.top_users_by_period
-        }
-      ];
-    });
+    this.user_service.getLeaderboard().then((leaderboard: [LeaderboardCategory]) => (this.leaderboard = leaderboard));
   }
 
-  calculateIndexes(){
+  calculateIndexes() {
     this.currentIndex = this.swiper.swiperRef.realIndex;
     this.nextIndex = this.currentIndex < 2 ? this.currentIndex + 1 : 0;
     this.prevIndex = this.currentIndex > 0 ? this.currentIndex - 1 : 2;
