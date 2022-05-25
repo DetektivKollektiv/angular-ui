@@ -236,6 +236,19 @@
     }
   }
 
+  .leaderboard-section{
+    margin-top: 20px;
+    h2 {
+      text-align: center;
+      @include fonts.font__effra--bold;
+      font-size: 24px;
+
+      @media only screen and (min-width: $breakpoint-xs) {
+        font-size:36px;
+      }
+    }
+  }
+
   .account {
     display: flex;
     flex-direction: column;

@@ -18,6 +18,7 @@ import { LeadingZerosPipe } from './pipes/leading-zeros.pipe';
 import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
 import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
 import { ButtonModule } from '@shared/button/button.module';
+import { LeaderboardSliderModule } from '@shared/leaderboard-slider/leaderboard-slider.module';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
@@ -33,7 +34,8 @@ registerLocaleData(localeDE, 'de');
     UserXpModule,
     CaseListItemModule,
     SolvedCasesModule,
-    ButtonModule
+    ButtonModule,
+    LeaderboardSliderModule
   ],
   exports: [MyProfileComponent],
   providers: [

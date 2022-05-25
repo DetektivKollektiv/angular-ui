@@ -9,12 +9,14 @@
       <div class="overview__intro">
         Herzlich willkommen auf deinem Dashboard mit allen wichtigen Informationen.
         Hier siehst du dein aktuelles Level, persönliche Statistiken und deine Zugangsdaten.
-        Du kannst die von Dir gelösten Fälle ansehen, neue Fälle bearbeiten und im Archiv der bereits gelösten Fälle stöbern.
+        Du kannst die von Dir gelösten Fälle ansehen, neue Fälle bearbeiten und im Archiv der bereits gelösten Fälle
+        stöbern.
         Unten findest du Vorschläge für Fälle, die deine Hilfe benötigen.
         Viel Spaß beim Ausprobieren!
       </div>
     </div>
   </section>
+
 
   <section class="user standard-content-container-width">
     <div class="user__stats">
@@ -53,7 +55,8 @@
       <h2>Deine abgeschlossenen Fälle</h2>
       <div class="user__cases-intro">
         Hier siehst du alle abgeschlossenen Fälle, bei denen du beteiligt warst.
-        Ein Fall ist erst dann abgeschlossen und hier sichtbar, wenn ausreichend viele Bewertungen im codetekt Peer Review Verfahren vorliegen.
+        Ein Fall ist erst dann abgeschlossen und hier sichtbar, wenn ausreichend viele Bewertungen im codetekt Peer
+        Review Verfahren vorliegen.
         Fälle, die du hier siehst, sind offen für die Diskussion.
       </div>
       <div class="user__cases-list" *ngIf="user.closed_items.length">
@@ -86,6 +89,10 @@
     <img class="solved-cases__bg" src="assets/images/profile_solved_cases-bg.svg" alt="solved cases background" />
     <app-solved-cases [expand]="false" [style]="'light'" class="solved-cases--invert"></app-solved-cases>
   </section>
+  <section class="leaderboard-section standard-content-container-width">
+    <h2>codetekt Rangliste</h2>
+    <app-leaderboard-slider></app-leaderboard-slider>
+  </section>
 
   <section class="account standard-content-container-width">
     <h2>Deine Zugangsdaten</h2>
@@ -104,8 +111,8 @@
       <img class="delete-account__image" src="assets/images/illustrations/undraw_windy_day_x-63-l.svg" />
       <h2>Deine Zugangsdaten löschen</h2>
       <div class="delete-account__intro">
-        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen. 
-        Deine Bewertungen und Kommentare bleiben erhalten, aber dein Anmeldename und Kürzel werden entfernt. 
+        Du möchtest uns verlassen? Hier kannst du dein Konto unwiderruflich löschen.
+        Deine Bewertungen und Kommentare bleiben erhalten, aber dein Anmeldename und Kürzel werden entfernt.
         Stattdessen steht dort der Hinweis <span class="hint-italic">deaktiviert</span>.
       </div>
       <button appButton class="delete-account__btn" (click)="deleteAccount()">

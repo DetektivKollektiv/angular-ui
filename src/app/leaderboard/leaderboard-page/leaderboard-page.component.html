@@ -1,0 +1,45 @@
+<div class="container standard-content-container-width">
+  <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+
+  <div class="header-section">
+    <p>Rangliste der Top Detektiv*innen</p>
+    <div class="medal-container">
+      <i class="far fa-medal silver"></i>
+      <i class="far fa-medal gold"></i>
+      <i class="far fa-medal bronze"></i>
+    </div>
+  </div>
+  <swiper
+    #leaderboardPageSwiper
+    [slidesPerView]="1"
+    [spaceBetween]="50"
+    [loop]="true"
+    [loopedSlides]="3"
+    (activeIndexChange)="calculateIndexes()"
+  >
+    <ng-template swiperSlide *ngFor="let category of leaderboard">
+      <div class="menu-section">
+        <div class="arrow-container" (click)="slidePrev()">
+          <i class="fas fa-arrow-left"></i>
+          <span>{{ leaderboard[prevIndex]['headline'] }}</span>
+        </div>
+        <div class="category-headline">{{ category['headline'] }}</div>
+        <div class="arrow-container" (click)="slideNext()">
+          <i class="fas fa-arrow-right"></i>
+          <span>{{ leaderboard[nextIndex]['headline'] }}</span>
+        </div>
+      </div>
+      <div class="leaderboard-section">
+        <app-leaderboard-page-entry
+          *ngFor="let user of category['users']; index as i"
+          class="leaderboard-entry"
+          [user]="user"
+          [rank]="i + 1"
+        ></app-leaderboard-page-entry>
+      </div>
+      <div class="placeholder" *ngIf="category['users']?.length == 0">
+        Diese Rangliste ist leider gerade leer. Schau doch später nochmal vorbei! :)
+      </div>
+    </ng-template>
+  </swiper>
+</div>
