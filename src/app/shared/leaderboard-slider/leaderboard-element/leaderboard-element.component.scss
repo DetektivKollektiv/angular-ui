@@ -1,0 +1,50 @@
+@use '../../../../assets/scss/colors' as colors;
+@use '../../../../assets/scss/fonts' as fonts;
+@import '../../../../assets/scss/initializer';
+
+.container {
+  display: none;
+  @media only screen and (min-width: 768px) {
+    height: 100%;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    justify-content: end;
+    align-items: center;
+  }
+  p {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .pedestal {
+    width: 100%;
+    background-color: colors.$color__mysterious-blue;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+  }
+}
+
+.mobile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.goldMedal {
+  color: colors.$color__gold-medal;
+}
+.silverMedal {
+  color: colors.$color__silver-medal;
+}
+.bronzeMedal {
+  color: colors.$color__bronze-medal;
+}

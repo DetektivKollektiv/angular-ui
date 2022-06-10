@@ -1,52 +1,48 @@
-@use '../../../../assets/scss/fonts' as fonts;
-@import '../../../../assets/scss/colors';
+@use "../../../../assets/scss/fonts" as fonts;
+@import "../../../../assets/scss/colors";
 
 .filter {
     text-align: right;
-    h4, i{
+    h4,
+    i {
         color: $color__mysterious-blue;
         cursor: pointer;
         display: inline;
     }
-    p{
+    p {
         color: $color__old-paragraph;
         cursor: pointer;
         display: inline;
     }
 }
-.filter-content{
+.filter-content {
     background-color: $color__tile-background;
-    height: 143px;
+    height: auto;
     position: relative;
     border-radius: 30px;
-    padding: 0px 10px;
-    max-width: 1200px;
-    h4{
-       color: $color__mysterious-blue; 
-       margin: 25px 0px 11px 0px;
-       height: 18px;
+    padding: 15px 20px;
+    max-width: 1240px;
+    .reset {
+        cursor: pointer;
+        text-align: right;
+    }
+    h4 {
+        color: $color__mysterious-blue;
+        margin: 5px 0px;
+        height: 18px;
     }
 }
-mat-chip {
-    background: $color__tile-background !important;
-    color: $color__mysterious-blue !important;
-    border: 0.5px solid $color__mysterious-blue !important;
-    margin: 1px !important;
-    padding: 0px 5px !important;
-}
-.active{
+.active {
     width: 50%;
-    //height: 103px;
     float: left;
     padding: 0px 0px 0px 20px;
 }
-.inactive{
+.inactive {
     width: 50%;
-    //height: 103px;
     float: right;
     padding: 0px 0px 0px 20px;
 }
-.vl{
+.vl {
     height: auto;
     width: 2px;
     background: $color__old-paragraph;
@@ -56,4 +52,19 @@ mat-chip {
     position: absolute;
     left: 50%;
 }
-
+.filtertags {
+    display: flex;
+    flex-wrap: wrap;
+    app-tag-icon ::ng-deep {
+        .card {
+            padding: 6px 12px;
+            margin: 3px;
+            font-size: 14px;
+            color: #f8f8f8;
+            font-family: effra, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            cursor: pointer;
+        }
+    }
+}
