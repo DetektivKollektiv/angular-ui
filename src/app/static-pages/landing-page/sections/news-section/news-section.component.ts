@@ -6,6 +6,7 @@ export interface NewsItem {
   text: string;
   source: string;
   link: string;
+  type: string;
 }
 
 @Component({

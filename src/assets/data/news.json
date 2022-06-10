@@ -7,9 +7,10 @@
   },
   {
     "image": "assets/images/news/2.png",
-    "link": "https://www.aufruhr-magazin.de/digitalisierte-gesellschaft/beruflich-fake-news-bekaempfen/",
-    "source": "AufRuhr",
-    "text": "Nun arbeitet das Team daran, das Projekt weiter zu professionalisieren. Ganz klassisch geht es um die Suche nach Finanzierungspartnern, mehr Personal soll eingestellt werden."
+    "link": "assets/media/news/fluxfm_feature.mp3",
+    "source": "FluxFM",
+    "text": "In einem Beitrag bei FluxFM stellt Kristin kurz und knackig vor, was Trust-Checking ist und wie unsere Plattform funktioniert.",
+    "type": "audio"
   },
   {
     "image": "assets/images/news/3.png",
