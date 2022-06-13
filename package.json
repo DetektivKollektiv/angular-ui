@@ -46,7 +46,7 @@
     "hammerjs": "^2.0.8",
     "lato-font": "^3.0.0",
     "masonry-layout": "^4.2.2",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "ngx-masonry": "^13.0.0",
     "ngx-pagination": "^5.1.1",
     "ngx-sharebuttons": "^8.0.5",
