@@ -39,6 +39,7 @@ import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-
 import { FaqModule } from './faq/faq.module';
 import { TeamModule } from './static-pages/team-page/team.module';
 import { StaticPagesModule } from './static-pages/static-pages.module';
+import { LeaderboardModule } from './leaderboard/leaderboard.module';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
@@ -86,7 +87,8 @@ export function createTranslateLoader(http: HttpClient) {
     OpenCaseListSliderModule,
     HomeModule,
     MyProfileModule,
-    StaticPagesModule
+    StaticPagesModule,
+    LeaderboardModule
   ],
   bootstrap: [AppComponent]
 })

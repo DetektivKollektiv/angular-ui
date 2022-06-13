@@ -1,0 +1,87 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
+@use '../../../../../assets/scss/variables' as variables;
+
+h1 {
+  @include fonts.font__effra--bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+
+  .content {
+    gap: 36px;
+    max-width: 760px;
+
+    @media screen and(min-width: variables.$breakpoint-xs) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+
+      .image {
+        align-self: center;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          align-self: flex-end;
+        }
+      }
+
+      .heading {
+        @include fonts.font__effra--bold;
+        font-size: 21px;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          text-align: end;
+        }
+      }
+
+      .description {
+        @include fonts.font__effra--regular;
+        font-size: 16px;
+        color: colors.$color__old-paragraph;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          text-align: end;
+        }
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+
+      .data-privacy {
+        @include fonts.font__effra--regular;
+        font-size: 14px;
+        color: colors.$color__old-paragraph;
+
+        a {
+          cursor: pointer;
+          color: colors.$color__mysterious-blue;
+        }
+      }
+
+      &-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+
+      .image {
+        align-self: flex-start;
+        margin-top: -20px;
+
+        @media screen and(min-width: variables.$breakpoint-xs) {
+          align-self: flex-end;
+        }
+      }
+    }
+  }
+}

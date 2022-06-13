@@ -1,32 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { TagService } from './tag.service';
-
-import {Member} from 'src/app/model/member';
-import {TagInfo} from 'src/app/model/membertags';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
+import { NgxMasonryOptions } from 'ngx-masonry';
+import { TagService } from './tag.service';
 @Component({
   selector: 'app-team-page',
   templateUrl: './team-page.component.html',
   styleUrls: ['./team-page.component.scss']
 })
-export class TeamPageComponent implements OnInit {
-
-  members: Member[] = [];
-  tagsInfo: TagInfo[];
-
+export class TeamPageComponent {
+  public masonryOption: NgxMasonryOptions = { gutter: '.gutter-sizer', horizontalOrder: true };
   breadcrumbLinks: BreadcrumbLink[] = [{label: 'Das Team'}];
 
-  constructor(public tagService: TagService, private httpClient: HttpClient) { }
-
-  ngOnInit(): void {
-     this.httpClient.get<TagInfo[]>('assets/data/membertags.json').subscribe(data =>{
-      this.tagsInfo = data;
-    });
-    this.httpClient.get<Member[]>('assets/data/member.json').subscribe(data =>{
-      this.members = data;
-    });
-
-  }
-
+  constructor(public tagService: TagService) {}
 }
