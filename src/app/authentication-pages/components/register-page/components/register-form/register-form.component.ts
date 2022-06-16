@@ -1,14 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoaderService } from '@shared/loader/service/loader.service';
-import { OperationResult } from '@shared/helper/model/operation-result';
-import { ForgotPasswordComponent } from '@shared/auth/dialogs/forgot-password/forgot-password.component';
-import { Globals } from '@shared/helper/globals/globals';
-import { ForgotPasswordResult } from '@shared/auth/model/forgot-password-result';
-
 
 import { CustomValidators } from '@shared/helper/validators/custom-validators';
 import { SignupResult } from '@shared/auth/model/signup-result';
@@ -18,24 +12,21 @@ import { SignupResult } from '@shared/auth/model/signup-result';
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.scss']
 })
-
-
 export class RegisterFormComponent implements OnInit {
   public form: FormGroup;
   public invalid: boolean;
   public signUpError: string;
   public closeResult = {
-    success: false,
+    success: false
   } as SignupResult;
-  public email_subscription=false;
+  public email_subscription = false;
 
   constructor(
     private router: Router,
     private authService: AuthService,
     private loaderService: LoaderService,
     private formBuilder: FormBuilder
-  ) {
-  }
+  ) {}
 
   get formControls() {
     return this.form.controls;
@@ -44,7 +35,7 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group(
       {
-        username: ['', Validators.required],
+        username: ['', Validators.compose([Validators.required, CustomValidators.patternValidator(/^[\S]+$/, { noSpace: true })])],
         password: [
           '',
           Validators.compose([
@@ -52,24 +43,20 @@ export class RegisterFormComponent implements OnInit {
             Validators.required,
             CustomValidators.patternValidator(/\d/, { digit: true }),
             CustomValidators.patternValidator(/[A-Z]/, {
-              upperCase: true,
+              upperCase: true
             }),
             CustomValidators.patternValidator(/[a-z]/, { lowerCase: true }),
-            CustomValidators.patternValidator(/\W/, { specialChar: true }),
-          ]),
+            CustomValidators.patternValidator(/\W/, { specialChar: true })
+          ])
         ],
         confirmPassword: ['', Validators.required],
-        email: [
-          '',
-          Validators.compose([Validators.required, Validators.email]),
-        ],
+        email: ['', Validators.compose([Validators.required, Validators.email])]
       },
       {
-        validators: CustomValidators.mustMatch('password', 'confirmPassword'),
+        validators: CustomValidators.mustMatch('password', 'confirmPassword')
       }
     );
   }
-
 
   public signUp(): void {
     if (this.form.invalid) {
@@ -85,21 +72,18 @@ export class RegisterFormComponent implements OnInit {
         this.formControls.username.value,
         this.formControls.password.value,
         this.formControls.email.value,
-        this.email_subscription? '1' : '0'
+        this.email_subscription ? '1' : '0'
       )
       .then(() => {
-        this.router.navigate(['/login'], { queryParams: { username: this.formControls.username.value  } });
-
+        this.router.navigate(['/login'], { queryParams: { username: this.formControls.username.value } });
       })
       .catch((result) => {
         switch (result.payload.code) {
           case 'UsernameExistsException':
-            this.signUpError =
-              'Eine Nutzer*in mit diesem Namen existiert bereits. Verwende bitte einen anderen Namen.';
+            this.signUpError = 'Eine Nutzer*in mit diesem Namen existiert bereits. Verwende bitte einen anderen Namen.';
             break;
           default:
-            this.signUpError =
-              'Leider ist bei der Registrierung etwas schief gelaufen. Versuche es später erneut.';
+            this.signUpError = 'Leider ist bei der Registrierung etwas schief gelaufen. Versuche es später erneut.';
             break;
         }
 
@@ -108,7 +92,7 @@ export class RegisterFormComponent implements OnInit {
       .finally(() => this.loaderService.hide());
   }
 
-  getErrorMessage() {
+  getErrorMessagePassword() {
     if (this.formControls.password.hasError('required')) {
       return 'Bitte gib hier dein gewünschtes Passwort ein.';
     }
@@ -129,8 +113,13 @@ export class RegisterFormComponent implements OnInit {
       return 'Dein Passwort muss mindestens einen Kleinbuchstaben enthalten';
     }
 
-    return this.formControls.password.hasError('specialChar')
-      ? 'Dein Passwort muss mindestens ein Sonderzeichen enthalten'
-      : '';
+    return this.formControls.password.hasError('specialChar') ? 'Dein Passwort muss mindestens ein Sonderzeichen enthalten' : '';
+  }
+
+  getErrorMessageUser() {
+    if (this.formControls.username.hasError('required')) {
+      return 'Bitte gib hier deinen gewünschten Anmeldenamen ein.';
+    }
+    return this.formControls.username.hasError('noSpace') ? 'Dein Anmeldename darf keine Leerzeichen enthalten' : 'Ungültiger Anmeldename';
   }
 }
