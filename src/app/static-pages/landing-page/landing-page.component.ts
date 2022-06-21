@@ -9,7 +9,6 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
-  loggedIn$ = this.authService.auth$.pipe(map((authState) => authState.isLoggedIn && this.router.url !== '/landingpage'));
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  loggedIn$ = this.authService.auth$.pipe(map((authState) => authState.isLoggedIn && this.router.url.startsWith('/landingpage') === false));
+  constructor(private authService: AuthService, private router: Router) {}
 }
