@@ -74,7 +74,7 @@ export class ConfirmEmailFormComponent implements OnInit {
 
     this.invalid = false;
 
-    this.authService.confirmSignUp(this.formControls.username.value, this.formControls.code.value)
+    this.authService.confirmSignUp(this.formControls.username.value, this.formControls.code.value.trim())
       .then(() => {
         this.router.navigate(['/login'], {queryParams: {username: this.formControls.username.value}});
       })

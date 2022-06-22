@@ -7,8 +7,8 @@
     </mat-error>
     <mat-form-field class="full-width-input">
       <input matInput placeholder="Anmeldename" formControlName="username" required>
-      <mat-error>
-        Bitte gib hier deinen gewünschten Anmeldenamen ein.
+      <mat-error *ngIf="formControls.username.invalid">
+        {{getErrorMessageUser()}}
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width-input">
@@ -20,7 +20,7 @@
     <mat-form-field class="full-width-input">
       <input matInput type="password" placeholder="Passwort" formControlName="password" required>
       <mat-error *ngIf="formControls.password.invalid">
-        {{getErrorMessage()}}
+        {{getErrorMessagePassword()}}
       </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width-input">
