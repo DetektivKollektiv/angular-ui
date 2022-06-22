@@ -16,7 +16,9 @@
       "lib": ["dist/lib/lib", "dist/lib"],
       "@shared/*": ["src/app/shared/*"],
       "@mocks/*": ["src/test/mocks/*"]
-    }
+    },
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
