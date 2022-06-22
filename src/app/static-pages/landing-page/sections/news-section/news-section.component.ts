@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import data from '../../../../../assets/data/news.json';
 
 export interface NewsItem {
   image: string;
   text: string;
   source: string;
   link: string;
-  type: string;
+  type?: string;
 }
 
 @Component({
@@ -17,11 +17,7 @@ export interface NewsItem {
 export class NewsSectionComponent implements OnInit {
   public items: NewsItem[] = [];
 
-  constructor(private httpClient: HttpClient) {}
-
   ngOnInit(): void {
-    this.httpClient.get<NewsItem[]>('assets/data/news.json').subscribe((data) => {
-      this.items = data;
-    });
+    this.items = data;
   }
 }
