@@ -15,8 +15,12 @@
     flex-wrap: wrap;
     gap: 16px;
     @media screen and(min-width: $breakpoint-l) {
-      width: 70%;
       margin: auto;
+    }
+  }
+  .wide {
+    @media screen and(min-width: $breakpoint-l) {
+      width: 70%;
     }
   }
 }
