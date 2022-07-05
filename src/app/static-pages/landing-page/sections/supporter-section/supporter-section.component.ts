@@ -12,6 +12,7 @@ export interface Supporter {
 })
 export class SupporterSectionComponent implements OnInit {
   @Input() withHeadline = true;
+  @Input() wide = true;
   supporters: Supporter[];
   constructor(private httpClient: HttpClient) {}
 
