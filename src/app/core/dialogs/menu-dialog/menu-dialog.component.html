@@ -3,7 +3,7 @@
   <div mat-dialog-header class="menu-dialog-header">
     <div>
       <a (click)="navigate('')" title="Dashboard">
-        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Dashboard" />
+        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Dashboard"/>
       </a>
     </div>
     <div>
@@ -16,28 +16,24 @@
   <mat-dialog-content>
     <!-- Not logged in-->
     <div *ngIf="!authState.isLoggedIn">
-      <div class="top-container">
-        <div>
-          <a class="button button--bittersweet button--hallow third-theme-color around-button"
-            (click)="navigate('register')"
-            title="Detektiv*in werden">
-            <i class="fas fa-user-cowboy"></i> <span>Detektiv*in werden</span>
-          </a>
-        </div>
-        <div>
-          <a class="main-link login-button" (click)="navigate('login')" title="Login">Login</a>
-        </div>
-      </div>
       <div class="menu-container">
         <div>
-          <a class="main-link--red"
-            (click)="navigate('submit')"
-            title="Fall einreichen">
-            <i class="fas fa-typewriter"></i>&nbsp;Fall einreichen
-          </a>
+          <div style="width: 100%;">
+            <a class="main-link" title="Plattform" (click)="navigate('/')">Plattform</a>
+            <div class="child-links-list">
+              <div class="child-link "><a (click)="navigate('archive')" title="Gelöste Fälle">Gelöste Fälle</a></div>
+              <div class="child-link "><a (click)="navigate('submit')" title="Fall einreichen"> Fall einreichen </a>
+              </div>
+              <div class="child-link"><a (click)="navigate('login')" title="Login">Login</a></div>
+              <div class="child-link"><a (click)="navigate('register')" title="Detektiv*in werden">Detektiv*in
+                werden</a></div>
+            </div>
+          </div>
         </div>
         <div>
-          <a class="main-link" (click)="navigate('archive')" title="Gelöste Fälle">Gelöste Fälle</a>
+          <div style="width: 100%;">
+            <a class="main-link" (click)="navigate('landingpage',  'workshop')" title="Workshop">Workshop</a>
+          </div>
         </div>
         <div>
           <div style="width: 100%;">
@@ -45,12 +41,13 @@
             <div class="child-links-list">
               <div class="child-link "><a (click)="navigate('about')" title="Der Verein">Der Verein</a></div>
               <div class="child-link "><a (click)="navigate('team')" title="Das Team">Das Team</a></div>
-              <div class="child-link "><a (click)="navigate('trust-checking')" title="Trust-Checking">Trust&#8209;Checking</a></div>
+              <div class="child-link "><a (click)="navigate('trust-checking')" title="Trust-Checking">Trust&#8209;Checking</a>
+              </div>
               <div class="child-link "><a (click)="navigate('faq')" title="FAQ">FAQ</a></div>
               <div class="child-link ">
                 <a href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
-                  title="Spenden"
-                  target="_blank">Spenden
+                   title="Spenden"
+                   target="_blank">Spenden
                 </a>
               </div>
             </div>
@@ -64,7 +61,7 @@
 
       <div class="profile-container">
         <div class="profile">
-          <div class="profile__bubble" >{{user.name[0].toUpperCase()}}</div>
+          <div class="profile__bubble">{{user.name[0].toUpperCase()}}</div>
 
           <div class="profile__business-card">
             <div class="profile__name">{{user.name}}</div>
@@ -103,12 +100,15 @@
         <div class="child-links-list">
           <div class="child-link"><a (click)="navigate('about')" title="Der Verein">Der Verein</a></div>
           <div class="child-link"><a (click)="navigate('team')" title="Das Team">Das Team</a></div>
-          <div class="child-link"><a (click)="navigate('trust-checking')" title="Trust-checking">Trust&#8209;Checking</a></div>
+          <div class="child-link "><a (click)="navigate('landingpage',  'workshop')"
+                                      title="Workshop">Workshop</a></div>
+          <div class="child-link"><a (click)="navigate('trust-checking')"
+                                     title="Trust-checking">Trust&#8209;Checking</a></div>
           <div class="child-link"><a (click)="navigate('faq')" title="FAQ">FAQ</a></div>
           <div class="child-link">
             <a href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
-              title="Spenden"
-              target="_blank">Spenden
+               title="Spenden"
+               target="_blank">Spenden
             </a>
           </div>
         </div>
