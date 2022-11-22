@@ -3,6 +3,12 @@
 @import '../../../../../assets/scss/variables';
 @import '../../landing-page.component.scss';
 
+.standard-content-container-width {
+  @media only screen and (min-width: $breakpoint-l) and (max-width: $breakpoint-xxl) {
+    width: 500px;
+    padding: 0;
+  }
+}
 
 .content-section {
   display: flex;
@@ -18,6 +24,7 @@
       flex-direction: row;
       justify-content: space-between;
     }
+
     .text {
       @media screen and(min-width: $breakpoint-l) {
         width: 650px;
@@ -51,7 +58,7 @@
     }
 
     .video {
-      &__desktop{
+      &__desktop {
         display: none;
         width: 80%;
         height: 80%;
@@ -61,7 +68,8 @@
           display: flex;
         }
       }
-      &__mobile{
+
+      &__mobile {
         display: flex;
         justify-content: center;
         @media screen and(min-width: $breakpoint-xxl) {
