@@ -1,0 +1,29 @@
+<app-my-profile *ngIf="loggedIn$ | async; else staticPage"></app-my-profile>
+
+<ng-template #staticPage>
+  <div class="section-background-yellow">
+    <div class="section-container-small">
+      <app-trust-checking-kit-section></app-trust-checking-kit-section>
+    </div>
+  </div>
+  <div class="section-background">
+    <div class="section-container-small">
+      <app-news-competence-section></app-news-competence-section>
+    </div>
+  </div>
+  <div class="section-background-mysterious-blue">
+    <div class="section-container-small">
+      <app-bullet-points-section></app-bullet-points-section>
+    </div>
+  </div>
+  <div class="section-background-yellow">
+    <div class="section-container-small">
+      <app-kit-components-section></app-kit-components-section>
+    </div>
+  </div>
+  <div class="section-background-mysterious-blue">
+    <div class="section-container-small">
+      <app-workshop-call-to-action-section></app-workshop-call-to-action-section>
+    </div>
+  </div>
+</ng-template>
