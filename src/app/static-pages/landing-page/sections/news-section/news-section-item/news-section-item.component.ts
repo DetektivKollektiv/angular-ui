@@ -6,6 +6,13 @@ import { NewsItem } from '../news-section.component';
   templateUrl: './news-section-item.component.html',
   styleUrls: ['./news-section-item.component.scss']
 })
-export class NewsSectionItemComponent {
+export class NewsSectionItemComponent implements OnInit {
   @Input() item: NewsItem;
+
+  ngOnInit(): void {
+    console.log(this.item.button_text);
+    if (this.item.button_text === undefined) {
+      this.item.button_text = 'Beitrag lesen';
+    }
+  }
 }
