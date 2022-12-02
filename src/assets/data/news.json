@@ -1,9 +1,10 @@
 [
   {
-    "image": "assets/images/news/1.png",
-    "link": "https://ata-dag.de/podcast/atlantic-talk/3-astroturfing-doxing-informationswaesche-manipulationstaktiken-im-informationsraum/8209/",
-    "source": "Deutsch Atlantische Gesellschaft e. V.",
-    "text": "Atlantic Talk Podcast mit Daniel von codetekt und Oliver Weilandt (Hörfunkagentur Internationaler Audiodienst). Desinformation, Missinformation, hybride Bedrohung – die wichtigsten Begriffe aus dem Atlantic Talk mit Daniel Weimert kurz zusammengefasst."
+    "image": "assets/images/news/4.png",
+    "link": "https://entrust-project.eu/files/2022/10/Trust-and-the-Media-integrated-report-WP4.pdf",
+    "source": "EnTrust",
+    "text": "Der 'Integrated Report on Trust and the Media' untersucht das Vertrauen von Bürger*innen in ihre Regierungen und die Rolle der Medien bei der Vertrauensbildung. codetekt wird als ausgewählte zivilgesellschaftliche Lösung zur Eindämmung von Falschinformationen vorgestellt (S. 164).",
+    "button_text": "Report lesen"
   },
   {
     "image": "assets/images/news/2.png",
@@ -19,10 +20,10 @@
     "text": "Bist du Fake? Bist du Bait? Interview zum Thema \"...was eigentlich wirklich hinter dem ganzen Kosmos von Falsch-information, „Fake News“ und Desinformation steckt.\""
   },
   {
-    "image": "assets/images/news/4.png",
-    "link": "https://www.aufruhr-magazin.de/digitalisierte-gesellschaft/fake-news-auf-der-spur/",
-    "source": "AufRuhr",
-    "text": "Marie im Interview über codetekt, die Kriterien zur Überprüfung von Informationen und ihre \"Lieblings-Fake News\"."
+    "image": "assets/images/news/1.png",
+    "link": "https://ata-dag.de/podcast/atlantic-talk/3-astroturfing-doxing-informationswaesche-manipulationstaktiken-im-informationsraum/8209/",
+    "source": "Deutsch Atlantische Gesellschaft e. V.",
+    "text": "Atlantic Talk Podcast mit Daniel von codetekt und Oliver Weilandt (Hörfunkagentur Internationaler Audiodienst). Desinformation, Missinformation, hybride Bedrohung – die wichtigsten Begriffe aus dem Atlantic Talk mit Daniel Weimert kurz zusammengefasst."
   },
   {
     "image": "assets/images/news/5.png",
