@@ -5,7 +5,7 @@
 
 .standard-content-container-width {
   @media only screen and (min-width: $breakpoint-l) and (max-width: $breakpoint-xxl) {
-    width: 500px;
+    width: 50%;
     padding: 0;
   }
 }
@@ -13,6 +13,7 @@
 .content-section {
   display: flex;
   margin: auto;
+  padding-left: 20px;
 
   .content {
     display: flex;
@@ -39,6 +40,10 @@
         @media screen and(min-width: $breakpoint-l) {
           font-size: 52px;
         }
+        span {
+          @extend .title;
+          display: inline-block;
+        }
       }
 
       .paragraph {
@@ -51,6 +56,11 @@
         gap: 1em;
 
         @media screen and(min-width: $breakpoint-l) {
+          width: 650px;
+          margin-top: 20px;
+          align-items: center;
+        }
+        @media screen and(min-width: $breakpoint-xxl) {
           flex-direction: row;
           width: 650px;
           margin-top: 40px;
