@@ -10,7 +10,6 @@ export class NewsSectionItemComponent implements OnInit {
   @Input() item: NewsItem;
 
   ngOnInit(): void {
-    console.log(this.item.button_text);
     if (this.item.button_text === undefined) {
       this.item.button_text = 'Beitrag lesen';
     }
