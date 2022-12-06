@@ -7,6 +7,7 @@ export interface NewsItem {
   source: string;
   link: string;
   type?: string;
+  button_text?: string;
 }
 
 @Component({
