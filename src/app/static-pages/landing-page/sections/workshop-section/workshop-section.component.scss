@@ -13,6 +13,7 @@
 .content-section {
   display: flex;
   margin: auto;
+  padding-left: 20px;
 
   .content {
     display: flex;
@@ -51,6 +52,11 @@
         gap: 1em;
 
         @media screen and(min-width: $breakpoint-l) {
+          width: 650px;
+          margin-top: 20px;
+          align-items: center;
+        }
+        @media screen and(min-width: $breakpoint-xxl) {
           flex-direction: row;
           width: 650px;
           margin-top: 40px;
