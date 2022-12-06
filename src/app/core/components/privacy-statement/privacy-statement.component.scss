@@ -73,14 +73,14 @@
     .privacy-statement-intro {      
       font-size: 18px;
       font-weight: 500;
-      line-height: max(1vw, 22px);
+      line-height: 22px;
       margin-top: 15px;
       margin-bottom: 5px;
     }
 
     .privacy-statement {
       font-size: 16px;
-      line-height: max(1vw, 22px);
+      line-height: 22px;
       color: colors.$color__old-paragraph;
       margin-top: 0px;      
     }
