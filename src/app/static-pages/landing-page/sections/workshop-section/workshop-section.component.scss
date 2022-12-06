@@ -40,6 +40,10 @@
         @media screen and(min-width: $breakpoint-l) {
           font-size: 52px;
         }
+        span {
+          @extend .title;
+          display: inline-block;
+        }
       }
 
       .paragraph {
