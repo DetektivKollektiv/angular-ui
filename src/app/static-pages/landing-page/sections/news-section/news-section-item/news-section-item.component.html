@@ -8,7 +8,7 @@
   <p class="source">{{ item.source }}</p>
   <a [href]="item.link" target="_blank" class="button button--mysterious-blue" *ngIf="item.type!=='audio'">
     <i class="fal fa-external-link-square"></i>
-    Beitrag öffnen
+    {{item.button_text}}
   </a>
   <audio controls *ngIf="item.type==='audio'">
     <source [src]="item.link" type="audio/mpeg">

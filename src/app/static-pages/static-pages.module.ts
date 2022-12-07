@@ -29,6 +29,7 @@ import { TrustCheckingCriterionComponent } from './trust-checking/components/tru
 import { SocialMediaSectionComponent } from './landing-page/sections/social-media-section/social-media-section.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@shared/material/material.module';
+import {WorkshopSectionComponent} from './landing-page/sections/workshop-section/workshop-section.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { MaterialModule } from '@shared/material/material.module';
     TrustCheckingPageComponent,
     TrustCheckingCriterionComponent,
     SupportUsSpecialSectionComponent,
-    SocialMediaSectionComponent
+    SocialMediaSectionComponent,
+    WorkshopSectionComponent
   ],
   imports: [
     CommonModule,
