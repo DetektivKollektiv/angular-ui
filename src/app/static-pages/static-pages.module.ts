@@ -34,7 +34,8 @@ import {TrustCheckingKitSectionComponent} from './workshop-page/sections/trust-c
 import {NewsCompetenceSectionComponent} from './workshop-page/sections/news-competence-section/news-competence-section.component';
 import {KitComponentsSectionComponent} from './workshop-page/sections/kit-componentns-section/kit-components-section.component';
 import {WorkshopCallToActionSectionComponent} from './workshop-page/sections/workshop-call-to-action-section/workshop-call-to-action-section.component';
-import {TeacherRequirementsSectionComponent} from "./workshop-page/sections/teacher-requirements-section/teacher-requirements-section.component";
+import {TeacherRequirementsSectionComponent} from './workshop-page/sections/teacher-requirements-section/teacher-requirements-section.component';
+import {WorkshopSectionComponent} from './landing-page/sections/workshop-section/workshop-section.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {TeacherRequirementsSectionComponent} from "./workshop-page/sections/teac
     TrustCheckingCriterionComponent,
     SupportUsSpecialSectionComponent,
     SocialMediaSectionComponent,
+    WorkshopSectionComponent,
     WorkshopPageComponent,
     TrustCheckingKitSectionComponent,
     NewsCompetenceSectionComponent,

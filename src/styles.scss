@@ -185,7 +185,7 @@ h3 {
 p {
   @include font__effra--regular;
   font-size: max(0.7vw, 14px);
-  line-height: max(1vw, 22px);
+  line-height: 22px;
 }
 
 h1,

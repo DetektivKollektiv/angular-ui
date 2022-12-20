@@ -3,7 +3,7 @@
   <div class="header__wrapper">
     <div>
       <a href="/" title="Startseite">
-        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Startseite" />
+        <img src="assets/logo/codetekt_V2_rgb@4x.png" width="200" alt="Startseite"/>
       </a>
     </div>
 
@@ -14,18 +14,31 @@
 
         <ul class="navigation-main__list">
           <li class="navigation-main__item">
-            <a title="Fall einreichen"
-              class="button--bittersweet button--gentle navigation-main__button--typewriter navigation-main__link third-theme-color"
-              [routerLink]="['/submit']">
-              <i class="fas fa-typewriter"></i>
-              Fall einreichen
-            </a>
+            <a class="navigation-main__link" title="Plattform & Community" [routerLink]="['/landingpage']">Plattform & Community</a>
+            <div class="navigation-flyout">
+              <ul class="navigation-flyout__list">
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Fall einreichen" [routerLink]="['/submit']"> Fall
+                    einreichen </a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Login" [routerLink]="['/login']">Login</a>
+                </li>
+                <li class="navigation-flyout__item">
+                  <a [routerLink]="['/register']" title="Detektiv*in werden"
+                     class="navigation-flyout__link"> Detektiv*in werden </a>
+                </li>
+              </ul>
+            </div>
           </li>
           <li class="navigation-main__item">
-            <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
+            <a class="navigation-main__link" title="Workshops" [routerLink]="['/landingpage']" fragment='workshop'>Workshops</a>
           </li>
           <li class="navigation-main__item">
-            <a class="navigation-main__link" title="FAQ" [routerLink]="['/landingpage']">Über codetekt</a>
+            <a class="navigation-main__link" title="Über Codetekt" [routerLink]="['/about']">Über Codetekt</a>
             <div class="navigation-flyout">
               <ul class="navigation-flyout__list">
                 <li class="navigation-flyout__item">
@@ -36,27 +49,18 @@
                 </li>
                 <li class="navigation-flyout__item">
                   <a class="navigation-flyout__link" title="Trust-Checking"
-                    [routerLink]="['/trust-checking']">Trust&#8209;Checking</a>
+                     [routerLink]="['/trust-checking']">Trust&#8209;Checking</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a class="navigation-flyout__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a class="navigation-flyout__link"
-                    href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
-                    title="Spenden" target="_blank">Spenden</a>
+                     href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+                     title="Spenden" target="_blank">Spenden</a>
                 </li>
               </ul>
             </div>
-          </li>
-          <li class="navigation-main__item">
-            <a [routerLink]="['/register']" title="Detektiv*in werden"
-              class="button button--bittersweet button--hallow navigation-main__button--detective navigation-flyout__link third-theme-color around-button">
-              <i class="fas fa-user-cowboy"></i>Detektiv*in werden
-            </a>
-          </li>
-          <li class="navigation-main__item">
-            <a class="navigation-main__link" title="Login" [routerLink]="['/login']">Login</a>
           </li>
         </ul>
 
@@ -68,7 +72,7 @@
         <ul class="navigation-main__list">
           <li class="navigation-main__item">
             <a class="navigation-main__link color-blue" title="Fall bearbeiten" [routerLink]="['/']"
-              fragment="open-cases">
+               fragment="open-cases">
               <i class="fas fa-clipboard-list-check"></i>
               Fall bearbeiten</a>
           </li>
@@ -82,7 +86,7 @@
             <a class="navigation-main__link" title="Gelöste Fälle" [routerLink]="['/archive']">Gelöste Fälle</a>
           </li>
           <li class="navigation-main__item">
-            <a class="navigation-main__link" title="FAQ" [routerLink]="['/landingpage']">Über codetekt</a>
+            <a class="navigation-main__link" title="Über Codetekt" [routerLink]="['/landingpage']">Über Codetekt</a>
             <div class="navigation-flyout">
               <ul class="navigation-flyout__list">
                 <li class="navigation-flyout__item">
@@ -92,16 +96,20 @@
                   <a class="navigation-flyout__link" title="Das Team" [routerLink]="['/team']">Das Team</a>
                 </li>
                 <li class="navigation-flyout__item">
+                  <a class="navigation-flyout__link" title="Workshops" [routerLink]="['/landingpage']"
+                     fragment='workshop'>Workshops</a>
+                </li>
+                <li class="navigation-flyout__item">
                   <a class="navigation-flyout__link" title="Trust-Checking"
-                    [routerLink]="['/trust-checking']">Trust&#8209;Checking</a>
+                     [routerLink]="['/trust-checking']">Trust&#8209;Checking</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a class="navigation-flyout__link" title="FAQ" [routerLink]="['/faq']">FAQ</a>
                 </li>
                 <li class="navigation-flyout__item">
                   <a class="navigation-flyout__link"
-                    href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
-                    title="Spenden" target="_blank">Spenden</a>
+                     href="https://www.betterplace.org/de/projects/98564-gemeinsam-gegen-falschinformationen"
+                     title="Spenden" target="_blank">Spenden</a>
                 </li>
               </ul>
             </div>
