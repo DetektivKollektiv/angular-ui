@@ -1,4 +1,5 @@
 @use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
 @import '../../../../../assets/scss/variables';
 
 .standard-content-container-width {
@@ -6,6 +7,10 @@
     width: 500px;
     padding: 0;
   }
+}
+
+.far {
+  color: colors.$color__supernova;
 }
 
 .content-section {
@@ -41,7 +46,12 @@
 
       .paragraph {
         @include fonts.font__effra--regular;
-        font-size: 18px;
+        font-size: 24px;
+      }
+
+      .button {
+        color: colors.$color__supernova;
+
       }
 
       .button-group {

@@ -32,9 +32,9 @@ import {MaterialModule} from '@shared/material/material.module';
 import {WorkshopPageComponent} from './workshop-page/workshop-page.component';
 import {TrustCheckingKitSectionComponent} from './workshop-page/sections/trust-checking-kit-section/trust-checking-kit-section.component';
 import {NewsCompetenceSectionComponent} from './workshop-page/sections/news-competence-section/news-competence-section.component';
-import {BulletPointsSectionComponent} from './workshop-page/sections/bullet-points-section/bullet-points-section.component';
 import {KitComponentsSectionComponent} from './workshop-page/sections/kit-componentns-section/kit-components-section.component';
 import {WorkshopCallToActionSectionComponent} from './workshop-page/sections/workshop-call-to-action-section/workshop-call-to-action-section.component';
+import {TeacherRequirementsSectionComponent} from "./workshop-page/sections/teacher-requirements-section/teacher-requirements-section.component";
 
 @NgModule({
   declarations: [
@@ -63,7 +63,7 @@ import {WorkshopCallToActionSectionComponent} from './workshop-page/sections/wor
     WorkshopPageComponent,
     TrustCheckingKitSectionComponent,
     NewsCompetenceSectionComponent,
-    BulletPointsSectionComponent,
+    TeacherRequirementsSectionComponent,
     KitComponentsSectionComponent,
     WorkshopCallToActionSectionComponent
   ],
