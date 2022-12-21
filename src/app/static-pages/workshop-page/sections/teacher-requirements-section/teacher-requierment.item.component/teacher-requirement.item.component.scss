@@ -43,7 +43,9 @@
   .text-block {
     padding: 40px 10px 10px 10px;
     @media screen and(min-width: $breakpoint-m) {
-      padding: 30px;
+      padding: 0 10px 10px 10px;
+      position: relative;
+      top: 30%;
     }
   }
 
@@ -65,7 +67,6 @@
       display: block;
       justify-content: normal;
     }
-
 
 
     &-blue {

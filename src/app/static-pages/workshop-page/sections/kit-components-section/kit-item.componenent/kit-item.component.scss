@@ -9,11 +9,13 @@
   display: flex;
 
   .content{
-    flex-direction: row;
-    display: grid;
     padding: 30px;
-    @media screen and(min-width: $breakpoint-xs) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and(min-width: $breakpoint-s) {
       display: flex;
+      flex-direction: row;
     }
   }
   .content-text {
