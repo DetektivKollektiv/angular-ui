@@ -1,41 +1,51 @@
 @use '../../../../../assets/scss/fonts' as fonts;
 @import '../../../../../assets/scss/variables';
 
-.content-section {
-  display: flex;
-  margin: auto;
 
-  .content {
+.title {
+  @include fonts.font__effra--bold;
+  font-size: 36px;
+  line-height: initial;
+  padding-bottom: 30px;
+
+  @media screen and(min-width: $breakpoint-l) {
+    font-size: 52px;
+  }
+}
+
+.competence-row {
+  display: grid;
+  flex-direction: row;
+
+  @media screen and(min-width: $breakpoint-s) {
+    display: flex;
+  }
+
+  .competence-reason {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    @media screen and(min-width: $breakpoint-l) {
-      display: flex;
+    padding: 10px;
+    @media screen and(min-width: $breakpoint-s) {
       flex-direction: row;
-      justify-content: space-between;
+      padding: 30px;
+      width: 100%;
     }
 
-    .text {
-      @media screen and(min-width: $breakpoint-l) {
-        width: 650px;
-      }
+    .competence-img {
+    }
 
-      .title {
-        @include fonts.font__effra--bold;
-        font-size: 36px;
-        line-height: initial;
-        padding-bottom: 30px;
-
-        @media screen and(min-width: $breakpoint-l) {
-          font-size: 52px;
-        }
-      }
-
-      .paragraph {
-        @include fonts.font__effra--regular;
-        font-size: 24px;
+    .competence-text {
+      font-size: 18px;
+      padding-top: 20px;
+      @media screen and(min-width: $breakpoint-s) {
+        padding: 30px;
       }
     }
   }
 }
+.sources{
+  padding-top: 30px;
+}
+
+

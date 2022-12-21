@@ -4,7 +4,7 @@
 
 .standard-content-container-width {
   @media only screen and (min-width: $breakpoint-l) and (max-width: $breakpoint-xxl) {
-    width: 500px;
+    width: 50%;
     padding: 0;
   }
 }
@@ -16,6 +16,7 @@
 .content-section {
   display: flex;
   margin: auto;
+  padding-left: 20px;
 
   .content {
     display: flex;
@@ -42,11 +43,16 @@
         @media screen and(min-width: $breakpoint-l) {
           font-size: 52px;
         }
+
+        span {
+          @extend .title;
+          display: inline-block;
+        }
       }
 
       .paragraph {
         @include fonts.font__effra--regular;
-        font-size: 24px;
+        font-size: 18px;
       }
 
       .button {
@@ -57,9 +63,15 @@
       .button-group {
         justify-content: flex-start;
         gap: 1em;
-
-        @media screen and(min-width: $breakpoint-l) {
+        @media screen and(min-width: $breakpoint-m) {
           flex-direction: row;
+        }
+        @media screen and(min-width: $breakpoint-l) {
+          width: 650px;
+          margin-top: 20px;
+          align-items: center;
+        }
+        @media screen and(min-width: $breakpoint-xxl) {
           width: 650px;
           margin-top: 40px;
         }
@@ -71,7 +83,7 @@
         display: none;
         width: 80%;
         height: 80%;
-        padding-left: 50px;
+        margin-left: 50px;
         justify-content: center;
         @media screen and(min-width: $breakpoint-xxl) {
           display: flex;
@@ -86,16 +98,19 @@
         }
         @media screen and(min-width: $breakpoint-xs) {
           width: 80%;
-          padding-left: 90px;
+          margin-left: 90px;
         }
         @media screen and(min-width: $breakpoint-l) {
           width: 100%;
-          padding-left: 0;
+          margin-left: 0;
         }
-
       }
 
-
+      &__desktop,
+      &__mobile {
+        background-color: colors.$color__neon-blue;
+        border-radius: 15px;
+      }
     }
 
     .video[poster] {

@@ -12,124 +12,28 @@
   background-color: colors.$color__white;
   justify-content: center;
   display: flex;
-  flex: 1 1 auto;
 
   &-mysterious-blue {
     @extend .section-background;
     background-color: colors.$color__mysterious-blue;
   }
 
-  &-tile-background {
-    @extend .section-background;
-    background-color: colors.$color__tile-background;
-    padding: 40px 0;
-    clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%); // polygon(0 0, 100% 0, 100% 95%, 0% 100%);
-  }
 
   &-yellow {
     @extend .section-background;
     background-color: colors.$color__supernova;
   }
 
-  &-dots {
-    @extend .section-background;
-    background-image: url(/assets/images/illustrations/dots-background.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+  .section-container {
+    width: 100%;
+    padding: 16px;
 
-  &-gradient {
-    @extend .section-background;
-    background-image: url(/assets/images/illustrations/blue-gradient-background.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  &-colorful {
-    @extend .section-background;
-    background: center;
-    background-image: url(/assets/images/backgrounds/geordanna-cordero-5NE6mX0WVfQ-unsplash.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
-    padding: 40px 0;
-    margin-top: -60px;
-  }
-}
-
-.section-container {
-  width: 100%;
-  padding: 16px;
-
-  @media screen and (min-width: $breakpoint-l) {
-    width: 1240px;
-    padding: 80px 0;
-  }
-
-  &-small {
-    padding: 20px;
-    @media screen and (min-width: $breakpoint-l) {
-      width: 1240px;
-      padding: 20px 0;
+    &-small {
+      padding: 20px;
+      @media screen and (min-width: $breakpoint-l) {
+        width: 1240px;
+        padding: 100px 0 80px;
+      }
     }
-  }
-}
-
-.section-heading {
-  @include fonts.font__pt-mono--bold;
-  font-size: 21px;
-  text-align: center;
-  line-height: normal;
-
-  &-supernova {
-    color: colors.$color__supernova;
-  }
-
-  &-bittersweet {
-    color: colors.$color__bittersweet;
-  }
-
-  &-purple {
-    color: colors.$color__purple;
-  }
-
-  &-grey {
-    color: colors.$color__grey;
-  }
-}
-
-.section-sub-heading {
-  @include fonts.font__effra--bold;
-  font-size: 30px;
-  text-align: center;
-  line-height: initial;
-
-  @media screen and (min-width: $breakpoint-m) {
-    font-size: 36px;
-  }
-
-  &-white {
-    @extend .section-sub-heading;
-    color: colors.$color__white;
-  }
-
-  &-large {
-    @extend .section-sub-heading;
-    @include fonts.font__pt-mono--bold;
-    font-size: 68px;
-    text-align: start;
-    margin: 0;
-  }
-}
-
-.section-text {
-  font-size: 18px;
-  max-width: 580px;
-  text-align: center;
-  line-height: normal;
-  margin: auto;
-
-  &-white {
-    color: colors.$color__white;
   }
 }

@@ -2,5 +2,16 @@
   Was sich Lehrkräfte wünschen und wie wir das erfüllen?
 </div>
 <div class="paragraph">
-  Eine Studie hat die Punkte identifiziert, die Lehrkräfte im Bereich Nachrichtenkompetenz unbedingt vermitteln wollen. Mit unserem Trust-Checking-Kit werden diese Punke abgedeckt!
+  Eine Studie hat die Punkte identifiziert, die Lehrkräfte im Bereich Nachrichtenkompetenz unbedingt vermitteln wollen.
+  Mit unserem Trust-Checking-Kit werden diese Punke abgedeckt!
 </div>
+
+<div class="components-group">
+  <div class="component">
+    <app-teacher-requirement-item *ngFor="let item of reqs" [item]="item"></app-teacher-requirement-item>
+  </div>
+</div>
+
+<a class="sources"
+   href="https://stiftervereinigung.de/wp-content/uploads/2020/09/Bericht_Lehrkra%CC%88ftebefragung_Nachrichtenkompetenz_neutral.pdf">*Quelle:
+  Institut für Demoskopie Allensbach, 2020 (S.44)</a>

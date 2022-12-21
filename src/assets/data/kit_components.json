@@ -1,0 +1,22 @@
+[
+  {
+    "img": "assets/images/illustrations/codetekt-TCK_Bestandteile_Handbuch.svg",
+    "title": "Das Handbuch",
+    "text": "Enthält alles, was du brauchst, um eine Unterrichtsstunde zum Thema Nachrichtenkompetenz zu halten. Gibt einen Überblick über alle Ziele, Inhalte und Methoden des Workshops, sowie Hintergrundinformationen zum Thema Falschinformationen und Nachrichtenkompetenz"
+  },
+  {
+    "img": "assets/images/illustrations/codetekt-TCK_Bestandteile_Präsentation.svg",
+    "title": "Die Präsentation",
+    "text": "Kann genutzt werden, um Inhalte zu visualisieren und durch die Unterrichtsstunde zu führen. Die Sprechernotizen unterstützen dich dabei zusätzlich."
+  },
+  {
+    "img": "assets/images/illustrations/codetekt-TCK_Bestandteile_Video.svg",
+    "title": "Die Videos",
+    "text": "Erklären dir direkt und persönlich, wie du unser Kit nutzen kannst, um unsere Inhalte zu vermitteln. Zu unserem *technischen Tool* gibt es ein ausführliches Schulungsvideo."
+  },
+  {
+    "img": "assets/images/illustrations/codetekt-TCK_Bestandteile_Plattform.svg",
+    "title": "Das technische Tool",
+    "text": "ist das Herzstück des Trust-Checking-Kits. Hier können die Schüler*innen die gelernten Inhalte selbst auf spielerische Art und Weise anwenden und die Ergebnisse können anschließend gemeinsam in der Klasse ausgewertet und besprochen werden."
+  }
+]

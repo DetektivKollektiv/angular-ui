@@ -2,22 +2,23 @@ import {Component, Input, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-teacher-requirements-section',
-  templateUrl: './teacher-requirements-section.component.html',
-  styleUrls: ['./teacher-requirements-section.component.scss']
+  selector: 'app-kit-components-section',
+  templateUrl: './kit-components-section.component.html',
+  styleUrls: ['./kit-components-section.component.scss']
 })
-export class TeacherRequirementsSectionComponent implements OnInit {
 
+
+export class KitComponentsSectionComponent implements OnInit {
   @Input() json: string;
-  reqs: any = [];
+
+  components: any = [];
 
   constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit(): void {
     this.httpClient.get('assets/data/' + this.json).subscribe(data => {
-      this.reqs = data;
+      this.components = data;
     });
-
   }
 }

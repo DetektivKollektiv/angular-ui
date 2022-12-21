@@ -1,0 +1,104 @@
+@use '../../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../../assets/scss/colors' as colors;
+@import '../../../../../../assets/scss/variables';
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+
+  @media screen and(min-width: $breakpoint-l) {
+    flex-direction: row;
+  }
+
+
+  .arrow-left {
+    background-color: colors.$color__neon-blue;
+    color: white;
+    clip-path: polygon(0 100%, 0 0, 100% 0, 100% 99%, 50% 82%);
+    width: 100%;
+    height: 180px;
+
+    @media screen and(min-width: $breakpoint-l) {
+      clip-path: polygon(0% 0%, 76% 0, 100% 50%, 76% 100%, 0% 100%);
+    }
+
+  }
+
+  .arrow-right {
+    background: white;
+    color: colors.$color__mysterious-blue;
+    clip-path: polygon(0 100%, 100% 100%, 100% 18%, 50% 0, 0 18%);
+    width: 100%;
+    height: 180px;
+    margin-top: -20px;
+    @media screen and(min-width: $breakpoint-l) {
+      clip-path: polygon(100% 0, 100% 24%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+      margin-left: -80px;
+      margin-top: 0;
+
+    }
+  }
+
+  .text-block {
+    padding: 40px 10px 10px 10px;
+    @media screen and(min-width: $breakpoint-m) {
+      padding: 30px;
+    }
+  }
+
+  .text-block-right {
+    padding: 40px 10px 10px 10px;
+    @media screen and(min-width: $breakpoint-m) {
+      padding: 30px 20px 20px 250px;
+    }
+  }
+
+  .headline {
+    @include fonts.font__effra--regular;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    @media screen and(min-width: $breakpoint-m) {
+      display: block;
+      justify-content: normal;
+    }
+
+
+
+    &-blue {
+      color: colors.$color__mysterious-blue;
+    }
+
+    &-white {
+      color: white;
+    }
+  }
+
+  .text {
+    @include fonts.font__effra--bold;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 135%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and(min-width: $breakpoint-m) {
+      display: grid;
+      justify-content: normal;
+    }
+
+
+    &-blue {
+      color: colors.$color__mysterious-blue;
+    }
+
+    &-white {
+      color: white;
+
+    }
+  }
+}
+
