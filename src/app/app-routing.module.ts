@@ -34,6 +34,7 @@ import { TeamPageComponent } from './static-pages/team-page/team-page/team-page.
 import { AboutComponent } from './static-pages/about/about.component';
 import { TrustCheckingPageComponent } from './static-pages/trust-checking/trust-checking-page/trust-checking-page.component';
 import { LeaderboardPageComponent } from './leaderboard/leaderboard-page/leaderboard-page.component';
+import { WorkshopPageComponent } from './static-pages/workshop-page/workshop-page.component';
 
 const routes: Routes = [
   {
@@ -95,7 +96,8 @@ const routes: Routes = [
       { path: 'landingpage', component: LandingPageComponent },
       { path: 'terms', component: CommunityGuidelinesComponent },
       { path: 'trust-checking', component: TrustCheckingPageComponent },
-      { path: 'leaderboard', component: LeaderboardPageComponent }
+      { path: 'leaderboard', component: LeaderboardPageComponent },
+      { path: 'workshop', component: WorkshopPageComponent }
     ]
   },
   {

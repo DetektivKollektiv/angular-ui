@@ -1,0 +1,33 @@
+@use '../../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../../assets/scss/colors' as colors;
+@import '../../../../../../assets/scss/variables';
+
+.component {
+  background-color: colors.$color__white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+
+  .content{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and(min-width: $breakpoint-s) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .content-text {
+    .component-header {
+      @include fonts.font__effra--bold;
+      font-size: 30px;
+      padding-bottom: 10px;
+    }
+
+    .component-text {
+      @include fonts.font__effra--regular;
+      font-size: 18px;
+    }
+  }
+}
