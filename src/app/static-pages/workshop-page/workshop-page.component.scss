@@ -1,0 +1,39 @@
+@use '../../../assets/scss/fonts' as fonts;
+@use '../../../assets/scss/colors' as colors;
+@import '../../../assets/scss/_initializer.scss';
+@import '../../../assets/scss/variables';
+
+:host {
+  width: 100%;
+}
+
+.section-background {
+  width: 100%;
+  background-color: colors.$color__white;
+  justify-content: center;
+  display: flex;
+
+  &-mysterious-blue {
+    @extend .section-background;
+    background-color: colors.$color__mysterious-blue;
+  }
+
+
+  &-yellow {
+    @extend .section-background;
+    background-color: colors.$color__supernova;
+  }
+
+  .section-container {
+    width: 100%;
+    padding: 16px;
+
+    &-small {
+      padding: 20px;
+      @media screen and (min-width: $breakpoint-l) {
+        width: 1240px;
+        padding: 50px 0 80px 20px;
+      }
+    }
+  }
+}

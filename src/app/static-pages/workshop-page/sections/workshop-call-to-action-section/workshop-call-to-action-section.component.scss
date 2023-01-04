@@ -1,0 +1,87 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
+@import '../../../../../assets/scss/variables';
+
+
+.title {
+  @include fonts.font__effra--bold;
+  font-size: 36px;
+  line-height: initial;
+  color: white;
+
+  @media screen and(min-width: $breakpoint-l) {
+    font-size: 52px;
+    padding-bottom: 30px;
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  @media screen and(min-width: $breakpoint-m) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  .button{
+    width: 200px;
+  }
+
+  .item {
+    background-color: colors.$color__white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 580px;
+
+
+    @media screen and(min-width: $breakpoint-xs) {
+      padding: 30px;
+      width: 100%;
+    }
+
+    .item-title {
+      @include fonts.font__effra--bold;
+      font-size: 30px;
+      padding: 0;
+    }
+
+    .text {
+      @include fonts.font__effra--regular;
+      font-size: 18px;
+      padding: 0;
+
+      margin-bottom: 20px;
+    }
+
+    &-red {
+      @extend .item;
+      background-color: colors.$color__bittersweet;
+    }
+
+    &-yellow {
+      @extend .item;
+      background-color: colors.$color__supernova;
+    }
+
+    &-blue {
+      @extend .item;
+      background-color: colors.$color__neon-blue;
+      color: white;
+
+      .text {
+        color: white;
+        @media screen and(min-width: $breakpoint-s) {
+          padding-bottom: 20px;
+        }
+      }
+
+      .item-title {
+        color: white;
+      }
+    }
+  }
+}
