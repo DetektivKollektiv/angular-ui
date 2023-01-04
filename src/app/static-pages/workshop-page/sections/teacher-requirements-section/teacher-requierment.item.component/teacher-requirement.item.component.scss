@@ -42,17 +42,23 @@
 
   .text-block {
     padding: 40px 10px 10px 10px;
+    text-align: center;
     @media screen and(min-width: $breakpoint-m) {
-      padding: 0 10px 10px 10px;
+      padding: 0px 24% 10px 50px;
       position: relative;
       top: 30%;
+      text-align: start;
     }
   }
 
   .text-block-right {
     padding: 40px 10px 10px 10px;
+    text-align: center;
     @media screen and(min-width: $breakpoint-m) {
-      padding: 30px 20px 20px 250px;
+      padding: 0px 20px 20px 30%;
+      position: relative;
+      top: 30%;
+      text-align: start;
     }
   }
 
