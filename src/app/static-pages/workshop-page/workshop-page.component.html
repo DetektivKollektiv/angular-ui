@@ -1,29 +1,25 @@
-<app-my-profile *ngIf="loggedIn$ | async; else staticPage"></app-my-profile>
-
-<ng-template #staticPage>
-  <div class="section-background-yellow">
-    <div class="section-container-small">
-      <app-trust-checking-kit-section></app-trust-checking-kit-section>
-    </div>
+<div class="section-background-yellow">
+  <div class="section-container-small">
+    <app-trust-checking-kit-section></app-trust-checking-kit-section>
   </div>
-  <div class="section-background">
-    <div class="section-container-small">
-      <app-news-competence-section></app-news-competence-section>
-    </div>
+</div>
+<div class="section-background">
+  <div class="section-container-small">
+    <app-news-competence-section></app-news-competence-section>
   </div>
-  <div class="section-background-mysterious-blue">
-    <div class="section-container-small">
-      <app-teacher-requirements-section json="teacher_requirements.json"></app-teacher-requirements-section>
-    </div>
+</div>
+<div class="section-background-mysterious-blue">
+  <div class="section-container-small">
+    <app-teacher-requirements-section json="teacher_requirements.json"></app-teacher-requirements-section>
   </div>
-  <div class="section-background-yellow">
-    <div class="section-container-small">
-      <app-kit-components-section json="kit_components.json"></app-kit-components-section>
-    </div>
+</div>
+<div class="section-background-yellow">
+  <div class="section-container-small">
+    <app-kit-components-section json="kit_components.json"></app-kit-components-section>
   </div>
-  <div class="section-background-mysterious-blue">
-    <div class="section-container-small">
-      <app-workshop-call-to-action-section></app-workshop-call-to-action-section>
-    </div>
+</div>
+<div class="section-background-mysterious-blue">
+  <div class="section-container-small">
+    <app-workshop-call-to-action-section></app-workshop-call-to-action-section>
   </div>
-</ng-template>
+</div>
