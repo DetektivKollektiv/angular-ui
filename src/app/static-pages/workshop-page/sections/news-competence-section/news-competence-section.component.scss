@@ -4,7 +4,7 @@
 
 .title {
   @include fonts.font__effra--bold;
-  font-size: 36px;
+  font-size: 34px;
   line-height: initial;
 
   @media screen and(min-width: $breakpoint-l) {
@@ -31,9 +31,6 @@
       width: 100%;
     }
 
-    .competence-img {
-    }
-
     .competence-text {
       font-size: 18px;
       padding-top: 20px;
@@ -44,7 +41,7 @@
   }
 }
 .sources{
-  padding-top: 30px;
+  padding: 30px 0 0 10px;
 }
 
 
