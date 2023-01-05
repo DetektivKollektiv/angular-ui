@@ -2,20 +2,12 @@
 @use '../../../../../assets/scss/colors' as colors;
 @import '../../../../../assets/scss/variables';
 
-.standard-content-container-width {
-  @media only screen and (min-width: $breakpoint-l) and (max-width: $breakpoint-xxl) {
-    width: 50%;
-    padding: 0;
-  }
-}
 
 .far {
   color: colors.$color__supernova;
 }
 
 .content-section {
-  display: flex;
-  margin: auto;
 
   .content {
     display: flex;
@@ -30,6 +22,9 @@
 
     .text {
       @media screen and(min-width: $breakpoint-l) {
+        width: 550px;
+      }
+      @media screen and(min-width: $breakpoint-xxl) {
         width: 650px;
       }
 
@@ -37,9 +32,13 @@
         @include fonts.font__effra--bold;
         font-size: 36px;
         line-height: initial;
+        margin: 20px 0;
+        text-align: center;
 
         @media screen and(min-width: $breakpoint-l) {
           font-size: 52px;
+          margin: 0;
+          text-align: left;
         }
 
         span {
@@ -55,7 +54,6 @@
 
       .button {
         color: colors.$color__supernova;
-
       }
 
       .button-group {
@@ -65,7 +63,7 @@
           flex-direction: row;
         }
         @media screen and(min-width: $breakpoint-l) {
-          width: 650px;
+          width: 550px;
           margin-top: 20px;
           align-items: center;
         }
@@ -79,11 +77,10 @@
     .video {
       &__desktop {
         display: none;
-        width: 80%;
-        height: 80%;
+        width: 600px;
         margin-left: 50px;
         justify-content: center;
-        @media screen and(min-width: $breakpoint-xxl) {
+        @media screen and(min-width: $breakpoint-l) {
           display: flex;
         }
       }
@@ -91,7 +88,7 @@
       &__mobile {
         display: flex;
         justify-content: center;
-        @media screen and(min-width: $breakpoint-xxl) {
+        @media screen and(min-width: $breakpoint-l) {
           display: none;
         }
         @media screen and(min-width: $breakpoint-xs) {
