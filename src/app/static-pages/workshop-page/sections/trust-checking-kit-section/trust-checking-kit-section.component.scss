@@ -22,7 +22,7 @@
 
     .text {
       @media screen and(min-width: $breakpoint-l) {
-        width: 500px;
+        width: 550px;
       }
       @media screen and(min-width: $breakpoint-xxl) {
         width: 650px;
@@ -63,7 +63,7 @@
           flex-direction: row;
         }
         @media screen and(min-width: $breakpoint-l) {
-          width: 500px;
+          width: 550px;
           margin-top: 20px;
           align-items: center;
         }
