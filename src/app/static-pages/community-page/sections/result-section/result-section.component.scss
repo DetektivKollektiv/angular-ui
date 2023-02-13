@@ -1,0 +1,65 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
+@import '../../../../../assets/scss/variables';
+@import '../../community-page.component.scss';
+
+.section-heading {
+  margin-top: 20px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and(min-width: $breakpoint-m) {
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-direction: row;
+  }
+
+  .result-item {
+    width: 324px;
+
+    h1 {
+      @include fonts.font__pt-mono--bold;
+      font-size: 36px;
+      line-height: initial;
+
+      @media screen and(min-width: $breakpoint-l) {
+        font-size: 48px;
+      }
+    }
+
+    .title-bittersweet {
+      color: colors.$color__bittersweet;
+    }
+
+    .title-red {
+      color: colors.$color__rating-red;
+    }
+
+    .title-orange {
+      color: colors.$color__rating-orange;
+    }
+
+    h3 {
+      @include fonts.font__effra--bold;
+      font-size: 21px;
+      color: colors.$color__mysterious-blue;
+    }
+
+    p {
+      @include fonts.font__effra--regular;
+      font-size: 18px;
+      color: colors.$color__mysterious-blue;
+    }
+
+    a:hover,
+    a:focus,
+    a:active,
+    a:visited {
+      text-decoration: none;
+    }
+  }
+}

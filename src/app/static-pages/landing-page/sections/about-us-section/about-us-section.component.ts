@@ -1,11 +1,11 @@
 import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 
 @Component({
-  selector: 'app-workshop-section',
-  templateUrl: './workshop-section.component.html',
-  styleUrls: ['./workshop-section.component.scss']
+  selector: 'app-about-us-section',
+  templateUrl: './about-us-section.component.html',
+  styleUrls: ['./about-us-section.component.scss']
 })
-export class WorkshopSectionComponent implements OnInit {
+export class AboutUsSectionComponent implements OnInit {
   @Input() focused = false;
 
   constructor() {
@@ -18,5 +18,6 @@ export class WorkshopSectionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

@@ -1,7 +1,7 @@
 @use '../../../../../assets/scss/fonts' as fonts;
 @use '../../../../../assets/scss/colors' as colors;
 @import '../../../../../assets/scss/variables';
-@import '../../landing-page.component.scss';
+@import '../../community-page.component.scss';
 
 .hide {
   display: none;
@@ -114,3 +114,4 @@
     opacity: 1;
   }
 }
+

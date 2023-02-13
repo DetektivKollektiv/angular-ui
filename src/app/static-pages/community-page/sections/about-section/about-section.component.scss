@@ -1,0 +1,72 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
+@import '../../../../../assets/scss/variables';
+@import '../../community-page.component.scss';
+
+.text {
+  max-width: 580px;
+  @media screen and(min-width: $breakpoint-l) {
+    max-width: 800px;
+  }
+
+  font-size: 18px;
+  text-align: center;
+  line-height: normal;
+  margin: auto;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 20px auto;
+  width: max-content;
+
+  @media screen and(min-width: $breakpoint-s) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+
+  .page-link-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 20px;
+    width: 100%;
+
+    .title {
+      @include fonts.font__effra--bold;
+      font-size: 21px;
+      text-align: center;
+    }
+
+    &-purple {
+      background-color: rgba($color: colors.$color__purple, $alpha: 0.2);
+
+      &:hover {
+        background-color: rgba($color: colors.$color__purple, $alpha: 0.4);
+      }
+    }
+    &-supernova {
+      background-color: rgba($color: colors.$color__supernova, $alpha: 0.2);
+
+      &:hover {
+        background-color: rgba($color: colors.$color__supernova, $alpha: 0.4);
+      }
+    }
+    &-bittersweet {
+      background-color: rgba($color: colors.$color__bittersweet, $alpha: 0.2);
+
+      &:hover {
+        background-color: rgba($color: colors.$color__bittersweet, $alpha: 0.4);
+      }
+    }
+  }
+}

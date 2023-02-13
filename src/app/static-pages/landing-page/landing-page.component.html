@@ -1,84 +1,29 @@
 <app-my-profile *ngIf="loggedIn$ | async; else staticPage"></app-my-profile>
 
 <ng-template #staticPage>
-  <div class="section-background">
-    <div class="section-container-small">
-      <app-intro-section></app-intro-section>
+  <div class="sections">
+    <div class="section-background-supernova"
+         [ngClass]="{'section-focused':focusedCommunity,'section-hidden': hiddenCommunity }"
+         (mouseover)="mouseOverCommunity()" (mouseout)="mouseOutCommunity()">
+      <div class="section-container"
+           [ngClass]="{'section-text-hidden': hiddenCommunity }">
+        <app-community-section [focused]="focusedCommunity"></app-community-section>
+      </div>
     </div>
-  </div>
-
-  <div class="section-background">
-    <div class="section-container-small">
-      <app-supporter-section [wide]="true"></app-supporter-section>
+    <div class="section-background-bittersweet"
+         [ngClass]="{'section-focused':focusedWorkshop,'section-hidden': hiddenWorkshop }"
+         (mouseover)="mouseOverWorkshop()" (mouseout)="mouseOutWorkshop()">
+      <div class="section-container" [ngClass]="{'section-text-hidden': hiddenWorkshop }">
+        <app-workshop-section [focused]="focusedWorkshop"></app-workshop-section>
+      </div>
     </div>
-  </div>
 
-  <div class="section-background-gradient-orange">
-    <div class="section-container">
-      <app-workshop-section></app-workshop-section>
-    </div>
-  </div>
-
-  <div class="section-background-dots">
-    <div class="section-container">
-      <app-result-section></app-result-section>
-    </div>
-  </div>
-
-  <div class="section-background-gradient">
-    <div class="section-container">
-      <app-surrounding-section></app-surrounding-section>
-    </div>
-  </div>
-
-  <div class="section-background">
-    <div class="section-container">
-      <app-process-section></app-process-section>
-    </div>
-  </div>
-
-  <div class="section-background-mysterious-blue">
-    <div class="section-container">
-      <app-archive-section></app-archive-section>
-    </div>
-  </div>
-
-  <div class="section-background">
-    <div class="section-container">
-      <app-about-section></app-about-section>
-    </div>
-  </div>
-
-  <!--TODO: Add once API exists-->
-  <!-- <app-numbers-section class="section"></app-numbers-section> -->
-
-  <div class="section-background-tile-background">
-    <div class="section-container">
-      <app-support-us-section class="section"></app-support-us-section>
-    </div>
-  </div>
-
-  <div class="section-background-colorful">
-    <div class="section-container">
-      <app-social-media-section></app-social-media-section>
-    </div>
-  </div>
-
-  <div class="section-background">
-    <div class="section-container">
-      <app-news-section></app-news-section>
-    </div>
-  </div>
-
-  <div class="section-background-stars">
-    <div class="standard-content-container-width">
-      <app-call-to-action-section></app-call-to-action-section>
-    </div>
-  </div>
-
-  <div class="section-background">
-    <div class="section-container">
-      <app-newsletter-section id="newsletter"></app-newsletter-section>
+    <div class="section-background-neon-blue"
+         [ngClass]="{'section-focused':focusedAboutUs,'section-hidden': hiddenAboutUs }"
+         (mouseover)="mouseOverAboutUs()" (mouseout)="mouseOutAboutUs()">
+      <div class="section-container" [ngClass]="{'section-text-hidden': hiddenAboutUs }">
+        <app-about-us-section [focused]="focusedAboutUs"></app-about-us-section>
+      </div>
     </div>
   </div>
 </ng-template>

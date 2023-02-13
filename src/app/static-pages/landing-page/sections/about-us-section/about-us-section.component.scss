@@ -33,6 +33,7 @@
 
     .title {
       @include fonts.font__effra--regular;
+      color: white;
       font-size: 50px;
       line-height: initial;
       padding-bottom: 30px;
@@ -42,6 +43,7 @@
 
   .paragraph {
     @include fonts.font__effra--regular;
+    color: white;
     font-size: 22px;
     line-height: initial;
     @media screen and(min-width: $breakpoint-xl) {
@@ -80,6 +82,7 @@
 
     .title {
       @include fonts.font__effra--regular;
+      color: white;
       font-size: 50px;
       padding-bottom: 30px;
       line-height: initial;
@@ -92,6 +95,7 @@
 
   .paragraph {
     @include fonts.font__effra--regular;
+    color: white;
     line-height: initial;
     font-size: 30px;
   }
@@ -102,6 +106,14 @@
     flex-direction: row;
     gap: 20px;
 
+    .button {
+      color: white;
+      border-color: white;
+    }
+
+    .button:hover {
+      color: colors.$color__neon-blue;
+    }
   }
 
 }
@@ -114,3 +126,4 @@
     opacity: 1;
   }
 }
+
