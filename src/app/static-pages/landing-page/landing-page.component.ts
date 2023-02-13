@@ -33,22 +33,10 @@ export class LandingPageComponent {
     this.hiddenAboutUs = true;
   }
 
-  mouseOutCommunity() {
-    this.focusedCommunity = false;
-    this.hiddenWorkshop = false;
-    this.hiddenAboutUs = false;
-  }
-
   mouseOverWorkshop() {
     this.focusedWorkshop = true;
     this.hiddenCommunity = true;
     this.hiddenAboutUs = true;
-  }
-
-  mouseOutWorkshop() {
-    this.focusedWorkshop = false;
-    this.hiddenCommunity = false;
-    this.hiddenAboutUs = false;
   }
 
   mouseOverAboutUs() {
@@ -57,10 +45,13 @@ export class LandingPageComponent {
     this.hiddenWorkshop = true;
   }
 
-  mouseOutAboutUs() {
+  mouseOut() {
+    this.focusedCommunity = false;
     this.focusedAboutUs = false;
-    this.hiddenCommunity = false;
+    this.focusedWorkshop = false;
     this.hiddenWorkshop = false;
+    this.hiddenAboutUs = false;
+    this.hiddenCommunity = false;
   }
 
 }

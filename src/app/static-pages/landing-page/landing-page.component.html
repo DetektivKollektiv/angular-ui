@@ -2,17 +2,17 @@
 
 <ng-template #staticPage>
   <div class="sections">
-    <div class="section-background-supernova"
+    <div class="section-background-bittersweet"
          [ngClass]="{'section-focused':focusedCommunity,'section-hidden': hiddenCommunity }"
-         (mouseover)="mouseOverCommunity()" (mouseout)="mouseOutCommunity()">
+         (mouseover)="mouseOverCommunity()" (mouseout)="mouseOut()">
       <div class="section-container"
            [ngClass]="{'section-text-hidden': hiddenCommunity }">
         <app-community-section [focused]="focusedCommunity"></app-community-section>
       </div>
     </div>
-    <div class="section-background-bittersweet"
+    <div class="section-background-supernova"
          [ngClass]="{'section-focused':focusedWorkshop,'section-hidden': hiddenWorkshop }"
-         (mouseover)="mouseOverWorkshop()" (mouseout)="mouseOutWorkshop()">
+         (mouseover)="mouseOverWorkshop()" (mouseout)="mouseOut()">
       <div class="section-container" [ngClass]="{'section-text-hidden': hiddenWorkshop }">
         <app-workshop-section [focused]="focusedWorkshop"></app-workshop-section>
       </div>
@@ -20,9 +20,35 @@
 
     <div class="section-background-neon-blue"
          [ngClass]="{'section-focused':focusedAboutUs,'section-hidden': hiddenAboutUs }"
-         (mouseover)="mouseOverAboutUs()" (mouseout)="mouseOutAboutUs()">
+         (mouseover)="mouseOverAboutUs()" (mouseout)="mouseOut()">
       <div class="section-container" [ngClass]="{'section-text-hidden': hiddenAboutUs }">
         <app-about-us-section [focused]="focusedAboutUs"></app-about-us-section>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="sections-mobile">
+    <div class="section-background-bittersweet"
+         [ngClass]="{'section-focused-mobile':focusedCommunity,'section-hidden-mobile': hiddenCommunity }"
+         (mouseover)="mouseOverCommunity()" (mouseout)="mouseOut()">
+      <div class="section-container">
+        <app-community-section [focused]="focusedCommunity" [hidden]="hiddenCommunity"></app-community-section>
+      </div>
+    </div>
+    <div class="section-background-supernova"
+         [ngClass]="{'section-focused-mobile':focusedWorkshop,'section-hidden-mobile': hiddenWorkshop }"
+         (mouseover)="mouseOverWorkshop()" (mouseout)="mouseOut()">
+      <div class="section-container">
+        <app-workshop-section [focused]="focusedWorkshop" [hidden]="hiddenWorkshop"></app-workshop-section>
+      </div>
+    </div>
+
+    <div class="section-background-neon-blue"
+         [ngClass]="{'section-focused-mobile':focusedAboutUs,'section-hidden-mobile': hiddenAboutUs }"
+         (mouseover)="mouseOverAboutUs()" (mouseout)="mouseOut()">
+      <div class="section-container">
+        <app-about-us-section [focused]="focusedAboutUs" [hidden]="hiddenAboutUs"></app-about-us-section>
       </div>
     </div>
   </div>

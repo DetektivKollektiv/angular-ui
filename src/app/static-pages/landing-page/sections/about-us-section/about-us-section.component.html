@@ -1,24 +1,23 @@
-<div [ngClass]="{'content':!focused,'content-focused':focused}">
-  <div class="text">
-    <h1 class="title">Über Uns</h1>
-    <p class="paragraph">
-      codetekt e.V. hat es sich zum Ziel gesetzt, die Ausbreitung von Falschinformationen zu bekämpfen und
-      Medienkompetenz zu fördern.
-    </p>
-    <div class="buttons" [ngClass]="{'hide':!focused}">
-      <a class="button"
-         title="Der Verein" [routerLink]="['/about']">
-        Der Verein
-      </a>
-      <a class="button"
-         title=" FAQ" [routerLink]="['/faq']">
-        FAQ
-      </a>
+<div [ngClass]="{'section':!focused && !hidden,'section-focused':focused}">
+  <div class="content">
+    <h1 [ngClass]="{'title':!hidden,'hidden-title':hidden}">Über Uns</h1>
+    <div class="text" [ngClass]="{'hidden':hidden}">
+      <p class="paragraph">
+        codetekt e.V. hat es sich zum Ziel gesetzt, die Ausbreitung von Falschinformationen zu bekämpfen und
+        Medienkompetenz zu fördern.
+      </p>
+      <div class="buttons" [ngClass]="{'hide':!focused}">
+        <a class="button"
+           title="Der Verein" [routerLink]="['/about']">
+          Der Verein
+        </a>
+        <a class="button"
+           title=" FAQ" [routerLink]="['/faq']">
+          FAQ
+        </a>
+      </div>
     </div>
   </div>
-  <div>
-    <img class="image" src="assets/images/illustrations/title.svg" alt=""/>
-  </div>
+  <img class="image" [ngClass]="{'hidden':hidden}" src="assets/images/illustrations/title.svg" alt=""/>
 </div>
-
 

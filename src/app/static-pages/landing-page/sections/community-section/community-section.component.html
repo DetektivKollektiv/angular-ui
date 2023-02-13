@@ -1,24 +1,23 @@
-<div [ngClass]="{'content':!focused,'content-focused':focused}">
-  <div class="text">
-    <h1 class="title">Community-Plattform</h1>
-    <p class="paragraph">
-      Reiche auf unserer Plattform Inhalte zur Überprüfung durch unsere Community ein oder registriere dich als
-      codetektiv:in und werde selbst aktiv gegen Falschinformationen!
-    </p>
-    <div class="buttons" [ngClass]="{'hide':!focused}">
-      <a class="button"
-         title="Der Verein" [routerLink]="['/about']">
-        Fall einreichen
-      </a>
-      <a class="button"
-         title=" FAQ" [routerLink]="['/faq']">
-        Login/registrierung
-      </a>
+<div [ngClass]="{'section':!focused && !hidden,'section-focused':focused}">
+  <div class="content">
+    <h1 [ngClass]="{'title':!hidden,'hidden-title':hidden}">Community-Plattform</h1>
+    <div class="text" [ngClass]="{'hidden':hidden}">
+      <p class="paragraph">
+        Reiche auf unserer Plattform Inhalte zur Überprüfung durch unsere Community ein oder registriere dich als
+        codetektiv:in und werde selbst aktiv gegen Falschinformationen!
+      </p>
+      <div class="buttons" [ngClass]="{'hide':!focused}">
+        <a class="button"
+           title="Community-Plattform" [routerLink]="['/community']">
+          Plattform
+        </a>
+        <a class="button"
+           title="Login" [routerLink]="['/login']">
+          Login
+        </a>
+      </div>
     </div>
   </div>
-  <div>
-    <img class="image" src="assets/images/illustrations/title.svg" alt=""/>
-  </div>
+  <img class="image" [ngClass]="{'hidden':hidden}" src="assets/images/illustrations/title.svg" alt=""/>
 </div>
-
 

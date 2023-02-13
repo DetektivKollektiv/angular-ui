@@ -1,24 +1,24 @@
-<div [ngClass]="{'content':!focused,'content-focused':focused}">
-  <div class="text">
-    <h1 class="title">Workshop</h1>
-    <p class="paragraph">
-      Wir bieten Materialien für Lehrkräfte an, die Sie nutzen können um ihren Schüler*innen effektiv und unterhaltsam
-      Medienkompetenz zu vermitteln.
-    </p>
-    <div class="buttons" [ngClass]="{'hide':!focused}">
-      <a class="button"
-         title="Der Verein" [routerLink]="['/about']">
-        Mehr erfahren
-      </a>
-      <a class="button"
-         title=" FAQ" [routerLink]="['/faq']">
-        Workshops anfragen
-      </a>
+<div [ngClass]="{'section':!focused && !hidden,'section-focused':focused}">
+  <div class="content">
+    <h1 [ngClass]="{'title':!hidden,'hidden-title':hidden}">Workshop</h1>
+    <div class="text" [ngClass]="{'hidden':hidden}">
+      <p class="paragraph">
+        Wir bieten Materialien für Lehrkräfte an, die Sie nutzen können um ihren Schüler*innen effektiv und unterhaltsam
+        Medienkompetenz zu vermitteln.
+      </p>
+      <div class="buttons" [ngClass]="{'hide':!focused}">
+        <a class="button"
+           title="Workshops" [routerLink]="['/workshop']">
+          Mehr erfahren
+        </a>
+        <a class="button"
+           href="mailto:workshop@codetekt.org?subject=Anfrage%20Trust-Checking-Kit%20Workshop" target="_blank">
+          Workshops anfragen
+        </a>
+      </div>
     </div>
   </div>
-  <div>
-    <img class="image" src="assets/images/illustrations/title.svg" alt=""/>
-  </div>
+  <img class="image" [ngClass]="{'hidden':hidden}" src="assets/images/illustrations/title.svg" alt=""/>
 </div>
 
 

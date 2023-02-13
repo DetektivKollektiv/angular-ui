@@ -7,13 +7,17 @@ import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 })
 export class WorkshopSectionComponent implements OnInit {
   @Input() focused = false;
+  @Input() hidden = false;
 
   constructor() {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.focused = changes.focused.currentValue;
-
+    if (changes.focused) {
+      this.focused = changes.focused.currentValue;
+    } else {
+      this.hidden = changes.hidden.currentValue;
+    }
   }
 
   ngOnInit(): void {
