@@ -1,5 +1,6 @@
 @use    '../../../../assets/scss/colors' as colors;
 @import '../../../../assets/scss/initializer';
+@import '../../../../assets/scss/variables';
 
 .faqblock {
   padding-top: 15px;
@@ -8,5 +9,12 @@
     font-size: 32px;
     color: $color__share-section-heading;
 
+  }
+  h1 {
+    font-size: 36px;
+    color: $color__share-section-heading;
+    @media screen and(min-width: $breakpoint-l) {
+      font-size: 52px;
+    }
   }
 }

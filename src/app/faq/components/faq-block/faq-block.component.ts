@@ -10,6 +10,7 @@ export class FaqBlockComponent implements OnInit {
 
   @Input() headline: string;
   @Input() json: string;
+  @Input() main_headline = false;
 
   faq: any = [];
 
