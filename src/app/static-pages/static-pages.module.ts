@@ -38,6 +38,7 @@ import {TeacherRequirementsSectionComponent} from './workshop-page/sections/teac
 import {WorkshopSectionComponent} from './landing-page/sections/workshop-section/workshop-section.component';
 import {KitItemComponent} from './workshop-page/sections/kit-components-section/kit-item.componenent/kit-item.component';
 import {TeacherRequirementItemComponent} from './workshop-page/sections/teacher-requirements-section/teacher-requierment.item.component/teacher-requirement.item.component';
+import { FaqModule } from '../faq/faq.module';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import {TeacherRequirementItemComponent} from './workshop-page/sections/teacher-
     HttpClientJsonpModule,
     BreadcrumbModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    FaqModule
   ],
   exports: [AboutComponent, SupportUsSectionComponent, SupporterSectionComponent]
 })
