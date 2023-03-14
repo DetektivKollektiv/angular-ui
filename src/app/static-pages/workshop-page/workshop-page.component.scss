@@ -36,4 +36,10 @@
       }
     }
   }
+  .full-width{
+    @media screen and (min-width: $breakpoint-l) {
+      width: 1240px;
+    }
+    width: 100%;
+  }
 }
