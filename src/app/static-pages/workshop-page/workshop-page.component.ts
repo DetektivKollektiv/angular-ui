@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@shared/auth/auth-service/auth.service';
 import { map } from 'rxjs/operators';
-
 @Component({
   selector: 'app-workshop-page',
   templateUrl: './workshop-page.component.html',
