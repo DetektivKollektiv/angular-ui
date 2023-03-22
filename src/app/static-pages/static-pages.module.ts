@@ -39,6 +39,8 @@ import {WorkshopSectionComponent} from './landing-page/sections/workshop-section
 import {KitItemComponent} from './workshop-page/sections/kit-components-section/kit-item.componenent/kit-item.component';
 import {TeacherRequirementItemComponent} from './workshop-page/sections/teacher-requirements-section/teacher-requierment.item.component/teacher-requirement.item.component';
 import { FaqModule } from '../faq/faq.module';
+import { PricingTableComponent } from './workshop-page/sections/pricing-section/pricing-table/pricing-table.component';
+import { PricingSectionComponent } from './workshop-page/sections/pricing-section/pricing-section.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import { FaqModule } from '../faq/faq.module';
     KitComponentsSectionComponent,
     WorkshopCallToActionSectionComponent,
     KitItemComponent,
-    TeacherRequirementItemComponent
+    TeacherRequirementItemComponent,
+    PricingTableComponent,
+    PricingSectionComponent
   ],
   imports: [
     CommonModule,
