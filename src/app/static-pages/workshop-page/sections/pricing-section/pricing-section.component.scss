@@ -1,0 +1,30 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
+@import '../../../../../assets/scss/variables';
+
+h1 {
+  @include fonts.font__effra--bold;
+  font-size: 36px;
+  line-height: initial;
+
+  @media screen and(min-width: $breakpoint-l) {
+    font-size: 52px;
+  }
+}
+
+.paragraph {
+  @include fonts.font__effra--regular;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  @media screen and(min-width: $breakpoint-l) {
+    flex-direction: row;
+    padding: 0 100px;
+  }
+}

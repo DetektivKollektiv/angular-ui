@@ -1,0 +1,12 @@
+<div class="container">
+    <p class="headline">{{item.headline}}</p>
+    <div class="item" *ngFor="let line of item.lines">
+        <p>{{line}}</p>
+    </div>
+    <p class="price">{{item.price}}</p>
+    <a class="button button--mysterious-blue"
+        href="{{item.mailto_link}}" target="_blank">
+        <i class="far fa-envelope-open-text fa-lg"></i>
+        ANFRAGEN
+    </a>
+</div>
