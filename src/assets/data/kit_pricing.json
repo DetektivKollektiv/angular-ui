@@ -1,0 +1,5 @@
+[
+  { "headline": "Basic", "price": "Preis: 39€", "mailto_link": "mailto:workshop@codetekt.org?subject=Buchung%20TCK%20Basic&body=Ich%20w%C3%BCrde%20gerne%20das%20Trust-Checking-Kit%20Basic%20buchen!" ,"lines": ["Trust-Checking-Kit: ✅", "Trust-O-Mat-Zugänge: 1️⃣", "Weiterer Zugang: 20€", "Lehrerfortbildung: ❌", "Laufzeit: 12 Monate"] },
+  { "headline": "Pro", "price": "Preis: 99€", "mailto_link": "mailto:workshop@codetekt.org?subject=Buchung%20TCK%20Pro&body=Ich%20w%C3%BCrde%20gerne%20das%20Trust-Checking-Kit%20Pro%20buchen!", "lines": ["Trust-Checking-Kit: ✅", "Trust-O-Mat-Zugänge: 5️⃣", "Weiterer Zugang: 20€", "Lehrerfortbildung: ❌", "Laufzeit: 12 Monate"] },
+  { "headline": "Premium", "price": "Preis: 499€", "mailto_link": "mailto:workshop@codetekt.org?subject=Buchung%20TCK%20Premium&body=Ich%20w%C3%BCrde%20gerne%20das%20Trust-Checking-Kit%20Premium%20buchen!", "lines": ["Trust-Checking-Kit: ✅", "Trust-O-Mat-Zugänge: ♾️", "Weiterer Zugang: 0€", "Lehrerfortbildung: ✅", "Laufzeit: 12 Monate"] }
+]
