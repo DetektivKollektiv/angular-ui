@@ -39,12 +39,13 @@ h1 {
   flex-direction: column;
 
   display: flex;
-  background-color: colors.$color__bittersweet;
+  background-color: colors.$color__neon-blue;
   border-radius: 10px;
   margin-top: 20px;
   padding: 10px 20px 20px 20px;
   align-items: start;
   .fullservice-content {
+
     display: flex;
     flex-direction: column;
     @media screen and(min-width: $breakpoint-l) {
@@ -52,6 +53,8 @@ h1 {
     }
     p {
       font-size: 20px;
+      color:#ffffff;
+
     }
     .headline {
       line-height: 115%;
