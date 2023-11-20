@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, HostListener } from '@angular/core';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Item } from 'src/app/model/item';
 import { CaseFilter } from '../../model/case-filter';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AddFilterKeyword, RemoveFilterKeyword, SetFilter, SetSortBy, ToggleSortOrder } from '../../state/archive.actions';
 import { ResultScoreMode } from '@shared/helper/components/result-score/result-score-mode';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,12 +14,15 @@ import { CaseSort, CaseSortBy } from '../../model/case-sort';
 import { ViewportScroller } from '@angular/common';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 
+import { takeUntil } from 'rxjs/operators';
+
 @Component({
   selector: 'app-archive',
   templateUrl: './archive.component.html',
   styleUrls: ['./archive.component.scss']
 })
-export class ArchiveComponent {
+export class ArchiveComponent implements OnDestroy {
+  private destroy$: Subject<any> = new Subject<any>();
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.filter) filter$: Observable<CaseFilter>;
   @Select(ArchiveState.sort) sort$: Observable<CaseSort>;
@@ -74,6 +77,12 @@ export class ArchiveComponent {
 
   constructor(private store: Store, private matDialog: MatDialog, private viewportScroller: ViewportScroller) {}
 
+  @HostListener('unloaded')
+  public ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
+
   remove(keyword: string): void {
     this.store.dispatch(new RemoveFilterKeyword(keyword));
   }
@@ -106,7 +115,7 @@ export class ArchiveComponent {
         maxWidth: '100vw',
         maxHeight: '100vh'
       })
-      .afterClosed()
+      .afterClosed().pipe(takeUntil(this.destroy$))
       .subscribe((filterData: CaseFilter) => {
         if (filterData) {
           this.onApplyFilter(filterData);

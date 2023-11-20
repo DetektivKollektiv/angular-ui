@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoaderService } from '@shared/loader/service/loader.service';
 import { UserService } from '../../../core/services/user/user.service';
 import { Select, Store } from '@ngxs/store';
 import { ArchiveState } from '../../state/archive.state';
-import { Observable, OperatorFunction } from 'rxjs';
+import { Observable, OperatorFunction, Subject } from 'rxjs';
 import { Item } from '../../../model/item';
 import { GetDetailItem, CreateComment } from '../../state/archive.actions';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
-import { filter, map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
+import { filter, map, switchMap, tap, withLatestFrom, takeUntil } from 'rxjs/operators';
 import { Detective } from '../../../model/detective';
 import { User } from '../../..//core/model/user';
 import { Comment } from '../../../model/comment.interface';
@@ -24,7 +24,8 @@ import { ReportItemDialogData } from '../../../core/services/report-item/report-
   templateUrl: './archive-details-page.component.html',
   styleUrls: ['./archive-details-page.component.scss']
 })
-export class ArchiveDetailsPageComponent implements OnInit {
+export class ArchiveDetailsPageComponent implements OnInit, OnDestroy {
+  private destroy$: Subject<any> = new Subject<any>();
   @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
   @Select(ArchiveState.detailItem) detailItem$!: Observable<Item>;
   case$ = this.detailItem$.pipe(filter((item) => !!item));
@@ -101,16 +102,23 @@ export class ArchiveDetailsPageComponent implements OnInit {
     private reportItemService: ReportItemService
   ) {}
 
+  @HostListener('unloaded')
+  public ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
+
   ngOnInit(): void {
     this.loader.show();
     this.userService.user$
       .pipe(
-        tap((user) => (this.user = user)),
-        switchMap(() => this.route.params),
-        switchMap(({ id }) => this.store.dispatch(new GetDetailItem(id))),
-        map(({ archive }) => archive.detailItem),
-        tap((item) => item.users.forEach((user) => this.getDetective(user, this.user?.name)))
-      )
+      tap((user) => (this.user = user)),
+      switchMap(() => this.route.params),
+      switchMap(({ id }) => this.store.dispatch(new GetDetailItem(id))),
+      map(({ archive }) => archive.detailItem),
+      tap((item) => item.users.forEach((user) => this.getDetective(user, this.user?.name))),
+      takeUntil(this.destroy$)
+    )
       .subscribe((item: Item) => {
         this.initCase(item);
         this.loader.hide();
