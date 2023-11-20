@@ -1,5 +1,11 @@
 [
   {
+    "image": "assets/images/supporter/dpl.png"
+  },
+  {
+    "image": "assets/images/supporter/mabb.png"
+  },
+  {
     "image": "assets/images/supporter/campact.png"
   },
   {
@@ -16,11 +22,5 @@
   },
   {
     "image": "assets/images/supporter/send.png"
-  },
-  {
-    "image": "assets/images/supporter/mimikama.png"
-  },
-  {
-    "image": "assets/images/supporter/updatedeutschland.svg"
   }
 ]
