@@ -1,5 +1,5 @@
 <div class="supporters">
-  <p *ngIf="withHeadline" class="section-heading section-heading-grey">Unsere Partner:innen, Unterstützer:innen und Netzwerke</p>
+  <p *ngIf="withHeadline" class="section-heading section-heading-grey">{{ headline }}</p>
   <div class="supporter-group" [style.justify-content]="withHeadline ? 'center': 'flex-start'" [ngClass]="wide ? 'wide': 'narrow'">
     <app-supporter-item class="supporter-item" *ngFor="let supporter of supporters" [supporter]="supporter"></app-supporter-item>
   </div>
