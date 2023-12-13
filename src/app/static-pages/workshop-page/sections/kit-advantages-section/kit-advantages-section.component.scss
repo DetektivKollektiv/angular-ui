@@ -1,0 +1,56 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@import '../../../../../assets/scss/colors';
+@import '../../../../../assets/scss/variables';
+
+
+.container {
+
+    h2 {
+        @include fonts.font__effra--bold;
+        font-size: 36px;
+        line-height: initial;
+
+        @media screen and(min-width: $breakpoint-l) {
+            font-size: 52px;
+        }
+    }
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    .advantages {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+
+        @media screen and(min-width: $breakpoint-s) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+
+        i {
+            font-size: 100px;
+
+
+        }
+
+        .red {
+            color: $color__bittersweet;
+        }
+
+        .blue {
+            color: $color__neon-blue;
+        }
+
+        .yellow {
+            color: $color__supernova
+        }
+
+    }
+}

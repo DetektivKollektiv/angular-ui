@@ -41,7 +41,7 @@ import {TeacherRequirementItemComponent} from './workshop-page/sections/teacher-
 import { FaqModule } from '../faq/faq.module';
 import { PricingTableComponent } from './workshop-page/sections/pricing-section/pricing-table/pricing-table.component';
 import { PricingSectionComponent } from './workshop-page/sections/pricing-section/pricing-section.component';
-
+import { KitAdvantagesSectionComponent } from './workshop-page/sections/kit-advantages-section/kit-advantages-section';
 @NgModule({
   declarations: [
     LandingPageComponent,
@@ -76,7 +76,8 @@ import { PricingSectionComponent } from './workshop-page/sections/pricing-sectio
     KitItemComponent,
     TeacherRequirementItemComponent,
     PricingTableComponent,
-    PricingSectionComponent
+    PricingSectionComponent,
+    KitAdvantagesSectionComponent
   ],
   imports: [
     CommonModule,

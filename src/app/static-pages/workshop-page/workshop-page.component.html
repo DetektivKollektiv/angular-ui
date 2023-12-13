@@ -1,10 +1,17 @@
 <div class="section-background-yellow">
   <div class="section-container-small">
     <app-trust-checking-kit-section></app-trust-checking-kit-section>
+    <app-supporter-section
+      [wide]="true"
+      supporter_file="assets/data/supporter_tck.json"
+      headline="Unsere Unterstützer & Partner"
+    ></app-supporter-section>
   </div>
 </div>
 <div class="section-background">
-<app-supporter-section [wide]="true" supporter_file="assets/data/supporter_tck.json" headline="Unsere Unterstützer & Partner"></app-supporter-section>
+  <div class="section-container-small">
+    <app-kit-advantages-section></app-kit-advantages-section>
+  </div>
 </div>
 <div class="section-background-mysterious-blue">
   <div class="section-container-small">
