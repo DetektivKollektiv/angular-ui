@@ -5,6 +5,9 @@
 }
 
 .supporters {
+  display: flex;
+  flex-direction: column;
+  
   @media screen and(min-width: $breakpoint-l) {
     padding: 0 0 30px 0;
   }
@@ -16,11 +19,24 @@
     gap: 16px;
     @media screen and(min-width: $breakpoint-l) {
       margin: auto;
+      .left_aligned{
+        margin: 0;
+      }
     }
   }
   .wide {
     @media screen and(min-width: $breakpoint-l) {
       width: 70%;
+    }
+  }
+}
+
+.supporters.left_aligned{
+  align-items: flex-start;
+  .supporter-group{
+    justify-content: flex-start;
+    @media screen and(min-width: $breakpoint-l) {
+      margin: 0;
     }
   }
 }

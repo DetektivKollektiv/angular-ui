@@ -15,6 +15,8 @@ export class SupporterSectionComponent implements OnInit {
   @Input() headline = "Unsere Partner:innen, Unterstützer:innen und Netzwerke";
   @Input() wide = true;
   @Input() supporter_file = 'assets/data/supporter.json';
+  @Input() left_aligned = false; 
+  @Input() headline_color = 'grey';
   supporters: Supporter[];
   constructor(private httpClient: HttpClient) {}
 
