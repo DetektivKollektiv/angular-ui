@@ -40,33 +40,38 @@
 
 /* placeholder */
 
-textarea::-webkit-input-placeholder {   /* WebKit, Blink, Edge */
+textarea::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
   color: $color__placeholder;
   font-size: 16px;
   font-weight: 400;
 }
 
-textarea:-moz-placeholder {             /* Mozilla Firefox 4 to 18 */
+textarea:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
   color: $color__placeholder;
   font-size: 16px;
   font-weight: 400;
   opacity: 1;
 }
 
-textarea::-moz-placeholder {            /* Mozilla Firefox 19+ */
+textarea::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
   $color: $color__placeholder;
   font-size: 16px;
   font-weight: 400;
   opacity: 1;
 }
 
-textarea:-ms-input-placeholder {        /* Internet Explorer 10-11 */
+textarea:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: $color__placeholder;
   font-size: 16px;
   font-weight: 400;
 }
 
-textarea:placeholder-shown {            /* Standard Pseudo-class */
+textarea:placeholder-shown {
+  /* Standard Pseudo-class */
   color: $color__placeholder;
   font-size: 16px;
   font-weight: 400;
@@ -81,6 +86,7 @@ body {
 
 *.hint-italic {
   @include font__effra--italic;
+
   &-bold {
     @extend .hint-italic;
     font-weight: 700;
@@ -269,6 +275,7 @@ div.dialog-container {
 mat-icon {
   color: $color__share-section-heading;
 }
+
 /* TODO: Use colors from theme instead of manually configuring */
 
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-inner-circle {
@@ -278,6 +285,7 @@ mat-icon {
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: $color__supernova;
 }
+
 .yellow-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: $color__supernova;
 }
@@ -289,6 +297,7 @@ mat-icon {
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: $color__neon-blue;
 }
+
 .purple-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: $color__neon-blue;
 }
@@ -300,6 +309,7 @@ mat-icon {
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-outer-circle {
   border-color: $color__bittersweet;
 }
+
 .coral-radio-button.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
   background-color: $color__bittersweet;
 }
@@ -336,6 +346,7 @@ mat-icon {
 }
 
 .mat-slider {
+
   .mat-slider-thumb,
   .mat-slider-track-fill {
     background-color: $color__neon-blue;
@@ -376,6 +387,7 @@ This made tooltips on /reviews/:id not work anymore
   /* not sure if this is the correct place to add this */
   width: 100%;
 }
+
 header.header {
   z-index: 9999 !important;
 }
@@ -396,7 +408,8 @@ header.header {
 }
 
 .radio-container .mat-radio-group .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-  opacity: 0 !important; /*click effect color change*/
+  opacity: 0 !important;
+  /*click effect color change*/
   background-color: $color__white !important;
 }
 
@@ -432,6 +445,7 @@ header.header {
 }
 
 .option-container {
+
   .mat-radio-container,
   .mat-radio-outer-circle,
   .mat-radio-inner-circle {
@@ -551,11 +565,23 @@ header.header {
   }
 }
 
-.mat-dialog-content{
+.mat-dialog-content {
   max-height: none !important;
   margin: 0 !important
 }
 
-.mat-checkbox-layout{
+.mat-checkbox-layout {
   white-space: normal !important;
+}
+
+.grey-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color__tile-background;
+  border-radius: 20px;
+  padding: 20px;
+  width: 250px;
+  height: 300px;
+  justify-content: space-around;
 }
