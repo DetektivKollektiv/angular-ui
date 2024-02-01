@@ -30,7 +30,6 @@ import { MyProfileComponent } from './my-profile/components/my-profile/my-profil
 import { ImprintComponent } from './core/components/imprint/imprint.component';
 import { PrivacyStatementComponent } from './core/components/privacy-statement/privacy-statement.component';
 import { LandingPageComponent } from './static-pages/landing-page/landing-page.component';
-import { TeamPageComponent } from './static-pages/team-page/team-page/team-page.component';
 import { AboutComponent } from './static-pages/about/about.component';
 import { TrustCheckingPageComponent } from './static-pages/trust-checking/trust-checking-page/trust-checking-page.component';
 import { LeaderboardPageComponent } from './leaderboard/leaderboard-page/leaderboard-page.component';
@@ -83,10 +82,6 @@ const routes: Routes = [
       {
         path: 'privacy-statement',
         component: PrivacyStatementComponent
-      },
-      {
-        path: 'team',
-        component: TeamPageComponent
       },
       {
         path: 'about',
