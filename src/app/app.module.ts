@@ -37,7 +37,6 @@ import { FooterOnlyLayoutComponent } from './footer-only-layout/footer-only-layo
 import { OpenCaseListSliderModule } from './shared/open-case-list-slider/open-case-list-slider.module';
 import { UserExperienceBubbleListModule } from './shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { FaqModule } from './faq/faq.module';
-import { TeamModule } from './static-pages/team-page/team.module';
 import { StaticPagesModule } from './static-pages/static-pages.module';
 import { LeaderboardModule } from './leaderboard/leaderboard.module';
 
