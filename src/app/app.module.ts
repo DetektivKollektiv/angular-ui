@@ -63,7 +63,6 @@ export function createTranslateLoader(http: HttpClient) {
     MyFileModule,
     IssuesModule,
     FaqModule,
-    TeamModule,
     BreadcrumbModule,
     UserExperienceBubbleListModule,
     TranslateModule.forRoot({
