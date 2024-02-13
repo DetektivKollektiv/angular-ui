@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, HostListener } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from './core/services/user/user.service';
 import { User } from './core/model/user';
@@ -13,7 +13,8 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
+  static timeOutID: any;
   public user: User;
 
   constructor(
@@ -32,6 +33,11 @@ export class AppComponent {
     this.handleAnchorScrolling();
   }
 
+  @HostListener('unloaded')
+  public ngOnDestroy(): void {
+    clearTimeout(AppComponent.timeOutID);
+  }
+
   /**
    * Fixes Angular anchor scrolling behavior
    */
@@ -39,7 +45,7 @@ export class AppComponent {
     this.viewportScroller.setOffset([0, 80]);
     this.router.events.pipe(filter((e) => e instanceof Scroll)).subscribe((e: Scroll) => {
       if (e.anchor) {
-        setTimeout(() => {
+        AppComponent.timeOutID = setTimeout(() => {
           this.viewportScroller.scrollToAnchor(e.anchor);
         });
       } else if (e.position) {
