@@ -1,27 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Review } from '../../model/review';
 import { API } from 'aws-amplify';
-import { from, Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
+import { Review } from '../../model/review';
+import { mock_review } from './mock/mock-review.service';
 
 @Injectable()
 export class ReviewsService implements IReviewService {
   private apiName = 'review_service';
   private reviewsUrl = '/reviews';
 
+  private mockReview = mock_review;
+
   constructor() {}
 
   getOpenReview(): Observable<Review> {
-    return from(
-      API.get(this.apiName, '/review', { response: true })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.data;
-          } else if (response.status === 204) {
-            return null;
-          }
-        })
-        .catch()
-    );
+    // return from(
+    //   API.get(this.apiName, '/review', { response: true })
+    //     .then((response) => {
+    //       if (response.status === 200) {
+    //         return response.data;
+    //       } else if (response.status === 204) {
+    //         return null;
+    //       }
+    //     })
+    //     .catch()
+    // );
+
+    return of(this.mockReview);
   }
 
   /**
@@ -50,21 +55,24 @@ export class ReviewsService implements IReviewService {
    * @param item_id - the id of the item for which to create a review
    */
   public createReview(item_id: string): Observable<Review> {
-    return from(
-      API.post('review_service', this.reviewsUrl, {
-        response: true,
-        body: {
-          item_id
-        }
-      }).then((response) => {
-        switch (response.status) {
-          case 201:
-            return response.data;
-          default:
-            break;
-        }
-      })
-    );
+    // return from(
+    //   API.post('review_service', this.reviewsUrl, {
+    //     response: true,
+    //     body: {
+    //       item_id
+    //     }
+    //   }).then((response) => {
+    //     switch (response.status) {
+    //       case 201:
+    //         return response.data;
+    //       default:
+    //         break;
+    //     }
+    //   })
+    // );
+
+    this.mockReview.item_id = item_id;
+    return of(this.mockReview);
   }
 
   /**
@@ -73,12 +81,19 @@ export class ReviewsService implements IReviewService {
    * @param review - the review to update
    */
   public updateReview(review: Review): Observable<void> {
-    return from(
-      API.put('review_service', this.reviewsUrl, {
-        response: true,
-        body: review
-      })
-    );
+    // return from(
+    //   API.put('review_service', this.reviewsUrl, {
+    //     response: true,
+    //     body: review
+    //   })
+    // );
+
+    this.mockReview = {
+      ...this.mockReview,
+      ...review
+    };
+
+    return of(void 0);
   }
 }
 
@@ -91,3 +106,4 @@ export interface IReviewService {
 
   updateReview(review: Review): Observable<void>;
 }
+
