@@ -71,3 +71,5 @@ amplifyxc.config
 
 /cypress/videos/*
 /cypress/screenshots/*
+docs/frontend-architecture.md
+CLAUDE.md
