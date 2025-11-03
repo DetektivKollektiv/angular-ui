@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ReviewItems } from '../../model/review-items';
 import { API } from 'aws-amplify';
+import { ReviewItems } from '../../model/review-items';
 
 @Injectable({
   providedIn: 'root'
@@ -50,3 +50,4 @@ export class ItemsService {
       });
   }
 }
+

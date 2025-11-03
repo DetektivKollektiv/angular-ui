@@ -1,14 +1,14 @@
-interface ChipOption {
+export interface ChipOption {
   id: string;
   text: string;
 }
 
-interface TraficLightOption {
+export interface TraficLightOption {
   id: string;
   question: string;
 }
 
-interface LikertScaleOption {
+export interface LikertScaleOption {
   id: string;
   text: string;
   description: string;
@@ -16,8 +16,9 @@ interface LikertScaleOption {
   value: 0 | 1 | 2 | 3 | 4;
 }
 
-interface TextAreaOption {
+export interface TextAreaOption {
   id: string;
   placeholder: string;
   max_length: number;
 }
+

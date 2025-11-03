@@ -1,4 +1,5 @@
 import { Condition } from './condition';
+import { ChipOption, LikertScaleOption, TextAreaOption, TraficLightOption } from './options';
 
 interface BaseField {
   id: string;

@@ -21,13 +21,13 @@ export class ReviewProcessComponent {
 
   constructor(private reviewService: ReviewsService) {}
 
-  public get parentQuestions(): Question[] {
-    return this.review.questions.filter((q) => !q.parent_question_id);
+  public get questions(): Question[] {
+    return this.review.questions;
   }
 
-  public getChildQuestions(parent_question_id: string): Question[] {
+  /* public getChildQuestions(parent_question_id: string): Question[] {
     return this.review.questions.filter((q) => q.parent_question_id === parent_question_id);
-  }
+  } */
 
   public updateReview() {
     this.stepper.selected.completed = true;
@@ -40,3 +40,4 @@ export class ReviewProcessComponent {
     this.reviewFinish.emit();
   }
 }
+

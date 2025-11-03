@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ItemReviewQuestion } from '../../../model/Item-review-question';
+import { Question } from '../../model/question';
 
 @Component({
   selector: 'app-question',
@@ -9,8 +10,8 @@ import { ItemReviewQuestion } from '../../../model/Item-review-question';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit, OnDestroy {
-  @Input() question: ItemReviewQuestion;
-  @Input() questions: ItemReviewQuestion[];
+  @Input() question: Question;
+  @Input() questions: Question[];
   @Input() index: number;
   @Input() isChild: boolean;
   @Input() displayOnly: boolean;
@@ -36,7 +37,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
     this.isShowChild = false;
 
     this.addChildQuestions();
-    this.showChildQuestions(this.question.answer_value);
+    // this.showChildQuestions(this.question.answer_value);
   }
 
   ngOnDestroy(): void {
@@ -53,9 +54,9 @@ export class QuestionComponent implements OnInit, OnDestroy {
     this.visibleChildQuestions = [];
     this.isShowChild = false;
 
-    const questions = this.questions.filter((q) => q.question_id === this.question.question_id);
+    /* const questions = this.questions.filter((q) => q.question_id === this.question.question_id); */
 
-    this.childQuestions.forEach((question) => {
+    /* this.childQuestions.forEach((question) => {
       const valueInBound = questions.find((q) => question.lower_bound <= q.answer_value && question.upper_bound >= q.answer_value);
 
       if (valueInBound) {
@@ -66,7 +67,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
       } else {
         this.removeFormControl(question);
       }
-    });
+    }); */
   }
 
   private addFormControl(question: ItemReviewQuestion) {
@@ -87,7 +88,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
   }
 
   private addChildQuestions(): void {
-    const hasChildren = this.question.max_children > 0;
+    /* const hasChildren = this.question.max_children > 0;
     if (!hasChildren) {
       return;
     }
@@ -98,7 +99,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
       ) {
         this.childQuestions.push(question);
       }
-    });
+    }); */
   }
 
   private handleQuestionForm(): void {
@@ -106,11 +107,14 @@ export class QuestionComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.questionFormControl = this.parentFormGroup.get(this.question.question_id) as FormControl;
+    /* this.questionFormControl = this.parentFormGroup.get(this.question.question_id) as FormControl; */
 
-    this.formSubscription = this.questionFormControl.valueChanges.pipe().subscribe((value) => {
+    /* this.formSubscription = this.questionFormControl.valueChanges.pipe().
+    
+    subscribe((value) => {
       this.question.answer_value = value;
       this.showChildQuestions(value);
-    });
+    }); */
   }
 }
+

@@ -1,26 +1,26 @@
 /* eslint-disable max-len */
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ItemsService } from '../../services/items/items.service';
-import { Item } from '../../../model/item';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoaderService } from '@shared/loader/service/loader.service';
-import { Review } from '../../model/review';
-import { ReviewsService } from '../../services/reviews/reviews.service';
-import { UserService } from '../../../core/services/user/user.service';
-import { ReviewState } from '../../model/review-state';
-import { globals } from 'src/environments/globals';
-import { FactCheckService } from '../../services/factchecks/fact-check.service';
-import { Factcheck } from '../../../model/factcheck';
-import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
-import { EMPTY, from, Observable, of, Subscription } from 'rxjs';
-import { switchMap, mapTo, tap } from 'rxjs/operators';
-import { ReviewItems } from '../../model/review-items';
-import { Question } from '../../model/question';
-import { ReportItemService } from '../../../core/services/report-item/report-item.service';
-import { ReportItemDialogData } from '../../../core/services/report-item/report-item-dialog-data';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ViewportScroller } from '@angular/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { LoaderService } from '@shared/loader/service/loader.service';
+import { EMPTY, from, Observable, of, Subscription } from 'rxjs';
+import { mapTo, switchMap, tap } from 'rxjs/operators';
+import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
+import { globals } from 'src/environments/globals';
+import { ReportItemDialogData } from '../../../core/services/report-item/report-item-dialog-data';
+import { ReportItemService } from '../../../core/services/report-item/report-item.service';
+import { UserService } from '../../../core/services/user/user.service';
+import { Factcheck } from '../../../model/factcheck';
+import { Item } from '../../../model/item';
+import { Question } from '../../model/question';
+import { Review } from '../../model/review';
+import { ReviewItems } from '../../model/review-items';
+import { ReviewState } from '../../model/review-state';
+import { FactCheckService } from '../../services/factchecks/fact-check.service';
+import { ItemsService } from '../../services/items/items.service';
+import { ReviewsService } from '../../services/reviews/reviews.service';
 
 @Component({
   selector: 'app-review-page',
@@ -37,7 +37,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
 
   user$ = this.userService.user$;
 
-  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Fall lösen'}];
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fall lösen' }];
   case: Item;
   isOpenReview: boolean;
   review: Review;
@@ -53,13 +53,15 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
     },
     {
       title: 'Kann ich die Bearbeitung abbrechen?',
-      description: 'Nein, du kannst aber zwei Stunden warten. Dann wird der Fall automatisch abgebrochen und du kannst wieder neue Fälle annehmen.',
+      description:
+        'Nein, du kannst aber zwei Stunden warten. Dann wird der Fall automatisch abgebrochen und du kannst wieder neue Fälle annehmen.',
       bgColor: '#be9843',
       icon: 'fal fa-hands-helping'
     },
     {
       title: 'Was tun bei einem technischen Fehler?',
-      description: 'Schreib bitte eine E-Mail an unser <a href="mailto:support@codetekt.org" target="_blank">Support-Team</a>. Wir helfen dir weiter oder beheben den Fehler.',
+      description:
+        'Schreib bitte eine E-Mail an unser <a href="mailto:support@codetekt.org" target="_blank">Support-Team</a>. Wir helfen dir weiter oder beheben den Fehler.',
       bgColor: '#8f1fff',
       icon: 'fal fa-bug'
     }
@@ -153,15 +155,15 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   }
 
   commentChange(comment: string) {
-    if (comment === this.review.comment) {
+    /* if (comment === this.review.comment) {
       return;
     }
-    this.review.comment = comment?.trim().length ? comment : null;
+    this.review.comment = comment?.trim().length ? comment : null; */
     this.updateReview();
   }
 
   onTagsChanged(tags: string[]) {
-    this.review.tags = tags?.length ? tags : null;
+    /* this.review.tags = tags?.length ? tags : null; */
     this.updateReview();
   }
 
@@ -199,7 +201,7 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
   }
 
   private initReview(review: Review) {
-    this.review = review;
+    /* this.review = review;
     this.questions = [...review.questions];
     this.questions.sort((q1, q2) => q1.question_id.localeCompare(q2.question_id));
     this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
@@ -210,22 +212,19 @@ export class ReviewPageComponent implements OnInit, OnDestroy {
 
     this.formSubscription = this.reviewForm.valueChanges.subscribe(() => {
       this.updateReview();
-    });
+    }); */
   }
 
   private handleInvalidForm() {
     this.reviewForm.markAllAsTouched();
-    this.snackBar.open(
-      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast.',
-      '',
-      { duration: 5000 }
-    );
-    const unansweredQuestion = this.questions
+    this.snackBar.open('Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast.', '', { duration: 5000 });
+    /* const unansweredQuestion = this.questions
       .filter((question) => question.answer_value === null)
       .find((question) => document.getElementById(question.question_id));
     if (unansweredQuestion) {
       this.viewportScroller.setOffset([0, 80]);
       this.viewportScroller.scrollToAnchor(unansweredQuestion.question_id);
-    }
+    } */
   }
 }
+

@@ -1,8 +1,11 @@
 import { Review } from 'src/app/review-item/model/review';
 
-export const new_mock_review: Review = {
+export const mock_review: Review = {
   id: 'b8ce1a68-c951-455f-a0d0-26be95d54c74',
   user_id: '1dd2fa3b-eb7d-42f9-b131-24ad56eecc3e',
+  item_id: 'item-12345',
+  review_state: 0,
+  status: 'in_progress',
   questions: [
     // ========================================================================
     // SLIDE 1: INHALTSTYP (Chip - Multi-Select)

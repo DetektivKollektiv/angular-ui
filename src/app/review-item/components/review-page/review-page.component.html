@@ -29,7 +29,7 @@
         <div class="button-container">
           <button appButton (click)="accept()">
             <i class="fas fa-check"></i>
-            <span>Fall bearbeiten</span>
+            <span>Fall bearbeiten hello</span>
           </button>
           <button appButton mode="reject" routerLink="/">Fall ablehnen</button>
         </div>
@@ -56,8 +56,8 @@
         Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben?
         Dieser wird nach Abschluss des Falls mit deinem Anmeldenamen sichtbar sein.
       </p>
-      <app-comment-input [user]="user$ | async" [comment]="review.comment" (commentSubmitted)="commentChange($event)"
-        [authenticated]="true" [instantChanges]="true"></app-comment-input>
+      <!-- <app-comment-input [user]="user$ | async" [comment]="review.comment" (commentSubmitted)="commentChange($event)"
+        [authenticated]="true" [instantChanges]="true"></app-comment-input> -->
     </div>
     <div class="tags">
       <h2>Schlagwörter</h2>
@@ -65,7 +65,7 @@
         Gib hier bis zu drei Schlagwörter ein, die den Fall kennzeichnen und bestätige sie mit <span class="hint-italic">Enter</span>. Bitte verwende möglichst
         objektive Begriffe, damit der Fall später für andere anhand der Schlagwörter einfach zu finden ist.
       </p>
-      <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question>
+      <!-- <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question> -->
     </div>
     <div class="legal">
       <div class="button-container button-container--legal">
