@@ -1,16 +1,17 @@
-import { Option } from './option';
+import { Condition } from './condition';
+import { Field } from './fields';
+
+interface Metadata {
+  title: string;
+  text: string;
+  help_url: string;
+  indent_level?: number; // 0 = keine Einrückung (default), 1 = eine Ebene, 2 = zwei Ebenen, etc.
+}
 
 export interface Question {
-  answer_id: string;
-  question_id: string;
-  content: string;
-  info?: string;
-  hint?: string;
-  lower_bound?: number;
-  upper_bound?: number;
-  parent_question_id: string;
-  max_children: number;
-  answer_value?: number;
-  comment?: any;
-  options: Option[];
+  id: string;
+  metadata: Metadata;
+  fields: Field[]; // Array von Fields - mehrere pro Slide möglich!
+  conditions?: Condition[]; // Conditions auf Slide-Ebene
 }
+

@@ -71,5 +71,10 @@ amplifyxc.config
 
 /cypress/videos/*
 /cypress/screenshots/*
+
+#docs
 docs/frontend-architecture.md
 CLAUDE.md
+
+# Old files
+old*/
