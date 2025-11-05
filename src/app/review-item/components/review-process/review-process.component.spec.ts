@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { PipesModule } from '@shared/pipes/pipes.module';
 import { MaterialModule } from '@shared/material/material.module';
+import { PipesModule } from '@shared/pipes/pipes.module';
 import { Review } from '../../model/review';
-import { MockReviewService } from '../../services/reviews/mock/mock-review.service';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 import { QuestionComponent } from '../question/question.component';
 import { ReviewQuestionComponent } from '../review-question/review-question.component';
@@ -20,7 +19,7 @@ describe('ReviewProcessComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ReviewProcessComponent, TagsQuestionComponent, ReviewSummaryComponent, ReviewQuestionComponent, QuestionComponent],
       imports: [MaterialModule, FormsModule, PipesModule],
-      providers: [ReviewsService, MockReviewService]
+      providers: [ReviewsService]
     }).compileComponents();
   });
 
@@ -38,3 +37,4 @@ describe('ReviewProcessComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

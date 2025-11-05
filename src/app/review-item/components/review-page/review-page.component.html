@@ -1,77 +1,22 @@
-<div class="review-page standard-content-container-width" *ngIf="case$ | async as case">
-  <section class="top">
-    <app-case-details [case]="case" [description]="!isOpenReview ? description_intro : description_review">
-      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
-    </app-case-details>
-    <app-user-experience-bubble-list [userExperienceBubbles]="userExperienceBubbles"></app-user-experience-bubble-list>
-  </section>
+<div class="review-page" *ngIf="review$ | async as review; else loading">
+  <h1 class="review-page__title">Offene Review</h1>
 
-  <div class="section-of-questions standard-content-container-width">
-    <app-question-carousel [questions]="questionPrompts">
-      <div class="flag question-container-action" (click)="onReportCase()"><i class="fas fa-flag"></i>Fall melden</div>
-    </app-question-carousel>
-  </div>
+  <ul class="review-page__slides">
+    <li *ngFor="let slide of review.questions; trackBy: trackSlideById" class="review-page__slide">
+      <header class="review-page__slide-header">
+        <h2 *ngIf="slide.metadata?.title">{{ slide.metadata.title }}</h2>
+        <p *ngIf="slide.metadata?.text">{{ slide.metadata.text }}</p>
+      </header>
 
-  <section class="bottom">
-    <div class="facts">
-      <app-edgy-background></app-edgy-background>
-
-      <div class="facts__content">
-        <app-case-facts [case]="case" [factCheck]="factCheck"></app-case-facts>
-      </div>
-    </div>
-
-    <div class="overview">
-      <h2>Die Fallbearbeitung</h2>
-      <div class="overview__container" *ngIf="!isOpenReview; else processing">
-        <div class="overview__text">
-        </div>
-        <div class="button-container">
-          <button appButton (click)="accept()">
-            <i class="fas fa-check"></i>
-            <span>Fall bearbeiten hello</span>
-          </button>
-          <button appButton mode="reject" routerLink="/">Fall ablehnen</button>
-        </div>
-      </div>
-      <div class="overview__image">
-        <img src="assets/images/illustrations/undraw_newspaper_k-72-w.svg" />
-      </div>
-    </div>
-  </section>
+      <ul class="review-page__fields" *ngIf="slide.fields?.length">
+        <li *ngFor="let field of slide.fields; trackBy: trackFieldById" class="review-page__field">
+          {{ getFieldLabel(field) }}
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>
 
-<ng-template #processing>
-  <form [formGroup]="reviewForm" class="overview__container">
-    <app-question
-      *ngFor="let question of showQuestions; let i = index"
-      [question]="question"
-      [index]="i"
-      [questions]="questions"
-      [parentFormGroup]="reviewForm"
-    ></app-question>
-    <div class="comments">
-      <h2>Fallbewertungskommentar</h2>
-      <p class="explain">
-        Möchtest du einen Kommentar zur Bewertung dieses Falls abgeben?
-        Dieser wird nach Abschluss des Falls mit deinem Anmeldenamen sichtbar sein.
-      </p>
-      <!-- <app-comment-input [user]="user$ | async" [comment]="review.comment" (commentSubmitted)="commentChange($event)"
-        [authenticated]="true" [instantChanges]="true"></app-comment-input> -->
-    </div>
-    <div class="tags">
-      <h2>Schlagwörter</h2>
-      <p class="explain">
-        Gib hier bis zu drei Schlagwörter ein, die den Fall kennzeichnen und bestätige sie mit <span class="hint-italic">Enter</span>. Bitte verwende möglichst
-        objektive Begriffe, damit der Fall später für andere anhand der Schlagwörter einfach zu finden ist.
-      </p>
-      <!-- <app-tags-question [tags]="review.tags" (tagsChanged)="onTagsChanged($event)"></app-tags-question> -->
-    </div>
-    <div class="legal">
-      <div class="button-container button-container--legal">
-        <a appButton routerLink="/" mode="reject">Abbrechen</a>
-        <button type="submit" appButton (click)="closeReview()">Lösung einreichen</button>
-      </div>
-    </div>
-  </form>
+<ng-template #loading>
+  <p class="review-page__loading">Lade Review…</p>
 </ng-template>
