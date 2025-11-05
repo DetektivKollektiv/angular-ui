@@ -66,13 +66,13 @@
           <i class="far" [ngClass]="isProcessingCollapsed ? 'fa-chevron-right' : 'fa-chevron-down'"></i>
         </div>
         <div *ngIf="!isProcessingCollapsed" class="processing__body">
-          <app-question
+          <!-- <app-question
             *ngFor="let question of displayedQuestions; let i = index"
             [question]="question"
             [displayOnly]="true"
             [index]="i"
             [questions]="allQuestions"
-          ></app-question>
+          ></app-question> -->
         </div>
       </div>
 

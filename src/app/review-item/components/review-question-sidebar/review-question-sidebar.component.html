@@ -1,0 +1,28 @@
+<nav class="review-question-sidebar" *ngIf="questions?.length; else emptyState">
+  <ul class="review-question-sidebar__list">
+    <li
+      *ngFor="let question of questions; trackBy: trackByQuestionId; let index = index"
+      class="review-question-sidebar__item"
+    >
+      <button
+        type="button"
+        class="review-question-sidebar__button"
+        [class.review-question-sidebar__button--active]="question.id === currentQuestionId"
+        (click)="onQuestionClick(question.id)"
+      >
+        <span class="review-question-sidebar__indicator">
+          {{ index + 1 }}
+        </span>
+        <span class="review-question-sidebar__label">
+          {{ question.metadata?.title || 'Frage' }}
+        </span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<ng-template #emptyState>
+  <div class="review-question-sidebar__empty">
+    Keine Fragen vorhanden
+  </div>
+</ng-template>

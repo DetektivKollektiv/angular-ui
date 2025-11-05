@@ -24,14 +24,12 @@ import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-l
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { SwiperModule } from 'swiper/angular';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
+import { ReviewQuestionSidebarComponent } from './components/review-question-sidebar/review-question-sidebar.component';
 import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
 import { ReviewsService } from './services/reviews/reviews.service';
 
 @NgModule({
-  declarations: [
-    ReviewSuccessPageComponent,
-    ReviewPageComponent
-  ],
+  declarations: [ReviewSuccessPageComponent, ReviewPageComponent, ReviewQuestionSidebarComponent],
   imports: [
     CommonModule,
     HelperModule,
@@ -67,3 +65,4 @@ import { ReviewsService } from './services/reviews/reviews.service';
   ]
 })
 export class ReviewItemModule {}
+

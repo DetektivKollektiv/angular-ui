@@ -1,23 +1,53 @@
-<div class="review-page standard-content-container-width" *ngIf="review$ | async as review; else loading">
-  <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
-  <h1 class="review-page__title">Offene Review</h1>
+<div class="review-page" *ngIf="review$ | async as review; else loading">
+  <div class="review-page__breadcrumb standard-content-container-width">
+    <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+  </div>
 
-  <ul class="review-page__slides">
-    <li *ngFor="let slide of review.questions; trackBy: trackSlideById" class="review-page__slide">
-      <header class="review-page__slide-header">
-        <h2 *ngIf="slide.metadata?.title">{{ slide.metadata.title }}</h2>
-        <p *ngIf="slide.metadata?.text">{{ slide.metadata.text }}</p>
+  <div class="review-page__layout standard-content-container-width">
+    <aside class="review-page__sidebar">
+      <app-review-question-sidebar
+        [questions]="review.questions"
+        [currentQuestionId]="currentQuestionId"
+        (questionSelected)="onQuestionSelected($event)"
+      ></app-review-question-sidebar>
+    </aside>
+
+    <section class="review-page__content" *ngIf="getCurrentQuestion(review) as currentQuestion; else noSelection">
+      <header class="review-page__header">
+        <div class="review-page__heading">
+          <p class="review-page__meta">
+            Frage {{ getQuestionPosition(review, currentQuestion.id) }}
+            <span class="review-page__meta-separator">/</span>
+            {{ review.questions.length }}
+          </p>
+          <h1 class="review-page__title">{{ currentQuestion.metadata?.title }}</h1>
+          <p class="review-page__subtitle" *ngIf="currentQuestion.metadata?.text">
+            {{ currentQuestion.metadata.text }}
+          </p>
+        </div>
+        <button class="review-page__help-button" type="button" *ngIf="currentQuestion.metadata?.help_url">
+          Hilfe
+        </button>
       </header>
 
-      <ul class="review-page__fields" *ngIf="slide.fields?.length">
-        <li *ngFor="let field of slide.fields; trackBy: trackFieldById" class="review-page__field">
+      <ul class="review-page__fields" *ngIf="currentQuestion.fields?.length; else noFields">
+        <li *ngFor="let field of currentQuestion.fields; trackBy: trackFieldById" class="review-page__field">
           {{ getFieldLabel(field) }}
         </li>
       </ul>
-    </li>
-  </ul>
+      <ng-template #noFields>
+        <p class="review-page__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
+      </ng-template>
+    </section>
+  </div>
 </div>
 
 <ng-template #loading>
   <p class="review-page__loading">Lade Review…</p>
+</ng-template>
+
+<ng-template #noSelection>
+  <div class="review-page__empty">
+    Keine Frage ausgewählt.
+  </div>
 </ng-template>
