@@ -23,18 +23,15 @@ import { UnsavedChangesModule } from '@shared/unsaved-changes/unsaved-changes.mo
 import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { SwiperModule } from 'swiper/angular';
-import { QuestionComponent } from './components/question/question.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
 import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
 import { ReviewsService } from './services/reviews/reviews.service';
 
 @NgModule({
   declarations: [
-    QuestionComponent,
     ReviewSuccessPageComponent,
     ReviewPageComponent
   ],
-  exports: [QuestionComponent],
   imports: [
     CommonModule,
     HelperModule,
