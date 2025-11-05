@@ -1,4 +1,5 @@
-<div class="review-page" *ngIf="review$ | async as review; else loading">
+<div class="review-page standard-content-container-width" *ngIf="review$ | async as review; else loading">
+  <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
   <h1 class="review-page__title">Offene Review</h1>
 
   <ul class="review-page__slides">

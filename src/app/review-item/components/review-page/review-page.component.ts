@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 import { Observable } from 'rxjs';
 import { Field } from '../../model/fields';
 import { Question } from '../../model/question';
@@ -13,6 +14,8 @@ import { ReviewsService } from '../../services/reviews/reviews.service';
 })
 export class ReviewPageComponent {
   review$: Observable<Review> = this.reviewsService.getOpenReview();
+
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fallbearbeitung' }];
 
   constructor(private reviewsService: ReviewsService) {}
 
@@ -37,3 +40,4 @@ export class ReviewPageComponent {
     }
   }
 }
+
