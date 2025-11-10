@@ -30,7 +30,8 @@
       class="review-question-content__field"
       [ngClass]="{
         'review-question-content__field--traffic-light': field.type === 'traffic-light',
-        'review-question-content__field--likert-scale': field.type === 'likert-scale'
+        'review-question-content__field--likert-scale': field.type === 'likert-scale',
+        'review-question-content__field--text-area': field.type === 'text-area'
       }"
     >
       <ng-container [ngSwitch]="field.type">
@@ -44,6 +45,10 @@
 
         <ng-container *ngSwitchCase="'likert-scale'">
           <app-likert-scale-field *ngIf="isLikertScaleField(field)" [field]="field"></app-likert-scale-field>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'text-area'">
+          <app-text-area-field *ngIf="isTextAreaField(field)" [field]="field"></app-text-area-field>
         </ng-container>
 
         <span *ngSwitchDefault>

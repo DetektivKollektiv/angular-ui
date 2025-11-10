@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Field, LikertScaleField, TraficLightField } from '../../model/fields';
+import { Field, LikertScaleField, TextAreaField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 
 @Component({
@@ -50,5 +50,9 @@ export class ReviewQuestionContentComponent {
 
   isLikertScaleField(field: Field): field is LikertScaleField {
     return field.type === 'likert-scale';
+  }
+
+  isTextAreaField(field: Field): field is TextAreaField {
+    return field.type === 'text-area';
   }
 }

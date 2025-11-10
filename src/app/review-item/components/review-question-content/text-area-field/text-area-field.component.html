@@ -1,0 +1,16 @@
+<section class="text-area-field" [class.text-area-field--disabled]="field.is_disabled">
+  <p class="text-area-field__question">{{ field.question }}</p>
+
+  <div class="text-area-field__control">
+    <textarea
+      class="text-area-field__textarea"
+      [attr.placeholder]="placeholder"
+      [attr.maxlength]="maxLength"
+      [attr.rows]="rows"
+      [value]="value"
+      (input)="onInput($event)"
+      [disabled]="field.is_disabled"
+    ></textarea>
+    <p class="text-area-field__counter">{{ currentLength }} / {{ maxLength }}</p>
+  </div>
+</section>
