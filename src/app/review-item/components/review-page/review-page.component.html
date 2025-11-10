@@ -1,9 +1,9 @@
 <div class="review-page" *ngIf="review$ | async as review; else loading">
-  <div class="review-page__breadcrumb standard-content-container-width">
+  <div class="review-page__breadcrumb container-width">
     <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
   </div>
 
-  <div class="review-page__layout standard-content-container-width">
+  <div class="review-page__layout container-width">
     <aside class="review-page__sidebar">
       <app-review-question-sidebar
         [questions]="review.questions"
@@ -27,7 +27,6 @@
 </ng-template>
 
 <ng-template #noSelection>
-  <div class="review-page__empty">
-    Keine Frage ausgewählt.
-  </div>
+  <div class="review-page__empty">Keine Frage ausgewählt.</div>
 </ng-template>
+

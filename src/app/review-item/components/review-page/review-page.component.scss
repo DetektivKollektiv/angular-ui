@@ -2,6 +2,13 @@
   min-height: 100vh;
   padding: 2rem 0 4rem;
 
+  .container-width {
+    // this number 1350  i just made up randomly
+    @media only screen and (min-width: 1350px) {
+      width: 1240px;
+    }
+  }
+
   &__breadcrumb {
     margin-bottom: 1.5rem;
     padding: 0 20px;
@@ -59,3 +66,4 @@
     }
   }
 }
+
