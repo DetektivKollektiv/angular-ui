@@ -7,18 +7,14 @@
           <span class="review-question-content__meta-separator">/</span>
           {{ total }}
         </p>
-
-     
       </div>
       <h1 class="review-question-content__title">{{ currentQuestion.metadata?.title }}</h1>
       <p class="review-question-content__subtitle" *ngIf="currentQuestion.metadata?.text">
         {{ currentQuestion.metadata.text }}
       </p>
     </div>
-    <button class="review-question-content__help-button" type="button" >
-      <mat-icon
-       class="review-question-content__help-icon"
-      >support</mat-icon>
+    <button class="review-question-content__help-button" type="button">
+      <mat-icon class="review-question-content__help-icon">support</mat-icon>
 
       Hilfe
     </button>
@@ -57,7 +53,9 @@
       </ng-container>
     </li>
   </ul>
+  <button class="review-question-content__next-button" type="button" (click)="onNext()" [disabled]="false">Weiter</button>
   <ng-template #noFields>
     <p class="review-question-content__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
   </ng-template>
 </section>
+

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Field, LikertScaleField, TextAreaField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 
@@ -12,6 +12,7 @@ export class ReviewQuestionContentComponent {
   @Input() question!: Question;
   @Input() position = 1;
   @Input() total = 1;
+  @Output() next = new EventEmitter<void>();
 
   trackFieldById(_index: number, field: Field): string {
     return field.id;
@@ -55,4 +56,17 @@ export class ReviewQuestionContentComponent {
   isTextAreaField(field: Field): field is TextAreaField {
     return field.type === 'text-area';
   }
+
+  onNext(): void {
+    /* if (this.isNextDisabled()) {
+      return;
+    } */
+
+    this.next.emit();
+  }
+
+  isNextDisabled(): boolean {
+    return !this.question?.isAnswered;
+  }
 }
+

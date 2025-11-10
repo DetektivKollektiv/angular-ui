@@ -18,6 +18,7 @@
       [question]="currentQuestion"
       [position]="getQuestionPosition(review, currentQuestion.id)"
       [total]="review.questions.length"
+      (next)="goToNextQuestion(review)"
     ></app-review-question-content>
   </div>
 </div>
@@ -29,4 +30,3 @@
 <ng-template #noSelection>
   <div class="review-page__empty">Keine Frage ausgewählt.</div>
 </ng-template>
-

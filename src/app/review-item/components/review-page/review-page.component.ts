@@ -37,6 +37,19 @@ export class ReviewPageComponent {
     this.currentQuestionId = questionId;
   }
 
+  goToNextQuestion(review: Review): void {
+    if (!this.currentQuestionId || !review?.questions?.length) {
+      return;
+    }
+
+    const currentIndex = review.questions.findIndex((question) => question.id === this.currentQuestionId);
+    const nextQuestion = currentIndex >= 0 ? review.questions[currentIndex + 1] : null;
+
+    if (nextQuestion) {
+      this.currentQuestionId = nextQuestion.id;
+    }
+  }
+
   getCurrentQuestion(review: Review): Question | undefined {
     return review.questions?.find((question) => question.id === this.currentQuestionId);
   }
@@ -46,4 +59,3 @@ export class ReviewPageComponent {
     return index >= 0 ? index + 1 : 1;
   }
 }
-
