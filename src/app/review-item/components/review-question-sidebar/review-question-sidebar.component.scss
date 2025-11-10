@@ -52,20 +52,6 @@
     }
   }
 
-  &__indicator {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: #d1d5db;
-    color: #1f2937;
-    font-weight: 600;
-    flex-shrink: 0;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
   &__icon {
     color : #7c3aed;
     transition: color 0.2s ease, color 0.2s ease;

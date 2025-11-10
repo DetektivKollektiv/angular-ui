@@ -13,11 +13,19 @@
       >
        <mat-icon *ngIf="question.isAnswered" class="review-question-sidebar__icon" 
        [class.review-question-sidebar__icon--active]="question.id === currentQuestionId">check_circle</mat-icon>
-       <mat-icon *ngIf="!question.isAnswered" class="review-question-sidebar__icon" 
-       [class.review-question-sidebar__icon--active]="question.id === currentQuestionId">circle</mat-icon>
-       <!--  <span class="review-question-sidebar__indicator">
-          {{ index + 1 }}
-        </span> -->
+      <svg
+        *ngIf="!question.isAnswered"
+        class="review-question-sidebar__icon"
+        [class.review-question-sidebar__icon--active]="question.id === currentQuestionId"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+      </svg>
         <span class="review-question-sidebar__label">
           {{ question.metadata?.title || 'Frage' }}
         </span>
