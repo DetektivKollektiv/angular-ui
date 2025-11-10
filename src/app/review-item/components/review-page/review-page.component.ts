@@ -24,7 +24,7 @@ export class ReviewPageComponent {
 
       const currentStillExists = review.questions.some((question) => question.id === this.currentQuestionId);
       if (!this.currentQuestionId || !currentStillExists) {
-        this.currentQuestionId = review.questions[4].id; // for debug second question as current
+        this.currentQuestionId = review.questions[3].id; // for debug second question as current
       }
     })
   );
@@ -59,3 +59,4 @@ export class ReviewPageComponent {
     return index >= 0 ? index + 1 : 1;
   }
 }
+

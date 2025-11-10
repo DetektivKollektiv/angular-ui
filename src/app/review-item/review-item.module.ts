@@ -30,6 +30,7 @@ import { TextAreaFieldComponent } from './components/review-question-content/tex
 import { TrafficLightFieldComponent } from './components/review-question-content/traffic-light-field/traffic-light-field.component';
 import { ReviewQuestionSidebarComponent } from './components/review-question-sidebar/review-question-sidebar.component';
 import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
+import { ItemPreviewComponent } from './components/item-preview/item-preview.component';
 import { ReviewsService } from './services/reviews/reviews.service';
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ReviewsService } from './services/reviews/reviews.service';
     ReviewQuestionSidebarComponent,
     TrafficLightFieldComponent,
     LikertScaleFieldComponent,
-    TextAreaFieldComponent
+    TextAreaFieldComponent,
+    ItemPreviewComponent
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@
 
 .review-question-content {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 1.5rem;
 
@@ -99,10 +100,18 @@
     color: #6b7280;
   }
 
+  &__next-button-container {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-end;
+  }
+
   &__next-button {
     border: none;
     border-radius: 999px;
     padding: 0.875rem 2rem;
+    width: 100%;
+    height: fit-content;
     background: linear-gradient(90deg, #ff8a7a, #ff5f5a);
     color: #fff;
     font-weight: 600;
@@ -141,3 +150,4 @@
     }
   }
 }
+

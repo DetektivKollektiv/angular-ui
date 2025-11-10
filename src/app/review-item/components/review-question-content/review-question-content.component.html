@@ -53,7 +53,9 @@
       </ng-container>
     </li>
   </ul>
-  <button class="review-question-content__next-button" type="button" (click)="onNext()" [disabled]="false">Weiter</button>
+  <div class="review-question-content__next-button-container">
+    <button class="review-question-content__next-button" type="button" (click)="onNext()" [disabled]="false">Weiter</button>
+  </div>
   <ng-template #noFields>
     <p class="review-question-content__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
   </ng-template>
