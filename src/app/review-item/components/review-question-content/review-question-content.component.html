@@ -1,17 +1,25 @@
 <section class="review-question-content" *ngIf="question as currentQuestion">
   <header class="review-question-content__header">
     <div class="review-question-content__heading">
-      <p class="review-question-content__meta">
-        Frage {{ position }}
-        <span class="review-question-content__meta-separator">/</span>
-        {{ total }}
-      </p>
+      <div>
+        <p class="review-question-content__meta">
+          Frage {{ position }}
+          <span class="review-question-content__meta-separator">/</span>
+          {{ total }}
+        </p>
+
+     
+      </div>
       <h1 class="review-question-content__title">{{ currentQuestion.metadata?.title }}</h1>
       <p class="review-question-content__subtitle" *ngIf="currentQuestion.metadata?.text">
         {{ currentQuestion.metadata.text }}
       </p>
     </div>
-    <button class="review-question-content__help-button" type="button" *ngIf="currentQuestion.metadata?.help_url">
+    <button class="review-question-content__help-button" type="button" >
+      <mat-icon
+       class="review-question-content__help-icon"
+      >support</mat-icon>
+
       Hilfe
     </button>
   </header>

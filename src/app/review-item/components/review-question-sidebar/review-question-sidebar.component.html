@@ -1,9 +1,6 @@
 <nav class="review-question-sidebar" *ngIf="questions?.length; else emptyState">
   <ul class="review-question-sidebar__list">
-    <li
-      *ngFor="let question of questions; trackBy: trackByQuestionId; let index = index"
-      class="review-question-sidebar__item"
-    >
+    <li *ngFor="let question of questions; trackBy: trackByQuestionId; let index = index" class="review-question-sidebar__item">
       <button
         type="button"
         class="review-question-sidebar__button"
@@ -11,21 +8,25 @@
         [class.review-question-sidebar__button--hoverable]="question.id !== currentQuestionId"
         (click)="onQuestionClick(question.id)"
       >
-       <mat-icon *ngIf="question.isAnswered" class="review-question-sidebar__icon" 
-       [class.review-question-sidebar__icon--active]="question.id === currentQuestionId">check_circle</mat-icon>
-      <svg
-        *ngIf="!question.isAnswered"
-        class="review-question-sidebar__icon"
-        [class.review-question-sidebar__icon--active]="question.id === currentQuestionId"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
-      </svg>
+        <mat-icon
+          *ngIf="question.isAnswered"
+          class="review-question-sidebar__icon"
+          [class.review-question-sidebar__icon--active]="question.id === currentQuestionId"
+          >check_circle</mat-icon
+        >
+        <svg
+          *ngIf="!question.isAnswered"
+          class="review-question-sidebar__icon"
+          [class.review-question-sidebar__icon--active]="question.id === currentQuestionId"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
+        </svg>
         <span class="review-question-sidebar__label">
           {{ question.metadata?.title || 'Frage' }}
         </span>
@@ -35,7 +36,6 @@
 </nav>
 
 <ng-template #emptyState>
-  <div class="review-question-sidebar__empty">
-    Keine Fragen vorhanden
-  </div>
+  <div class="review-question-sidebar__empty">Keine Fragen vorhanden</div>
 </ng-template>
+

@@ -32,7 +32,7 @@
   }
 
   &__meta-separator {
-    opacity: 0.5;
+    font-weight: 600;
   }
 
   &__title {
@@ -40,6 +40,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     color: #1f2937;
+    line-height: normal;
   }
 
   &__subtitle {
@@ -51,17 +52,19 @@
 
   &__help-button {
     border: none;
-    background: rgba(99, 102, 241, 0.12);
-    color: #4338ca;
-    border-radius: 999px;
-    padding: 0.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    background: none;
+    padding: 0;
+    color: #4b5563;
+    margin: 0.75rem 0;
+  }
 
-    &:hover {
-      background: rgba(99, 102, 241, 0.2);
-    }
+  &__help-icon {
+    color: #6366f1;
   }
 
   &__fields {
@@ -100,3 +103,4 @@
     }
   }
 }
+
