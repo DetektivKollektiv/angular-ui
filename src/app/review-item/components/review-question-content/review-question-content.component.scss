@@ -82,7 +82,8 @@
     color: #1f2937;
     line-height: 1.4;
 
-    &--traffic-light {
+    &--traffic-light,
+    &--likert-scale {
       padding: 0;
       background: none;
       border-radius: 0;

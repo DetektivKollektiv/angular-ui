@@ -28,7 +28,10 @@
     <li
       *ngFor="let field of currentQuestion.fields; let i = index; trackBy: trackFieldById"
       class="review-question-content__field"
-      [ngClass]="{ 'review-question-content__field--traffic-light': field.type === 'traffic-light' }"
+      [ngClass]="{
+        'review-question-content__field--traffic-light': field.type === 'traffic-light',
+        'review-question-content__field--likert-scale': field.type === 'likert-scale'
+      }"
     >
       <ng-container [ngSwitch]="field.type">
         <ng-container *ngSwitchCase="'traffic-light'">
@@ -37,6 +40,10 @@
             [field]="field"
             [showHeader]="shouldShowTrafficHeader(i)"
           ></app-traffic-light-field>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'likert-scale'">
+          <app-likert-scale-field *ngIf="isLikertScaleField(field)" [field]="field"></app-likert-scale-field>
         </ng-container>
 
         <span *ngSwitchDefault>

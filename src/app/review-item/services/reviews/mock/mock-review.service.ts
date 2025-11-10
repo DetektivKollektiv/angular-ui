@@ -226,36 +226,36 @@ export const mock_review: Review = {
           options: [
             {
               id: 'positive',
-              text: 'Ja, etwas positives',
-              description: '',
+              text: 'Ja,',
+              description: 'etwas positives',
               color: '#22c55e',
               value: 0
             },
             {
               id: 'minor_issue',
-              text: 'Ja, ein kleiner Mangel',
-              description: '',
+              text: 'Ja,',
+              description: 'kleiner Mangel',
               color: '#eab308',
               value: 1
             },
             {
               id: 'major_issue',
-              text: 'Ja, ein großer Mangel',
-              description: '',
+              text: 'Ja,',
+              description: 'großer Mangel',
               color: '#f97316',
               value: 2
             },
             {
               id: 'critical_error',
-              text: 'Ja, ein gravierender Fehler',
-              description: '',
+              text: 'Ja,',
+              description: 'gravierender Fehler',
               color: '#ef4444',
               value: 3
             },
             {
               id: 'nothing',
-              text: 'Nein',
-              description: '',
+              text: 'Nein,',
+              description: 'alles geprüft',
               color: '#9ca3af',
               value: 4
             }

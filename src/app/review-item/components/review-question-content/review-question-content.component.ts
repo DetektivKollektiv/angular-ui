@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Field, TraficLightField } from '../../model/fields';
+import { Field, LikertScaleField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 
 @Component({
@@ -46,5 +46,9 @@ export class ReviewQuestionContentComponent {
 
   isTrafficLightField(field: Field): field is TraficLightField {
     return field.type === 'traffic-light';
+  }
+
+  isLikertScaleField(field: Field): field is LikertScaleField {
+    return field.type === 'likert-scale';
   }
 }

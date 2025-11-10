@@ -1,0 +1,27 @@
+<section class="likert-scale-field" [class.likert-scale-field--disabled]="field.is_disabled">
+  <p class="likert-scale-field__question">{{ field.question }}</p>
+
+  <div class="likert-scale-field__options">
+    <button
+      *ngFor="let option of field.options; trackBy: trackByOptionValue"
+      type="button"
+      class="likert-scale-field__option"
+      [class.likert-scale-field__option--selected]="isSelected(option.value)"
+      [disabled]="field.is_disabled"
+      (click)="select(option.value)"
+    >
+      <span class="likert-scale-field__icon">
+        <svg viewBox="0 0 36 36" role="presentation" aria-hidden="true">
+          <circle cx="18" cy="18" r="16" class="likert-scale-field__icon-ring" [attr.stroke]="option.color"></circle>
+          <circle *ngIf="isSelected(option.value)" cx="18" cy="18" r="16" [attr.fill]="option.color"></circle>
+        </svg>
+        <mat-icon *ngIf="isSelected(option.value)" class="likert-scale-field__icon-check">check</mat-icon>
+      </span>
+      <p class="likert-scale-field__label">
+        <b>{{ option.text }}</b>
+        {{ option.description }}
+      </p>
+    </button>
+  </div>
+</section>
+
