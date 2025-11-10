@@ -1,6 +1,12 @@
 <nav class="review-question-sidebar" *ngIf="questions?.length; else emptyState">
   <ul class="review-question-sidebar__list">
-    <li *ngFor="let question of questions; trackBy: trackByQuestionId; let index = index" class="review-question-sidebar__item">
+    <li
+      *ngFor="let question of questions; trackBy: trackByQuestionId; let index = index"
+      class="review-question-sidebar__item"
+      [class.review-question-sidebar__button__indent_level--1]="question.metadata.indent_level === 1"
+      [class.review-question-sidebar__button__indent_level--2]="question.metadata.indent_level === 2"
+      [class.review-question-sidebar__button__indent_level--3]="question.metadata.indent_level === 3"
+    >
       <button
         type="button"
         class="review-question-sidebar__button"

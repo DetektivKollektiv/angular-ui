@@ -16,7 +16,17 @@
   }
 
   &__item {
-    margin: 0;
+    &__indent_level {
+      &--1 {
+        padding-left: 1rem;
+      }
+      &--2 {
+        padding-left: 2rem;
+      }
+      &--3 {
+        padding-left: 3rem;
+      }
+    }
   }
 
   &__button {
@@ -50,10 +60,22 @@
         color: #4c1d95;
       }
     }
+
+    &__indent_level {
+      &--1 {
+        margin-left: 1rem;
+      }
+      &--2 {
+        margin-left: 2rem;
+      }
+      &--3 {
+        margin-left: 3rem;
+      }
+    }
   }
 
   &__icon {
-    color : #7c3aed;
+    color: #7c3aed;
     transition: color 0.2s ease, color 0.2s ease;
 
     &--active {
@@ -71,3 +93,4 @@
     font-size: 0.9rem;
   }
 }
+
