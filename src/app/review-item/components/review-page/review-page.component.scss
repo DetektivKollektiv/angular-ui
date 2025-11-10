@@ -4,6 +4,7 @@
 
   &__breadcrumb {
     margin-bottom: 1.5rem;
+    padding: 0 20px;
   }
 
   &__layout {
@@ -11,6 +12,7 @@
     grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
     gap: 2rem;
     align-items: start;
+    padding: 0 20px;
   }
 
   &__sidebar {
