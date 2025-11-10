@@ -8,11 +8,16 @@
         type="button"
         class="review-question-sidebar__button"
         [class.review-question-sidebar__button--active]="question.id === currentQuestionId"
+        [class.review-question-sidebar__button--hoverable]="question.id !== currentQuestionId"
         (click)="onQuestionClick(question.id)"
       >
-        <span class="review-question-sidebar__indicator">
+       <mat-icon *ngIf="question.isAnswered" class="review-question-sidebar__icon" 
+       [class.review-question-sidebar__icon--active]="question.id === currentQuestionId">check_circle</mat-icon>
+       <mat-icon *ngIf="!question.isAnswered" class="review-question-sidebar__icon" 
+       [class.review-question-sidebar__icon--active]="question.id === currentQuestionId">circle</mat-icon>
+       <!--  <span class="review-question-sidebar__indicator">
           {{ index + 1 }}
-        </span>
+        </span> -->
         <span class="review-question-sidebar__label">
           {{ question.metadata?.title || 'Frage' }}
         </span>

@@ -1,7 +1,6 @@
 .review-page {
   min-height: 100vh;
   padding: 2rem 0 4rem;
-  background: linear-gradient(180deg, #f4f5f9 0%, #ffffff 100%);
 
   &__breadcrumb {
     margin-bottom: 1.5rem;
@@ -23,7 +22,7 @@
     background: #ffffff;
     border-radius: 1.5rem;
     padding: 2rem;
-    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 6px 12px rgba(15, 23, 42, 0.12);
   }
 
   &__empty {

@@ -13,5 +13,6 @@ export interface Question {
   metadata: Metadata;
   fields: Field[]; // Array von Fields - mehrere pro Slide möglich!
   conditions?: Condition[]; // Conditions auf Slide-Ebene
+  isAnswered?: boolean;
 }
 
