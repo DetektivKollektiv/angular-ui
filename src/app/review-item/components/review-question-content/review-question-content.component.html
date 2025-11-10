@@ -1,0 +1,30 @@
+<section class="review-question-content" *ngIf="question as currentQuestion">
+  <header class="review-question-content__header">
+    <div class="review-question-content__heading">
+      <p class="review-question-content__meta">
+        Frage {{ position }}
+        <span class="review-question-content__meta-separator">/</span>
+        {{ total }}
+      </p>
+      <h1 class="review-question-content__title">{{ currentQuestion.metadata?.title }}</h1>
+      <p class="review-question-content__subtitle" *ngIf="currentQuestion.metadata?.text">
+        {{ currentQuestion.metadata.text }}
+      </p>
+    </div>
+    <button class="review-question-content__help-button" type="button" *ngIf="currentQuestion.metadata?.help_url">
+      Hilfe
+    </button>
+  </header>
+
+  <ul class="review-question-content__fields" *ngIf="currentQuestion.fields?.length; else noFields">
+    <li
+      *ngFor="let field of currentQuestion.fields; trackBy: trackFieldById"
+      class="review-question-content__field"
+    >
+      {{ getFieldLabel(field) }}
+    </li>
+  </ul>
+  <ng-template #noFields>
+    <p class="review-question-content__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
+  </ng-template>
+</section>

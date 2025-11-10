@@ -12,33 +12,13 @@
       ></app-review-question-sidebar>
     </aside>
 
-    <section class="review-page__content" *ngIf="getCurrentQuestion(review) as currentQuestion; else noSelection">
-      <header class="review-page__header">
-        <div class="review-page__heading">
-          <p class="review-page__meta">
-            Frage {{ getQuestionPosition(review, currentQuestion.id) }}
-            <span class="review-page__meta-separator">/</span>
-            {{ review.questions.length }}
-          </p>
-          <h1 class="review-page__title">{{ currentQuestion.metadata?.title }}</h1>
-          <p class="review-page__subtitle" *ngIf="currentQuestion.metadata?.text">
-            {{ currentQuestion.metadata.text }}
-          </p>
-        </div>
-        <button class="review-page__help-button" type="button" *ngIf="currentQuestion.metadata?.help_url">
-          Hilfe
-        </button>
-      </header>
-
-      <ul class="review-page__fields" *ngIf="currentQuestion.fields?.length; else noFields">
-        <li *ngFor="let field of currentQuestion.fields; trackBy: trackFieldById" class="review-page__field">
-          {{ getFieldLabel(field) }}
-        </li>
-      </ul>
-      <ng-template #noFields>
-        <p class="review-page__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
-      </ng-template>
-    </section>
+    <app-review-question-content
+      class="review-page__content"
+      *ngIf="getCurrentQuestion(review) as currentQuestion; else noSelection"
+      [question]="currentQuestion"
+      [position]="getQuestionPosition(review, currentQuestion.id)"
+      [total]="review.questions.length"
+    ></app-review-question-content>
   </div>
 </div>
 

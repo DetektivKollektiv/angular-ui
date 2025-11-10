@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Field } from '../../model/fields';
 import { Question } from '../../model/question';
 import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
@@ -34,10 +33,6 @@ export class ReviewPageComponent {
 
   constructor(private reviewsService: ReviewsService) {}
 
-  trackFieldById(_index: number, field: Field): string {
-    return field.id;
-  }
-
   onQuestionSelected(questionId: string): void {
     this.currentQuestionId = questionId;
   }
@@ -49,18 +44,5 @@ export class ReviewPageComponent {
   getQuestionPosition(review: Review, questionId: string): number {
     const index = review.questions.findIndex(question => question.id === questionId);
     return index >= 0 ? index + 1 : 1;
-  }
-
-  getFieldLabel(field: Field): string {
-    switch (field.type) {
-      case 'chip':
-      case 'likert-scale':
-      case 'text-area':
-        return field.question ?? '';
-      case 'traffic-light':
-        return field.options?.[0]?.question ?? '';
-      default:
-        return '';
-    }
   }
 }
