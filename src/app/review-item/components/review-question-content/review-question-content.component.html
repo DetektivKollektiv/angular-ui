@@ -26,10 +26,23 @@
 
   <ul class="review-question-content__fields" *ngIf="currentQuestion.fields?.length; else noFields">
     <li
-      *ngFor="let field of currentQuestion.fields; trackBy: trackFieldById"
+      *ngFor="let field of currentQuestion.fields; let i = index; trackBy: trackFieldById"
       class="review-question-content__field"
+      [ngClass]="{ 'review-question-content__field--traffic-light': field.type === 'traffic-light' }"
     >
-      {{ getFieldLabel(field) }}
+      <ng-container [ngSwitch]="field.type">
+        <ng-container *ngSwitchCase="'traffic-light'">
+          <app-traffic-light-field
+            *ngIf="isTrafficLightField(field)"
+            [field]="field"
+            [showHeader]="shouldShowTrafficHeader(i)"
+          ></app-traffic-light-field>
+        </ng-container>
+
+        <span *ngSwitchDefault>
+          {{ getFieldLabel(field) }}
+        </span>
+      </ng-container>
     </li>
   </ul>
   <ng-template #noFields>

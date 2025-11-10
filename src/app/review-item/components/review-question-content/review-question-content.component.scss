@@ -81,6 +81,12 @@
     background: rgba(99, 102, 241, 0.08);
     color: #1f2937;
     line-height: 1.4;
+
+    &--traffic-light {
+      padding: 0;
+      background: none;
+      border-radius: 0;
+    }
   }
 
   &__empty {
@@ -103,4 +109,3 @@
     }
   }
 }
-

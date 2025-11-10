@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Field } from '../../model/fields';
+import { Field, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 
 @Component({
@@ -28,5 +28,23 @@ export class ReviewQuestionContentComponent {
       default:
         return '';
     }
+  }
+
+  shouldShowTrafficHeader(index: number): boolean {
+    if (!this.question?.fields?.length) {
+      return false;
+    }
+
+    for (let i = 0; i < this.question.fields.length; i += 1) {
+      if (this.question.fields[i].type === 'traffic-light') {
+        return i === index;
+      }
+    }
+
+    return false;
+  }
+
+  isTrafficLightField(field: Field): field is TraficLightField {
+    return field.type === 'traffic-light';
   }
 }

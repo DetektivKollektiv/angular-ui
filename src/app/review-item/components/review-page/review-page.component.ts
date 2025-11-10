@@ -15,16 +15,16 @@ import { ReviewsService } from '../../services/reviews/reviews.service';
 export class ReviewPageComponent {
   currentQuestionId: string | null = null;
   review$: Observable<Review> = this.reviewsService.getOpenReview().pipe(
-    tap(review => {
+    tap((review) => {
       const hasQuestions = review?.questions?.length;
       if (!hasQuestions) {
         this.currentQuestionId = null;
         return;
       }
 
-      const currentStillExists = review.questions.some(question => question.id === this.currentQuestionId);
+      const currentStillExists = review.questions.some((question) => question.id === this.currentQuestionId);
       if (!this.currentQuestionId || !currentStillExists) {
-        this.currentQuestionId = review.questions[0].id;
+        this.currentQuestionId = review.questions[1].id; // for debug second question as current
       }
     })
   );
@@ -38,11 +38,12 @@ export class ReviewPageComponent {
   }
 
   getCurrentQuestion(review: Review): Question | undefined {
-    return review.questions?.find(question => question.id === this.currentQuestionId);
+    return review.questions?.find((question) => question.id === this.currentQuestionId);
   }
 
   getQuestionPosition(review: Review, questionId: string): number {
-    const index = review.questions.findIndex(question => question.id === questionId);
+    const index = review.questions.findIndex((question) => question.id === questionId);
     return index >= 0 ? index + 1 : 1;
   }
 }
+
