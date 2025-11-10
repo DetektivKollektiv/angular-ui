@@ -30,11 +30,16 @@
         <svg viewBox="0 0 40 40" class="traffic-light-field__option-svg" aria-hidden="true">
           <circle cx="20" cy="20" r="18" class="traffic-light-field__option-ring"></circle>
           <circle *ngIf="isSelected(light.value) && light.value !== 4" cx="20" cy="20" r="9" [attr.fill]="light.color"></circle>
-          <circle *ngIf="isSelected(light.value) && light.value === 4" cx="20" cy="20" r="9" fill="#f3f4f6"></circle>
-          <line *ngIf="light.value === 4" x1="14" y1="20" x2="26" y2="20" class="traffic-light-field__option-minus"></line>
+          <line
+            *ngIf="light.value === 4 && isSelected(light.value)"
+            x1="14"
+            y1="20"
+            x2="26"
+            y2="20"
+            class="traffic-light-field__option-minus"
+          ></line>
         </svg>
       </button>
     </div>
   </div>
 </section>
-
