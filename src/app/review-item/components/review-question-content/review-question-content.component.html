@@ -49,7 +49,7 @@
         </ng-container>
 
         <ng-container *ngSwitchCase="'chip'">
-          <app-chip-field *ngIf="isChipField(field)" [field]="field"></app-chip-field>
+          <app-chip-field *ngIf="isChipField(field)" [field]="field" [allowMultiple]="true"></app-chip-field>
         </ng-container>
 
         <span *ngSwitchDefault>

@@ -9,6 +9,7 @@ import { ChipField } from '../../../model/fields';
 })
 export class ChipFieldComponent implements OnChanges {
   @Input() field!: ChipField;
+  @Input() allowMultiple = false;
 
   selected: Set<string> = new Set();
 
@@ -27,10 +28,18 @@ export class ChipFieldComponent implements OnChanges {
       return;
     }
 
-    if (this.selected.has(optionId)) {
-      this.selected.delete(optionId);
+    if (this.allowMultiple) {
+      if (this.selected.has(optionId)) {
+        this.selected.delete(optionId);
+      } else {
+        this.selected.add(optionId);
+      }
     } else {
-      this.selected.add(optionId);
+      if (this.selected.has(optionId)) {
+        this.selected.clear();
+      } else {
+        this.selected = new Set([optionId]);
+      }
     }
 
     this.field.answer_value = Array.from(this.selected);
