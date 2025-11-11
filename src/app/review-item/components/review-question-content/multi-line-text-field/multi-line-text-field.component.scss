@@ -61,32 +61,7 @@
   }
 
   &__clear-button {
-    border: none;
-    border-radius: 1rem;
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, #c084fc, #7c3aed);
-    color: #fff;
-    font-size: 1.25rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-
-    &:hover:not(:disabled) {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(124, 58, 237, 0.35);
-    }
-
-    &:focus-visible {
-      outline: 2px solid #ede9fe;
-      outline-offset: 2px;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
-    }
   }
 }

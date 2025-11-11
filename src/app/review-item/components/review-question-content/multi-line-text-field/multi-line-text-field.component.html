@@ -12,15 +12,14 @@
         [disabled]="row.disabled"
         (input)="onInput(row, $event)"
       />
-      <button
-        type="button"
+      <app-icon-pill-button
         class="multi-line-text-field__clear-button"
         [disabled]="row.disabled || !row.value"
-        (click)="clearRow(row)"
-        aria-label="Eingabe löschen"
+        ariaLabel="Eingabe löschen"
+        (pressed)="clearRow(row)"
       >
         ✕
-      </button>
+      </app-icon-pill-button>
     </div>
   </div>
 </section>

@@ -7,6 +7,14 @@
   box-shadow: 0 6px 12px rgba(15, 23, 42, 0.08);
   width: 100%;
   max-width: 280px;
+  position: relative;
+
+  &__mobile {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
 
   &__list {
     list-style: none;
@@ -14,78 +22,6 @@
     padding: 0;
     display: grid;
     gap: 0.75rem;
-  }
-
-  &__item {
-    &__indent_level {
-      &--1 {
-        padding-left: 1rem;
-      }
-      &--2 {
-        padding-left: 2rem;
-      }
-      &--3 {
-        padding-left: 3rem;
-      }
-    }
-  }
-
-  &__button {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    border: none;
-    border-radius: 0.75rem;
-    background: #f3f4f6;
-    color: #1f2937;
-    font-size: 0.95rem;
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
-
-    &--hoverable {
-      &:hover {
-        background: #e5e7eb;
-      }
-    }
-
-    &--active {
-      background: linear-gradient(90deg, #6366f1 0%, #7c3aed 100%);
-      color: #ffffff;
-      box-shadow: 0 6px 12px rgba(99, 102, 241, 0.35);
-
-      .review-question-sidebar__indicator {
-        background: rgba(255, 255, 255, 0.9);
-        color: #4c1d95;
-      }
-    }
-
-    &__indent_level {
-      &--1 {
-        margin-left: 1rem;
-      }
-      &--2 {
-        margin-left: 2rem;
-      }
-      &--3 {
-        margin-left: 3rem;
-      }
-    }
-  }
-
-  &__icon {
-    color: #7c3aed;
-    transition: color 0.2s ease, color 0.2s ease;
-
-    &--active {
-      color: #fff;
-    }
-  }
-
-  &__label {
-    line-height: 1.2;
   }
 
   &__empty {
@@ -121,5 +57,35 @@
     font-weight: 600;
     color: #7c3aed;
     font-size: 0.95rem;
+  }
+
+  &__nav-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  &__current-button {
+    flex: 1;
+  }
+
+  @media (max-width: 1024px) {
+    max-width: none;
+    padding: 1rem;
+
+    &__list {
+      display: none;
+    }
+
+    &__mobile {
+      display: flex;
+    }
+
+    &__progress-text {
+      display: none;
+    }
+
+    &__progress {
+      margin-top: 0.75rem;
+    }
   }
 }

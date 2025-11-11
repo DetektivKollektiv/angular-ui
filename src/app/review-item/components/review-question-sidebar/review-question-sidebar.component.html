@@ -1,4 +1,31 @@
 <nav class="review-question-sidebar" *ngIf="questions?.length; else emptyState">
+  <div class="review-question-sidebar__mobile" *ngIf="currentQuestion as activeQuestion">
+    <app-icon-pill-button
+      class="review-question-sidebar__nav-button"
+      (pressed)="goToPrevious()"
+      [disabled]="!hasPrevious()"
+      ariaLabel="Vorherige Frage"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </app-icon-pill-button>
+
+    <app-sidebar-question-button
+      class="review-question-sidebar__current-button"
+      [question]="activeQuestion"
+      variant="mobile"
+      (pressed)="openQuestionMenu()"
+    ></app-sidebar-question-button>
+
+    <app-icon-pill-button
+      class="review-question-sidebar__nav-button"
+      (pressed)="goToNext()"
+      [disabled]="!hasNext()"
+      ariaLabel="Nächste Frage"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </app-icon-pill-button>
+  </div>
+
   <ul class="review-question-sidebar__list">
     <li
       *ngFor="let question of questions; trackBy: trackByQuestionId; let index = index"
@@ -7,36 +34,12 @@
       [class.review-question-sidebar__button__indent_level--2]="question.metadata.indent_level === 2"
       [class.review-question-sidebar__button__indent_level--3]="question.metadata.indent_level === 3"
     >
-      <button
-        type="button"
-        class="review-question-sidebar__button"
-        [class.review-question-sidebar__button--active]="question.id === currentQuestionId"
-        [class.review-question-sidebar__button--hoverable]="question.id !== currentQuestionId"
-        (click)="onQuestionClick(question.id)"
-      >
-        <mat-icon
-          *ngIf="question.isAnswered"
-          class="review-question-sidebar__icon"
-          [class.review-question-sidebar__icon--active]="question.id === currentQuestionId"
-          >check_circle</mat-icon
-        >
-        <svg
-          *ngIf="!question.isAnswered"
-          class="review-question-sidebar__icon"
-          [class.review-question-sidebar__icon--active]="question.id === currentQuestionId"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="2" />
-        </svg>
-        <span class="review-question-sidebar__label">
-          {{ question.metadata?.title || 'Frage' }}
-        </span>
-      </button>
+      <app-sidebar-question-button
+        [question]="question"
+        [active]="question.id === currentQuestionId"
+        [indentLevel]="question.metadata?.indent_level || 0"
+        (pressed)="onQuestionClick(question.id)"
+      ></app-sidebar-question-button>
     </li>
   </ul>
 

@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="icon-pill-button"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel || null"
+  (click)="onClick($event)"
+>
+  <ng-content></ng-content>
+</button>

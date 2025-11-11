@@ -32,8 +32,10 @@ import { SubmitPageComponent } from './components/review-question-content/submit
 import { TextAreaFieldComponent } from './components/review-question-content/text-area-field/text-area-field.component';
 import { TrafficLightFieldComponent } from './components/review-question-content/traffic-light-field/traffic-light-field.component';
 import { ReviewQuestionSidebarComponent } from './components/review-question-sidebar/review-question-sidebar.component';
+import { SidebarQuestionButtonComponent } from './components/review-question-sidebar/sidebar-question-button/sidebar-question-button.component';
 import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
 import { ItemPreviewComponent } from './components/item-preview/item-preview.component';
+import { IconPillButtonComponent } from './components/shared/icon-pill-button/icon-pill-button.component';
 import { ReviewsService } from './services/reviews/reviews.service';
 
 @NgModule({
@@ -48,7 +50,9 @@ import { ReviewsService } from './services/reviews/reviews.service';
     ItemPreviewComponent,
     ChipFieldComponent,
     SubmitPageComponent,
-    MultiLineTextFieldComponent
+    MultiLineTextFieldComponent,
+    IconPillButtonComponent,
+    SidebarQuestionButtonComponent
   ],
   imports: [
     CommonModule,
