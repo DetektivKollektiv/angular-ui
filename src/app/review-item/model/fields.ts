@@ -1,5 +1,5 @@
 import { Condition } from './condition';
-import { ChipOption, LikertScaleOption, TextAreaOption, TraficLightOption } from './options';
+import { ChipOption, LikertScaleOption, MultiLineTextOption, TextAreaOption, TraficLightOption } from './options';
 
 interface BaseField {
   id: string;
@@ -34,5 +34,14 @@ export interface TextAreaField extends BaseField {
   answer_value: string | null; // Text-Input
 }
 
-export type Field = ChipField | TraficLightField | LikertScaleField | TextAreaField;
+export interface MultiLineTextField extends BaseField {
+  type: 'multi-line-text';
+  question: string;
+  options: MultiLineTextOption[];
+  answer_value: string[] | null;
+  additonal_option_count: number;
+  max_length: number;
+}
+
+export type Field = ChipField | TraficLightField | LikertScaleField | TextAreaField | MultiLineTextField;
 

@@ -22,3 +22,9 @@ export interface TextAreaOption {
   max_length: number;
 }
 
+export interface MultiLineTextOption {
+  id: string;
+  text: string;
+  is_disabled: boolean;
+}
+

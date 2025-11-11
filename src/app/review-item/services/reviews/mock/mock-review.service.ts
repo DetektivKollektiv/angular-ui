@@ -8,6 +8,35 @@ export const mock_review: Review = {
   status: 'in_progress',
   questions: [
     // ========================================================================
+    // SLIDE 1: STICHWÖRTER (TextInput- Multi-Line )
+    // ========================================================================
+    {
+      id: 'keywords_slide',
+      metadata: {
+        title: 'Stichwörter',
+        text: 'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [
+        {
+          id: 'keyword_type',
+          type: 'multi-line-text',
+          question: 'Fehlen Stichwörter?',
+          options: [
+            { id: 'keyword_1', text: 'Ukraine', is_disabled: true },
+            { id: 'keyword_2', text: 'Putin', is_disabled: true },
+            { id: 'keyword_3', text: 'Krieg', is_disabled: true },
+            { id: 'keyword_4', text: 'Zelensky', is_disabled: true }
+          ],
+          answer_value: [],
+          additonal_option_count: 3,
+          max_length: 50,
+          is_disabled: false
+        }
+      ]
+    },
+    // ========================================================================
     // SLIDE 1: INHALTSTYP (Chip - Multi-Select)
     // ========================================================================
     {
