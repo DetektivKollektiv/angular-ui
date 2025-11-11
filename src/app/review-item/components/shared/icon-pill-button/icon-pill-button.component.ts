@@ -9,6 +9,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 export class IconPillButtonComponent {
   @Input() disabled = false;
   @Input() ariaLabel = '';
+  @Input() variant: 'primary' | 'secondary' = 'primary';
   @Output() pressed = new EventEmitter<Event>();
 
   onClick(event: Event): void {

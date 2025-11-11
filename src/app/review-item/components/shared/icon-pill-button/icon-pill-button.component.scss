@@ -28,5 +28,20 @@
     transform: none;
     box-shadow: none;
   }
-}
 
+  &--secondary {
+    background: #f3f4f6;
+    color: #4b5563;
+    box-shadow: none;
+
+    &:hover:not(:disabled) {
+      background: #e5e7eb;
+      box-shadow: none;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+}

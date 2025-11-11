@@ -2,6 +2,7 @@
   <div class="review-question-sidebar__mobile" *ngIf="currentQuestion as activeQuestion">
     <app-icon-pill-button
       class="review-question-sidebar__nav-button"
+      variant="secondary"
       (pressed)="goToPrevious()"
       [disabled]="!hasPrevious()"
       ariaLabel="Vorherige Frage"
@@ -18,6 +19,7 @@
 
     <app-icon-pill-button
       class="review-question-sidebar__nav-button"
+      variant="secondary"
       (pressed)="goToNext()"
       [disabled]="!hasNext()"
       ariaLabel="Nächste Frage"
@@ -58,4 +60,3 @@
 <ng-template #emptyState>
   <div class="review-question-sidebar__empty">Keine Fragen vorhanden</div>
 </ng-template>
-
