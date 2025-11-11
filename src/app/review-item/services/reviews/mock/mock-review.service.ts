@@ -32,7 +32,7 @@ export const mock_review: Review = {
           answer_value: [],
           additonal_option_count: 3,
           max_length: 50,
-          placeholder: 'Weiteres Stichwort hinzufügen...',
+          placeholder: 'Stichwort hinzufügen...',
           is_disabled: false
         }
       ]
