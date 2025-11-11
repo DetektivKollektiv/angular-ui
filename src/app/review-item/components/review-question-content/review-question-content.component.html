@@ -20,7 +20,7 @@
     </button>
   </header>
 
-  <ul class="review-question-content__fields" *ngIf="currentQuestion.fields?.length; else noFields">
+  <ul class="review-question-content__fields" *ngIf="currentQuestion.fields?.length; else fallbackContent">
     <li
       *ngFor="let field of currentQuestion.fields; let i = index; trackBy: trackFieldById"
       class="review-question-content__field"
@@ -65,9 +65,12 @@
       (click)="onNext()"
       [disabled]="isNextDisabled()"
     >
-      Weiter
+      {{ getNextButtonLabel() }}
     </button>
   </div>
+  <ng-template #fallbackContent>
+    <app-submit-page *ngIf="isSubmitQuestion(); else noFields"></app-submit-page>
+  </ng-template>
   <ng-template #noFields>
     <p class="review-question-content__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
   </ng-template>

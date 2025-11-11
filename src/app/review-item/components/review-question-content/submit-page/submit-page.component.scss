@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.submit-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 1rem;
+
+  &__illustration {
+    max-width: 480px;
+    width: 100%;
+  }
+}
+

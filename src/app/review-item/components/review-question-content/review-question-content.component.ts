@@ -62,14 +62,31 @@ export class ReviewQuestionContentComponent {
   }
 
   onNext(): void {
-    /* if (this.isNextDisabled()) {
+    if (this.isSubmitQuestion()) {
+      window.open('http://localhost:4200/#open-cases', '_blank', 'noopener');
       return;
-    } */
+    }
+
+    if (this.isNextDisabled()) {
+      return;
+    }
 
     this.next.emit();
   }
 
   isNextDisabled(): boolean {
+    if (this.isSubmitQuestion()) {
+      return false;
+    }
+
     return !this.question?.isAnswered;
+  }
+
+  isSubmitQuestion(): boolean {
+    return this.question?.id === 'submit_slide';
+  }
+
+  getNextButtonLabel(): string {
+    return this.isSubmitQuestion() ? 'Zu deinem Dashboard' : 'Weiter';
   }
 }
