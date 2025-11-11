@@ -10,15 +10,17 @@
 
   &__header {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-right: 4.5rem;
   }
 
-  &__heading {
+  &__meta-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__meta {
@@ -61,7 +63,10 @@
     background: none;
     padding: 0;
     color: #4b5563;
-    margin: 0.75rem 0;
+    margin: 0.75rem 0 0;
+    position: absolute;
+    top: 0.25rem;
+    right: 0;
   }
 
   &__help-icon {
