@@ -27,6 +27,7 @@ import { ReviewPageComponent } from './components/review-page/review-page.compon
 import { ReviewQuestionContentComponent } from './components/review-question-content/review-question-content.component';
 import { ChipFieldComponent } from './components/review-question-content/chip-field/chip-field.component';
 import { LikertScaleFieldComponent } from './components/review-question-content/likert-scale-field/likert-scale-field.component';
+import { MultiLineTextFieldComponent } from './components/review-question-content/multi-line-text-field/multi-line-text-field.component';
 import { SubmitPageComponent } from './components/review-question-content/submit-page/submit-page.component';
 import { TextAreaFieldComponent } from './components/review-question-content/text-area-field/text-area-field.component';
 import { TrafficLightFieldComponent } from './components/review-question-content/traffic-light-field/traffic-light-field.component';
@@ -46,7 +47,8 @@ import { ReviewsService } from './services/reviews/reviews.service';
     TextAreaFieldComponent,
     ItemPreviewComponent,
     ChipFieldComponent,
-    SubmitPageComponent
+    SubmitPageComponent,
+    MultiLineTextFieldComponent
   ],
   imports: [
     CommonModule,

@@ -28,7 +28,8 @@
         'review-question-content__field--traffic-light': field.type === 'traffic-light',
         'review-question-content__field--likert-scale': field.type === 'likert-scale',
         'review-question-content__field--text-area': field.type === 'text-area',
-        'review-question-content__field--chip': field.type === 'chip'
+        'review-question-content__field--chip': field.type === 'chip',
+        'review-question-content__field--multi-line-text': field.type === 'multi-line-text'
       }"
     >
       <ng-container [ngSwitch]="field.type">
@@ -50,6 +51,10 @@
 
         <ng-container *ngSwitchCase="'chip'">
           <app-chip-field *ngIf="isChipField(field)" [field]="field" [allowMultiple]="true"></app-chip-field>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'multi-line-text'">
+          <app-multi-line-text-field *ngIf="isMultiLineTextField(field)" [field]="field"></app-multi-line-text-field>
         </ng-container>
 
         <span *ngSwitchDefault>

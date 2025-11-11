@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ChipField, Field, LikertScaleField, TextAreaField, TraficLightField } from '../../model/fields';
+import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 
 @Component({
@@ -22,6 +22,7 @@ export class ReviewQuestionContentComponent {
     switch (field.type) {
       case 'chip':
       case 'likert-scale':
+      case 'multi-line-text':
       case 'text-area':
         return field.question ?? '';
       case 'traffic-light':
@@ -59,6 +60,10 @@ export class ReviewQuestionContentComponent {
 
   isChipField(field: Field): field is ChipField {
     return field.type === 'chip';
+  }
+
+  isMultiLineTextField(field: Field): field is MultiLineTextField {
+    return field.type === 'multi-line-text';
   }
 
   onNext(): void {
