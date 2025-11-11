@@ -9,6 +9,8 @@
       <app-review-question-sidebar
         [questions]="review.questions"
         [currentQuestionId]="currentQuestionId"
+        [totalQuestions]="review.questions.length"
+        [currentPosition]="getQuestionPosition(review, currentQuestionId || '')"
         (questionSelected)="onQuestionSelected($event)"
       ></app-review-question-sidebar>
     </aside>

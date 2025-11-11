@@ -10,6 +10,8 @@ import { Question } from '../../model/question';
 export class ReviewQuestionSidebarComponent {
   @Input() questions: Question[] | null = [];
   @Input() currentQuestionId: string | null = null;
+  @Input() totalQuestions = 0;
+  @Input() currentPosition = 0;
 
   @Output() questionSelected = new EventEmitter<string>();
 

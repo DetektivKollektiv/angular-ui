@@ -39,9 +39,18 @@
       </button>
     </li>
   </ul>
+
+  <div class="review-question-sidebar__progress" *ngIf="totalQuestions">
+    <div class="review-question-sidebar__progress-bar">
+      <div
+        class="review-question-sidebar__progress-bar-fill"
+        [style.width.%]="(currentPosition / totalQuestions) * 100"
+      ></div>
+    </div>
+    <p class="review-question-sidebar__progress-text">{{ currentPosition }} / {{ totalQuestions }}</p>
+  </div>
 </nav>
 
 <ng-template #emptyState>
   <div class="review-question-sidebar__empty">Keine Fragen vorhanden</div>
 </ng-template>
-
