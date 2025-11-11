@@ -85,7 +85,8 @@
 
     &--traffic-light,
     &--likert-scale,
-    &--text-area {
+    &--text-area,
+    &--chip {
       padding: 0;
       background: none;
       border-radius: 0;
@@ -150,4 +151,3 @@
     }
   }
 }
-

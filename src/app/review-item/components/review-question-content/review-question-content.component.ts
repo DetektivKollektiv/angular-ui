@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Field, LikertScaleField, TextAreaField, TraficLightField } from '../../model/fields';
+import { ChipField, Field, LikertScaleField, TextAreaField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 
 @Component({
@@ -57,6 +57,10 @@ export class ReviewQuestionContentComponent {
     return field.type === 'text-area';
   }
 
+  isChipField(field: Field): field is ChipField {
+    return field.type === 'chip';
+  }
+
   onNext(): void {
     /* if (this.isNextDisabled()) {
       return;
@@ -69,4 +73,3 @@ export class ReviewQuestionContentComponent {
     return !this.question?.isAnswered;
   }
 }
-

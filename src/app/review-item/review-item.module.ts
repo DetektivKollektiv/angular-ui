@@ -25,6 +25,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { SwiperModule } from 'swiper/angular';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
 import { ReviewQuestionContentComponent } from './components/review-question-content/review-question-content.component';
+import { ChipFieldComponent } from './components/review-question-content/chip-field/chip-field.component';
 import { LikertScaleFieldComponent } from './components/review-question-content/likert-scale-field/likert-scale-field.component';
 import { TextAreaFieldComponent } from './components/review-question-content/text-area-field/text-area-field.component';
 import { TrafficLightFieldComponent } from './components/review-question-content/traffic-light-field/traffic-light-field.component';
@@ -42,7 +43,8 @@ import { ReviewsService } from './services/reviews/reviews.service';
     TrafficLightFieldComponent,
     LikertScaleFieldComponent,
     TextAreaFieldComponent,
-    ItemPreviewComponent
+    ItemPreviewComponent,
+    ChipFieldComponent
   ],
   imports: [
     CommonModule,

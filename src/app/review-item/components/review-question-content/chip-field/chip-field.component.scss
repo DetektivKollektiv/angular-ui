@@ -1,0 +1,96 @@
+:host {
+  display: block;
+}
+
+.chip-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  &--disabled {
+    opacity: 0.6;
+  }
+
+  &__question {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  &__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  &__option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 1.25rem;
+    padding: 0.65rem 1rem;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.05);
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+
+    &:hover:not(:disabled) {
+      border-color: rgba(99, 102, 241, 0.8);
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &--selected {
+      border-color: #7c3aed;
+      background: rgba(124, 58, 237, 0.1);
+    }
+  }
+
+  &__icon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__icon-ring {
+    fill: none;
+    stroke: #c4b5fd;
+    stroke-width: 3;
+  }
+
+  &__icon-fill {
+    fill: #7c3aed;
+  }
+
+  &__icon-check {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__label {
+    font-weight: 600;
+    color: #1f2937;
+  }
+}
+
