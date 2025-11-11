@@ -41,6 +41,7 @@ export interface MultiLineTextField extends BaseField {
   answer_value: string[] | null;
   additonal_option_count: number;
   max_length: number;
+  placeholder: string;
 }
 
 export type Field = ChipField | TraficLightField | LikertScaleField | TextAreaField | MultiLineTextField;
