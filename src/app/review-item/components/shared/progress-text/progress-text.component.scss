@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.progress-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+
+  &__separator {
+    font-weight: 600;
+  }
+}

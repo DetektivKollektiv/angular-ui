@@ -23,19 +23,22 @@ import { UnsavedChangesModule } from '@shared/unsaved-changes/unsaved-changes.mo
 import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { SwiperModule } from 'swiper/angular';
+import { ItemPreviewComponent } from './components/item-preview/item-preview.component';
 import { ReviewPageComponent } from './components/review-page/review-page.component';
-import { ReviewQuestionContentComponent } from './components/review-question-content/review-question-content.component';
 import { ChipFieldComponent } from './components/review-question-content/chip-field/chip-field.component';
 import { LikertScaleFieldComponent } from './components/review-question-content/likert-scale-field/likert-scale-field.component';
+// eslint-disable-next-line max-len
 import { MultiLineTextFieldComponent } from './components/review-question-content/multi-line-text-field/multi-line-text-field.component';
+import { ReviewQuestionContentComponent } from './components/review-question-content/review-question-content.component';
 import { SubmitPageComponent } from './components/review-question-content/submit-page/submit-page.component';
 import { TextAreaFieldComponent } from './components/review-question-content/text-area-field/text-area-field.component';
 import { TrafficLightFieldComponent } from './components/review-question-content/traffic-light-field/traffic-light-field.component';
 import { ReviewQuestionSidebarComponent } from './components/review-question-sidebar/review-question-sidebar.component';
+// eslint-disable-next-line max-len
 import { SidebarQuestionButtonComponent } from './components/review-question-sidebar/sidebar-question-button/sidebar-question-button.component';
 import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
-import { ItemPreviewComponent } from './components/item-preview/item-preview.component';
 import { IconPillButtonComponent } from './components/shared/icon-pill-button/icon-pill-button.component';
+import { ProgressTextComponent } from './components/shared/progress-text/progress-text.component';
 import { ReviewsService } from './services/reviews/reviews.service';
 
 @NgModule({
@@ -52,7 +55,8 @@ import { ReviewsService } from './services/reviews/reviews.service';
     SubmitPageComponent,
     MultiLineTextFieldComponent,
     IconPillButtonComponent,
-    SidebarQuestionButtonComponent
+    SidebarQuestionButtonComponent,
+    ProgressTextComponent
   ],
   imports: [
     CommonModule,
@@ -79,6 +83,13 @@ import { ReviewsService } from './services/reviews/reviews.service';
     IconWithContentModule,
     SolvedCasesModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    ReviewQuestionContentComponent,
+    ReviewQuestionSidebarComponent,
+    IconPillButtonComponent,
+    SidebarQuestionButtonComponent,
+    ProgressTextComponent
   ],
   providers: [
     ReviewsService,

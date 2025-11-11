@@ -1,11 +1,7 @@
 <section class="review-question-content" *ngIf="question as currentQuestion">
   <header class="review-question-content__header">
     <div class="review-question-content__meta-row">
-      <p class="review-question-content__meta">
-        Frage {{ position }}
-        <span class="review-question-content__meta-separator">/</span>
-        {{ total }}
-      </p>
+      <app-progress-text [current]="position" [total]="total"></app-progress-text>
     </div>
     <h1 class="review-question-content__title">{{ currentQuestion.metadata?.title }}</h1>
     <p class="review-question-content__subtitle" *ngIf="currentQuestion.metadata?.text">
