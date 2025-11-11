@@ -40,6 +40,10 @@
     font-size: 1rem;
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
 
+    &:hover:not(:disabled) {
+      border-color: rgba(124, 58, 237, 0.8);
+    }
+
     &:focus {
       outline: none;
       border-color: #7c3aed;
