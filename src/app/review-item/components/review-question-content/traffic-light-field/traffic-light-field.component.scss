@@ -15,12 +15,19 @@
 
   &__header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 1rem;
     padding-bottom: 1.5rem;
-    // margin-bottom: 1rem;
     border-bottom: 1px solid #e5e7eb;
+
+    // over 1024px
+    @media (min-width: 768px) {
+      flex-direction: row;
+
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
   }
 
   &__header-label {
@@ -37,6 +44,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: space-between;
+    @media (min-width: 768px) {
+      justify-content: flex-start;
+    }
   }
 
   &__legend-item {
