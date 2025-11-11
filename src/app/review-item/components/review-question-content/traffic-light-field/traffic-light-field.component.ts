@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { TraficLightField } from '../../../model/fields';
+import { TrafficLightAnswerChange } from '../../../model/field-answer-change';
 
 type TrafficLightValue = TraficLightField['answer_value'];
 
@@ -19,6 +20,7 @@ interface TrafficLightDefinition {
 export class TrafficLightFieldComponent implements OnChanges {
   @Input() field!: TraficLightField;
   @Input() showHeader = false;
+  @Output() answerChange = new EventEmitter<TrafficLightAnswerChange>();
 
   selectedValue: TrafficLightValue = null;
 
@@ -46,6 +48,11 @@ export class TrafficLightFieldComponent implements OnChanges {
     }
 
     this.selectedValue = value;
+    this.answerChange.emit({
+      fieldId: this.field.id,
+      fieldType: 'traffic-light',
+      value
+    });
   }
 
   isSelected(value: TrafficLightDefinition['value']): boolean {
@@ -56,4 +63,3 @@ export class TrafficLightFieldComponent implements OnChanges {
     return this.field?.options?.[0]?.question ?? '';
   }
 }
-

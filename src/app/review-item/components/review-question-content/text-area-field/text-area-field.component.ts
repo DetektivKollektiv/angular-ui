@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { TextAreaField } from '../../../model/fields';
+import { TextAreaAnswerChange } from '../../../model/field-answer-change';
 
 @Component({
   selector: 'app-text-area-field',
@@ -9,6 +10,7 @@ import { TextAreaField } from '../../../model/fields';
 })
 export class TextAreaFieldComponent implements OnChanges {
   @Input() field!: TextAreaField;
+  @Output() answerChange = new EventEmitter<TextAreaAnswerChange>();
 
   value = '';
   readonly rows = 5;
@@ -40,8 +42,10 @@ export class TextAreaFieldComponent implements OnChanges {
     const nextValue = target.value?.slice(0, this.maxLength) ?? '';
     this.value = nextValue;
 
-    if (this.field) {
-      this.field.answer_value = nextValue;
-    }
+    this.answerChange.emit({
+      fieldId: this.field.id,
+      fieldType: 'text-area',
+      value: nextValue
+    });
   }
 }

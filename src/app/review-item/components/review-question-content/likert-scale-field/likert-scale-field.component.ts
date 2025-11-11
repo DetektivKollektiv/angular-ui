@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { LikertScaleField } from '../../../model/fields';
+import { LikertScaleAnswerChange } from '../../../model/field-answer-change';
 
 type LikertValue = LikertScaleField['answer_value'];
 
@@ -11,6 +12,7 @@ type LikertValue = LikertScaleField['answer_value'];
 })
 export class LikertScaleFieldComponent implements OnChanges {
   @Input() field!: LikertScaleField;
+  @Output() answerChange = new EventEmitter<LikertScaleAnswerChange>();
 
   selectedValue: LikertValue = null;
 
@@ -26,6 +28,11 @@ export class LikertScaleFieldComponent implements OnChanges {
     }
 
     this.selectedValue = value;
+    this.answerChange.emit({
+      fieldId: this.field.id,
+      fieldType: 'likert-scale',
+      value
+    });
   }
 
   isSelected(value: LikertValue): boolean {

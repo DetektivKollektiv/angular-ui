@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
+import { FieldAnswerChange, QuestionAnswerChange } from '../../model/field-answer-change';
 import { Question } from '../../model/question';
 
 @Component({
@@ -13,9 +14,21 @@ export class ReviewQuestionContentComponent {
   @Input() position = 1;
   @Input() total = 1;
   @Output() next = new EventEmitter<void>();
+  @Output() answerChange = new EventEmitter<QuestionAnswerChange>();
 
   trackFieldById(_index: number, field: Field): string {
     return field.id;
+  }
+
+  onFieldAnswerChange(change: FieldAnswerChange): void {
+    if (!this.question) {
+      return;
+    }
+
+    this.answerChange.emit({
+      ...change,
+      questionId: this.question.id
+    });
   }
 
   getFieldLabel(field: Field): string {

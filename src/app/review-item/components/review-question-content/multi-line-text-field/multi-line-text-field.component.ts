@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { MultiLineTextField } from '../../../model/fields';
+import { MultiLineTextAnswerChange } from '../../../model/field-answer-change';
 
 interface MultiLineRow {
   id: string;
@@ -16,6 +17,7 @@ interface MultiLineRow {
 })
 export class MultiLineTextFieldComponent implements OnChanges {
   @Input() field!: MultiLineTextField;
+  @Output() answerChange = new EventEmitter<MultiLineTextAnswerChange>();
 
   rows: MultiLineRow[] = [];
 
@@ -79,6 +81,10 @@ export class MultiLineTextFieldComponent implements OnChanges {
       .map((row) => row.value)
       .filter((value) => value && value.trim().length > 0);
 
-    this.field.answer_value = additionalValues;
+    this.answerChange.emit({
+      fieldId: this.field.id,
+      fieldType: 'multi-line-text',
+      value: additionalValues
+    });
   }
 }

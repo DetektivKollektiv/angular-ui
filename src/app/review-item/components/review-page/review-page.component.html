@@ -22,6 +22,7 @@
       [position]="getQuestionPosition(review, currentQuestion.id)"
       [total]="review.questions.length"
       (next)="goToNextQuestion(review)"
+      (answerChange)="onAnswerChange($event)"
     ></app-review-question-content>
   </div>
 </div>

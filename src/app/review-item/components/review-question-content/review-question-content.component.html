@@ -32,23 +32,41 @@
             *ngIf="isTrafficLightField(field)"
             [field]="field"
             [showHeader]="shouldShowTrafficHeader(i)"
+            (answerChange)="onFieldAnswerChange($event)"
           ></app-traffic-light-field>
         </ng-container>
 
         <ng-container *ngSwitchCase="'likert-scale'">
-          <app-likert-scale-field *ngIf="isLikertScaleField(field)" [field]="field"></app-likert-scale-field>
+          <app-likert-scale-field
+            *ngIf="isLikertScaleField(field)"
+            [field]="field"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-likert-scale-field>
         </ng-container>
 
         <ng-container *ngSwitchCase="'text-area'">
-          <app-text-area-field *ngIf="isTextAreaField(field)" [field]="field"></app-text-area-field>
+          <app-text-area-field
+            *ngIf="isTextAreaField(field)"
+            [field]="field"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-text-area-field>
         </ng-container>
 
         <ng-container *ngSwitchCase="'chip'">
-          <app-chip-field *ngIf="isChipField(field)" [field]="field" [allowMultiple]="true"></app-chip-field>
+          <app-chip-field
+            *ngIf="isChipField(field)"
+            [field]="field"
+            [allowMultiple]="true"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-chip-field>
         </ng-container>
 
         <ng-container *ngSwitchCase="'multi-line-text'">
-          <app-multi-line-text-field *ngIf="isMultiLineTextField(field)" [field]="field"></app-multi-line-text-field>
+          <app-multi-line-text-field
+            *ngIf="isMultiLineTextField(field)"
+            [field]="field"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-multi-line-text-field>
         </ng-container>
 
         <span *ngSwitchDefault>

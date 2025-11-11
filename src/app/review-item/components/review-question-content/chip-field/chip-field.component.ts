@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { ChipField } from '../../../model/fields';
+import { ChipFieldAnswerChange } from '../../../model/field-answer-change';
 
 @Component({
   selector: 'app-chip-field',
@@ -10,6 +11,7 @@ import { ChipField } from '../../../model/fields';
 export class ChipFieldComponent implements OnChanges {
   @Input() field!: ChipField;
   @Input() allowMultiple = false;
+  @Output() answerChange = new EventEmitter<ChipFieldAnswerChange>();
 
   selected: Set<string> = new Set();
 
@@ -42,7 +44,12 @@ export class ChipFieldComponent implements OnChanges {
       }
     }
 
-    this.field.answer_value = Array.from(this.selected);
+    const answers = Array.from(this.selected);
+    this.answerChange.emit({
+      fieldId: this.field.id,
+      fieldType: 'chip',
+      value: answers
+    });
   }
 
   isSelected(optionId: string): boolean {
