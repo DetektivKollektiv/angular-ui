@@ -1,4 +1,5 @@
 <div class="review-page" *ngIf="review$ | async as review; else loading">
+  <ng-container *ngIf="getVisibleQuestions(review) as visibleQuestions">
   <div class="review-page__breadcrumb container-width">
     <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
   </div>
@@ -7,9 +8,9 @@
     <aside class="review-page__sidebar">
       <app-item-preview class="review-page__item-preview"></app-item-preview>
       <app-review-question-sidebar
-        [questions]="review.questions"
+        [questions]="visibleQuestions"
         [currentQuestionId]="currentQuestionId"
-        [totalQuestions]="review.questions.length"
+        [totalQuestions]="visibleQuestions.length"
         [currentPosition]="getQuestionPosition(review, currentQuestionId || '')"
         (questionSelected)="onQuestionSelected($event)"
       ></app-review-question-sidebar>
@@ -20,11 +21,12 @@
       *ngIf="getCurrentQuestion(review) as currentQuestion; else noSelection"
       [question]="currentQuestion"
       [position]="getQuestionPosition(review, currentQuestion.id)"
-      [total]="review.questions.length"
+      [total]="visibleQuestions.length"
       (next)="goToNextQuestion(review)"
       (answerChange)="onAnswerChange($event)"
     ></app-review-question-content>
   </div>
+  </ng-container>
 </div>
 
 <ng-template #loading>

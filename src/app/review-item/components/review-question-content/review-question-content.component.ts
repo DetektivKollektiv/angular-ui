@@ -45,13 +45,13 @@ export class ReviewQuestionContentComponent {
     }
   }
 
-  shouldShowTrafficHeader(index: number): boolean {
-    if (!this.question?.fields?.length) {
+  shouldShowTrafficHeader(index: number, fields: Field[]): boolean {
+    if (!fields.length) {
       return false;
     }
 
-    for (let i = 0; i < this.question.fields.length; i += 1) {
-      if (this.question.fields[i].type === 'traffic-light') {
+    for (let i = 0; i < fields.length; i += 1) {
+      if (fields[i].type === 'traffic-light') {
         return i === index;
       }
     }
@@ -106,5 +106,9 @@ export class ReviewQuestionContentComponent {
 
   getNextButtonLabel(): string {
     return this.isSubmitQuestion() ? 'Zu deinem Dashboard' : 'Weiter';
+  }
+
+  getVisibleFields(question: Question | null = this.question): Field[] {
+    return question?.fields?.filter((field) => field.visible !== false) ?? [];
   }
 }

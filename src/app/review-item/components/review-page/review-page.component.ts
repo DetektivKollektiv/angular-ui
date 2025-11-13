@@ -7,6 +7,7 @@ import { QuestionAnswerChange } from '../../model/field-answer-change';
 import { Question } from '../../model/question';
 import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
+import { ReviewVisibilityService } from '../../services/review-visibility/review-visibility.service';
 
 @Component({
   selector: 'app-review-page',
@@ -21,18 +22,24 @@ export class ReviewPageComponent {
 
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fallbearbeitung' }];
 
-  constructor(private reviewsService: ReviewsService) {
+  constructor(private reviewsService: ReviewsService, private reviewVisibilityService: ReviewVisibilityService) {
     this.reviewsService
       .getOpenReview()
       .pipe(take(1))
       .subscribe((review) => {
-        this.ensureCurrentQuestion(review);
-        this.reviewSubject.next(review);
+        const preparedReview = this.ensureVisibility(review);
+        this.ensureCurrentQuestion(preparedReview);
+        this.reviewSubject.next(preparedReview);
       });
   }
 
   onQuestionSelected(questionId: string): void {
-    this.currentQuestionId = questionId;
+    const review = this.reviewSubject.getValue();
+    if (!review) {
+      return;
+    }
+
+    this.ensureCurrentQuestion(review, questionId);
   }
 
   onAnswerChange(change: QuestionAnswerChange): void {
@@ -41,48 +48,72 @@ export class ReviewPageComponent {
       return;
     }
 
-    const updatedReview = this.applyAnswerChange(currentReview, change);
-    if (!updatedReview) {
+    const updatedAnswersReview = this.applyAnswerChange(currentReview, change);
+    if (!updatedAnswersReview) {
       return;
     }
 
-    this.ensureCurrentQuestion(updatedReview);
-    this.reviewSubject.next(updatedReview);
-    this.logReview(updatedReview);
+    const preparedReview = this.ensureVisibility(updatedAnswersReview);
+    this.ensureCurrentQuestion(preparedReview, this.currentQuestionId);
+    this.reviewSubject.next(preparedReview);
+    this.logReview(preparedReview);
   }
 
   goToNextQuestion(review: Review): void {
-    if (!this.currentQuestionId || !review?.questions?.length) {
-      return;
-    }
-
-    const currentIndex = review.questions.findIndex((question) => question.id === this.currentQuestionId);
-    const nextQuestion = currentIndex >= 0 ? review.questions[currentIndex + 1] : null;
-
-    if (nextQuestion) {
-      this.currentQuestionId = nextQuestion.id;
+    const nextVisibleQuestion = this.findNextVisibleQuestion(review, this.currentQuestionId);
+    if (nextVisibleQuestion) {
+      this.currentQuestionId = nextVisibleQuestion.id;
     }
   }
 
   getCurrentQuestion(review: Review): Question | undefined {
-    return review.questions?.find((question) => question.id === this.currentQuestionId);
+    return this.getVisibleQuestions(review).find((question) => question.id === this.currentQuestionId);
   }
 
   getQuestionPosition(review: Review, questionId: string): number {
-    const index = review.questions.findIndex((question) => question.id === questionId);
-    return index >= 0 ? index + 1 : 1;
+    const visibleQuestions = this.getVisibleQuestions(review);
+    const index = visibleQuestions.findIndex((question) => question.id === questionId);
+    if (index === -1) {
+      return visibleQuestions.length ? 1 : 0;
+    }
+
+    return index + 1;
   }
 
-  private ensureCurrentQuestion(review: Review | null): void {
+  private ensureCurrentQuestion(review: Review | null, preferredQuestionId?: string): void {
     if (!review?.questions?.length) {
       this.currentQuestionId = null;
       return;
     }
 
-    const currentStillExists = review.questions.some((question) => question.id === this.currentQuestionId);
-    if (!this.currentQuestionId || !currentStillExists) {
-      this.currentQuestionId = review.questions[0].id;
+    const visibleQuestions = this.getVisibleQuestions(review);
+    if (!visibleQuestions.length) {
+      this.currentQuestionId = null;
+      return;
     }
+
+    const desiredId = preferredQuestionId ?? this.currentQuestionId;
+    if (desiredId) {
+      const stillVisible = visibleQuestions.find((question) => question.id === desiredId);
+      if (stillVisible) {
+        this.currentQuestionId = stillVisible.id;
+        return;
+      }
+
+      const nextVisible = this.findNextVisibleQuestion(review, desiredId);
+      if (nextVisible) {
+        this.currentQuestionId = nextVisible.id;
+        return;
+      }
+
+      const previousVisible = this.findPreviousVisibleQuestion(review, desiredId);
+      if (previousVisible) {
+        this.currentQuestionId = previousVisible.id;
+        return;
+      }
+    }
+
+    this.currentQuestionId = visibleQuestions[0].id;
   }
 
   private applyAnswerChange(review: Review, change: QuestionAnswerChange): Review | null {
@@ -158,5 +189,56 @@ export class ReviewPageComponent {
   private logReview(review: Review): void {
     // eslint-disable-next-line no-console
     console.log('[Review Debug] Updated review:', review);
+    const cleaned = this.reviewVisibilityService.stripHiddenFieldAnswers(review);
+    // eslint-disable-next-line no-console
+    console.log('[Review Debug] Sanitized payload:', cleaned);
+  }
+
+  private ensureVisibility(review: Review): Review {
+    return this.reviewVisibilityService.applyVisibility(review) ?? review;
+  }
+
+  getVisibleQuestions(review: Review): Question[] {
+    return review.questions?.filter((question) => question.visible !== false) ?? [];
+  }
+
+  private findNextVisibleQuestion(review: Review, fromQuestionId: string | null): Question | null {
+    if (!fromQuestionId || !review?.questions?.length) {
+      return null;
+    }
+
+    const currentIndex = review.questions.findIndex((question) => question.id === fromQuestionId);
+    if (currentIndex === -1) {
+      return null;
+    }
+
+    for (let i = currentIndex + 1; i < review.questions.length; i += 1) {
+      const candidate = review.questions[i];
+      if (candidate.visible !== false) {
+        return candidate;
+      }
+    }
+
+    return null;
+  }
+
+  private findPreviousVisibleQuestion(review: Review, fromQuestionId: string | null): Question | null {
+    if (!fromQuestionId || !review?.questions?.length) {
+      return null;
+    }
+
+    const currentIndex = review.questions.findIndex((question) => question.id === fromQuestionId);
+    if (currentIndex === -1) {
+      return null;
+    }
+
+    for (let i = currentIndex - 1; i >= 0; i -= 1) {
+      const candidate = review.questions[i];
+      if (candidate.visible !== false) {
+        return candidate;
+      }
+    }
+
+    return null;
   }
 }

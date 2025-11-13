@@ -320,14 +320,14 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
-        }
-      ],
-      conditions: [
-        {
-          field_id: 'additional_rating',
-          operator: '<',
-          value: 4 // Zeige nur wenn NICHT "Nein" (value 4) gewählt wurde
+          is_disabled: false,
+          conditions: [
+            {
+              field_id: 'additional_rating',
+              operator: '<',
+              value: 4 // Zeige nur wenn NICHT "Nein" (value 4) gewählt wurde
+            }
+          ]
         }
       ]
     },

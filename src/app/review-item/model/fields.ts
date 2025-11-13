@@ -5,6 +5,7 @@ interface BaseField {
   id: string;
   is_disabled: boolean;
   conditions?: Condition[];
+  visible?: boolean;
 }
 
 export interface ChipField extends BaseField {
@@ -45,4 +46,3 @@ export interface MultiLineTextField extends BaseField {
 }
 
 export type Field = ChipField | TraficLightField | LikertScaleField | TextAreaField | MultiLineTextField;
-

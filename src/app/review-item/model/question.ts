@@ -1,4 +1,3 @@
-import { Condition } from './condition';
 import { Field } from './fields';
 
 interface Metadata {
@@ -12,7 +11,7 @@ export interface Question {
   id: string;
   metadata: Metadata;
   fields: Field[]; // Array von Fields - mehrere pro Slide möglich!
-  conditions?: Condition[]; // Conditions auf Slide-Ebene
+  visible?: boolean;
   isAnswered?: boolean;
 }
 

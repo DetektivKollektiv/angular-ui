@@ -14,9 +14,10 @@
     </p>
   </header>
 
-  <ul class="review-question-content__fields" *ngIf="currentQuestion.fields?.length; else fallbackContent">
+  <ng-container *ngIf="getVisibleFields(currentQuestion) as visibleFields">
+  <ul class="review-question-content__fields" *ngIf="visibleFields.length; else fallbackContent">
     <li
-      *ngFor="let field of currentQuestion.fields; let i = index; trackBy: trackFieldById"
+      *ngFor="let field of visibleFields; let i = index; trackBy: trackFieldById"
       class="review-question-content__field"
       [ngClass]="{
         'review-question-content__field--traffic-light': field.type === 'traffic-light',
@@ -31,7 +32,7 @@
           <app-traffic-light-field
             *ngIf="isTrafficLightField(field)"
             [field]="field"
-            [showHeader]="shouldShowTrafficHeader(i)"
+            [showHeader]="shouldShowTrafficHeader(i, visibleFields)"
             (answerChange)="onFieldAnswerChange($event)"
           ></app-traffic-light-field>
         </ng-container>
@@ -75,6 +76,7 @@
       </ng-container>
     </li>
   </ul>
+  </ng-container>
   <div class="review-question-content__next-button-container">
     <button class="review-question-content__next-button" type="button" (click)="onNext()" [disabled]="isNextDisabled()">
       {{ getNextButtonLabel() }}
@@ -87,4 +89,3 @@
     <p class="review-question-content__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
   </ng-template>
 </section>
-
