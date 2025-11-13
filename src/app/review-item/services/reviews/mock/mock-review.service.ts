@@ -325,8 +325,7 @@ export const mock_review: Review = {
       ],
       conditions: [
         {
-          question: 'evaluation_criteria_slide',
-          option: 'additional_rating',
+          field_id: 'additional_rating',
           operator: '<',
           value: 4 // Zeige nur wenn NICHT "Nein" (value 4) gewählt wurde
         }

@@ -1,7 +1,20 @@
-export interface Condition {
-  question: string; // ID der Question (Slide)
-  option?: string; // Optional: ID des spezifischen Fields innerhalb der Question
-  operator: '>' | '<' | 'has_answer' | 'equals';
-  value?: number | string | boolean;
+interface BaseCondition {
+  field_id: string;
 }
+
+interface HasAnswerCondition extends BaseCondition {
+  operator: 'has_answer';
+}
+
+interface ComparisonCondition extends BaseCondition {
+  operator: '>' | '<';
+  value: number;
+}
+
+interface EqualsCondition extends BaseCondition {
+  operator: 'equals';
+  value: string | number | boolean;
+}
+
+export type Condition = HasAnswerCondition | ComparisonCondition | EqualsCondition;
 
