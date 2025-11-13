@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
 import { QuestionAnswerChange } from '../../model/field-answer-change';
@@ -9,6 +9,17 @@ import { Review } from '../../model/review';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 import { ReviewVisibilityService } from '../../services/review-visibility/review-visibility.service';
 
+interface ReviewState {
+  review: Review | null;
+  currentQuestionId: string | null;
+}
+
+type ReviewAction =
+  | { type: 'REVIEW_LOADED'; review: Review }
+  | { type: 'ANSWER_CHANGED'; change: QuestionAnswerChange }
+  | { type: 'QUESTION_SELECTED'; questionId: string }
+  | { type: 'NEXT_QUESTION' };
+
 @Component({
   selector: 'app-review-page',
   templateUrl: './review-page.component.html',
@@ -16,9 +27,11 @@ import { ReviewVisibilityService } from '../../services/review-visibility/review
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReviewPageComponent {
-  currentQuestionId: string | null = null;
-  private reviewSubject = new BehaviorSubject<Review | null>(null);
-  review$: Observable<Review | null> = this.reviewSubject.asObservable();
+  private stateSubject = new BehaviorSubject<ReviewState>({
+    review: null,
+    currentQuestionId: null
+  });
+  readonly state$ = this.stateSubject.asObservable();
 
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fallbearbeitung' }];
 
@@ -28,92 +41,150 @@ export class ReviewPageComponent {
       .pipe(take(1))
       .subscribe((review) => {
         const preparedReview = this.ensureVisibility(review);
-        this.ensureCurrentQuestion(preparedReview);
-        this.reviewSubject.next(preparedReview);
+        this.updateState({ type: 'REVIEW_LOADED', review: preparedReview });
       });
   }
 
   onQuestionSelected(questionId: string): void {
-    const review = this.reviewSubject.getValue();
-    if (!review) {
-      return;
-    }
-
-    this.ensureCurrentQuestion(review, questionId);
+    this.updateState({ type: 'QUESTION_SELECTED', questionId });
   }
 
   onAnswerChange(change: QuestionAnswerChange): void {
-    const currentReview = this.reviewSubject.getValue();
-    if (!currentReview) {
-      return;
-    }
-
-    const updatedAnswersReview = this.applyAnswerChange(currentReview, change);
-    if (!updatedAnswersReview) {
-      return;
-    }
-
-    const preparedReview = this.ensureVisibility(updatedAnswersReview);
-    this.ensureCurrentQuestion(preparedReview, this.currentQuestionId);
-    this.reviewSubject.next(preparedReview);
-    this.logReview(preparedReview);
+    this.updateState({ type: 'ANSWER_CHANGED', change });
   }
 
-  goToNextQuestion(review: Review): void {
-    const nextVisibleQuestion = this.findNextVisibleQuestion(review, this.currentQuestionId);
-    if (nextVisibleQuestion) {
-      this.currentQuestionId = nextVisibleQuestion.id;
+  onNextQuestion(): void {
+    this.updateState({ type: 'NEXT_QUESTION' });
+  }
+
+  getCurrentQuestion(state: ReviewState): Question | null {
+    if (!state.review || !state.currentQuestionId) {
+      return null;
     }
+    return this.getVisibleQuestions(state.review).find((q) => q.id === state.currentQuestionId) ?? null;
   }
 
-  getCurrentQuestion(review: Review): Question | undefined {
-    return this.getVisibleQuestions(review).find((question) => question.id === this.currentQuestionId);
-  }
-
-  getQuestionPosition(review: Review, questionId: string): number {
+  getQuestionPosition(review: Review, questionId: string | null): number {
+    if (!questionId) {
+      return 0;
+    }
     const visibleQuestions = this.getVisibleQuestions(review);
-    const index = visibleQuestions.findIndex((question) => question.id === questionId);
-    if (index === -1) {
-      return visibleQuestions.length ? 1 : 0;
-    }
-
-    return index + 1;
+    const index = visibleQuestions.findIndex((q) => q.id === questionId);
+    return index === -1 ? 0 : index + 1;
   }
 
-  private ensureCurrentQuestion(review: Review | null, preferredQuestionId?: string): void {
-    if (!review?.questions?.length) {
-      this.currentQuestionId = null;
-      return;
+  getVisibleQuestions(review: Review): Question[] {
+    return review.questions?.filter((q) => q.visible !== false) ?? [];
+  }
+
+  private updateState(action: ReviewAction): void {
+    const newState = this.reduceState(this.stateSubject.getValue(), action);
+    this.stateSubject.next(newState);
+
+    if (action.type === 'ANSWER_CHANGED' && newState.review) {
+      this.logReview(newState.review);
+    }
+  }
+
+  private reduceState(state: ReviewState, action: ReviewAction): ReviewState {
+    switch (action.type) {
+      case 'REVIEW_LOADED':
+        return {
+          review: action.review,
+          currentQuestionId: this.resolveQuestionId(action.review, null)
+        };
+
+      case 'QUESTION_SELECTED':
+        return {
+          ...state,
+          currentQuestionId: this.resolveQuestionId(state.review, action.questionId)
+        };
+
+      case 'ANSWER_CHANGED': {
+        const updatedReview = this.applyAnswerChange(state.review, action.change);
+        if (!updatedReview) {
+          return state;
+        }
+
+        const preparedReview = this.ensureVisibility(updatedReview);
+        return {
+          review: preparedReview,
+          currentQuestionId: this.resolveQuestionId(preparedReview, state.currentQuestionId)
+        };
+      }
+
+      case 'NEXT_QUESTION': {
+        const nextQuestionId = this.findNextVisibleQuestionId(state.review, state.currentQuestionId);
+        return {
+          ...state,
+          currentQuestionId: nextQuestionId ?? state.currentQuestionId
+        };
+      }
+
+      default:
+        return state;
+    }
+  }
+
+  private resolveQuestionId(review: Review | null, requestedId: string | null): string | null {
+    if (!review) {
+      return null;
     }
 
     const visibleQuestions = this.getVisibleQuestions(review);
     if (!visibleQuestions.length) {
-      this.currentQuestionId = null;
-      return;
+      return null;
     }
 
-    const desiredId = preferredQuestionId ?? this.currentQuestionId;
-    if (desiredId) {
-      const stillVisible = visibleQuestions.find((question) => question.id === desiredId);
-      if (stillVisible) {
-        this.currentQuestionId = stillVisible.id;
-        return;
-      }
+    // If no requested ID, use first visible (default)
+    if (!requestedId) {
+      return visibleQuestions[0].id;
+    }
 
-      const nextVisible = this.findNextVisibleQuestion(review, desiredId);
-      if (nextVisible) {
-        this.currentQuestionId = nextVisible.id;
-        return;
-      }
+    // If requested ID is visible, use it
+    const requestedQuestion = visibleQuestions.find((q) => q.id === requestedId);
+    if (requestedQuestion) {
+      return requestedId;
+    }
 
-      const previousVisible = this.findPreviousVisibleQuestion(review, desiredId);
-      if (previousVisible) {
-        this.currentQuestionId = previousVisible.id;
-        return;
+    // Fallback: find closest previous visible question
+    const allQuestions = review.questions;
+    const requestedIndex = allQuestions.findIndex((q) => q.id === requestedId);
+
+    if (requestedIndex === -1) {
+      // Requested ID doesn't exist at all, use first visible
+      return visibleQuestions[0].id;
+    }
+
+    // Search backward from requestedIndex
+    for (let i = requestedIndex - 1; i >= 0; i -= 1) {
+      if (allQuestions[i].visible !== false) {
+        return allQuestions[i].id;
       }
     }
 
-    this.currentQuestionId = visibleQuestions[0].id;
+    // No previous visible found, use first visible (going forward)
+    return visibleQuestions[0].id;
+  }
+
+  private findNextVisibleQuestionId(review: Review | null, fromQuestionId: string | null): string | null {
+    if (!fromQuestionId || !review?.questions?.length) {
+      return null;
+    }
+
+    const currentIndex = review.questions.findIndex((q) => q.id === fromQuestionId);
+    if (currentIndex === -1) {
+      return null;
+    }
+
+    for (let i = currentIndex + 1; i < review.questions.length; i += 1) {
+      const candidate = review.questions[i];
+      if (candidate.visible !== false) {
+        return candidate.id;
+      }
+    }
+
+    return null;
   }
 
   private applyAnswerChange(review: Review, change: QuestionAnswerChange): Review | null {
@@ -196,49 +267,5 @@ export class ReviewPageComponent {
 
   private ensureVisibility(review: Review): Review {
     return this.reviewVisibilityService.applyVisibility(review) ?? review;
-  }
-
-  getVisibleQuestions(review: Review): Question[] {
-    return review.questions?.filter((question) => question.visible !== false) ?? [];
-  }
-
-  private findNextVisibleQuestion(review: Review, fromQuestionId: string | null): Question | null {
-    if (!fromQuestionId || !review?.questions?.length) {
-      return null;
-    }
-
-    const currentIndex = review.questions.findIndex((question) => question.id === fromQuestionId);
-    if (currentIndex === -1) {
-      return null;
-    }
-
-    for (let i = currentIndex + 1; i < review.questions.length; i += 1) {
-      const candidate = review.questions[i];
-      if (candidate.visible !== false) {
-        return candidate;
-      }
-    }
-
-    return null;
-  }
-
-  private findPreviousVisibleQuestion(review: Review, fromQuestionId: string | null): Question | null {
-    if (!fromQuestionId || !review?.questions?.length) {
-      return null;
-    }
-
-    const currentIndex = review.questions.findIndex((question) => question.id === fromQuestionId);
-    if (currentIndex === -1) {
-      return null;
-    }
-
-    for (let i = currentIndex - 1; i >= 0; i -= 1) {
-      const candidate = review.questions[i];
-      if (candidate.visible !== false) {
-        return candidate;
-      }
-    }
-
-    return null;
   }
 }

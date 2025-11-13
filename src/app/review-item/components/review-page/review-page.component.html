@@ -1,31 +1,33 @@
-<div class="review-page" *ngIf="review$ | async as review; else loading">
-  <ng-container *ngIf="getVisibleQuestions(review) as visibleQuestions">
-  <div class="review-page__breadcrumb container-width">
-    <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
-  </div>
+<div class="review-page" *ngIf="state$ | async as state; else loading">
+  <ng-container *ngIf="state.review as review">
+    <ng-container *ngIf="getVisibleQuestions(review) as visibleQuestions">
+      <div class="review-page__breadcrumb container-width">
+        <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+      </div>
 
-  <div class="review-page__layout container-width">
-    <aside class="review-page__sidebar">
-      <app-item-preview class="review-page__item-preview"></app-item-preview>
-      <app-review-question-sidebar
-        [questions]="visibleQuestions"
-        [currentQuestionId]="currentQuestionId"
-        [totalQuestions]="visibleQuestions.length"
-        [currentPosition]="getQuestionPosition(review, currentQuestionId || '')"
-        (questionSelected)="onQuestionSelected($event)"
-      ></app-review-question-sidebar>
-    </aside>
+      <div class="review-page__layout container-width">
+        <aside class="review-page__sidebar">
+          <app-item-preview class="review-page__item-preview"></app-item-preview>
+          <app-review-question-sidebar
+            [questions]="visibleQuestions"
+            [currentQuestionId]="state.currentQuestionId"
+            [totalQuestions]="visibleQuestions.length"
+            [currentPosition]="getQuestionPosition(review, state.currentQuestionId)"
+            (questionSelected)="onQuestionSelected($event)"
+          ></app-review-question-sidebar>
+        </aside>
 
-    <app-review-question-content
-      class="review-page__content"
-      *ngIf="getCurrentQuestion(review) as currentQuestion; else noSelection"
-      [question]="currentQuestion"
-      [position]="getQuestionPosition(review, currentQuestion.id)"
-      [total]="visibleQuestions.length"
-      (next)="goToNextQuestion(review)"
-      (answerChange)="onAnswerChange($event)"
-    ></app-review-question-content>
-  </div>
+        <app-review-question-content
+          class="review-page__content"
+          *ngIf="getCurrentQuestion(state) as currentQuestion; else noSelection"
+          [question]="currentQuestion"
+          [position]="getQuestionPosition(review, currentQuestion.id)"
+          [total]="visibleQuestions.length"
+          (next)="onNextQuestion()"
+          (answerChange)="onAnswerChange($event)"
+        ></app-review-question-content>
+      </div>
+    </ng-container>
   </ng-container>
 </div>
 
