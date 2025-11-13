@@ -52,7 +52,8 @@
 
     &:disabled {
       cursor: not-allowed;
-      opacity: 0.8;
+      background-color: rgba(124, 111, 255, 0.04);
+      border-color: rgba(124, 111, 255, 0.1);
     }
 
     &::placeholder {
@@ -65,3 +66,4 @@
     height: 44px;
   }
 }
+
