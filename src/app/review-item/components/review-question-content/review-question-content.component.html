@@ -56,7 +56,7 @@
           <app-chip-field
             *ngIf="isChipField(field)"
             [field]="field"
-            [allowMultiple]="true"
+            [allowMultiple]="false"
             (answerChange)="onFieldAnswerChange($event)"
           ></app-chip-field>
         </ng-container>
@@ -76,12 +76,7 @@
     </li>
   </ul>
   <div class="review-question-content__next-button-container">
-    <button
-      class="review-question-content__next-button"
-      type="button"
-      (click)="onNext()"
-      [disabled]="isNextDisabled()"
-    >
+    <button class="review-question-content__next-button" type="button" (click)="onNext()" [disabled]="isNextDisabled()">
       {{ getNextButtonLabel() }}
     </button>
   </div>
@@ -92,3 +87,4 @@
     <p class="review-question-content__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
   </ng-template>
 </section>
+

@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
 
   &:hover:not(:disabled) {
     transform: translateY(-1px);
@@ -45,3 +46,4 @@
     }
   }
 }
+
