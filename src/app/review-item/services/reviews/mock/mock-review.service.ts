@@ -11,7 +11,7 @@ export const mock_review: Review = {
     // SLIDE 1: STICHWÖRTER (TextInput- Multi-Line )
     // ========================================================================
     {
-      id: 'keywords_slide',
+      id: 'keywords_question',
       metadata: {
         title: 'Stichwörter',
         text: 'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig.',
@@ -42,7 +42,7 @@ export const mock_review: Review = {
     // SLIDE 1: INHALTSTYP (Chip - Multi-Select)
     // ========================================================================
     {
-      id: 'content_type_slide',
+      id: 'content_type_question',
       metadata: {
         title: 'Inhaltstyp',
         text: 'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig.',
@@ -77,7 +77,7 @@ export const mock_review: Review = {
     // SLIDE 2: KRITERIUM INHALTE (5x Traffic Light)
     // ========================================================================
     {
-      id: 'content_criteria_slide',
+      id: 'content_criteria_question',
       metadata: {
         title: 'Inhalte',
         text: 'Bewerte die folgenden Aussagen sorgfältig.',
@@ -157,7 +157,7 @@ export const mock_review: Review = {
     // SLIDE 3: KRITERIUM QUELLE (4x Traffic Light)
     // ========================================================================
     {
-      id: 'source_criteria_slide',
+      id: 'source_criteria_question',
       metadata: {
         title: 'Quelle',
         text: 'Bewerte die folgenden Aussagen sorgfältig.',
@@ -225,7 +225,7 @@ export const mock_review: Review = {
     // SLIDE 4: BILDER (Placeholder - kann weitere Fields haben)
     // ========================================================================
     {
-      id: 'images_slide',
+      id: 'images_question',
       metadata: {
         title: 'Bilder',
         text: 'Bewerte die Bilder im Artikel.',
@@ -253,7 +253,7 @@ export const mock_review: Review = {
     // SLIDE 5: ERGÄNZENDE BEWERTUNGSKRITERIEN (Likert Scale)
     // ========================================================================
     {
-      id: 'evaluation_criteria_slide',
+      id: 'evaluation_criteria_question',
       metadata: {
         title: 'Bewertungskriterien',
         text: 'Hinweis: Im Rahmen dieses Tests, kann nur ein *sonstiger* Punkt angegeben werden. Falls du mehrere Punkte angeben willst, wähle bitte den gravierendsten aus. Später wird es die Möglichkeit geben, hier auch mehrere Punkte aufzuführen.',
@@ -313,7 +313,7 @@ export const mock_review: Review = {
     // SLIDE 6: ZUSATZ (TextArea - Eingerückt, Conditional)
     // ========================================================================
     {
-      id: 'additional_comment_slide',
+      id: 'additional_comment_question',
       metadata: {
         title: 'Zusatz',
         text: 'Versuche den Faktor möglichst kurz und knapp zu beschreiben. Du hast gleich noch mehr Platz für einen ausführlichen Fallbewertungskommentar.',
@@ -350,7 +350,7 @@ export const mock_review: Review = {
     // SLIDE 7: FALL ABSCHLIESSEN (Kein Field, nur Submit)
     // ========================================================================
     {
-      id: 'submit_slide',
+      id: 'submit_question',
       metadata: {
         title: 'Fall abschließen',
         text: 'Überprüfe deine Angaben und schließe den Fall ab.',

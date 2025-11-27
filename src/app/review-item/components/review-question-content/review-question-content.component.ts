@@ -106,7 +106,7 @@ export class ReviewQuestionContentComponent {
   }
 
   isSubmitQuestion(): boolean {
-    return this.question?.id === 'submit_slide';
+    return this.question?.id === 'submit_question';
   }
 
   getNextButtonLabel(): string {
@@ -117,3 +117,4 @@ export class ReviewQuestionContentComponent {
     return question?.fields?.filter((field) => field.is_visible !== false) ?? [];
   }
 }
+
