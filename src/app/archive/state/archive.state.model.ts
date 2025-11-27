@@ -1,10 +1,7 @@
-import { Item } from 'src/app/model/item';
-import { CaseFilter } from '../model/case-filter';
-import { CaseSort } from '../model/case-sort';
+import { Item } from '../model/item';
 
 export class ArchiveStateModel {
   items: Item[];
-  detailItem: any; //todo update.
-  filter: CaseFilter;
-  sort: CaseSort;
+  detailItem: Item | null;
+  // Filters and sorting are intentionally left out for now while the archive UI is simplified.
 }

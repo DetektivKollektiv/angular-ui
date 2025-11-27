@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { API } from 'aws-amplify';
 import { from, Observable, of } from 'rxjs';
 
-import { Item } from 'src/app/model/item';
+import { Item } from '../model/item';
 import { mock_items } from './mock/mock-archive.service';
 
 @Injectable({
@@ -31,20 +31,8 @@ export class ArchiveService {
   }
 
   public getClosedItem(id): /*Promise*/ Observable<any> {
-    const newPath = `${this.path}/${id}`;
-    return from(
-      API.get(this.apiName, newPath, { response: true })
-        .then((response) => {
-          if (response.status === 200) {
-            const items = response.data;
-
-            return items;
-          } else if (response.status === 204) {
-            return null;
-          }
-        })
-        .catch()
-    );
+    const item = mock_items.find((mockItem) => mockItem.id === id) || null;
+    return of(item);
   }
 
   public createComment(itemId, text, user): Observable<any> {
@@ -65,4 +53,3 @@ export class ArchiveService {
     );
   }
 }
-

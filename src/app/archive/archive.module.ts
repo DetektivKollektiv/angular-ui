@@ -11,7 +11,6 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
-import { ArchiveDetailsComponent } from './components/archive-details/archive-details.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
 import { ArchiveState } from './state/archive.state';
@@ -21,8 +20,6 @@ import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module
 import { QuestionCarouselModule } from '@shared/question-carousel/question-carousel.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReviewItemModule } from 'src/app/review-item/review-item.module';
-import { CommentListItemComponent } from './components/comment-list-item/comment-list-item.component';
-import { CommentListComponent } from './components/comment-list/comment-list.component';
 
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
 import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
@@ -37,16 +34,7 @@ import { CaseSortByPipe } from './services/case-sort-by.pipe';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
-  declarations: [
-    ArchiveComponent,
-    ArchiveDetailsComponent,
-    ArchiveDetailsPageComponent,
-    RatingLegendComponent,
-    CommentListComponent,
-    CommentListItemComponent,
-    CaseSortByPipe,
-    ReviewResponsesComponent
-  ],
+  declarations: [ArchiveComponent, ArchiveDetailsPageComponent, RatingLegendComponent, CaseSortByPipe, ReviewResponsesComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,4 +1,4 @@
-export const mock_items = [
+/* export const mock_items = [
   {
     id: '0f2e1543-7344-49ba-9e4d-f2860c94b839',
     item_type_id: '1',
@@ -312,9 +312,9 @@ export const mock_items = [
       }
     ]
   }
-];
+]; */
 
-/* import { Item } from '../../model/item';
+import { Item } from '../../model/item';
 
 export const mock_items: Item[] = [
   {
@@ -524,5 +524,5 @@ export const mock_items: Item[] = [
       images: ['https://picsum.photos/1000']
     }
   }
-]; */
+];
 

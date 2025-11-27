@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Store } from '@ngxs/store';
-import { Globals } from '@shared/helper/globals/globals';
-import { map } from 'rxjs/operators';
-import { ArchiveState } from '../../state/archive.state';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-review-responses',
@@ -13,16 +10,8 @@ import { ArchiveState } from '../../state/archive.state';
 export class ReviewResponsesComponent {
   @Input() loading: boolean;
 
-  givenResponsesPercentages$ = this.store
-    .select(ArchiveState.filteredResponsesPercentages)
-    .pipe(map((fn) => fn(Globals.reviewAnswers, (count) => count > 0)));
-  notGivenResponsesPercentages$ = this.store
-    .select(ArchiveState.filteredResponsesPercentages)
-    .pipe(map((fn) => fn(Globals.reviewAnswers, (count) => !count)));
-  noCriteriaResponsesPercentage$ = this.store.select(ArchiveState.filteredResponsesPercentages).pipe(
-    map((fn) => fn([Globals.criteriaNotApplicableReviewAnswer])),
-    map((responses) => responses[0])
-  );
-
-  constructor(private store: Store) {}
+  // Review responses are not available with the simplified archive data.
+  givenResponsesPercentages$ = of([]);
+  notGivenResponsesPercentages$ = of([]);
+  noCriteriaResponsesPercentage$ = of({ count: 0 });
 }

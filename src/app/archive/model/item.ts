@@ -18,6 +18,13 @@ export interface Item {
 
   // OpenGraph metadata
   opengraph?: OpenGraphData;
+
+  // Legacy/detail fields (optional while the detail view is simplified)
+  review_comments?: any[];
+  discussion_comments?: any[];
+  users?: any[];
+  reviews?: any[];
+  warning_tags?: { text: string; icon?: string }[];
 }
 
 export interface ReviewTag {

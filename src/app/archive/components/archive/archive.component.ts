@@ -1,16 +1,8 @@
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { MatDialog } from '@angular/material/dialog';
-import { Select, Store } from '@ngxs/store';
+import { Select } from '@ngxs/store';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
-import { ResultScoreMode } from '@shared/helper/components/result-score/result-score-mode';
 import { Observable } from 'rxjs';
-import { Item } from 'src/app/model/item';
-import { CaseFilter } from '../../model/case-filter';
-import { CaseSort, CaseSortBy } from '../../model/case-sort';
-import { AddFilterKeyword, RemoveFilterKeyword, SetFilter, SetSortBy, ToggleSortOrder } from '../../state/archive.actions';
+import { Item } from '../../model/item';
 import { ArchiveState } from '../../state/archive.state';
 
 @Component({
@@ -19,9 +11,7 @@ import { ArchiveState } from '../../state/archive.state';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent {
-  @Select(ArchiveState.filteredItems) items$: Observable<Item[]>;
-  @Select(ArchiveState.filter) filter$: Observable<CaseFilter>;
-  @Select(ArchiveState.sort) sort$: Observable<CaseSort>;
+  @Select(ArchiveState.items) items$: Observable<Item[]>;
 
   public archiveQuestions: any[] = [
     {
@@ -63,71 +53,7 @@ export class ArchiveComponent {
     }
   ];
 
-  public loaded = false;
-  public resultScoreMode = ResultScoreMode.bar;
-
-  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
-
   breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle' }];
 
-  archiveListFilterOpened = false;
-
-  caseSortByValues: string[] = Object.values(CaseSortBy);
-
-  constructor(private store: Store, private matDialog: MatDialog, private viewportScroller: ViewportScroller) {}
-
-  remove(keyword: string): void {
-    this.store.dispatch(new RemoveFilterKeyword(keyword));
-  }
-
-  add(event: MatChipInputEvent): void {
-    const input = event.input;
-    const value = event.value;
-
-    if ((value || '').trim()) {
-      this.store.dispatch(new AddFilterKeyword(value));
-    }
-
-    if (input) {
-      input.value = '';
-    }
-  }
-
-  onApplyFilter(caseFilter: CaseFilter) {
-    const { minValue, maxValue, ...filter } = caseFilter;
-    this.store.dispatch(new SetFilter({ ...filter, minValue, maxValue }));
-    this.archiveListFilterOpened = false;
-  }
-
-  openFilterDialog() {
-    /*  this.matDialog
-      .open(ArchiveListFilterComponent, {
-        panelClass: 'no-padding-dialog-container',
-        height: '100vh',
-        width: '100vw',
-        maxWidth: '100vw',
-        maxHeight: '100vh'
-      })
-      .afterClosed()
-      .subscribe((filterData: CaseFilter) => {
-        if (filterData) {
-          this.onApplyFilter(filterData);
-        }
-      }); */
-  }
-
-  changeSortOrder() {
-    this.store.dispatch(new ToggleSortOrder());
-  }
-
-  changeSortBy(value: string) {
-    this.store.dispatch(new SetSortBy(value as CaseSortBy));
-  }
-
-  onListPageChanged() {
-    // offset of the navigation bar
-    this.viewportScroller.setOffset([0, 70]);
-    this.viewportScroller.scrollToAnchor('archive-bottom-section');
-  }
+  constructor() {}
 }
-
