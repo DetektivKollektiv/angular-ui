@@ -3,17 +3,24 @@
     type="button"
     class="sidebar-question-button sidebar-question-button--{{ variant }}"
     [class.sidebar-question-button--active]="active"
+    [class.sidebar-question-button--error]="question?.has_error && question?.is_visited"
     (click)="onClick()"
     [disabled]="disabled"
   >
     <mat-icon
-      *ngIf="question?.is_answered"
+      *ngIf="question?.is_answered && !(question?.has_error && question?.is_visited)"
       class="sidebar-question-button__icon"
       [class.sidebar-question-button__icon--active]="active || variant === 'mobile'"
       >check_circle</mat-icon
     >
+    <mat-icon
+      *ngIf="question?.has_error && question?.is_visited"
+      class="sidebar-question-button__icon sidebar-question-button__icon--error"
+      [class.sidebar-question-button__icon--active]="active || variant === 'mobile'"
+      >error</mat-icon
+    >
     <svg
-      *ngIf="!question?.is_answered"
+      *ngIf="!question?.is_answered && !(question?.has_error && question?.is_visited)"
       class="sidebar-question-button__icon"
       [class.sidebar-question-button__icon--active]="active || variant === 'mobile'"
       width="24"
@@ -28,4 +35,3 @@
     <span class="sidebar-question-button__label">{{ question?.metadata?.title || 'Frage' }}</span>
   </button>
 </div>
-

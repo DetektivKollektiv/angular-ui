@@ -41,7 +41,7 @@ export class ReviewPageComponent {
       .getOpenReview()
       .pipe(take(1))
       .subscribe((review) => {
-        const preparedReview = this.ensureVisibility(review);
+        const preparedReview = this.prepareReview(review);
         this.updateState({ type: 'REVIEW_LOADED', review: preparedReview });
       });
   }
@@ -102,7 +102,7 @@ export class ReviewPageComponent {
       case 'QUESTION_SELECTED':
         return {
           ...state,
-          currentQuestionId: this.resolveQuestionId(state.review, action.questionId)
+          ...this.applyVisited(state, this.resolveQuestionId(state.review, action.questionId))
         };
 
       case 'ANSWER_CHANGED': {
@@ -111,7 +111,7 @@ export class ReviewPageComponent {
           return state;
         }
 
-        const preparedReview = this.ensureVisibility(updatedReview);
+        const preparedReview = this.prepareReview(updatedReview);
         return {
           review: preparedReview,
           currentQuestionId: this.resolveQuestionId(preparedReview, state.currentQuestionId)
@@ -122,7 +122,7 @@ export class ReviewPageComponent {
         const nextQuestionId = this.findNextVisibleQuestionId(state.review, state.currentQuestionId);
         return {
           ...state,
-          currentQuestionId: nextQuestionId ?? state.currentQuestionId
+          ...this.applyVisited(state, nextQuestionId)
         };
       }
 
@@ -130,7 +130,7 @@ export class ReviewPageComponent {
         const previousQuestionId = this.findPreviousVisibleQuestionId(state.review, state.currentQuestionId);
         return {
           ...state,
-          currentQuestionId: previousQuestionId ?? state.currentQuestionId
+          ...this.applyVisited(state, previousQuestionId)
         };
       }
 
@@ -220,6 +220,93 @@ export class ReviewPageComponent {
     return null;
   }
 
+  private markQuestionVisited(review: Review | null, questionId: string | null): Review | null {
+    if (!review || !questionId) {
+      return review;
+    }
+
+    const index = review.questions.findIndex((q) => q.id === questionId);
+    if (index === -1) {
+      return review;
+    }
+
+    const question = review.questions[index];
+    if (question.is_visited) {
+      return review;
+    }
+
+    const updatedQuestion: Question = {
+      ...question,
+      is_visited: true
+    };
+
+    const updatedQuestions = [...review.questions];
+    updatedQuestions[index] = updatedQuestion;
+
+    return {
+      ...review,
+      questions: updatedQuestions
+    };
+  }
+
+  private applyVisited(state: ReviewState, targetQuestionId: string | null): { currentQuestionId: string | null; review: Review | null } {
+    if (!targetQuestionId || targetQuestionId === state.currentQuestionId) {
+      return {
+        currentQuestionId: state.currentQuestionId,
+        review: state.review
+      };
+    }
+
+    return {
+      currentQuestionId: targetQuestionId,
+      review: this.markQuestionVisited(state.review, state.currentQuestionId)
+    };
+  }
+
+  private prepareReview(review: Review): Review {
+    const withVisibility = this.ensureVisibility(review);
+    return this.applyValidation(withVisibility) ?? withVisibility;
+  }
+
+  private applyValidation(review: Review | null): Review | null {
+    if (!review?.questions?.length) {
+      return review;
+    }
+
+    const questions = review.questions.map((question) => ({
+      ...question,
+      has_error: this.questionHasErrors(question)
+    }));
+
+    return {
+      ...review,
+      questions
+    };
+  }
+
+  private questionHasErrors(question: Question): boolean {
+    const visibleFields = question.fields?.filter((field) => field.is_visible !== false) ?? [];
+    return visibleFields.some((field) => field.is_required && !this.hasAnswer(field));
+  }
+
+  private hasAnswer(field: Field): boolean {
+    const value = field.answer_value as unknown;
+
+    if (value === null || value === undefined) {
+      return false;
+    }
+
+    if (Array.isArray(value)) {
+      return value.length > 0;
+    }
+
+    if (typeof value === 'string') {
+      return value.trim().length > 0;
+    }
+
+    return true;
+  }
+
   private applyAnswerChange(review: Review, change: QuestionAnswerChange): Review | null {
     const questionIndex = review.questions.findIndex((question) => question.id === change.questionId);
     if (questionIndex === -1) {
@@ -299,6 +386,6 @@ export class ReviewPageComponent {
   }
 
   private ensureVisibility(review: Review): Review {
-    return this.reviewVisibilityService.applyVisibility(review) ?? review;
+    return this.reviewVisibilityService.applyVisibility(review);
   }
 }

@@ -21,6 +21,9 @@ interface Metadata {
  *   when false or undefined the question may be hidden.
  * - is_answered?: boolean — When true the question has been answered locally;
  *   when false or undefined it is considered unanswered.
+ * - has_error?: boolean — When true the question has validation errors;
+ *   when false or undefined it is considered valid.
+ * - is_visited?: boolean — When true the question has been visited by the user;
  *
  * @internal
  */
@@ -28,6 +31,7 @@ interface QuestionState {
   is_visible?: boolean;
   is_answered?: boolean;
   has_error?: boolean;
+  is_visited?: boolean;
 }
 
 export interface Question extends QuestionState {

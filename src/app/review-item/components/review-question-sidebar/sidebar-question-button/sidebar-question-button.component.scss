@@ -31,6 +31,12 @@
       &:hover {
         background: #fee2e2;
       }
+
+      &.sidebar-question-button--active {
+        background: #fef2f2;
+        color: #1f2937;
+        box-shadow: 0 6px 12px rgba(220, 38, 38, 0.35);
+      }
     }
 
     &:not(.sidebar-question-button--active):not(.sidebar-question-button--error):hover {
