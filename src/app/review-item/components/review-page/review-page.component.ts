@@ -43,7 +43,7 @@ export class ReviewPageComponent {
       .getOpenReview()
       .pipe(take(1))
       .subscribe((review) => {
-        const preparedReview = this.prepareReview(review, null);
+        const preparedReview = this.prepareReview(review, null, true);
         this.updateState({ type: 'REVIEW_LOADED', review: preparedReview });
       });
   }
@@ -113,7 +113,7 @@ export class ReviewPageComponent {
           return state;
         }
 
-        const preparedReview = this.prepareReview(updatedReview, state.currentQuestionId);
+        const preparedReview = this.prepareReview(updatedReview, state.currentQuestionId, false);
         return {
           review: preparedReview,
           currentQuestionId: this.resolveQuestionId(preparedReview, state.currentQuestionId)
@@ -273,14 +273,15 @@ export class ReviewPageComponent {
     };
   }
 
-  private prepareReview(review: Review | null, currentQuestionId: string | null): Review | null {
+  private prepareReview(review: Review | null, currentQuestionId: string | null, markVisitedFromAnswers = false): Review | null {
     if (!review) {
       return review;
     }
 
     const withVisibility = this.ensureVisibility(review);
     const withValidation = this.applyValidation(withVisibility) ?? withVisibility;
-    const withSubmitState = this.applySubmitAvailability(withValidation);
+    const withVisitedByAnswer = markVisitedFromAnswers ? this.applyVisitedFromAnswers(withValidation) : withValidation;
+    const withSubmitState = this.applySubmitAvailability(withVisitedByAnswer);
 
     if (currentQuestionId === SUBMIT_QUESTION_ID) {
       return this.markAllVisited(withSubmitState);
@@ -315,6 +316,16 @@ export class ReviewPageComponent {
             ...question,
             is_disabled: hasBlockingErrors
           }
+        : question
+    );
+
+    return { ...review, questions };
+  }
+
+  private applyVisitedFromAnswers(review: Review): Review {
+    const questions = review.questions.map((question) =>
+      this.questionIsAnswered(question) && !question.is_visited
+        ? { ...question, is_visited: true }
         : question
     );
 
