@@ -296,7 +296,8 @@ export class ReviewPageComponent {
 
     const questions = review.questions.map((question) => ({
       ...question,
-      has_error: this.questionHasErrors(question)
+      has_error: this.questionHasErrors(question),
+      is_answered: this.questionIsAnswered(question)
     }));
 
     return {
@@ -323,6 +324,11 @@ export class ReviewPageComponent {
   private questionHasErrors(question: Question): boolean {
     const visibleFields = question.fields?.filter((field) => field.is_visible !== false) ?? [];
     return visibleFields.some((field) => field.is_required && !this.hasAnswer(field));
+  }
+
+  private questionIsAnswered(question: Question): boolean {
+    const visibleFields = question.fields?.filter((field) => field.is_visible !== false) ?? [];
+    return visibleFields.some((field) => this.hasAnswer(field));
   }
 
   private hasAnswer(field: Field): boolean {
