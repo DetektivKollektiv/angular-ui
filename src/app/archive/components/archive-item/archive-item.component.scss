@@ -1,0 +1,229 @@
+:host {
+  display: block;
+}
+
+.archive-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1.4fr 0.8fr;
+  gap: 1.5rem;
+  background: #f7f7fb;
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  align-items: stretch;
+
+  &__image {
+    border-radius: 18px;
+    overflow: hidden;
+    background: #e8e9ef;
+    min-height: 220px;
+  }
+
+  &__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, #e7e7ff, #d0d3ff);
+    color: #3f3d56;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.25rem 0;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__tag {
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1.5px solid #5c57ff;
+    color: #4d47e5;
+    font-weight: 600;
+    font-size: 0.85rem;
+    background: #f5f4ff;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1f2937;
+    line-height: 1.3;
+  }
+
+  &__description {
+    margin: 0;
+    color: #4b5563;
+    line-height: 1.55;
+    max-width: 85%;
+  }
+
+  &__cta {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #ff8a7a, #ff5f5a);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(255, 111, 102, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(255, 111, 102, 0.45);
+    }
+  }
+
+  &__rating {
+    border-radius: 18px;
+    padding: 1rem 1.25rem;
+    background: #0f0c3d;
+    color: #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 220px;
+  }
+
+  &__rating-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #e5e7eb;
+  }
+
+  &__rating-help {
+    font-weight: 600;
+    color: #9ca3af;
+  }
+
+  &__badge {
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &__rating-tags-title {
+    font-weight: 700;
+    color: #e5e7eb;
+    margin-bottom: 0.35rem;
+  }
+
+  &__rating-tags-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  &__rating-tag {
+    color: #fca5a5;
+    font-weight: 600;
+    line-height: 1.4;
+
+    &:nth-child(odd) {
+      color: #ff6b6b;
+    }
+
+    &:nth-child(even) {
+      color: #22c55e;
+    }
+  }
+
+  &.rating--trusted {
+    .archive-card__rating {
+      background: #0f172a;
+    }
+  }
+
+  &.rating--mostly-trusted {
+    .archive-card__rating {
+      background: #0f172a;
+    }
+  }
+
+  &.rating--mostly-untrusted {
+    .archive-card__rating {
+      background: #120c3c;
+    }
+  }
+
+  &.rating--untrusted {
+    .archive-card__rating {
+      background: #120c3c;
+    }
+  }
+}
+
+.badge--trusted {
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+.badge--mostly-trusted {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.badge--mostly-untrusted {
+  background: linear-gradient(90deg, #f59e0b, #f97316);
+}
+
+.badge--untrusted {
+  background: linear-gradient(90deg, #ef4444, #f43f5e);
+}
+
+@media (max-width: 1100px) {
+  .archive-card {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-card__description {
+    max-width: 100%;
+  }
+
+  .archive-card__rating {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .archive-card__rating-tags {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .archive-card {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .archive-card__title {
+    font-size: 1.05rem;
+  }
+
+  .archive-card__rating {
+    flex-direction: column;
+  }
+}

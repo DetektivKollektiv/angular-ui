@@ -16,14 +16,6 @@
   </div>
 
   <div class="bottom-section" id="archive-bottom-section" *ngIf="items$ | async as archiveItems">
-    <!-- simple list renderings of items title -->
-    <div class="archive-list simple-list">
-      <div class="archive-item simple-list-item" *ngFor="let item of archiveItems">
-        <a [routerLink]="['/archive', item.id]" class="archive-item-link">
-          <h2 class="archive-item-title">{{ item.opengraph?.title || item.content }}</h2>
-          <p class="archive-item-trust-index">Vertrauensindex: {{ item.result_score }}</p>
-        </a>
-      </div>
-    </div>
+    <app-archive-item *ngFor="let item of archiveItems" [item]="item" class="archive-list-item"></app-archive-item>
   </div>
 </div>

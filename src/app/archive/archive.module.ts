@@ -13,6 +13,7 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
+import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveState } from './state/archive.state';
 
 import { CaseDetailsModule } from '@shared/case-details/case-details.module';
@@ -34,7 +35,14 @@ import { CaseSortByPipe } from './services/case-sort-by.pipe';
 
 registerLocaleData(localeDE, 'de');
 @NgModule({
-  declarations: [ArchiveComponent, ArchiveDetailsPageComponent, RatingLegendComponent, CaseSortByPipe, ReviewResponsesComponent],
+  declarations: [
+    ArchiveComponent,
+    ArchiveDetailsPageComponent,
+    RatingLegendComponent,
+    CaseSortByPipe,
+    ReviewResponsesComponent,
+    ArchiveItemComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -65,4 +73,3 @@ registerLocaleData(localeDE, 'de');
   ]
 })
 export class ArchiveModule {}
-

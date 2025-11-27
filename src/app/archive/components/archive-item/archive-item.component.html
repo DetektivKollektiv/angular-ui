@@ -1,0 +1,42 @@
+<article class="archive-card" [ngClass]="rating.colorClass">
+  <div class="archive-card__image">
+    <img *ngIf="imageUrl; else placeholder" [src]="imageUrl" [alt]="item.opengraph?.title || item.content" />
+    <ng-template #placeholder>
+      <div class="archive-card__placeholder">
+        <span>{{ item.language?.toUpperCase() || 'N/A' }}</span>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="archive-card__content">
+    <div class="archive-card__tags" *ngIf="item.content_tags?.length">
+      <span class="archive-card__tag" *ngFor="let tag of item.content_tags; trackBy: trackByTag">{{ tag }}</span>
+    </div>
+
+    <h2 class="archive-card__title">{{ item.opengraph?.title || item.content }}</h2>
+    <p class="archive-card__description">
+      {{ item.opengraph?.description || item.content }}
+    </p>
+
+    <a [routerLink]="['/archive', item.id]" class="archive-card__cta">Fall ansehen</a>
+  </div>
+
+  <div class="archive-card__rating">
+    <div class="archive-card__rating-header">
+      <span>Bewertung</span>
+      <span class="archive-card__rating-help">Hilfe</span>
+    </div>
+    <div class="archive-card__badge" [ngClass]="rating.badgeClass">
+      {{ rating.label }}
+    </div>
+
+    <div class="archive-card__rating-tags" *ngIf="item.review_tags?.length">
+      <div class="archive-card__rating-tags-title">Tags zur Bewertung</div>
+      <div class="archive-card__rating-tags-list">
+        <span class="archive-card__rating-tag" *ngFor="let tag of item.review_tags; trackBy: trackByTag">
+          {{ tag.text }}
+        </span>
+      </div>
+    </div>
+  </div>
+</article>
