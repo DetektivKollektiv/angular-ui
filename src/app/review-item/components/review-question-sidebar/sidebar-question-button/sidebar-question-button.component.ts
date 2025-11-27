@@ -20,6 +20,10 @@ export class SidebarQuestionButtonComponent {
       return;
     }
 
+    if (this.question?.is_disabled) {
+      return;
+    }
+
     this.pressed.emit();
   }
 

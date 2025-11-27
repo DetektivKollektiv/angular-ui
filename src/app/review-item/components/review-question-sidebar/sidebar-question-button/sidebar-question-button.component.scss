@@ -15,7 +15,7 @@
   font-size: 0.95rem;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 
   &--default {
     &.sidebar-question-button--active {
@@ -93,4 +93,11 @@
   &__indent--0 {
     margin-left: 0;
   }
+
+  &--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
+

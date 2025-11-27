@@ -4,8 +4,9 @@
     class="sidebar-question-button sidebar-question-button--{{ variant }}"
     [class.sidebar-question-button--active]="active"
     [class.sidebar-question-button--error]="question?.has_error && question?.is_visited"
+    [class.sidebar-question-button--disabled]="question?.is_disabled"
     (click)="onClick()"
-    [disabled]="disabled"
+    [disabled]="disabled || question?.is_disabled"
   >
     <mat-icon
       *ngIf="question?.is_answered && !(question?.has_error && question?.is_visited)"
