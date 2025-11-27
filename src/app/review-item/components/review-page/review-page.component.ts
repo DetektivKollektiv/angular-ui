@@ -9,6 +9,8 @@ import { Review } from '../../model/review';
 import { ReviewVisibilityService } from '../../services/review-visibility/review-visibility.service';
 import { ReviewsService } from '../../services/reviews/reviews.service';
 
+const SUBMIT_QUESTION_ID = 'submit_question';
+
 interface ReviewState {
   review: Review | null;
   currentQuestionId: string | null;
@@ -41,7 +43,7 @@ export class ReviewPageComponent {
       .getOpenReview()
       .pipe(take(1))
       .subscribe((review) => {
-        const preparedReview = this.prepareReview(review);
+        const preparedReview = this.prepareReview(review, null);
         this.updateState({ type: 'REVIEW_LOADED', review: preparedReview });
       });
   }
@@ -111,7 +113,7 @@ export class ReviewPageComponent {
           return state;
         }
 
-        const preparedReview = this.prepareReview(updatedReview);
+        const preparedReview = this.prepareReview(updatedReview, state.currentQuestionId);
         return {
           review: preparedReview,
           currentQuestionId: this.resolveQuestionId(preparedReview, state.currentQuestionId)
@@ -257,15 +259,34 @@ export class ReviewPageComponent {
       };
     }
 
+    const reviewWithVisited = this.markQuestionVisited(state.review, state.currentQuestionId);
+    if (targetQuestionId === SUBMIT_QUESTION_ID) {
+      return {
+        currentQuestionId: targetQuestionId,
+        review: this.markAllVisited(reviewWithVisited)
+      };
+    }
+
     return {
       currentQuestionId: targetQuestionId,
-      review: this.markQuestionVisited(state.review, state.currentQuestionId)
+      review: reviewWithVisited
     };
   }
 
-  private prepareReview(review: Review): Review {
+  private prepareReview(review: Review | null, currentQuestionId: string | null): Review | null {
+    if (!review) {
+      return review;
+    }
+
     const withVisibility = this.ensureVisibility(review);
-    return this.applyValidation(withVisibility) ?? withVisibility;
+    const withValidation = this.applyValidation(withVisibility) ?? withVisibility;
+    const withSubmitState = this.applySubmitAvailability(withValidation);
+
+    if (currentQuestionId === SUBMIT_QUESTION_ID) {
+      return this.markAllVisited(withSubmitState);
+    }
+
+    return withSubmitState;
   }
 
   private applyValidation(review: Review | null): Review | null {
@@ -282,6 +303,21 @@ export class ReviewPageComponent {
       ...review,
       questions
     };
+  }
+
+  private applySubmitAvailability(review: Review): Review {
+    const hasBlockingErrors = review.questions.some((question) => question.id !== SUBMIT_QUESTION_ID && question.has_error);
+
+    const questions = review.questions.map((question) =>
+      question.id === SUBMIT_QUESTION_ID
+        ? {
+            ...question,
+            is_disabled: hasBlockingErrors
+          }
+        : question
+    );
+
+    return { ...review, questions };
   }
 
   private questionHasErrors(question: Question): boolean {
@@ -305,6 +341,18 @@ export class ReviewPageComponent {
     }
 
     return true;
+  }
+
+  private markAllVisited(review: Review | null): Review | null {
+    if (!review?.questions?.length) {
+      return review;
+    }
+
+    const questions = review.questions.map((question) =>
+      question.is_visited ? question : { ...question, is_visited: true }
+    );
+
+    return { ...review, questions };
   }
 
   private applyAnswerChange(review: Review, change: QuestionAnswerChange): Review | null {

@@ -32,6 +32,7 @@ interface QuestionState {
   is_answered?: boolean;
   has_error?: boolean;
   is_visited?: boolean;
+  is_disabled?: boolean;
 }
 
 export interface Question extends QuestionState {
