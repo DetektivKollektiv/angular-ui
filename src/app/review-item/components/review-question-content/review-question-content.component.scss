@@ -1,0 +1,135 @@
+:host {
+  display: block;
+}
+
+.review-question-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 0.5rem;
+  }
+
+  &__meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #6b7280;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  &__meta-separator {
+    font-weight: 600;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: normal;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.5;
+    max-width: 60ch;
+  }
+
+  &__help-button {
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    background: none;
+    padding: 0;
+    color: #4b5563;
+    margin: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  &__help-icon {
+    color: #6366f1;
+  }
+
+  &__fields {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  &__field {
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    background: rgba(99, 102, 241, 0.08);
+    color: #1f2937;
+    line-height: 1.4;
+
+    &--traffic-light,
+    &--likert-scale,
+    &--text-area,
+    &--chip,
+    &--multi-line-text {
+      padding: 0;
+      background: none;
+      border-radius: 0;
+    }
+  }
+
+  &__empty {
+    background: #f3f4f6;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    text-align: center;
+    color: #6b7280;
+  }
+
+  &__actions {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.75rem;
+    margin-top: 1rem;
+
+    app-review-cta-button {
+      flex: 1 1 0;
+    }
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .review-question-content {
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__header {
+      flex-direction: column;
+    }
+  }
+}

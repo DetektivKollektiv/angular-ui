@@ -1,0 +1,23 @@
+<section class="chip-field" [class.chip-field--disabled]="field.is_disabled">
+  <p class="chip-field__question">{{ field.question }}</p>
+
+  <div class="chip-field__options">
+    <button
+      *ngFor="let option of field.options; trackBy: trackByOptionId"
+      type="button"
+      class="chip-field__option"
+      [class.chip-field__option--selected]="isSelected(option.id)"
+      [disabled]="field.is_disabled"
+      (click)="toggle(option.id)"
+    >
+      <span class="chip-field__icon">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" class="chip-field__icon-ring"></circle>
+          <circle *ngIf="isSelected(option.id)" cx="16" cy="16" r="14" class="chip-field__icon-fill"></circle>
+        </svg>
+        <mat-icon *ngIf="isSelected(option.id)" class="chip-field__icon-check">check</mat-icon>
+      </span>
+      <span class="chip-field__label">{{ option.text }}</span>
+    </button>
+  </div>
+</section>

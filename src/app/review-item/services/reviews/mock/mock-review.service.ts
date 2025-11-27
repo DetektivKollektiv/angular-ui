@@ -1,389 +1,364 @@
-import { from, Observable, of } from 'rxjs';
 import { Review } from 'src/app/review-item/model/review';
-import { IReviewService } from '../reviews.service';
 
-const mock_review = {
-  id: 'c46697fa-1f78-4184-a10d-0de4821d47f9',
-  is_peer_review: true,
-  belongs_to_good_pair: null,
-  user_id: '11',
-  start_timestamp: '2021-04-06 17:11:39',
-  finish_timestamp: 'None',
+export const mock_review: Review = {
+  id: 'b8ce1a68-c951-455f-a0d0-26be95d54c74',
+  user_id: '1dd2fa3b-eb7d-42f9-b131-24ad56eecc3e',
+  item_id: 'item-12345',
+  review_state: 0,
+  status: 'in_progress',
   questions: [
+    // ========================================================================
+    // SLIDE 1: STICHWÖRTER (TextInput- Multi-Line )
+    // ========================================================================
     {
-      answer_id: '306979ce-3144-49d4-8e00-7803b89137a6',
-      question_id: '2',
-      content: 'Frage 2',
-      info: '2',
-      hint: null,
-      lower_bound: null,
-      upper_bound: null,
-      parent_question_id: null,
-      max_children: 1,
-      answer_value: null,
-      comment: null,
-      options: [
+      id: 'keywords_question',
+      metadata: {
+        title: 'Stichwörter',
+        text: 'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [
         {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
-        },
-        {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
-        },
-        {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
-        },
-        {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
-        },
-        {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
+          id: 'keyword_type',
+          type: 'multi-line-text',
+          question: 'Fehlen Stichwörter?',
+          options: [
+            { id: 'keyword_1', text: 'Ukraine', is_disabled: true },
+            { id: 'keyword_2', text: 'Putin', is_disabled: true },
+            { id: 'keyword_3', text: 'Krieg', is_disabled: true },
+            { id: 'keyword_4', text: 'Zelensky', is_disabled: true }
+          ],
+          answer_value: [],
+          additonal_option_count: 3,
+          max_length: 50,
+          placeholder: 'Stichwort hinzufügen...',
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
+    // ========================================================================
+    // SLIDE 1: INHALTSTYP (Chip - Multi-Select)
+    // ========================================================================
     {
-      answer_id: '6bef8baa-e8c5-4435-b2b7-81a58a0c9529',
-      question_id: '2a',
-      content: '2a',
-      info: null,
-      hint: null,
-      lower_bound: 3,
-      upper_bound: 4,
-      parent_question_id: '2',
-      max_children: 0,
-      answer_value: null,
-      comment: null,
-      options: [
+      id: 'content_type_question',
+      metadata: {
+        title: 'Inhaltstyp',
+        text: 'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [
         {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
-        },
-        {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
-        },
-        {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
-        },
-        {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
-        },
-        {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
+          id: 'content_type',
+          type: 'chip',
+          question: 'Worum handelt es sich bei dem Fall?',
+          options: [
+            { id: 'nachrichtenartikel', text: 'Nachrichtenartikel' },
+            { id: 'chat_post', text: 'Chatnachricht/Social Media Post' },
+            { id: 'satire', text: 'Satire' },
+            { id: 'fake_website', text: 'Fake-Website' },
+            { id: 'opinion', text: 'Meinungsbeitrag/Kommentar' },
+            { id: 'werbung', text: 'Werbung' },
+            { id: 'pressemitteilung', text: 'Pressemitteilung' },
+            { id: 'video', text: 'Video' },
+            { id: 'bild', text: 'Bild' },
+            { id: 'other', text: 'Other' }
+          ],
+          answer_value: ['nachrichtenartikel'], // Ausgewählt
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
+
+    // ========================================================================
+    // SLIDE 2: KRITERIUM INHALTE (5x Traffic Light)
+    // ========================================================================
     {
-      answer_id: '95caa4d9-8c68-4ba8-ae46-a22b318cf752',
-      question_id: '2b',
-      content: '2b',
-      info: null,
-      hint: null,
-      lower_bound: 1,
-      upper_bound: 2,
-      parent_question_id: '2',
-      max_children: 0,
-      answer_value: null,
-      comment: null,
-      options: [
+      id: 'content_criteria_question',
+      metadata: {
+        title: 'Inhalte',
+        text: 'Bewerte die folgenden Aussagen sorgfältig.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [
         {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
+          id: 'grammar',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'grammar_opt',
+              question: 'Die Grammatik und Rechtschreibung des Artikels sind fehlerfrei.'
+            }
+          ],
+          answer_value: null, // Noch nicht beantwortet
+          is_disabled: false,
+          is_required: true
         },
         {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
+          id: 'structure',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'structure_opt',
+              question: 'Der Artikel ist keine Eilnachricht. Er besteht aus mehreren Paragraphen.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         },
         {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
+          id: 'headline',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'headline_opt',
+              question: 'Die Überschrift passt zum Inhalt des Artikels.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         },
         {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
+          id: 'objectivity',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'objectivity_opt',
+              question: 'Der Artikel ist objektiv geschrieben und frei von Hetze, Generalisierungen, Panikmache oder Ähnlichem.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         },
         {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
+          id: 'perspectives',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'perspectives_opt',
+              question: 'Im Artikel werden unterschiedliche Positionen dargestellt.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
+
+    // ========================================================================
+    // SLIDE 3: KRITERIUM QUELLE (4x Traffic Light)
+    // ========================================================================
     {
-      answer_id: 'e4a3027d-357d-4dd0-b07e-ece2ff87bbc3',
-      question_id: '4',
-      content: 'Frage 4',
-      info: '4',
-      hint: null,
-      lower_bound: null,
-      upper_bound: null,
-      parent_question_id: null,
-      max_children: 0,
-      answer_value: null,
-      comment: null,
-      options: [
+      id: 'source_criteria_question',
+      metadata: {
+        title: 'Quelle',
+        text: 'Bewerte die folgenden Aussagen sorgfältig.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [
         {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
+          id: 'external_sources',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'external_sources_opt',
+              question: 'Im Artikel werden für alle Behauptungen externe Quellen genannt.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         },
         {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
+          id: 'claims_match_sources',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'claims_match_sources_opt',
+              question: 'Die Behauptungen des Artikels decken sich vollständig mit denen der Originalquellen.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         },
         {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
+          id: 'public_media_match',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'public_media_match_opt',
+              question:
+                'Die Behauptungen des Artikels decken sich mit der Berichterstattung öffentlich-rechtlicher Medien und/oder Fachmedien.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         },
         {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
-        },
-        {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
+          id: 'author_credentials',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'author_credentials_opt',
+              question: 'Der Artikel ist von einer fachkundigen Person oder einer*m beruflichen Journalist*in geschrieben.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
+
+    // ========================================================================
+    // SLIDE 4: BILDER (Placeholder - kann weitere Fields haben)
+    // ========================================================================
     {
-      answer_id: '15b751ac-a43f-47be-b691-ef3a63acd521',
-      question_id: '8',
-      content: 'Frage 8',
-      info: '8',
-      hint: null,
-      lower_bound: null,
-      upper_bound: null,
-      parent_question_id: null,
-      max_children: 0,
-      answer_value: null,
-      comment: null,
-      options: [
+      id: 'images_question',
+      metadata: {
+        title: 'Bilder',
+        text: 'Bewerte die Bilder im Artikel.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [
         {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
-        },
-        {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
-        },
-        {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
-        },
-        {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
-        },
-        {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
+          id: 'images_quality',
+          type: 'traffic-light',
+          options: [
+            {
+              id: 'images_quality_opt',
+              question: 'Die Bilder sind relevant und unterstützen den Inhalt.'
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
+
+    // ========================================================================
+    // SLIDE 5: ERGÄNZENDE BEWERTUNGSKRITERIEN (Likert Scale)
+    // ========================================================================
     {
-      answer_id: '5dddf667-f3a1-491e-9e9a-55b99beeece9',
-      question_id: '7',
-      content: 'Frage 7',
-      info: '7',
-      hint: null,
-      lower_bound: null,
-      upper_bound: null,
-      parent_question_id: null,
-      max_children: 0,
-      answer_value: null,
-      comment: null,
-      options: [
+      id: 'evaluation_criteria_question',
+      metadata: {
+        title: 'Bewertungskriterien',
+        text: 'Hinweis: Im Rahmen dieses Tests, kann nur ein *sonstiger* Punkt angegeben werden. Falls du mehrere Punkte angeben willst, wähle bitte den gravierendsten aus. Später wird es die Möglichkeit geben, hier auch mehrere Punkte aufzuführen.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [
         {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
-        },
-        {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
-        },
-        {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
-        },
-        {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
-        },
-        {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
+          id: 'additional_rating',
+          type: 'likert-scale',
+          question: 'Ist dir sonst noch etwas aufgefallen, das in die Bewertung einfliessen sollte?',
+          options: [
+            {
+              id: 'positive',
+              text: 'Ja,',
+              description: 'etwas positives',
+              color: '#22c55e',
+              value: 0
+            },
+            {
+              id: 'minor_issue',
+              text: 'Ja,',
+              description: 'kleiner Mangel',
+              color: '#eab308',
+              value: 1
+            },
+            {
+              id: 'major_issue',
+              text: 'Ja,',
+              description: 'großer Mangel',
+              color: '#f97316',
+              value: 2
+            },
+            {
+              id: 'critical_error',
+              text: 'Ja,',
+              description: 'gravierender Fehler',
+              color: '#ef4444',
+              value: 3
+            },
+            {
+              id: 'nothing',
+              text: 'Nein,',
+              description: 'alles geprüft',
+              color: '#9ca3af',
+              value: 4
+            }
+          ],
+          answer_value: null, // Noch nicht beantwortet
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
+
+    // ========================================================================
+    // SLIDE 6: ZUSATZ (TextArea - Eingerückt, Conditional)
+    // ========================================================================
     {
-      answer_id: 'a141a388-d349-456c-8f30-ee6c15b23268',
-      question_id: '6',
-      content: 'Frage 6',
-      info: '6',
-      hint: null,
-      lower_bound: null,
-      upper_bound: null,
-      parent_question_id: null,
-      max_children: 0,
-      answer_value: null,
-      comment: null,
-      options: [
+      id: 'additional_comment_question',
+      metadata: {
+        title: 'Zusatz',
+        text: 'Versuche den Faktor möglichst kurz und knapp zu beschreiben. Du hast gleich noch mehr Platz für einen ausführlichen Fallbewertungskommentar.',
+        help_url: '',
+        indent_level: 1 // EINGERÜCKT unter "Bewertungskriterien"
+      },
+      fields: [
         {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
-        },
-        {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
-        },
-        {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
-        },
-        {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
-        },
-        {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
+          id: 'additional_comment',
+          type: 'text-area',
+          question: 'Was ist dir aufgefallen?',
+          options: [
+            {
+              id: 'comment_field',
+              placeholder: 'Type your answer here...',
+              max_length: 500
+            }
+          ],
+          answer_value: null,
+          is_disabled: false,
+          is_required: true,
+          conditions: [
+            {
+              field_id: 'additional_rating',
+              operator: '<',
+              value: 4 // Zeige nur wenn NICHT "Nein" (value 4) gewählt wurde
+            }
+          ]
         }
       ]
     },
+
+    // ========================================================================
+    // SLIDE 7: FALL ABSCHLIESSEN (Kein Field, nur Submit)
+    // ========================================================================
     {
-      answer_id: '1d06349c-f8af-4407-82e5-613b715d4738',
-      question_id: '10',
-      content: 'Frage 10',
-      info: '10',
-      hint: null,
-      lower_bound: null,
-      upper_bound: null,
-      parent_question_id: null,
-      max_children: 0,
-      answer_value: null,
-      comment: null,
-      options: [
-        {
-          id: '4',
-          text: 'Trifft zu',
-          tooltip: 'Trifft zu Tooltip',
-          value: 4
-        },
-        {
-          id: '3',
-          text: 'Trifft eher zu',
-          tooltip: 'Trifft eher zu Tooltip',
-          value: 3
-        },
-        {
-          id: '2',
-          text: 'Trifft eher nicht zu',
-          tooltip: 'Trifft eher nicht zu Tooltip',
-          value: 2
-        },
-        {
-          id: '1',
-          text: 'Trifft nicht zu',
-          tooltip: 'Trifft nicht zu Tooltip',
-          value: 1
-        },
-        {
-          id: '0',
-          text: 'Nicht anwendbar',
-          tooltip: 'Nicht anwendbar Tooltip',
-          value: 0
-        }
-      ]
+      id: 'submit_question',
+      metadata: {
+        title: 'Fall abschließen',
+        text: 'Überprüfe deine Angaben und schließe den Fall ab.',
+        help_url: '',
+        indent_level: 0
+      },
+      fields: [] // Kein Field - nur Submit-Button im Frontend
     }
   ]
-} as Review;
+};
 
-export class MockReviewService implements IReviewService {
-  getOpenReview(): Observable<Review> {
-    return of(mock_review);
-  }
-  getReview(id: string): Observable<Review> {
-    return of(mock_review);
-  }
-  createReview(item_id: string): Observable<Review> {
-    return of(mock_review);
-  }
-  updateReview(review: Review): Observable<void> {
-    return of(void 0);
-  }
-}

@@ -1,0 +1,49 @@
+:host {
+  display: inline-flex;
+}
+
+.icon-pill-button {
+  border: none;
+  border-radius: 1.25rem;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #c084fc, #7c3aed);
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(124, 58, 237, 0.35);
+  }
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  &--secondary {
+    background: #f3f4f6;
+    color: #4b5563;
+    box-shadow: none;
+
+    &:hover:not(:disabled) {
+      background: #e5e7eb;
+      box-shadow: none;
+      transform: translateY(-1px);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
+}
+

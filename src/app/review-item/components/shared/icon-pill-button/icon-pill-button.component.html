@@ -1,0 +1,10 @@
+<button
+  type="button"
+  class="icon-pill-button"
+  [class.icon-pill-button--secondary]="variant === 'secondary'"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel || null"
+  (click)="onClick($event)"
+>
+  <ng-content></ng-content>
+</button>

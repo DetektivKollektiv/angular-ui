@@ -1,0 +1,25 @@
+<section class="multi-line-text-field" [class.multi-line-text-field--disabled]="field.is_disabled">
+  <p class="multi-line-text-field__question">{{ field.question }}</p>
+
+  <div class="multi-line-text-field__inputs">
+    <div class="multi-line-text-field__row" *ngFor="let row of rows; trackBy: trackByRowId">
+      <input
+        type="text"
+        class="multi-line-text-field__input"
+        [value]="row.value"
+        [attr.placeholder]="row.isAdditional ? field.placeholder : ''"
+        [attr.maxlength]="field.max_length"
+        [disabled]="row.disabled"
+        (input)="onInput(row, $event)"
+      />
+      <app-icon-pill-button
+        class="multi-line-text-field__clear-button"
+        [disabled]="row.disabled || !row.value"
+        ariaLabel="Eingabe löschen"
+        (pressed)="clearRow(row)"
+      >
+        ✕
+      </app-icon-pill-button>
+    </div>
+  </div>
+</section>

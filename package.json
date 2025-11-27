@@ -6,6 +6,7 @@
     "cy:run": "cypress run",
     "ng": "nx",
     "start": "ng serve",
+    "start:dev": "ng serve --configuration=dev",
     "build": "ng build",
     "build:dev": "ng build --configuration=dev && compodoc -p tsconfig.json -d dist/documentation",
     "build:qa": "ng build --configuration=qa && compodoc -p tsconfig.json -d dist/documentation",

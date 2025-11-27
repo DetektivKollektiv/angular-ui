@@ -1,0 +1,18 @@
+<section class="item-preview" (click)="openLink()" role="button" tabindex="0">
+  <div class="item-preview__image" *ngIf="item.imageUrl">
+    <img [src]="item.imageUrl" [alt]="item.title" />
+  </div>
+
+  <div class="item-preview__content">
+    <div class="item-preview__trust" *ngIf="item.trustLabel">
+      <span
+        class="item-preview__trust-indicator"
+        [class.item-preview__trust-indicator--trusted]="item.isTrusted"
+      ></span>
+      <span class="item-preview__trust-label">{{ item.trustLabel }}</span>
+    </div>
+
+    <h2 class="item-preview__title">{{ item.title }}</h2>
+    <p class="item-preview__host">{{ item.host }}</p>
+  </div>
+</section>

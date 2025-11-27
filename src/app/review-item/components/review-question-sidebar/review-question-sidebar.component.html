@@ -1,0 +1,63 @@
+<nav class="review-question-sidebar" *ngIf="questions?.length; else emptyState">
+  <div class="review-question-sidebar__mobile" *ngIf="currentQuestion as activeQuestion">
+    <app-icon-pill-button
+      class="review-question-sidebar__nav-button"
+      variant="secondary"
+      (pressed)="goToPrevious()"
+      [disabled]="!hasPrevious()"
+      ariaLabel="Vorherige Frage"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </app-icon-pill-button>
+
+    <app-sidebar-question-button
+      class="review-question-sidebar__current-button"
+      [question]="activeQuestion"
+      variant="mobile"
+      (pressed)="openQuestionMenu()"
+    ></app-sidebar-question-button>
+
+    <app-icon-pill-button
+      class="review-question-sidebar__nav-button"
+      variant="secondary"
+      (pressed)="goToNext()"
+      [disabled]="!hasNext()"
+      ariaLabel="Nächste Frage"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </app-icon-pill-button>
+  </div>
+
+  <ul class="review-question-sidebar__list">
+    <li
+      *ngFor="let question of questions; trackBy: trackByQuestionId; let index = index"
+      class="review-question-sidebar__item"
+      [class.review-question-sidebar__button__indent_level--1]="question.metadata.indent_level === 1"
+      [class.review-question-sidebar__button__indent_level--2]="question.metadata.indent_level === 2"
+      [class.review-question-sidebar__button__indent_level--3]="question.metadata.indent_level === 3"
+    >
+      <app-sidebar-question-button
+        [question]="question"
+        [active]="question.id === currentQuestionId"
+        [indentLevel]="question.metadata?.indent_level || 0"
+        (pressed)="onQuestionClick(question.id)"
+      ></app-sidebar-question-button>
+    </li>
+  </ul>
+
+  <div class="review-question-sidebar__progress" *ngIf="totalQuestions">
+    <div class="review-question-sidebar__progress-bar">
+      <div class="review-question-sidebar__progress-bar-fill" [style.width.%]="(currentPosition / totalQuestions) * 100"></div>
+    </div>
+    <app-progress-text
+      class="review-question-sidebar__progress-text"
+      [current]="currentPosition"
+      [total]="totalQuestions"
+    ></app-progress-text>
+  </div>
+</nav>
+
+<ng-template #emptyState>
+  <div class="review-question-sidebar__empty">Keine Fragen vorhanden</div>
+</ng-template>
+

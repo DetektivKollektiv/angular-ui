@@ -1,54 +1,65 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReviewComponent } from './components/review/review.component';
-import { HelperModule } from '@shared/helper/helper.module';
-import { QuestionComponent } from './components/question/question.component';
-import { MaterialModule } from '@shared/material/material.module';
-import { LoaderModule } from '@shared/loader/loader.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UnsavedChangesModule } from '@shared/unsaved-changes/unsaved-changes.module';
-import { TagsQuestionComponent } from './components/tags-question/tags-question.component';
-import { ReviewsService } from './services/reviews/reviews.service';
-import { FactcheckComponent } from './components/factcheck/factcheck.component';
-import { ReviewProcessComponent } from './components/review-process/review-process.component';
-import { ReviewPageComponent } from './components/review-page/review-page.component';
-import { ReviewQuestionComponent } from './components/review-question/review-question.component';
-import { ReviewSummaryComponent } from './components/review-summary/review-summary.component';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { OpenReviewDialogComponent } from './components/open-review-dialog/open-review-dialog.component';
-import { SwiperModule } from 'swiper/angular';
-import { CaseDetailsModule } from '@shared/case-details/case-details.module';
-import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
-import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { ButtonModule } from '@shared/button/button.module';
+import { CaseDetailsModule } from '@shared/case-details/case-details.module';
+import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
+import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
+import { CommentInputModule } from '@shared/comment-input/comment-input.module';
+import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
+import { HelperModule } from '@shared/helper/helper.module';
+import { IconWithContentModule } from '@shared/icon-with-content/icon-with-content.module';
+import { LoaderModule } from '@shared/loader/loader.module';
+import { MaterialModule } from '@shared/material/material.module';
+import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-case-list-slider.module';
 import { PipesModule } from '@shared/pipes/pipes.module';
 import { QuestionCarouselModule } from '@shared/question-carousel/question-carousel.module';
-import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
-import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
-import { ButtonModule } from '@shared/button/button.module';
-import { CommentInputModule } from '@shared/comment-input/comment-input.module';
-import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
-import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
-import { OpenCaseListSliderModule } from '@shared/open-case-list-slider/open-case-list-slider.module';
 import { ShareModule } from '@shared/share/share.module';
-import { IconWithContentModule } from '@shared/icon-with-content/icon-with-content.module';
 import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
+import { UnsavedChangesModule } from '@shared/unsaved-changes/unsaved-changes.module';
+import { UserExperienceBubbleListModule } from '@shared/user-experience-bubble-list/user-experience-bubble-list.module';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { SwiperModule } from 'swiper/angular';
+import { ItemPreviewComponent } from './components/item-preview/item-preview.component';
+import { ReviewPageComponent } from './components/review-page/review-page.component';
+import { ChipFieldComponent } from './components/review-question-content/chip-field/chip-field.component';
+import { LikertScaleFieldComponent } from './components/review-question-content/likert-scale-field/likert-scale-field.component';
+// eslint-disable-next-line max-len
+import { MultiLineTextFieldComponent } from './components/review-question-content/multi-line-text-field/multi-line-text-field.component';
+import { ReviewQuestionContentComponent } from './components/review-question-content/review-question-content.component';
+import { SubmitPageComponent } from './components/review-question-content/submit-page/submit-page.component';
+import { TextAreaFieldComponent } from './components/review-question-content/text-area-field/text-area-field.component';
+import { TrafficLightFieldComponent } from './components/review-question-content/traffic-light-field/traffic-light-field.component';
+import { ReviewQuestionSidebarComponent } from './components/review-question-sidebar/review-question-sidebar.component';
+// eslint-disable-next-line max-len
+import { SidebarQuestionButtonComponent } from './components/review-question-sidebar/sidebar-question-button/sidebar-question-button.component';
+import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
+import { IconPillButtonComponent } from './components/shared/icon-pill-button/icon-pill-button.component';
+import { ProgressTextComponent } from './components/shared/progress-text/progress-text.component';
+import { ReviewCtaButtonComponent } from './components/shared/review-cta-button/review-cta-button.component';
+import { ReviewsService } from './services/reviews/reviews.service';
 
 @NgModule({
   declarations: [
-    ReviewComponent,
-    QuestionComponent,
-    TagsQuestionComponent,
-    FactcheckComponent,
-    ReviewProcessComponent,
-    ReviewQuestionComponent,
-    ReviewSummaryComponent,
     ReviewSuccessPageComponent,
-    OpenReviewDialogComponent,
-    ReviewPageComponent
+    ReviewPageComponent,
+    ReviewQuestionContentComponent,
+    ReviewQuestionSidebarComponent,
+    TrafficLightFieldComponent,
+    LikertScaleFieldComponent,
+    TextAreaFieldComponent,
+    ItemPreviewComponent,
+    ChipFieldComponent,
+    SubmitPageComponent,
+    MultiLineTextFieldComponent,
+    IconPillButtonComponent,
+    SidebarQuestionButtonComponent,
+    ProgressTextComponent,
+    ReviewCtaButtonComponent
   ],
-  exports: [ReviewComponent, QuestionComponent],
   imports: [
     CommonModule,
     HelperModule,
@@ -74,6 +85,14 @@ import { SolvedCasesModule } from '@shared/solved-cases/solved-cases.module';
     IconWithContentModule,
     SolvedCasesModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    ReviewQuestionContentComponent,
+    ReviewQuestionSidebarComponent,
+    IconPillButtonComponent,
+    SidebarQuestionButtonComponent,
+    ProgressTextComponent,
+    ReviewCtaButtonComponent
   ],
   providers: [
     ReviewsService,

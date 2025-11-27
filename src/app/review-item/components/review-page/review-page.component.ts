@@ -1,231 +1,466 @@
-/* eslint-disable max-len */
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ItemsService } from '../../services/items/items.service';
-import { Item } from '../../../model/item';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoaderService } from '@shared/loader/service/loader.service';
-import { Review } from '../../model/review';
-import { ReviewsService } from '../../services/reviews/reviews.service';
-import { UserService } from '../../../core/services/user/user.service';
-import { ReviewState } from '../../model/review-state';
-import { globals } from 'src/environments/globals';
-import { FactCheckService } from '../../services/factchecks/fact-check.service';
-import { Factcheck } from '../../../model/factcheck';
-import { BreadcrumbLink } from 'src/app/shared/breadcrumb/model/breadcrumb-link.interface';
-import { EMPTY, from, Observable, of, Subscription } from 'rxjs';
-import { switchMap, mapTo, tap } from 'rxjs/operators';
-import { ReviewItems } from '../../model/review-items';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
+import { BehaviorSubject } from 'rxjs';
+import { take } from 'rxjs/operators';
+import { QuestionAnswerChange } from '../../model/field-answer-change';
+import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
-import { ReportItemService } from '../../../core/services/report-item/report-item.service';
-import { ReportItemDialogData } from '../../../core/services/report-item/report-item-dialog-data';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ViewportScroller } from '@angular/common';
+import { Review } from '../../model/review';
+import { ReviewVisibilityService } from '../../services/review-visibility/review-visibility.service';
+import { ReviewsService } from '../../services/reviews/reviews.service';
+
+const SUBMIT_QUESTION_ID = 'submit_question';
+
+interface ReviewState {
+  review: Review | null;
+  currentQuestionId: string | null;
+}
+
+type ReviewAction =
+  | { type: 'REVIEW_LOADED'; review: Review }
+  | { type: 'ANSWER_CHANGED'; change: QuestionAnswerChange }
+  | { type: 'QUESTION_SELECTED'; questionId: string }
+  | { type: 'NEXT_QUESTION' }
+  | { type: 'PREVIOUS_QUESTION' };
 
 @Component({
   selector: 'app-review-page',
   templateUrl: './review-page.component.html',
-  styleUrls: ['./review-page.component.scss']
+  styleUrls: ['./review-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ReviewPageComponent implements OnInit, OnDestroy {
-  case$ = from(this.itemsService.getOpenItems()).pipe(
-    tap((reviewItems) => (this.isOpenReview = reviewItems.is_open_review)),
-    switchMap((reviewItems) => (reviewItems.is_open_review ? this.loadReview(reviewItems) : this.getItemFromRouterState())),
-    tap((item) => (this.case = item)),
-    tap((item) => this.getFactCheck(item?.id))
-  );
+export class ReviewPageComponent {
+  private stateSubject = new BehaviorSubject<ReviewState>({
+    review: null,
+    currentQuestionId: null
+  });
+  readonly state$ = this.stateSubject.asObservable();
 
-  user$ = this.userService.user$;
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Fallbearbeitung' }];
 
-  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Fall lösen'}];
-  case: Item;
-  isOpenReview: boolean;
-  review: Review;
-  questions: Question[];
-  showQuestions: Question[];
-
-  questionPrompts = [
-    {
-      title: 'Ein Link funktioniert nicht mehr?',
-      description: 'Wenn sich der Fall nicht mehr bearbeiten lässt, sende uns bitte eine Nachricht über "Fall melden".',
-      bgColor: '#3a9832',
-      icon: 'fal fa-link'
-    },
-    {
-      title: 'Kann ich die Bearbeitung abbrechen?',
-      description: 'Nein, du kannst aber zwei Stunden warten. Dann wird der Fall automatisch abgebrochen und du kannst wieder neue Fälle annehmen.',
-      bgColor: '#be9843',
-      icon: 'fal fa-hands-helping'
-    },
-    {
-      title: 'Was tun bei einem technischen Fehler?',
-      description: 'Schreib bitte eine E-Mail an unser <a href="mailto:support@codetekt.org" target="_blank">Support-Team</a>. Wir helfen dir weiter oder beheben den Fehler.',
-      bgColor: '#8f1fff',
-      icon: 'fal fa-bug'
-    }
-  ];
-
-  description_intro =
-    'Im Tatbestand unten siehst du alle für den Fall relevanten Informationen. Mache dich zunächst mit dem ' +
-    'Fall vertraut und überlege, ob du ihn wirklich bearbeiten willst. Wenn du dich dazu entschlossen hast, ' +
-    'klicke bitte auf "Fall bearbeiten" und starte Deine Bewertung.';
-
-  description_review =
-    'Du hast die Bearbeitung dieses Falls gestartet. Bitte lies dir alle Aussagen durch und bewerte sie sorgfältig. ' +
-    'Zu jeder Aussage gibt es eine Erläuterung und einen Tipp. Beides kann Dir dabei helfen, die am besten geeignete Antwort zu finden. ' +
-    'Passt eine Aussage nicht zu dem Fall, dann wähle "Kriterium nicht anwendbar".';
-  // 100 XP is always static
-  userExperienceBubbles = [
-    { iconName: 'star', color: '#fac800', text: '100XP', subText: 'Erfahrung', gridColor: '#160637' }
-    // this one was in the designs, but is temporarily removed.
-    // { iconName: 'user-cowboy', color: '#fff', text: '3', subText: 'Detektive', gridColor: '#722ED1' }
-  ];
-
-  public factCheck: Factcheck = null;
-
-  reviewForm: FormGroup;
-
-  private routerState: { [key: string]: any };
-  private formSubscription: Subscription;
-
-  constructor(
-    private itemsService: ItemsService,
-    private reviewsService: ReviewsService,
-    private userService: UserService,
-    private snackBar: MatSnackBar,
-    private loader: LoaderService,
-    private router: Router,
-    private factCheckService: FactCheckService,
-    private reportItemService: ReportItemService,
-    private formBuilder: FormBuilder,
-    private viewportScroller: ViewportScroller
-  ) {
-    this.routerState = this.router.getCurrentNavigation().extras?.state;
-
-    this.reviewForm = this.formBuilder.group({});
+  constructor(private reviewsService: ReviewsService, private reviewVisibilityService: ReviewVisibilityService) {
+    this.reviewsService
+      .getOpenReview()
+      .pipe(take(1))
+      .subscribe((review) => {
+        const preparedReview = this.prepareReview(review, null, true);
+        this.updateState({ type: 'REVIEW_LOADED', review: preparedReview });
+      });
   }
 
-  ngOnInit(): void {
-    if (this.case?.id) {
-      this.getFactCheck(this.case.id);
+  onQuestionSelected(questionId: string): void {
+    this.updateState({ type: 'QUESTION_SELECTED', questionId });
+  }
+
+  onAnswerChange(change: QuestionAnswerChange): void {
+    this.updateState({ type: 'ANSWER_CHANGED', change });
+  }
+
+  onNextQuestion(): void {
+    this.updateState({ type: 'NEXT_QUESTION' });
+  }
+
+  onPreviousQuestion(): void {
+    this.updateState({ type: 'PREVIOUS_QUESTION' });
+  }
+
+  isNextQuestionDisabled(visibleQuestions: Question[], currentQuestionId: string): boolean {
+    const currentIndex = visibleQuestions.findIndex((q) => q.id === currentQuestionId);
+    if (currentIndex === -1) {
+      return false;
+    }
+
+    const nextQuestion = visibleQuestions[currentIndex + 1];
+    return nextQuestion?.is_disabled === true;
+  }
+
+  getCurrentQuestion(state: ReviewState): Question | null {
+    if (!state.review || !state.currentQuestionId) {
+      return null;
+    }
+    return this.getVisibleQuestions(state.review).find((q) => q.id === state.currentQuestionId) ?? null;
+  }
+
+  getQuestionPosition(review: Review, questionId: string | null): number {
+    if (!questionId) {
+      return 0;
+    }
+    const visibleQuestions = this.getVisibleQuestions(review);
+    const index = visibleQuestions.findIndex((q) => q.id === questionId);
+    return index === -1 ? 0 : index + 1;
+  }
+
+  getVisibleQuestions(review: Review): Question[] {
+    return review.questions?.filter((q) => q.is_visible !== false) ?? [];
+  }
+
+  private updateState(action: ReviewAction): void {
+    const newState = this.reduceState(this.stateSubject.getValue(), action);
+    this.stateSubject.next(newState);
+
+    if (action.type === 'ANSWER_CHANGED' && newState.review) {
+      this.logReview(newState.review);
     }
   }
 
-  ngOnDestroy(): void {
-    this.formSubscription?.unsubscribe();
+  private reduceState(state: ReviewState, action: ReviewAction): ReviewState {
+    switch (action.type) {
+      case 'REVIEW_LOADED':
+        return {
+          review: action.review,
+          currentQuestionId: this.resolveQuestionId(action.review, null)
+        };
+
+      case 'QUESTION_SELECTED':
+        return {
+          ...state,
+          ...this.applyVisited(state, this.resolveQuestionId(state.review, action.questionId))
+        };
+
+      case 'ANSWER_CHANGED': {
+        const updatedReview = this.applyAnswerChange(state.review, action.change);
+        if (!updatedReview) {
+          return state;
+        }
+
+        const preparedReview = this.prepareReview(updatedReview, state.currentQuestionId, false);
+        return {
+          review: preparedReview,
+          currentQuestionId: this.resolveQuestionId(preparedReview, state.currentQuestionId)
+        };
+      }
+
+      case 'NEXT_QUESTION': {
+        const nextQuestionId = this.findNextVisibleQuestionId(state.review, state.currentQuestionId);
+        return {
+          ...state,
+          ...this.applyVisited(state, nextQuestionId)
+        };
+      }
+
+      case 'PREVIOUS_QUESTION': {
+        const previousQuestionId = this.findPreviousVisibleQuestionId(state.review, state.currentQuestionId);
+        return {
+          ...state,
+          ...this.applyVisited(state, previousQuestionId)
+        };
+      }
+
+      default:
+        return state;
+    }
   }
 
-  accept() {
-    this.loader.show();
-    this.reviewsService.createReview(this.case.id).subscribe(
-      (review) => {
-        this.initReview(review);
-        this.isOpenReview = true;
-      },
-      () => {
-        this.snackBar.open('Leider konnte der Fall nicht angenommen werden. Versuche es später nochmal.', 'Ok', { duration: 2000 });
-      },
-      () => this.loader.hide()
+  private resolveQuestionId(review: Review | null, requestedId: string | null): string | null {
+    if (!review) {
+      return null;
+    }
+
+    const visibleQuestions = this.getVisibleQuestions(review);
+    if (!visibleQuestions.length) {
+      return null;
+    }
+
+    // If no requested ID, use first visible (default)
+    if (!requestedId) {
+      return visibleQuestions[0].id;
+    }
+
+    // If requested ID is visible, use it
+    const requestedQuestion = visibleQuestions.find((q) => q.id === requestedId);
+    if (requestedQuestion) {
+      return requestedId;
+    }
+
+    // Fallback: find closest previous visible question
+    const allQuestions = review.questions;
+    const requestedIndex = allQuestions.findIndex((q) => q.id === requestedId);
+
+    if (requestedIndex === -1) {
+      // Requested ID doesn't exist at all, use first visible
+      return visibleQuestions[0].id;
+    }
+
+    // Search backward from requestedIndex
+    for (let i = requestedIndex - 1; i >= 0; i -= 1) {
+      if (allQuestions[i].is_visible !== false) {
+        return allQuestions[i].id;
+      }
+    }
+
+    // No previous visible found, use first visible (going forward)
+    return visibleQuestions[0].id;
+  }
+
+  private findNextVisibleQuestionId(review: Review | null, fromQuestionId: string | null): string | null {
+    if (!fromQuestionId || !review?.questions?.length) {
+      return null;
+    }
+
+    const currentIndex = review.questions.findIndex((q) => q.id === fromQuestionId);
+    if (currentIndex === -1) {
+      return null;
+    }
+
+    for (let i = currentIndex + 1; i < review.questions.length; i += 1) {
+      const candidate = review.questions[i];
+      if (candidate.is_visible !== false) {
+        return candidate.id;
+      }
+    }
+
+    return null;
+  }
+
+  private findPreviousVisibleQuestionId(review: Review | null, fromQuestionId: string | null): string | null {
+    if (!fromQuestionId || !review?.questions?.length) {
+      return null;
+    }
+
+    const currentIndex = review.questions.findIndex((q) => q.id === fromQuestionId);
+    if (currentIndex <= 0) {
+      return null;
+    }
+
+    for (let i = currentIndex - 1; i >= 0; i -= 1) {
+      const candidate = review.questions[i];
+      if (candidate.is_visible !== false) {
+        return candidate.id;
+      }
+    }
+
+    return null;
+  }
+
+  private markQuestionVisited(review: Review | null, questionId: string | null): Review | null {
+    if (!review || !questionId) {
+      return review;
+    }
+
+    const index = review.questions.findIndex((q) => q.id === questionId);
+    if (index === -1) {
+      return review;
+    }
+
+    const question = review.questions[index];
+    if (question.is_visited) {
+      return review;
+    }
+
+    const updatedQuestion: Question = {
+      ...question,
+      is_visited: true
+    };
+
+    const updatedQuestions = [...review.questions];
+    updatedQuestions[index] = updatedQuestion;
+
+    return {
+      ...review,
+      questions: updatedQuestions
+    };
+  }
+
+  private applyVisited(state: ReviewState, targetQuestionId: string | null): { currentQuestionId: string | null; review: Review | null } {
+    if (!targetQuestionId || targetQuestionId === state.currentQuestionId) {
+      return {
+        currentQuestionId: state.currentQuestionId,
+        review: state.review
+      };
+    }
+
+    const reviewWithVisited = this.markQuestionVisited(state.review, state.currentQuestionId);
+    if (targetQuestionId === SUBMIT_QUESTION_ID) {
+      return {
+        currentQuestionId: targetQuestionId,
+        review: this.markAllVisited(reviewWithVisited)
+      };
+    }
+
+    return {
+      currentQuestionId: targetQuestionId,
+      review: reviewWithVisited
+    };
+  }
+
+  private prepareReview(review: Review | null, currentQuestionId: string | null, markVisitedFromAnswers = false): Review | null {
+    if (!review) {
+      return review;
+    }
+
+    const withVisibility = this.ensureVisibility(review);
+    const withValidation = this.applyValidation(withVisibility) ?? withVisibility;
+    const withVisitedByAnswer = markVisitedFromAnswers ? this.applyVisitedFromAnswers(withValidation) : withValidation;
+    const withSubmitState = this.applySubmitAvailability(withVisitedByAnswer);
+
+    if (currentQuestionId === SUBMIT_QUESTION_ID) {
+      return this.markAllVisited(withSubmitState);
+    }
+
+    return withSubmitState;
+  }
+
+  private applyValidation(review: Review | null): Review | null {
+    if (!review?.questions?.length) {
+      return review;
+    }
+
+    const questions = review.questions.map((question) => ({
+      ...question,
+      has_error: this.questionHasErrors(question),
+      is_answered: this.questionIsAnswered(question)
+    }));
+
+    return {
+      ...review,
+      questions
+    };
+  }
+
+  private applySubmitAvailability(review: Review): Review {
+    const hasBlockingErrors = review.questions.some((question) => question.id !== SUBMIT_QUESTION_ID && question.has_error);
+
+    const questions = review.questions.map((question) =>
+      question.id === SUBMIT_QUESTION_ID
+        ? {
+            ...question,
+            is_disabled: hasBlockingErrors
+          }
+        : question
     );
+
+    return { ...review, questions };
   }
 
-  closeReview() {
-    if (this.reviewForm.invalid) {
-      this.handleInvalidForm();
-      return;
-    }
-
-    this.review.status = ReviewState[ReviewState.closed];
-
-    this.reviewsService.updateReview(this.review).subscribe(() => {
-      this.userService.updateUser();
-      this.isOpenReview = false;
-      this.router.navigate(['review', 'success'], { state: { item: this.case } });
-    });
-  }
-
-  openSignal(): void {
-    window.open(globals.signalLink, '_blank');
-  }
-
-  updateReview() {
-    this.reviewsService.updateReview(this.review);
-  }
-
-  commentChange(comment: string) {
-    if (comment === this.review.comment) {
-      return;
-    }
-    this.review.comment = comment?.trim().length ? comment : null;
-    this.updateReview();
-  }
-
-  onTagsChanged(tags: string[]) {
-    this.review.tags = tags?.length ? tags : null;
-    this.updateReview();
-  }
-
-  onReportCase(): void {
-    const data: ReportItemDialogData = { type: 'case', itemId: this.case.id, content: this.case.content };
-    this.reportItemService.openReportItemDialog(data);
-  }
-
-  private getFactCheck(id: string): void {
-    from(this.factCheckService.getFactCheck(id)).subscribe((factcheck) => (this.factCheck = factcheck));
-  }
-
-  private getItemFromRouterState(): Observable<Item | never> {
-    if (!this.routerState) {
-      return this.navigateOnNoReview();
-    }
-
-    const { item } = this.routerState;
-    return of(item);
-  }
-
-  private navigateOnNoReview(): Observable<never> {
-    this.snackBar.open('Du hast noch keinen Fall angenommen. Bitte nimm einen Fall an, um mit der Bearbeitung zu beginnen', '', {
-      duration: 5000
-    });
-    this.router.navigate(['/']);
-    return EMPTY;
-  }
-
-  private loadReview(reviewItems: ReviewItems) {
-    return this.reviewsService.getOpenReview().pipe(
-      tap((review) => this.initReview(review)),
-      mapTo(reviewItems.items[0])
+  private applyVisitedFromAnswers(review: Review): Review {
+    const questions = review.questions.map((question) =>
+      this.questionIsAnswered(question) && !question.is_visited
+        ? { ...question, is_visited: true }
+        : question
     );
+
+    return { ...review, questions };
   }
 
-  private initReview(review: Review) {
-    this.review = review;
-    this.questions = [...review.questions];
-    this.questions.sort((q1, q2) => q1.question_id.localeCompare(q2.question_id));
-    this.showQuestions = this.questions.filter((question) => !question.parent_question_id);
-    this.showQuestions.forEach((question) => {
-      const questionControl = this.formBuilder.control(question.answer_value, Validators.required);
-      this.reviewForm.addControl(question.question_id, questionControl);
-    });
-
-    this.formSubscription = this.reviewForm.valueChanges.subscribe(() => {
-      this.updateReview();
-    });
+  private questionHasErrors(question: Question): boolean {
+    const visibleFields = question.fields?.filter((field) => field.is_visible !== false) ?? [];
+    return visibleFields.some((field) => field.is_required && !this.hasAnswer(field));
   }
 
-  private handleInvalidForm() {
-    this.reviewForm.markAllAsTouched();
-    this.snackBar.open(
-      'Du kannst die Lösung erst einreichen, wenn du alle Fragen beantwortet hast.',
-      '',
-      { duration: 5000 }
-    );
-    const unansweredQuestion = this.questions
-      .filter((question) => question.answer_value === null)
-      .find((question) => document.getElementById(question.question_id));
-    if (unansweredQuestion) {
-      this.viewportScroller.setOffset([0, 80]);
-      this.viewportScroller.scrollToAnchor(unansweredQuestion.question_id);
+  private questionIsAnswered(question: Question): boolean {
+    const visibleFields = question.fields?.filter((field) => field.is_visible !== false) ?? [];
+    return visibleFields.some((field) => this.hasAnswer(field));
+  }
+
+  private hasAnswer(field: Field): boolean {
+    const value = field.answer_value as unknown;
+
+    if (value === null || value === undefined) {
+      return false;
     }
+
+    if (Array.isArray(value)) {
+      return value.length > 0;
+    }
+
+    if (typeof value === 'string') {
+      return value.trim().length > 0;
+    }
+
+    return true;
+  }
+
+  private markAllVisited(review: Review | null): Review | null {
+    if (!review?.questions?.length) {
+      return review;
+    }
+
+    const questions = review.questions.map((question) =>
+      question.is_visited ? question : { ...question, is_visited: true }
+    );
+
+    return { ...review, questions };
+  }
+
+  private applyAnswerChange(review: Review, change: QuestionAnswerChange): Review | null {
+    const questionIndex = review.questions.findIndex((question) => question.id === change.questionId);
+    if (questionIndex === -1) {
+      return null;
+    }
+
+    const question = review.questions[questionIndex];
+    const fieldIndex = question.fields.findIndex((field) => field.id === change.fieldId);
+    if (fieldIndex === -1) {
+      return null;
+    }
+
+    const updatedField = this.buildUpdatedField(question.fields[fieldIndex], change);
+    if (!updatedField) {
+      return null;
+    }
+
+    const updatedFields = [...question.fields];
+    updatedFields[fieldIndex] = updatedField;
+
+    const updatedQuestion = {
+      ...question,
+      fields: updatedFields
+    };
+
+    const updatedQuestions = [...review.questions];
+    updatedQuestions[questionIndex] = updatedQuestion;
+
+    return {
+      ...review,
+      questions: updatedQuestions
+    };
+  }
+
+  private buildUpdatedField(field: Field, change: QuestionAnswerChange): Field | null {
+    if (field.id !== change.fieldId || field.type !== change.fieldType) {
+      return null;
+    }
+
+    switch (change.fieldType) {
+      case 'chip':
+        return {
+          ...(field as ChipField),
+          answer_value: change.value as ChipField['answer_value']
+        };
+      case 'multi-line-text':
+        return {
+          ...(field as MultiLineTextField),
+          answer_value: change.value as MultiLineTextField['answer_value']
+        };
+      case 'text-area':
+        return {
+          ...(field as TextAreaField),
+          answer_value: change.value as TextAreaField['answer_value']
+        };
+      case 'likert-scale':
+        return {
+          ...(field as LikertScaleField),
+          answer_value: change.value as LikertScaleField['answer_value']
+        };
+      case 'traffic-light':
+        return {
+          ...(field as TraficLightField),
+          answer_value: change.value as TraficLightField['answer_value']
+        };
+      default:
+        return null;
+    }
+  }
+
+  private logReview(review: Review): void {
+    // eslint-disable-next-line no-console
+    console.log('[Review Debug] Updated review:', review);
+    const cleaned = this.reviewVisibilityService.stripHiddenFieldAnswers(review);
+    // eslint-disable-next-line no-console
+    console.log('[Review Debug] Sanitized payload:', cleaned);
+  }
+
+  private ensureVisibility(review: Review): Review {
+    return this.reviewVisibilityService.applyVisibility(review);
   }
 }

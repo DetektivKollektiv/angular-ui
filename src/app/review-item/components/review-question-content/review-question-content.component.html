@@ -1,0 +1,94 @@
+<section class="review-question-content" *ngIf="question as currentQuestion">
+  <header class="review-question-content__header">
+    <div class="review-question-content__meta-row">
+      <app-progress-text [current]="position" [total]="total"></app-progress-text>
+      <button class="review-question-content__help-button" type="button">
+        <mat-icon class="review-question-content__help-icon">support</mat-icon>
+
+        Hilfe
+      </button>
+    </div>
+    <h1 class="review-question-content__title">{{ currentQuestion.metadata?.title }}</h1>
+    <p class="review-question-content__subtitle" *ngIf="currentQuestion.metadata?.text">
+      {{ currentQuestion.metadata.text }}
+    </p>
+  </header>
+
+  <ng-container *ngIf="getVisibleFields(currentQuestion) as visibleFields">
+  <ul class="review-question-content__fields" *ngIf="visibleFields.length; else fallbackContent">
+    <li
+      *ngFor="let field of visibleFields; let i = index; trackBy: trackFieldById"
+      class="review-question-content__field"
+      [ngClass]="{
+        'review-question-content__field--traffic-light': field.type === 'traffic-light',
+        'review-question-content__field--likert-scale': field.type === 'likert-scale',
+        'review-question-content__field--text-area': field.type === 'text-area',
+        'review-question-content__field--chip': field.type === 'chip',
+        'review-question-content__field--multi-line-text': field.type === 'multi-line-text'
+      }"
+    >
+      <ng-container [ngSwitch]="field.type">
+        <ng-container *ngSwitchCase="'traffic-light'">
+          <app-traffic-light-field
+            *ngIf="isTrafficLightField(field)"
+            [field]="field"
+            [showHeader]="shouldShowTrafficHeader(i, visibleFields)"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-traffic-light-field>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'likert-scale'">
+          <app-likert-scale-field
+            *ngIf="isLikertScaleField(field)"
+            [field]="field"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-likert-scale-field>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'text-area'">
+          <app-text-area-field
+            *ngIf="isTextAreaField(field)"
+            [field]="field"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-text-area-field>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'chip'">
+          <app-chip-field
+            *ngIf="isChipField(field)"
+            [field]="field"
+            [allowMultiple]="false"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-chip-field>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'multi-line-text'">
+          <app-multi-line-text-field
+            *ngIf="isMultiLineTextField(field)"
+            [field]="field"
+            (answerChange)="onFieldAnswerChange($event)"
+          ></app-multi-line-text-field>
+        </ng-container>
+
+        <span *ngSwitchDefault>
+          {{ getFieldLabel(field) }}
+        </span>
+      </ng-container>
+    </li>
+  </ul>
+  </ng-container>
+  <div class="review-question-content__actions">
+    <app-review-cta-button *ngIf="showBackButton()" variant="secondary" (pressed)="onBack()">
+      Zurück
+    </app-review-cta-button>
+    <app-review-cta-button (pressed)="onNext()" [disabled]="nextDisabled">
+      {{ getNextButtonLabel() }}
+    </app-review-cta-button>
+  </div>
+  <ng-template #fallbackContent>
+    <app-submit-page *ngIf="isSubmitQuestion(); else noFields"></app-submit-page>
+  </ng-template>
+  <ng-template #noFields>
+    <p class="review-question-content__empty">Für diese Frage sind keine Eingaben erforderlich.</p>
+  </ng-template>
+</section>

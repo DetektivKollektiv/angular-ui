@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+
+.text-area-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  &--disabled {
+    opacity: 0.6;
+  }
+
+  &__question {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__textarea {
+    width: 100%;
+    border-radius: 1.25rem;
+    border: 2px solid #c4b5fd;
+    background: rgba(124, 112, 255, 0.1);
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: #a78bfa;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.25);
+    }
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+  }
+
+  &__counter {
+    margin: 0;
+    align-self: flex-end;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8b5cf6;
+  }
+}

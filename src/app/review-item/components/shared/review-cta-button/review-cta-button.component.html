@@ -1,0 +1,9 @@
+<button
+  class="review-cta-button"
+  [class.review-cta-button--secondary]="variant === 'secondary'"
+  [disabled]="disabled"
+  [type]="type"
+  (click)="onClick($event)"
+>
+  <ng-content></ng-content>
+</button>
