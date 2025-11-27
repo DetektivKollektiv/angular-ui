@@ -14,6 +14,7 @@ export class ReviewQuestionContentComponent {
   @Input() position = 1;
   @Input() total = 1;
   @Output() next = new EventEmitter<void>();
+  @Output() back = new EventEmitter<void>();
   @Output() answerChange = new EventEmitter<QuestionAnswerChange>();
 
   trackFieldById(_index: number, field: Field): string {
@@ -90,6 +91,18 @@ export class ReviewQuestionContentComponent {
     }
 
     this.next.emit();
+  }
+
+  onBack(): void {
+    if (!this.showBackButton()) {
+      return;
+    }
+
+    this.back.emit();
+  }
+
+  showBackButton(): boolean {
+    return this.position > 1;
   }
 
   isSubmitQuestion(): boolean {

@@ -18,7 +18,8 @@ type ReviewAction =
   | { type: 'REVIEW_LOADED'; review: Review }
   | { type: 'ANSWER_CHANGED'; change: QuestionAnswerChange }
   | { type: 'QUESTION_SELECTED'; questionId: string }
-  | { type: 'NEXT_QUESTION' };
+  | { type: 'NEXT_QUESTION' }
+  | { type: 'PREVIOUS_QUESTION' };
 
 @Component({
   selector: 'app-review-page',
@@ -55,6 +56,10 @@ export class ReviewPageComponent {
 
   onNextQuestion(): void {
     this.updateState({ type: 'NEXT_QUESTION' });
+  }
+
+  onPreviousQuestion(): void {
+    this.updateState({ type: 'PREVIOUS_QUESTION' });
   }
 
   getCurrentQuestion(state: ReviewState): Question | null {
@@ -121,6 +126,14 @@ export class ReviewPageComponent {
         };
       }
 
+      case 'PREVIOUS_QUESTION': {
+        const previousQuestionId = this.findPreviousVisibleQuestionId(state.review, state.currentQuestionId);
+        return {
+          ...state,
+          currentQuestionId: previousQuestionId ?? state.currentQuestionId
+        };
+      }
+
       default:
         return state;
     }
@@ -178,6 +191,26 @@ export class ReviewPageComponent {
     }
 
     for (let i = currentIndex + 1; i < review.questions.length; i += 1) {
+      const candidate = review.questions[i];
+      if (candidate.is_visible !== false) {
+        return candidate.id;
+      }
+    }
+
+    return null;
+  }
+
+  private findPreviousVisibleQuestionId(review: Review | null, fromQuestionId: string | null): string | null {
+    if (!fromQuestionId || !review?.questions?.length) {
+      return null;
+    }
+
+    const currentIndex = review.questions.findIndex((q) => q.id === fromQuestionId);
+    if (currentIndex <= 0) {
+      return null;
+    }
+
+    for (let i = currentIndex - 1; i >= 0; i -= 1) {
       const candidate = review.questions[i];
       if (candidate.is_visible !== false) {
         return candidate.id;
@@ -269,4 +302,3 @@ export class ReviewPageComponent {
     return this.reviewVisibilityService.applyVisibility(review) ?? review;
   }
 }
-

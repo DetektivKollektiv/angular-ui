@@ -39,6 +39,7 @@ import { SidebarQuestionButtonComponent } from './components/review-question-sid
 import { ReviewSuccessPageComponent } from './components/review-success-page/review-success-page.component';
 import { IconPillButtonComponent } from './components/shared/icon-pill-button/icon-pill-button.component';
 import { ProgressTextComponent } from './components/shared/progress-text/progress-text.component';
+import { ReviewCtaButtonComponent } from './components/shared/review-cta-button/review-cta-button.component';
 import { ReviewsService } from './services/reviews/reviews.service';
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ReviewsService } from './services/reviews/reviews.service';
     MultiLineTextFieldComponent,
     IconPillButtonComponent,
     SidebarQuestionButtonComponent,
-    ProgressTextComponent
+    ProgressTextComponent,
+    ReviewCtaButtonComponent
   ],
   imports: [
     CommonModule,
@@ -89,7 +91,8 @@ import { ReviewsService } from './services/reviews/reviews.service';
     ReviewQuestionSidebarComponent,
     IconPillButtonComponent,
     SidebarQuestionButtonComponent,
-    ProgressTextComponent
+    ProgressTextComponent,
+    ReviewCtaButtonComponent
   ],
   providers: [
     ReviewsService,

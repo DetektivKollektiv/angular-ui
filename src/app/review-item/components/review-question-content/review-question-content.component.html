@@ -77,10 +77,13 @@
     </li>
   </ul>
   </ng-container>
-  <div class="review-question-content__next-button-container">
-    <button class="review-question-content__next-button" type="button" (click)="onNext()">
+  <div class="review-question-content__actions">
+    <app-review-cta-button *ngIf="showBackButton()" variant="secondary" (pressed)="onBack()">
+      Zurück
+    </app-review-cta-button>
+    <app-review-cta-button (pressed)="onNext()">
       {{ getNextButtonLabel() }}
-    </button>
+    </app-review-cta-button>
   </div>
   <ng-template #fallbackContent>
     <app-submit-page *ngIf="isSubmitQuestion(); else noFields"></app-submit-page>
