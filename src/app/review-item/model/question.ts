@@ -27,6 +27,7 @@ interface Metadata {
 interface QuestionState {
   is_visible?: boolean;
   is_answered?: boolean;
+  has_error?: boolean;
 }
 
 export interface Question extends QuestionState {

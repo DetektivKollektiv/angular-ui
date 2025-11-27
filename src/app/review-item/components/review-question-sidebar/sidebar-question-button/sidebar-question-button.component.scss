@@ -24,7 +24,16 @@
       box-shadow: 0 6px 12px rgba(99, 102, 241, 0.35);
     }
 
-    &:not(.sidebar-question-button--active):hover {
+    &.sidebar-question-button--error {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+
+      &:hover {
+        background: #fee2e2;
+      }
+    }
+
+    &:not(.sidebar-question-button--active):not(.sidebar-question-button--error):hover {
       background: #e5e7eb;
     }
   }
@@ -36,6 +45,14 @@
     &:hover {
       background: #7c3aed;
     }
+
+    &.sidebar-question-button--error {
+      background: #dc2626;
+
+      &:hover {
+        background: #b91c1c;
+      }
+    }
   }
 
   &__icon {
@@ -43,6 +60,10 @@
 
     &--active {
       color: #ffffff;
+    }
+
+    &--error {
+      color: #dc2626;
     }
   }
 
@@ -67,4 +88,3 @@
     margin-left: 0;
   }
 }
-

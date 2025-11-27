@@ -40,6 +40,7 @@
         [question]="question"
         [active]="question.id === currentQuestionId"
         [indentLevel]="question.metadata?.indent_level || 0"
+        [disabled]="question.is_disabled"
         (pressed)="onQuestionClick(question.id)"
       ></app-sidebar-question-button>
     </li>
