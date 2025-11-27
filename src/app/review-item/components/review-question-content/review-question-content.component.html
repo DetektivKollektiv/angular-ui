@@ -81,7 +81,7 @@
     <app-review-cta-button *ngIf="showBackButton()" variant="secondary" (pressed)="onBack()">
       Zurück
     </app-review-cta-button>
-    <app-review-cta-button (pressed)="onNext()">
+    <app-review-cta-button (pressed)="onNext()" [disabled]="nextDisabled">
       {{ getNextButtonLabel() }}
     </app-review-cta-button>
   </div>

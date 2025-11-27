@@ -13,6 +13,7 @@ export class ReviewQuestionContentComponent {
   @Input() question!: Question;
   @Input() position = 1;
   @Input() total = 1;
+  @Input() nextDisabled = false;
   @Output() next = new EventEmitter<void>();
   @Output() back = new EventEmitter<void>();
   @Output() answerChange = new EventEmitter<QuestionAnswerChange>();
@@ -117,4 +118,3 @@ export class ReviewQuestionContentComponent {
     return question?.fields?.filter((field) => field.is_visible !== false) ?? [];
   }
 }
-

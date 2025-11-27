@@ -64,6 +64,16 @@ export class ReviewPageComponent {
     this.updateState({ type: 'PREVIOUS_QUESTION' });
   }
 
+  isNextQuestionDisabled(visibleQuestions: Question[], currentQuestionId: string): boolean {
+    const currentIndex = visibleQuestions.findIndex((q) => q.id === currentQuestionId);
+    if (currentIndex === -1) {
+      return false;
+    }
+
+    const nextQuestion = visibleQuestions[currentIndex + 1];
+    return nextQuestion?.is_disabled === true;
+  }
+
   getCurrentQuestion(state: ReviewState): Question | null {
     if (!state.review || !state.currentQuestionId) {
       return null;

@@ -23,6 +23,7 @@
           [question]="currentQuestion"
           [position]="getQuestionPosition(review, currentQuestion.id)"
           [total]="visibleQuestions.length"
+          [nextDisabled]="isNextQuestionDisabled(visibleQuestions, currentQuestion.id)"
           (next)="onNextQuestion()"
           (back)="onPreviousQuestion()"
           (answerChange)="onAnswerChange($event)"
