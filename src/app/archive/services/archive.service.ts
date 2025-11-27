@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { API } from 'aws-amplify';
 import { from, Observable, of } from 'rxjs';
-import { Item } from '../../model/item';
+import { Item } from '../model/item';
 import { mock_items } from './mock/mock-archive.service';
 
 @Injectable({
@@ -26,7 +26,7 @@ export class ArchiveService {
         })
         .catch()
     ); */
-    return of(mock_items as Item[]);
+    return of(mock_items);
   }
 
   public getClosedItem(id): /*Promise*/ Observable<any> {
