@@ -12,7 +12,6 @@ import { CaseFilter } from '../../model/case-filter';
 import { CaseSort, CaseSortBy } from '../../model/case-sort';
 import { AddFilterKeyword, RemoveFilterKeyword, SetFilter, SetSortBy, ToggleSortOrder } from '../../state/archive.actions';
 import { ArchiveState } from '../../state/archive.state';
-import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
 
 @Component({
   selector: 'app-archive',
@@ -101,7 +100,7 @@ export class ArchiveComponent {
   }
 
   openFilterDialog() {
-    this.matDialog
+    /*  this.matDialog
       .open(ArchiveListFilterComponent, {
         panelClass: 'no-padding-dialog-container',
         height: '100vh',
@@ -114,7 +113,7 @@ export class ArchiveComponent {
         if (filterData) {
           this.onApplyFilter(filterData);
         }
-      });
+      }); */
   }
 
   changeSortOrder() {
