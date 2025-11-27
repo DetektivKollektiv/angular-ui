@@ -34,7 +34,11 @@ export class ArchiveItemComponent {
     return { label: 'Nicht vertrauenswürdig', badgeClass: 'badge--untrusted', colorClass: 'rating--untrusted' };
   }
 
-  trackByTag(_index: number, tag: string | ReviewTag): string {
-    return typeof tag === 'string' ? tag : tag.text;
+  trackByContentTag(_index: number, tag: string): string {
+    return tag;
+  }
+
+  trackByReviewTag(_index: number, tag: ReviewTag): string {
+    return tag.text;
   }
 }

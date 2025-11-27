@@ -192,7 +192,7 @@
   background: linear-gradient(90deg, #ef4444, #f43f5e);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1350px) {
   .archive-card {
     grid-template-columns: 1fr;
   }
@@ -227,3 +227,4 @@
     flex-direction: column;
   }
 }
+
