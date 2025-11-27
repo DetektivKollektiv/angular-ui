@@ -1,18 +1,18 @@
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
-import { ENTER, COMMA } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MatDialog } from '@angular/material/dialog';
+import { Select, Store } from '@ngxs/store';
+import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
+import { ResultScoreMode } from '@shared/helper/components/result-score/result-score-mode';
+import { Observable } from 'rxjs';
 import { Item } from 'src/app/model/item';
 import { CaseFilter } from '../../model/case-filter';
-import { MatChipInputEvent } from '@angular/material/chips';
-import { Select, Store } from '@ngxs/store';
-import { ArchiveState } from '../../state/archive.state';
-import { Observable } from 'rxjs';
-import { AddFilterKeyword, RemoveFilterKeyword, SetFilter, SetSortBy, ToggleSortOrder } from '../../state/archive.actions';
-import { ResultScoreMode } from '@shared/helper/components/result-score/result-score-mode';
-import { MatDialog } from '@angular/material/dialog';
-import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
 import { CaseSort, CaseSortBy } from '../../model/case-sort';
-import { ViewportScroller } from '@angular/common';
-import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
+import { AddFilterKeyword, RemoveFilterKeyword, SetFilter, SetSortBy, ToggleSortOrder } from '../../state/archive.actions';
+import { ArchiveState } from '../../state/archive.state';
+import { ArchiveListFilterComponent } from '../archive-list-filter/archive-list-filter.component';
 
 @Component({
   selector: 'app-archive',
@@ -27,22 +27,24 @@ export class ArchiveComponent {
   public archiveQuestions: any[] = [
     {
       title: 'Wann sehe ich etwas im Archiv?',
-      description: 'Jeder abgeschlossene - von den Detektiv*innen im Peer Review final bearbeitete - Fall '
-      + 'wird ins Archiv gestellt und ist hier zu sehen.',
+      description:
+        'Jeder abgeschlossene - von den Detektiv*innen im Peer Review final bearbeitete - Fall ' +
+        'wird ins Archiv gestellt und ist hier zu sehen.',
       background: 'color__neon-blue',
       icon: 'fal fa-eye'
     },
     {
       title: 'Wieviele Detektiv*innen lösen einen Fall?',
-      description: 'Um den Fall abzuschließen, müssen sich 8 Detektiv*innen beteiligen, '
-      + 'jede*r erstellt unabhängig voneinander eine eigene Bewertung.',
+      description:
+        'Um den Fall abzuschließen, müssen sich 8 Detektiv*innen beteiligen, ' +
+        'jede*r erstellt unabhängig voneinander eine eigene Bewertung.',
       background: 'color__bittersweet',
       icon: 'fal fa-user-cowboy'
     },
     {
       title: 'Was ist ein Peer Review?',
-      description: 'Im codetekt Peer Review werden 4 Paare gebildet, dazu gehört jeweils ein*e Detektiv*in '
-      + 'mit mehr bzw. weniger Erfahrung.',
+      description:
+        'Im codetekt Peer Review werden 4 Paare gebildet, dazu gehört jeweils ein*e Detektiv*in ' + 'mit mehr bzw. weniger Erfahrung.',
       background: 'color__green',
       icon: 'fal fa-user-crown'
     },
@@ -54,8 +56,9 @@ export class ArchiveComponent {
     },
     {
       title: 'Wie entsteht die Einzelbewertung?',
-      description: 'Die Einzelbewertung ergibt sich aus dem Durchschnitt aller Punkte, die ein*e Detektiv*in '
-      + 'bei der Beantwortung der Fragen zu einem Fall erzielt. ',
+      description:
+        'Die Einzelbewertung ergibt sich aus dem Durchschnitt aller Punkte, die ein*e Detektiv*in ' +
+        'bei der Beantwortung der Fragen zu einem Fall erzielt. ',
       background: 'color__neon-blue',
       icon: 'fal fa-chart-bar'
     }
@@ -66,7 +69,7 @@ export class ArchiveComponent {
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
 
-  breadcrumbLinks: BreadcrumbLink[] = [{label: 'Gelöste Fälle'}];
+  breadcrumbLinks: BreadcrumbLink[] = [{ label: 'Gelöste Fälle' }];
 
   archiveListFilterOpened = false;
 
@@ -128,3 +131,4 @@ export class ArchiveComponent {
     this.viewportScroller.scrollToAnchor('archive-bottom-section');
   }
 }
+

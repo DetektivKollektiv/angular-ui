@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Action, NgxsOnInit, Selector, State, StateContext } from '@ngxs/store';
+import { append, patch, removeItem } from '@ngxs/store/operators';
+import { LoaderService } from '@shared/loader/service/loader.service';
 import { tap } from 'rxjs/operators';
+import { Item } from '../../model/item';
+import { CaseSort, CaseSortBy, CaseSortOrder } from '../model/case-sort';
 import { ArchiveService } from '../services/archive.service';
 import {
   AddFilterKeyword,
@@ -19,10 +23,6 @@ import {
   ToggleSortOrder
 } from './archive.actions';
 import { ArchiveStateModel } from './archive.state.model';
-import { patch, append, removeItem } from '@ngxs/store/operators';
-import { LoaderService } from '@shared/loader/service/loader.service';
-import { Item } from '../../model/item';
-import { CaseSort, CaseSortBy, CaseSortOrder } from '../model/case-sort';
 
 @State<ArchiveStateModel>({
   name: 'archive',
@@ -290,3 +290,4 @@ export class ArchiveState implements NgxsOnInit {
     ctx.dispatch(new FetchAllItems());
   }
 }
+
