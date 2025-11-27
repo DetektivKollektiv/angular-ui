@@ -40,7 +40,6 @@
         [question]="question"
         [active]="question.id === currentQuestionId"
         [indentLevel]="question.metadata?.indent_level || 0"
-        [disabled]="question.is_disabled"
         (pressed)="onQuestionClick(question.id)"
       ></app-sidebar-question-button>
     </li>
@@ -61,3 +60,4 @@
 <ng-template #emptyState>
   <div class="review-question-sidebar__empty">Keine Fragen vorhanden</div>
 </ng-template>
+

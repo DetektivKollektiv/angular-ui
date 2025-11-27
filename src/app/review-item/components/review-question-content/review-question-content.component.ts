@@ -85,19 +85,11 @@ export class ReviewQuestionContentComponent {
       return;
     }
 
-    if (this.isNextDisabled()) {
+    if (this.position >= this.total) {
       return;
     }
 
     this.next.emit();
-  }
-
-  isNextDisabled(): boolean {
-    if (this.isSubmitQuestion()) {
-      return false;
-    }
-
-    return true;
   }
 
   isSubmitQuestion(): boolean {
@@ -112,4 +104,3 @@ export class ReviewQuestionContentComponent {
     return question?.fields?.filter((field) => field.is_visible !== false) ?? [];
   }
 }
-
