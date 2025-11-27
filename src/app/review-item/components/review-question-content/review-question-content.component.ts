@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
 import { FieldAnswerChange, QuestionAnswerChange } from '../../model/field-answer-change';
+import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 
 @Component({
@@ -97,7 +97,7 @@ export class ReviewQuestionContentComponent {
       return false;
     }
 
-    return !this.question?.isAnswered;
+    return true;
   }
 
   isSubmitQuestion(): boolean {
@@ -109,6 +109,7 @@ export class ReviewQuestionContentComponent {
   }
 
   getVisibleFields(question: Question | null = this.question): Field[] {
-    return question?.fields?.filter((field) => field.visible !== false) ?? [];
+    return question?.fields?.filter((field) => field.is_visible !== false) ?? [];
   }
 }
+

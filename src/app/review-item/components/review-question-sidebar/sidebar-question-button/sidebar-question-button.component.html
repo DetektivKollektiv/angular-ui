@@ -7,13 +7,13 @@
     [disabled]="disabled"
   >
     <mat-icon
-      *ngIf="question?.isAnswered"
+      *ngIf="question?.is_answered"
       class="sidebar-question-button__icon"
       [class.sidebar-question-button__icon--active]="active || variant === 'mobile'"
       >check_circle</mat-icon
     >
     <svg
-      *ngIf="!question?.isAnswered"
+      *ngIf="!question?.is_answered"
       class="sidebar-question-button__icon"
       [class.sidebar-question-button__icon--active]="active || variant === 'mobile'"
       width="24"

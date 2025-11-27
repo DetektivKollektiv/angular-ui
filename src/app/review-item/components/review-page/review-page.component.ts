@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BreadcrumbLink } from '@shared/breadcrumb/model/breadcrumb-link.interface';
 import { BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
 import { QuestionAnswerChange } from '../../model/field-answer-change';
+import { ChipField, Field, LikertScaleField, MultiLineTextField, TextAreaField, TraficLightField } from '../../model/fields';
 import { Question } from '../../model/question';
 import { Review } from '../../model/review';
-import { ReviewsService } from '../../services/reviews/reviews.service';
 import { ReviewVisibilityService } from '../../services/review-visibility/review-visibility.service';
+import { ReviewsService } from '../../services/reviews/reviews.service';
 
 interface ReviewState {
   review: Review | null;
@@ -74,7 +74,7 @@ export class ReviewPageComponent {
   }
 
   getVisibleQuestions(review: Review): Question[] {
-    return review.questions?.filter((q) => q.visible !== false) ?? [];
+    return review.questions?.filter((q) => q.is_visible !== false) ?? [];
   }
 
   private updateState(action: ReviewAction): void {
@@ -158,7 +158,7 @@ export class ReviewPageComponent {
 
     // Search backward from requestedIndex
     for (let i = requestedIndex - 1; i >= 0; i -= 1) {
-      if (allQuestions[i].visible !== false) {
+      if (allQuestions[i].is_visible !== false) {
         return allQuestions[i].id;
       }
     }
@@ -179,7 +179,7 @@ export class ReviewPageComponent {
 
     for (let i = currentIndex + 1; i < review.questions.length; i += 1) {
       const candidate = review.questions[i];
-      if (candidate.visible !== false) {
+      if (candidate.is_visible !== false) {
         return candidate.id;
       }
     }
@@ -269,3 +269,4 @@ export class ReviewPageComponent {
     return this.reviewVisibilityService.applyVisibility(review) ?? review;
   }
 }
+

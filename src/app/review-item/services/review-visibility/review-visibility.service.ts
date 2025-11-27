@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Condition } from '../../model/condition';
 import { Field } from '../../model/fields';
 import { Question } from '../../model/question';
 import { Review } from '../../model/review';
-import { Condition } from '../../model/condition';
 
 type FieldAnswerValue = string | number | boolean | string[] | null;
 
@@ -32,7 +32,7 @@ export class ReviewVisibilityService {
 
     const questions = review.questions.map((question) => ({
       ...question,
-      fields: question.fields.map((field) => (field.visible === false ? this.clearFieldAnswer(field) : field))
+      fields: question.fields.map((field) => (field.is_visible === false ? this.clearFieldAnswer(field) : field))
     }));
 
     return {
@@ -43,21 +43,21 @@ export class ReviewVisibilityService {
 
   private applyQuestionVisibility(question: Question, lookup: Map<string, Field>): Question {
     const fields = question.fields.map((field) => this.applyFieldVisibility(field, lookup));
-    const hasVisibleFields = fields.some((field) => field.visible !== false);
+    const hasVisibleFields = fields.some((field) => field.is_visible !== false);
     const questionHasFields = question.fields.length > 0;
 
     return {
       ...question,
       fields,
-      visible: questionHasFields ? hasVisibleFields : true
+      is_visible: questionHasFields ? hasVisibleFields : true
     };
   }
 
   private applyFieldVisibility(field: Field, lookup: Map<string, Field>): Field {
-    const visible = this.evaluateConditions(field.conditions, lookup);
+    const is_visible = this.evaluateConditions(field.conditions, lookup);
     return {
       ...field,
-      visible
+      is_visible
     };
   }
 
@@ -162,3 +162,4 @@ export class ReviewVisibilityService {
     return lookup;
   }
 }
+

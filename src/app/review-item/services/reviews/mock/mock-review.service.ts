@@ -33,7 +33,8 @@ export const mock_review: Review = {
           additonal_option_count: 3,
           max_length: 50,
           placeholder: 'Stichwort hinzufügen...',
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
@@ -66,7 +67,8 @@ export const mock_review: Review = {
             { id: 'other', text: 'Other' }
           ],
           answer_value: ['nachrichtenartikel'], // Ausgewählt
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
@@ -93,7 +95,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null, // Noch nicht beantwortet
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         },
         {
           id: 'structure',
@@ -105,7 +108,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         },
         {
           id: 'headline',
@@ -117,7 +121,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         },
         {
           id: 'objectivity',
@@ -129,7 +134,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         },
         {
           id: 'perspectives',
@@ -141,7 +147,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
@@ -168,7 +175,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         },
         {
           id: 'claims_match_sources',
@@ -180,7 +188,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         },
         {
           id: 'public_media_match',
@@ -193,7 +202,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         },
         {
           id: 'author_credentials',
@@ -205,7 +215,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
@@ -232,7 +243,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null,
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
@@ -291,7 +303,8 @@ export const mock_review: Review = {
             }
           ],
           answer_value: null, // Noch nicht beantwortet
-          is_disabled: false
+          is_disabled: false,
+          is_required: true
         }
       ]
     },
@@ -321,6 +334,7 @@ export const mock_review: Review = {
           ],
           answer_value: null,
           is_disabled: false,
+          is_required: true,
           conditions: [
             {
               field_id: 'additional_rating',

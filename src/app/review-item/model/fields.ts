@@ -1,11 +1,30 @@
 import { Condition } from './condition';
 import { ChipOption, LikertScaleOption, MultiLineTextOption, TextAreaOption, TraficLightOption } from './options';
 
-interface BaseField {
+/**
+ * Internal UI-only state for a review question.
+ *
+ * This type represents ephemeral, client-side flags used by UI components
+ * and view logic to control presentation and local interactions. It is for
+ * in-memory use only and does NOT represent data stored in or retrieved from
+ * the backend. Do NOT serialize, persist, or send instances of this type in
+ * API requests.
+ *
+ * Properties:
+ * - is_visible?: boolean — When true the field should be shown in the UI;
+ *   when false or undefined the field may be hidden.
+ *
+ * @internal
+ */
+interface FieldState {
+  is_visible?: boolean;
+}
+
+interface BaseField extends FieldState {
   id: string;
-  is_disabled: boolean;
   conditions?: Condition[];
-  visible?: boolean;
+  is_disabled: boolean;
+  is_required?: boolean;
 }
 
 export interface ChipField extends BaseField {
@@ -46,3 +65,4 @@ export interface MultiLineTextField extends BaseField {
 }
 
 export type Field = ChipField | TraficLightField | LikertScaleField | TextAreaField | MultiLineTextField;
+
