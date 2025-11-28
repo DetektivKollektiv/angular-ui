@@ -375,7 +375,9 @@ export const mock_items: Item[] = [
       { text: 'Fehlerhafte Zitate', score: 3.2 },
       { text: 'Subjektiv, Hetze oder Hassrede', score: 3.8 },
       { text: 'Fehlerhafte Quellen', score: 3.5 },
-      { text: 'Einseitige Berichterstattung', score: 3.6 }
+      { text: 'Einseitige Berichterstattung', score: 3.6 },
+      { text: 'Einseitige Berichterstattung', score: 1.6 },
+      { text: 'Einseitige Berichterstattung', score: 0.6 }
     ],
     opengraph: {
       title: 'Spiegel erhält frische Millionen für „unabhängigen Journalismus"',

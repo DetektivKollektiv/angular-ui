@@ -56,7 +56,30 @@ export class ArchiveItemComponent {
     return 'archive-card__rating-tag--very-low';
   }
 
-  getSortedReviewTags(): ReviewTag[] {
-    return [...(this.item.review_tags || [])].sort((a, b) => (a.score ?? 0) - (b.score ?? 0));
+  getPreviewTags(maxLength: number = 80): ReviewTag[] {
+    const sorted = [...(this.item.review_tags || [])].sort((a, b) => (a.score ?? 0) - (b.score ?? 0));
+
+    let charCount = 0;
+    let truncated = false;
+
+    const result = sorted.reduce<ReviewTag[]>((acc, tag, index) => {
+      if (truncated) return acc;
+
+      const separator = index === 0 ? 0 : 2; // ', ' length
+      const newTotal = charCount + separator + tag.text.length;
+
+      if (newTotal > maxLength) {
+        acc.push({ ...tag, text: '...' });
+        truncated = true;
+        return acc;
+      }
+
+      charCount = newTotal;
+      acc.push(tag);
+      return acc;
+    }, []);
+
+    return result;
   }
 }
+

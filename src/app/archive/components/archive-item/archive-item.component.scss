@@ -210,6 +210,8 @@
 @media (max-width: 1350px) {
   .archive-card {
     grid-template-columns: 1fr;
+    height: 100%;
+    overflow: hidden;
   }
 
   .archive-card__description {
@@ -227,6 +229,9 @@
     word-break: break-word; /* Fallback für ältere Browser */
     min-width: 0px;
     hyphens: auto;
+    flex: 1; /* Nimmt den verfügbaren Platz ein */
+    min-height: 0; /* Wichtig! Erlaubt Schrumpfen unter Content-Größe */
+    overflow: hidden; /* Versteckt überlaufenden Inhalt */
   }
 }
 

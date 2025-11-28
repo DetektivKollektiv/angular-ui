@@ -36,7 +36,7 @@
         <span
           class="archive-card__rating-tag"
           [ngClass]="getReviewTagClass(tag)"
-          *ngFor="let tag of getSortedReviewTags(); trackBy: trackByReviewTag; let last = last"
+          *ngFor="let tag of getPreviewTags(); trackBy: trackByReviewTag; let last = last"
         >
           {{ tag.text }}<span *ngIf="!last">,</span>
         </span>
@@ -44,3 +44,4 @@
     </div>
   </div>
 </article>
+
