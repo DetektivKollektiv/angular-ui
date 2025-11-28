@@ -41,4 +41,9 @@ export class ArchiveItemComponent {
   trackByReviewTag(_index: number, tag: ReviewTag): string {
     return tag.text;
   }
+
+  getTagTexts(): string {
+    return this.item.review_tags.map((tag) => tag.text).join(', ');
+  }
 }
+

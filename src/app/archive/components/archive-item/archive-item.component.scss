@@ -12,6 +12,9 @@
   box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.03);
   align-items: stretch;
+  // breakpoint depending height
+  height: 320px;
+  overflow: hidden;
 
   &__image {
     border-radius: 18px;
@@ -133,9 +136,12 @@
   }
 
   &__rating-tags-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+    color: #fff;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-break: break-word; /* Fallback für ältere Browser */
+    min-width: 0px;
+    hyphens: auto;
   }
 
   &__rating-tag {
@@ -203,14 +209,16 @@
   }
 
   .archive-card__rating {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
   }
 
   .archive-card__rating-tags {
     width: 100%;
+    display: inline;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-break: break-word; /* Fallback für ältere Browser */
+    min-width: 0px;
+    hyphens: auto;
   }
 }
 
