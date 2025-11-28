@@ -1,21 +1,22 @@
-<div class="archive-page standard-content-container-width">
-  <div class="top-section">
-    <div class="overview-section">
-      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
-      <h1>Gelöste Fälle</h1>
-      <p>
-        Hier siehst du eine Übersicht aller Fälle, deren Bearbeitung abgeschlossen ist. Der Vertrauensindex liegt zwischen 0 und 100 - je
-        höher der Index, desto vertrauenswürdiger der Inhalt. Sieh dir via Klick auf einen Fall die Details an.
-      </p>
+<div class="archive-page">
+  <div class="container-width">
+    <div class="top-section">
+      <div class="overview-section">
+        <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+        <h1>Gelöste Fälle</h1>
+        <p>
+          Hier siehst du eine Übersicht aller Fälle, deren Bearbeitung abgeschlossen ist. Der Vertrauensindex liegt zwischen 0 und 100 - je
+          höher der Index, desto vertrauenswürdiger der Inhalt. Sieh dir via Klick auf einen Fall die Details an.
+        </p>
+      </div>
+      <app-rating-legend></app-rating-legend>
     </div>
-    <app-rating-legend></app-rating-legend>
-  </div>
-
-  <div class="section-of-questions standard-content-container-width">
-    <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
-  </div>
-
-  <div class="bottom-section" id="archive-bottom-section" *ngIf="items$ | async as archiveItems">
-    <app-archive-item *ngFor="let item of archiveItems" [item]="item" class="archive-list-item"></app-archive-item>
+    <div class="section-of-questions standard-content-container-width">
+      <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
+    </div>
+    <div class="bottom-section" id="archive-bottom-section" *ngIf="items$ | async as archiveItems">
+      <app-archive-item *ngFor="let item of archiveItems" [item]="item" class="archive-list-item"></app-archive-item>
+    </div>
   </div>
 </div>
+
