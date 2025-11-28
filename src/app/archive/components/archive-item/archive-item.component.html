@@ -30,9 +30,9 @@
       {{ rating.label }}
     </div>
 
-    <div class="archive-card__rating-tags" *ngIf="item.review_tags?.length">
+    <div class="archive-card__rating-tags">
       <div class="archive-card__rating-tags-title">Tags zur Bewertung</div>
-      <div class="archive-card__rating-tags-list">
+      <div class="archive-card__rating-tags-list" *ngIf="item.review_tags?.length">
         <span
           class="archive-card__rating-tag"
           [ngClass]="getReviewTagClass(tag)"
@@ -41,6 +41,7 @@
           {{ tag.text }}<span *ngIf="!last">,</span>
         </span>
       </div>
+      <div class="archive-card__rating-no-tags" *ngIf="!item.review_tags?.length">Keine Tags verfügbar</div>
     </div>
   </div>
 </article>

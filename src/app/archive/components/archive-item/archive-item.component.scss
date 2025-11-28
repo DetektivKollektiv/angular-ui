@@ -144,6 +144,11 @@
     hyphens: auto;
   }
 
+  &__rating-no-tags {
+    font-style: italic;
+    color: #9ca3af;
+  }
+
   &__rating-tag {
     color: #fca5a5;
     font-weight: 600;
@@ -207,11 +212,16 @@
   background: linear-gradient(90deg, #ef4444, #f43f5e);
 }
 
-@media (max-width: 1350px) {
+@media (max-width: 1000px) {
   .archive-card {
     grid-template-columns: 1fr;
     height: 100%;
     overflow: hidden;
+
+    &__image {
+      min-height: 0px;
+      height: 200px;
+    }
   }
 
   .archive-card__description {
