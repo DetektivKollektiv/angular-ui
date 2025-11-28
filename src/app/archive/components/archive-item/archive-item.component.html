@@ -33,11 +33,14 @@
     <div class="archive-card__rating-tags" *ngIf="item.review_tags?.length">
       <div class="archive-card__rating-tags-title">Tags zur Bewertung</div>
       <div class="archive-card__rating-tags-list">
-        <span class="archive-card__rating-tag" *ngFor="let tag of item.review_tags; trackBy: trackByReviewTag">
-          {{ tag.text }}
+        <span
+          class="archive-card__rating-tag"
+          [ngClass]="getReviewTagClass(tag)"
+          *ngFor="let tag of getSortedReviewTags(); trackBy: trackByReviewTag; let last = last"
+        >
+          {{ tag.text }}<span *ngIf="!last">,</span>
         </span>
       </div>
     </div>
   </div>
 </article>
-

@@ -148,14 +148,22 @@
     color: #fca5a5;
     font-weight: 600;
     line-height: 1.4;
+  }
 
-    &:nth-child(odd) {
-      color: #ff6b6b;
-    }
+  &__rating-tag--high {
+    color: #22c55e;
+  }
 
-    &:nth-child(even) {
-      color: #22c55e;
-    }
+  &__rating-tag--mid {
+    color: #a3e635;
+  }
+
+  &__rating-tag--low {
+    color: #f59e0b;
+  }
+
+  &__rating-tag--very-low {
+    color: #ef4444;
   }
 
   &.rating--trusted {

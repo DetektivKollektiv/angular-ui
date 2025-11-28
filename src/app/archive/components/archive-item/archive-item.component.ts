@@ -42,8 +42,21 @@ export class ArchiveItemComponent {
     return tag.text;
   }
 
-  getTagTexts(): string {
-    return this.item.review_tags.map((tag) => tag.text).join(', ');
+  getReviewTagClass(tag: ReviewTag): string {
+    const score = tag.score ?? 0;
+    if (score >= 3.5) {
+      return 'archive-card__rating-tag--high';
+    }
+    if (score >= 2.5) {
+      return 'archive-card__rating-tag--mid';
+    }
+    if (score >= 1.5) {
+      return 'archive-card__rating-tag--low';
+    }
+    return 'archive-card__rating-tag--very-low';
+  }
+
+  getSortedReviewTags(): ReviewTag[] {
+    return [...(this.item.review_tags || [])].sort((a, b) => (a.score ?? 0) - (b.score ?? 0));
   }
 }
-
