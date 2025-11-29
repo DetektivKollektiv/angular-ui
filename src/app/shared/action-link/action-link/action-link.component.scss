@@ -1,7 +1,6 @@
 @use '../../../../assets/scss/fonts' as fonts;
 
 .action-link__button {
-  @include fonts.font__effra--bold;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -12,6 +11,11 @@
   cursor: pointer;
   color: inherit;
   text-decoration: none;
+
+  .action-link__text {
+    @include fonts.font__effra--bold;
+    font-size: 0.85rem;
+  }
 
   &:hover .action-link__text {
     text-decoration: underline;
@@ -35,3 +39,4 @@
 .action-link--dark {
   color: #e5e7eb;
 }
+

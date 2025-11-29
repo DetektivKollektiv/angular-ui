@@ -52,12 +52,12 @@
   &__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.25rem;
   }
 
   &__tag {
     padding: 0.35rem 0.75rem;
-    border-radius: 999px;
+    border-radius: 12px;
     border: 1.5px solid #5c57ff;
     color: #4d47e5;
     font-weight: 600;
