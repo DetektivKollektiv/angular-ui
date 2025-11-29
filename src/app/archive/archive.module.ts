@@ -37,6 +37,7 @@ import { TagIconModule } from '@shared/tag-icon/tag-icon.module';
 import { ReviewResponsesComponent } from './components/review-responses/review-responses.component';
 import { ArchiveDetailsTopModule } from './components/archive-details-page/archive-details-top/archive-details-top.module';
 import { ArchiveDetailsRatingModule } from './components/archive-details-page/archive-details-rating/archive-details-rating.module';
+import { ArchiveDetailsEvaluationModule } from './components/archive-details-page/archive-details-evaluation/archive-details-evaluation.module';
 import { CaseSortByPipe } from './services/case-sort-by.pipe';
 
 registerLocaleData(localeDE, 'de');
@@ -74,6 +75,7 @@ registerLocaleData(localeDE, 'de');
     PipesModule,
     ArchiveDetailsTopModule,
     ArchiveDetailsRatingModule,
+    ArchiveDetailsEvaluationModule,
     ItemComponentModule,
     ActionLinkModule,
     ButtonModule
