@@ -1,10 +1,10 @@
 <div class="archive-details-page">
   <div class="container-width" *ngIf="detailItem$ | async as item">
-    <div class="back-button">
-      <button appButton routerLink="/archive">Zurück zur Übersicht</button>
-    </div>
     <div class="breadcrumb">
       <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+    </div>
+    <div class="back-button">
+      <button appButton routerLink="/archive">Zurück zur Übersicht</button>
     </div>
     <app-archive-details-top [item]="item"></app-archive-details-top>
     <app-archive-details-rating [item]="item"></app-archive-details-rating>
@@ -27,3 +27,4 @@
   </div>
   <div *ngIf="loading">Lade Fall …</div>
 </div>
+

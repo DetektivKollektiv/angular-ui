@@ -15,7 +15,7 @@
     >
       <button class="evaluation__category-header" type="button" (click)="toggleCategory(category.category_id)">
         <div class="evaluation__category-left">
-          <span class="evaluation__category-icon">•</span>
+          <mat-icon>{{ category.icon }}</mat-icon>
           <span class="evaluation__category-title">{{ category.title }}</span>
         </div>
         <span class="evaluation__category-toggle">
@@ -89,3 +89,4 @@
     </div>
   </div>
 </section>
+

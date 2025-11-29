@@ -320,7 +320,7 @@ const standardRatingCategories: RatingCategory[] = [
   {
     category_id: 'content_criteria_question',
     title: 'Inhalte',
-    icon: 'content',
+    icon: 'chat',
     questions: [
       {
         question_id: 'grammar',
@@ -452,7 +452,7 @@ const standardRatingCategories: RatingCategory[] = [
   {
     category_id: 'images_question',
     title: 'Bilder & Videos',
-    icon: 'media',
+    icon: 'images',
     questions: [
       {
         question_id: 'images_quality',
@@ -472,7 +472,7 @@ const standardRatingCategories: RatingCategory[] = [
   {
     category_id: 'evaluation_criteria_question',
     title: 'Bewertungskriterien',
-    icon: 'evaluation',
+    icon: 'format_quote',
     questions: [
       {
         question_id: 'additional_rating',
