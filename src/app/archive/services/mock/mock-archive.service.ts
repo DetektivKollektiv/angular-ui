@@ -327,7 +327,7 @@ const standardRatingCategories: RatingCategory[] = [
         question_text: 'Die Grammatik und Rechtschreibung des Artikels sind fehlerfrei.',
         total_reviews: 18,
         distribution: {
-          0: 11, // untrusted
+          0: 100, // untrusted
           1: 22, // mostly-untrusted
           2: 28, // mostly-trusted
           3: 39, // trusted

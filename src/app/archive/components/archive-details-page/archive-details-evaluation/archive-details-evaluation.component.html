@@ -55,7 +55,6 @@
                   <p class="evaluation__card-label">Einschätzung</p>
                   <div class="evaluation__distribution">
                     <div class="evaluation__distribution-row" *ngFor="let entry of getDistributionEntries(question.distribution)">
-                      <span class="evaluation__distribution-swatch" [style.background]="entry.color"></span>
                       <div class="evaluation__distribution-bar">
                         <div class="evaluation__distribution-fill" [style.width.%]="entry.percent" [style.background]="entry.color"></div>
                       </div>
@@ -67,23 +66,23 @@
             </ng-template>
           </swiper>
         </div>
-          <button
-            class="evaluation__nav evaluation__nav--prev"
-            type="button"
-            (click)="slidePrev(categorySwiper)"
-            [disabled]="categorySwiper?.swiperRef?.isBeginning"
-          >
-            <mat-icon>chevron_left</mat-icon>
-          </button>
+        <button
+          class="evaluation__nav evaluation__nav--prev"
+          type="button"
+          (click)="slidePrev(categorySwiper)"
+          [disabled]="categorySwiper?.swiperRef?.isBeginning"
+        >
+          <mat-icon>chevron_left</mat-icon>
+        </button>
 
-          <button
-            class="evaluation__nav evaluation__nav--next"
-            type="button"
-            (click)="slideNext(categorySwiper)"
-            [disabled]="categorySwiper?.swiperRef?.isEnd"
-          >
-            <mat-icon>chevron_right</mat-icon>
-          </button>
+        <button
+          class="evaluation__nav evaluation__nav--next"
+          type="button"
+          (click)="slideNext(categorySwiper)"
+          [disabled]="categorySwiper?.swiperRef?.isEnd"
+        >
+          <mat-icon>chevron_right</mat-icon>
+        </button>
       </div>
     </div>
   </div>

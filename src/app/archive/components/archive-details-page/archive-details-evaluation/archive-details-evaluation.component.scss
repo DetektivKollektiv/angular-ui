@@ -213,21 +213,14 @@
 
   &__distribution-row {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    gap: 0.5rem;
-  }
-
-  &__distribution-swatch {
-    width: 22px;
-    height: 18px;
-    border-radius: 6px;
-    display: inline-block;
+    gap: 0.75rem;
   }
 
   &__distribution-bar {
     background: #e5e7eb;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
     height: 18px;
     position: relative;
@@ -240,6 +233,7 @@
   }
 
   &__distribution-value {
+    width: 2.5rem;
     font-weight: 700;
     color: #111827;
   }
@@ -250,3 +244,4 @@
     padding: 1.25rem;
   }
 }
+
