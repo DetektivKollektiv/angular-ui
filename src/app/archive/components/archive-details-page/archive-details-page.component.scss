@@ -207,16 +207,6 @@ app-case-details {
       }
     }
 
-    .comments {
-      margin-top: 40px;
-
-      &__title {
-        @include fonts.font__effra--bold;
-        font-size: 21px;
-        margin-bottom: 20px;
-      }
-    }
-
     .processing {
       margin-top: 40px;
 

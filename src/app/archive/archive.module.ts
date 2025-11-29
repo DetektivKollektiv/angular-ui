@@ -38,6 +38,7 @@ import { ReviewResponsesComponent } from './components/review-responses/review-r
 import { ArchiveDetailsTopModule } from './components/archive-details-page/archive-details-top/archive-details-top.module';
 import { ArchiveDetailsRatingModule } from './components/archive-details-page/archive-details-rating/archive-details-rating.module';
 import { ArchiveDetailsEvaluationModule } from './components/archive-details-page/archive-details-evaluation/archive-details-evaluation.module';
+import { ArchiveDetailsCommentsModule } from './components/archive-details-page/archive-details-comments/archive-details-comments.module';
 import { CaseSortByPipe } from './services/case-sort-by.pipe';
 
 registerLocaleData(localeDE, 'de');
@@ -76,6 +77,7 @@ registerLocaleData(localeDE, 'de');
     ArchiveDetailsTopModule,
     ArchiveDetailsRatingModule,
     ArchiveDetailsEvaluationModule,
+    ArchiveDetailsCommentsModule,
     ItemComponentModule,
     ActionLinkModule,
     ButtonModule

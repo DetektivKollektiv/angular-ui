@@ -1,0 +1,49 @@
+<section class="comments" *ngIf="comments?.length">
+  <div class="comments__header">
+    <h2 class="comments__title">Kommentare</h2>
+  </div>
+  <div class="comments__slider">
+    <swiper
+      #commentsSwiper
+      class="comments__swiper"
+      [spaceBetween]="swiperSpacing"
+      [slidesPerView]="1"
+      [breakpoints]="swiperBreakpoints"
+      (swiper)="handleSwiperInit($event)"
+      (slideChange)="handleSlideChange(commentsSwiper?.swiperRef)"
+    >
+      <ng-template swiperSlide *ngFor="let comment of comments; trackBy: trackComment">
+        <article class="comments__card">
+          <div class="comments__card-flag" *ngIf="comment.is_flagged">
+            <mat-icon>flag</mat-icon>
+          </div>
+          <p class="comments__text">{{ comment.text }}</p>
+          <div class="comments__meta">
+            <div class="comments__author">{{ comment.user_name }}</div>
+            <div class="comments__date">{{ comment.timestamp | date : 'dd.MM.yyyy' }}</div>
+          </div>
+          <div class="comments__footer" *ngIf="comment.upvotes !== undefined">
+            <mat-icon>thumb_up_alt</mat-icon>
+            <span>{{ comment.upvotes }}</span>
+          </div>
+        </article>
+      </ng-template>
+    </swiper>
+    <button
+      class="comments__nav comments__nav--prev"
+      type="button"
+      (click)="slidePrev(commentsSwiper)"
+      [disabled]="isBeginning()"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button
+      class="comments__nav comments__nav--next"
+      type="button"
+      (click)="slideNext(commentsSwiper)"
+      [disabled]="isEnd()"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</section>

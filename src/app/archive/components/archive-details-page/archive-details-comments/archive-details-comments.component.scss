@@ -1,0 +1,120 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+@use '../../../../../assets/scss/colors' as colors;
+
+.comments {
+  margin-top: 40px;
+
+  &__title {
+    @include fonts.font__effra--bold;
+    font-size: 21px;
+    margin-bottom: 20px;
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__swiper {
+    padding: 2rem 5rem;
+  }
+
+  &__card {
+    position: relative;
+    background: #f6f6f8;
+    border-radius: 14px;
+    padding: 20px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  &__card-flag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    color: colors.$color__bittersweet;
+  }
+
+  &__text {
+    @include fonts.font__effra--bold;
+    color: #0a0939;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+
+    .comments__author {
+      @include fonts.font__effra--bold;
+      color: #0a0939;
+      font-size: 15px;
+    }
+
+    .comments__date {
+      color: #8b8fa3;
+      font-size: 14px;
+    }
+  }
+
+  &__footer {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: colors.$color__purple;
+    font-weight: 600;
+    margin-top: 4px;
+
+    mat-icon {
+      font-size: 20px;
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 1px solid #e2e4ea;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    color: colors.$color__purple;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-50%) scale(1.02);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    &--prev {
+      left: -12px;
+    }
+
+    &--next {
+      right: -12px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
