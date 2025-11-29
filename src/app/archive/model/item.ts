@@ -51,6 +51,7 @@ export interface QuestionRating {
   question_text: string; // Der vollständige Fragetext
   total_reviews: number; // Gesamtzahl der Bewertungen
   distribution: RatingDistribution; // Verteilung der Bewertungen
+  rating_tag: RatingTag; // Tags, die mit dieser Frage verbunden sind
 }
 
 // Verteilung der Bewertungen (0-4 für Traffic Light)
@@ -68,5 +69,10 @@ export interface RatingCategory {
   title: string; // z.B. 'Inhalte', 'Quelle', 'Bilder'
   icon?: string; // Optional: Icon identifier
   questions: QuestionRating[]; // Fragen innerhalb dieser Kategorie
+}
+
+export interface RatingTag {
+  text: string;
+  score: number; // 0-4 (float)
 }
 

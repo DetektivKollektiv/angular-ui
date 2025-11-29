@@ -10,41 +10,22 @@
   <div class="evaluation__categories">
     <div
       class="evaluation__category"
-      *ngFor="let category of categories; trackBy: trackCategory"
-      [class.evaluation__category--expanded]="isExpanded(category.id)"
+      *ngFor="let category of item.rating_categories; trackBy: trackCategory"
+      [class.evaluation__category--expanded]="isExpanded(category.category_id)"
     >
-      <button class="evaluation__category-header" type="button" (click)="toggleCategory(category.id)">
+      <button class="evaluation__category-header" type="button" (click)="toggleCategory(category.category_id)">
         <div class="evaluation__category-left">
           <span class="evaluation__category-icon">•</span>
           <span class="evaluation__category-title">{{ category.title }}</span>
         </div>
         <span class="evaluation__category-toggle">
-          {{ isExpanded(category.id) ? 'Ausblenden' : 'Anzeigen' }}
-          <mat-icon>{{ isExpanded(category.id) ? 'expand_less' : 'expand_more' }}</mat-icon>
+          {{ isExpanded(category.category_id) ? 'Ausblenden' : 'Anzeigen' }}
+          <mat-icon>{{ isExpanded(category.category_id) ? 'expand_less' : 'expand_more' }}</mat-icon>
         </span>
       </button>
 
-      <div class="evaluation__category-content" *ngIf="isExpanded(category.id)">
-        <div class="evaluation__questions">
-          <div class="evaluation__card" *ngFor="let question of category.questions; trackBy: trackQuestion">
-            <div class="evaluation__card-header">
-              <p class="evaluation__card-label">Frage</p>
-              <app-item-component [tag]="question.tag"></app-item-component>
-            </div>
-            <p class="evaluation__card-text">{{ question.text }}</p>
-            <div class="evaluation__card-rating">
-              <span class="evaluation__card-rating-label">Einschätzung</span>
-              <span
-                class="evaluation__pill"
-                [style.--pill-start]="ratingGradients[question.rating].start"
-                [style.--pill-end]="ratingGradients[question.rating].end"
-              >
-                {{ ratingGradients[question.rating].label }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div *ngFor="let question of category.questions; trackBy: trackQuestion">{{ question.question_text }}</div>
     </div>
   </div>
 </section>
+

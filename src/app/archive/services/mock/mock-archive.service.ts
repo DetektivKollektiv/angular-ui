@@ -332,7 +332,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 28, // mostly-trusted
           3: 39, // trusted
           4: 0 // not rated
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       },
       {
         question_id: 'structure',
@@ -344,7 +345,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 17,
           3: 66,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       },
       {
         question_id: 'headline',
@@ -356,7 +358,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 28,
           3: 22,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       },
       {
         question_id: 'objectivity',
@@ -368,7 +371,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 33,
           3: 28,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       },
       {
         question_id: 'perspectives',
@@ -380,7 +384,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 22,
           3: 17,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       }
     ]
   },
@@ -399,7 +404,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 22,
           3: 23,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       },
       {
         question_id: 'claims_match_sources',
@@ -411,7 +417,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 22,
           3: 22,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       },
       {
         question_id: 'public_media_match',
@@ -424,7 +431,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 17,
           3: 16,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       },
       {
         question_id: 'author_credentials',
@@ -436,7 +444,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 17,
           3: 11,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       }
     ]
   },
@@ -455,7 +464,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 28,
           3: 44,
           4: 0
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       }
     ]
   },
@@ -474,7 +484,8 @@ const standardRatingCategories: RatingCategory[] = [
           2: 28, // Ja, großer Mangel
           3: 17, // Ja, gravierender Fehler,
           4: 22 // Nein, alles geprüft
-        }
+        },
+        rating_tag: { text: 'Grammatik', score: 2.5 }
       }
     ]
   }
