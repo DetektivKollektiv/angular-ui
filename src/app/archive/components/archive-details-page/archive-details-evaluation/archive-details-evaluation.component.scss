@@ -83,17 +83,25 @@
   }
 
   &__category-content {
-    padding: 1rem;
+    position: relative;
+    padding: 2rem 5rem;
   }
 
-  &__questions {
+  &__slider {
+    position: relative;
+  }
+
+  &__swiper {
+    width: 100%;
+  }
+
+  &__swiper ::ng-deep .swiper-slide {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    height: auto;
   }
 
   &__card {
-    flex: 1 1 280px;
+    width: 100%;
     background: #f9fafb;
     border-radius: 18px;
     padding: 1rem;
@@ -124,6 +132,49 @@
     font-size: 0.95rem;
     font-style: italic;
     height: 3rem;
+  }
+
+  &__nav {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    border: none;
+    background: #0d0734;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%);
+
+    &:hover {
+      transform: translateY(calc(-50% - 1px));
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: translateY(-50%);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+    }
+
+    &--prev {
+      left: 1.25rem;
+    }
+
+    &--next {
+      right: 1.25rem;
+    }
+
+    mat-icon {
+      font-size: 22px;
+      height: 22px;
+      width: 22px;
+    }
   }
 
   &__tag {

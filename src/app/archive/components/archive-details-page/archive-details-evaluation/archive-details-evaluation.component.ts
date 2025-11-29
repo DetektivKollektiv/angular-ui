@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { SwiperComponent } from 'swiper/angular';
 import { Item, QuestionRating, RatingCategory } from '../../../model/item';
 
 type RatingKey = 'trusted' | 'mostly-trusted' | 'mostly-untrusted' | 'untrusted';
@@ -26,6 +27,14 @@ export class ArchiveDetailsEvaluationComponent {
   @Input() item!: Item;
 
   expandedCategoryIds = new Set<string>(['source']);
+
+  readonly swiperBreakpoints = {
+    0: { slidesPerView: 1 },
+    768: { slidesPerView: 1 },
+    1024: { slidesPerView: 3 }
+  };
+
+  readonly swiperSpacing = 16;
 
   private readonly distributionColors: Record<keyof QuestionRating['distribution'], string> = {
     0: '#ef4444', // untrusted
@@ -69,6 +78,14 @@ export class ArchiveDetailsEvaluationComponent {
     if (score >= 2) return 'mostly-trusted';
     if (score >= 1) return 'mostly-untrusted';
     return 'untrusted';
+  }
+
+  slideNext(swiper?: SwiperComponent): void {
+    swiper?.swiperRef.slideNext();
+  }
+
+  slidePrev(swiper?: SwiperComponent): void {
+    swiper?.swiperRef.slidePrev();
   }
 
   getTagStyle(score: number): Record<string, string> {
