@@ -32,6 +32,8 @@
             [spaceBetween]="swiperSpacing"
             [slidesPerView]="1"
             [breakpoints]="swiperBreakpoints"
+            (swiper)="handleSwiperInit(category.category_id, $event)"
+            (slideChange)="handleSlideChange(category.category_id, categorySwiper?.swiperRef)"
           >
             <ng-template swiperSlide *ngFor="let question of category.questions; trackBy: trackQuestion">
               <article class="evaluation__card">
@@ -70,7 +72,7 @@
           class="evaluation__nav evaluation__nav--prev"
           type="button"
           (click)="slidePrev(categorySwiper)"
-          [disabled]="categorySwiper?.swiperRef?.isBeginning"
+          [disabled]="isBeginning(category.category_id)"
         >
           <mat-icon>chevron_left</mat-icon>
         </button>
@@ -79,7 +81,7 @@
           class="evaluation__nav evaluation__nav--next"
           type="button"
           (click)="slideNext(categorySwiper)"
-          [disabled]="categorySwiper?.swiperRef?.isEnd"
+          [disabled]="isEnd(category.category_id)"
         >
           <mat-icon>chevron_right</mat-icon>
         </button>

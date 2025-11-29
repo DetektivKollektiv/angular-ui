@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { SwiperComponent } from 'swiper/angular';
+import Swiper from 'swiper';
 import { Item, QuestionRating, RatingCategory } from '../../../model/item';
 
 type RatingKey = 'trusted' | 'mostly-trusted' | 'mostly-untrusted' | 'untrusted';
@@ -36,6 +37,8 @@ export class ArchiveDetailsEvaluationComponent {
 
   readonly swiperSpacing = 16;
 
+  navigationState: Record<string, { isBeginning: boolean; isEnd: boolean }> = {};
+
   private readonly distributionColors: Record<keyof QuestionRating['distribution'], string> = {
     0: '#ef4444', // untrusted
     1: '#f97316', // mostly-untrusted
@@ -52,6 +55,8 @@ export class ArchiveDetailsEvaluationComponent {
     'mostly-untrusted': { start: '#f59e0b', end: '#f97316', label: 'Eher nicht vertrauenswürdig' },
     untrusted: { start: '#ef4444', end: '#f43f5e', label: 'Nicht vertrauenswürdig' }
   };
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   toggleCategory(categoryId: string): void {
     if (this.expandedCategoryIds.has(categoryId)) {
@@ -80,12 +85,42 @@ export class ArchiveDetailsEvaluationComponent {
     return 'untrusted';
   }
 
+  handleSwiperInit(categoryId: string, swiper: Swiper): void {
+    const current = this.navigationState[categoryId];
+    const nextState = { isBeginning: swiper.isBeginning, isEnd: swiper.isEnd };
+
+    if (!current || current.isBeginning !== nextState.isBeginning || current.isEnd !== nextState.isEnd) {
+      this.navigationState[categoryId] = nextState;
+      this.cdr.markForCheck();
+    }
+  }
+
+  handleSlideChange(categoryId: string, swiper?: Swiper): void {
+    if (!swiper) return;
+
+    const current = this.navigationState[categoryId];
+    const nextState = { isBeginning: swiper.isBeginning, isEnd: swiper.isEnd };
+
+    if (!current || current.isBeginning !== nextState.isBeginning || current.isEnd !== nextState.isEnd) {
+      this.navigationState[categoryId] = nextState;
+      this.cdr.markForCheck();
+    }
+  }
+
   slideNext(swiper?: SwiperComponent): void {
     swiper?.swiperRef.slideNext();
   }
 
   slidePrev(swiper?: SwiperComponent): void {
     swiper?.swiperRef.slidePrev();
+  }
+
+  isBeginning(categoryId: string): boolean {
+    return this.navigationState[categoryId]?.isBeginning ?? true;
+  }
+
+  isEnd(categoryId: string): boolean {
+    return this.navigationState[categoryId]?.isEnd ?? false;
   }
 
   getTagStyle(score: number): Record<string, string> {
