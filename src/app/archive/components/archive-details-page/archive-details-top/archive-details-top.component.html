@@ -7,9 +7,9 @@
 
   <div class="details-top__right">
     <div class="details-top__actions">
-      <app-action-link text="Fall melden" icon="report" theme="dark" [url]="null"></app-action-link>
+      <app-action-link text="Fall melden" icon="flag" theme="dark" [url]="null" iconColor="#FF7268"></app-action-link>
       <app-action-link text="Hilfe" icon="support" theme="dark"></app-action-link>
-      <app-action-link text="Fall bearbeiten" icon="edit" theme="dark" [url]="null"></app-action-link>
+      <app-action-link text="Fall bearbeiten" icon="edit_document" theme="dark" [url]="null" iconColor="#140735"></app-action-link>
     </div>
 
     <div class="details-top__image" *ngIf="imageUrl">
@@ -19,10 +19,7 @@
     <div class="details-top__tags" *ngIf="item.content_tags?.length">
       <p class="details-top__tags-title">Tags zum Inhalt</p>
       <div class="details-top__tags-list">
-        <app-item-component
-          *ngFor="let tag of item.content_tags; trackBy: trackByTag"
-          [tag]="tag"
-        ></app-item-component>
+        <app-item-component *ngFor="let tag of item.content_tags; trackBy: trackByTag" [tag]="tag"></app-item-component>
       </div>
     </div>
 
@@ -32,3 +29,4 @@
     </div>
   </div>
 </section>
+
