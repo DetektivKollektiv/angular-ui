@@ -16,12 +16,25 @@ app-case-details {
 
 .archive-details-page {
   margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .container-width {
+    width: 100%;
+    padding: 2rem 1rem 4rem;
+
+    @media only screen and (min-width: 1240px) {
+      width: 1240px;
+    }
+  }
 
   .top-section {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin:auto;
+    margin: auto;
     padding: 20px;
 
     @media only screen and (min-width: var.$breakpoint-xs) {
@@ -32,7 +45,7 @@ app-case-details {
   }
 
   .section-of-questions {
-    margin:auto;    
+    margin: auto;
   }
 
   .flag {
@@ -48,7 +61,7 @@ app-case-details {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin:auto;
+    margin: auto;
     padding: 0 20px;
 
     .overview {
@@ -307,3 +320,4 @@ app-case-details {
     }
   }
 }
+
