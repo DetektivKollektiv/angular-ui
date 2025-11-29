@@ -314,7 +314,95 @@
   }
 ]; */
 
-import { Item, RatingCategory } from '../../model/item';
+import { Comment, Item, RatingCategory } from '../../model/item';
+
+const standardComments: Comment[] = [
+  {
+    id: 'comment_001',
+    user_name: 'hsielaff',
+    timestamp: '2025-11-22T14:23:15Z',
+    text: 'Der ARD-Beitrag ist ein Kommentar und als solchen ausdrücklich gekennzeichnet. Wie ist es grundsätzlich mit den Öffentlich-Rechtlichen? Kann hier die Unabhängigkeit bescheinigt werden?',
+    upvotes: 4
+  },
+  {
+    id: 'comment_002',
+    user_name: 'PatrickM',
+    timestamp: '2025-11-22T15:47:33Z',
+    text: 'Es handelt sich hierbei um einen Kommentar. Weshalb Behauptungen immer nur subjektiv sein können.',
+    upvotes: 3
+  },
+  {
+    id: 'comment_003',
+    user_name: 'Theodor',
+    timestamp: '2025-11-22T16:12:08Z',
+    text: 'Es handelt sich um den Kommentar eines Journalisten der ARD, auf der Webseite der Tagesschau.',
+    upvotes: 2
+  },
+  {
+    id: 'comment_004',
+    user_name: 'Maxkrens',
+    timestamp: '2025-11-22T17:05:42Z',
+    text: 'Persönliche Meinung, was kenntlich gemacht wurde.',
+    upvotes: 1
+  },
+  {
+    id: 'comment_005',
+    user_name: 'JuliaK',
+    timestamp: '2025-11-23T09:18:27Z',
+    text: 'Die Quellenangaben sind teilweise unvollständig. Es fehlen direkte Links zu den zitierten Studien.',
+    upvotes: 7
+  },
+  {
+    id: 'comment_006',
+    user_name: 'MartinS',
+    timestamp: '2025-11-23T11:34:56Z',
+    text: 'Wichtiger Kontext wurde weggelassen. Der Artikel erwähnt nicht die Gegenpositionen führender Experten.',
+    upvotes: 5
+  },
+  {
+    id: 'comment_007',
+    user_name: 'SarahB',
+    timestamp: '2025-11-23T13:22:14Z',
+    text: 'Die Überschrift ist reißerisch und spiegelt nicht den eigentlichen Inhalt wider.',
+    upvotes: 8
+  },
+  {
+    id: 'comment_008',
+    user_name: 'ThomasW',
+    timestamp: '2025-11-24T08:45:33Z',
+    text: 'Sehr ausgewogene Darstellung verschiedener Perspektiven. Gut recherchiert.',
+    upvotes: 12
+  },
+  {
+    id: 'comment_009',
+    user_name: 'AnnaL',
+    timestamp: '2025-11-24T10:17:48Z',
+    text: 'Die verwendeten Statistiken sind veraltet und berücksichtigen nicht die neuesten Daten.',
+    upvotes: 6
+  },
+  {
+    id: 'comment_010',
+    user_name: 'FelixR',
+    timestamp: '2025-11-24T14:52:19Z',
+    text: 'Der Autor hat offensichtlich eine klare Agenda. Die Neutralität fehlt komplett.',
+    upvotes: 9,
+    is_flagged: true
+  },
+  {
+    id: 'comment_011',
+    user_name: 'LisaM',
+    timestamp: '2025-11-25T07:33:42Z',
+    text: 'Grammatikalisch einwandfrei und gut strukturiert. Inhaltlich jedoch problematisch.',
+    upvotes: 4
+  },
+  {
+    id: 'comment_012',
+    user_name: 'PeterG',
+    timestamp: '2025-11-25T12:08:56Z',
+    text: 'Die Bilder passen nicht zum Text und wirken wie Stock-Fotos ohne Bezug.',
+    upvotes: 3
+  }
+];
 
 const standardRatingCategories: RatingCategory[] = [
   {
@@ -514,7 +602,8 @@ export const mock_items: Item[] = [
       url: 'https://de.rt.com/europa/126976-trolling-level-in-fluchtlingskrise',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: '32eb6819-3497-4b63-84be-d7002a691313',
@@ -537,7 +626,8 @@ export const mock_items: Item[] = [
       url: 'https://corona-transition.org/rki-bestatigt-covid-19',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: '5343608c-3870-4d55-a46a-2d3fa1844d08',
@@ -565,7 +655,8 @@ export const mock_items: Item[] = [
       url: 'https://reitschuster.de/post/spiegel-erhaelt-frische-millionen',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: '5343608c-3870-4d55-a46a-2d3fa1844d17',
@@ -586,7 +677,8 @@ export const mock_items: Item[] = [
       url: 'https://reitschuster.de/post/stiftung-bethel',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: '563083b2-d46f-4fca-93a4-abe617aeaeb1',
@@ -610,7 +702,8 @@ export const mock_items: Item[] = [
       url: 'https://de.rt.com/inland/127034-chemnitzer-klinikchef',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: '61e1c915-d7ef-4a22-bf92-4649fb60916b',
@@ -635,7 +728,8 @@ export const mock_items: Item[] = [
       url: 'https://beispiel.de/italien-covid-statistik',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: '9c9558d8-be52-4790-a229-a0d3382affdb',
@@ -654,7 +748,8 @@ export const mock_items: Item[] = [
       url: 'https://www.spiegel.de/ausland/corona-in-oesterreich',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: 'c3517c8f-bdbf-4c4c-b7ed-238870b12a4f',
@@ -671,7 +766,8 @@ export const mock_items: Item[] = [
       { text: 'Fehlender Kontext', score: 3.3 },
       { text: 'Wenig vergleichbare Berichterstattung', score: 2.9 }
     ],
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: 'a7f3d912-8bc4-4e1a-9d2f-1e5c7a8b9d3e',
@@ -693,7 +789,8 @@ export const mock_items: Item[] = [
       url: 'https://beispiel.de/klimawandel-hoax',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   },
   {
     id: 'b2e9f8a3-1d4c-4f7e-8a9b-3c5d6e7f8g9h',
@@ -719,7 +816,8 @@ export const mock_items: Item[] = [
       url: 'https://beispiel.de/ukraine-soldaten-vergiftet',
       images: ['https://picsum.photos/1000']
     },
-    rating_categories: standardRatingCategories
+    rating_categories: standardRatingCategories,
+    comments: standardComments
   }
 ];
 

@@ -29,6 +29,7 @@ export interface Item {
 
   // Aggregated ratings per question category
   rating_categories: RatingCategory[];
+  comments: Comment[];
 }
 
 export interface ReviewTag {
@@ -76,3 +77,11 @@ export interface RatingTag {
   score: number; // 0-4 (float)
 }
 
+export interface Comment {
+  id: string;
+  user_name: string;
+  timestamp: string; // ISO format
+  text: string;
+  upvotes: number;
+  is_flagged?: boolean; // Optional: Kommentar wurde gemeldet
+}
