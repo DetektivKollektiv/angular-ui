@@ -316,7 +316,6 @@
 
 import { Item, RatingCategory } from '../../model/item';
 
-// Standard Rating Categories (können bei jedem Item wiederverwendet werden)
 const standardRatingCategories: RatingCategory[] = [
   {
     category_id: 'content_criteria_question',
@@ -332,7 +331,7 @@ const standardRatingCategories: RatingCategory[] = [
           1: 22, // mostly-untrusted
           2: 28, // mostly-trusted
           3: 39, // trusted
-          4: 0
+          4: 0 // not rated
         }
       },
       {
@@ -481,7 +480,6 @@ const standardRatingCategories: RatingCategory[] = [
   }
 ];
 
-// Aktualisierte Mock Items mit Rating Categories
 export const mock_items: Item[] = [
   {
     id: '0f2e1543-7344-49ba-9e4d-f2860c94b839',
