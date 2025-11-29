@@ -111,14 +111,10 @@
 
   &__rating-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     font-weight: 700;
     color: #e5e7eb;
-  }
-
-  &__rating-help {
-    font-weight: 600;
-    color: #9ca3af;
   }
 
   &__badge {

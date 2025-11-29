@@ -10,6 +10,7 @@ import { MaterialModule } from '@shared/material/material.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import { ActionLinkModule } from '@shared/action-link/action-link.module';
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
@@ -65,7 +66,8 @@ registerLocaleData(localeDE, 'de');
     DetectiveItemModule,
     EdgyBackgroundModule,
     CommentInputModule,
-    PipesModule
+    PipesModule,
+    ActionLinkModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
