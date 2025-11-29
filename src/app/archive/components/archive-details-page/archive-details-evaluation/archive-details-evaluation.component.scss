@@ -162,6 +162,13 @@
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
     }
 
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: translateY(-50%);
+    }
+
     &--prev {
       left: 1.25rem;
     }
@@ -174,6 +181,7 @@
       font-size: 22px;
       height: 22px;
       width: 22px;
+      color: #e0e7ff;
     }
   }
 
@@ -242,4 +250,3 @@
     padding: 1.25rem;
   }
 }
-

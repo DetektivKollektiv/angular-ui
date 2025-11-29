@@ -67,15 +67,24 @@
             </ng-template>
           </swiper>
         </div>
-        <button class="evaluation__nav evaluation__nav--prev" type="button" (click)="slidePrev(categorySwiper)">
-          <mat-icon>chevron_left</mat-icon>
-        </button>
+          <button
+            class="evaluation__nav evaluation__nav--prev"
+            type="button"
+            (click)="slidePrev(categorySwiper)"
+            [disabled]="categorySwiper?.swiperRef?.isBeginning"
+          >
+            <mat-icon>chevron_left</mat-icon>
+          </button>
 
-        <button class="evaluation__nav evaluation__nav--next" type="button" (click)="slideNext(categorySwiper)">
-          <mat-icon>chevron_right</mat-icon>
-        </button>
+          <button
+            class="evaluation__nav evaluation__nav--next"
+            type="button"
+            (click)="slideNext(categorySwiper)"
+            [disabled]="categorySwiper?.swiperRef?.isEnd"
+          >
+            <mat-icon>chevron_right</mat-icon>
+          </button>
       </div>
     </div>
   </div>
 </section>
-
