@@ -1,6 +1,7 @@
 export interface Item {
   // Core identification
   id: string;
+  title: string;
 
   // Content
   content: string; // URL or claim text
@@ -40,3 +41,4 @@ export interface OpenGraphData {
   site_name?: string;
   type?: string;
 }
+

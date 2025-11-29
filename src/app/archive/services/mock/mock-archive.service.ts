@@ -319,6 +319,7 @@ import { Item } from '../../model/item';
 export const mock_items: Item[] = [
   {
     id: '0f2e1543-7344-49ba-9e4d-f2860c94b839',
+    title: 'Trolling-Level unendlich: Lukaschenko gratuliert Polen zum Unabhängigkeitstag',
     content:
       'https://de.rt.com/europa/126976-trolling-level-in-fluchtlingskrise-unendlich-lukaschenko-gratuliert-polen-unabhangigkeitstag/',
     language: 'de',
@@ -341,6 +342,7 @@ export const mock_items: Item[] = [
   },
   {
     id: '32eb6819-3497-4b63-84be-d7002a691313',
+    title: 'RKI bestätigt: COVID-19-Sterblichkeitsrate von 0,01 Prozent',
     content: 'https://corona-transition.org/rki-bestatigt-covid-19-sterblichkeitsrate-von-0-01-prozent-in-deutschland',
     language: 'de',
     status: 'published',
@@ -362,6 +364,7 @@ export const mock_items: Item[] = [
   },
   {
     id: '5343608c-3870-4d55-a46a-2d3fa1844d08',
+    title: 'Spiegel erhält frische Millionen für „unabhängigen Journalismus"',
     content: 'https://reitschuster.de/post/spiegel-erhaelt-frische-millionen-fuer-unabhaengigen-journalismus/',
     language: 'de',
     status: 'published',
@@ -388,6 +391,7 @@ export const mock_items: Item[] = [
   },
   {
     id: '5343608c-3870-4d55-a46a-2d3fa1844d17',
+    title: 'Stiftung Bethel droht Ungeimpften weiter mit Kündigung',
     content: 'https://reitschuster.de/post/stiftung-bethel-droht-ungeimpften-weiter-mit-kuendigung/',
     language: 'de',
     status: 'in_progress',
@@ -407,6 +411,7 @@ export const mock_items: Item[] = [
   },
   {
     id: '563083b2-d46f-4fca-93a4-abe617aeaeb1',
+    title: 'Wollte Chemnitzer Klinikchef mit seinem Freitod ein Zeichen setzen?',
     content: 'https://de.rt.com/inland/127034-wollte-chemnitzer-klinikchef-mit-seinem-freitod-ein-zeichen-setzen/',
     language: 'de',
     status: 'published',
@@ -429,6 +434,7 @@ export const mock_items: Item[] = [
   },
   {
     id: '61e1c915-d7ef-4a22-bf92-4649fb60916b',
+    title: 'Italienische Covid-Todeszahlen werden angezweifelt',
     content: 'Nur 2,9 Prozent der seit Februar 2020 verzeichneten „Covid-Toten" sind in Italien tatsächlich auf Covid-19 zurückzuführen',
     language: 'de',
     status: 'published',
@@ -452,6 +458,7 @@ export const mock_items: Item[] = [
   },
   {
     id: '9c9558d8-be52-4790-a229-a0d3382affdb',
+    title: 'Corona in Österreich: Ungeimpften droht laut Schallenberg schon bald der Lockdown',
     content: 'https://www.spiegel.de/ausland/corona-in-oesterreich-ungeimpften-droht-laut-alexander-schallenberg-schon-bald-der-lockdown',
     language: 'de',
     status: 'published',
@@ -469,6 +476,7 @@ export const mock_items: Item[] = [
   },
   {
     id: 'c3517c8f-bdbf-4c4c-b7ed-238870b12a4f',
+    title: 'Codetekt wird finanziert von Mercator und der NATO.',
     content: 'Codetekt wird finanziert von Mercator und der NATO.',
     language: 'de',
     status: 'published',
@@ -484,6 +492,7 @@ export const mock_items: Item[] = [
   },
   {
     id: 'a7f3d912-8bc4-4e1a-9d2f-1e5c7a8b9d3e',
+    title: 'Renommierter Wissenschaftler widerlegt Klimawandel-Narrative',
     content: 'https://beispiel.de/klimawandel-hoax-wissenschaftler-widerlegt',
     language: 'de',
     status: 'in_progress',
@@ -504,6 +513,7 @@ export const mock_items: Item[] = [
   },
   {
     id: 'b2e9f8a3-1d4c-4f7e-8a9b-3c5d6e7f8g9h',
+    title: 'Fall 13 – Ukraine-Krieg: Soldaten vergiftet',
     content: 'Fall 13 – Ukraine-Krieg: Soldaten vergiftet',
     language: 'de',
     status: 'published',
@@ -527,4 +537,3 @@ export const mock_items: Item[] = [
     }
   }
 ];
-

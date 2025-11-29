@@ -13,7 +13,7 @@
       <span class="archive-card__tag" *ngFor="let tag of item.content_tags; trackBy: trackByContentTag">{{ tag }}</span>
     </div>
 
-    <h2 class="archive-card__title">{{ item.opengraph?.title || item.content }}</h2>
+    <h2 class="archive-card__title">{{ item.title }}</h2>
     <p class="archive-card__description">
       {{ item.opengraph?.description || item.content }}
     </p>
