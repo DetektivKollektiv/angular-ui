@@ -314,8 +314,174 @@
   }
 ]; */
 
-import { Item } from '../../model/item';
+import { Item, RatingCategory } from '../../model/item';
 
+// Standard Rating Categories (können bei jedem Item wiederverwendet werden)
+const standardRatingCategories: RatingCategory[] = [
+  {
+    category_id: 'content_criteria_question',
+    title: 'Inhalte',
+    icon: 'content',
+    questions: [
+      {
+        question_id: 'grammar',
+        question_text: 'Die Grammatik und Rechtschreibung des Artikels sind fehlerfrei.',
+        total_reviews: 18,
+        distribution: {
+          0: 11, // untrusted
+          1: 22, // mostly-untrusted
+          2: 28, // mostly-trusted
+          3: 39, // trusted
+          4: 0
+        }
+      },
+      {
+        question_id: 'structure',
+        question_text: 'Der Artikel ist keine Eilnachricht. Er besteht aus mehreren Paragraphen.',
+        total_reviews: 18,
+        distribution: {
+          0: 6,
+          1: 11,
+          2: 17,
+          3: 66,
+          4: 0
+        }
+      },
+      {
+        question_id: 'headline',
+        question_text: 'Die Überschrift passt zum Inhalt des Artikels.',
+        total_reviews: 18,
+        distribution: {
+          0: 22,
+          1: 28,
+          2: 28,
+          3: 22,
+          4: 0
+        }
+      },
+      {
+        question_id: 'objectivity',
+        question_text: 'Der Artikel ist objektiv geschrieben und frei von Hetze, Generalisierungen, Panikmache oder Ähnlichem.',
+        total_reviews: 18,
+        distribution: {
+          0: 17,
+          1: 22,
+          2: 33,
+          3: 28,
+          4: 0
+        }
+      },
+      {
+        question_id: 'perspectives',
+        question_text: 'Im Artikel werden unterschiedliche Positionen dargestellt.',
+        total_reviews: 18,
+        distribution: {
+          0: 28,
+          1: 33,
+          2: 22,
+          3: 17,
+          4: 0
+        }
+      }
+    ]
+  },
+  {
+    category_id: 'source_criteria_question',
+    title: 'Quelle',
+    icon: 'source',
+    questions: [
+      {
+        question_id: 'external_sources',
+        question_text: 'Im Artikel werden für alle Behauptungen externe Quellen genannt.',
+        total_reviews: 18,
+        distribution: {
+          0: 33,
+          1: 22,
+          2: 22,
+          3: 23,
+          4: 0
+        }
+      },
+      {
+        question_id: 'claims_match_sources',
+        question_text: 'Die Behauptungen des Artikels decken sich vollständig mit denen der Originalquellen.',
+        total_reviews: 18,
+        distribution: {
+          0: 28,
+          1: 28,
+          2: 22,
+          3: 22,
+          4: 0
+        }
+      },
+      {
+        question_id: 'public_media_match',
+        question_text:
+          'Die Behauptungen des Artikels decken sich mit der Berichterstattung öffentlich-rechtlicher Medien und/oder Fachmedien.',
+        total_reviews: 18,
+        distribution: {
+          0: 39,
+          1: 28,
+          2: 17,
+          3: 16,
+          4: 0
+        }
+      },
+      {
+        question_id: 'author_credentials',
+        question_text: 'Der Artikel ist von einer fachkundigen Person oder einer*m beruflichen Journalist*in geschrieben.',
+        total_reviews: 18,
+        distribution: {
+          0: 44,
+          1: 28,
+          2: 17,
+          3: 11,
+          4: 0
+        }
+      }
+    ]
+  },
+  {
+    category_id: 'images_question',
+    title: 'Bilder & Videos',
+    icon: 'media',
+    questions: [
+      {
+        question_id: 'images_quality',
+        question_text: 'Die Bilder sind relevant und unterstützen den Inhalt.',
+        total_reviews: 18,
+        distribution: {
+          0: 11,
+          1: 17,
+          2: 28,
+          3: 44,
+          4: 0
+        }
+      }
+    ]
+  },
+  {
+    category_id: 'evaluation_criteria_question',
+    title: 'Bewertungskriterien',
+    icon: 'evaluation',
+    questions: [
+      {
+        question_id: 'additional_rating',
+        question_text: 'Ist dir sonst noch etwas aufgefallen, das in die Bewertung einfliessen sollte?',
+        total_reviews: 18,
+        distribution: {
+          0: 11, // Ja, etwas positives
+          1: 22, // Ja, kleiner Mangel
+          2: 28, // Ja, großer Mangel
+          3: 17, // Ja, gravierender Fehler,
+          4: 22 // Nein, alles geprüft
+        }
+      }
+    ]
+  }
+];
+
+// Aktualisierte Mock Items mit Rating Categories
 export const mock_items: Item[] = [
   {
     id: '0f2e1543-7344-49ba-9e4d-f2860c94b839',
@@ -338,7 +504,8 @@ export const mock_items: Item[] = [
       description: 'Der belarussische Präsident hat Polen zum Unabhängigkeitstag gratuliert.',
       url: 'https://de.rt.com/europa/126976-trolling-level-in-fluchtlingskrise',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: '32eb6819-3497-4b63-84be-d7002a691313',
@@ -360,7 +527,8 @@ export const mock_items: Item[] = [
       description: 'Das Robert Koch-Institut veröffentlicht neue Zahlen zur Corona-Sterblichkeit.',
       url: 'https://corona-transition.org/rki-bestatigt-covid-19',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: '5343608c-3870-4d55-a46a-2d3fa1844d08',
@@ -387,7 +555,8 @@ export const mock_items: Item[] = [
       description: 'Der Spiegel bekommt Fördergelder von der Bill & Melinda Gates Foundation.',
       url: 'https://reitschuster.de/post/spiegel-erhaelt-frische-millionen',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: '5343608c-3870-4d55-a46a-2d3fa1844d17',
@@ -407,7 +576,8 @@ export const mock_items: Item[] = [
       description: 'Die v. Bodelschwinghschen Stiftungen Bethel setzen auf Impfpflicht für Mitarbeiter.',
       url: 'https://reitschuster.de/post/stiftung-bethel',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: '563083b2-d46f-4fca-93a4-abe617aeaeb1',
@@ -430,7 +600,8 @@ export const mock_items: Item[] = [
       description: 'Der Direktor einer Chemnitzer Klinik hat sich das Leben genommen.',
       url: 'https://de.rt.com/inland/127034-chemnitzer-klinikchef',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: '61e1c915-d7ef-4a22-bf92-4649fb60916b',
@@ -454,7 +625,8 @@ export const mock_items: Item[] = [
       description: 'Eine Behauptung über die tatsächliche Zahl der Covid-Toten in Italien verbreitet sich.',
       url: 'https://beispiel.de/italien-covid-statistik',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: '9c9558d8-be52-4790-a229-a0d3382affdb',
@@ -472,7 +644,8 @@ export const mock_items: Item[] = [
       description: 'Österreichs Bundeskanzler kündigt Maßnahmen für Ungeimpfte an.',
       url: 'https://www.spiegel.de/ausland/corona-in-oesterreich',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: 'c3517c8f-bdbf-4c4c-b7ed-238870b12a4f',
@@ -488,7 +661,8 @@ export const mock_items: Item[] = [
       { text: 'Fehlerhafte Quellen', score: 3.8 },
       { text: 'Fehlender Kontext', score: 3.3 },
       { text: 'Wenig vergleichbare Berichterstattung', score: 2.9 }
-    ]
+    ],
+    rating_categories: standardRatingCategories
   },
   {
     id: 'a7f3d912-8bc4-4e1a-9d2f-1e5c7a8b9d3e',
@@ -509,7 +683,8 @@ export const mock_items: Item[] = [
       description: 'Ein angeblicher Experte stellt etablierte Klimaforschung in Frage.',
       url: 'https://beispiel.de/klimawandel-hoax',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   },
   {
     id: 'b2e9f8a3-1d4c-4f7e-8a9b-3c5d6e7f8g9h',
@@ -534,6 +709,8 @@ export const mock_items: Item[] = [
         'Lorem ipsum dolor sit amet consectetur. Amet euismod enim diam mi morbi in adipiscing. Quam tristique amet massa ullamcorper hendrerit nulla viverra bibendum.',
       url: 'https://beispiel.de/ukraine-soldaten-vergiftet',
       images: ['https://picsum.photos/1000']
-    }
+    },
+    rating_categories: standardRatingCategories
   }
 ];
+

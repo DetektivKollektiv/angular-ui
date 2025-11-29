@@ -28,7 +28,6 @@ export class ArchiveDetailsRatingComponent {
     if (score >= 2) return 'mostly-trusted';
     if (score >= 1) return 'mostly-untrusted';
 
-    console.log('score', score);
     return 'untrusted';
   }
 

@@ -26,6 +26,9 @@ export interface Item {
   users?: any[];
   reviews?: any[];
   warning_tags?: { text: string; icon?: string }[];
+
+  // Aggregated ratings per question category
+  rating_categories: RatingCategory[];
 }
 
 export interface ReviewTag {
@@ -40,5 +43,30 @@ export interface OpenGraphData {
   images?: string[]; // Array of image URLs
   site_name?: string;
   type?: string;
+}
+
+// Interface für die aggregierten Bewertungen einer einzelnen Frage
+export interface QuestionRating {
+  question_id: string; // z.B. 'grammar', 'structure', etc.
+  question_text: string; // Der vollständige Fragetext
+  total_reviews: number; // Gesamtzahl der Bewertungen
+  distribution: RatingDistribution; // Verteilung der Bewertungen
+}
+
+// Verteilung der Bewertungen (0-4 für Traffic Light)
+export interface RatingDistribution {
+  0: number; // Prozent für "Rot" / kritischer Fehler (0-100)
+  1: number; // Prozent für "Orange" / größerer Mangel
+  2: number; // Prozent für "Gelb" / kleiner Mangel
+  3: number; // Prozent für "Grün" / korrekt
+  4: number; // Optional: für "Grau" / nicht bewertbar
+}
+
+// Kategorie von Fragen (entspricht den Slides in der Review)
+export interface RatingCategory {
+  category_id: string; // z.B. 'content_criteria_question', 'source_criteria_question'
+  title: string; // z.B. 'Inhalte', 'Quelle', 'Bilder'
+  icon?: string; // Optional: Icon identifier
+  questions: QuestionRating[]; // Fragen innerhalb dieser Kategorie
 }
 
