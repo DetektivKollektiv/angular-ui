@@ -1,6 +1,11 @@
 <div class="archive-details-page">
   <div class="container-width" *ngIf="detailItem$ | async as item">
-    <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+    <div class="back-button">
+      <button appButton routerLink="/archive">Zurück zur Übersicht</button>
+    </div>
+    <div class="breadcrumb">
+      <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
+    </div>
     <h1>{{ item.opengraph?.title || item.content }}</h1>
     <p class="item-link" *ngIf="item.opengraph?.url || item.content">
       <a [href]="item.opengraph?.url || item.content" target="_blank" rel="noopener">

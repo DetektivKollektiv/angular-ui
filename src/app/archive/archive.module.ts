@@ -5,16 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
 import { NgxsModule } from '@ngxs/store';
+import { ActionLinkModule } from '@shared/action-link/action-link.module';
 import { HelperModule } from '@shared/helper/helper.module';
 import { MaterialModule } from '@shared/material/material.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-import { ActionLinkModule } from '@shared/action-link/action-link.module';
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
+import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { RatingLegendComponent } from './components/rating-legend/rating-legend.component';
-import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
 import { ArchiveState } from './state/archive.state';
 
 import { CaseDetailsModule } from '@shared/case-details/case-details.module';
@@ -24,6 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ReviewItemModule } from 'src/app/review-item/review-item.module';
 
 import { BreadcrumbModule } from '@shared/breadcrumb/breadcrumb.module';
+import { ButtonModule } from '@shared/button/button.module';
 import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
 import { CaseResultCardModule } from '@shared/case-result-card/case-result-card.module';
 import { CommentInputModule } from '@shared/comment-input/comment-input.module';
@@ -68,6 +69,7 @@ registerLocaleData(localeDE, 'de');
     CommentInputModule,
     PipesModule,
     ActionLinkModule,
+    ButtonModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
@@ -75,3 +77,4 @@ registerLocaleData(localeDE, 'de');
   ]
 })
 export class ArchiveModule {}
+
