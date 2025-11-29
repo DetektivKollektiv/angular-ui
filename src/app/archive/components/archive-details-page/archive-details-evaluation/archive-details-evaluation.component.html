@@ -24,8 +24,47 @@
         </span>
       </button>
 
-      <div *ngFor="let question of category.questions; trackBy: trackQuestion">{{ question.question_text }}</div>
+      <div class="evaluation__category-content" *ngIf="isExpanded(category.category_id)">
+        <div class="evaluation__questions">
+          <article class="evaluation__card" *ngFor="let question of category.questions; trackBy: trackQuestion">
+            <div class="evaluation__card-section">
+              <p class="evaluation__card-label">Frage</p>
+              <p class="evaluation__card-text">{{ question.question_text }}</p>
+            </div>
+
+            <div class="evaluation__divider" role="separator"></div>
+
+            <div class="evaluation__card-section">
+              <p class="evaluation__card-label">Hinweis</p>
+              <span class="evaluation__tag" [ngStyle]="getTagStyle(question.rating_tag.score)">
+                {{ question.rating_tag.text }}
+              </span>
+            </div>
+
+            <div class="evaluation__divider" role="separator"></div>
+
+            <div class="evaluation__card-section">
+              <p class="evaluation__card-label">Einschätzung</p>
+              <div class="evaluation__distribution">
+                <div
+                  class="evaluation__distribution-row"
+                  *ngFor="let entry of getDistributionEntries(question.distribution)"
+                >
+                  <span class="evaluation__distribution-swatch" [style.background]="entry.color"></span>
+                  <div class="evaluation__distribution-bar">
+                    <div
+                      class="evaluation__distribution-fill"
+                      [style.width.%]="entry.percent"
+                      [style.background]="entry.color"
+                    ></div>
+                  </div>
+                  <span class="evaluation__distribution-value">{{ entry.percent }}%</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-

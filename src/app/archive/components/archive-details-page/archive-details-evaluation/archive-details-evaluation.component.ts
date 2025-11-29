@@ -3,6 +3,12 @@ import { Item, QuestionRating, RatingCategory } from '../../../model/item';
 
 type RatingKey = 'trusted' | 'mostly-trusted' | 'mostly-untrusted' | 'untrusted';
 
+type DistributionEntry = {
+  key: keyof QuestionRating['distribution'];
+  percent: number;
+  color: string;
+};
+
 type EvaluationQuestion = {
   id: string;
   text: string;
@@ -20,6 +26,16 @@ export class ArchiveDetailsEvaluationComponent {
   @Input() item!: Item;
 
   expandedCategoryIds = new Set<string>(['source']);
+
+  private readonly distributionColors: Record<keyof QuestionRating['distribution'], string> = {
+    0: '#ef4444', // untrusted
+    1: '#f97316', // mostly-untrusted
+    2: '#facc15', // mostly-trusted (yellow accent)
+    3: '#22c55e', // trusted
+    4: '#d1d5db' // not rated
+  };
+
+  private readonly distributionKeys: Array<keyof QuestionRating['distribution']> = [0, 1, 2, 3, 4];
 
   readonly ratingGradients: Record<RatingKey, { start: string; end: string; label: string }> = {
     trusted: { start: '#16a34a', end: '#22c55e', label: 'Vertrauenswürdig' },
@@ -54,5 +70,21 @@ export class ArchiveDetailsEvaluationComponent {
     if (score >= 1) return 'mostly-untrusted';
     return 'untrusted';
   }
-}
 
+  getTagStyle(score: number): Record<string, string> {
+    const gradient = this.ratingGradients[this.getRatingKey(score)];
+    return {
+      '--pill-start': gradient.start,
+      '--pill-end': gradient.end,
+      background: `linear-gradient(90deg, ${gradient.start}, ${gradient.end})`
+    };
+  }
+
+  getDistributionEntries(distribution: QuestionRating['distribution']): DistributionEntry[] {
+    return this.distributionKeys.map(key => ({
+      key,
+      percent: distribution[key],
+      color: this.distributionColors[key]
+    }));
+  }
+}

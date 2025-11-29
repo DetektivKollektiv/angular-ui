@@ -88,25 +88,26 @@
 
   &__questions {
     display: flex;
-    gap: 0.75rem;
-    overflow-x: auto;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   &__card {
-    min-width: 260px;
-    background: #f3f4f6;
-    border-radius: 14px;
-    padding: 0.9rem;
+    flex: 1 1 280px;
+    background: #f9fafb;
+    border-radius: 18px;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
   }
 
-  &__card-header {
+  &__card-section {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.45rem;
   }
 
   &__card-label {
@@ -121,31 +122,67 @@
     color: #4b5563;
     line-height: 1.4;
     font-size: 0.95rem;
+    font-style: italic;
+    height: 3rem;
   }
 
-  &__card-rating {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: space-between;
-  }
-
-  &__card-rating-label {
-    font-weight: 700;
-    color: #111827;
-  }
-
-  &__pill {
+  &__tag {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.4rem 0.75rem;
-    border-radius: 999px;
-    color: #fff;
+    padding: 0.6rem 0.8rem;
+    border-radius: 12px;
+    color: #0f172a;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     background: linear-gradient(90deg, var(--pill-start, #6366f1), var(--pill-end, #6366f1));
-    white-space: nowrap;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  &__divider {
+    height: 1px;
+    background: #e5e7eb;
+    border: none;
+  }
+
+  &__distribution {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__distribution-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__distribution-swatch {
+    width: 22px;
+    height: 18px;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  &__distribution-bar {
+    background: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 18px;
+    position: relative;
+  }
+
+  &__distribution-fill {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.2s ease;
+  }
+
+  &__distribution-value {
+    font-weight: 700;
+    color: #111827;
   }
 }
 
@@ -154,3 +191,4 @@
     padding: 1.25rem;
   }
 }
+
