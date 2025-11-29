@@ -35,7 +35,7 @@ import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.mo
 import { PipesModule } from '@shared/pipes/pipes.module';
 import { TagIconModule } from '@shared/tag-icon/tag-icon.module';
 import { ReviewResponsesComponent } from './components/review-responses/review-responses.component';
-import { ArchiveDetailsTopModule } from './components/shared/item-component/archive-details-top/archive-details-top.module';
+import { ArchiveDetailsTopModule } from './components/archive-details-page/archive-details-top/archive-details-top.module';
 import { CaseSortByPipe } from './services/case-sort-by.pipe';
 
 registerLocaleData(localeDE, 'de');
@@ -82,4 +82,3 @@ registerLocaleData(localeDE, 'de');
   ]
 })
 export class ArchiveModule {}
-

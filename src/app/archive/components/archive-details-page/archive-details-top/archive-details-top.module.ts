@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ActionLinkModule } from '@shared/action-link/action-link.module';
-import { ItemComponentModule } from '../item-component.module';
+import { ItemComponentModule } from '../../shared/item-component/item-component.module';
 import { ArchiveDetailsTopComponent } from './archive-details-top.component';
 
 @NgModule({
@@ -10,4 +10,3 @@ import { ArchiveDetailsTopComponent } from './archive-details-top.component';
   exports: [ArchiveDetailsTopComponent]
 })
 export class ArchiveDetailsTopModule {}
-

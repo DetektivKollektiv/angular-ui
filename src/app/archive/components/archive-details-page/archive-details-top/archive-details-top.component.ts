@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Item } from '../../../../model/item';
+import { Item } from '../../../model/item';
 
 @Component({
   selector: 'app-archive-details-top',
@@ -33,4 +33,3 @@ export class ArchiveDetailsTopComponent {
     return tag;
   }
 }
-
