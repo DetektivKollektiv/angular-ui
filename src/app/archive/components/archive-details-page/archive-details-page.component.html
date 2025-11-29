@@ -6,22 +6,13 @@
     <div class="breadcrumb">
       <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     </div>
-    <h1>{{ item.opengraph?.title || item.content }}</h1>
-    <p class="item-link" *ngIf="item.opengraph?.url || item.content">
-      <a [href]="item.opengraph?.url || item.content" target="_blank" rel="noopener">
-        {{ item.opengraph?.url || item.content }}
-      </a>
-    </p>
+    <app-archive-details-top [item]="item"></app-archive-details-top>
     <div class="item-meta">
       <div><strong>Status:</strong> {{ item.status }}</div>
       <div><strong>Vertrauensindex:</strong> {{ item.result_score }}</div>
       <div><strong>Sprache:</strong> {{ item.language }}</div>
       <div><strong>Erstellt am:</strong> {{ item.open_timestamp | date : 'medium' }}</div>
       <div *ngIf="item.close_timestamp"><strong>Abgeschlossen am:</strong> {{ item.close_timestamp | date : 'medium' }}</div>
-    </div>
-    <div class="item-tags" *ngIf="item.content_tags?.length">
-      <strong>Inhaltliche Tags:</strong>
-      <span class="tag" *ngFor="let tag of item.content_tags">{{ tag }}</span>
     </div>
     <div class="item-tags" *ngIf="item.review_tags?.length">
       <strong>Review-Tags:</strong>

@@ -25,6 +25,11 @@ app-case-details {
     width: 100%;
     padding: 2rem 1rem 4rem;
 
+    app-archive-details-top {
+      display: block;
+      margin: 1rem 0 2rem;
+    }
+
     @media only screen and (min-width: 1240px) {
       width: 1240px;
     }
@@ -329,4 +334,3 @@ app-case-details {
     }
   }
 }
-
