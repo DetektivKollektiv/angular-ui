@@ -1,0 +1,78 @@
+@use '../../../../../assets/scss/fonts' as fonts;
+
+:host {
+  display: block;
+}
+
+.rating {
+  background: #0d0734;
+  color: #f8fafc;
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__title {
+    @include fonts.font__effra--bold;
+    margin: 0;
+    font-size: 1.4rem;
+    color: #f8fafc;
+  }
+
+  &__options {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__pill {
+    border: none;
+    background: rgba(255, 255, 255, 0.22);
+    color: #1e1b4b;
+    font-weight: 700;
+    border-radius: 16px;
+    padding: 0.9rem 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    cursor: default;
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    font-size: 1rem;
+
+    &--active {
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+      transform: translateY(-1px);
+    }
+
+    &--trusted.rating__pill--active {
+      background: linear-gradient(90deg, #16a34a, #22c55e);
+    }
+
+    &--mostly-trusted.rating__pill--active {
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+    }
+
+    &--mostly-untrusted.rating__pill--active {
+      background: linear-gradient(90deg, #f59e0b, #f97316);
+    }
+
+    &--untrusted.rating__pill--active {
+      background: linear-gradient(90deg, #ef4444, #f43f5e);
+    }
+  }
+}
+

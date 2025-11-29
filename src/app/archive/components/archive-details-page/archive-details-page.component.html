@@ -7,6 +7,7 @@
       <app-breadcrumb [links]="breadcrumbLinks"></app-breadcrumb>
     </div>
     <app-archive-details-top [item]="item"></app-archive-details-top>
+    <app-archive-details-rating [item]="item"></app-archive-details-rating>
     <div class="item-meta">
       <div><strong>Status:</strong> {{ item.status }}</div>
       <div><strong>Vertrauensindex:</strong> {{ item.result_score }}</div>
@@ -25,4 +26,3 @@
   </div>
   <div *ngIf="loading">Lade Fall …</div>
 </div>
-

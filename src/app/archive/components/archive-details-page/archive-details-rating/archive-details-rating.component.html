@@ -1,0 +1,17 @@
+<section class="rating">
+  <header class="rating__header">
+    <h2 class="rating__title">Bewertung des Falls</h2>
+    <app-action-link text="Hilfe" icon="support" theme="dark"></app-action-link>
+  </header>
+
+  <div class="rating__options">
+    <button
+      class="rating__pill"
+      *ngFor="let option of options; trackBy: trackByOption"
+      [ngClass]="['rating__pill--' + option.key, option.key === activeKey ? 'rating__pill--active' : '']"
+      type="button"
+    >
+      {{ option.label }}
+    </button>
+  </div>
+</section>
