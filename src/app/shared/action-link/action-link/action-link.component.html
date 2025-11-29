@@ -1,0 +1,9 @@
+<a
+  class="action-link__button"
+  [attr.href]="url || null"
+  [attr.target]="url ? target : null"
+  (click)="onClick($event)"
+>
+  <mat-icon class="action-link__icon" [style.color]="iconColor">{{ icon }}</mat-icon>
+  <span class="action-link__text">{{ text }}</span>
+</a>

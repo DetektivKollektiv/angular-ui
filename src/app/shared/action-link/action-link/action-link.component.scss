@@ -1,0 +1,37 @@
+@use '../../../../assets/scss/fonts' as fonts;
+
+.action-link__button {
+  @include fonts.font__effra--bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+
+  &:hover .action-link__text {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+.action-link__icon {
+  color: #6366f1;
+}
+
+.action-link--light {
+  color: #4b5563;
+}
+
+.action-link--dark {
+  color: #e5e7eb;
+}

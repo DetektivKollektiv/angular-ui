@@ -2,11 +2,7 @@
   <header class="review-question-content__header">
     <div class="review-question-content__meta-row">
       <app-progress-text [current]="position" [total]="total"></app-progress-text>
-      <button class="review-question-content__help-button" type="button">
-        <mat-icon class="review-question-content__help-icon">support</mat-icon>
-
-        Hilfe
-      </button>
+      <app-action-link></app-action-link>
     </div>
     <h1 class="review-question-content__title">{{ currentQuestion.metadata?.title }}</h1>
     <p class="review-question-content__subtitle" *ngIf="currentQuestion.metadata?.text">

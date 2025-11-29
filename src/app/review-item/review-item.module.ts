@@ -9,6 +9,7 @@ import { CaseDetailsModule } from '@shared/case-details/case-details.module';
 import { CaseFactsModule } from '@shared/case-facts/case-facts.module';
 import { CaseListItemModule } from '@shared/case-list-item/case-list-item.module';
 import { CommentInputModule } from '@shared/comment-input/comment-input.module';
+import { ActionLinkModule } from '@shared/action-link/action-link.module';
 import { EdgyBackgroundModule } from '@shared/edgy-background/edgy-background.module';
 import { HelperModule } from '@shared/helper/helper.module';
 import { IconWithContentModule } from '@shared/icon-with-content/icon-with-content.module';
@@ -61,6 +62,7 @@ import { ReviewsService } from './services/reviews/reviews.service';
     ReviewCtaButtonComponent
   ],
   imports: [
+    ActionLinkModule,
     CommonModule,
     HelperModule,
     MaterialModule,
