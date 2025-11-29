@@ -11,7 +11,7 @@
       </div>
       <app-rating-legend></app-rating-legend>
     </div>
-    <div class="section-of-questions standard-content-container-width">
+    <div class="app-question-carousel">
       <app-question-carousel *ngIf="!!archiveQuestions" [questions]="archiveQuestions"></app-question-carousel>
     </div>
     <div class="bottom-section" id="archive-bottom-section" *ngIf="items$ | async as archiveItems">
