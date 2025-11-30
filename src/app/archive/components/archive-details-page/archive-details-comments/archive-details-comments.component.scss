@@ -86,7 +86,7 @@
   }
 
   &__text {
-    @include fonts.font__effra--bold;
+    @include fonts.font__effra--italic;
     color: #0a0939;
     font-size: 16px;
     line-height: 1.6;
