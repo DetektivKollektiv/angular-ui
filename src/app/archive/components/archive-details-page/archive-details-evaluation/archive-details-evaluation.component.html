@@ -68,25 +68,22 @@
             </ng-template>
           </swiper>
         </div>
-        <button
-          class="evaluation__nav evaluation__nav--prev"
-          type="button"
-          (click)="slidePrev(categorySwiper)"
-          [disabled]="isBeginning(category.category_id)"
-        >
-          <mat-icon>chevron_left</mat-icon>
-        </button>
+        <div class="evaluation__nav evaluation__nav--prev">
+          <app-slider-button
+            type="back"
+            (buttonClick)="slidePrev(categorySwiper)"
+            [disabled]="isBeginning(category.category_id)"
+          ></app-slider-button>
+        </div>
 
-        <button
-          class="evaluation__nav evaluation__nav--next"
-          type="button"
-          (click)="slideNext(categorySwiper)"
-          [disabled]="isEnd(category.category_id)"
-        >
-          <mat-icon>chevron_right</mat-icon>
-        </button>
+        <div class="evaluation__nav evaluation__nav--next">
+          <app-slider-button
+            type="previous"
+            (buttonClick)="slideNext(categorySwiper)"
+            [disabled]="isEnd(category.category_id)"
+          ></app-slider-button>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
