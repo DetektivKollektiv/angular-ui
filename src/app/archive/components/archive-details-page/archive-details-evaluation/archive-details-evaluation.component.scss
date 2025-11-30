@@ -94,6 +94,48 @@
 
   &__swiper {
     width: 100%;
+    overflow: visible;
+    ::ng-deep .swiper-slide {
+      --deactive-opacity: 0.2;
+      height: auto !important;
+      transition: opacity 0.3s ease;
+      opacity: var(--deactive-opacity); // Standard: ausgeblendet
+      // Mobile (0-767px) - 1 Slide
+      @media only screen and (max-width: 767px) {
+        &.swiper-slide-active {
+          opacity: 1;
+        }
+
+        &.swiper-slide-prev {
+          opacity: var(--deactive-opacity);
+        }
+      }
+
+      // Tablet (768px-1023px) - 2 Slides
+      @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        &.swiper-slide-active,
+        &.swiper-slide-next {
+          opacity: 1;
+        }
+
+        &.swiper-slide-prev {
+          opacity: var(--deactive-opacity);
+        }
+      }
+
+      // Desktop (1024px+) - 3 Slides
+      @media only screen and (min-width: 1024px) {
+        &.swiper-slide-active,
+        &.swiper-slide-next,
+        &.swiper-slide-next + .swiper-slide {
+          opacity: 1;
+        }
+
+        &.swiper-slide-prev {
+          opacity: var(--deactive-opacity);
+        }
+      }
+    }
   }
 
   &__swiper ::ng-deep .swiper-slide {
@@ -132,7 +174,7 @@
     line-height: 1.4;
     font-size: 0.95rem;
     font-style: italic;
-    height: 3rem;
+    height: 4rem;
   }
 
   &__nav {
@@ -210,3 +252,4 @@
     padding: 1.25rem;
   }
 }
+
