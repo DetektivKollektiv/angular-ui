@@ -29,21 +29,12 @@
         </article>
       </ng-template>
     </swiper>
-    <button
-      class="comments__nav comments__nav--prev"
-      type="button"
-      (click)="slidePrev(commentsSwiper)"
-      [disabled]="isBeginning()"
-    >
-      <mat-icon>chevron_left</mat-icon>
-    </button>
-    <button
-      class="comments__nav comments__nav--next"
-      type="button"
-      (click)="slideNext(commentsSwiper)"
-      [disabled]="isEnd()"
-    >
-      <mat-icon>chevron_right</mat-icon>
-    </button>
+    <div class="comments__nav comments__nav--prev">
+      <app-slider-button type="back" (buttonClick)="slidePrev(commentsSwiper)" [disabled]="isBeginning()"></app-slider-button>
+    </div>
+    <div class="comments__nav comments__nav--next">
+      <app-slider-button type="previous" (buttonClick)="slideNext(commentsSwiper)" [disabled]="isEnd()"></app-slider-button>
+    </div>
   </div>
 </section>
+

@@ -12,10 +12,57 @@
 
   &__slider {
     position: relative;
+    padding: 1rem 4rem;
   }
 
   &__swiper {
-    padding: 2rem 5rem;
+    overflow: visible;
+    ::ng-deep .swiper-slide {
+      --deactive-opacity: 0.2;
+      height: auto !important;
+      transition: opacity 0.3s ease;
+      opacity: var(--deactive-opacity); // Standard: ausgeblendet
+
+      // Mobile (0-767px) - 1 Slide
+      @media only screen and (max-width: 767px) {
+        &.swiper-slide-active {
+          opacity: 1;
+        }
+
+        &.swiper-slide-prev {
+          opacity: var(--deactive-opacity);
+        }
+      }
+
+      // Tablet (768px-1023px) - 2 Slides
+      @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        &.swiper-slide-active,
+        &.swiper-slide-next {
+          opacity: 1;
+        }
+
+        &.swiper-slide-prev {
+          opacity: var(--deactive-opacity);
+        }
+      }
+
+      // Desktop (1024px+) - 3 Slides
+      @media only screen and (min-width: 1024px) {
+        &.swiper-slide-active,
+        &.swiper-slide-next,
+        &.swiper-slide-next + .swiper-slide {
+          opacity: 1;
+        }
+
+        &.swiper-slide-prev {
+          opacity: var(--deactive-opacity);
+        }
+      }
+    }
+  }
+
+  .swiper-wrapper {
+    position: relative;
   }
 
   &__card {
@@ -28,6 +75,7 @@
     flex-direction: column;
     gap: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    height: 100%;
   }
 
   &__card-flag {
@@ -82,34 +130,15 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: white;
-    border: 1px solid #e2e4ea;
-    border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    color: colors.$color__purple;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    transition: transform 120ms ease, box-shadow 120ms ease;
-
-    &:hover:not(:disabled) {
-      transform: translateY(-50%) scale(1.02);
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
-    }
-
-    &:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-    }
+    display: inline-flex;
+    z-index: 10;
 
     &--prev {
-      left: -12px;
+      left: 0;
     }
 
     &--next {
-      right: -12px;
+      right: 0;
     }
 
     @media only screen and (max-width: 767px) {
