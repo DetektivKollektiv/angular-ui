@@ -11,7 +11,7 @@ import { MaterialModule } from '@shared/material/material.module';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
-import { ItemComponentModule } from './components/shared/item-component/item-component.module';
+import { ContentTagComponentModule } from './components/shared/content-tag/content-tag.module';
 
 import { ArchiveDetailsPageComponent } from './components/archive-details-page/archive-details-page.component';
 import { ArchiveItemComponent } from './components/archive-item/archive-item.component';
@@ -78,7 +78,7 @@ registerLocaleData(localeDE, 'de');
     ArchiveDetailsRatingModule,
     ArchiveDetailsEvaluationModule,
     ArchiveDetailsCommentsModule,
-    ItemComponentModule,
+    ContentTagComponentModule,
     ActionLinkModule,
     ButtonModule
   ],

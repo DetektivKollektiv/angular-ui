@@ -19,7 +19,7 @@
     <div class="details-top__tags" *ngIf="item.content_tags?.length">
       <p class="details-top__tags-title">Tags zum Inhalt</p>
       <div class="details-top__tags-list">
-        <app-item-component *ngFor="let tag of item.content_tags; trackBy: trackByTag" [tag]="tag"></app-item-component>
+        <app-content-tag *ngFor="let tag of item.content_tags; trackBy: trackByTag" [tag]="tag"></app-content-tag>
       </div>
     </div>
 

@@ -10,10 +10,7 @@
 
   <div class="archive-card__content">
     <div class="archive-card__tags" *ngIf="item.content_tags?.length">
-      <app-item-component
-        *ngFor="let tag of item.content_tags; trackBy: trackByContentTag"
-        [tag]="tag"
-      ></app-item-component>
+      <app-content-tag *ngFor="let tag of item.content_tags; trackBy: trackByContentTag" [tag]="tag"></app-content-tag>
     </div>
 
     <h2 class="archive-card__title">{{ item.title }}</h2>
@@ -48,3 +45,4 @@
     </div>
   </div>
 </article>
+
